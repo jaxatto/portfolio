@@ -1,17 +1,18 @@
 import React from 'react';
 
-interface HeaderProps {
-    title: string;
-    links: { name: string; url: string }[];
-}
+const defaultLinks = [
+    { name: 'Projects', url: '#projects' },
+    { name: 'Skills', url: '#skills' },
+    { name: 'Contact', url: '#contact' }
+];
 
-const Header: React.FC<HeaderProps> = ({ title, links }) => {
+const Header: React.FC = () => {
     return (
         <header>
-            <h1>{title}</h1>
+            <h1>Jax Engel – Portfolio</h1>
             <nav>
                 <ul>
-                    {links.map((link, index) => (
+                    {defaultLinks.map((link, index) => (
                         <li key={index}>
                             <a href={link.url}>{link.name}</a>
                         </li>
