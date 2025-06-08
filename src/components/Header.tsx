@@ -9,7 +9,7 @@ const defaultLinks = [
 const Header: React.FC = () => {
     return (
         <header>
-            <h1>Jax Engel – Portfolio</h1>
+            <h1>Jax Engel Portfolio</h1>
             <nav>
                 <ul>
                     {defaultLinks.map((link, index) => (
