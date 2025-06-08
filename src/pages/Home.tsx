@@ -22,3 +22,13 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
+// tsconfig.json
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "esnext",
+    "target": "es6",
+    // ...other options
+  }
+}
