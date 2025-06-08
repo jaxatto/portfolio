@@ -1,20 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const defaultLinks = [
-    { name: 'Projects', url: '#projects' },
-    { name: 'Skills', url: '#skills' },
-    { name: 'Contact', url: '#contact' }
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' },
+    { name: 'Resume', url: '/resume' }
 ];
 
 const Header: React.FC = () => {
     return (
         <header>
-            <h1>Jax Engel Portfolio</h1>
+            <Link to="/">Jax Engel</Link>
             <nav>
                 <ul>
                     {defaultLinks.map((link, index) => (
                         <li key={index}>
-                            <a href={link.url}>{link.name}</a>
+                            <Link to={link.url}>{link.name}</Link>
                         </li>
                     ))}
                 </ul>
