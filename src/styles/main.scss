@@ -1,58 +1,38 @@
+@use './variables' as *;
+@use './functions' as *;
+@use 'sass:color';
+@use 'sass:map';
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: red;
+    background: var(--color-background);
+    color: var(--color-dark);
+    font-family: $font-body;
 }
 
-header {
-    background: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    text-align: center;
+h1, h2, h3, h4, h5, h6, a {
+    font-family: $font-heading;
 }
 
-nav {
-    margin: 10px 0;
-}
+a {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-extra-bold);
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-}
+    &:hover {
+        color: color.adjust(map.get($main-colors, primary), $lightness: -16%);
+    }
 
-nav a:hover {
-    text-decoration: underline;
-}
+    &:active {
+        color: color.adjust(map.get($main-colors, primary), $lightness: -32%);
+    }
 
-main {
-    padding: 20px;
-}
+    &:hover, &:active {
+        text-decoration: underline;
+        text-underline-offset: px-to-rem(6);
+    }
 
-section {
-    margin-bottom: 20px;
-}
-
-h1, h2, h3 {
-    margin: 0;
-}
-
-h1 {
-    font-size: 2.5em;
-}
-
-h2 {
-    font-size: 2em;
-}
-
-h3 {
-    font-size: 1.5em;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #333;
-    color: #fff;
+    &:focus {
+        outline: px-to-rem(3) solid var(--color-primary);
+        outline-offset: px-to-rem(4);
+        border-radius: px-to-rem(2);
+    }
 }

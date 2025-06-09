@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Header.module.scss';
 
 const defaultLinks = [
-    { name: 'Home', url: '/' },
+    { name: 'Work', url: '/' },
     { name: 'About', url: '/about' },
     { name: 'Resume', url: '/resume' }
 ];
@@ -10,7 +11,10 @@ const defaultLinks = [
 const Header: React.FC = () => {
     return (
         <header>
-            <Link to="/">Jax Engel</Link>
+            <div className={styles.brand}>
+                <Link to="/">Jax Engel</Link>
+                <span>Product Design · Accessibility · Systems</span>
+            </div>
             <nav>
                 <ul>
                     {defaultLinks.map((link, index) => (

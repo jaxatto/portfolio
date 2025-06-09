@@ -1,0 +1,76 @@
+@use 'sass:map';
+@use './functions' as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Manrope:wght@400;500&display=swap');
+
+// Main color palette
+$main-colors: (
+    primary:      #6F42C1,
+    dark:         #1D0D3A,
+    light:        #EADEFF,
+    background:   #FFFFFF,
+    placeholder:  #CBD3DE
+);
+
+// Sample section palettes
+$sample-palettes: (
+    primary: (
+        link: #5220AC,
+        bg:   #E1D1FF
+    ),
+    secondary: (
+        link: #343AA8,
+        bg:   #CFD2FF
+    ),
+    tertiary: (
+        link: #01628A,
+        bg:   #D1F2FF
+    )
+);
+$sample-shadow-opacity: 0.32;
+
+// Font weights defined for semantic naming
+$font-weights: (
+    regular: 400,
+    medium: 500,
+    bold: 700,
+    extra-bold: 800,
+    "black": 900
+);
+
+
+// Utility functions for palette access
+@function sample-link($palette-key) {
+    @return map.get(map.get($sample-palettes, $palette-key), link);
+}
+
+@function sample-bg($palette-key) {
+    @return map.get(map.get($sample-palettes, $palette-key), bg);
+}
+
+@function sample-shadow($palette-key) {
+    @return rgba(sample-link($palette-key), $sample-shadow-opacity);
+}
+
+// Font variables
+$font-heading: 'Inter', Arial, sans-serif;
+$font-body: 'Manrope', Arial, sans-serif;
+$body-font-size: px-to-rem(24);
+
+// Output CSS variables for each color
+:root {
+    @each $name, $value in $main-colors {
+        --color-#{$name}: #{$value};
+    }
+    // Sample palettes
+    @each $palette, $colors in $sample-palettes {
+        @each $role, $value in $colors {
+            --sample-#{$palette}-#{$role}: #{$value};
+        }
+        // Add shadow variable dynamically
+        --sample-#{$palette}-shadow: #{rgba(map.get($colors, link), $sample-shadow-opacity)};
+    }
+    // Font weights
+    @each $name, $value in $font-weights {
+        --font-weight-#{$name}: #{$value};
+    }
+}

@@ -1,0 +1,5 @@
+// This file contains utility functions
+
+@function px-to-rem($px, $base: 16) {
+  @return (calc($px / $base)) * 1rem;
+}
