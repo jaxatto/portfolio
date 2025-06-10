@@ -18,6 +18,8 @@ body {
 h1, h2, h3, h4, h5, h6, a {
     font-family: $font-heading;
     font-weight: var(--font-weight-extra-bold);
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -47,4 +49,19 @@ a {
     max-width: px-to-rem(960);
     margin: 0 auto;
     padding: 0 px-to-rem(24);
+}
+
+// Dots used in footer and other components
+.dots-row {
+    display: flex;
+    justify-content: center;
+    gap: px-to-rem(8);
+
+    .dot {
+        width: px-to-rem(10);
+        height: px-to-rem(10);
+        border-radius: 50%;
+        background: var(--color-light);
+        display: inline-block;
+    }
 }
