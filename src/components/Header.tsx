@@ -13,7 +13,7 @@ const Header: React.FC = () => {
         <header>
             <div className={styles.brand}>
                 <Link to="/">Jax Engel</Link>
-                <span>Product Design · Accessibility · Systems</span>
+                <span className={styles.byline}>Product Design · Accessibility · Systems</span>
             </div>
             <nav>
                 <ul>

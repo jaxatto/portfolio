@@ -3,19 +3,25 @@
 @use 'sass:color';
 @use 'sass:map';
 
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 body {
     background: var(--color-background);
     color: var(--color-dark);
     font-family: $font-body;
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6, a {
     font-family: $font-heading;
+    font-weight: var(--font-weight-extra-bold);
 }
 
 a {
     color: var(--color-primary);
-    font-weight: var(--font-weight-extra-bold);
 
     &:hover {
         color: color.adjust(map.get($main-colors, primary), $lightness: -16%);
@@ -35,4 +41,10 @@ a {
         outline-offset: px-to-rem(4);
         border-radius: px-to-rem(2);
     }
+}
+
+.wrapper {
+    max-width: px-to-rem(960);
+    margin: 0 auto;
+    padding: 0 px-to-rem(24);
 }

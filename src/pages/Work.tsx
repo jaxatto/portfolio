@@ -1,22 +1,30 @@
 import React from 'react';
 import Header from '../components/Header';
+import styles from './Work.module.scss';
+import profileImg from '../assets/jax-engel.png';
 
 const Home: React.FC = () => {
     return (
-        <div>
+        <div className="wrapper">
             <Header />
-            <section id="projects">
-            <h2>Projects</h2>
-            {/* Add project details here */}
-            </section>
-            <section id="skills">
-            <h2>Skills</h2>
-            {/* Add skills details here */}
-            </section>
-            <section id="contact">
-            <h2>Contact</h2>
-            {/* Add contact information here */}
-            </section>
+            <div className={styles['banner-wrapper']}>
+                <div className={styles.banner}>
+                    <div className={styles['image-wrapper']}>
+                        <img className={styles.image} src={profileImg} alt="Jax Engel" />
+                        <span className={styles.bubble} role="img" aria-label="Waving hand">👋</span>
+                    </div>                    <div className={styles.text}>
+                        <h1>Hello, I’m Jax!</h1>
+                        <p>
+                            I design product experiences that are{' '}
+                            <span className={styles.underline}>accessible</span>, scalable, and built on{' '}
+                            <span className={styles.underline}>systems-level thinking</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <main>
+                Sample content
+            </main>
         </div>
     );
 };
