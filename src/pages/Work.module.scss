@@ -6,18 +6,32 @@
     display: flex;
     justify-content: center;
     padding: px-to-rem(104) 0;
+
+    @include respond(sm) {
+        padding: px-to-rem(40) 0;
+    }
 }
 
 .banner {
     max-width: px-to-rem(575);
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: px-to-rem(20);
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
+
+    @include respond(sm) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
     .image-wrapper {
         position: relative;
         display: inline-block;
+        flex: 0 0 auto;
 
         .image {
             border-radius: 50%;
@@ -28,8 +42,15 @@
     }
 
     .text {
-        max-width: px-to-rem(395);
+        width: px-to-rem(395);
+        flex: 1 1 px-to-rem(395);
+        min-width: 0;
+        max-width: 100%;
 
+        @include respond(sm) {
+            flex: auto;
+        }
+        
         h1 {
             font-size: px-to-rem(40);
             margin: 0 0 px-to-rem(12) 0;

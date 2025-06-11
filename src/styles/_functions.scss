@@ -3,3 +3,12 @@
 @function px-to-rem($px, $base: 16) {
   @return (calc($px / $base)) * 1rem;
 }
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == sm {
+        @media (max-width: px-to-rem(640)) { @content; }
+    }
+    @if $breakpoint == md {
+        @media (max-width: px-to-rem(900)) { @content; }
+    }
+}

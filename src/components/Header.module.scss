@@ -5,9 +5,18 @@
 // Styles for the Header component
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: row;
+    gap: px-to-rem(20);
     padding: px-to-rem(56) 0 0 0;
+
+    @include respond(sm) {
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     a {
         text-decoration: none;
@@ -22,6 +31,10 @@ nav ul {
     margin: 0;
     display: flex;
     gap: 0;
+
+    @include respond(sm) {
+        
+    }
 
     li {
         display: flex;
@@ -39,8 +52,10 @@ nav ul {
     }
 }
 
-.byline {
-    display: block;
-    font-size: px-to-rem(12);
-    margin-top: px-to-rem(4);
+.brand {
+    .byline {
+        display: block;
+        font-size: px-to-rem(14);
+        margin-top: px-to-rem(4);
+    }
 }
