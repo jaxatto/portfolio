@@ -1,14 +1,18 @@
 import React from 'react';
-import ArrowRight from '../assets/icons/arrow-right.svg?react';
-import ArrowTopRight from '../assets/icons/arrow-top-right.svg?react';
+import ArrowRight from '../assets/icons/arrow-right.svg';
+import ArrowTopRight from '../assets/icons/arrow-top-right.svg';
 
-const icons = {
-  "arrow-right": ArrowRight,
-  "arrow-top-right": ArrowTopRight,
+
+type IconProps = {
+  name: string;
+  className?: string;
+  style?: React.CSSProperties;
+  [key: string]: any;
 };
 
-type IconProps = React.ComponentProps<'svg'> & {
-  name: keyof typeof icons;
+const icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>> | undefined> = {
+  "arrow-right": ArrowRight,
+  "arrow-top-right": ArrowTopRight
 };
 
 const Icon: React.FC<IconProps> = ({ name, ...props }) => {

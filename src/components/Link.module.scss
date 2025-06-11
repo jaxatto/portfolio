@@ -1,0 +1,54 @@
+@use '../styles/variables' as *;
+@use '../styles/functions' as *;
+@use 'sass:color';
+@use 'sass:map';
+
+a {
+    color: var(--color-primary);
+    text-underline-offset: px-to-rem(6);
+    font-family: $font-heading;
+    font-weight: var(--font-weight-extra-bold);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: auto;
+    flex: 0 1 auto;
+    gap: px-to-rem(4);
+    transition: color 0.3s ease-in-out;
+
+    .icon {
+        width: px-to-rem(20);
+        height: px-to-rem(20);
+        fill: var(--color-primary);
+        transition: fill 0.3s ease-in-out;
+    }
+
+    &:hover {
+        color: color.adjust(map.get($main-colors, primary), $lightness: -16%);
+    }
+
+    &:hover,
+    &:hover .icon {
+        color: color.adjust(map.get($main-colors, primary), $lightness: -16%);
+        fill: color.adjust(map.get($main-colors, primary), $lightness: -16%);
+    }
+
+    &:active,
+    &:active .icon {
+        color: color.adjust(map.get($main-colors, primary), $lightness: -32%);
+        fill: color.adjust(map.get($main-colors, primary), $lightness: -32%);
+    }
+
+    &:hover, &:active {
+        text-decoration: underline;
+        text-underline-offset: px-to-rem(6);
+    }
+
+    &:focus {
+        outline: px-to-rem(3) solid var(--color-primary);
+        outline-offset: px-to-rem(4);
+        border-radius: px-to-rem(2);
+        text-decoration: none;;
+    }
+}

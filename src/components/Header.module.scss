@@ -66,13 +66,21 @@ nav ul {
 }
 
 .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: px-to-rem(8);
+
     .byline {
-        display: block;
         font-size: px-to-rem(14);
-        margin-top: px-to-rem(8);
 
         @include respond(xs) {
             font-size: px-to-rem(12);
         }
+    }
+
+    @include respond(sm) {
+        align-items: center;
+        text-align: center;
     }
 }

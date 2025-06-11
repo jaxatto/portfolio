@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import Icon from './Icon';
+import Link from './Link';
 
 const Footer: React.FC = () => {
     return (
@@ -11,14 +11,19 @@ const Footer: React.FC = () => {
                     <p className="body-large">I'm exploring staff-level roles on teams solving complex product challenges.</p>
                 </div>
                 <div className={styles['footer-links']}>
-                    <div className={styles['link-wrapper']}>
-                        <a href="mailto:hello@jaxengeldesign.com">hello@jaxengeldesign.com</a>
-                        <Icon name="arrow-top-right" />
-                    </div>
-                    <div className={styles['link-wrapper']}>
-                        <a href="">LinkedIn</a>
-                        <Icon name="arrow-top-right" />
-                    </div>
+                    <Link
+                        href="mailto:hello@jaxengeldesign.com"
+                        iconName="arrow-top-right"
+                    >
+                        hello@jaxengeldesign.com
+                    </Link>
+                    <Link
+                        href="https://www.linkedin.com/in/jaxengel/"
+                        newTab
+                        iconName="arrow-top-right"
+                    >
+                        LinkedIn
+                    </Link>
                 </div>
             </div>
         </footer>

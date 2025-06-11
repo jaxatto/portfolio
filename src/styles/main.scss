@@ -19,42 +19,22 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, a {
+html, body {
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
     font-family: $font-heading;
     font-weight: var(--font-weight-extra-bold);
     margin: 0;
     padding: 0;
 }
 
-a {
-    color: var(--color-primary);
-    text-underline-offset: px-to-rem(6);
-
-    &:hover {
-        color: color.adjust(map.get($main-colors, primary), $lightness: -16%);
-    }
-
-    &:active {
-        color: color.adjust(map.get($main-colors, primary), $lightness: -32%);
-    }
-
-    &:hover, &:active {
-        text-decoration: underline;
-        text-underline-offset: px-to-rem(6);
-    }
-
-    &:focus {
-        outline: px-to-rem(3) solid var(--color-primary);
-        outline-offset: px-to-rem(4);
-        border-radius: px-to-rem(2);
-        text-decoration: none;;
-    }
-}
-
 .wrapper {
     max-width: px-to-rem(960);
     margin: 0 auto;
     padding: 0 px-to-rem(24);
+    width: 100%;
 }
 
 // Dots used in footer and other components

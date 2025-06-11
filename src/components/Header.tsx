@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from './Link';
 import styles from './Header.module.scss';
 
 const defaultLinks = [
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     return (
         <header>
             <div className={styles.brand}>
-                <Link to="/">Jax Engel</Link>
+                <Link to="/" className={styles.link}>Jax Engel</Link>
                 <span className={styles.byline}>Product Design · Accessibility · Systems</span>
             </div>
             <nav>
