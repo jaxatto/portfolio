@@ -2,7 +2,7 @@ import Header from './Header';
 import Footer from './Footer';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="wrapper">
+  <div className='wrapper'>
     <Header />
     {children}
     <Footer />

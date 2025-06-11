@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     return (
         <header>
             <div className={styles.brand}>
-                <Link to="/" className={styles.link}>Jax Engel</Link>
+                <Link to='/' className={styles.link}>Jax Engel</Link>
                 <span className={styles.byline}>Product Design · Accessibility · Systems</span>
             </div>
             <nav>

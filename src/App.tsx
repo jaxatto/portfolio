@@ -7,9 +7,9 @@ import Resume from './pages/Resume';
 const App: React.FC = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/resume" element={<Resume />} />
+      <Route path='/' element={<Home />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/resume' element={<Resume />} />
     </Routes>
   </Router>
 );

@@ -11,8 +11,8 @@ type IconProps = {
 };
 
 const icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>> | undefined> = {
-  "arrow-right": ArrowRight,
-  "arrow-top-right": ArrowTopRight
+  'arrow-right': ArrowRight,
+  'arrow-top-right': ArrowTopRight
 };
 
 const Icon: React.FC<IconProps> = ({ name, ...props }) => {

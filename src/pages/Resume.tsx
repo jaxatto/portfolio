@@ -4,11 +4,11 @@ import Header from '../components/Header';
 const Resume: React.FC = () => (
   <div>
     <Header />
-    <section id="resume">
+    <section id='resume'>
       <h2>Resume</h2>
       <p>
         {/* Add your resume details or a link to your PDF resume here */}
-        Download my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume (PDF)</a>.
+        Download my <a href='/resume.pdf' target='_blank' rel='noopener noreferrer'>resume (PDF)</a>.
       </p>
       <ul>
         <li><strong>Experience:</strong> Web Developer at XYZ Corp (2022–Present)</li>

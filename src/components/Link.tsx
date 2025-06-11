@@ -12,6 +12,14 @@ type LinkProps = {
   children: React.ReactNode;
 };
 
+// Simple URL validation: allow only relative URLs or https URLs to your domain
+function isSafeUrl(url: string): boolean {
+  return (
+    (url.startsWith('/') && !url.startsWith('//')) ||
+    url.startsWith('https://jaxengeldesign.com')
+  );
+}
+
 const Link: React.FC<LinkProps> = ({ to, href, newTab, className, iconName, children, ...props }) => {
   const content = (
     <>
@@ -29,9 +37,13 @@ const Link: React.FC<LinkProps> = ({ to, href, newTab, className, iconName, chil
       </RouterLink>
     );
   }
+
+  // Validate external href
+  const safeHref = href && isSafeUrl(href) ? href : '/';
+
   return (
     <a
-      href={href}
+      href={safeHref}
       className={linkClass}
       target={newTab ? '_blank' : undefined}
       rel={newTab ? 'noopener noreferrer' : undefined}

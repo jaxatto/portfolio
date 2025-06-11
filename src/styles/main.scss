@@ -37,21 +37,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
-// Dots used in footer and other components
-.dots-row {
-    display: flex;
-    justify-content: center;
-    gap: px-to-rem(8);
-
-    .dot {
-        width: px-to-rem(10);
-        height: px-to-rem(10);
-        border-radius: 50%;
-        background: var(--color-light);
-        display: inline-block;
-    }
-}
-
 .heading-large {
     font-size: px-to-rem(40);
     margin: 0 0 px-to-rem(12) 0;

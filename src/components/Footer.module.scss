@@ -1,13 +1,13 @@
 @use '../styles/variables' as *;
 @use '../styles/functions' as *;
 
-
 // Styles for the Footer component
 footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: px-to-rem(64) 0 px-to-rem(104) 0;
+    gap: px-to-rem(32);
 
     .footer-wrapper {
         display: flex;
