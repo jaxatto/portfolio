@@ -1,0 +1,20 @@
+@use '../styles/variables' as *;
+@use '../styles/functions' as *;
+
+
+// Styles for the Footer component
+footer {
+    display: flex;
+    flex-direction: column;
+
+    .text {
+        width: px-to-rem(395);
+        flex: 1 1 px-to-rem(395);
+        min-width: 0;
+        max-width: 100%;
+
+        @include respond(sm) {
+            flex: auto;
+        }
+    }
+}

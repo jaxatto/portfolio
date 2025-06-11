@@ -50,33 +50,6 @@
         @include respond(sm) {
             flex: auto;
         }
-        
-        h1 {
-            font-size: px-to-rem(40);
-            margin: 0 0 px-to-rem(12) 0;
-
-            @include respond(sm) {
-                font-size: px-to-rem(32);
-            }
-
-            @include respond(xs) {
-                font-size: px-to-rem(24);
-            }
-        }
-
-        p {
-            font-size: px-to-rem(24);
-            line-height: 1.5;
-            margin: 0;
-
-            @include respond(sm) {
-                font-size: px-to-rem(20);
-            }
-
-            @include respond(xs) {
-                font-size: px-to-rem(16);
-            }
-        }
 
         .underline {
             position: relative;
