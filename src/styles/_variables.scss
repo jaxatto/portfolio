@@ -1,5 +1,4 @@
 @use 'sass:map';
-@use './functions' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Manrope:wght@400;500&display=swap');
 
 // Main color palette
@@ -74,3 +73,10 @@ $body-font-size: px-to-rem(24);
         --font-weight-#{$name}: #{$value};
     }
 }
+
+// Breakpoints for responsive design
+$breakpoints: (
+  xs: 340,
+  sm: 640,
+  md: 900
+);

@@ -16,10 +16,10 @@ header {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: px-to-rem(24);
     }
 
     a {
-        text-decoration: none;
         font-weight: var(--font-weight-black);
         font-size: px-to-rem(20);
     }
@@ -32,8 +32,17 @@ nav ul {
     display: flex;
     gap: 0;
 
-    @include respond(sm) {
-        
+    @include respond(xs) {
+        gap: px-to-rem(12);
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        @include respond(xs) {
+            font-size: px-to-rem(14);
+            text-decoration: underline;;
+        }
     }
 
     li {
@@ -48,6 +57,10 @@ nav ul {
             border-radius: 50%;
             background: var(--color-light);
             margin: 0 px-to-rem(16);
+
+            @include respond(xs) {
+                display: none;  
+            }
         }
     }
 }
@@ -56,6 +69,10 @@ nav ul {
     .byline {
         display: block;
         font-size: px-to-rem(14);
-        margin-top: px-to-rem(4);
+        margin-top: px-to-rem(8);
+
+        @include respond(xs) {
+            font-size: px-to-rem(12);
+        }
     }
 }

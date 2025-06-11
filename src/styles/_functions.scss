@@ -1,14 +1,18 @@
+@use './variables' as *;
+@use 'sass:math';
+@use 'sass:map';
+
 // This file contains utility functions
 
 @function px-to-rem($px, $base: 16) {
-  @return (calc($px / $base)) * 1rem;
+  @return math.div($px, $base) * 1rem;
 }
 
 @mixin respond($breakpoint) {
-    @if $breakpoint == sm {
-        @media (max-width: px-to-rem(640)) { @content; }
+  $value: map.get($breakpoints, $breakpoint);
+  @if $value {
+    @media (max-width: #{math.div($value, 16)}rem) {
+      @content;
     }
-    @if $breakpoint == md {
-        @media (max-width: px-to-rem(900)) { @content; }
-    }
+  }
 }

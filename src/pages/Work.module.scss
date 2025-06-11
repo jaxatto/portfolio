@@ -54,11 +54,54 @@
         h1 {
             font-size: px-to-rem(40);
             margin: 0 0 px-to-rem(12) 0;
+
+            @include respond(sm) {
+                font-size: px-to-rem(32);
+            }
+
+            @include respond(xs) {
+                font-size: px-to-rem(24);
+            }
         }
+
         p {
             font-size: px-to-rem(24);
             line-height: 1.5;
             margin: 0;
+
+            @include respond(sm) {
+                font-size: px-to-rem(20);
+            }
+
+            @include respond(xs) {
+                font-size: px-to-rem(16);
+            }
+        }
+
+        .underline {
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: -4px;
+                right: -4px;
+                bottom: px-to-rem(4);
+                height: px-to-rem(26);
+                background: var(--color-light);
+                border-radius: px-to-rem(26);
+                z-index: -1;
+
+                @include respond(sm) {
+                    height: px-to-rem(20);
+                    bottom: px-to-rem(3);
+                }
+
+                @include respond(xs) {
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -77,23 +120,6 @@
     font-size: px-to-rem(28);
 }
 
-.underline {
-    position: relative;
-    display: inline-block;
-
-    &::after {
-        content: '';
-        position: absolute;
-        left: -4px;
-        right: -4px;
-        bottom: px-to-rem(4);
-        height: px-to-rem(26);
-        background: var(--color-light);
-        border-radius: px-to-rem(26);
-        z-index: -1;
-    }
-}
-
 // Work intro styles 
 .work-intro-wrapper {
     padding: px-to-rem(24) 0 px-to-rem(40) 0;
@@ -108,5 +134,13 @@
         font-family: $font-body;
         font-size: px-to-rem(24);
         line-height: 1.5;
+
+        @include respond(sm) {
+            font-size: px-to-rem(20);
+        }
+
+        @include respond(xs) {
+            font-size: px-to-rem(16);
+        }
     }
 }
