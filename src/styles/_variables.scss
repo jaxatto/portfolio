@@ -36,20 +36,6 @@ $font-weights: (
     "black": 900
 );
 
-
-// Utility functions for palette access
-@function sample-link($palette-key) {
-    @return map.get(map.get($sample-palettes, $palette-key), link);
-}
-
-@function sample-bg($palette-key) {
-    @return map.get(map.get($sample-palettes, $palette-key), bg);
-}
-
-@function sample-shadow($palette-key) {
-    @return rgba(sample-link($palette-key), $sample-shadow-opacity);
-}
-
 // Font variables
 $font-heading: 'Inter', Arial, sans-serif;
 $font-body: 'Manrope', Arial, sans-serif;

@@ -11,17 +11,17 @@ header {
     gap: px-to-rem(20);
     padding: px-to-rem(56) 0 0 0;
 
+    a {
+        font-weight: var(--font-weight-black);
+        font-size: px-to-rem(20);
+    }
+
     @include respond(sm) {
         text-align: center;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: px-to-rem(24);
-    }
-
-    a {
-        font-weight: var(--font-weight-black);
-        font-size: px-to-rem(20);
+        gap: px-to-rem(32);
     }
 }
 
@@ -82,5 +82,11 @@ nav ul {
     @include respond(sm) {
         align-items: center;
         text-align: center;
+        gap: px-to-rem(4);
+
+        a {
+            text-decoration: none;
+            color: var(--color-dark);
+        }
     }
 }

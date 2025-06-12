@@ -1,0 +1,25 @@
+@use 'sass:color';
+@use 'sass:map';
+@use './variables' as *;
+
+// This file contains mixins for styling components
+@mixin link-palette($palette: null) {
+  $link-color: if($palette != null, map.get($palette, link), map.get($main-colors, primary));
+
+  color: $link-color;
+  fill: $link-color;
+
+  &:hover {
+    color: color.adjust($link-color, $lightness: -16%);
+    fill: color.adjust($link-color, $lightness: -16%);
+  }
+  &:active {
+    color: color.adjust($link-color, $lightness: -32%);
+    fill: color.adjust($link-color, $lightness: -16%);
+  }
+  &:focus {
+    outline: px-to-rem(3) solid $link-color;
+    outline-offset: px-to-rem(4);
+    border-radius: px-to-rem(2);
+  }
+}

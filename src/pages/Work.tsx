@@ -7,41 +7,41 @@ import CaseStudyCard from '../components/CaseStudyCard';
 import type { CaseStudyCardProps } from '../components/CaseStudyCard';
 
 // Example images (replace with your actual images)
-import servicenowImage from '../assets/samples/servicenow-sample.png';
-import indeedImage from '../assets/samples/indeed-sample.png';
-import actblueImage from '../assets/samples/actblue-sample.png';
+import primaryImage from '../assets/samples/placeholder.png';
+import secondaryImage from '../assets/samples/indeed-sample.png';
+import tertiaryImage from '../assets/samples/actblue-sample.png';
 
 const caseStudies: CaseStudyCardProps[] = [
-  {
-    title: "Designing an AI-driven tool to accelerate qualitative survey workflows",
-    description: "Product design · AI · Enterprise",
-    image: servicenowImage,
-    imageAlt: "AI survey workflow screenshot",
-    linkUrl: "/case-study/servicenow",
-    linkText: "Read case study",
-    className: styles.aiCard,
-    layout: "horizontal",
-  },
-  {
-    title: "Scaling clarity and consistency across Indeed's hiring platform",
-    description: "Design systems · Enterprise",
-    image: indeedImage,
-    imageAlt: "Indeed hiring platform screenshot",
-    linkUrl: "/case-study/indeed",
-    linkText: "Read case study",
-    className: styles.indeedCard,
-    layout: "vertical",
-  },
-  {
-    title: "Improving sync visibility for teams managing critical donation data",
-    description: "Product design · Nonprofit",
-    image: actblueImage,
-    imageAlt: "ActBlue Salesforce integration screenshot",
-    linkUrl: "/case-study/actblue",
-    linkText: "Read case study",
-    className: styles.actblueCard,
-    layout: "vertical",
-  },
+    {
+        title: 'Designing an AI-driven tool to accelerate qualitative survey workflows',
+        description: 'Product design · AI · Enterprise',
+        image: primaryImage,
+        imageAlt: 'AI survey workflow screenshot',
+        linkUrl: '/case-study/servicenow',
+        linkText: 'Read case study',
+        palette: 'primary',
+        layout: 'horizontal'
+    },
+    {
+        title: 'Scaling clarity and consistency across Indeed\'s hiring platform',
+        description: 'Design systems · Enterprise',
+        image: secondaryImage,
+        imageAlt: 'Indeed hiring platform screenshot',
+        linkUrl: '/case-study/indeed',
+        linkText: 'Read case study',
+        palette: 'secondary',
+        layout: 'vertical'
+    },
+    {
+        title: 'Improving sync visibility for teams managing critical donation data',
+        description: 'Product design · Nonprofit',
+        image: tertiaryImage,
+        imageAlt: 'ActBlue Salesforce integration screenshot',
+        linkUrl: '/case-study/actblue',
+        linkText: 'Read case study',
+        palette: 'tertiary',
+        layout: 'vertical'
+    },
 ];
 
 const Work: React.FC = () => (

@@ -9,7 +9,7 @@ export type CaseStudyCardProps = {
   imageAlt?: string;
   linkUrl: string;
   linkText: string;
-  className?: string;
+  palette?: 'primary' | 'secondary' | 'tertiary';
   layout?: 'horizontal' | 'vertical';
 };
 
@@ -20,14 +20,22 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   imageAlt = '',
   linkUrl,
   linkText,
-  className = '',
+  palette = 'primary',
   layout = 'vertical',
 }) => {
+
   return (
-    <div className={`${styles.card} ${styles[layout]} ${className}`}>
+    <div className={[
+      styles.card,
+      styles[layout] ? styles[layout] : '',
+      `${palette}-card`
+    ].filter(Boolean).join(' ')}
+    >
       <div className={styles.content}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
+        <div className={styles.text}>
+            <h3 className={styles.title}>{title}</h3>
+            <p className={styles.description}>{description}</p>
+        </div>
         <Link href={linkUrl} className={styles.link} iconName='arrow-right'>
           {linkText}
         </Link>

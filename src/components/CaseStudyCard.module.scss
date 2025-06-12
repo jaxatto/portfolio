@@ -1,3 +1,166 @@
 @use '../styles/functions' as *;
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use 'sass:map';
+
+
+// Palette modifiers
+@each $key, $palette in $sample-palettes {
+  :global(.#{$key}-card) {
+    background: map.get($palette, bg);
+
+    a, svg {
+      @include link-palette($palette);
+    }
+
+    .image img {
+      box-shadow: 0 8px 48px 0 rgba(map.get($palette, link), $sample-shadow-opacity);
+    }
+  }
+}
 
 // Case Study Card styles
+.card {
+    display: flex;
+    border-radius: px-to-rem(16);
+    overflow: hidden;
+    justify-content: space-between;
+
+    @include respond(sm) {
+        max-height: px-to-rem(360);
+    }
+
+    .image {
+        height: 100%;
+
+        img {
+            position: relative;
+            border-radius: px-to-rem(8);
+            object-fit: cover;
+            object-position: left top;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &.vertical {
+        flex-direction: column;
+        
+        .image {
+            height: px-to-rem(280);
+
+            img {
+                left: px-to-rem(64);
+                top: px-to-rem(32);
+            }
+        }
+       
+    }
+
+    &.horizontal {
+        flex-direction: row;
+
+        .image {
+            width: 50%;
+            flex: 1 1 50%;
+        }
+
+        img {
+            top: px-to-rem(40);
+        }
+    }
+
+    &.vertical, &.horizontal {
+        width: 100%;
+
+        @include respond(md) {
+            flex-direction: row;
+
+            .image {
+                height: auto;
+                width: 50%;
+                flex: 1 1 50%;
+
+                img {
+                    left: 0;;
+                    top: px-to-rem(32);
+                }
+            }
+        }
+
+        @include respond(sm) {
+            flex-direction: column;
+            gap: px-to-rem(4);
+
+            .image {
+                height: px-to-rem(280);
+                width: 100%;
+                flex: 1 1 100%;
+
+                img {
+                    max-width: 100%;
+                    left: px-to-rem(64);
+                    top: 0;
+                }
+            }
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: px-to-rem(48);
+    padding: px-to-rem(24) px-to-rem(24) px-to-rem(32) px-to-rem(24);
+    align-items: flex-start;
+    width: 100%;
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: px-to-rem(8);    
+    }
+
+    h3 {
+        font-size: px-to-rem(32);
+        font-weight: var(--font-weight-extra-bold);
+        line-height: 1.4;
+        margin: 0;
+
+        @include respond(md) {
+            font-size: px-to-rem(24);
+        }
+
+        @include respond(sm) {
+            font-size: px-to-rem(18);
+        }
+    }
+
+    p {
+        @include respond(sm) {
+            font-size: px-to-rem(14);
+        }
+    }
+
+    a {
+        font-size: px-to-rem(20);
+        font-weight: var(--font-weight-bold);
+
+        @include respond(sm) {
+            font-size: px-to-rem(16);
+        }
+    }
+
+    @include respond(md) {
+        justify-content: space-between;
+        width: 50%;
+        flex: 1 1 50%;
+    }
+
+    @include respond(sm) {
+        justify-content: flex-start;
+        width: 100%;
+        flex: auto;
+        gap: px-to-rem(24);
+    }
+}
