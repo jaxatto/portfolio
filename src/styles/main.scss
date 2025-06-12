@@ -42,8 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .heading-large {
     font-size: px-to-rem(40);
-    margin: 0 0 px-to-rem(12) 0;
-
+    
     @include respond(sm) {
         font-size: px-to-rem(32);
     }

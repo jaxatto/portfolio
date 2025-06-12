@@ -42,8 +42,11 @@
     }
 
     .text {
+        display: flex;
+        flex-direction: column;
         width: px-to-rem(395);
         flex: 1 1 px-to-rem(395);
+        gap: px-to-rem(12);
         min-width: 0;
         max-width: 100%;
 
