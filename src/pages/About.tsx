@@ -1,16 +1,15 @@
 import React from 'react';
-import Header from '../components/Header';
+import Layout from '../components/Layout';
 
 const About: React.FC = () => (
-  <div>
-    <Header />
+  <Layout>
     <section id='about'>
       <h2>About Me</h2>
       <p>
         I am a passionate designer and developer with experience in web technologies, UI/UX, and creative problem-solving.
       </p>
     </section>
-  </div>
+  </Layout>
 );
 
 export default About;

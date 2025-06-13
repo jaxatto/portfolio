@@ -1,9 +1,8 @@
 import React from 'react';
-import Header from '../components/Header';
+import Layout from '../components/Layout';
 
 const Resume: React.FC = () => (
-  <div>
-    <Header />
+  <Layout>
     <section id='resume'>
       <h2>Resume</h2>
       <p>
@@ -16,7 +15,7 @@ const Resume: React.FC = () => (
         <li><strong>Skills:</strong> React, TypeScript, CSS, UI/UX Design</li>
       </ul>
     </section>
-  </div>
+  </Layout>
 );
 
 export default Resume;
