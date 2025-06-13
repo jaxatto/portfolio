@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from '@components/Link';
+import DotsRow from '@components/DotsRow';
 import styles from './Footer.module.scss';
-import Link from './Link';
-import DotsRow from './DotsRow';
 
 const Footer: React.FC = () => {
     return (

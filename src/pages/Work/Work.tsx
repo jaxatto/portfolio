@@ -1,15 +1,15 @@
 import React from 'react';
-import Layout from '../components/Layout';
-import DotsRow from '../components/DotsRow';
+import Layout from '@components/Layout';
+import DotsRow from '@components/DotsRow';
 import styles from './Work.module.scss';
-import profileImg from '../assets/jax-engel.png';
-import CaseStudyCard from '../components/CaseStudyCard';
-import type { CaseStudyCardProps } from '../components/CaseStudyCard';
+import profileImg from '@assets/jax-engel.png';
+import CaseStudyCard from '@components/CaseStudyCard';
+import type { CaseStudyCardProps } from '@components/CaseStudyCard';
 
 // Example images (replace with your actual images)
-import primaryImage from '../assets/samples/placeholder.png';
-import secondaryImage from '../assets/samples/indeed-sample.png';
-import tertiaryImage from '../assets/samples/actblue-sample.png';
+import primaryImage from '@assets/samples/placeholder.png';
+import secondaryImage from '@assets/samples/indeed-sample.png';
+import tertiaryImage from '@assets/samples/actblue-sample.png';
 
 const caseStudies: CaseStudyCardProps[] = [
     {

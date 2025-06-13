@@ -1,6 +1,6 @@
 import React from 'react';
+import Link from '@components/Link';
 import styles from './CaseStudyCard.module.scss';
-import Link from './Link';
 
 export type CaseStudyCardProps = {
   title: string;

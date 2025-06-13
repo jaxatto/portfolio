@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import Icon from '@components/Icon';
 import styles from './Link.module.scss';
-import Icon from './Icon';
 
 type LinkProps = {
   to?: string;

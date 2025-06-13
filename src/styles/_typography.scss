@@ -1,6 +1,6 @@
-@use './variables' as *;
-@use './functions' as *;
-@use './mixins' as *;
+@use '@styles/variables' as *;
+@use '@styles/functions' as *;
+@use '@styles/mixins' as *;
 
 html {
     -webkit-font-smoothing: antialiased;

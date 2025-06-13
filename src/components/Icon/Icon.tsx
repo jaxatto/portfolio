@@ -1,6 +1,6 @@
 import React from 'react';
-import ArrowRight from '../assets/icons/arrow-right.svg';
-import ArrowTopRight from '../assets/icons/arrow-top-right.svg';
+import ArrowRight from '@assets/icons/arrow-right.svg';
+import ArrowTopRight from '@assets/icons/arrow-top-right.svg';
 
 
 type IconProps = {

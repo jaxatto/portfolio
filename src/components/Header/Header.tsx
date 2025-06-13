@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from './Link';
+import Link from '@components/Link/Link';
 import styles from './Header.module.scss';
 
 const defaultLinks = [
