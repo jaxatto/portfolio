@@ -1,8 +1,9 @@
+@use './variables' as *;
+@use './functions' as *;
 @use 'sass:color';
 @use 'sass:map';
-@use './variables' as *;
 
-// This file contains mixins for styling components
+// Get palette colors and apply to links
 @mixin link-palette($palette: null) {
   $link-color: if($palette != null, map.get($palette, link), map.get($main-colors, primary));
 
@@ -21,5 +22,15 @@
     outline: px-to-rem(3) solid $link-color;
     outline-offset: px-to-rem(4);
     border-radius: px-to-rem(2);
+  }
+}
+
+// Get wrapper sizes and assign max widths for common use
+@mixin wrapper-max-width($type: content) {
+  max-width: px-to-rem(map.get($wrapper-widths, $type));
+  width: 100%;
+
+  @if $type == site {
+    margin: 0 auto;
   }
 }

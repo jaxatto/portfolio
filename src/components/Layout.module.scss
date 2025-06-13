@@ -1,0 +1,7 @@
+@use '../styles/functions' as *;
+@use '../styles/mixins' as *;
+
+.wrapper {
+    @include wrapper-max-width(site);
+    padding: 0 px-to-rem(24);
+}

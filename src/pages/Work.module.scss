@@ -1,11 +1,12 @@
 @use '../styles/variables' as *;
 @use '../styles/functions' as *;
+@use '../styles/mixins' as *;
 
 // Banner styles
 .banner-wrapper {
     display: flex;
     justify-content: center;
-    padding: px-to-rem(104) 0;
+    padding: px-to-rem(40) 0 px-to-rem(104) 0;
 
     @include respond(sm) {
         padding: px-to-rem(40) 0;
@@ -13,13 +14,12 @@
 }
 
 .banner {
-    max-width: px-to-rem(575);
+    @include wrapper-max-width(content);
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: px-to-rem(20);
     flex-wrap: wrap;
-    width: 100%;
     min-width: 0;
 
     @include respond(sm) {

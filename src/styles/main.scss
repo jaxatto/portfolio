@@ -1,67 +1,17 @@
 @use './variables' as *;
 @use './functions' as *;
-@use 'sass:color';
-@use 'sass:map';
+@use './typography' as *;
+@use './mixins' as *;
 
 * {
     box-sizing: border-box;
 }
 
-html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 body {
     background: var(--color-background);
-    color: var(--color-dark);
-    font-family: $font-body;
     margin: 0;
 }
 
 html, body {
     overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6, a, p {
-    margin: 0;
-    padding: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: $font-heading;
-    font-weight: var(--font-weight-extra-bold);
-}
-
-.wrapper {
-    max-width: px-to-rem(960);
-    margin: 0 auto;
-    padding: 0 px-to-rem(24);
-    width: 100%;
-}
-
-.heading-large {
-    font-size: px-to-rem(40);
-    
-    @include respond(sm) {
-        font-size: px-to-rem(32);
-    }
-
-    @include respond(xs) {
-        font-size: px-to-rem(24);
-    }
-}
-
-.body-large {
-    font-size: px-to-rem(24);
-    line-height: 1.5;
-    margin: 0;
-
-    @include respond(sm) {
-        font-size: px-to-rem(20);
-    }
-
-    @include respond(xs) {
-        font-size: px-to-rem(16);
-    }
 }

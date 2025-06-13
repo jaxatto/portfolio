@@ -1,5 +1,6 @@
 @use '../styles/variables' as *;
 @use '../styles/functions' as *;
+@use '../styles/mixins' as *;
 
 // Styles for the Footer component
 footer {
@@ -11,11 +12,10 @@ footer {
     width: 100%;
 
     .footer-wrapper {
+        @include wrapper-max-width(content);
         display: flex;
         flex-direction: column;
-        max-width: px-to-rem(524);
         gap: px-to-rem(40);
-        width: 100%;
     }
 
     .text {

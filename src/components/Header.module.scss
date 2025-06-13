@@ -9,7 +9,7 @@ header {
     justify-content: space-between;
     flex-direction: row;
     gap: px-to-rem(20);
-    padding: px-to-rem(56) 0 0 0;
+    padding: px-to-rem(56) 0 px-to-rem(64) 0;
 
     a {
         font-weight: var(--font-weight-black);

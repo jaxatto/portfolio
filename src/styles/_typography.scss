@@ -1,0 +1,49 @@
+@use './variables' as *;
+@use './functions' as *;
+@use './mixins' as *;
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    color: var(--color-dark);
+    font-family: $font-body;
+}
+
+h1, h2, h3, h4, h5, h6, a, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-heading;
+    font-weight: var(--font-weight-extra-bold);
+}
+
+.heading-large {
+    font-size: px-to-rem(40);
+    
+    @include respond(sm) {
+        font-size: px-to-rem(32);
+    }
+
+    @include respond(xs) {
+        font-size: px-to-rem(24);
+    }
+}
+
+.body-large {
+    font-size: px-to-rem(24);
+    line-height: 1.5;
+    margin: 0;
+
+    @include respond(sm) {
+        font-size: px-to-rem(20);
+    }
+
+    @include respond(xs) {
+        font-size: px-to-rem(16);
+    }
+}
