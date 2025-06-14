@@ -1,10 +1,27 @@
 import React from 'react';
+import profileImg from '@assets/jax-engel-min.png';
 import styles from './WorkBanner.module.scss';
 
 const WorkBanner: React.FC = () => (
-  <div className={styles.wrapper}>
-    {/* WorkBanner content */}
-  </div>
+  <section className={styles['banner-wrapper']}>
+    <div className={styles.banner}>
+      <div className={styles['image-wrapper']}>
+        <img className={styles.image} src={profileImg} alt='Jax Engel is a feminine-looking person with short length brown hair and brown eyes. In this photo she is outside in the sunshine, wearing a maroon hooded sweater.' />
+        <span className={styles.bubble} role='img' aria-hidden="true">👋</span>
+      </div>                    
+      <div className={styles.text}>
+        <h1 className='heading-large'>Hello, I'm Jax!</h1>
+        <p className='body-large' aria-hidden="true">
+          I design product experiences that are{' '}
+          <span className={styles.underline}>accessible</span>, scalable, and built on{' '}
+          <span className={styles.underline}>systems-level thinking</span>.
+        </p>
+        <p className="sr-only">
+          I design product experiences that are accessible, scalable, and built on systems-level thinking.
+        </p>
+      </div>
+    </div>
+  </section>
 );
 
 export default WorkBanner;

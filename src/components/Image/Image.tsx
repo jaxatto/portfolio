@@ -9,7 +9,7 @@ type ImageProps = {
   icon: ComponentType;
 };
 
-const Image: React.FC<ImageProps> = ({ src, alt, altFallback = "Image failed to load", className, icon: Icon }) => {
+const Image: React.FC<ImageProps> = ({ src, alt, altFallback, className, icon: Icon }) => {
   const [error, setError] = useState(false);
 
   return (

@@ -1,3 +1,97 @@
-.wrapper {
-  /* Styles for WorkBanner */
+@use '@styles/variables' as *;
+@use '@styles/functions' as *;
+@use '@styles/mixins' as *;
+
+// Banner styles
+.banner-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: px-to-rem(40) 0 px-to-rem(104) 0;
+
+    @include respond(sm) {
+        padding: px-to-rem(40) 0;
+    }
+}
+
+.banner {
+    @include wrapper-max-width(content);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: px-to-rem(20);
+    flex-wrap: wrap;
+    min-width: 0;
+
+    @include respond(sm) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .image-wrapper {
+        position: relative;
+        display: inline-block;
+        flex: 0 0 auto;
+
+        .image {
+            border-radius: 50%;
+            width: px-to-rem(160);
+            height: px-to-rem(160);
+            display: block;
+        }
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        width: px-to-rem(395);
+        flex: 1 1 px-to-rem(395);
+        gap: px-to-rem(12);
+        min-width: 0;
+        max-width: 100%;
+
+        @include respond(sm) {
+            flex: auto;
+        }
+
+        .underline {
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: -4px;
+                right: -4px;
+                bottom: px-to-rem(4);
+                height: px-to-rem(26);
+                background: var(--color-light);
+                border-radius: px-to-rem(26);
+                z-index: -1;
+
+                @include respond(sm) {
+                    height: px-to-rem(20);
+                    bottom: px-to-rem(3);
+                }
+
+                @include respond(xs) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.bubble {
+    position: absolute;
+    bottom: 0;
+    left: px-to-rem(-16);
+    background: var(--color-light);
+    width: px-to-rem(48);
+    height: px-to-rem(48);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: px-to-rem(28);
 }
