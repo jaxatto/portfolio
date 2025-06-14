@@ -1,15 +1,15 @@
 import React from 'react';
 import Layout from '@components/Layout';
 import DotsRow from '@components/DotsRow';
-import styles from './Work.module.scss';
-import profileImg from '@assets/jax-engel.png';
 import CaseStudyCard from '@components/CaseStudyCard';
 import type { CaseStudyCardProps } from '@components/CaseStudyCard';
 
-// Example images (replace with your actual images)
-import primaryImage from '@assets/samples/placeholder.png';
-import secondaryImage from '@assets/samples/indeed-sample.png';
-import tertiaryImage from '@assets/samples/actblue-sample.png';
+import styles from './Work.module.scss';
+
+import profileImg from '@assets/jax-engel-min.png';
+import primaryImage from '@assets/samples/placeholder-min.png';
+import secondaryImage from '@assets/samples/indeed-sample-min.png';
+import tertiaryImage from '@assets/samples/actblue-sample-min.png';
 
 const caseStudies: CaseStudyCardProps[] = [
     {
@@ -65,7 +65,7 @@ const Work: React.FC = () => (
         </section>
         <section>
             <div className={styles['work-intro-wrapper']}>
-                <DotsRow count={6} />
+                <DotsRow />
                 <h2 className={styles.heading}>
                     Here are a few product challenges I've helped solve
                 </h2>

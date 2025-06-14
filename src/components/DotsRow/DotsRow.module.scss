@@ -14,3 +14,25 @@
         display: inline-block;
     }
 }
+
+.dots-row--lines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: px-to-rem(8);
+
+  .line {
+    flex: 1 1 px-to-rem(40);
+    height: px-to-rem(1);
+    background: var(--color-light);
+    margin: 0 px-to-rem(32);
+
+    @include respond(xs) {
+      display: none;
+    } 
+  }
+}
+
+.section-divider {
+    padding: px-to-rem(32) 0;
+}

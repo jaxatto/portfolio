@@ -1,4 +1,82 @@
-@use '../styles/variables' as *;
-@use '../styles/functions' as *;
-@use '../styles/mixins' as *;
+@use '@styles/variables' as *;
+@use '@styles/typography' as *;
+@use '@styles/functions' as *;
+@use '@styles/mixins' as *;
 
+.about-wrapper {
+    @include wrapper-max-width(content);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    gap: px-to-rem(40);
+    font-size: px-to-rem(20);
+
+    h2 {
+        @extend .heading-small;
+        margin-bottom: px-to-rem(8);
+    }
+}
+
+.top-section {
+    display: flex;
+    flex-direction: column;
+    gap: px-to-rem(24);
+
+    ul {
+        @extend .body-medium;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: repeat(2, auto);
+        gap: px-to-rem(8) px-to-rem(16);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        @include respond(sm) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @include respond(sm) {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.how-section {
+    p:not(:last-of-type) {
+        margin-bottom: px-to-rem(30);
+    }
+}
+
+.image-row {
+    display: flex;
+    flex-direction: row;
+    gap: px-to-rem(24);
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    
+    img {
+        flex: 1 1 0;
+        max-width: px-to-rem(240);
+        min-width: px-to-rem(160);
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+    }
+
+    @include respond(xs) {
+        flex-direction: column;
+        gap: px-to-rem(16);
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
