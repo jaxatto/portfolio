@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ExperienceSection.module.scss';
 
 type ExperienceItem = {
   title: string;
@@ -17,7 +18,7 @@ const experience: ExperienceItem[] = [
     startDate: "Feb 2024",
     endDate: "Present",
     bullets: [
-      "Led design and documentation for an internal component library, then guided teams through a smooth transition to ServiceNow’s customer-facing design system.",
+      "Led design and documentation for an internal component library, then guided teams through a smooth transition to ServiceNow's customer-facing design system.",
       "Applied deep accessibility expertise, collaborating with consultants and guiding designers on accessible patterns and workflows.",
       "Directed design for an AI-powered internal research tool that reduced manual synthesis and accelerated team access to qualitative insights."
     ]

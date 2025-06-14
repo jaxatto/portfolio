@@ -4,11 +4,14 @@
   "description": "A personal portfolio project showcasing skills, projects, and contact information.",
   "main": "src/index.tsx",
   "scripts": {
-    "dev": "vite",
+    "generate-index": "node scripts/generate-index-files.js",
+    "generate-scss": "node scripts/generate-scss-files.js",
+    "all-scripts": "npm run generate-index && npm run generate-scss",
+    "generate:component": "node scripts/generate-component.js",
+    "dev": "npm run all-scripts && vite",
     "build": "vite build",
     "preview": "vite preview",
-    "generate-index": "node scripts/generate-index-files.js",
-    "predeploy": "vite build && cp CNAME dist/CNAME && npm run generate-index",
+    "predeploy": "vite build && cp CNAME dist/CNAME && npm run all-scripts",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
