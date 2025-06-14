@@ -45,7 +45,10 @@ const caseStudies: CaseStudyCardProps[] = [
 ];
 
 const Work: React.FC = () => (
-    <Layout>
+    <Layout
+        title="Jax Engel | Staff Product Designer – Figma, Systems, UX, Accessibility"
+        metaDescription="Jax Engel is a remote staff product designer at ServiceNow, building accessible, scalable tools for enterprise and fintech. Experienced in systems, Figma, and working closely with engineering."
+    >
         <section className={styles['banner-wrapper']}>
             <div className={styles.banner}>
                 <div className={styles['image-wrapper']}>

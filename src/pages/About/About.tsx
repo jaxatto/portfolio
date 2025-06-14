@@ -23,7 +23,10 @@ const lifeStyleImages = [
 ];
 
 const About: React.FC = () => (
-  <Layout>
+  <Layout
+    title="About Jax Engel – Enterprise UX, Fintech, Internal Tools"
+    metaDescription="Jax Engel is a staff-level product designer specializing in enterprise UX, fintech, and internal tools. Figma expert with deep experience in design systems, accessibility, and cross-functional collaboration."
+  >
     <div className={styles['about-wrapper']}>
       <section>
         <div className={styles['top-section']}>
