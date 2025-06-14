@@ -12,6 +12,7 @@ const WorkBanner: React.FC = () => (
           alt="Jax Engel is a feminine-looking person with short length brown hair and brown eyes. In this photo she is outside in the sunshine, wearing a maroon hooded sweater."
           iconFallback="person"
           imgClassName={styles['image-main']}
+          fallbackClassName={styles['image-fallback']}
         />
         <span className={styles.bubble} aria-hidden="true">👋</span>
       </div>                    

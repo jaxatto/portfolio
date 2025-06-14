@@ -6,6 +6,7 @@
   "scripts": {
     "generate-index": "node scripts/generate-index-files.js",
     "generate-scss": "node scripts/generate-scss-files.js",
+    "fix-svgs": "node scripts/fix-svg-attributes.js",
     "all-scripts": "npm run generate-index && npm run generate-scss",
     "generate:component": "node scripts/generate-component.js",
     "dev": "npm run all-scripts && vite",

@@ -4,11 +4,8 @@
 @use 'sass:color';
 @use 'sass:map';
 
-a, svg {
-  @include link-palette();
-}
-
 a {
+    @include link-palette();
     text-underline-offset: px-to-rem(6);
     font-family: $font-heading;
     font-weight: var(--font-weight-extra-bold);
@@ -22,6 +19,7 @@ a {
     transition: color 0.3s ease-in-out;
 
     svg {
+        @include link-palette();
         width: 1em;
         height: 1em;
         position: relative;

@@ -9,6 +9,7 @@ type ImageProps = {
   className?: string;
   iconFallback: string;
   imgClassName?: string;
+  fallbackClassName?: string;
 };
 
 const Image: React.FC<ImageProps> = ({
@@ -17,7 +18,8 @@ const Image: React.FC<ImageProps> = ({
   altFallback,
   className,
   iconFallback,
-  imgClassName
+  imgClassName,
+  fallbackClassName,
 }) => {
   const [error, setError] = useState(false);
 
@@ -31,8 +33,12 @@ const Image: React.FC<ImageProps> = ({
           className={imgClassName}
         />
       ) : (
-        <div className={styles.fallback}>
-          <Icon name={iconFallback} className={styles['fallback-icon']} aria-hidden="true" />
+        <div className={`${styles.fallback} ${fallbackClassName || ''}`}>
+          <Icon
+            name={iconFallback}
+            className={styles['fallback-icon']}
+            aria-hidden="true"
+          />
           <span className="sr-only">{altFallback ?? alt}</span>
         </div>
       )}
