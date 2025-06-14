@@ -1,4 +1,5 @@
-import React, { useState, ComponentType } from 'react';
+import React, { useState } from 'react';
+import Icon from '@components/Icon';
 import styles from './Image.module.scss';
 
 type ImageProps = {
@@ -6,10 +7,18 @@ type ImageProps = {
   alt: string;
   altFallback?: string;
   className?: string;
-  icon: ComponentType;
+  iconFallback: string;
+  imgClassName?: string;
 };
 
-const Image: React.FC<ImageProps> = ({ src, alt, altFallback, className, icon: Icon }) => {
+const Image: React.FC<ImageProps> = ({
+  src,
+  alt,
+  altFallback,
+  className,
+  iconFallback,
+  imgClassName
+}) => {
   const [error, setError] = useState(false);
 
   return (
@@ -19,12 +28,12 @@ const Image: React.FC<ImageProps> = ({ src, alt, altFallback, className, icon: I
           src={src}
           alt={alt}
           onError={() => setError(true)}
-          className={styles.image}
+          className={imgClassName}
         />
       ) : (
         <div className={styles.fallback}>
-          <Icon aria-hidden="true" />
-          <span className="sr-only">{altFallback}</span>
+          <Icon name={iconFallback} className={styles['fallback-icon']} aria-hidden="true" />
+          <span className="sr-only">{altFallback ?? alt}</span>
         </div>
       )}
     </div>

@@ -28,19 +28,6 @@
         text-align: center;
     }
 
-    .image-wrapper {
-        position: relative;
-        display: inline-block;
-        flex: 0 0 auto;
-
-        .image {
-            border-radius: 50%;
-            width: px-to-rem(160);
-            height: px-to-rem(160);
-            display: block;
-        }
-    }
-
     .text {
         display: flex;
         flex-direction: column;
@@ -80,6 +67,19 @@
             }
         }
     }
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+
+  .image-main {
+    border-radius: 50%;
+    width: px-to-rem(160);
+    height: px-to-rem(160);
+    display: block;
+  }
 }
 
 .bubble {
