@@ -7,7 +7,7 @@ type DotsRowProps = {
 };
 
 const DotsRow: React.FC<DotsRowProps> = ({ count = 6, className }) => (
-  <div className={`${styles['dots-row']} ${className || ''}`}>
+  <div className={`${styles['dots-row']} ${className || ''}`} aria-hidden="true">
     {Array.from({ length: count }).map((_, i) => (
       <span key={i} className={styles.dot} />
     ))}

@@ -90,3 +90,33 @@ nav ul {
         }
     }
 }
+
+.skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+
+    &:focus {
+        background: var(--color-primary);
+        color: var(--color-background);
+        font-size: px-to-rem(12);
+        width: auto;
+        height: auto;
+        margin: px-to-rem(12);
+        padding: px-to-rem(12) px-to-rem(18);
+        z-index: 1000;
+        clip: auto;
+        white-space: normal;
+        border-radius: px-to-rem(4);
+        overflow: auto;
+        text-decoration: underline;
+        top: 0;
+        left: 0;
+    }
+}

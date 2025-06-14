@@ -5,7 +5,9 @@ import styles from './Layout.module.scss';
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className={styles.wrapper}>
     <Header />
-    {children}
+    <main id='main-content'>
+      {children}
+    </main>
     <Footer />
   </div>
 );

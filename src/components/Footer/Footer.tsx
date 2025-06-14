@@ -18,14 +18,14 @@ const Footer: React.FC = () => {
                         href='mailto:hello@jaxengeldesign.com'
                         iconName='arrow-top-right'
                     >
-                        hello@jaxengeldesign.com
+                        <span className="sr-only">Email me at</span>hello@jaxengeldesign.com <span className='sr-only'>(opens email client)</span>
                     </Link>
                     <Link
                         href='https://www.linkedin.com/in/jaxengel/'
                         newTab
                         iconName='arrow-top-right'
                     >
-                        LinkedIn
+                        <span className="sr-only">Connect with me on</span>LinkedIn <span className='sr-only'>(opens in a new tab)</span>
                     </Link>
                 </div>
             </div>
