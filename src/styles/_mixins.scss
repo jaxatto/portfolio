@@ -4,20 +4,24 @@
 @use 'sass:map';
 
 // Get palette colors and apply to links
-@mixin link-palette($palette: null) {
+@mixin link-palette($palette: null, $hover: true) {
   $link-color: if($palette != null, map.get($palette, link), map.get($main-colors, primary));
 
   color: $link-color;
   fill: $link-color;
 
-  &:hover {
-    color: color.adjust($link-color, $lightness: -16%);
-    fill: color.adjust($link-color, $lightness: -16%);
+  @if $hover {
+    &:hover {
+      color: color.adjust($link-color, $lightness: -16%);
+      fill: color.adjust($link-color, $lightness: -16%);
+    }
+
+    &:active {
+      color: color.adjust($link-color, $lightness: -32%);
+      fill: color.adjust($link-color, $lightness: -32%);
+    }
   }
-  &:active {
-    color: color.adjust($link-color, $lightness: -32%);
-    fill: color.adjust($link-color, $lightness: -16%);
-  }
+
   &:focus {
     outline: px-to-rem(3) solid $link-color;
     outline-offset: px-to-rem(4);

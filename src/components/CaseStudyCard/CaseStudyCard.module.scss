@@ -1,14 +1,46 @@
 @use '@styles/all' as *;
 @use 'sass:map';
+@use 'sass:color';
 
 // Palette modifiers
 @each $key, $palette in $sample-palettes {
     :global(.#{$key}-card) {
         background: map.get($palette, bg);
 
-        a,
-        svg {
-            @include link-palette($palette);
+        .link,
+        .link svg {
+            $link-color: map.get($palette, link);
+            color: $link-color;
+            fill: $link-color;
+            transition: all 0.3s ease-in-out;
+        }
+
+        // On card hover
+        &:hover,
+        &:focus-visible {
+            background: color.adjust(map.get($palette, bg), $lightness: -8%);
+
+            .link,
+            .link svg {
+                color: color.adjust(map.get($palette, link), $lightness: -16%);
+                fill: color.adjust(map.get($palette, link), $lightness: -16%);
+            }
+        }
+
+        // On card active (press)
+        &:active {
+            .link,
+            .link svg {
+                color: color.adjust(map.get($palette, link), $lightness: -32%);
+                fill: color.adjust(map.get($palette, link), $lightness: -32%);
+            }
+        }
+
+        // Change card's focus ring to $link-color
+        &:focus-visible {
+            outline: px-to-rem(3) solid map.get($palette, link);
+            outline-offset: px-to-rem(4);
+            border-radius: px-to-rem(16);
         }
 
         .case-study-component-wrapper {
@@ -22,6 +54,28 @@
                 fill: var(--color-white);
             }
         }
+
+        // Move arrow icon on card hover/press/focus
+        &:hover .link .icon,
+        &:focus-visible .link .icon {
+            transform: translateX(px-to-rem(4));
+            transition: transform 0.2s;
+        }
+        &:active .link .icon {
+            transform: translateX(px-to-rem(8));
+            transition: transform 0.1s;
+        }
+
+        // Image grows on card hover/press/focus
+        &:hover .case-study-image-wrapper,
+        &:focus-visible .case-study-image-wrapper {
+            transform: scale(1.04);
+            transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
+        &:active .case-study-image-wrapper {
+            transform: scale(1.08);
+            transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
+        }
     }
 }
 
@@ -33,6 +87,14 @@
     border-radius: px-to-rem(16);
     overflow: hidden;
     gap: px-to-rem(24);
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        text-decoration: none;
+        color: var(--color-dark);
+    }
 }
 
 // Orientation modifiers
@@ -77,6 +139,8 @@
     width: px-to-rem(400);
     max-width: 100%;
     position: relative;
+    transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+
 
     @include respond(md) {
         right: px-to-rem(-16);
@@ -118,14 +182,6 @@
     }
 }
 
-.case-study-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    object-position: top left;
-}
-
 .case-study-image-fallback {
     border-radius: 0;
     padding: px-to-rem(32) 0;
@@ -154,6 +210,10 @@
 
         .text {
             min-height: px-to-rem(148);
+        }
+
+        .content {
+            padding-bottom: px-to-rem(40);
         }
     }
 
@@ -199,6 +259,14 @@
     }
 }
 
+.case-study-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: top left;
+}
+
 // Card content
 .content {
     display: flex;
@@ -236,21 +304,37 @@
     }
 
     p {
-        @include respond(sm) {
-            font-size: px-to-rem(16);
-        }
+        font-weight: var(--font-weight-regular);
+        font-family: $font-body;
+        font-size: px-to-rem(16);
 
         @include respond(xs) {
             font-size: px-to-rem(14);
         }
     }
 
-    a {
-        font-size: px-to-rem(20);
+    .link {
+        text-decoration: underline;
+        display: flex;
+        align-items: center;
+        gap: px-to-rem(4);
         font-weight: var(--font-weight-bold);
+        font-size: px-to-rem(20);
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            position: relative;
+            top: px-to-rem(1);
+        }
+
+        @include respond(sm) {
+            font-size: px-to-rem(18);
+        }
 
         @include respond(xs) {
             font-size: px-to-rem(16);
         }
     }
+
 }

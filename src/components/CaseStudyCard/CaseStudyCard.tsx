@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Link from '@components/Link';
 import Image from '@components/Image';
+import Icon from '@components/Icon';
 import styles from './CaseStudyCard.module.scss';
 
 export type CaseStudyCardProps = {
@@ -31,13 +32,15 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   iconFallback = 'pencilRuler',
   
 }) => {
-
   return (
-    <div className={[
-      styles.card,
-      styles[layout] ? styles[layout] : '',
-      `${palette}-card`
-    ].filter(Boolean).join(' ')}
+    <Link
+      href={linkUrl}
+      className={[
+        styles.card,
+        styles[layout] ? styles[layout] : '',
+        `${palette}-card`
+      ].filter(Boolean).join(' ')}
+      aria-label={title + ' – ' + linkText}
     >
       <div className={styles.content}>
         <div className={styles.text}>
@@ -60,9 +63,13 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
               ))}
             </p>
         </div>
-        <Link href={linkUrl} className={styles.link} iconName='arrow-right'>
+        <span className={styles.link}>
           {linkText}
-        </Link>
+          <Icon 
+            name="arrow-right" 
+            className={styles.icon}
+          />
+        </span>
       </div>
       <div className={styles['case-study-image-wrapper']}>
         {typeof image === 'string'
@@ -76,7 +83,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
             />
           : image}
       </div>
-    </div>
+    </Link>
   );
 };
 

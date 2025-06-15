@@ -10,48 +10,46 @@ type LinkProps = {
   className?: string;
   iconName?: string;
   children: React.ReactNode;
-};
+} & React.RefAttributes<HTMLAnchorElement>;
 
-// Simple URL validation: allow only relative URLs or https URLs to your domain
-function isSafeUrl(url: string): boolean {
-  return (
-    (url.startsWith('/') && !url.startsWith('//')) ||
-    url.startsWith('https://jaxengeldesign.com')
-  );
-}
+const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  ({ to, href, newTab, className, iconName, children, ...props }, ref) => {
+    const content = (
+      <>
+        {children}
+        {iconName && <Icon name={iconName} className={styles.icon} />}
+      </>
+    );
 
-const Link: React.FC<LinkProps> = ({ to, href, newTab, className, iconName, children, ...props }) => {
-  const content = (
-    <>
-      {children}
-      {iconName && <Icon name={iconName} className={styles.icon} />}
-    </>
-  );
+    const linkClass = className ? `${styles.link} ${className}` : styles.link;
 
-  const linkClass = className ? `${styles.link} ${className}` : styles.link;
+    if (to) {
+      return (
+        <RouterLink to={to} className={linkClass} {...props} ref={ref as any}>
+          {content}
+        </RouterLink>
+      );
+    }
 
-  if (to) {
+    // Validate external href
+    const safeHref = href && (
+      (href.startsWith('/') && !href.startsWith('//')) ||
+      href.startsWith('https://jaxengeldesign.com')
+    ) ? href : '/';
+
     return (
-      <RouterLink to={to} className={linkClass} {...props}>
+      <a
+        href={safeHref}
+        className={linkClass}
+        target={newTab ? '_blank' : undefined}
+        rel={newTab ? 'noopener noreferrer' : undefined}
+        {...props}
+        ref={ref}
+      >
         {content}
-      </RouterLink>
+      </a>
     );
   }
-
-  // Validate external href
-  const safeHref = href && isSafeUrl(href) ? href : '/';
-
-  return (
-    <a
-      href={safeHref}
-      className={linkClass}
-      target={newTab ? '_blank' : undefined}
-      rel={newTab ? 'noopener noreferrer' : undefined}
-      {...props}
-    >
-      {content}
-    </a>
-  );
-};
+);
 
 export default Link;
