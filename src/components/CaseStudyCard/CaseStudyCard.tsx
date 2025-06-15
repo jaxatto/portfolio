@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Link from '@components/Link';
 import Image from '@components/Image';
 import Icon from '@components/Icon';
@@ -30,8 +30,14 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   count,
   total,
   iconFallback = 'pencilRuler',
-  
 }) => {
+  // Compose accessible label for the link
+  const accessibleLabel = [
+    `Case study${typeof count === 'number' ? ` ${count}` : ''}${typeof total === 'number' ? ` of ${total}` : ''}:`,
+    title,
+    linkText
+  ].filter(Boolean).join(' – ');
+
   return (
     <Link
       href={linkUrl}
@@ -40,28 +46,14 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
         styles[layout] ? styles[layout] : '',
         `${palette}-card`
       ].filter(Boolean).join(' ')}
-      aria-label={title + ' – ' + linkText}
+      aria-label={accessibleLabel}
     >
       <div className={styles.content}>
         <div className={styles.text}>
-            <span className='sr-only'>
-              Case study {count}{typeof total === 'number' ? ` of ${total}` : ''}.
-            </span>
-            <h3 className={styles.title}>{title}</h3>
-            <p className={styles.description}>
-              <span className='sr-only'>Project focuses on&nbsp;</span>
-              {description.map((item, idx) => (
-                <React.Fragment key={item}>
-                  {item}
-                  {idx === 0 && description.length > 1 && (
-                    <>
-                      <span aria-hidden="true"> · </span>
-                      <span className="sr-only">for&nbsp;</span>
-                    </>
-                  )}
-                </React.Fragment>
-              ))}
-            </p>
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.description} aria-hidden="true">
+            {description.join(' · ')}
+          </p>
         </div>
         <span className={styles.link}>
           {linkText}
