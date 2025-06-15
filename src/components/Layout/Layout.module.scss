@@ -1,5 +1,5 @@
-@use '@styles/functions' as *;
-@use '@styles/mixins' as *;
+@use '@styles/all' as *;
+
 
 .wrapper {
     @include wrapper-max-width(site);

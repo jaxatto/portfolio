@@ -30,4 +30,11 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, 'src/pages/'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@styles/all" as *;`,
+      }
+    }
+  }
 });

@@ -1,7 +1,4 @@
-@use '@styles/variables' as *;
-@use '@styles/typography' as *;
-@use '@styles/functions' as *;
-@use '@styles/mixins' as *;
+@use '@styles/all' as *;
 
 .about-wrapper {
     @include wrapper-max-width(content);

@@ -1,8 +1,5 @@
-@use '@styles/variables' as *;
-@use '@styles/functions' as *;
-@use '@styles/mixins' as *;
+@use '@styles/all' as *;
 
-// Banner styles
 .banner-wrapper {
     display: flex;
     justify-content: center;

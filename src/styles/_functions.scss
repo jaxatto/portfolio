@@ -1,4 +1,4 @@
-@use '@styles/variables' as *;
+@use './variables' as *;
 @use 'sass:math';
 @use 'sass:map';
 
@@ -15,4 +15,23 @@
       @content;
     }
   }
+}
+
+// Output CSS variables for each color
+:root {
+    @each $name, $value in $main-colors {
+        --color-#{$name}: #{$value};
+    }
+    // Sample palettes
+    @each $palette, $colors in $sample-palettes {
+        @each $role, $value in $colors {
+            --sample-#{$palette}-#{$role}: #{$value};
+        }
+        // Add shadow variable dynamically
+        --sample-#{$palette}-shadow: #{rgba(map.get($colors, link), $sample-shadow-opacity)};
+    }
+    // Font weights
+    @each $name, $value in $font-weights {
+        --font-weight-#{$name}: #{$value};
+    }
 }
