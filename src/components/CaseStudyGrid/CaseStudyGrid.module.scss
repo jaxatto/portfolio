@@ -32,4 +32,16 @@
             grid-row: auto;
         }
     }
+
+    @include respond(sm) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+
+        & > :nth-child(1),
+        & > :nth-child(2),
+        & > :nth-child(3) {
+            grid-column: 1 / 2;
+            grid-row: auto;
+        }
+    }
 }

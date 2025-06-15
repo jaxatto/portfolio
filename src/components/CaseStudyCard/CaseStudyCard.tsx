@@ -70,7 +70,8 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
               src={image} 
               alt={imageAlt} 
               iconFallback={iconFallback} 
-              className={styles['case-study-image']} 
+              imgClassName={styles['case-study-image']}
+              className={styles['case-study-component-wrapper']} 
               fallbackClassName={styles['case-study-image-fallback']}
             />
           : image}

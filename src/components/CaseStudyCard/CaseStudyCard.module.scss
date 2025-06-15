@@ -1,9 +1,5 @@
 @use '@styles/all' as *;
-
-
-
 @use 'sass:map';
-
 
 // Palette modifiers
 @each $key, $palette in $sample-palettes {
@@ -14,7 +10,7 @@
       @include link-palette($palette);
     }
 
-    .case-study-image {
+    .case-study-component-wrapper {
       box-shadow: 0 0 px-to-rem(56) px-to-rem(16) rgba(map.get($palette, link), $sample-shadow-opacity);
     }
 
@@ -22,7 +18,7 @@
       background: map.get($palette, link);
 
       svg {
-        fill: white;
+        fill: var(--color-white);
       }
     }
   }
@@ -30,109 +26,171 @@
 
 // Case Study Card styles
 .card {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, auto); // content, then image
+    align-items: stretch; // ensure both columns stretch to the same row height
     border-radius: px-to-rem(16);
     overflow: hidden;
-    justify-content: space-between;
+    gap: px-to-rem(24);
+}
+
+.horizontal {
+    gap: 0;
+}
+
+.case-study-image-wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    width: px-to-rem(400);
+    max-width: 100%;
+    position: relative;
+
+    @include respond(md) {
+        right: px-to-rem(-16);
+    }
+}
+
+.case-study-component-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: px-to-rem(8);
+    object-fit: cover;
+    object-position: left top;
+    bottom: px-to-rem(-56);
+
+    @include respond(md) {
+        bottom: px-to-rem(-40);
+    }
 
     @include respond(sm) {
-        max-height: px-to-rem(360);
+        border-radius: px-to-rem(16);
     }
 
-    .case-study-image-wrapper {
-        height: 100%;
-    }
-
-    .case-study-image {
-        overflow: hidden;
-        position: relative;
+    @include respond(xs) {
         border-radius: px-to-rem(8);
-        object-fit: cover;
-        object-position: left top;
-        height: 100%;
-        width: 100%;
     }
+}
 
-    &.vertical {
-        flex-direction: column;
-        
-        .case-study-image-wrapper {
-            height: px-to-rem(280);
-        }
-
-        .case-study-image {
-            left: px-to-rem(64);
-            top: px-to-rem(32);
-        }
-       
-    }
-
-    &.horizontal {
-        flex-direction: row;
-        max-height: px-to-rem(360);
-
-        .case-study-image-wrapper {
-            width: 45%;
-            flex: 1 1 45%;
-        }
-
-        .case-study-image {
-            top: px-to-rem(64);
-            left: px-to-rem(-16);
-            width: calc(100% + px-to-rem(16));;
-        }
-    }
-
-    &.vertical, &.horizontal {
-        width: 100%;
-
-        @include respond(md) {
-            flex-direction: row;
-            max-height: px-to-rem(300);
-
-            .case-study-image-wrapper {
-                height: auto;
-                width: 50%;
-                flex: 1 1 50%;
-            }
-
-            .case-study-image {
-                left: px-to-rem(16);
-                top: px-to-rem(48);
-                aspect-ratio: 1;
-            }
-        }
-
-        @include respond(sm) {
-            flex-direction: column;
-            gap: px-to-rem(4);
-
-            .case-study-image-wrapper {
-                height: px-to-rem(280);
-                width: 100%;
-                flex: 1 1 100%;
-            }
-
-            .case-study-image {
-                max-width: 100%;
-                left: px-to-rem(64);
-                top: 0;
-            }
-        }
-    }
+.case-study-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: top left;
 }
 
 .case-study-image-fallback {
-    border-radius: 0;
+    border-radius: 0; // Remove default 50% border radius
 }
 
+.vertical {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: px-to-rem(24);
+
+    .case-study-image-wrapper {
+        width: 100%;
+        height: auto;
+    }
+
+    .case-study-component-wrapper {
+        left: px-to-rem(64);
+        top: px-to-rem(16);
+        bottom: 0;
+    }
+
+    .content {
+        padding-bottom: px-to-rem(24);
+    }
+}
+
+// On md: all cards are horizontal
+.card,
+.vertical, 
+.horizontal {
+  @include respond(md) {
+    grid-template-columns: 1fr minmax(0, auto);
+    grid-template-rows: 1fr;
+    gap: px-to-rem(16);
+
+    .case-study-component-wrapper {
+        left: 0;
+        top: auto;
+        bottom: px-to-rem(-40);
+    }
+
+    .case-study-image-wrapper {
+      width: px-to-rem(360);
+      height: 100%;
+    }
+
+    .text {
+        min-height: px-to-rem(148);
+    }
+  }
+}
+
+// On sm: all cards are vertical/stacked
+.card,
+.vertical {
+    @include respond(sm) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        padding: px-to-rem(40) 0;
+        align-items: center;
+        text-align: center;
+        gap: px-to-rem(48);
+
+        .case-study-image-wrapper {
+            width: 100%;
+            height: auto;
+            padding: 0 px-to-rem(40);
+        }
+
+        .case-study-component-wrapper {
+            left: auto;
+            top: auto;
+            bottom: auto;
+        }
+
+        .content {
+            padding: 0 px-to-rem(16);
+            align-items: center;
+            gap: px-to-rem(32);
+            min-width: auto;
+            max-width: 100%;
+        }
+
+        .text {
+            min-height: 0;
+        }
+    }
+}
+
+.card,
+.vertical {
+    @include respond(xs) {
+        gap: px-to-rem(40);
+
+        .content {
+            gap: px-to-rem(32);
+        }
+    }
+}
+
+// Card content
 .content {
     display: flex;
     flex-direction: column;
     gap: px-to-rem(48);
-    padding: px-to-rem(24) px-to-rem(24) px-to-rem(32) px-to-rem(24);
+    padding: px-to-rem(24) px-to-rem(24) px-to-rem(40) px-to-rem(24);
     align-items: flex-start;
     width: 100%;
+    min-width: px-to-rem(320);
+    max-width: px-to-rem(480);
 
     .text {
         display: flex;
@@ -143,7 +201,7 @@
     h3 {
         font-size: px-to-rem(32);
         font-weight: var(--font-weight-extra-bold);
-        line-height: 1.4;
+        line-height: 1.3;
         margin: 0;
 
         @include respond(md) {
@@ -151,12 +209,20 @@
         }
 
         @include respond(sm) {
+            font-size: px-to-rem(20);
+        }
+
+        @include respond(xs) {
             font-size: px-to-rem(18);
         }
     }
 
     p {
         @include respond(sm) {
+            font-size: px-to-rem(16);
+        }
+
+        @include respond(xs) {
             font-size: px-to-rem(14);
         }
     }
@@ -165,21 +231,8 @@
         font-size: px-to-rem(20);
         font-weight: var(--font-weight-bold);
 
-        @include respond(sm) {
+        @include respond(xs) {
             font-size: px-to-rem(16);
         }
-    }
-
-    @include respond(md) {
-        justify-content: space-between;
-        width: 50%;
-        flex: 1 1 50%;
-    }
-
-    @include respond(sm) {
-        justify-content: flex-start;
-        width: 100%;
-        flex: auto;
-        gap: px-to-rem(24);
     }
 }
