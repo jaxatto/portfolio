@@ -31,6 +31,10 @@
         grid-template-rows: repeat(2, auto);
         gap: px-to-rem(8) px-to-rem(16);
 
+        li {
+            gap: px-to-rem(6);
+        }
+
         @include respond(sm) {
             grid-template-columns: 1fr;
         }

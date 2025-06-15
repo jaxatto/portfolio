@@ -15,7 +15,8 @@ export const caseStudies: CaseStudyCardProps[] = [
     linkUrl: '/case-study/servicenow',
     linkText: 'Read AI study',
     palette: 'primary',
-    layout: 'horizontal'
+    layout: 'horizontal',
+    iconFallback: 'ai',
   },
   {
     title: "Scaling clarity and consistency across Indeed's hiring platform",
@@ -25,7 +26,8 @@ export const caseStudies: CaseStudyCardProps[] = [
     linkUrl: '/case-study/indeed',
     linkText: 'Read system study',
     palette: 'secondary',
-    layout: 'vertical'
+    layout: 'vertical',
+    iconFallback: 'component',
   },
   {
     title: 'Improving data visibility for teams managing critical donation data',
@@ -35,7 +37,8 @@ export const caseStudies: CaseStudyCardProps[] = [
     linkUrl: '/case-study/actblue',
     linkText: 'Read integration study',
     palette: 'tertiary',
-    layout: 'vertical'
+    layout: 'vertical',
+    iconFallback: 'clouds',
   },
 ];
 
@@ -48,7 +51,12 @@ const CaseStudyGrid: React.FC<CaseStudyGridProps> = ({ caseStudies: studies }) =
   return (
     <div className={styles['work-grid']}>
       {data.map((props, i) => (
-        <CaseStudyCard key={props.linkUrl} {...props} count={i + 1} total={data.length} />
+        <CaseStudyCard 
+          key={props.linkUrl} 
+          {...props} 
+          count={i + 1} 
+          total={data.length} 
+        />
       ))}
     </div>
   );

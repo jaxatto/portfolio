@@ -13,8 +13,16 @@
       @include link-palette($palette);
     }
 
-    .image img {
-      box-shadow: 0 8px 48px 0 rgba(map.get($palette, link), $sample-shadow-opacity);
+    .case-study-image {
+      box-shadow: 0 0 px-to-rem(56) px-to-rem(16) rgba(map.get($palette, link), $sample-shadow-opacity);
+    }
+
+    .case-study-image-fallback {
+      background: map.get($palette, link);
+
+      svg {
+        fill: white;
+      }
     }
   }
 }
@@ -30,43 +38,47 @@
         max-height: px-to-rem(360);
     }
 
-    .image {
+    .case-study-image-wrapper {
         height: 100%;
+    }
 
-        img {
-            position: relative;
-            border-radius: px-to-rem(8);
-            object-fit: cover;
-            object-position: left top;
-            height: 100%;
-            width: 100%;
-        }
+    .case-study-image {
+        overflow: hidden;
+        position: relative;
+        border-radius: px-to-rem(8);
+        object-fit: cover;
+        object-position: left top;
+        height: 100%;
+        width: 100%;
     }
 
     &.vertical {
         flex-direction: column;
         
-        .image {
+        .case-study-image-wrapper {
             height: px-to-rem(280);
+        }
 
-            img {
-                left: px-to-rem(64);
-                top: px-to-rem(32);
-            }
+        .case-study-image {
+            left: px-to-rem(64);
+            top: px-to-rem(32);
         }
        
     }
 
     &.horizontal {
         flex-direction: row;
+        max-height: px-to-rem(360);
 
-        .image {
-            width: 50%;
-            flex: 1 1 50%;
+        .case-study-image-wrapper {
+            width: 45%;
+            flex: 1 1 45%;
         }
 
-        img {
-            top: px-to-rem(40);
+        .case-study-image {
+            top: px-to-rem(64);
+            left: px-to-rem(-16);
+            width: calc(100% + px-to-rem(16));;
         }
     }
 
@@ -75,16 +87,18 @@
 
         @include respond(md) {
             flex-direction: row;
+            max-height: px-to-rem(300);
 
-            .image {
+            .case-study-image-wrapper {
                 height: auto;
                 width: 50%;
                 flex: 1 1 50%;
+            }
 
-                img {
-                    left: 0;;
-                    top: px-to-rem(32);
-                }
+            .case-study-image {
+                left: px-to-rem(16);
+                top: px-to-rem(48);
+                aspect-ratio: 1;
             }
         }
 
@@ -92,19 +106,23 @@
             flex-direction: column;
             gap: px-to-rem(4);
 
-            .image {
+            .case-study-image-wrapper {
                 height: px-to-rem(280);
                 width: 100%;
                 flex: 1 1 100%;
+            }
 
-                img {
-                    max-width: 100%;
-                    left: px-to-rem(64);
-                    top: 0;
-                }
+            .case-study-image {
+                max-width: 100%;
+                left: px-to-rem(64);
+                top: 0;
             }
         }
     }
+}
+
+.case-study-image-fallback {
+    border-radius: 0;
 }
 
 .content {

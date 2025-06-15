@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from '@components/Link';
+import Image from '@components/Image';
 import styles from './CaseStudyCard.module.scss';
 
 export type CaseStudyCardProps = {
@@ -13,6 +14,7 @@ export type CaseStudyCardProps = {
   layout?: 'horizontal' | 'vertical';
   count?: number;
   total?: number;
+  iconFallback?: string;
 };
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
@@ -26,6 +28,8 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   layout = 'vertical',
   count,
   total,
+  iconFallback = 'pencilRuler',
+  
 }) => {
 
   return (
@@ -60,8 +64,16 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
           {linkText}
         </Link>
       </div>
-      <div className={styles.image}>
-        {typeof image === 'string' ? <img src={image} alt={imageAlt} /> : image}
+      <div className={styles['case-study-image-wrapper']}>
+        {typeof image === 'string'
+          ? <Image 
+              src={image} 
+              alt={imageAlt} 
+              iconFallback={iconFallback} 
+              className={styles['case-study-image']} 
+              fallbackClassName={styles['case-study-image-fallback']}
+            />
+          : image}
       </div>
     </div>
   );

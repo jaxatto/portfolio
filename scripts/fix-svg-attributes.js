@@ -15,6 +15,8 @@ function stripAndAddSvgAttributes(svgContent) {
       return `<svg${cleaned}>`;
     }
   );
+  // Remove fill="..." from all elements (e.g., <path>, <rect>, etc.)
+  updated = updated.replace(/\s*fill="[^"]*"/gi, '');
   return updated;
 }
 
