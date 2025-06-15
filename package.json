@@ -7,12 +7,12 @@
     "generate-index": "node scripts/generate-index-files.js",
     "generate-scss": "node scripts/generate-scss-files.js",
     "fix-svgs": "node scripts/fix-svg-attributes.js",
-    "all-scripts": "npm run generate-index && npm run generate-scss",
+    "build-scripts": "npm run generate-index",
     "generate:component": "node scripts/generate-component.js",
-    "dev": "npm run all-scripts && vite",
+    "dev": "npm run build-scripts && vite",
     "build": "vite build",
     "preview": "vite preview",
-    "predeploy": "vite build && cp CNAME dist/CNAME && npm run all-scripts",
+    "predeploy": "vite build && cp CNAME dist/CNAME && npm run build-scripts",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
