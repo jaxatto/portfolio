@@ -3,87 +3,49 @@
 
 // Palette modifiers
 @each $key, $palette in $sample-palettes {
-  :global(.#{$key}-card) {
-    background: map.get($palette, bg);
+    :global(.#{$key}-card) {
+        background: map.get($palette, bg);
 
-    a, svg {
-      @include link-palette($palette);
+        a,
+        svg {
+            @include link-palette($palette);
+        }
+
+        .case-study-component-wrapper {
+            box-shadow: 0 0 px-to-rem(56) px-to-rem(16) rgba(map.get($palette, link), $sample-shadow-opacity);
+        }
+
+        .case-study-image-fallback {
+            background: map.get($palette, link);
+
+            svg {
+                fill: var(--color-white);
+            }
+        }
     }
-
-    .case-study-component-wrapper {
-      box-shadow: 0 0 px-to-rem(56) px-to-rem(16) rgba(map.get($palette, link), $sample-shadow-opacity);
-    }
-
-    .case-study-image-fallback {
-      background: map.get($palette, link);
-
-      svg {
-        fill: var(--color-white);
-      }
-    }
-  }
 }
 
-// Case Study Card styles
+// Card base
 .card {
     display: grid;
-    grid-template-columns: 1fr minmax(0, auto); // content, then image
-    align-items: stretch; // ensure both columns stretch to the same row height
+    grid-template-columns: 1fr minmax(0, px-to-rem(400));
+    align-items: stretch;
     border-radius: px-to-rem(16);
     overflow: hidden;
     gap: px-to-rem(24);
 }
 
+// Orientation modifiers
 .horizontal {
     gap: 0;
-}
 
-.case-study-image-wrapper {
-    display: flex;
-    align-items: stretch;
-    height: 100%;
-    width: px-to-rem(400);
-    max-width: 100%;
-    position: relative;
-
-    @include respond(md) {
+    .case-study-image-wrapper {
         right: px-to-rem(-16);
+
+        @include respond(sm) {
+            right: auto;
+        }
     }
-}
-
-.case-study-component-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    border-radius: px-to-rem(8);
-    object-fit: cover;
-    object-position: left top;
-    bottom: px-to-rem(-56);
-
-    @include respond(md) {
-        bottom: px-to-rem(-40);
-    }
-
-    @include respond(sm) {
-        border-radius: px-to-rem(16);
-    }
-
-    @include respond(xs) {
-        border-radius: px-to-rem(8);
-    }
-}
-
-.case-study-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    object-position: top left;
-}
-
-.case-study-image-fallback {
-    border-radius: 0; // Remove default 50% border radius
 }
 
 .vertical {
@@ -107,35 +69,93 @@
     }
 }
 
-// On md: all cards are horizontal
-.card,
-.vertical, 
-.horizontal {
-  @include respond(md) {
-    grid-template-columns: 1fr minmax(0, auto);
-    grid-template-rows: 1fr;
-    gap: px-to-rem(16);
+// Image wrapper and image
+.case-study-image-wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    width: px-to-rem(400);
+    max-width: 100%;
+    position: relative;
 
-    .case-study-component-wrapper {
-        left: 0;
-        top: auto;
-        bottom: px-to-rem(-40);
+    @include respond(md) {
+        right: px-to-rem(-16);
     }
 
-    .case-study-image-wrapper {
-      width: px-to-rem(360);
-      height: 100%;
+    @include respond(sm) {
+        right: auto;
+        width: 100%;
+        height: auto;
+        padding: 0 px-to-rem(40);
     }
-
-    .text {
-        min-height: px-to-rem(148);
-    }
-  }
 }
 
-// On sm: all cards are vertical/stacked
+.case-study-component-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: px-to-rem(8);
+    object-fit: cover;
+    object-position: left top;
+    bottom: px-to-rem(-56);
+
+    @include respond(md) {
+        bottom: px-to-rem(-40);
+        left: 0;
+        top: auto;
+    }
+
+    @include respond(sm) {
+        border-radius: px-to-rem(16);
+        left: auto;
+        top: auto;
+        bottom: auto;
+    }
+
+    @include respond(xs) {
+        border-radius: px-to-rem(8);
+    }
+}
+
+.case-study-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: top left;
+}
+
+.case-study-image-fallback {
+    border-radius: 0;
+}
+
+// Responsive: horizontal on md, vertical on sm/xs
 .card,
-.vertical {
+.vertical,
+.horizontal {
+    @include respond(md) {
+        grid-template-columns: 1fr minmax(0, px-to-rem(400));
+        grid-template-rows: 1fr;
+        gap: px-to-rem(16);
+
+        .case-study-component-wrapper {
+            left: 0;
+            top: auto;
+            bottom: px-to-rem(-40);
+        }
+
+        .case-study-image-wrapper {
+            width: px-to-rem(480);
+            height: 100%;
+            padding: 0;
+        }
+
+        .text {
+            min-height: px-to-rem(148);
+        }
+    }
+
     @include respond(sm) {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
@@ -168,10 +188,7 @@
             min-height: 0;
         }
     }
-}
 
-.card,
-.vertical {
     @include respond(xs) {
         gap: px-to-rem(40);
 
@@ -195,7 +212,7 @@
     .text {
         display: flex;
         flex-direction: column;
-        gap: px-to-rem(8);    
+        gap: px-to-rem(8);
     }
 
     h3 {
