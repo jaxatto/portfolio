@@ -1,1 +1,1 @@
-export { default, caseStudies } from './CaseStudyGrid';
+export { default } from './CaseStudyGrid';

@@ -13,6 +13,8 @@
     position: relative;
     max-width: 50%;
     max-height: 50%;
+    height: 100%;
+    width: 100%;
     fill: var(--color-dark);
     opacity: 40%;
     top: (px-to-rem(-4));
