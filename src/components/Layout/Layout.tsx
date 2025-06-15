@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, metaDescription }) => 
   <div className={styles.wrapper}>
     <Meta title={title} metaDescription={metaDescription} />
     <Header />
-    <main id='main-content'>
+    <main id='main-content' tabIndex={-1}>
       {children}
     </main>
     <Footer />
