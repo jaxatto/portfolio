@@ -14,7 +14,7 @@ a {
     width: auto;
     flex: 0 1 auto;
     gap: px-to-rem(4);
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     svg {
         @include link-palette();
@@ -30,7 +30,7 @@ a {
         text-underline-offset: px-to-rem(6);
     }
 
-    &:focus {
+    &:focus-visible {
         text-decoration: none;
     }
 }

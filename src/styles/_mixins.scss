@@ -22,7 +22,7 @@
     }
   }
 
-  &:focus {
+  &:focus-visible {
     outline: px-to-rem(3) solid $link-color;
     outline-offset: px-to-rem(4);
     border-radius: px-to-rem(2);
