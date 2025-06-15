@@ -49,32 +49,37 @@
     }
 }
 
-.image-row {
+.lifestyle-image-row {
+    @extend .remove-ul-style;
     display: flex;
-    flex-direction: row;
-    gap: px-to-rem(24);
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+    gap: px-to-rem(16);
+
+    .lifestyle-line-item {
+        width: 100%;
+    }
+
+    .lifestyle-fallback-wrapper {
+        aspect-ratio: 1;
+        width: 100%;
+        height: 100%
+    }
     
     img {
-        flex: 1 1 0;
-        max-width: px-to-rem(240);
-        min-width: px-to-rem(160);
-        width: 100%;
+        display: flex;
         height: auto;
         object-fit: cover;
         border-radius: 50%;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1;
+        width: 100%;
+        height: 100%;
+    }
+
+    @include respond(sm) {
+        flex-wrap: wrap;
     }
 
     @include respond(xs) {
         flex-direction: column;
         gap: px-to-rem(16);
-
-        img {
-            max-width: 100%;
-        }
     }
 }

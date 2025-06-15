@@ -86,15 +86,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  svg {
-    position: relative;;
-    width: px-to-rem(100);
-    height: px-to-rem(100);
-    fill: var(--color-dark);
-    opacity: 40%;
-    top: (px-to-rem(-4));
-  }
 }
 
 .bubble {
