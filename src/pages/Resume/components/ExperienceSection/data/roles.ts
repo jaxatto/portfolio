@@ -1,6 +1,6 @@
-import { ResumeRoleProps } from '@components/ResumeRole';
+import { RoleProps } from '@pages/Resume/components/Role';
 
-export const roles: ResumeRoleProps[] = [
+export const roles: RoleProps[] = [
     {
         title: 'Staff Product Designer',
         company: 'ServiceNow',

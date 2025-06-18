@@ -1,5 +1,5 @@
 // filepath: /src/components/ResumeSectionRole/groupRoles.ts
-import { ResumeRoleProps } from '@components/ResumeRole';
+import { ResumeRoleProps } from '@pages/Resume/components/Role';
 
 export type GroupedRole = ResumeRoleProps | [ResumeRoleProps, ResumeRoleProps];
 

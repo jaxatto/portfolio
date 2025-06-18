@@ -1,9 +1,9 @@
 import React from 'react';
+import Role from '@pages/Resume/components/Role';
+import { groupRoles, GroupedRole } from './helpers/groupRoles';
+import { roles } from './data/roles';
+import logos from './data/logos';
 import styles from './ResumeSectionRole.module.scss';
-import { roles } from './roles';
-import logos from './logos';
-import ResumeRole from '@components/ResumeRole';
-import { groupRoles, GroupedRole } from './groupRoles';
 
 const groupedRoles: GroupedRole[] = groupRoles(roles);
 
@@ -18,7 +18,7 @@ const ResumeSectionRole: React.FC = () => (
               const LogoComponent = logos[role.logo as string];
               return (
                 <div key={`${role.company}-${role.title}-${role.startDate}-${visaIdx}`} className={styles.visaRole}>
-                  <ResumeRole
+                  <Role
                     {...role}
                     logo={LogoComponent ? <LogoComponent /> : null}
                   />
@@ -30,7 +30,7 @@ const ResumeSectionRole: React.FC = () => (
           (() => {
             const LogoComponent = logos[item.logo as string];
             return (
-              <ResumeRole
+              <Role
                 key={item.company + item.title}
                 {...item}
                 logo={LogoComponent ? <LogoComponent /> : null}
