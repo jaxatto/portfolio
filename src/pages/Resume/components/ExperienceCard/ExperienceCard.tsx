@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Role.module.scss';
+import styles from './ExperienceCard.module.scss';
 
-export type RoleProps = {
+export type ExperienceCardProps = {
   title: string;
   company: string;
   logo: React.ReactNode;
@@ -13,7 +13,7 @@ export type RoleProps = {
   className?: string;
 };
 
-const Role: React.FC<RoleProps> = ({
+const ExperienceCard: React.FC<ExperienceCardProps> = ({
   title,
   company,
   logo,
@@ -45,4 +45,4 @@ const Role: React.FC<RoleProps> = ({
   </div>
 );
 
-export default Role;
+export default ExperienceCard;

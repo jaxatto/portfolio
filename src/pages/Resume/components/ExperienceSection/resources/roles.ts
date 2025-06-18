@@ -1,6 +1,6 @@
-import { RoleProps } from '@pages/Resume/components/Role';
+import { ExperienceCardProps } from '@pages/Resume/components/ExperienceCard';
 
-export const roles: RoleProps[] = [
+export const roles: ExperienceCardProps[] = [
     {
         title: 'Staff Product Designer',
         company: 'ServiceNow',

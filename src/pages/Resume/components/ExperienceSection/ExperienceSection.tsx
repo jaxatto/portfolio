@@ -1,5 +1,5 @@
 import React from 'react';
-import Role from '@pages/Resume/components/Role';
+import Role from '@pages/Resume/components/ExperienceCard';
 import { groupRoles, GroupedRole } from './helpers/groupRoles';
 import { roles } from './resources/roles';
 import logos from './resources/logos';

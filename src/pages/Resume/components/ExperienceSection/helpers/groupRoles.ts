@@ -1,9 +1,9 @@
 // filepath: /src/components/ResumeSectionRole/groupRoles.ts
-import { ResumeRoleProps } from '@pages/Resume/components/Role';
+import { ExperienceCardProps } from '@pages/Resume/components/ExperienceCard';
 
-export type GroupedRole = ResumeRoleProps | [ResumeRoleProps, ResumeRoleProps];
+export type GroupedRole = ExperienceCardProps | [ExperienceCardProps, ExperienceCardProps];
 
-export function groupRoles(roles: ResumeRoleProps[]): GroupedRole[] {
+export function groupRoles(roles: ExperienceCardProps[]): GroupedRole[] {
   const grouped: GroupedRole[] = [];
   let i = 0;
   while (i < roles.length) {
