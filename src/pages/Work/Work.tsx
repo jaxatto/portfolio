@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@components/Layout';
 import DotsRow from '@components/DotsRow';
-import WorkBanner from '@components/WorkBanner';
+import Banner from '@pages/Work/components/Banner';
 import Grid from '@pages/Work/components/Grid';
 import styles from './Work.module.scss';
 
@@ -10,7 +10,7 @@ const Work: React.FC = () => (
         title="Jax Engel | Staff Product Designer – Figma, Systems, UX, Accessibility"
         metaDescription="Jax Engel is a remote staff product designer at ServiceNow, building accessible, scalable tools for enterprise and fintech. Experienced in systems, Figma, and working closely with engineering."
     >
-        <WorkBanner />
+        <Banner />
         
         <section>
             <div className={styles['work-intro-wrapper']}>

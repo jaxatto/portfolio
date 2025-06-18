@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from '@components/Image';
 import profileImg from '@assets/jax-engel-min.png';
-import styles from './WorkBanner.module.scss';
+import styles from './Banner.module.scss';
 
-const WorkBanner: React.FC = () => (
+const Banner: React.FC = () => (
   <section className={styles['banner-wrapper']}>
     <div className={styles.banner}>
       <div className={styles['image-wrapper']}>
@@ -31,4 +31,4 @@ const WorkBanner: React.FC = () => (
   </section>
 );
 
-export default WorkBanner;
+export default Banner;
