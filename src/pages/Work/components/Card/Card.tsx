@@ -2,9 +2,9 @@ import React from 'react';
 import Link from '@components/Link';
 import Image from '@components/Image';
 import Icon from '@components/Icon';
-import styles from './CaseStudyCard.module.scss';
+import styles from './Card.module.scss';
 
-export type CaseStudyCardProps = {
+export type CardProps = {
   title: string;
   description: [string, string?];  
   image: string | React.ReactNode;
@@ -18,7 +18,7 @@ export type CaseStudyCardProps = {
   iconFallback?: string;
 };
 
-const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
+const Card: React.FC<CardProps> = ({
   title,
   description,
   image,
@@ -79,4 +79,4 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   );
 };
 
-export default CaseStudyCard;
+export default Card;

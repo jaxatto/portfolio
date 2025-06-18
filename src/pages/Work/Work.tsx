@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@components/Layout';
 import DotsRow from '@components/DotsRow';
 import WorkBanner from '@components/WorkBanner';
-import CaseStudyGrid from '@components/CaseStudyGrid';
+import Grid from '@pages/Work/components/Grid';
 import styles from './Work.module.scss';
 
 const Work: React.FC = () => (
@@ -18,7 +18,7 @@ const Work: React.FC = () => (
                 <h2>Here are a few product challenges I've helped solve</h2>
             </div>
 
-            <CaseStudyGrid />
+            <Grid />
         </section>
     </Layout>
 );

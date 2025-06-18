@@ -1,9 +1,9 @@
-import { CaseStudyCardProps } from '@components/CaseStudyCard';
+import { CardProps } from '@pages/Work/components/Card';
 import primaryImage from '@assets/samples/placeholder-min.png';
 import secondaryImage from '@assets/samples/indeed-sample-min.png';
 import tertiaryImage from '@assets/samples/actblue-sample-min.png';
 
-export const caseStudies: CaseStudyCardProps[] = [
+export const content: CardProps[] = [
     {
     title: 'Designing an AI-driven tool to accelerate qualitative survey workflows',
     description: ['Product design', 'Enterprise'],

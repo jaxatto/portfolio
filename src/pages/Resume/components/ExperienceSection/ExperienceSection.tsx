@@ -1,9 +1,9 @@
 import React from 'react';
 import Role from '@pages/Resume/components/Role';
 import { groupRoles, GroupedRole } from './helpers/groupRoles';
-import { roles } from './data/roles';
-import logos from './data/logos';
-import styles from './ResumeSectionRole.module.scss';
+import { roles } from './resources/roles';
+import logos from './resources/logos';
+import styles from './ExperienceSection.module.scss';
 
 const groupedRoles: GroupedRole[] = groupRoles(roles);
 

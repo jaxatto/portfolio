@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ResumeRole.module.scss';
+import styles from './Role.module.scss';
 
 export type RoleProps = {
   title: string;
@@ -13,7 +13,7 @@ export type RoleProps = {
   className?: string;
 };
 
-const ResumeRole: React.FC<RoleProps> = ({
+const Role: React.FC<RoleProps> = ({
   title,
   company,
   logo,
@@ -45,4 +45,4 @@ const ResumeRole: React.FC<RoleProps> = ({
   </div>
 );
 
-export default ResumeRole;
+export default Role;
