@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 import { content } from './resources/content';
 
 const Header: React.FC = () => {
-    const location = useLocation();
+    useLocation(); // still needed for rerender on route change if Link uses it internally
 
     return (
         <header>
@@ -17,7 +17,6 @@ const Header: React.FC = () => {
                 <Link
                     to="/"
                     className={styles.link}
-                    aria-current={location.pathname === '/' ? 'page' : undefined}
                 >
                     {content.brand}
                 </Link>
@@ -26,19 +25,13 @@ const Header: React.FC = () => {
             </div>
             <nav>
                 <ul>
-                    {content.links.map((link, index) => {
-                        const isCurrent = location.pathname === link.url;
-                        return (
-                            <li key={index}>
-                                <Link
-                                    to={link.url}
-                                    aria-current={isCurrent ? 'page' : undefined}
-                                >
-                                    {link.name}
-                                </Link>
-                            </li>
-                        );
-                    })}
+                    {content.links.map((link, index) => (
+                        <li key={index}>
+                            <Link to={link.url}>
+                                {link.name}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </header>

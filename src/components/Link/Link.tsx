@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Icon from '@components/Icon';
 import styles from './Link.module.scss';
 
@@ -14,6 +14,7 @@ type LinkProps = {
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   ({ to, href, newTab, className, iconName, children, ...props }, ref) => {
+    const location = typeof window !== 'undefined' ? useLocation() : undefined;
     const content = (
       <>
         {children}
@@ -24,8 +25,16 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     const linkClass = className ? `${styles.link} ${className}` : styles.link;
 
     if (to) {
+      // Only add aria-current if location is available (i.e., in Router context)
+      const isCurrent = location && location.pathname === to;
       return (
-        <RouterLink to={to} className={linkClass} {...props} ref={ref as any}>
+        <RouterLink
+          to={to}
+          className={linkClass}
+          aria-current={isCurrent ? 'page' : undefined}
+          {...props}
+          ref={ref as any}
+        >
           {content}
         </RouterLink>
       );
