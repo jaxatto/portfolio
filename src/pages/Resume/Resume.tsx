@@ -5,15 +5,16 @@ import ExperienceSection from '@pages/Resume/components/ExperienceSection';
 import SkillsSection from '@pages/Resume/components/SkillsSection';
 import Footer from '@pages/Resume/components/Footer';
 import styles from './Resume.module.scss';
+import { meta } from '@pages/Work/resources/meta';
 
 
 const Resume: React.FC = () => (
   <Layout
-    title="Jax Engel – Resume | Staff Product Designer"
-    metaDescription="View the resume of Jax Engel, a staff-level product designer with 10+ years of experience in enterprise UX, design systems, accessibility, and internal tools."
+    title={meta.title}
+    metaDescription={meta.description}
     showFooter={false}
   >
-    <div className={styles['resume-container']}>
+    <div className={styles.wrapper}>
       <Header />
 
       <ExperienceSection />
