@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '@components/Link';
-import DotsRow from '@components/DotsRow';
+import DotsRow from '@components/Divider';
 import styles from './Footer.module.scss';
 
 const Footer: React.FC = () => {

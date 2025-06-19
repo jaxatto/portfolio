@@ -1,7 +1,7 @@
 @use '@styles/all' as *;
 
 // Dots used in footer and other components
-.dots-row {
+.wrapper {
     display: flex;
     justify-content: center;
     gap: px-to-rem(8);
@@ -15,13 +15,15 @@
     }
 }
 
-.dots-row--lines {
+.section-divider-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: px-to-rem(8);
+  padding: px-to-rem(32) 0;
+}
 
-  .line {
+.line {
     flex: 1 1 px-to-rem(40);
     height: px-to-rem(1);
     background: var(--color-light);
@@ -31,8 +33,3 @@
       display: none;
     } 
   }
-}
-
-.section-divider {
-    padding: px-to-rem(32) 0;
-}

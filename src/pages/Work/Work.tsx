@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '@components/Layout';
-import DotsRow from '@components/DotsRow';
+import DotsRow from '@components/Divider';
 import Banner from '@pages/Work/components/Banner';
 import Grid from '@pages/Work/components/Grid';
 import styles from './Work.module.scss';

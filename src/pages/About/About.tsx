@@ -1,68 +1,56 @@
 import React from 'react';
 import Layout from '@components/Layout';
-import DotsRow from '@components/DotsRow';
+import Divider from '@components/Divider';
 import Image from '@components/Image';
+import { images } from './resources/images';
+import { content } from './resources/content';
+import { meta } from './resources/meta';
 import styles from './About.module.scss';
-
-import primaryImage from '@assets/about/primary-image-min.png';
-import secondaryImage from '@assets/about/secondary-image-min.png';
-import tertiaryImage from '@assets/about/tertiary-image-min.png';
-
-const lifeStyleImages = [
-  {
-    src: primaryImage,
-    alt: 'A cat named Midna rests on a person\'s arm at a computer desk, nestled beside a keyboard, coffee mug, and monitor. Midna the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
-    iconFallback: 'cat',
-    altFallback: 'A cat icon as fallback for the image of Midna the cat.',
-  },
-  {
-    src: secondaryImage,
-    alt: 'A black dog named Kirby lies on a couch with its head resting on a brightly colored video game controller. Kirby is a very lazy rescue dog.',
-    iconFallback: 'controller',
-    altFallback: 'A controller icon as fallback for the image of Kirby the dog.',
-  },
-  {
-    src: tertiaryImage,
-    alt: 'A gray cat named Beauregard sits upright on a bed, wearing a pink bow collar with a fish-shaped name tag. The bow has little black skulls on it, because Beau is a little punk rock. Beau is also a rescue.',
-    iconFallback: 'paw',
-    altFallback: 'A paw icon as fallback for the image of Beauregard the cat.',
-  },
-];
 
 const About: React.FC = () => (
   <Layout
-    title="About Jax Engel – Enterprise UX, Fintech, Internal Tools"
-    metaDescription="Jax Engel is a staff-level product designer specializing in enterprise UX, fintech, and internal tools. Figma expert with deep experience in design systems, accessibility, and cross-functional collaboration."
+    title={meta.title}
+    metaDescription={meta.description}
   >
     <div className={styles['about-wrapper']}>
       <section>
         <div className={styles['top-section']}>
-          <h1 className="heading-large"><span aria-hidden="true">🦄</span> About me</h1>
+          <h1 className="heading-large">
+            <span aria-hidden="true">{content.header.headingEmoji}</span> {content.header.heading}
+          </h1>
           <ul>
-            <li><span aria-hidden="true">📆</span> 10+ years product design</li>
-            <li><span aria-hidden="true">🏗</span> Design systems leadership</li>
-            <li><span aria-hidden="true">♿</span> Accessibility advocacy</li>
-            <li><span aria-hidden="true">🤝</span> Cross-functional collaboration</li>
+            {content.header.bullets.map((bullet, i) => (
+              <li key={i}>
+                <span aria-hidden="true">{bullet.emoji}</span> {bullet.text}
+              </li>
+            ))}
           </ul>
         </div>
-        <DotsRow variant='lines' divider className={styles.divider} />
-        <p>I design accessible, scalable experiences that make complex tools feel straightforward. My work spans fintech, internal tools, and enterprise platforms, with a focus on making complex workflows easier to navigate. I'm currently at ServiceNow, where I help internal teams design and build tools that are practical, intuitive, and easy to maintain.</p>
+        <Divider variant='section-divider' className={styles.divider} />
+        <p>{content.header.description}</p>
       </section>
       <section className={styles['how-section']}>
-        <h2><span aria-hidden="true">🧠</span> How I work</h2>
-        <p>I lead projects from beginning to end, from shaping the problem to shipping the solution. By staying close to the details, I ensure accessibility and consistency at every step.</p>
-        <p>I'm at my best in collaborative, technical environments, partnering closely with engineers to sweat the details but also keep projects moving quickly. My code background and experience with AI tools help teams stay unblocked, while mentoring designers and contributing to system-level patterns helps us scale good decisions.</p>
+        <h2>
+          <span aria-hidden="true">{content.how.headingEmoji}</span> {content.how.heading}
+        </h2>
+        {content.how.description.map((desc, i) => (
+          <p key={i}>{desc}</p>
+        ))}
       </section>
       <section>
-        <h2><span aria-hidden="true">✨</span> A little more</h2>
-        <p>I live in Fort Worth, Texas with my partner and our four pets (our cat Midna insists she is the project manager). I love narrative-heavy games, deep dives into Zelda timelines, and finding ways to improve workflows that make other people's jobs easier.</p>
+        <h2>
+          <span aria-hidden="true">{content.more.headingEmoji}</span> {content.more.heading}
+        </h2>
+        {content.more.description.map((desc, i) => (
+          <p key={i}>{desc}</p>
+        ))}
       </section>
       <section>
         <ul className={styles['lifestyle-image-row']}>
           <span className="sr-only">
-            Meet my pets! Midna, Kirby, Beauregard, and Zelda. Because I work remote, they're always around and up to no good (but are very cute).
+            {content.images.srOnly.intro}
           </span>
-          {lifeStyleImages.map((img, i) => (
+          {images.map((img, i) => (
             <li key={i} className={styles['lifestyle-line-item']}  >
               <Image
                 src={img.src}
@@ -75,7 +63,7 @@ const About: React.FC = () => (
             </li>
           ))}
           <span className="sr-only">
-            Zelda, the black cat, is not pictured because she was sleeping somewhere.
+            {content.images.srOnly.outro}
           </span>
         </ul>
       </section>
