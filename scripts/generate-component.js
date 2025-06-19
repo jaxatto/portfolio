@@ -1,22 +1,39 @@
 const fs = require('fs');
 const path = require('path');
 
-const componentName = process.argv[2];
+const input = process.argv[2];
 
-if (!componentName) {
-  console.error('Please provide a component name: node generate-component.js MyComponent');
+if (!input) {
+  console.error('Please provide a component path: node generate-component.js [ComponentName] or [Page/ComponentName]');
   process.exit(1);
 }
 
-const baseDir = path.resolve(__dirname, '../src/components');
-const componentDir = path.join(baseDir, componentName);
+// Support nested paths like Resume/components/SkillCard or just SkillCard
+const parts = input.split(/[\\/]/).filter(Boolean);
+const componentName = parts[parts.length - 1];
+const subDir = parts.slice(0, -1).join('/');
 
-if (fs.existsSync(componentDir)) {
-  console.error(`Component folder "${componentName}" already exists.`);
-  process.exit(1);
+const baseDir = path.resolve(__dirname, '../src');
+let componentDir;
+
+if (subDir) {
+  if (subDir.startsWith('components') || subDir.startsWith('pages')) {
+    componentDir = path.join(baseDir, subDir, componentName);
+  } else {
+    const [maybePage, ...rest] = subDir.split('/');
+    if (fs.existsSync(path.join(baseDir, 'pages', maybePage))) {
+      componentDir = path.join(baseDir, 'pages', maybePage, 'components', ...rest, componentName);
+    } else {
+      componentDir = path.join(baseDir, 'components', subDir, componentName);
+    }
+  }
+} else {
+  componentDir = path.join(baseDir, 'components', componentName);
 }
 
-fs.mkdirSync(componentDir);
+const tsxFile = path.join(componentDir, `${componentName}.tsx`);
+const scssFile = path.join(componentDir, `${componentName}.module.scss`);
+const indexFile = path.join(componentDir, `index.ts`);
 
 const tsxContent = `import React from 'react';
 import styles from './${componentName}.module.scss';
@@ -38,8 +55,30 @@ const scssContent = `.wrapper {
 const indexContent = `export { default } from './${componentName}';
 `;
 
-fs.writeFileSync(path.join(componentDir, `${componentName}.tsx`), tsxContent);
-fs.writeFileSync(path.join(componentDir, `${componentName}.module.scss`), scssContent);
-fs.writeFileSync(path.join(componentDir, `index.ts`), indexContent);
-
-console.log(`Component "${componentName}" created at src/components/${componentName}`);
+if (!fs.existsSync(componentDir)) {
+  fs.mkdirSync(componentDir, { recursive: true });
+  fs.writeFileSync(tsxFile, tsxContent);
+  fs.writeFileSync(scssFile, scssContent);
+  fs.writeFileSync(indexFile, indexContent);
+  console.log(`Component "${componentName}" created at ${componentDir.replace(baseDir + '/', '')}`);
+} else {
+  let created = false;
+  if (!fs.existsSync(tsxFile)) {
+    fs.writeFileSync(tsxFile, tsxContent);
+    console.log(`Added missing file: ${tsxFile.replace(baseDir + '/', '')}`);
+    created = true;
+  }
+  if (!fs.existsSync(scssFile)) {
+    fs.writeFileSync(scssFile, scssContent);
+    console.log(`Added missing file: ${scssFile.replace(baseDir + '/', '')}`);
+    created = true;
+  }
+  if (!fs.existsSync(indexFile)) {
+    fs.writeFileSync(indexFile, indexContent);
+    console.log(`Added missing file: ${indexFile.replace(baseDir + '/', '')}`);
+    created = true;
+  }
+  if (!created) {
+    console.log(`Component folder "${componentDir.replace(baseDir + '/', '')}" already exists and all files are present.`);
+  }
+}

@@ -1,7 +1,9 @@
 import React from 'react';
 import Layout from '@components/Layout';
-// import Icon from '@components/Icon';
-import ResumeSectionRole from '@pages/Resume/components/ExperienceSection/ExperienceSection';
+import Header from '@pages/Resume/components/Header';
+import ExperienceSection from '@pages/Resume/components/ExperienceSection';
+import SkillsSection from '@pages/Resume/components/SkillsSection';
+import Footer from '@pages/Resume/components/Footer';
 import styles from './Resume.module.scss';
 
 
@@ -12,23 +14,13 @@ const Resume: React.FC = () => (
     showFooter={false}
   >
     <div className={styles['resume-container']}>
-      <h1 className="sr-only">Resume page</h1>
+      <Header />
 
-      <section>
-        <h2>Jax Engel</h2>
-        <p>Bridging the gap between design, code, and collaboration.</p>
-
-        <p>Looking for a unicorn? 🦄</p>
-        {/* <button>Get my resume <Icon name="arrow-right" /></button> */}
-      </section>
-
-      <section id="experience">
-        <ResumeSectionRole />
-      </section>
+      <ExperienceSection />
       
-      <section className={styles.skills}>
-        
-      </section>
+      <SkillsSection />
+
+      <Footer />
     </div>
   </Layout>
 );
