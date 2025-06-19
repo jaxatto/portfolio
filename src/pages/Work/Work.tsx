@@ -1,21 +1,23 @@
 import React from 'react';
 import Layout from '@components/Layout';
-import DotsRow from '@components/Divider';
+import Divider from '@components/Divider';
 import Banner from '@pages/Work/components/Banner';
 import Grid from '@pages/Work/components/Grid';
+import { content } from '@pages/Work/resources/content';
+import { meta } from '@pages/Work/resources/meta';
 import styles from './Work.module.scss';
 
 const Work: React.FC = () => (
     <Layout
-        title="Jax Engel | Staff Product Designer – Figma, Systems, UX, Accessibility"
-        metaDescription="Jax Engel is a remote staff product designer at ServiceNow, building accessible, scalable tools for enterprise and fintech. Experienced in systems, Figma, and working closely with engineering."
+        title={meta.title}
+        metaDescription={meta.description}
     >
         <Banner />
         
         <section>
             <div className={styles['work-intro-wrapper']}>
-                <DotsRow />
-                <h2>Here are a few product challenges I've helped solve</h2>
+                <Divider />
+                <h2>{content.workIntro}</h2>
             </div>
 
             <Grid />
