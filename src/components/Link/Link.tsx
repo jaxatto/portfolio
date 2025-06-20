@@ -9,11 +9,12 @@ type LinkProps = {
   newTab?: boolean;
   className?: string;
   iconName?: string;
+  styleAs?: 'link' | 'button';
   children: React.ReactNode;
 } & React.RefAttributes<HTMLAnchorElement>;
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ to, href, newTab, className, iconName, children, ...props }, ref) => {
+  ({ to, href, newTab, className, iconName, styleAs = 'link', children, ...props }, ref) => {
     const location = typeof window !== 'undefined' ? useLocation() : undefined;
     const content = (
       <>
@@ -22,10 +23,14 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       </>
     );
 
-    const linkClass = className ? `${styles.link} ${className}` : styles.link;
+    // Add styles.button if styleAs is 'button'
+    const linkClass = [
+      styles.link,
+      styleAs === 'button' ? styles.button : '',
+      className
+    ].filter(Boolean).join(' ');
 
     if (to) {
-      // Only add aria-current if location is available (i.e., in Router context)
       const isCurrent = location && location.pathname === to;
       return (
         <RouterLink
@@ -40,7 +45,6 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       );
     }
 
-    // Validate external href
     const safeHref = href && (
       (href.startsWith('/') && !href.startsWith('//')) ||
       href.startsWith('https://jaxengeldesign.com')

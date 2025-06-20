@@ -1,10 +1,9 @@
 @use '@styles/all' as *;
-@use 'sass:color';
-@use 'sass:map';
+@use 'sass:map'; 
 
 a {
-    @include link-palette();
-    text-underline-offset: px-to-rem(6);
+    @include group-palette();
+    text-underline-offset: 0.3em;
     font-family: $font-heading;
     font-weight: var(--font-weight-extra-bold);
     margin: 0;
@@ -13,24 +12,53 @@ a {
     align-items: center;
     width: auto;
     flex: 0 1 auto;
-    gap: px-to-rem(4);
+    gap: 0.2em;
     transition: all 0.3s ease-in-out;
+    ;
 
     svg {
-        @include link-palette();
+        @include group-palette();
         width: 1em;
         height: 1em;
         position: relative;
         transition: fill 0.3s ease-in-out;
-        top: px-to-rem(1);
+        top: 0.05em;
     }
 
     &:hover, &:active {
         text-decoration: underline;
-        text-underline-offset: px-to-rem(6);
+        text-underline-offset: 0.5em;
     }
 
     &:focus-visible {
         text-decoration: none;
     }
+}
+
+.button {
+    display: flex;
+    align-self: flex-start;
+    padding: spacing(200) spacing(400);
+    border-radius: radius(150);
+    text-decoration: none;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    line-height: var(--line-height-200);
+    font-size: font-size(150);
+    font-weight: var(--font-weight-bold);
+
+    &:hover, &:active {
+        text-decoration: none;
+        color: var(--color-white);
+
+        svg {
+            fill: var(--color-white);
+        }
+    }
+
+    svg {
+        fill: var(--color-white);
+    }
+
+    @include interactive-states(map.get($main-colors, primary));
 }

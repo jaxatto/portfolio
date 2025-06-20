@@ -68,15 +68,7 @@ nav ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: px-to-rem(8);
-
-    .byline {
-        font-size: px-to-rem(14);
-
-        @include respond(xs) {
-            font-size: px-to-rem(12);
-        }
-    }
+    gap: 0.3em;
 
     @include respond(sm) {
         align-items: center;
@@ -88,6 +80,10 @@ nav ul {
             color: var(--color-dark);
         }
     }
+}
+
+.byline {
+    @extend .caption-md;
 }
 
 .skip-link {

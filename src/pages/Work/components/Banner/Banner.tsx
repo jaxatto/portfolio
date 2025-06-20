@@ -17,8 +17,8 @@ const Banner: React.FC = () => (
         <span className={styles.bubble} aria-hidden="true">{content.emoji}</span>
       </div>                    
       <div className={styles.text}>
-        <h1 className='heading-large'>{content.heading}</h1>
-        <p className='body-large' aria-hidden="true">
+        <h1 className={styles.heading}>{content.heading}</h1>
+        <p className={styles.description} aria-hidden="true">
           {content.description.map((part, i) =>
             part.type === "underline" ? (
               <span key={i} className={styles.underline}>{part.value}</span>

@@ -18,20 +18,28 @@ footer {
         gap: px-to-rem(40);
     }
 
-    .text {
-        display: flex;
-        flex-direction: column;
-        gap: px-to-rem(16);
-
-        @include respond(sm) {
-            flex: auto;
-        }
-    }
-
     @include respond(sm) {
         align-items: center;
         text-align: center;
     }
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: px-to-rem(16);
+
+    @include respond(sm) {
+        flex: auto;
+    }
+}
+
+.title {
+    @extend .title-md;
+}
+
+.description {
+    @extend .body-lg;
 }
 
 .footer-links {

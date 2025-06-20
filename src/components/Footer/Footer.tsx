@@ -10,8 +10,8 @@ const Footer: React.FC = () => {
 
             <div className={styles['footer-wrapper']}>
                 <div className={styles.text}>
-                    <h2 className='heading-large'>Let's work together</h2>
-                    <p className='body-large'>I'm exploring staff-level roles on teams solving complex product challenges.</p>
+                    <h2 className={styles.title}>Let's work together</h2>
+                    <p className={styles.description}>I'm exploring staff-level roles on teams solving product problems at scale.</p>
                 </div>
                 <div className={styles['footer-links']}>
                     <Link

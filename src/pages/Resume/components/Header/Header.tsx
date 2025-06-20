@@ -7,11 +7,11 @@ const Header: React.FC = () => (
   <section className={styles.wrapper}>
     <h1 className="sr-only">{content.h1}</h1>
     
-    <h2>{content.heading}</h2>
-    <p>{content.description}</p>
+    <h2 className={styles['page-title']}>{content.heading}</h2>
+    <p className={styles.description}>{content.description}</p>
 
-    <p>{content.byline}</p>
-    <Link href={content.buttonHref} className={styles.resumeLink}>
+    <p className={styles.byline}>{content.byline}</p>
+    <Link href={content.buttonHref} className={styles.button} iconName="arrow-right" styleAs="button">
       {content.buttonLabel}
     </Link>
   </section>

@@ -3,7 +3,7 @@
 @use 'sass:color';
 
 // Palette modifiers
-@each $key, $palette in $sample-palettes {
+@each $key, $palette in $group-palettes {
     :global(.#{$key}-card) {
         background: map.get($palette, bg);
 

@@ -15,7 +15,7 @@ const About: React.FC = () => (
     <div className={styles['about-wrapper']}>
       <section>
         <div className={styles['top-section']}>
-          <h1 className="heading-large">
+          <h1 className="title-md">
             <span aria-hidden="true">{content.header.headingEmoji}</span> {content.header.heading}
           </h1>
           <ul>

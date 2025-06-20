@@ -1,6 +1,10 @@
 @use 'sass:map';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Manrope:wght@400;500&display=swap');
 
+/* ---------------------------------- */
+/* -------- Color variables --------- */
+/* ---------------------------------- */
+
 // Main color palette
 $main-colors: (
     primary:      #6F42C1,
@@ -11,36 +15,69 @@ $main-colors: (
     placeholder:  #CBD3DE
 );
 
-// Sample section palettes
-$sample-palettes: (
+// Group palettes
+$group-palettes: (
     primary: (
+        title: #30008B,
+        chipText: #340096,
         link: #5220AC,
         bg:   #E1D1FF
     ),
     secondary: (
+        title: #00098A,
+        chipText: #070D6D,
         link: #343AA8,
         bg:   #CFD2FF
     ),
     tertiary: (
+        title: #005475,
+        chipText: #00435D,
         link: #01628A,
         bg:   #D1F2FF
-    )
+    ),
 );
 $sample-shadow-opacity: 0.32;
 
-// Font weights defined for semantic naming
-$font-weights: (
-    regular: 400,
-    medium: 500,
-    bold: 700,
-    extra-bold: 800,
-    "black": 900
+$states-lightness: (
+    hover: -12%,
+    pressed: -24%,
 );
 
-// Font variables
-$font-heading: 'Inter', Arial, sans-serif;
-$font-body: 'Manrope', Arial, sans-serif;
-$body-font-size: px-to-rem(24);
+// Gradients
+$gradients: (
+    primary: linear-gradient(78deg, #1E0095 9.5%, #A152FB 88.75%),
+);
+
+
+/* ---------------------------------- */
+/* --------- Size variables --------- */
+/* ---------------------------------- */
+
+// Padding and margin sizes
+$spacing: (
+    none: 0,
+    50: 4,
+    75: 6,
+    100: 8,
+    150: 12,
+    200: 16,
+    300: 24,
+    400: 32,
+    500: 48,
+    600: 56,
+    700: 64,
+    925: 104,
+);
+
+$radius: (
+    none: 0,
+    50: 2,
+    100: 4,
+    150: 6,
+    200: 8,
+    300: 12,
+    400: 16,
+);
 
 // Breakpoints for responsive design
 $breakpoints: (
@@ -53,5 +90,44 @@ $breakpoints: (
 $wrapper-widths: (
   content: 600,
   site: 960
+);
+
+/* ---------------------------------- */
+/* ------ Typography variables ------ */
+/* ---------------------------------- */
+
+// Families
+$font-heading: 'Inter', Arial, sans-serif;
+$font-body: 'Manrope', Arial, sans-serif;
+
+// Sizes
+$font-size : (
+    50: 12,
+    75: 14,
+    100: 16,
+    125: 18,
+    150: 20,
+    200: 24,
+    300: 32,
+    400: 40,
+    500: 56,
+);
+$base-font-size: map.get($font-size, 100);
+
+// Line heights
+$line-height: (
+    100: 1.3,
+    200: 1.4,
+    300: 1.5,
+    400: 1.6,
+);
+
+// Weights
+$font-weights: (
+    regular: 400,
+    medium: 500,
+    bold: 700,
+    extra-bold: 800,
+    "black": 900
 );
 

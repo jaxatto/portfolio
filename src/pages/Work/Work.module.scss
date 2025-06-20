@@ -9,8 +9,7 @@
     text-align: center;
 
     h2 {
-        @extend .body-large;
+        @extend .body-lg;
         font-weight: var(--font-weight-regular);
-        font-family: $font-body;
     }
 }

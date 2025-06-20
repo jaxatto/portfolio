@@ -1,37 +1,72 @@
 @use './variables' as *;
 @use 'sass:math';
 @use 'sass:map';
+@use 'sass:color';
+@use 'sass:meta';
 
-// This file contains utility functions
+/* ---------------------------------- */
+/* -------- Color functions --------- */
+/* ---------------------------------- */
 
-@function px-to-rem($px, $base: 16) {
+// Adjust the lightness of a color
+@function change-lightness($color, $lightness) {
+  $amount: if(map.has-key($states-lightness, $lightness), map.get($states-lightness, $lightness), 0%);
+  @return color.adjust($color, $lightness: $amount);
+}
+
+/* ---------------------------------- */
+/* --------- Size functions --------- */
+/* ---------------------------------- */
+
+// Change pixels to rem
+@function px-to-rem($px, $base: $base-font-size) {
+  // Accepts only a number (pixel value)
   @return math.div($px, $base) * 1rem;
 }
 
-@mixin respond($breakpoint) {
-  $value: map.get($breakpoints, $breakpoint);
-  @if $value {
-    @media (max-width: #{math.div($value, 16)}rem) {
-      @content;
-    }
+@function token-to-rem($map, $key, $base: $base-font-size) {
+  @if not map.has-key($map, $key) {
+    @error "Key `#{$key}` not found in map.";
   }
+  $px: map.get($map, $key);
+  @return px-to-rem($px, $base);
 }
+
+@function font-size($key, $base: $base-font-size) {
+  @return token-to-rem($font-size, $key, $base);
+}
+@function spacing($key, $base: $base-font-size) {
+  @return token-to-rem($spacing, $key, $base);
+}
+@function radius($key, $base: $base-font-size) {
+  @return token-to-rem($radius, $key, $base);
+}
+
+
+
+/* ---------------------------------- */
+/* -------- Output functions -------- */
+/* ---------------------------------- */
 
 // Output CSS variables for each color
 :root {
     @each $name, $value in $main-colors {
         --color-#{$name}: #{$value};
     }
-    // Sample palettes
-    @each $palette, $colors in $sample-palettes {
+    // Group palettes
+    @each $palette, $colors in $group-palettes {
         @each $role, $value in $colors {
-            --sample-#{$palette}-#{$role}: #{$value};
+            --group-#{$palette}-#{$role}: #{$value};
         }
         // Add shadow variable dynamically
-        --sample-#{$palette}-shadow: #{rgba(map.get($colors, link), $sample-shadow-opacity)};
+        --group-#{$palette}-shadow: #{rgba(map.get($colors, link), $sample-shadow-opacity)};
     }
     // Font weights
     @each $name, $value in $font-weights {
         --font-weight-#{$name}: #{$value};
+    }
+    // Line heights
+    @each $name, $value in $line-height {
+        --line-height-#{$name}: #{$value};
     }
 }

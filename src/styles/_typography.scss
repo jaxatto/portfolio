@@ -1,5 +1,6 @@
 @use './variables' as *;
 @use './functions' as *;
+@use './mixins' as *;
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -9,54 +10,124 @@ html {
 body {
     color: var(--color-dark);
     font-family: $font-body;
+    line-height: var(--line-height-300);
 }
 
-h1, h2, h3, h4, h5, h6, a, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
     margin: 0;
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+// Title
+.title-lg {
     font-family: $font-heading;
+    line-height: var(--line-height-100);
+    font-size: font-size(500);
+    font-weight: var(--font-weight-black);
+}
+
+.title-md {
+    font-family: $font-heading;
+    font-size: font-size(400);
+    line-height: var(--line-height-200);
+    font-weight: var(--font-weight-extra-bold);
+
+    @include respond(sm) {
+        font-size: font-size(300);
+    }
+
+    @include respond(xs) {
+        font-size: font-size(200);
+    }
+}
+
+// Heading
+.heading-lg {
+    font-family: $font-heading;
+    font-size: font-size(300);
+    line-height: var(--line-height-100);
     font-weight: var(--font-weight-extra-bold);
 }
 
-p, .body-medium {
-    line-height: 1.6;
-    font-size: px-to-rem(20);
+.heading-md {
+    font-family: $font-heading;
+    font-size: font-size(200);
+    line-height: var(--line-height-100);
+    font-weight: var(--font-weight-extra-bold);
 
     @include respond(xs) {
-        font-size: px-to-rem(16);
+        font-size: font-size(150);
     }
 }
 
-.heading-large {
-    font-size: px-to-rem(40);
-    
+.heading-md-bold {
+    @extend .heading-md;
+    font-weight: var(--font-weight-bold);
+}
+
+// Body 
+.body-lg {
+    font-family: $font-body;
+    font-size: font-size(200);
+    line-height: var(--line-height-200);
+    font-weight: var(--font-weight-regular);
+
     @include respond(sm) {
-        font-size: px-to-rem(32);
+        font-size: font-size(150);
     }
+}
+
+.body-md {
+    font-family: $font-body;
+    font-size: font-size(150);
+    line-height: var(--line-height-400);
+    font-weight: var(--font-weight-regular);
+}
+
+.body-md-bold, .body-md-link {
+    @extend .body-md;
+    font-weight: var(--font-weight-bold);
+}
+
+.body-sm {
+    font-family: $font-body;
+    font-size: font-size(125);
+    line-height: var(--line-height-300);
+    font-weight: var(--font-weight-regular);
 
     @include respond(xs) {
-        font-size: px-to-rem(24);
+        font-size: font-size(100);
     }
 }
 
-.body-large, .heading-small {
-    font-size: px-to-rem(24);
-    line-height: 1.5;
+.body-sm-bold, .body-sm-link {
+    @extend .body-sm;
+    font-weight: var(--font-weight-bold);
+}   
 
-    @include respond(xs) {
-        font-size: px-to-rem(16);
-    }
+// Other
+.caption-md {
+    font-family: $font-body;
+    font-size: font-size(75);
+    line-height: var(--line-height-100);
+    font-weight: var(--font-weight-regular);
 }
 
-.body-large {
-    @include respond(sm) {
-        font-size: px-to-rem(20);
-    }
+.caption-sm {
+    font-family: $font-body;
+    font-size: font-size(50);
+    line-height: var(--line-height-100);
+    font-weight: var(--font-weight-medium);
 }
 
+// Lists
 .remove-ul-style {
     list-style: none;
     padding: 0;

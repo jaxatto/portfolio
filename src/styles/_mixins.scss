@@ -3,30 +3,77 @@
 @use 'sass:color';
 @use 'sass:map';
 
+/* ---------------------------------- */
+/* --------- States mixins ---------- */
+/* ---------------------------------- */
+
+// Hover style
+@mixin hover($color, $inverse: false) {
+  &:hover {
+    @if $inverse {
+      background-color: change-lightness($color, hover);
+      color: #fff;
+      fill: #fff;
+      // No border change
+    } @else {
+      color: change-lightness($color, hover);
+      fill: change-lightness($color, hover);
+      border-color: change-lightness($color, hover);
+    }
+  }
+}
+
+// Pressed (active) style
+@mixin pressed($color, $inverse: false) {
+  &:active {
+    @if $inverse {
+      background-color: change-lightness($color, pressed);
+      color: #fff;
+      fill: #fff;
+      // No border change
+    } @else {
+      color: change-lightness($color, pressed);
+      fill: change-lightness($color, pressed);
+      border-color: change-lightness($color, pressed);
+    }
+  }
+}
+
+// Focus style
+@mixin focus($color, $inverse: false) {
+  &:focus-visible {
+    @if $inverse {
+      outline: px-to-rem(3) solid #fff;
+      background-color: $color;
+      color: #fff;
+      fill: #fff;
+    } @else {
+      outline: px-to-rem(3) solid $color;
+      outline-offset: px-to-rem(4);
+      border-radius: px-to-rem(2);
+    }
+  }
+}
+
+// Combined interactive states
+@mixin interactive-states($color, $inverse: false) {
+  @include hover($color, $inverse);
+  @include pressed($color, $inverse);
+  @include focus($color, $inverse);
+}
+
+/* ---------------------------------- */
+/* ---------- Other mixins ---------- */
+/* ---------------------------------- */
+
 // Get palette colors and apply to links
-@mixin link-palette($palette: null, $hover: true) {
+@mixin group-palette($palette: null, $hover: true) {
   $link-color: if($palette != null, map.get($palette, link), map.get($main-colors, primary));
 
   color: $link-color;
   fill: $link-color;
 
-  @if $hover {
-    &:hover {
-      color: color.adjust($link-color, $lightness: -16%);
-      fill: color.adjust($link-color, $lightness: -16%);
-    }
-
-    &:active {
-      color: color.adjust($link-color, $lightness: -32%);
-      fill: color.adjust($link-color, $lightness: -32%);
-    }
-  }
-
-  &:focus-visible {
-    outline: px-to-rem(3) solid $link-color;
-    outline-offset: px-to-rem(4);
-    border-radius: px-to-rem(2);
-  }
+  @include interactive-states($link-color)
 }
 
 // Get wrapper sizes and assign max widths for common use
@@ -38,3 +85,14 @@
     margin: 0 auto;
   }
 }
+
+// Easily include breakpoints in classes
+@mixin respond($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+  @if $value {
+    @media (max-width: #{px-to-rem($value)}) {
+      @content;
+    }
+  }
+}
+

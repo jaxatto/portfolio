@@ -1,3 +1,27 @@
+@use '@styles/all' as *;
+@use 'sass:map';
+
 .wrapper {
-  /* Styles for Header */
+    @include wrapper-max-width(content);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    @extend .title-lg;
+    color: var(--group-primary-title);
+}
+
+.button {
+    background-color: var(--group-primary-title);
+    @include interactive-states(map.get($group-palettes, primary, title), true);
+}
+
+.description {
+
+}
+
+.byline {
+
 }
