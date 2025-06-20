@@ -1,24 +1,25 @@
 import React from 'react';
-import Role from '@pages/Resume/components/ExperienceCard';
+import Divider from '@components/Divider';
 import { groupRoles, GroupedRole } from './helpers/groupRoles';
 import { roles } from './resources/roles';
 import logos from './resources/logos';
 import styles from './ExperienceSection.module.scss';
+import ExperienceCard from '@pages/Resume/components/ExperienceCard';
 
 const groupedRoles: GroupedRole[] = groupRoles(roles);
 
-const ResumeSectionRole: React.FC = () => (
-  <section className={styles.section}>
-    <h2 className={styles.heading}>Experience</h2>
-    <div className={styles.rolesColumn}>
+const ExperienceSection: React.FC = () => (
+  <section className={styles.wrapper}>
+    <Divider variant='section-header' text='Experience' />
+    <div className={styles.content}>
       {groupedRoles.map((item, idx) =>
         Array.isArray(item) ? (
-          <div className={styles.visaGroup} key={`visa-group-${idx}`}>
+          <div className={`${styles['visa-group']} tertiary-experience-card experience-card-group`} key={`visa-group-${idx}`}>
             {item.map((role, visaIdx) => {
               const LogoComponent = logos[role.logo as string];
               return (
                 <div key={`${role.company}-${role.title}-${role.startDate}-${visaIdx}`} className={styles.visaRole}>
-                  <Role
+                  <ExperienceCard
                     {...role}
                     logo={LogoComponent ? <LogoComponent /> : null}
                   />
@@ -30,9 +31,10 @@ const ResumeSectionRole: React.FC = () => (
           (() => {
             const LogoComponent = logos[item.logo as string];
             return (
-              <Role
+              <ExperienceCard
                 key={item.company + item.title}
                 {...item}
+                className={styles.card}
                 logo={LogoComponent ? <LogoComponent /> : null}
               />
             );
@@ -43,4 +45,4 @@ const ResumeSectionRole: React.FC = () => (
   </section>
 );
 
-export default ResumeSectionRole;
+export default ExperienceSection;

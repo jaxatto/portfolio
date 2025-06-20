@@ -22,11 +22,15 @@ const Divider: React.FC<DividerProps> = ({
   if (variant === 'section-header') {
     return (
       <div className={[styles.wrapper, styles['section-header'], className].filter(Boolean).join(' ')}>
-        <span className={styles.line} aria-hidden="true" />
-        <span className={styles.dot} aria-hidden="true" />
+        <div className={styles.group}>
+          <span className={styles.line} aria-hidden="true" />
+          <span className={styles.dot} aria-hidden="true" />
+        </div>
         <Tag className={styles.text}>{text}</Tag>
-        <span className={styles.dot} aria-hidden="true" />
-        <span className={styles.line} aria-hidden="true" />
+        <div className={styles.group}>
+          <span className={styles.dot} aria-hidden="true" />
+          <span className={styles.line} aria-hidden="true" />
+        </div>
       </div>
     );
   }

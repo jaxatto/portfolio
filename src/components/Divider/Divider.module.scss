@@ -2,17 +2,28 @@
 
 // Dots used in footer and other components
 .wrapper {
-    display: flex;
-    justify-content: center;
-    gap: px-to-rem(8);
+  display: flex;
+  justify-content: center;
+  gap: px-to-rem(8);
 
-    .dot {
-        width: px-to-rem(10);
-        height: px-to-rem(10);
-        border-radius: 50%;
-        background: var(--color-light);
-        display: inline-block;
-    }
+  .dot {
+    width: px-to-rem(10);
+    height: px-to-rem(10);
+    border-radius: 50%;
+    background: var(--color-light);
+    display: inline-block;
+  }
+}
+
+.line {
+  display: flex;
+  flex: 1 1 auto;
+  height: px-to-rem(1);
+  background: var(--color-light);
+
+  @include respond(xs) {
+    display: none;
+  }
 }
 
 .section-divider-wrapper {
@@ -21,15 +32,31 @@
   justify-content: center;
   gap: px-to-rem(8);
   padding: px-to-rem(32) 0;
+
+  .line {
+    flex: 1 1 px-to-rem(40);
+    margin: 0 px-to-rem(32);
+  }
 }
 
-.line {
-    flex: 1 1 px-to-rem(40);
-    height: px-to-rem(1);
-    background: var(--color-light);
-    margin: 0 px-to-rem(32);
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: spacing(300);
+  margin-bottom: spacing(300);
 
-    @include respond(xs) {
-      display: none;
-    } 
+  .group:first-child {
+    max-width: calc(130px + #{spacing(300)});
   }
+}
+
+.text {
+  @extend .heading-lg;
+}
+
+.group {
+  display: flex;
+  flex: 1 auto;
+  align-items: center;
+  gap: spacing(300);
+}

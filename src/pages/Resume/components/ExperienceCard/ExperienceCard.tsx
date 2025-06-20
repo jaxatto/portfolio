@@ -24,22 +24,32 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   theme,
   className,
 }) => (
-  <div className={[styles.role, theme, className].filter(Boolean).join(' ')}>
+  <div
+    className={[
+      styles.wrapper,
+      theme ? `${theme}-experience-card` : '',
+      className
+    ].filter(Boolean).join(' ')}
+  >
     <div className={styles.logo}>{logo}</div>
     <div className={styles.details}>
-      <h3 className={styles.title}>{title}</h3>
-      <span className={styles.company}>{company}</span>
-      <span className={styles.date}>
-        {startDate}
-        {endDate && (
-          <>
-            <span aria-hidden="true"> — </span>
-            <span className="sr-only"> to </span>
-            {endDate}
-          </>
-        )}
-        {location && <> · {location}</>}
-      </span>
+      <div className={styles.top}>
+        <h3 className={styles.title}>{title}</h3>
+        <div className={styles['sub-details']}>
+          <span className={styles.company}>{company}</span>
+          <span className={styles.date}>
+            {startDate}
+            {endDate && (
+              <>
+                <span aria-hidden="true"> — </span>
+                <span className="sr-only"> to </span>
+                {endDate}
+              </>
+            )}
+          </span>
+          <span className={styles.location}>{location}</span>
+        </div>
+      </div>
       {callout && <p className={styles.callout}>{callout}</p>}
     </div>
   </div>
