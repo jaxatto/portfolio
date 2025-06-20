@@ -11,17 +11,20 @@
 .page-title {
     @extend .title-lg;
     color: var(--group-primary-title);
+    margin-bottom: spacing(50);
+}
+
+.description {
+    @extend .body-lg;
+    margin-bottom: spacing(400);
+}
+
+.byline {
+    @extend .body-sm-bold;
+    margin-bottom: spacing(300);
 }
 
 .button {
     background-color: var(--group-primary-title);
     @include interactive-states(map.get($group-palettes, primary, title), true);
-}
-
-.description {
-
-}
-
-.byline {
-
 }
