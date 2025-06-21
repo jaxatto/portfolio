@@ -9,19 +9,42 @@ type LinkProps = {
   newTab?: boolean;
   className?: string;
   iconName?: string;
+  iconPosition?: 'right' | 'left';
   styleAs?: 'link' | 'button';
   children: React.ReactNode;
 } & React.RefAttributes<HTMLAnchorElement>;
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ to, href, newTab, className, iconName, styleAs = 'link', children, ...props }, ref) => {
+  (
+    {
+      to,
+      href,
+      newTab,
+      className,
+      iconName,
+      iconPosition = 'right',
+      styleAs = 'link',
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const location = typeof window !== 'undefined' ? useLocation() : undefined;
-    const content = (
-      <>
-        {children}
-        {iconName && <Icon name={iconName} className={styles.icon} />}
-      </>
-    );
+
+    const icon = iconName ? <Icon name={iconName} className={styles.icon} /> : null;
+
+    const content =
+      iconPosition === 'right' ? (
+        <>
+          {children}
+          {icon}
+        </>
+      ) : (
+        <>
+          {icon}
+          {children}
+        </>
+      );
 
     // Add styles.button if styleAs is 'button'
     const linkClass = [

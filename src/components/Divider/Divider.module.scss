@@ -1,18 +1,24 @@
 @use '@styles/all' as *;
+@use 'sass:map';
 
 // Dots used in footer and other components
 .wrapper {
   display: flex;
   justify-content: center;
-  gap: px-to-rem(8);
+}
 
-  .dot {
-    width: px-to-rem(10);
-    height: px-to-rem(10);
-    border-radius: 50%;
-    background: var(--color-light);
-    display: inline-block;
-  }
+.dot {
+  width: px-to-rem(10);
+  height: px-to-rem(10);
+  border-radius: 50%;
+  background: var(--color-light);
+  display: inline-block;
+}
+
+.dots-wrapper {
+  display: flex;
+  align-items: center;
+  gap: px-to-rem(8);
 }
 
 .line {
@@ -20,22 +26,35 @@
   flex: 1 1 auto;
   height: px-to-rem(1);
   background: var(--color-light);
-
-  @include respond(xs) {
-    display: none;
-  }
 }
 
 .section-divider-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: px-to-rem(8);
+  gap: 0;
   padding: px-to-rem(32) 0;
 
   .line {
     flex: 1 1 px-to-rem(40);
     margin: 0 px-to-rem(32);
+  }
+
+  &.align-left {
+    > :first-child {
+      margin-left: 0;
+      flex: 0 1 px-to-rem($divider-left - map.get($spacing, 100));
+    }
+
+    > :last-child {
+      margin-right: 0;
+    }
+    
+    @include respond(wrapper) {
+      > :first-child, >:last-child{
+        flex: 1 1 100%;
+      }
+    }
   }
 }
 
@@ -45,10 +64,16 @@
   gap: spacing(300);
   margin-bottom: spacing(300);
 
-  .group:first-child {
-    max-width: calc(130px + #{spacing(300)});
+  &.align-left .group:first-child {
+    max-width: px-to-rem($divider-left);
+
+    @include respond(wrapper) {
+      max-width: 100%;
+    }
   }
 }
+
+
 
 .text {
   @extend .heading-lg;

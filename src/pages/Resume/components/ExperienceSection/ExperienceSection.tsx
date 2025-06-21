@@ -10,7 +10,7 @@ const groupedRoles: GroupedRole[] = groupRoles(roles);
 
 const ExperienceSection: React.FC = () => (
   <section className={styles.wrapper}>
-    <Divider variant='section-header' text='Experience' />
+    <Divider variant='section-header' text='Experience' contentAlign="left" />
     <div className={styles.content}>
       {groupedRoles.map((item, idx) =>
         Array.isArray(item) ? (

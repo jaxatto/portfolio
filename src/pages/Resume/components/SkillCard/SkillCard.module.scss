@@ -1,19 +1,23 @@
 @use '@styles/all' as *;
 
 .wrapper {
-  @extend .body-sm;
-  display: flex;
-  flex-direction: column;
-  border: px-to-rem(2) solid var(--color-medium);
-  border-radius: radius(300);
-  padding: spacing(300) spacing(600) spacing(300) spacing(300);
-  gap: spacing(300);
+    @extend .body-sm;
+    display: flex;
+    flex-direction: column;
+    border: px-to-rem(2) solid var(--color-medium);
+    border-radius: radius(300);
+    padding: spacing(300) spacing(600) spacing(300) spacing(300);
+    gap: spacing(300);
+
+    @include respond(sm) {
+        padding-right: spacing(300);
+    }
 }
 
 @each $type in (primary, secondary, tertiary) {
     .#{$type} {
         border-color: var(--group-#{$type}-bg);
-        
+
         .title {
             color: var(--group-#{$type}-title);
         }

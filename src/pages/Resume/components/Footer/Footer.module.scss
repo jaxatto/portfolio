@@ -1,3 +1,118 @@
-// .wrapper {
-//   /* Styles for Footer */
+@use '@styles/all' as *;
+@use 'sass:map';
+
+.wrapper {
+    @include respond(sm) {
+        text-align: center;
+    }
+}
+
+.divider {
+    padding-bottom: spacing(500);
+}
+
+.content {
+    @include wrapper-max-width(content);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: spacing(500);
+    padding: 0 spacing(300) spacing(925) spacing(300);
+
+    @include respond(sm) {
+        padding: spacing(200) spacing(200) spacing(700) spacing(200);
+    }
+
+    @include respond(xs) {
+        padding: spacing(100) spacing(100) spacing(500) spacing(100);
+        gap: spacing(300);
+    }
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(200);
+    padding-right: spacing(500);
+
+    @include respond(sm) {
+        padding-right: 0;
+        gap: spacing(100);
+    }
+}
+
+.title {
+    @extend .title-md;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+
+    @include respond(sm) {
+        display: inline;
+        align-items: center;
+
+        & > *:not(:last-child) {
+            margin-right: 0.2em;
+        }
+    }
+}
+
+.description {
+    @extend .body-lg;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(300);
+}
+
+.button {
+    @include interactive-states(map.get($group-palettes, primary, title), true);
+    background-color: var(--group-primary-title);
+    font-size: font-size(200);
+    text-align: left;
+
+    svg {
+        width: 1.2em;
+        height: 1.2em;
+        margin-right: 0.1em
+    }
+
+    @include respond(sm) {
+        font-size: font-size(150);
+        align-self: center
+    }
+
+    @include respond(sm) {
+        font-size: font-size(100);
+    }
+}
+
+// .button {
+//     background: linear-gradient(78deg, #1E0095 9.5%, #A152FB 88.75%);
+//     background-size: 200% 100%;
+//     background-position: left center;
+//     transition: background-position 0.3s linear;
+//     // font-size: font-size(200);
+
+//     &:hover {
+//         background-position: 100% center;
+//         color: var(--color-white);
+//     }
 // }
+
+.byline {
+    @extend .body-sm;
+    display: inline-flex;
+    flex-wrap: wrap;;
+
+    >*:not(:nth-last-child(-n+2)) {
+        margin-right: 0.2em;
+    }
+
+    @include respond(sm) {
+        justify-content: center;
+        text-align: center;
+    }
+}

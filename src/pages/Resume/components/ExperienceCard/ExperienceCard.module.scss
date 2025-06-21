@@ -3,9 +3,17 @@
 .wrapper, :global(.experience-card-group) {
     display: flex;
     flex-direction: row;
-    padding: spacing(300);
+    padding: spacing(300) spacing(500) spacing(300) spacing(300);
     gap: spacing(200);
     border-radius: radius(300);
+
+    @include respond(sm) {
+        padding-right: spacing(300);
+    }
+
+    @include respond(xs) {
+        flex-direction: column;;
+    }
 }
 
 :global(.experience-card-group) {
@@ -55,6 +63,11 @@
         padding: spacing(75);
         fill: var(--color-white);
         opacity: 0.8;
+    }
+
+    @include respond(sm) {
+        width: px-to-rem(50);
+        height: px-to-rem(50);
     }
 }
 

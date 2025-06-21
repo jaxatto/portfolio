@@ -12,8 +12,8 @@
   &:hover {
     @if $inverse {
       background-color: change-lightness($color, hover);
-      color: #fff;
-      fill: #fff;
+      color: var(--color-white);
+      fill: var(--color-white);
       // No border change
     } @else {
       color: change-lightness($color, hover);
@@ -28,8 +28,8 @@
   &:active {
     @if $inverse {
       background-color: change-lightness($color, pressed);
-      color: #fff;
-      fill: #fff;
+      color: var(--color-white);
+      fill: var(--color-white);
       // No border change
     } @else {
       color: change-lightness($color, pressed);
@@ -43,14 +43,14 @@
 @mixin focus($color, $inverse: false) {
   &:focus-visible {
     @if $inverse {
-      outline: px-to-rem(3) solid #fff;
+      outline: px-to-rem(3) solid $color;
+      outline-offset: px-to-rem(3);
       background-color: $color;
-      color: #fff;
-      fill: #fff;
+      color: var(--color-white);
+      fill: var(--color-white);
     } @else {
       outline: px-to-rem(3) solid $color;
-      outline-offset: px-to-rem(4);
-      border-radius: px-to-rem(2);
+      outline-offset: px-to-rem(3);
     }
   }
 }

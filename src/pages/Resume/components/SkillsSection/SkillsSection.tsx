@@ -8,17 +8,18 @@ const skillData = [focus, skills, tools];
 
 const SkillsSection: React.FC = () => (
   <section className={styles.wrapper}>
-    <Divider variant='section-header' text='Skills' />
-
-    {skillData.map((item) => (
-      <SkillCard
-        key={item.heading}
-        heading={item.heading}
-        description={item.description}
-        chips={item.list}
-        theme={item.theme}
-      />
-    ))}
+    <Divider variant='section-header' text='Skills' contentAlign="left" />
+    <div className={styles.content}>
+      {skillData.map((item) => (
+        <SkillCard
+          key={item.heading}
+          heading={item.heading}
+          description={item.description}
+          chips={item.list}
+          theme={item.theme}
+        />
+      ))}
+    </div>
   </section>
 );
 

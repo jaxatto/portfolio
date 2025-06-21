@@ -7,7 +7,8 @@ type DividerProps = {
   className?: string;
   variant?: 'default' | 'section-divider' | 'section-header';
   text?: string;
-  textTag?: keyof JSX.IntrinsicElements; // Allow custom HTML tag for text
+  textTag?: keyof JSX.IntrinsicElements;
+  contentAlign?: 'center' | 'left'; 
 };
 
 const Divider: React.FC<DividerProps> = ({
@@ -16,12 +17,16 @@ const Divider: React.FC<DividerProps> = ({
   className = '',
   text = '',
   textTag = 'h2',
+  contentAlign = 'center',
 }) => {
   const Tag = textTag as React.ElementType;
 
+  const contentAlignClass =
+    contentAlign === 'left' ? styles['align-left'] : styles['align-center'];
+
   if (variant === 'section-header') {
     return (
-      <div className={[styles.wrapper, styles['section-header'], className].filter(Boolean).join(' ')}>
+      <div className={[styles.wrapper, styles['section-header'], className, contentAlignClass].filter(Boolean).join(' ')}>
         <div className={styles.group}>
           <span className={styles.line} aria-hidden="true" />
           <span className={styles.dot} aria-hidden="true" />
@@ -39,15 +44,18 @@ const Divider: React.FC<DividerProps> = ({
     <div
       className={[
         styles.wrapper,
+        contentAlignClass,
         variant === 'section-divider' ? styles['section-divider-wrapper'] : '',
         className,
       ].filter(Boolean).join(' ')}
       aria-hidden="true"
     >
       {variant === 'section-divider' && <span className={styles.line} />}
-      {Array.from({ length: count }).map((_, i) => (
-        <span key={i} className={styles.dot} />
-      ))}
+      <span className={styles['dots-wrapper']}>
+        {Array.from({ length: count }).map((_, i) => (
+          <span key={i} className={styles.dot} />
+        ))}
+      </span>
       {variant === 'section-divider' && <span className={styles.line} />}
     </div>
   );

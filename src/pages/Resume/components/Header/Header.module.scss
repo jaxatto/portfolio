@@ -12,6 +12,16 @@
         spacing(600) 
         spacing(300);
     ;
+
+    @include respond(sm) {
+        align-items: center;
+        text-align: center;
+        padding: spacing(200) spacing(200) spacing(500) spacing(200);    
+    }
+
+    @include respond(xs) {
+        padding: spacing(100) spacing(100) spacing(500) spacing(100);
+    }
 }
 
 .page-title {
@@ -23,6 +33,16 @@
 .description {
     @extend .body-lg;
     margin-bottom: spacing(400);
+    display: flex;
+    flex-direction: column;
+
+    @include respond(sm) {
+        display: inline;
+        
+        .description1 {
+            margin-right: spacing(50);
+        }
+    }
 }
 
 .byline {
@@ -31,6 +51,19 @@
 }
 
 .button {
-    background-color: var(--group-primary-title);
     @include interactive-states(map.get($group-palettes, primary, title), true);
+    background-color: var(--group-primary-title);
+
+    svg {
+        margin-left: 0.1em
+    }
+
+    @include respond(sm) {
+        font-size: font-size(125);
+        align-self: center;
+    }
+
+    @include respond(xs) {
+        font-size: font-size(100);
+    }
 }

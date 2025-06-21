@@ -8,7 +8,10 @@ const Header: React.FC = () => (
     <h1 className="sr-only">{content.h1}</h1>
     
     <h2 className={styles['page-title']}>{content.heading}</h2>
-    <p className={styles.description}>{content.description}</p>
+    <p className={styles.description}>
+      <span className={styles.description1}>{content.description1}</span>
+      <span className={styles.description2}>{content.description2}</span>
+    </p>
 
     <p className={styles.byline}>{content.byline}</p>
     <Link href={content.buttonHref} className={styles.button} iconName="arrow-right" styleAs="button">

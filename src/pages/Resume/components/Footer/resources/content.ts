@@ -2,7 +2,7 @@ import { links } from "@assets/content/links";
 
 export const content = {
   heading: "Ready for new opportunities",
-  description: "I help product teams move faster by supercharging handoff with research-backed decisions, scalable systems, and strong technical context.",
+  description: "I'm interviewing now for remote design roles on highly collaborative teams.",
   button: "Download resume",
   resumeHref: links.resume.href,
   emailLabel: links.email.label,

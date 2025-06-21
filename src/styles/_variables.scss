@@ -47,6 +47,7 @@ $states-lightness: (
 // Gradients
 $gradients: (
     primary: linear-gradient(78deg, #1E0095 9.5%, #A152FB 88.75%),
+    primary-hover: linear-gradient(83deg, #1E0095 94.32%, #A152FB 113.41%),
 );
 
 
@@ -81,18 +82,31 @@ $radius: (
     400: 16,
 );
 
-// Breakpoints for responsive design
-$breakpoints: (
-  xs: 340,
-  sm: 640,
-  md: 900
-);
-
 // Wrappers for content
 $wrapper-widths: (
   content: 600,
   site: 960
 );
+
+// Breakpoints for responsive design
+$breakpoints: (
+  xs: 340,
+  sm: 640,
+  md: 900,
+  wrapper: map.get($wrapper-widths, site),
+);
+
+
+
+// Some math to keep track of for Divider
+// Site has padding of 24px on each side
+// Content has padding of 24px on each side
+// 960 - 48 = 912, removes padding
+// 600 - 48 = 552, removes padding
+// 912 - 552 = 360, subtracts from eachother
+// 360 / 2 = 180, two sides
+// 180 - 24 = 156, subtracts both gaps
+$divider-left: 156;
 
 /* ---------------------------------- */
 /* ------ Typography variables ------ */
