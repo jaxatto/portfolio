@@ -18,8 +18,10 @@ const SkillCard: React.FC<SkillCardProps> = ({
   className = '',
 }) => (
   <div className={[styles.wrapper, styles[theme], className].filter(Boolean).join(' ')}>
-    <h3 className={styles.heading}>{heading}</h3>
-    <p className={styles.description}>{description}</p>
+    <div className={styles.top}>
+      <h3 className={styles.title}>{heading}</h3>
+      <p className={styles.description}>{description}</p>
+    </div>
     <ChipGroup chips={chips} variant={theme} className={styles.chipRow} />
   </div>
 );

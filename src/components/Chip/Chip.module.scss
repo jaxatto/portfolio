@@ -1,3 +1,17 @@
-// .wrapper {
-//   /* Styles for Chip */
-// }
+.wrapper {
+  background: var(--color-placeholder);
+  padding: spacing(75) spacing(150);
+  border-radius: radius(200);
+  font-family: $font-heading;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-100);
+}
+
+@each $type in (primary, secondary, tertiary) {
+  .#{$type} {
+    background: var(--group-#{$type}-bg);
+    color: var(--group-#{$type}-chip);
+  }
+}
+
+
