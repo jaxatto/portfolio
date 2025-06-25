@@ -1,18 +1,16 @@
 @use '@styles/all' as *;
 
-.about-wrapper {
-    @include wrapper-max-width(content);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    gap: px-to-rem(40);
-    font-size: px-to-rem(20);
+.wrapper {
+    @extend .general-content-wrapper;
 
     h2 {
         @extend .heading-md;
         margin-bottom: px-to-rem(8);
     }
+}
+
+.title {
+    @extend .page-title;
 }
 
 .top-section {

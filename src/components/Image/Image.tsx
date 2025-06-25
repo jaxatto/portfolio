@@ -3,14 +3,14 @@ import Icon from '@components/Icon';
 import styles from './Image.module.scss';
 
 type ImageProps = {
-  src: string;
+  src: string; 
   alt: string;
-  altFallback?: string;
-  className?: string;
-  iconFallback: string;
-  imgClassName?: string;
-  iconClassName?: string;
-  fallbackClassName?: string;
+  imgClassName?: string; // Allows custom styling for the image element itself
+  className?: string; // Allows custom styling for the image component container
+  iconFallback?: string; // Defines the icon to show when the image fails to load
+  iconClassName?: string; // Allows custom styling for the fallback icon
+  altFallback?: string; // Provides alt text for the fallback icon, if desired
+  fallbackClassName?: string; // Allows custom styling for the container of the fallback image component, within className container
 };
 
 const Image: React.FC<ImageProps> = ({
@@ -18,7 +18,7 @@ const Image: React.FC<ImageProps> = ({
   alt,
   altFallback,
   className,
-  iconFallback,
+  iconFallback = "image",
   imgClassName,
   iconClassName,
   fallbackClassName,

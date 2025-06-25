@@ -10,6 +10,7 @@ import Clouds from '@assets/icons/clouds.svg';
 import Component from '@assets/icons/component.svg';
 import Ai from '@assets/icons/ai.svg';
 import Download from '@assets/icons/download.svg';
+import Image from '@assets/icons/image.svg';
 
 type IconProps = {
   name: string;
@@ -30,6 +31,7 @@ const icons: Record<string, React.FC<React.SVGProps<SVGSVGElement>> | undefined>
   'component': Component,
   'ai': Ai,
   'download': Download,
+  'image': Image,
 };
 
 const Icon: React.FC<IconProps> = ({ name, ...props }) => {

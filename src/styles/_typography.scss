@@ -56,6 +56,10 @@ p {
     }
 }
 
+.page-title {
+    @extend .title-md;
+}
+
 // Heading
 .heading-lg {
     font-family: $font-heading;

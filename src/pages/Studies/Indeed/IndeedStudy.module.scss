@@ -1,0 +1,10 @@
+@use '@styles/all' as *;
+
+.wrapper {
+    @extend .general-content-wrapper;
+}
+
+.title {
+    @extend .page-title;
+}
+

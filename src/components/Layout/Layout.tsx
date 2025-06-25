@@ -7,13 +7,20 @@ import styles from './Layout.module.scss';
 type LayoutProps = {
   children: React.ReactNode;
   showFooter?: boolean;
+  className?: string;
 } & MetaProps;
 
-const Layout: React.FC<LayoutProps> = ({ children, title, metaDescription, showFooter = true }) => (
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  title,
+  metaDescription,
+  showFooter = true,
+  className = '',
+}) => (
   <div className={styles.wrapper}>
     <Meta title={title} metaDescription={metaDescription} />
     <Header />
-    <main id='main-content' tabIndex={-1}>
+    <main id='main-content'className={className} tabIndex={-1}>
       {children}
     </main>
     {showFooter && <Footer />}

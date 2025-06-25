@@ -2,17 +2,30 @@ import React from 'react';
 import Chip from '@components/Chip';
 import styles from './ChipGroup.module.scss';
 
-type ChipGroupProps = {
-  chips: string[];
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
-  className?: string;
+export type ChipData = {
+  label: string;
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
 };
 
-const ChipGroup: React.FC<ChipGroupProps> = ({ chips, variant, className }) => (
+type ChipGroupProps = {
+  chips: ChipData[];
+  className?: string;
+  size?: 'large' | 'small';
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'neutral'; // Add this line
+};
+
+const ChipGroup: React.FC<ChipGroupProps> = ({ 
+  chips, 
+  className,
+  size = 'large',
+  theme, // Add this line
+}) => (
   <ul className={[styles.wrapper, className].filter(Boolean).join(' ')}>
     {chips.map((chip) => (
-      <li key={chip}>
-        <Chip variant={variant}>{chip}</Chip>
+      <li key={chip.label}>
+        <Chip variant={chip.theme ?? theme} size={size}>
+          {chip.label}
+        </Chip>
       </li>
     ))}
   </ul>

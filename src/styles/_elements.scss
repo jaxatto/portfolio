@@ -1,0 +1,12 @@
+@use './mixins' as *;
+@use './functions' as *;
+
+.general-content-wrapper {
+    @include wrapper-max-width(content);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    gap: px-to-rem(40);
+    font-size: px-to-rem(20);
+}

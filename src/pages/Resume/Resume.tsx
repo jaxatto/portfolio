@@ -4,7 +4,6 @@ import Header from '@pages/Resume/components/Header';
 import ExperienceSection from '@pages/Resume/components/ExperienceSection';
 import SkillsSection from '@pages/Resume/components/SkillsSection';
 import Footer from '@pages/Resume/components/Footer';
-import styles from './Resume.module.scss';
 import { meta } from '@pages/Work/resources/meta';
 
 
@@ -14,15 +13,13 @@ const Resume: React.FC = () => (
     metaDescription={meta.description}
     showFooter={false}
   >
-    <div className={styles.wrapper}>
-      <Header />
+    <Header />
 
-      <ExperienceSection />
-      
-      <SkillsSection />
+    <ExperienceSection />
+    
+    <SkillsSection />
 
-      <Footer />
-    </div>
+    <Footer />
   </Layout>
 );
 
