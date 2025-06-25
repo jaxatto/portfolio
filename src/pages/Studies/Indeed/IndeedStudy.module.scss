@@ -2,9 +2,68 @@
 
 .wrapper {
     @extend .general-content-wrapper;
+    gap: spacing(700);
+}
+
+
+.top-section {
+    margin-bottom: spacing(300);
 }
 
 .title {
     @extend .page-title;
 }
 
+.role {
+    &::after {
+        content: '·';
+        display: inline-block;
+        height: 100%;
+        width: spacing(250);
+        color: var(--color-medium);
+        text-align: center
+    }
+}
+
+.chip-row {
+    max-width: px-to-rem(500);
+}
+
+.captioned-image {
+    display: flex;
+    flex-direction: column;
+    margin-top: spacing(400);
+    gap: spacing(150);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: radius(400);
+}
+
+.image-caption {
+    @extend .caption-md;
+    color: var(--color-medium);
+    text-align: center;
+}
+
+.image-fallback-wrapper {
+    border-radius: radius(400);
+    padding: spacing(700) 0; 
+
+    svg {
+        height: auto;
+        width: 30%;
+        opacity: 30%;
+    }
+}
+
+.section-title {
+    @extend .heading-md;
+    margin-bottom: spacing(100);
+}
+
+.section-paragraph:not(:last-of-type) {
+    margin-bottom: spacing(300);
+}

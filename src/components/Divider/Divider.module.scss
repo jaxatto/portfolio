@@ -18,7 +18,7 @@
 .dots-wrapper {
   display: flex;
   align-items: center;
-  gap: px-to-rem(8);
+  gap: spacing(100);
 }
 
 .line {
@@ -33,11 +33,11 @@
   align-items: center;
   justify-content: center;
   gap: 0;
-  padding: px-to-rem(32) 0;
+  padding: spacing(450) 0;
 
   .line {
     flex: 1 1 px-to-rem(40);
-    margin: 0 px-to-rem(32);
+    margin: 0 spacing(400);
   }
 
   &.align-left {
@@ -49,9 +49,10 @@
     > :last-child {
       margin-right: 0;
     }
-    
+
     @include respond(wrapper) {
-      > :first-child, >:last-child{
+      > :first-child,
+      >:last-child {
         flex: 1 1 100%;
       }
     }
@@ -72,8 +73,6 @@
     }
   }
 }
-
-
 
 .text {
   @extend .heading-lg;

@@ -11,16 +11,22 @@ type ChipGroupProps = {
   chips: ChipData[];
   className?: string;
   size?: 'large' | 'small';
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'neutral'; // Add this line
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
 };
 
 const ChipGroup: React.FC<ChipGroupProps> = ({ 
   chips, 
   className,
   size = 'large',
-  theme, // Add this line
+  theme,
 }) => (
-  <ul className={[styles.wrapper, className].filter(Boolean).join(' ')}>
+  <ul
+    className={[
+      styles.wrapper,
+      size === 'small' ? styles.small : '',
+      className
+    ].filter(Boolean).join(' ')}
+  >
     {chips.map((chip) => (
       <li key={chip.label}>
         <Chip variant={chip.theme ?? theme} size={size}>
