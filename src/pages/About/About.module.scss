@@ -16,7 +16,7 @@
 .top-section {
     display: flex;
     flex-direction: column;
-    gap: px-to-rem(24);
+    gap: spacing(300);
 
     ul {
         @extend .body-md;
@@ -24,10 +24,10 @@
         display: grid;
         grid-template-columns: auto 1fr;
         grid-template-rows: repeat(2, auto);
-        gap: px-to-rem(8) px-to-rem(16);
+        gap: spacing(100) spacing(200);
 
         li {
-            gap: px-to-rem(6);
+            gap: spacing(75);
         }
 
         @include respond(sm) {
@@ -51,7 +51,7 @@
 .lifestyle-image-row {
     @extend .remove-ul-style;
     display: flex;
-    gap: px-to-rem(16);
+    gap: spacing(200);
 
     .lifestyle-line-item {
         width: 100%;
@@ -79,6 +79,6 @@
 
     @include respond(xs) {
         flex-direction: column;
-        gap: px-to-rem(16);
+        gap: spacing(200);
     }
 }

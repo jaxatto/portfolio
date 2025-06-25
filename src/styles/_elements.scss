@@ -1,12 +1,14 @@
+@use './variables' as *;
 @use './mixins' as *;
 @use './functions' as *;
+@use './typography' as *;
 
 .general-content-wrapper {
     @include wrapper-max-width(content);
+    @extend .body-md;
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 0 auto;
-    gap: px-to-rem(40);
-    font-size: px-to-rem(20);
+    gap: spacing(450);
 }
