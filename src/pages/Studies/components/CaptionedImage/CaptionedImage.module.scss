@@ -1,0 +1,29 @@
+.captioned-image {
+    display: flex;
+    flex-direction: column;
+    margin-top: spacing(400);
+    gap: spacing(150);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: radius(400);
+}
+
+.image-caption {
+    @extend .caption-md;
+    color: var(--color-medium);
+    text-align: center;
+}
+
+.image-fallback-wrapper {
+    border-radius: radius(400);
+    padding: spacing(700) 0; 
+
+    svg {
+        height: auto;
+        width: 30%;
+        opacity: 30%;
+    }
+}

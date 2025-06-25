@@ -1,0 +1,4 @@
+.wrapper {
+    @extend .general-content-wrapper;
+    gap: spacing(700);
+}

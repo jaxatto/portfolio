@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Work from '@pages/Work';
 import About from '@pages/About';
 import Resume from '@pages/Resume';
-import IndeedStudy from '@pages/Studies/Indeed';
+import IndeedStudy from '@pages/Studies/pages/Indeed';
 
 const App: React.FC = () => (
   <Router>

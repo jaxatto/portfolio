@@ -1,0 +1,22 @@
+.top-section {
+    margin-bottom: spacing(300);
+}
+
+.title {
+    @extend .page-title;
+}
+
+.role {
+    &::after {
+        content: '·';
+        display: inline-block;
+        height: 100%;
+        width: spacing(250);
+        color: var(--color-medium);
+        text-align: center
+    }
+}
+
+.chip-row {
+    max-width: px-to-rem(500);
+}
