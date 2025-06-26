@@ -1,22 +1,17 @@
 import React from 'react';
 import Layout from '@components/Layout';
 import HeaderSection from '@pages/Studies/components/HeaderSection';
-import StudySection, { StudySectionProps } from '@pages/Studies/components/StudySection';
+import StudySection from '@pages/Studies/components/StudySection';
 import NextStudy from '@pages/Studies/components/NextStudy';
-import { ChipData } from '@components/ChipGroup';
-import type { StudyMeta } from '@commonTypes/study/studyMeta';
+import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
+import type { StudySectionProps } from '@commonTypes/study/studySection';
+import type { StudyMetaProps } from '@commonTypes/study/studyMeta';
 import styles from './StudyTemplate.module.scss';
 
 export type StudyTemplateProps = {
-  meta: StudyMeta;
+  meta: StudyMetaProps;
   content: {
-    header: {
-      title: string;
-      roleDetails: { role: string; startDate: string; endDate?: string }[];
-      chips: ChipData[];
-      description: string[];
-      image: { src: string; alt: string; caption?: string }[];
-    };
+    header: StudyHeaderProps;
     sections: StudySectionProps[];
   };
   renderSection?: (section: StudySectionProps, idx: number) => React.ReactNode;
@@ -32,7 +27,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
       title={content.header.title}
       roleDetails={content.header.roleDetails}
       chips={content.header.chips}
-      description={content.header.description.join('\n')}
+      description={content.header.description}
       image={content.header.image}
     />
     {content.sections
@@ -42,7 +37,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
           ? renderSection(section, idx)
           : <StudySection key={idx} section={section} className={styles.section} />
       )}
-      <NextStudy meta={meta} />
+    <NextStudy meta={meta} />
   </Layout>
 );
 

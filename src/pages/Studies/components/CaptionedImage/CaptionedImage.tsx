@@ -1,14 +1,9 @@
 import React from 'react';
 import Image from '@components/Image';
+import type { StudyImageProps } from '@commonTypes/studyImage';
 import styles from './CaptionedImage.module.scss';
 
-type CaptionedImageProps = {
-  src: string;
-  alt: string;
-  caption?: string;
-};
-
-const CaptionedImage: React.FC<CaptionedImageProps> = ({ src, alt, caption }) => (
+const CaptionedImage: React.FC<StudyImageProps> = ({ src, alt, caption }) => (
   <div className={styles['captioned-image']}>
     <Image
       src={src}

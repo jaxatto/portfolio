@@ -1,19 +1,12 @@
 import React from 'react';
-import ChipGroup, { ChipData } from '@components/ChipGroup';
+import ChipGroup from '@components/ChipGroup';
 import Divider from '@components/Divider';
 import DateRange from '@components/DateRange';
 import CaptionedImage from '@pages/Studies/components/CaptionedImage';
+import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import styles from './HeaderSection.module.scss';
 
-type HeaderProps = {
-  title: string;
-  roleDetails: { role: string; startDate: string; endDate?: string }[];
-  chips: ChipData[];
-  description: string;
-  image: { src: string; alt: string; caption?: string }[];
-};
-
-const Header: React.FC<HeaderProps> = ({
+const Header: React.FC<StudyHeaderProps> = ({
   title,
   roleDetails,
   chips,

@@ -5,7 +5,7 @@ import styles from './SkillCard.module.scss';
 export type SkillCardProps = {
   heading: string;
   description: string;
-  chips: string[]; // still just strings here
+  chips: string[];
   theme?: 'primary' | 'secondary' | 'tertiary';
   className?: string;
 };

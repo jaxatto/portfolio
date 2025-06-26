@@ -1,22 +1,14 @@
 import React from 'react';
 import CaptionedImage from '@pages/Studies/components/CaptionedImage';
+import type { StudySectionProps } from '@commonTypes/study/studySection';
 import styles from './StudySection.module.scss';
-
-export type StudySectionProps = {
-  title?: string;
-  titleEmoji?: string;
-  description?: string[];
-  descriptionBullets?: string[];
-  image?: Array<{ src: string; alt?: string; caption?: string }>;
-  order?: number;
-};
 
 const StudySection: React.FC<{ section: StudySectionProps; className?: string }> = ({ section, className }) => {
   const image = section.image && section.image.length > 0 ? section.image[0] : undefined;
   return (
     <section className={className} data-order={section.order}>
       <h2 className={styles['section-title']}>
-        <span aria-hidden='true'>{section.titleEmoji}</span> 
+        {section.titleEmoji && <span aria-hidden='true'>{section.titleEmoji}</span>}
         {' '}
         {section.title}
       </h2>
