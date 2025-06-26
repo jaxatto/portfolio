@@ -2,34 +2,36 @@ import React from 'react';
 import Link from '@components/Link';
 import Image from '@components/Image';
 import Icon from '@components/Icon';
-import styles from './Card.module.scss';
+import styles from './StudyCard.module.scss';
 
-export type CardProps = {
-  title: string;
-  description: [string, string?];  
-  image: string | React.ReactNode;
-  imageAlt?: string;
-  linkUrl: string;
-  linkText: string;
-  palette?: 'primary' | 'secondary' | 'tertiary';
-  layout?: 'horizontal' | 'vertical';
-  count?: number;
-  total?: number;
-  iconFallback?: string;
+export type StudyCardProps = {
+  title: string; // Card title
+  description: string[]; // Byline text divided by dot
+  image: string | React.ReactNode; // Image URL or React node
+  imageAlt?: string; // Alt text for the image
+  linkUrl: string; // URL for the study
+  linkText: string; // Text for the link
+  palette?: 'primary' | 'secondary' | 'tertiary'; // Color palette for the card
+  layout?: 'horizontal' | 'vertical'; // Orientation of the card content
+  count?: number; // Optional count for the card, e.g., "Case study 1"
+  total?: number; // Optional total number of cards, e.g., "of 5"
+  iconFallback?: string; // Fallback icon name if image fails to load
+  variant?: 'work' | 'study'; // Variant used on home/work page or on case study page
 };
 
-const Card: React.FC<CardProps> = ({
+const StudyCard: React.FC<StudyCardProps> = ({
   title,
   description,
   image,
-  imageAlt = '',
+  imageAlt = '', // Image is decorative by default
   linkUrl,
   linkText,
   palette = 'primary',
   layout = 'vertical',
   count,
   total,
-  iconFallback = 'pencilRuler',
+  iconFallback = 'pencilRuler', // Default icon fallback
+  variant = 'work',
 }) => {
   const accessibleLabel = [
     `Case study${typeof count === 'number' ? ` ${count}` : ''}${typeof total === 'number' ? ` of ${total}` : ''}:`,
@@ -43,7 +45,8 @@ const Card: React.FC<CardProps> = ({
       className={[
         styles.card,
         styles[layout] ? styles[layout] : '',
-        `${palette}-card`
+        `${palette}-card`,
+        styles[variant]
       ].filter(Boolean).join(' ')}
       aria-label={accessibleLabel}
     >
@@ -76,6 +79,6 @@ const Card: React.FC<CardProps> = ({
       </div>
     </Link>
   );
-};
+}
 
-export default Card;
+export default StudyCard;

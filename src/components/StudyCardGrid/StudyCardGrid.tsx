@@ -1,18 +1,18 @@
 import React from 'react';
-import Card from '@components/Card';
+import StudyCard from '@components/StudyCard';
 import { content } from './resources/content';
-import styles from './CardGrid.module.scss';
+import styles from './StudyCardGrid.module.scss';
 
-type CardGridProps = {
+type StudyCardGridProps = {
   samples?: typeof content;
 };
 
-const CardGrid: React.FC<CardGridProps> = ({ samples }) => {
+const StudyCardGrid: React.FC<StudyCardGridProps> = ({ samples }) => {
   const data = samples || content;
   return (
     <div className={styles['card-grid']}>
       {data.map((props, i) => (
-        <Card
+        <StudyCard
           key={props.linkUrl}
           {...props}
           count={i + 1}
@@ -23,4 +23,4 @@ const CardGrid: React.FC<CardGridProps> = ({ samples }) => {
   );
 };
 
-export default CardGrid;
+export default StudyCardGrid;
