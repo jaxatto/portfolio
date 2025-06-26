@@ -6,8 +6,8 @@
     :global(.#{$key}-card) {
         background: map.get($palette, bg);
 
-        .link,
-        .link svg {
+        .card-link,
+        .card-link svg {
             $link-color: map.get($palette, link);
             color: $link-color;
             fill: $link-color;
@@ -19,8 +19,8 @@
         &:focus-visible {
             background: color.adjust(map.get($palette, bg), $lightness: -8%);
 
-            .link,
-            .link svg {
+            .card-link,
+            .card-link svg {
                 color: color.adjust(map.get($palette, link), $lightness: -16%);
                 fill: color.adjust(map.get($palette, link), $lightness: -16%);
             }
@@ -28,8 +28,8 @@
 
         // On card active (press)
         &:active {
-            .link,
-            .link svg {
+            .card-link,
+            .card-link svg {
                 color: color.adjust(map.get($palette, link), $lightness: -32%);
                 fill: color.adjust(map.get($palette, link), $lightness: -32%);
             }
@@ -55,13 +55,13 @@
         }
 
         // Move arrow icon on card hover/press/focus
-        &:hover .link .icon,
-        &:focus-visible .link .icon {
-            transform: translateX(px-to-rem(4));
+        &:hover .card-link .icon,
+        &:focus-visible .card-link .icon {
+            transform: translateX(0.2em);
             transition: transform 0.2s;
         }
-        &:active .link .icon {
-            transform: translateX(px-to-rem(8));
+        &:active .card-link .icon {
+            transform: translateX(0.4em);
             transition: transform 0.1s;
         }
 
@@ -183,7 +183,7 @@
 
 .case-study-image-fallback {
     border-radius: 0;
-    padding: px-to-rem(35) 0;
+    padding: spacing(400) 0; // 32px 0
 }
 
 // Responsive: horizontal on md, vertical on sm/xs
@@ -283,7 +283,7 @@
         gap: px-to-rem(8);
     }
 
-    h3 {
+    .title {
         font-size: px-to-rem(32);
         font-weight: var(--font-weight-extra-bold);
         line-height: 1.3;
@@ -302,7 +302,7 @@
         }
     }
 
-    p {
+    .description {
         font-weight: var(--font-weight-regular);
         font-family: $font-body;
         font-size: px-to-rem(16);
@@ -312,11 +312,11 @@
         }
     }
 
-    .link {
+    .card-link {
         text-decoration: underline;
         display: flex;
         align-items: center;
-        gap: spacing(500); // 4px
+        gap: 0.2em; // 4px
         font-weight: var(--font-weight-bold);
         font-size: px-to-rem(20);
 
@@ -324,7 +324,7 @@
             width: 1em;
             height: 1em;
             position: relative;
-            top: px-to-rem(1);
+            top: 0.1em;
         }
 
         @include respond(sm) {

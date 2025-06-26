@@ -54,7 +54,7 @@ const Card: React.FC<CardProps> = ({
             {description.join(' · ')}
           </p>
         </div>
-        <span className={styles.link}>
+        <span className={styles['card-link']}>
           {linkText}
           <Icon 
             name="arrow-right" 
