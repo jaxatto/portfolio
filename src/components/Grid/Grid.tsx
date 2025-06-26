@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '@pages/Work/components/Card';
+import Card from '@components/Card';
 import { content } from './resources/content';
 import styles from './Grid.module.scss';
 

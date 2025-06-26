@@ -1,14 +1,14 @@
 .captioned-image {
     display: flex;
     flex-direction: column;
-    margin-top: spacing(400);
-    gap: spacing(150);
+    margin-top: spacing(400); // 32px
+    gap: spacing(150); // 12px
 }
 
 .image {
     width: 100%;
     height: auto;
-    border-radius: radius(400);
+    border-radius: radius(400); // 16px
 }
 
 .image-caption {
@@ -18,8 +18,8 @@
 }
 
 .image-fallback-wrapper {
-    border-radius: radius(400);
-    padding: spacing(700) 0; 
+    border-radius: radius(400); // 16px
+    padding: spacing(800) 0;  // 64px 0
 
     svg {
         height: auto;

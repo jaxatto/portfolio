@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: px-to-rem(24);
+    gap: spacing(300); // 24px
 
     // First card spans both columns in the first row
     & > :nth-child(1) {
@@ -23,7 +23,7 @@
     @include respond(md) {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
-        gap: px-to-rem(16);
+        gap: spacing(200); // 16px
 
         & > :nth-child(1),
         & > :nth-child(2),

@@ -1,7 +1,7 @@
 .wrapper {
   background: var(--color-placeholder);
-  padding: spacing(75) spacing(150);
-  border-radius: radius(200);
+  padding: spacing(75) spacing(150); // 6px 12px
+  border-radius: radius(200); // 8px
   font-family: $font-heading;
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-100);
@@ -15,8 +15,8 @@
 }
 
 .small {
-  padding: spacing(75) spacing(100);
-  font-size: font-size(75);
-  border-radius: radius(100);
+  padding: spacing(75) spacing(100); // 6px 8px
+  font-size: font-size(75); // 12px
+  border-radius: radius(100); // 4px
 }
 

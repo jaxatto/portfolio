@@ -40,7 +40,7 @@
         &:focus-visible {
             outline: px-to-rem(3) solid map.get($palette, link);
             outline-offset: px-to-rem(4);
-            border-radius: px-to-rem(16);
+            border-radius: radius(400); // 16px
         }
 
         .case-study-component-wrapper {
@@ -84,9 +84,9 @@
     display: grid;
     grid-template-columns: 1fr minmax(0, px-to-rem(400));
     align-items: stretch;
-    border-radius: px-to-rem(16);
+    border-radius: radius(400); // 16px
     overflow: hidden;
-    gap: px-to-rem(24);
+    gap: spacing(300); // 24px
     color: var(--color-dark);
     text-decoration: none;
     transition: all 0.3s ease-in-out;
@@ -113,7 +113,7 @@
 .vertical {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    gap: px-to-rem(24);
+    gap: spacing(300); // 24px
 
     .case-study-image-wrapper {
         width: 100%;
@@ -121,13 +121,13 @@
     }
 
     .case-study-component-wrapper {
-        left: px-to-rem(64);
-        top: px-to-rem(16);
+        left: spacing(800); // 64px
+        top: spacing(200); // 16px
         bottom: 0;
     }
 
     .content {
-        padding-bottom: px-to-rem(24);
+        padding-bottom: spacing(300); // 24px
     }
 }
 
@@ -150,7 +150,7 @@
         right: auto;
         width: 100%;
         height: auto;
-        padding: 0 px-to-rem(40);
+        padding: 0 spacing(500); // 40px
     }
 }
 
@@ -171,14 +171,14 @@
     }
 
     @include respond(sm) {
-        border-radius: px-to-rem(16);
+        border-radius: radius(400); // 16px
         left: auto;
         top: auto;
         bottom: auto;
     }
 
     @include respond(xs) {
-        border-radius: px-to-rem(8);
+        border-radius: radius(200); // 8px
     }
 }
 
@@ -194,7 +194,7 @@
     @include respond(md) {
         grid-template-columns: 1fr minmax(0, px-to-rem(400));
         grid-template-rows: 1fr;
-        gap: px-to-rem(16);
+        gap: spacing(200); // 16px
 
         .case-study-component-wrapper {
             left: 0;
@@ -213,7 +213,7 @@
         }
 
         .content {
-            padding-bottom: px-to-rem(40);
+            padding-bottom: spacing(500); // 40px
         }
     }
 
@@ -223,12 +223,12 @@
         padding: px-to-rem(40) 0;
         align-items: center;
         text-align: center;
-        gap: px-to-rem(48);
+        gap: spacing(600); // 48px
 
         .case-study-image-wrapper {
             width: 100%;
             height: auto;
-            padding: 0 px-to-rem(40);
+            padding: 0 spacing(500); // 40px
         }
 
         .case-study-component-wrapper {
@@ -238,9 +238,9 @@
         }
 
         .content {
-            padding: 0 px-to-rem(16);
+            padding: 0 spacing(200); // 16px
             align-items: center;
-            gap: px-to-rem(32);
+            gap: spacing(400); // 32px
             min-width: auto;
             max-width: 100%;
         }
@@ -251,10 +251,10 @@
     }
 
     @include respond(xs) {
-        gap: px-to-rem(40);
+        gap: spacing(500); // 40px
 
         .content {
-            gap: px-to-rem(32);
+            gap: spacing(400); // 32px
         }
     }
 }
@@ -271,8 +271,8 @@
 .content {
     display: flex;
     flex-direction: column;
-    gap: px-to-rem(48);
-    padding: px-to-rem(24) px-to-rem(24) px-to-rem(40) px-to-rem(24);
+    gap: spacing(600); // 48px
+    padding: spacing(300) spacing(300) spacing(500) spacing(300); // 24px 24px 40px 24px
     align-items: flex-start;
     width: 100%;
     min-width: px-to-rem(320);
@@ -317,7 +317,7 @@
         text-decoration: underline;
         display: flex;
         align-items: center;
-        gap: px-to-rem(4);
+        gap: spacing(500); // 4px
         font-weight: var(--font-weight-bold);
         font-size: px-to-rem(20);
 

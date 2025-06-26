@@ -1,14 +1,14 @@
 @use '@styles/all' as *;
 
 .work-intro-wrapper {
-    padding: px-to-rem(24) 0 px-to-rem(40) 0;
+    padding: spacing(300) 0 spacing(500) 0; // 24px 0 40px 0
     display: flex;
     flex-direction: column;
-    gap: px-to-rem(16);
+    gap: spacing(200); // 16px
     align-items: center;
     text-align: center;
+}
 
-    h2 {
-        @extend .body-lg;
-    }
+.work-intro-title {
+    @extend .body-lg;
 }

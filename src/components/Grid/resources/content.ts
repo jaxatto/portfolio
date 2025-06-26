@@ -1,4 +1,4 @@
-import { CardProps } from '@pages/Work/components/Card';
+import { CardProps } from '@components/Card';
 import primaryImage from '@assets/samples/placeholder-min.png';
 import secondaryImage from '@assets/samples/indeed-sample-min.png';
 import tertiaryImage from '@assets/samples/actblue-sample-min.png';

@@ -1,14 +1,12 @@
-@use '@styles/all' as *;
-
 .wrapper, :global(.experience-card-group) {
     display: flex;
     flex-direction: row;
-    padding: spacing(300) spacing(500) spacing(300) spacing(300);
+    padding: spacing(300) spacing(700) spacing(300) spacing(300); // 24px 56px 24px 24px
     gap: spacing(200);
     border-radius: radius(300);
 
     @include respond(sm) {
-        padding-right: spacing(300);
+        padding-right: spacing(300); // 24px
     }
 
     @include respond(xs) {
@@ -29,7 +27,7 @@
 @each $type in (primary, secondary, tertiary) {
   :global(.#{$type}-experience-card) {
     background: var(--group-#{$type}-bg);
-    margin: spacing(200) 0;
+    margin: spacing(200) 0; // 16px 0
 
     .logo {
       background: var(--group-#{$type}-title);
@@ -60,7 +58,7 @@
     svg {
         width: 100%;
         height: 100%;
-        padding: spacing(75);
+        padding: spacing(75); // 6px
         fill: var(--color-white);
         opacity: 0.8;
     }
@@ -74,7 +72,7 @@
 .details {
     display: flex;
     flex-direction: column;
-    gap: spacing(200);
+    gap: spacing(200); // 16px
 }
 
 .title {
@@ -92,7 +90,7 @@
         content: '·';
         display: inline-block;
         height: 100%;
-        width: spacing(250);
+        width: spacing(250); // 20px
         color: var(--color-medium);
         text-align: center
     }

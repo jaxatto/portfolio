@@ -5,7 +5,7 @@
 
     h2 {
         @extend .heading-md;
-        margin-bottom: px-to-rem(8);
+        margin-bottom: spacing(100); // 8px
     }
 }
 
@@ -16,7 +16,7 @@
 .top-section {
     display: flex;
     flex-direction: column;
-    gap: spacing(300);
+    gap: spacing(300); // 24px
 
     ul {
         @extend .body-md;
@@ -24,10 +24,10 @@
         display: grid;
         grid-template-columns: auto 1fr;
         grid-template-rows: repeat(2, auto);
-        gap: spacing(100) spacing(200);
+        gap: spacing(100) spacing(200); // 8px 16px
 
         li {
-            gap: spacing(75);
+            gap: spacing(75); // 6px
         }
 
         @include respond(sm) {
@@ -44,14 +44,14 @@
 
 .how-section {
     p:not(:last-of-type) {
-        margin-bottom: px-to-rem(30);
+        margin-bottom: spacing(400); // 32px
     }
 }
 
 .lifestyle-image-row {
     @extend .remove-ul-style;
     display: flex;
-    gap: spacing(200);
+    gap: spacing(200); // 16px
 
     .lifestyle-line-item {
         width: 100%;
@@ -60,7 +60,7 @@
     .lifestyle-fallback-wrapper {
         aspect-ratio: 1;
         width: 100%;
-        height: 100%
+        height: 100%;
     }
     
     img {
@@ -79,6 +79,6 @@
 
     @include respond(xs) {
         flex-direction: column;
-        gap: spacing(200);
+        gap: spacing(200); // 16px
     }
 }

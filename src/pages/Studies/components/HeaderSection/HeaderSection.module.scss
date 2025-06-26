@@ -1,5 +1,5 @@
 .top-section {
-    margin-bottom: spacing(300);
+    margin-bottom: spacing(300); // 24px
 }
 
 .title {
@@ -11,12 +11,12 @@
         content: '·';
         display: inline-block;
         height: 100%;
-        width: spacing(250);
+        width: spacing(250); // 20px
         color: var(--color-medium);
         text-align: center
     }
 }
 
 .chip-row {
-    max-width: px-to-rem(500);
+    max-width: px-to-rem(600); // 48rem
 }

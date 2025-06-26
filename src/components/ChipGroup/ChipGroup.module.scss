@@ -2,9 +2,9 @@
   @extend .remove-ul-style;
   display: flex;
   flex-wrap: wrap;
-  gap: spacing(100)
+  gap: spacing(100); // 8px
 }
 
 .small {
-  gap: spacing(75);
+  gap: spacing(75); // 6px
 }

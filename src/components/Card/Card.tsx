@@ -31,7 +31,6 @@ const Card: React.FC<CardProps> = ({
   total,
   iconFallback = 'pencilRuler',
 }) => {
-  // Compose accessible label for the link
   const accessibleLabel = [
     `Case study${typeof count === 'number' ? ` ${count}` : ''}${typeof total === 'number' ? ` of ${total}` : ''}:`,
     title,

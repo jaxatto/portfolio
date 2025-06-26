@@ -18,7 +18,7 @@
 .dots-wrapper {
   display: flex;
   align-items: center;
-  gap: spacing(100);
+  gap: spacing(100); // 8px
 }
 
 .line {
@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
   gap: 0;
-  padding: spacing(450) 0;
+  padding: spacing(500) 0; // 40px 0  
 
   .line {
     flex: 1 1 px-to-rem(40);
@@ -62,8 +62,8 @@
 .section-header {
   display: flex;
   align-items: center;
-  gap: spacing(300);
-  margin-bottom: spacing(300);
+  gap: spacing(300); // 24px
+  margin-bottom: spacing(300); // 24px
 
   &.align-left .group:first-child {
     max-width: px-to-rem($divider-left);
@@ -82,5 +82,5 @@
   display: flex;
   flex: 1 auto;
   align-items: center;
-  gap: spacing(300);
+  gap: spacing(300); // 24px
 }

@@ -1,4 +1,3 @@
-@use '@styles/all' as *;
 @use 'sass:map';
 
 .wrapper {
@@ -8,7 +7,8 @@
 }
 
 .divider {
-    padding-bottom: spacing(500);
+    padding-top: 0;
+    padding-bottom: spacing(600); // 48px
 }
 
 .content {
@@ -16,28 +16,28 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: spacing(500);
-    padding: 0 spacing(300) spacing(925) spacing(300);
+    gap: spacing(500); // 40px
+    padding: 0 spacing(300) px-to-rem(104) spacing(300); // 0 24px 104px 24px
 
     @include respond(sm) {
-        padding: spacing(200) spacing(200) spacing(700) spacing(200);
+        padding: spacing(200) spacing(200) spacing(800) spacing(200); // 16px 16px 64px 16px
     }
 
     @include respond(xs) {
-        padding: spacing(100) spacing(100) spacing(500) spacing(100);
-        gap: spacing(300);
+        padding: spacing(100) spacing(100) spacing(600) spacing(100); // 8px 8px 48px 8px
+        gap: spacing(300); // 24px
     }
 }
 
 .top {
     display: flex;
     flex-direction: column;
-    gap: spacing(200);
-    padding-right: spacing(500);
+    gap: spacing(200); // 16px
+    padding-right: spacing(600); // 48px
 
     @include respond(sm) {
         padding-right: 0;
-        gap: spacing(100);
+        gap: spacing(100); // 8px
     }
 }
 
@@ -64,7 +64,7 @@
 .bottom {
     display: flex;
     flex-direction: column;
-    gap: spacing(300);
+    gap: spacing(300); // 24px
 }
 
 .button {
@@ -89,23 +89,10 @@
     }
 }
 
-// .button {
-//     background: linear-gradient(78deg, #1E0095 9.5%, #A152FB 88.75%);
-//     background-size: 200% 100%;
-//     background-position: left center;
-//     transition: background-position 0.3s linear;
-//     // font-size: font-size(200);
-
-//     &:hover {
-//         background-position: 100% center;
-//         color: var(--color-white);
-//     }
-// }
-
 .byline {
     @extend .body-sm;
     display: inline-flex;
-    flex-wrap: wrap;;
+    flex-wrap: wrap;
 
     >*:not(:nth-last-child(-n+2)) {
         margin-right: 0.2em;

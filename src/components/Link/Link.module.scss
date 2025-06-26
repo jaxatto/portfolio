@@ -46,13 +46,13 @@ a {
 .button {
     display: flex;
     align-self: flex-start;
-    padding: spacing(200) spacing(400);
-    border-radius: radius(150);
+    padding: spacing(200) spacing(400); // 16px 32px
+    border-radius: radius(150); // 12px
     text-decoration: none;
     background-color: var(--color-primary);
     color: var(--color-white);
     line-height: var(--line-height-200);
-    font-size: font-size(150);
+    font-size: font-size(150); // 12px
     font-weight: var(--font-weight-bold);
 
     &:hover, &:active {

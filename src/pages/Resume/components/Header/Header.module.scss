@@ -6,33 +6,28 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 
-        spacing(300) 
-        spacing(300) 
-        spacing(600) 
-        spacing(300);
-    ;
+    padding: spacing(300) spacing(300) spacing(700) spacing(300); // 24px 24px 48px 24px
 
     @include respond(sm) {
         align-items: center;
         text-align: center;
-        padding: spacing(200) spacing(200) spacing(500) spacing(200);    
+        padding: spacing(200) spacing(200) spacing(600) spacing(200);  // 16px 16px 48px 16px  
     }
 
     @include respond(xs) {
-        padding: spacing(100) spacing(100) spacing(500) spacing(100);
+        padding: spacing(100) spacing(100) spacing(600) spacing(100); // 8px 8px 48px 8px
     }
 }
 
 .page-title-lg {
     @extend .title-lg;
     color: var(--group-primary-title);
-    margin-bottom: spacing(50);
+    margin-bottom: spacing(50); // 4px
 }
 
 .description {
     @extend .body-lg;
-    margin-bottom: spacing(400);
+    margin-bottom: spacing(400); // 32px
     display: flex;
     flex-direction: column;
 
@@ -40,14 +35,14 @@
         display: inline;
         
         .description1 {
-            margin-right: spacing(50);
+            margin-right: spacing(50); // 4px
         }
     }
 }
 
 .byline {
     @extend .body-sm-bold;
-    margin-bottom: spacing(300);
+    margin-bottom: spacing(300); // 24px
 }
 
 .button {

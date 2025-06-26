@@ -7,8 +7,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: px-to-rem(64) 0 px-to-rem(104) 0;
-    gap: px-to-rem(32);
+    padding: spacing(800) 0 px-to-rem(104) 0; // 64px 0 104px 0
+    gap: spacing(400); // 32px
     width: 100%;
 
     .footer-wrapper {
@@ -27,7 +27,7 @@ footer {
 .text {
     display: flex;
     flex-direction: column;
-    gap: px-to-rem(16);
+    gap: spacing(200); // 16px
 
     @include respond(sm) {
         flex: auto;
@@ -45,7 +45,7 @@ footer {
 .footer-links {
     display: flex;
     flex-direction: column;
-    gap: px-to-rem(24);
+    gap: spacing(300); // 24px
     align-items: flex-start;
     width: 100%;
 
@@ -55,7 +55,7 @@ footer {
     }
 
     @include respond(sm) {
-        gap: px-to-rem(20);
+        gap: spacing(250); // 20px
         align-items: center;
         text-align: center;
 
