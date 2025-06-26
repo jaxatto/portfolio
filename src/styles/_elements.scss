@@ -13,13 +13,11 @@
     gap: spacing(500); // 40px
 }
 
-.dot-text-divider {
-    &::after {
-        content: '·';
-        display: inline-block;
-        height: 100%;
-        width: 1em;
-        color: var(--color-medium);
-        text-align: center
-    }
+.dot-text-divider:not(:last-child)::after {
+  content: '·';
+  display: inline-block;
+  height: 100%;
+  width: 1em;
+  color: var(--color-medium);
+  text-align: center;
 }

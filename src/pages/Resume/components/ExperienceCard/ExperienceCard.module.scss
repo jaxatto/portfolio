@@ -85,15 +85,8 @@
     flex-wrap: wrap;
 }
 
-.company, .date {
-    &::after {
-        content: '·';
-        display: inline-block;
-        height: 100%;
-        width: spacing(250); // 20px
-        color: var(--color-medium);
-        text-align: center
-    }
+.date, .company, .location {
+    @extend .dot-text-divider;
 }
 
 .date, .location {

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ExperienceCard.module.scss';
+import DateRange from '@components/DateRange/DateRange';
 
 export type ExperienceCardProps = {
   title: string;
@@ -37,16 +38,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <h3 className={styles.title}>{title}</h3>
         <div className={styles['sub-details']}>
           <span className={styles.company}>{company}</span>
-          <span className={styles.date}>
-            {startDate}
-            {endDate && (
-              <>
-                <span aria-hidden="true"> — </span>
-                <span className="sr-only"> to </span>
-                {endDate}
-              </>
-            )}
-          </span>
+          <DateRange startDate={startDate} endDate={endDate} className={styles.date} />
           <span className={styles.location}>{location}</span>
         </div>
       </div>

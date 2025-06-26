@@ -58,9 +58,13 @@ const StudyCard: React.FC<StudyCardProps> = ({
     >
       <div className={styles.content}>
         <div className={styles.text}>
-          <h3 className={styles.title}>{title}</h3>
-          <p className={styles.description} aria-hidden="true">
-            {description.join(' · ')}
+          <h3 className={styles.title}>
+            {title}
+          </h3>
+          <p className={styles.description}>
+            {description.map((desc, i) => (
+              <span key={i}>{desc}</span>
+            ))}
           </p>
         </div>
         <span className={styles['card-link']}>

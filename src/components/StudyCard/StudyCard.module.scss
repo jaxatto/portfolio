@@ -275,6 +275,10 @@
 .description {
     font-weight: var(--font-weight-regular);
     font-family: $font-body;
+
+    span {
+        @extend .dot-text-divider;
+    }
 }
 
 .card-link {

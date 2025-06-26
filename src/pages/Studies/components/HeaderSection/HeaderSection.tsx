@@ -1,6 +1,7 @@
 import React from 'react';
 import ChipGroup, { ChipData } from '@components/ChipGroup';
 import Divider from '@components/Divider';
+import DateRange from '@components/DateRange';
 import CaptionedImage from '@pages/Studies/components/CaptionedImage';
 import styles from './HeaderSection.module.scss';
 
@@ -23,17 +24,14 @@ const Header: React.FC<HeaderProps> = ({
     <div className={styles['top-section']}>
       <h1 className={styles.title}>{title}</h1>
       <div className={styles.details}>
-        <span className={styles.role}>{roleDetails[0].role}</span>
-        <span className={styles.date}>
-          {roleDetails[0].startDate}
-          {roleDetails[0].endDate && (
-            <>
-              <span aria-hidden='true'>{' '}—{' '} </span>
-              <span className='sr-only'>{' '}to{' '}</span>
-              {roleDetails[0].endDate}
-            </>
-          )}
+        <span className={styles.role}>
+          {roleDetails[0].role}
         </span>
+        <DateRange 
+          startDate={roleDetails[0].startDate}
+          endDate={roleDetails[0].endDate}
+          className={styles.date}
+        />
       </div>
     </div>
     <ChipGroup chips={chips} className={styles['chip-row']} size='small' />
