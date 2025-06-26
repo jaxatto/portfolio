@@ -6,3 +6,7 @@
 .section-paragraph:not(:last-of-type) {
     margin-bottom: spacing(300); // 24px
 }
+
+.section-list {
+    margin: 0;
+}

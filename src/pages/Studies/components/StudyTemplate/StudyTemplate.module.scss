@@ -1,4 +1,8 @@
 .wrapper {
     @extend .general-content-wrapper;
     gap: spacing(800); // 64px
+
+    @include respond(sm) {
+        gap: spacing(500); // 40px
+    }
 }

@@ -1,0 +1,4 @@
+.title {
+  @extend .heading-md;
+  margin-bottom: spacing(200); // 16px
+}

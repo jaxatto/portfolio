@@ -28,8 +28,8 @@ const Header: React.FC<HeaderProps> = ({
           {roleDetails[0].startDate}
           {roleDetails[0].endDate && (
             <>
-              <span aria-hidden='true'> — </span>
-              <span className='sr-only'> to </span>
+              <span aria-hidden='true'>{' '}—{' '} </span>
+              <span className='sr-only'>{' '}to{' '}</span>
               {roleDetails[0].endDate}
             </>
           )}

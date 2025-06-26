@@ -16,13 +16,15 @@ const StudySection: React.FC<{ section: StudySectionProps; className?: string }>
   return (
     <section className={className} data-order={section.order}>
       <h2 className={styles['section-title']}>
-        <span aria-hidden='true'>{section.titleEmoji}</span> {section.title}
+        <span aria-hidden='true'>{section.titleEmoji}</span> 
+        {' '}
+        {section.title}
       </h2>
       {section.description?.map((desc, i) => (
         <p key={i} className={styles['section-paragraph']}>{desc}</p>
       ))}
       {section.descriptionBullets?.length ? (
-        <ul>
+        <ul className={styles['section-list']}>
           {section.descriptionBullets.map((bullet, i) => (
             <li key={i}>{bullet}</li>
           ))}
