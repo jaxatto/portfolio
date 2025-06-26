@@ -5,7 +5,7 @@ import outcomesImage from './images/home-before-after-min.png';
 // import deliverablesImage from './images/name-min.png';
 import type { ChipData } from '@components/ChipGroup';
 
-export const content = {
+const content = {
     header: {
         title: 'Indeed Design System',
         roleDetails: [
@@ -98,3 +98,5 @@ export const content = {
         },
     ],
 };
+
+export default content;
