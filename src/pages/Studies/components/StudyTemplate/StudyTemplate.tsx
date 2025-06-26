@@ -4,14 +4,11 @@ import HeaderSection from '@pages/Studies/components/HeaderSection';
 import StudySection, { StudySectionProps } from '@pages/Studies/components/StudySection';
 import NextStudy from '@pages/Studies/components/NextStudy';
 import { ChipData } from '@components/ChipGroup';
+import type { StudyMeta } from '@commonTypes/study/studyMeta';
 import styles from './StudyTemplate.module.scss';
 
 export type StudyTemplateProps = {
-  meta: { // Meta information for the page
-    title: string; // Page title for SEO
-    description: string; // Meta description for SEO
-    linkUrl: string; // URL for the study, used to exclude it from the grid
-  };
+  meta: StudyMeta;
   content: {
     header: {
       title: string;
