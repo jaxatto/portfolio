@@ -4,6 +4,12 @@ import Image from '@components/Image';
 import Icon from '@components/Icon';
 import styles from './StudyCard.module.scss';
 
+// StudyCard component for displaying case studies or work examples
+// It supports various props for customization, including title, description, image, link URL, and link text
+// Usage: <StudyCard title="Case Study Title" description={["Byline text"]} image="image-url.jpg" linkUrl="/case-study" linkText="Read more" />
+// The component can be used in different layouts (horizontal or vertical) and palettes (primary, secondary, tertiary)
+// It also supports an optional count and total for displaying the number of case studies
+
 export type StudyCardProps = {
   title: string; // Card title
   description: string[]; // Byline text divided by dot

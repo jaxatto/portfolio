@@ -1,12 +1,14 @@
 import React from 'react';
 import Link from '@components/Link';
-import DotsRow from '@components/Divider';
+import Divider from '@components/Divider';
 import styles from './Footer.module.scss';
+
+// Page level footer component
 
 const Footer: React.FC = () => {
     return (
         <footer>
-            <DotsRow count={6} />
+            <Divider />
 
             <div className={styles['footer-wrapper']}>
                 <div className={styles.text}>

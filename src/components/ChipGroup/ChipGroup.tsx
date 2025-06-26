@@ -2,6 +2,11 @@ import React from 'react';
 import Chip from '@components/Chip';
 import styles from './ChipGroup.module.scss';
 
+// ChipGroup component for displaying a group of chips
+// It allows customization of chip data, size, and theme  
+// Usage: <ChipGroup chips={[{ label: 'Chip 1' }, { label: 'Chip 2' }]} size="small" theme="primary" />
+// Preferably pass an array of objects with label and optional theme to the chips prop
+
 export type ChipData = {
   label: string;
   theme?: 'primary' | 'secondary' | 'tertiary' | 'neutral';

@@ -4,11 +4,14 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import styles from './Layout.module.scss';
 
+// Layout component that wraps the main content of the application
+// It includes a header, footer, and meta tags for SEO
+
 type LayoutProps = {
-  children: React.ReactNode;
-  showFooter?: boolean;
-  className?: string;
-} & MetaProps;
+  children: React.ReactNode; // Children elements to be rendered inside the layout
+  showFooter?: boolean; // Flag to show or hide the footer
+  className?: string; // Applies styles to main content
+} & MetaProps; // Extends MetaProps to include title and metaDescription for SEO
 
 const Layout: React.FC<LayoutProps> = ({
   children,

@@ -1,6 +1,10 @@
 import React from 'react';
 import styles from './Chip.module.scss';
 
+// Chip component for displaying tags or labels
+// It supports different variants and sizes for customization
+// Usage: <Chip variant="secondary" size="small">Tag</Chip>
+
 type ChipProps = {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'tertiary' | 'neutral';

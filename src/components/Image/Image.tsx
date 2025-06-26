@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import Icon from '@components/Icon';
 import styles from './Image.module.scss';
 
+// Image component that displays an image with a fallback icon if the image fails to load 
+// It allows for custom styling of the image, fallback icon, and container
+// Usage: <Image src="image-url.jpg" alt="Description" iconFallback="image
+
 type ImageProps = {
   src: string; 
   alt: string;

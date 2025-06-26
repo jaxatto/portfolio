@@ -4,15 +4,17 @@ import Link from '@components/Link/Link';
 import styles from './Header.module.scss';
 import { content } from './resources/content';
 
+// Page level header component
+// This component renders the header with a skip link, brand, byline, and navigation links
+
 const Header: React.FC = () => {
-    useLocation(); // still needed for rerender on route change if Link uses it internally
+    useLocation(); // Using useLocation to ensure the component re-renders on route changes
 
     return (
         <header>
             <a href="#main-content" className={styles['skip-link']}>
                 {content.skipToMain}
             </a>
-            <span className="sr-only">{content.screenReaderWelcome}</span>
             <div className={styles.brand}>
                 <Link
                     to="/"
@@ -20,8 +22,7 @@ const Header: React.FC = () => {
                 >
                     {content.brand}
                 </Link>
-                <span className={styles.byline} aria-hidden="true">{content.byline}</span>
-                <span className="sr-only">{content.screenReaderByline}</span>
+                <span className={styles.byline}>{content.byline}</span>
             </div>
             <nav>
                 <ul>

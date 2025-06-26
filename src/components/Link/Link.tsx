@@ -3,6 +3,10 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Icon from '@components/Icon';
 import styles from './Link.module.scss';
 
+// Link component for navigation
+// It supports both internal and external links, with options for new tab, icon, and styling
+// Usage: <Link to="/path" newTab iconName="arrow-right">Link Text</Link>
+
 type LinkProps = {
   to?: string;
   href?: string;

@@ -12,6 +12,9 @@ import Ai from '@assets/icons/ai.svg';
 import Download from '@assets/icons/download.svg';
 import Image from '@assets/icons/image.svg';
 
+// Icon component to render SVG icons based on the provided name
+// Usage: <Icon name="arrow-right" />
+
 type IconProps = {
   name: string;
   className?: string;

@@ -12,3 +12,14 @@
     margin: 0 auto;
     gap: spacing(500); // 40px
 }
+
+.dot-text-divider {
+    &::after {
+        content: '·';
+        display: inline-block;
+        height: 100%;
+        width: 1em;
+        color: var(--color-medium);
+        text-align: center
+    }
+}

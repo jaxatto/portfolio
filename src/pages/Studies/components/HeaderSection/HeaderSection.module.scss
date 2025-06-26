@@ -7,14 +7,7 @@
 }
 
 .role {
-    &::after {
-        content: '·';
-        display: inline-block;
-        height: 100%;
-        width: spacing(250); // 20px
-        color: var(--color-medium);
-        text-align: center
-    }
+    @extend .dot-text-divider;
 }
 
 .chip-row {
