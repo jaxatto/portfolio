@@ -1,16 +1,16 @@
 import React from 'react';
 import Card from '@components/Card';
 import { content } from './resources/content';
-import styles from './Grid.module.scss';
+import styles from './CardGrid.module.scss';
 
-type GridProps = {
+type CardGridProps = {
   samples?: typeof content;
 };
 
-const Grid: React.FC<GridProps> = ({ samples }) => {
+const CardGrid: React.FC<CardGridProps> = ({ samples }) => {
   const data = samples || content;
   return (
-    <div className={styles['work-grid']}>
+    <div className={styles['card-grid']}>
       {data.map((props, i) => (
         <Card
           key={props.linkUrl}
@@ -23,4 +23,4 @@ const Grid: React.FC<GridProps> = ({ samples }) => {
   );
 };
 
-export default Grid;
+export default CardGrid;
