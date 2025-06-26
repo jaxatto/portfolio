@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@components/Layout';
+import StudyCardGrid from '@components/StudyCardGrid';
 import HeaderSection from '@pages/Studies/components/HeaderSection';
 import StudySection, { StudySectionProps } from '@pages/Studies/components/StudySection';
 import { ChipData } from '@components/ChipGroup';
@@ -7,8 +8,9 @@ import styles from './StudyTemplate.module.scss';
 
 type StudyTemplateProps = {
   meta: { // Meta information for the page
-    title: string;
-    description: string;
+    title: string; // Page title for SEO
+    description: string; // Meta description for SEO
+    linkUrl: string; // URL for the study, used to exclude it from the grid
   };
   content: {
     header: {
@@ -43,6 +45,10 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
           ? renderSection(section, idx)
           : <StudySection key={idx} section={section} className={styles.section} />
       )}
+    <StudyCardGrid
+      variant="study"
+      excludeUrl={meta.linkUrl} // Ensure data contains the current study's linkUrl
+    />
   </Layout>
 );
 

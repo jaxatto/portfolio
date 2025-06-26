@@ -14,7 +14,8 @@
       "@components/*": ["src/components/*"],
       "@styles/*": ["src/styles/*"],
       "@assets/*": ["src/assets/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@constants/*": ["src/constants/*"],
     }
   },
   "include": ["src"]

@@ -29,30 +29,30 @@ p {
 .title-lg {
     font-family: $font-heading;
     line-height: var(--line-height-100);
-    font-size: font-size(500);
+    font-size: font-size(700); // 56px
     font-weight: var(--font-weight-black);
 
     @include respond(sm) {
-        font-size: font-size(300);
+        font-size: font-size(300); // 32px
     }
 
     @include respond(xs) {
-        font-size: font-size(200);
+        font-size: font-size(200); // 24px
     }
 }
 
 .title-md {
     font-family: $font-heading;
-    font-size: font-size(400);
+    font-size: font-size(400); // 40px
     line-height: var(--line-height-200);
     font-weight: var(--font-weight-extra-bold);
 
     @include respond(sm) {
-        font-size: font-size(300);
+        font-size: font-size(300); // 32px
     }
 
     @include respond(xs) {
-        font-size: font-size(200);
+        font-size: font-size(200); // 24px
     }
 }
 
@@ -63,23 +63,23 @@ p {
 // Heading
 .heading-lg {
     font-family: $font-heading;
-    font-size: font-size(300);
+    font-size: font-size(300); // 32px
     line-height: var(--line-height-100);
     font-weight: var(--font-weight-extra-bold);
 
     @include respond(sm) {
-        font-size: font-size(200);
+        font-size: font-size(200); // 24px
     }
 }
 
 .heading-md {
     font-family: $font-heading;
-    font-size: font-size(200);
+    font-size: font-size(200); // 24px
     line-height: var(--line-height-100);
     font-weight: var(--font-weight-extra-bold);
 
     @include respond(sm) {
-        font-size: font-size(150);
+        font-size: font-size(150); // 20px
     }
 }
 
@@ -88,30 +88,41 @@ p {
     font-weight: var(--font-weight-bold);
 }
 
+.heading-xs {
+    font-family: $font-heading;
+    font-size: font-size(125); // 18px
+    line-height: var(--line-height-100);
+    font-weight: var(--font-weight-extra-bold);
+
+    @include respond(sm) {
+        font-size: font-size(100); // 16px
+    }
+}
+
 // Body 
 .body-lg {
     font-family: $font-body;
-    font-size: font-size(200);
+    font-size: font-size(200); // 24px
     line-height: var(--line-height-200);
     font-weight: var(--font-weight-regular);
 
     @include respond(sm) {
-        font-size: font-size(150);
+        font-size: font-size(150); // 20px
     }
 
     @include respond(xs) {
-        font-size: font-size(100);
+        font-size: font-size(100); // 16px
     }
 }
 
 .body-md {
     font-family: $font-body;
-    font-size: font-size(150);
+    font-size: font-size(150); // 20px
     line-height: var(--line-height-400);
     font-weight: var(--font-weight-regular);
 
     @include respond(sm) {
-        font-size: font-size(100);
+        font-size: font-size(100); // 16px
     }
 }
 
@@ -122,12 +133,12 @@ p {
 
 .body-sm {
     font-family: $font-body;
-    font-size: font-size(125);
+    font-size: font-size(125); // 18px
     line-height: var(--line-height-300);
     font-weight: var(--font-weight-regular);
 
     @include respond(sm) {
-        font-size: font-size(100);
+        font-size: font-size(100); // 16px
     }
 }
 
@@ -139,14 +150,14 @@ p {
 // Other
 .caption-md {
     font-family: $font-body;
-    font-size: font-size(75);
+    font-size: font-size(75); // 14px
     line-height: var(--line-height-100);
     font-weight: var(--font-weight-regular);
 }
 
 .caption-sm {
     font-family: $font-body;
-    font-size: font-size(50);
+    font-size: font-size(50); // 12px
     line-height: var(--line-height-100);
     font-weight: var(--font-weight-medium);
 }

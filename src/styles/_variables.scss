@@ -97,8 +97,6 @@ $breakpoints: (
   wrapper: map.get($wrapper-widths, site),
 );
 
-
-
 // Some math to keep track of for Divider
 // Site has padding of 24px on each side
 // Content has padding of 24px on each side
@@ -127,7 +125,7 @@ $font-size : (
     200: 24,
     300: 32,
     400: 40,
-    500: 56,
+    700: 56,
 );
 $base-font-size: map.get($font-size, 100);
 

@@ -43,7 +43,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
     <Link
       href={linkUrl}
       className={[
-        styles.card,
+        styles.wrapper,
         styles[layout] ? styles[layout] : '',
         `${palette}-card`,
         styles[variant]
