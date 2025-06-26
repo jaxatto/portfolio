@@ -1,3 +1,5 @@
+import React from 'react';
+import { IconName } from '@constants/iconNames';
 import Ai from '@assets/icons/ai.svg';
 import ArrowRight from '@assets/icons/arrow-right.svg';
 import ArrowTopRight from '@assets/icons/arrow-top-right.svg';
@@ -11,15 +13,6 @@ import Image from '@assets/icons/image.svg';
 import Paw from '@assets/icons/paw.svg';
 import PencilRuler from '@assets/icons/pencil-ruler.svg';
 import Person from '@assets/icons/person.svg';
-
-
-
-
-
-
-import React from 'react';
-import { IconName } from '@constants/iconNames';
-
 
 const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'ai': Ai,

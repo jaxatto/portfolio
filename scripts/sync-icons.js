@@ -64,7 +64,22 @@ updatedIconComponentContent = updatedIconComponentContent.replace(
   /import .*? from '@assets\/icons\/.*?\.svg';\n?/g,
   ''
 );
-updatedIconComponentContent = importLines + '\n\n' + updatedIconComponentContent;
+
+// Remove any leading blank lines after import removal
+updatedIconComponentContent = updatedIconComponentContent.replace(/^\s*\n/, '');
+
+// Insert imports after the last non-SVG import
+const importInsertMatch = updatedIconComponentContent.match(/^(import .*?;\n)+/);
+if (importInsertMatch) {
+  const lastImportEnd = importInsertMatch[0].length;
+  updatedIconComponentContent =
+    updatedIconComponentContent.slice(0, lastImportEnd) +
+    importLines + '\n' +
+    updatedIconComponentContent.slice(lastImportEnd);
+} else {
+  // If no imports found, just prepend
+  updatedIconComponentContent = importLines + '\n' + updatedIconComponentContent;
+}
 
 // Replace the icons mapping
 updatedIconComponentContent = updatedIconComponentContent.replace(
@@ -73,7 +88,7 @@ updatedIconComponentContent = updatedIconComponentContent.replace(
 );
 
 // 8. Write the updated Icon.tsx content back to the file
-fs.writeFileSync(iconComponentFile, updatedIconComponentContent, 'utf8');
+fs.writeFileSync(iconComponentFile, updatedIconComponentContent.trim() + '\n', 'utf8');
 
 console.log('SVGs found:', svgFiles);
 console.log('New icons:', newIcons);
