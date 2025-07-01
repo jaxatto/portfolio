@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@components/Link';
 import Divider from '@components/Divider';
+import { content } from './resources/content';
 import styles from './Footer.module.scss';
 
 // Page level footer component
@@ -12,22 +13,22 @@ const Footer: React.FC = () => {
 
             <div className={styles['footer-wrapper']}>
                 <div className={styles.text}>
-                    <h2 className={styles.title}>Let's work together</h2>
-                    <p className={styles.description}>I'm exploring staff-level roles on teams solving product problems at scale.</p>
+                    <h2 className={styles.title}>{content.title}</h2>
+                    <p className={styles.description}>{content.description}</p>
                 </div>
                 <div className={styles['footer-links']}>
                     <Link
-                        href='mailto:hello@jaxengeldesign.com'
+                        href={content.email.src}
                         iconName='arrow-top-right'
                     >
-                        <span className="sr-only">Email me at</span>hello@jaxengeldesign.com <span className='sr-only'>(opens email client)</span>
+                        <span className="sr-only">{content.email.preText}</span>{content.email.label} <span className='sr-only'>{content.email.srOnly}</span>
                     </Link>
                     <Link
-                        href='https://www.linkedin.com/in/jaxengel/'
+                        href={content.linkedin.src}
                         newTab
                         iconName='arrow-top-right'
                     >
-                        <span className="sr-only">Connect with me on</span>LinkedIn <span className='sr-only'>(opens in a new tab)</span>
+                        <span className="sr-only">{content.linkedin.preText}</span>{content.linkedin.label} <span className='sr-only'>{content.linkedin.srOnly}</span>
                     </Link>
                 </div>
             </div>

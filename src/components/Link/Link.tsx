@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { mainLinks } from '@constants/mainLinks';
 import Icon from '@components/Icon';
 import styles from './Link.module.scss';
 
@@ -74,7 +75,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 
     const safeHref = href && (
       (href.startsWith('/') && !href.startsWith('//')) ||
-      href.startsWith('https://jaxengeldesign.com')
+      href.startsWith(mainLinks.siteURL)
     ) ? href : '/';
 
     return (

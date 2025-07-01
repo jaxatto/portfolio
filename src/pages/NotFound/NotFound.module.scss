@@ -1,3 +1,118 @@
+@use 'sass:map';
+
+$light: map.get(map.get($group-palettes, secondary), bg);
+$dark: map.get(map.get($group-palettes, secondary), chip);
+$text: var(--color-white);
+
 .wrapper {
-  /* Styles for NotFound */
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: $dark;
+  color: $text;
+  padding: spacing(600) spacing(300); // 48px 24px
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: spacing(700);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing(100);
+}
+
+.title {
+  @extend .title-lg;
+}
+
+.description {
+  @extend .body-lg;
+}
+
+.subtext {
+  @extend .body-sm;
+  position: absolute;
+  bottom: 48px;
+  color: $light;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.preText {
+  margin-right: 0.3em;
+}
+
+.endText {
+  margin-lefT: 0.1em;
+}
+
+.button-404 {
+  align-self: center;
+  background: $light;
+  color: $dark;
+
+  svg {
+    fill: $dark;
+  }
+
+  &:hover {
+    color: change-lightness($dark, hover);
+    background: change-lightness($light, hover);
+  }
+
+  &:hover svg {
+    fill: change-lightness($dark, hover);
+  }
+
+  &:active {
+    color: change-lightness($dark, pressed);
+    background: change-lightness($light, pressed);
+  }
+
+  &:active svg {
+    fill: change-lightness($dark, pressed);
+  }
+
+  &:focus-visible {
+    outline-color: $light;
+  }
+
+  @include respond(sm) {
+    font-size: font-size(125);
+  }
+
+  @include respond(xs) {
+    font-size: font-size(100);
+    padding: spacing(150) spacing(250);
+  }
+}
+
+.subtext-link {
+  color: $light;
+  font-weight: var(--font-weight-bold);
+
+  &:hover {
+    color: change-lightness($light, hover);
+  }
+
+  &:active {
+    color: change-lightness($light, pressed);
+  }
+
+  &:focus-visible {
+    outline-color: $light;
+  }
 }
