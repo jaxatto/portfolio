@@ -23,6 +23,7 @@
             .card-link svg {
                 color: color.adjust(map.get($palette, link), $lightness: -16%);
                 fill: color.adjust(map.get($palette, link), $lightness: -16%);
+                text-underline-offset: 0.5em;
             }
         }
 
@@ -32,6 +33,7 @@
             .card-link svg {
                 color: color.adjust(map.get($palette, link), $lightness: -32%);
                 fill: color.adjust(map.get($palette, link), $lightness: -32%);
+                text-underline-offset: 0.5em;
             }
         }
 
@@ -288,6 +290,7 @@
     font-weight: var(--font-weight-bold);
     font-family: $font-heading;
     text-decoration: underline;
+    text-underline-offset: 0.3em;
 
     .icon {
         width: 1em;

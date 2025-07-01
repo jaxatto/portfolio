@@ -9,7 +9,7 @@
 
 // Hover style
 @mixin hover($color, $inverse: false) {
-  &:hover {
+  &:hover, &:hover svg {
     @if $inverse {
       background-color: change-lightness($color, hover);
       color: var(--color-white);
@@ -25,7 +25,7 @@
 
 // Pressed (active) style
 @mixin pressed($color, $inverse: false) {
-  &:active {
+  &:active, &:active svg {
     @if $inverse {
       background-color: change-lightness($color, pressed);
       color: var(--color-white);
