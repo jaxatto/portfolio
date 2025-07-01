@@ -6,5 +6,5 @@ export type StudyHeaderProps = {
   roleDetails: { role: string; startDate: string; endDate?: string }[];
   chips: ChipData[];
   description: string[];
-  image?: StudyImageProps[];
+  image: StudyImageProps[];
 };

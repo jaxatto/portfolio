@@ -3,5 +3,5 @@ export type StudyImageProps = {
   alt: string;
   caption?: string;
   className?: string;
-  corners?: 'round' | 'square';
+  corners?: 'round' | 'square' | string; // Allow any string for flexibility
 };
