@@ -12,6 +12,7 @@
     "generate:component": "node scripts/generate-component.js",
     "dev": "npm run build-scripts && vite",
     "build": "vite build",
+    "postbuild": "cp dist/index.html dist/404.html",
     "preview": "vite preview",
     "predeploy": "vite build && cp CNAME dist/CNAME && npm run build-scripts",
     "deploy": "gh-pages -d dist"
