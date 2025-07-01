@@ -16,7 +16,8 @@ const content = {
             },
         ],
         description: [
-            'Campaign admins needed to sync donor data from ActBlue into Salesforce, but the original integration was clunky, confusing, and handled entirely through support tickets. Users couldn\'t set it up themselves, and even when it worked, they had no idea what was syncing or why things failed. I joined the team to lead design on a complete rebuild of this system, rethinking the end-to-end experience for transparency, reliability, and maintainability.',
+            'Campaign admins needed to sync donor data from ActBlue into Salesforce, but the original integration was clunky, confusing, and handled entirely through support tickets. Users couldn\'t set it up themselves, and even when it worked, they had no idea what was syncing or why things failed.',
+            'I joined the team to lead design on a complete rebuild of this system, rethinking the end-to-end experience for transparency, reliability, and maintainability.',
         ],
         chips: [
             { label: 'B2B', theme: 'tertiary' },

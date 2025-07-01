@@ -13,3 +13,7 @@
 .chip-row {
     max-width: px-to-rem(500);
 }
+
+.description:not(:last-of-type) {
+    margin-bottom: spacing(300); // 24px
+}
