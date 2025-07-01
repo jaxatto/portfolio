@@ -1,5 +1,5 @@
 import React from 'react';
-import CaptionedImage from '@pages/Studies/components/CaptionedImage';
+import StudyImage from '@pages/Studies/components/StudyImage';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
 import styles from './StudySection.module.scss';
 
@@ -23,10 +23,12 @@ const StudySection: React.FC<{ section: StudySectionProps; className?: string }>
         </ul>
       ) : null}
       {image?.src && (
-        <CaptionedImage
+        <StudyImage
           src={image.src}
           alt={image.alt || ''}
           caption={image.caption}
+          className={styles['section-image']}
+          corners={image.corners}
         />
       )}
     </section>

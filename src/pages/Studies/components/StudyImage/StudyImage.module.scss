@@ -1,4 +1,4 @@
-.captioned-image {
+.study-image {
     display: flex;
     flex-direction: column;
     margin-top: spacing(400); // 32px
@@ -9,6 +9,10 @@
     width: 100%;
     height: auto;
     border-radius: radius(400); // 16px
+}
+
+.square {
+    border-radius: 0;
 }
 
 .image-caption {

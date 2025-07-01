@@ -50,7 +50,7 @@ const content = {
         },
         {
             order: 2,
-            title: 'Contrubitions',
+            title: 'Contributions',
             titleEmoji: '🛠️',
             description: [
                 'I led hands-on updates to the Figma library—refining components for consistency, accessibility, and themeability. I partnered with engineers to ensure parity between design and code, and created detailed documentation to support usage across teams.',
