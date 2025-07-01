@@ -1,5 +1,3 @@
-@use '@styles/all' as *;
-
 .content {
     @extend .general-content-wrapper;
     gap: spacing(200); // 16px
