@@ -15,12 +15,9 @@ I'm a staff-level product designer with a focus on accessibility, systems thinki
 
 - Fully responsive layout
 - Accessible, semantic HTML
-- No JavaScript—just the essentials
+- React and TypeScript
+- Developed with help from Copilot
 
 ## License
 
-The code here is under the [MIT License](LICENSE). Feel free to borrow from it if it helps.
-
----
-
-Thanks for stopping by.
+The code here is under the [MIT License](LICENSE).
