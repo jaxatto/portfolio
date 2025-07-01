@@ -14,7 +14,7 @@
     "build": "vite build",
     "postbuild": "cp dist/index.html dist/404.html",
     "preview": "vite preview",
-    "predeploy": "vite build && cp CNAME dist/CNAME && npm run build-scripts",
+    "predeploy": "vite build && npm run postbuild && cp CNAME dist/CNAME && npm run build-scripts",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
