@@ -14,7 +14,7 @@ const Header: React.FC = () => (
     </p>
 
     <p className={styles.byline}>{content.byline}</p>
-    <Link href={content.buttonHref} className={styles.button} iconName="arrow-right" styleAs="button">
+    <Link href={content.buttonHref} className={styles.button} iconName="arrow-right" styleAs="button" newTab={true}>
       {content.buttonLabel}
     </Link>
   </section>

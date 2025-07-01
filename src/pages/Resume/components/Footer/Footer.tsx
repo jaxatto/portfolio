@@ -33,15 +33,16 @@ const Footer: React.FC = () => {
             styleAs="button"
             iconName="download"
             iconPosition="left"
+            newTab={true}
           >
             {content.button}
           </Link>
 
           <p className={styles.byline}>
             <span>{beforeEmail}</span>
-            <Link href={content.emailHref}>{content.emailLabel}</Link>
+            <Link href={content.email.src}>{content.email.label}</Link>
             <span>{between}</span>
-            <Link href={content.linkedinHref}>{content.linkedinLabel}</Link>
+            <Link href={content.linkedin.src}>{content.linkedin.label}</Link>
             <span>{afterLinkedin}</span>
           </p>
         </div>

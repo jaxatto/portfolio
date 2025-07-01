@@ -1,4 +1,4 @@
-import { links } from "@assets/content/links";
+import { contactInfo } from "@constants/contactInfo";
 
 export const content = {
     h1: "Resume",
@@ -8,5 +8,5 @@ export const content = {
     byline: "Looking for a unicorn? 🦄",
     buttonLabel: "Get my resume",
     buttonIcon: "arrow-right",
-    buttonHref: links.resume.href,
+    buttonHref: contactInfo.resume,
 }              

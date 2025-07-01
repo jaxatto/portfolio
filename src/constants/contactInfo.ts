@@ -5,5 +5,5 @@ export const contactInfo = {
     label: 'hello@jaxengeldesign.com',
     src: 'mailto:jax.engel@example.com',
   },
-  resume: 'src/assets/Jax-Engel_Staff-Product-Designer.pdf'
+  resume: '/Jax-Engel_Staff-Product-Designer.pdf'
 };
