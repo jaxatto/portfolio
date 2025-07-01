@@ -4,6 +4,8 @@
 
 .title {
     @extend .page-title;
+    line-height: 1.2;
+    margin-bottom: spacing(100); // 8px
 }
 
 .role, .date {
