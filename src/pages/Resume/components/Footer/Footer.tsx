@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
             <span>{beforeEmail}</span>
             <Link href={content.email.src}>{content.email.label}</Link>
             <span>{between}</span>
-            <Link href={content.linkedin.src}>{content.linkedin.label}</Link>
+            <Link href={content.linkedin.src} newTab={true}>{content.linkedin.label}</Link>
             <span>{afterLinkedin}</span>
           </p>
         </div>
