@@ -1,7 +1,6 @@
 export const content = {
     header: {
         heading: 'About me',
-        headingEmoji: '🦄',
         bullets: [
              { 
                 text: '10+ years product design', 
