@@ -80,6 +80,15 @@ nav ul {
 
 .byline {
     @extend .caption-md;
+
+    span:not(:last-child)::after {
+        content: '·';
+        display: inline-block;
+        height: 100%;
+        width: 1em;
+        color: var(--color-medium);
+        text-align: center;
+    }
 }
 
 .skip-link {

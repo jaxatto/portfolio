@@ -22,7 +22,13 @@ const Header: React.FC = () => {
                 >
                     {content.brand}
                 </Link>
-                <span className={styles.byline}>{content.byline}</span>
+                <span className={styles.byline}>
+                    {Array.isArray(content.byline)
+                        ? content.byline.map((line, i) => (
+                            <span key={i}>{line}</span>
+                          ))
+                        : content.byline}
+                </span>
             </div>
             <nav>
                 <ul>
