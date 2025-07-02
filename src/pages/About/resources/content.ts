@@ -8,19 +8,19 @@ export const content = {
                 emoji: '📆' 
             },
             { 
-                text: 'Design systems leadership', 
-                emoji: '🏗' 
-            },
-            { 
                 text: 'Accessibility advocacy', 
                 emoji: '♿' 
             },
             { 
+                text: 'Design systems leadership', 
+                emoji: '🎨' 
+            },
+            { 
                 text: 'Cross-functional collaboration', 
-                emoji: '🤝' 
+                emoji: '👥' 
             },
         ],
-        description: 'I design accessible, scalable experiences that make complex tools feel straightforward. My work spans fintech, internal tools, and enterprise platforms, with a focus on making complex workflows easier to navigate. I\'m currently at ServiceNow, where I help internal teams design and build tools that are practical, intuitive, and easy to maintain.',
+        description: 'I design accessible, scalable experiences that make complex tools feel straightforward. My work spans fintech, internal tools, and enterprise platforms. I\'m currently at ServiceNow, where I help internal teams design and build tools that are practical, intuitive, and easy to maintain.',
     },
     how: {
         heading: 'How I work',
