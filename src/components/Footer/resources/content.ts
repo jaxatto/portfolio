@@ -12,7 +12,7 @@ export const content = {
     linkedin: {
         preText: 'Connect with me on',
         label: 'LinkedIn',
-        src: contactInfo.linkedin,
+        src: contactInfo.linkedin.src,
         srOnly: '(opens in a new tab)',
     },
 

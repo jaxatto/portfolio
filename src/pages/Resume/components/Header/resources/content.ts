@@ -8,5 +8,5 @@ export const content = {
     byline: "Looking for a unicorn? 🦄",
     buttonLabel: "Get my resume",
     buttonIcon: "arrow-right",
-    buttonHref: contactInfo.resume,
+    buttonHref: contactInfo.resume.src,
 }              

@@ -74,6 +74,8 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     }
 
     const safeHref = href && (
+      href.startsWith('http://') ||
+      href.startsWith('https://') ||
       (href.startsWith('/') && !href.startsWith('//')) ||
       href.startsWith(mainLinks.siteURL)
     ) ? href : '/';
