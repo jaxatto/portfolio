@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom';
 import NotFound from '@pages/NotFound';
 import StudyTemplate from '@pages/Studies/components/StudyTemplate';
 import indeedContent from '@pages/Studies/pages/Indeed/content';
-import indeedMeta from '@pages/Studies/pages/Indeed/resources/meta';
+import indeedMeta from '@pages/Studies/pages/Indeed/meta';
 import actblueContent from '@pages/Studies/pages/ActBlue/content';
 import actblueMeta from '@pages/Studies/pages/ActBlue/meta';
+import servicenowContent from '@pages/Studies/pages/ServiceNow/content';
+import servicenowMeta from '@pages/Studies/pages/ServiceNow/meta';
 
 // Map slugs to their content/meta modules
 const studies = {
@@ -16,6 +18,10 @@ const studies = {
   actblue: {
     content: actblueContent,
     meta: actblueMeta,
+  },
+  servicenow: {
+    content: servicenowContent,
+    meta: servicenowMeta,
   },
 };
 
