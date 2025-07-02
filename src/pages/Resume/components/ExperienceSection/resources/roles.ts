@@ -27,7 +27,7 @@ export const roles: ExperienceCardProps[] = [
         startDate: '2022',
         endDate: '2023',
         location: 'Remote',
-        callout: 'Connected big tools to the little tools. Reduced total support costs by $1.5M annually.',
+        callout: 'Connected big tools to little tools. Reduced total support costs by $1.5M annually.',
         theme: 'secondary',
         logo: 'actblue',
     },

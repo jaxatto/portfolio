@@ -27,7 +27,8 @@ export const content = {
         headingEmoji: '🧠',
         description: [
             'I lead projects from beginning to end, from shaping the problem to shipping the solution. By staying close to the details, I ensure accessibility and consistency at every step.',
-            'I\'m at my best in collaborative, technical environments, partnering closely with engineers to sweat the details but also keep projects moving quickly. My code background and experience with AI tools help teams stay unblocked, while mentoring designers and contributing to system-level patterns helps us scale good decisions.',
+            'I\'m at my best in collaborative, technical environments, partnering closely with engineers to sweat the details. My code background and experience with AI tools help teams stay unblocke and keep projects moving quickly.',
+            'I also enjoy mentorship and knowledge sharing, whether through design critiques, pair design sessions, or leading workshops. I believe in building a culture of learning and growth, where everyone can participate in design.',
         ],
     },
     more: {
