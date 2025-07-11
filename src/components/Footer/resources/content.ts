@@ -2,7 +2,7 @@ import { contactInfo } from '@constants/contactInfo';
 
 export const content = {
     title: 'Let\'s work together',
-    description: 'I\'m exploring staff-level roles on teams solving product problems at scale.',
+    description: 'I\'m exploring senior-level roles on teams solving product problems at scale.',
     email: {
         preText: 'Email me at',
         label: contactInfo.email.label,

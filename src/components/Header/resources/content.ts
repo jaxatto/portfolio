@@ -4,9 +4,9 @@ export const content = {
   skipToMain: "Skip to main content",
   brand: "Jax Engel",
   byline: [ 
-    "Product Design",
-    "Accessibility",
-    "Systems",
+    "Scalable UX",
+    "Systems Thinking",
+    "Inclusive Design",
   ],
   links: [
     { name: "Work", url: mainLinks.work },

@@ -2,12 +2,12 @@ import { ExperienceCardProps } from '@pages/Resume/components/ExperienceCard';
 
 export const roles: ExperienceCardProps[] = [
     {
-        title: 'Staff Product Designer',
+        title: 'Staff UI/UX Designer',
         company: 'ServiceNow',
         startDate: '2024',
         endDate: 'Present',
         location: 'Remote',
-        callout: 'Shaping internal platforms and AI tooling to support  workflows for sales, comms, and IT.',
+        callout: 'Shaping internal platforms and AI tooling to support workflows for sales, comms, and IT.',
         theme: 'primary',
         logo: 'servicenow',
     },

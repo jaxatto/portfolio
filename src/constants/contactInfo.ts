@@ -7,6 +7,6 @@ export const contactInfo = {
     src: 'mailto:jax.engel@example.com',
   },
   resume: {
-    src: '/Jax-Engel_Staff-Product-Designer.pdf'
+    src: '/Jax-Engel_Senior-Product-Designer.pdf'
   }
 };
