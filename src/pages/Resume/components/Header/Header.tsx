@@ -13,10 +13,10 @@ const Header: React.FC = () => (
       <span className={styles.description2}>{content.description2}</span>
     </p>
 
-    <p className={styles.byline}>{content.byline}</p>
+    {/* <p className={styles.byline}>{content.byline}</p>
     <Link href={content.buttonHref} className={styles.button} iconName="arrow-right" styleAs="button" newTab={true}>
       {content.buttonLabel}
-    </Link>
+    </Link> */}
   </section>
 );
 

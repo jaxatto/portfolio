@@ -1,8 +1,8 @@
 import { contactInfo } from '@constants/contactInfo';
 
 export const content = {
-    title: 'Let\'s work together',
-    description: 'I\'m exploring senior-level roles on teams solving product problems at scale.',
+    title: 'Let\'s connect',
+    description: 'Currently tinkering with design tokens at Toyota. Always open to talk design.',
     email: {
         preText: 'Email me at',
         label: contactInfo.email.label,
@@ -10,7 +10,7 @@ export const content = {
         srOnly: '(opens email client)',
     },
     linkedin: {
-        preText: 'Connect with me on',
+        preText: 'Find me on',
         label: 'LinkedIn',
         src: contactInfo.linkedin.src,
         srOnly: '(opens in a new tab)',

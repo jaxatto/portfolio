@@ -2,10 +2,20 @@ import { ExperienceCardProps } from '@pages/Resume/components/ExperienceCard';
 
 export const roles: ExperienceCardProps[] = [
     {
+        title: 'UX Design Engineer',
+        company: 'Toyota North America',
+        startDate: '2025',
+        endDate: 'Present',
+        location: 'Hybrid - Plano, TX',
+        callout: '',
+        theme: '',
+        logo: 'toyota',
+    },
+    {
         title: 'Staff UI/UX Designer',
         company: 'ServiceNow',
         startDate: '2024',
-        endDate: 'Present',
+        endDate: '2025',
         location: 'Remote',
         callout: 'Shaping internal platforms and AI tooling to support workflows for sales, comms, and IT.',
         theme: 'primary',

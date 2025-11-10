@@ -17,18 +17,18 @@ const Footer: React.FC = () => {
                     <p className={styles.description}>{content.description}</p>
                 </div>
                 <div className={styles['footer-links']}>
-                    <Link
+                    {/* <Link
                         href={content.email.src}
                         iconName='arrow-top-right'
                     >
                         <span className="sr-only">{content.email.preText}</span>{content.email.label} <span className='sr-only'>{content.email.srOnly}</span>
-                    </Link>
+                    </Link> */}
                     <Link
                         href={content.linkedin.src}
                         newTab
                         iconName='arrow-top-right'
                     >
-                        <span className="sr-only">{content.linkedin.preText}</span>{content.linkedin.label} <span className='sr-only'>{content.linkedin.srOnly}</span>
+                        {content.linkedin.preText} {content.linkedin.label} <span className='sr-only'>{content.linkedin.srOnly}</span>
                     </Link>
                 </div>
             </div>
