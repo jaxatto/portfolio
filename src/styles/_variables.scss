@@ -1,5 +1,14 @@
+/* Variables */
+
+@use 'sass:math';
 @use 'sass:map';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Manrope:wght@400;500&display=swap');
+
+/* ---------------------------------- */
+/* --------- Google Fonts ----------- */
+/* ---------------------------------- */
+
+// Updated URL includes 400/500 for Inter and 700 for Manrope
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Manrope:wght@400;500;700&display=swap');
 
 /* ---------------------------------- */
 /* -------- Color variables --------- */
@@ -7,49 +16,49 @@
 
 // Main color palette
 $main-colors: (
-    primary:      #6F42C1,
-    dark:         #1D0D3A,
-    medium:       #685E7D,
-    light:        #EADEFF,
-    "white":      #FFFFFF,
-    background:   #FFFFFF,
-    placeholder:  #CBD3DE
+  primary:      #6F42C1,
+  dark:         #1D0D3A,
+  medium:       #685E7D,
+  light:        #EADEFF,
+  "white":      #FFFFFF,
+  background:   #FFFFFF,
+  placeholder:  #CBD3DE
 );
 
 // Group palettes
 $group-palettes: (
-    primary: (
-        title: #30008B,
-        chip: #340096,
-        link: #5220AC,
-        bg:   #E1D1FF
-    ),
-    secondary: (
-        title: #00098A,
-        chip: #070D6D,
-        link: #343AA8,
-        bg:   #CFD2FF
-    ),
-    tertiary: (
-        title: #005475,
-        chip: #00435D,
-        link: #01628A,
-        bg:   #D1F2FF
-    ),
+  primary: (
+    title: #30008B,
+    chip:  #340096,
+    link:  #5220AC,
+    bg:    #E1D1FF
+  ),
+  secondary: (
+    title: #00098A,
+    chip:  #070D6D,
+    link:  #343AA8,
+    bg:    #CFD2FF
+  ),
+  tertiary: (
+    title: #005475,
+    chip:  #00435D,
+    link:  #01628A,
+    bg:    #D1F2FF
+  ),
 );
+
 $sample-shadow-opacity: 0.32;
 
 $states-lightness: (
-    hover: -12%,
-    pressed: -24%,
+  hover: -12%,
+  pressed: -24%,
 );
 
 // Gradients
 $gradients: (
-    primary: linear-gradient(78deg, #1E0095 9.5%, #A152FB 88.75%),
-    primary-hover: linear-gradient(83deg, #1E0095 94.32%, #A152FB 113.41%),
+  primary:       linear-gradient(78deg, #1E0095 9.5%, #A152FB 88.75%),
+  primary-hover: linear-gradient(83deg, #1E0095 94.32%, #A152FB 113.41%),
 );
-
 
 /* ---------------------------------- */
 /* --------- Size variables --------- */
@@ -57,55 +66,51 @@ $gradients: (
 
 // Padding and margin sizes
 $spacing: (
-    none: 0,
-    50: 4,
-    75: 6,
-    100: 8,
-    150: 12,
-    200: 16,
-    250: 20,
-    300: 24,
-    400: 32,
-    500: 40,
-    600: 48,
-    700: 56,
-    800: 64,
-    925: 104,
+  none: 0,
+  50:   4,
+  75:   6,
+  100:  8,
+  150:  12,
+  200:  16,
+  250:  20,
+  300:  24,
+  400:  32,
+  500:  40,
+  600:  48,
+  700:  56,
+  800:  64,
+  925:  104,
 );
 
 $radius: (
-    none: 0,
-    50: 2,
-    100: 4,
-    150: 6,
-    200: 8,
-    300: 12,
-    400: 16,
+  none: 0,
+  50:   2,
+  100:  4,
+  150:  6,
+  200:  8,
+  300:  12,
+  400:  16,
 );
 
 // Wrappers for content
 $wrapper-widths: (
-  content: 600,
-  site: 960
+    content: 600,
+    site: 960
 );
 
 // Breakpoints for responsive design
 $breakpoints: (
-  xs: 340,
-  sm: 640,
-  md: 900,
-  wrapper: map.get($wrapper-widths, site),
+    xs: 340,
+    sm: 640,
+    md: 900,
+    wrapper: map.get($wrapper-widths, site),
 );
 
-// Some math to keep track of for Divider
-// Site has padding of 24px on each side
-// Content has padding of 24px on each side
-// 960 - 48 = 912, removes padding
-// 600 - 48 = 552, removes padding
-// 912 - 552 = 360, subtracts from eachother
-// 360 / 2 = 180, two sides
-// 180 - 24 = 156, subtracts both gaps
-$divider-left: 156;
+// Divider offset calculation
+$site-width: map.get($wrapper-widths, site);
+$content-width: map.get($wrapper-widths, content);
+$container-padding: map.get($spacing, 300);
+$divider-left: math.div($site-width - $content-width, 2) - $container-padding;
 
 /* ---------------------------------- */
 /* ------ Typography variables ------ */
@@ -116,7 +121,7 @@ $font-heading: 'Inter', Arial, sans-serif;
 $font-body: 'Manrope', Arial, sans-serif;
 
 // Sizes
-$font-size : (
+$font-size: (
     50: 12,
     75: 14,
     100: 16,
@@ -127,6 +132,7 @@ $font-size : (
     400: 40,
     700: 56,
 );
+
 $base-font-size: map.get($font-size, 100);
 
 // Line heights
@@ -143,6 +149,5 @@ $font-weights: (
     medium: 500,
     bold: 700,
     extra-bold: 800,
-    "black": 900
+    black: 900
 );
-

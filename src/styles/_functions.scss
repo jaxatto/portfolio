@@ -1,8 +1,9 @@
+/* Functions */
+
 @use './variables' as *;
 @use 'sass:math';
 @use 'sass:map';
 @use 'sass:color';
-@use 'sass:meta';
 
 /* ---------------------------------- */
 /* -------- Color functions --------- */
@@ -10,7 +11,12 @@
 
 // Adjust the lightness of a color
 @function change-lightness($color, $lightness) {
-  $amount: if(map.has-key($states-lightness, $lightness), map.get($states-lightness, $lightness), 0%);
+  $amount: 0%;
+
+  @if map.has-key($states-lightness, $lightness) {
+    $amount: map.get($states-lightness, $lightness);
+  }
+
   @return color.adjust($color, $lightness: $amount);
 }
 
@@ -18,10 +24,20 @@
 /* --------- Size functions --------- */
 /* ---------------------------------- */
 
-// Change pixels to rem
+// Change pixels to rem cleanly without legacy if() syntax
 @function px-to-rem($px, $base: $base-font-size) {
-  // Accepts only a number (pixel value)
-  @return math.div($px, $base) * 1rem;
+  $px-val: $px;
+  $base-val: $base;
+
+  @if not math.is-unitless($px) {
+    $px-val: math.div($px, 1px);
+  }
+
+  @if not math.is-unitless($base) {
+    $base-val: math.div($base, 1px);
+  }
+
+  @return math.div($px-val, $base-val) * 1rem;
 }
 
 @function token-to-rem($map, $key, $base: $base-font-size) {
@@ -35,14 +51,14 @@
 @function font-size($key, $base: $base-font-size) {
   @return token-to-rem($font-size, $key, $base);
 }
+
 @function spacing($key, $base: $base-font-size) {
   @return token-to-rem($spacing, $key, $base);
 }
+
 @function radius($key, $base: $base-font-size) {
   @return token-to-rem($radius, $key, $base);
 }
-
-
 
 /* ---------------------------------- */
 /* -------- Output functions -------- */
@@ -50,23 +66,30 @@
 
 // Output CSS variables for each color
 :root {
-    @each $name, $value in $main-colors {
-        --color-#{$name}: #{$value};
+  @each $name, $value in $main-colors {
+    // Quote or convert $name safely
+    --color-#{"" + $name}: #{$value};
+  }
+
+  // Group palettes
+  @each $palette, $colors in $group-palettes {
+    @each $role, $value in $colors {
+      --group-#{$palette}-#{$role}: #{$value};
     }
-    // Group palettes
-    @each $palette, $colors in $group-palettes {
-        @each $role, $value in $colors {
-            --group-#{$palette}-#{$role}: #{$value};
-        }
-        // Add shadow variable dynamically
-        --group-#{$palette}-shadow: #{rgba(map.get($colors, link), $sample-shadow-opacity)};
+    // Add shadow variable dynamically
+    $link-color: map.get($colors, link);
+    @if $link-color {
+      --group-#{$palette}-shadow: #{color.change($link-color, $alpha: $sample-shadow-opacity)};
     }
-    // Font weights
-    @each $name, $value in $font-weights {
-        --font-weight-#{$name}: #{$value};
-    }
-    // Line heights
-    @each $name, $value in $line-height {
-        --line-height-#{$name}: #{$value};
-    }
+  }
+
+  // Font weights
+  @each $name, $value in $font-weights {
+    --font-weight-#{"" + $name}: #{$value};
+  }
+
+  // Line heights
+  @each $name, $value in $line-height {
+    --line-height-#{"" + $name}: #{$value};
+  }
 }

@@ -1,23 +1,31 @@
+/* Utilities */
+
 @use './variables' as *;
 @use './mixins' as *;
 @use './functions' as *;
 @use './typography' as *;
 
+/* ---------------------------------- */
+/* --------- Content Wrappers ------- */
+/* ---------------------------------- */
+
 .general-content-wrapper {
-    @include wrapper-max-width(content);
-    @extend .body-md;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    gap: spacing(500); // 40px
+  @extend %body-md-base;
+  @include wrapper-max-width(content);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: spacing(500); // 40px
 }
+
+/* ---------------------------------- */
+/* ----------- Separators ----------- */
+/* ---------------------------------- */
 
 .dot-text-divider:not(:last-child)::after {
   content: '·';
   display: inline-block;
-  height: 100%;
-  width: 1em;
+  margin-inline: spacing(50); // Generates consistent horizontal spacing
   color: var(--color-medium);
-  text-align: center;
+  font-weight: var(--font-weight-bold);
 }

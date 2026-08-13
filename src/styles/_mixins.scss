@@ -1,6 +1,7 @@
+/* Mixins */
+
 @use './variables' as *;
 @use './functions' as *;
-@use 'sass:color';
 @use 'sass:map';
 
 /* ---------------------------------- */
@@ -9,12 +10,12 @@
 
 // Hover style
 @mixin hover($color, $inverse: false) {
-  &:hover, &:hover svg {
+  &:hover,
+  &:hover svg {
     @if $inverse {
       background-color: change-lightness($color, hover);
       color: var(--color-white);
       fill: var(--color-white);
-      // No border change
     } @else {
       color: change-lightness($color, hover);
       fill: change-lightness($color, hover);
@@ -25,12 +26,12 @@
 
 // Pressed (active) style
 @mixin pressed($color, $inverse: false) {
-  &:active, &:active svg {
+  &:active,
+  &:active svg {
     @if $inverse {
       background-color: change-lightness($color, pressed);
       color: var(--color-white);
       fill: var(--color-white);
-      // No border change
     } @else {
       color: change-lightness($color, pressed);
       fill: change-lightness($color, pressed);
@@ -68,31 +69,53 @@
 
 // Get palette colors and apply to links
 @mixin group-palette($palette: null, $hover: true) {
-  $link-color: if($palette != null, map.get($palette, link), map.get($main-colors, primary));
+  $link-color: map.get($main-colors, primary);
+
+  @if $palette != null {
+    $palette-map: $palette;
+
+    @if map.has-key($group-palettes, $palette) {
+      $palette-map: map.get($group-palettes, $palette);
+    }
+
+    @if map.is-map($palette-map) and map.has-key($palette-map, link) {
+      $link-color: map.get($palette-map, link);
+    }
+  }
 
   color: $link-color;
   fill: $link-color;
 
-  @include interactive-states($link-color)
-}
-
-// Get wrapper sizes and assign max widths for common use
-@mixin wrapper-max-width($type: content) {
-  max-width: px-to-rem(map.get($wrapper-widths, $type));
-  width: 100%;
-
-  @if $type == site {
-    margin: 0 auto;
+  @if $hover {
+    @include interactive-states($link-color);
   }
 }
 
-// Easily include breakpoints in classes
+// Get wrapper sizes and assign max widths
+@mixin wrapper-max-width($type: content) {
+  $width: map.get($wrapper-widths, $type);
+
+  @if $width {
+    max-width: px-to-rem($width);
+    width: 100%;
+
+    @if $type == site {
+      margin: 0 auto;
+    }
+  } @else {
+    @warn "Wrapper width `#{$type}` not found in `$wrapper-widths`.";
+  }
+}
+
+// Responsive breakpoint media queries
 @mixin respond($breakpoint) {
   $value: map.get($breakpoints, $breakpoint);
+  
   @if $value {
     @media (max-width: #{px-to-rem($value)}) {
       @content;
     }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` not found in `$breakpoints`.";
   }
 }
-
