@@ -31,8 +31,7 @@ section p:not(:last-of-type) {
         li {
             gap: spacing(100);
             padding: spacing(200);
-            border: 2px solid var(--color-primary);
-            border: px-to-rem(2) solid var(--color-medium);
+            border: 2px solid var(--color-medium);
             border-radius: radius(300);
         }
 

@@ -1,11 +1,11 @@
 .top-section {
-    margin-bottom: spacing(300); // 24px
+    margin-bottom: spacing(300);
 }
 
 .title {
     @extend .page-title;
     line-height: 1.2;
-    margin-bottom: spacing(100); // 8px
+    margin-bottom: spacing(100);
 }
 
 .role, .date {
@@ -13,9 +13,9 @@
 }
 
 .chip-row {
-    max-width: px-to-rem(500);
+    max-width: 500px;
 }
 
 .description:not(:last-of-type) {
-    margin-bottom: spacing(300); // 24px
+    margin-bottom: spacing(300);
 }

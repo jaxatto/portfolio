@@ -8,7 +8,7 @@ header {
 
     a {
         font-weight: var(--font-weight-black);
-        font-size: px-to-rem(20);
+        font-size: 20px;
     }
 
     @include respond(sm) {
@@ -35,7 +35,7 @@ nav ul {
 
     a {
         @include respond(xs) {
-            font-size: px-to-rem(14);
+            font-size: 14px;
             text-decoration: underline;
         }
     }
@@ -47,11 +47,11 @@ nav ul {
         &:not(:first-child)::before {
             content: '';
             display: inline-block;
-            width: px-to-rem(10);
-            height: px-to-rem(10);
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: var(--color-light);
-            margin: 0 px-to-rem(16);
+            margin: 0 16px;
 
             @include respond(xs) {
                 display: none;  
@@ -69,7 +69,7 @@ nav ul {
     @include respond(sm) {
         align-items: center;
         text-align: center;
-        gap: px-to-rem(4);
+        gap: 4px;
 
         a {
             text-decoration: none;
@@ -106,7 +106,7 @@ nav ul {
     &:focus-visible {
         background: var(--color-primary);
         color: var(--color-background);
-        font-size: px-to-rem(12);
+        font-size: 12px;
         width: auto;
         height: auto;
         margin: spacing(150); // 12px

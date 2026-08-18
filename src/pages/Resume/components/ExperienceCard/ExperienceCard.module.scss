@@ -45,8 +45,8 @@
 }
 
 .logo {
-    width: px-to-rem(56);
-    height: px-to-rem(56);
+    width: 56px;
+    height: 56px;
     flex: 0 0 auto;
     display: flex;
     align-items: center;
@@ -64,8 +64,8 @@
     }
 
     @include respond(sm) {
-        width: px-to-rem(50);
-        height: px-to-rem(50);
+        width: 50px;
+        height: 50px;
     }
 }
 

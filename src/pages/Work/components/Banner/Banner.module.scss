@@ -1,10 +1,10 @@
 .banner-wrapper {
     display: flex;
     justify-content: center;
-    padding: spacing(500) 0 px-to-rem(104) 0; // 40px 0 104px 0
+    padding: spacing(500) 0 104px 0;
 
     @include respond(sm) {
-        padding: spacing(500) 0; // 40px 0
+        padding: spacing(500) 0;
     }
 }
 
@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: spacing(250); // 20px
+    gap: spacing(250);
     flex-wrap: wrap;
     min-width: 0;
 
@@ -27,11 +27,11 @@
 .text {
     display: flex;
     flex-direction: column;
-    width: px-to-rem(400);
-    flex: 1 1 px-to-rem(400);
+    width: 400px;
+    flex: 1 1 400px;
     min-width: 0;
     max-width: 100%;
-    gap: spacing(50); // 4px
+    gap: spacing(50);
 
     @include respond(sm) {
         flex: auto;
@@ -76,8 +76,8 @@
     .image-main,
     .image-fallback {
         border-radius: 50%;
-        width: px-to-rem(160);
-        height: px-to-rem(160);
+        width: 160px;
+        height: 160px;
         display: block;
     }
 
@@ -91,13 +91,13 @@
 .bubble {
     position: absolute;
     bottom: 0;
-    left: px-to-rem(-16);
+    left: -16px;
     background: var(--color-light);
-    width: px-to-rem(48);
-    height: px-to-rem(48);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: px-to-rem(28);
+    font-size: 28px;
 }

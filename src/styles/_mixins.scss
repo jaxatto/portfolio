@@ -44,14 +44,14 @@
 @mixin focus($color, $inverse: false) {
   &:focus-visible {
     @if $inverse {
-      outline: px-to-rem(3) solid $color;
-      outline-offset: px-to-rem(3);
+      outline: 3px solid $color;
+      outline-offset: 3px;
       background-color: $color;
       color: var(--color-white);
       fill: var(--color-white);
     } @else {
-      outline: px-to-rem(3) solid $color;
-      outline-offset: px-to-rem(3);
+      outline: 3px solid $color;
+      outline-offset: 3px;
     }
   }
 }
@@ -96,7 +96,7 @@
   $width: map.get($wrapper-widths, $type);
 
   @if $width {
-    max-width: px-to-rem($width);
+    max-width: $width;
     width: 100%;
 
     @if $type == site {
@@ -112,7 +112,7 @@
   $value: map.get($breakpoints, $breakpoint);
   
   @if $value {
-    @media (max-width: #{px-to-rem($value)}) {
+    @media (max-width: $value) {
       @content;
     }
   } @else {

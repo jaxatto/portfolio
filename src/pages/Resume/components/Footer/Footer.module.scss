@@ -8,7 +8,7 @@
 
 .divider {
     padding-top: 0;
-    padding-bottom: spacing(600); // 48px
+    padding-bottom: spacing(600);
 }
 
 .content {
@@ -17,27 +17,27 @@
     display: flex;
     flex-direction: column;
     gap: spacing(500); // 40px
-    padding: 0 spacing(300) px-to-rem(104) spacing(300); // 0 24px 104px 24px
+    padding: 0 spacing(300) 104px spacing(300);
 
     @include respond(sm) {
-        padding: spacing(200) spacing(200) spacing(800) spacing(200); // 16px 16px 64px 16px
+        padding: spacing(200) spacing(200) spacing(800) spacing(200);
     }
 
     @include respond(xs) {
-        padding: spacing(100) spacing(100) spacing(600) spacing(100); // 8px 8px 48px 8px
-        gap: spacing(300); // 24px
+        padding: spacing(100) spacing(100) spacing(600) spacing(100);
+        gap: spacing(300);
     }
 }
 
 .top {
     display: flex;
     flex-direction: column;
-    gap: spacing(200); // 16px
-    padding-right: spacing(600); // 48px
+    gap: spacing(200);
+    padding-right: spacing(600);
 
     @include respond(sm) {
         padding-right: 0;
-        gap: spacing(100); // 8px
+        gap: spacing(100);
     }
 }
 
@@ -64,7 +64,7 @@
 .bottom {
     display: flex;
     flex-direction: column;
-    gap: spacing(300); // 24px
+    gap: spacing(300);
 }
 
 .button {

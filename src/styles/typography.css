@@ -1,0 +1,162 @@
+/* typography.css */
+
+/* ------------------------------------------------------------- */
+/* -- Base resets ---------------------------------------------- */
+/* ------------------------------------------------------------- */
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	color: var(--color-dark);
+	font-family: var(--font-body);
+	line-height: var(--line-height-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+/* ------------------------------------------------------------- */
+/* -------------- Titles --------------------------------------- */
+/* ------------------------------------------------------------- */
+
+.title-lg {
+	font-family: var(--font-heading);
+	line-height: var(--line-height-heading);
+	font-weight: var(--font-weight-black);
+	/* Aggressive growth: 24px (--font-size-xl) -> 56px (--font-size-4xl) */
+	font-size: clamp(var(--font-size-xl), 0.28rem + 5.7vw, var(--font-size-4xl));
+}
+
+.title-md,
+.page-title {
+	font-family: var(--font-heading);
+	line-height: var(--line-height-heading);
+	font-weight: var(--font-weight-extra-bold);
+	/* Moderate growth: 24px (--font-size-xl) -> 40px (--font-size-3xl) */
+	font-size: clamp(var(--font-size-xl), 0.875rem + 2.8vw, var(--font-size-3xl));
+}
+
+/* ------------------------------------------------------------- */
+/* ------------ Headings --------------------------------------- */
+/* ------------------------------------------------------------- */
+
+.heading-lg {
+	font-family: var(--font-heading);
+	line-height: var(--line-height-heading);
+	font-weight: var(--font-weight-extra-bold);
+	/* Gentle growth: 24px (--font-size-xl) -> 32px (--font-size-2xl) */
+	font-size: clamp(var(--font-size-xl), 1rem + 1.4vw, var(--font-size-2xl));
+}
+
+.heading-md {
+	font-family: var(--font-heading);
+	line-height: var(--line-height-heading);
+	font-weight: var(--font-weight-extra-bold);
+	/* Subtle growth: 20px (--font-size-lg) -> 24px (--font-size-xl) */
+	font-size: clamp(var(--font-size-lg), 1.1rem + 0.7vw, var(--font-size-xl));
+}
+
+.heading-md-bold {
+	font-family: var(--font-heading);
+	line-height: var(--line-height-heading);
+	font-weight: var(--font-weight-bold);
+	font-size: clamp(var(--font-size-lg), 1.1rem + 0.7vw, var(--font-size-xl));
+}
+
+.heading-xs {
+	font-family: var(--font-heading);
+	line-height: var(--line-height-heading);
+	font-weight: var(--font-weight-extra-bold);
+	/* Subtle growth: 16px (--font-size-md) -> 20px (--font-size-lg) */
+	font-size: clamp(var(--font-size-md), 0.875rem + 0.7vw, var(--font-size-lg));
+}
+
+/* ------------------------------------------------------------- */
+/* -------------- Body ----------------------------------------- */
+/* ------------------------------------------------------------- */
+
+.body-lg {
+	font-family: var(--font-body);
+	line-height: var(--line-height-body);
+	font-weight: var(--font-weight-regular);
+	/* Moderate growth: 16px (--font-size-md) -> 24px (--font-size-xl) */
+	font-size: clamp(var(--font-size-md), 0.875rem + 1.4vw, var(--font-size-xl));
+}
+
+.body-md {
+	font-family: var(--font-body);
+	line-height: var(--line-height-body);
+	font-weight: var(--font-weight-regular);
+	/* Subtle growth: 16px (--font-size-md) -> 20px (--font-size-lg) */
+	font-size: clamp(var(--font-size-md), 0.875rem + 0.7vw, var(--font-size-lg));
+}
+
+.body-md-bold,
+.body-md-link {
+	font-family: var(--font-body);
+	line-height: var(--line-height-body);
+	font-weight: var(--font-weight-bold);
+	font-size: clamp(var(--font-size-md), 0.875rem + 0.7vw, var(--font-size-lg));
+}
+
+.body-sm {
+	font-family: var(--font-body);
+	line-height: var(--line-height-body);
+	font-weight: var(--font-weight-regular);
+	/* Subtle growth: 14px (--font-size-sm) -> 16px (--font-size-md) */
+	font-size: clamp(var(--font-size-sm), 0.8rem + 0.35vw, var(--font-size-md));
+}
+
+.body-sm-bold,
+.body-sm-link {
+	font-family: var(--font-body);
+	line-height: var(--line-height-body);
+	font-weight: var(--font-weight-bold);
+	font-size: clamp(var(--font-size-sm), 0.8rem + 0.35vw, var(--font-size-md));
+}
+
+/* ------------------------------------------------------------- */
+/* ------------- Captions -------------------------------------- */
+/* ------------------------------------------------------------- */
+
+.caption-md {
+	font-family: var(--font-body);
+	font-size: var(--font-size-sm); /* 14px */
+	line-height: var(--line-height-body);
+	font-weight: var(--font-weight-regular);
+}
+
+.caption-sm {
+	font-family: var(--font-body);
+	font-size: var(--font-size-xs); /* 12px */
+	line-height: var(--line-height-body);
+	font-weight: var(--font-weight-medium);
+}
+
+/* ------------------------------------------------------------- */
+/* -------------- Lists ---------------------------------------- */
+/* ------------------------------------------------------------- */
+
+.remove-ul-style {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.remove-ul-style li {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}

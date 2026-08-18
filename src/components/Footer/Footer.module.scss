@@ -2,7 +2,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: spacing(800) 0 px-to-rem(104) 0; // 64px 0 104px 0
+    padding: spacing(800) 0 104px 0; // 64px 0 104px 0
     gap: spacing(400); // 32px
     width: 100%;
 
@@ -10,7 +10,7 @@ footer {
         @include wrapper-max-width(content);
         display: flex;
         flex-direction: column;
-        gap: px-to-rem(40);
+        gap: 40px;
     }
 
     @include respond(sm) {
@@ -45,7 +45,7 @@ footer {
     width: 100%;
 
     a {
-        font-size: px-to-rem(24);
+        font-size: 24px;
         font-weight: var(--font-weight-bold);
     }
 
@@ -55,13 +55,13 @@ footer {
         text-align: center;
 
         a {
-            font-size: px-to-rem(20);
+            font-size: 20px;
         }
     }
 
     @include respond(xs) {
         a {
-            font-size: px-to-rem(16);
+            font-size: 16px;
         }
     }
 }
