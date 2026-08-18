@@ -29,11 +29,15 @@
     "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^4.5.1",
     "gh-pages": "^6.3.0",
+    "postcss-pxtorem-plus": "^3.5.1",
     "prettier": "3.9.6",
     "sass": "^1.89.1",
     "typescript": "^4.1.2",
     "vite": "^6.3.5",
     "vite-plugin-svgr": "^4.3.0"
+  },
+  "overrides": {
+    "postcss": "^8.5.23"
   },
   "keywords": [],
   "author": "",

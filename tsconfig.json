@@ -3,21 +3,24 @@
     "target": "ESNext",
     "module": "ESNext",
     "jsx": "react-jsx",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node"],
-    "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"],
-      "@assets/*": ["src/assets/*"],
-      "@pages/*": ["src/pages/*"],
-      "@constants/*": ["src/constants/*"],
-      "@commonTypes/*": ["src/commonTypes/*"]
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@commonTypes/*": ["./src/commonTypes/*"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src", 
+    "vite.config.ts",
+    "vite-plugins.d.ts"  
+  ]
 }
