@@ -16,7 +16,7 @@ const About: React.FC = () => (
     <section>
       <div className={styles['top-section']}>
         <h1 className={styles.title}>
-          <span aria-hidden="true">{content.header.headingEmoji}</span> {content.header.heading}
+          {content.header.title}
         </h1>
         <ul>
           {content.header.bullets.map((bullet, i) => (
@@ -27,11 +27,22 @@ const About: React.FC = () => (
         </ul>
       </div>
       <Divider variant='section-divider' className={styles.divider} />
-      <p>{content.header.description}</p>
+      {content.header.description.map((desc, i) => (
+        <p key={i}>{desc}</p>
+      ))}
     </section>
+    <section className={styles['currently-section']}>
+      <h2>
+        <span aria-hidden="true">{content.currently.titleEmoji}</span> {content.currently.title}
+      </h2>
+      {content.currently.description.map((desc, i) => (
+        <p key={i}>{desc}</p>
+      ))}
+    </section>
+    <Divider variant='section-divider' className={styles.divider} />
     <section className={styles['how-section']}>
       <h2>
-        <span aria-hidden="true">{content.how.headingEmoji}</span> {content.how.heading}
+        <span aria-hidden="true">{content.how.titleEmoji}</span> {content.how.title}
       </h2>
       {content.how.description.map((desc, i) => (
         <p key={i}>{desc}</p>
@@ -39,7 +50,7 @@ const About: React.FC = () => (
     </section>
     <section>
       <h2>
-        <span aria-hidden="true">{content.more.headingEmoji}</span> {content.more.heading}
+        <span aria-hidden="true">{content.more.titleEmoji}</span> {content.more.title}
       </h2>
       {content.more.description.map((desc, i) => (
         <p key={i}>{desc}</p>

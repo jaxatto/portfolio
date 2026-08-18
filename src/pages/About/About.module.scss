@@ -3,7 +3,7 @@
 
     h2 {
         @extend .heading-md;
-        margin-bottom: spacing(100); // 8px
+        margin-bottom: spacing(200);
     }
 }
 
@@ -40,9 +40,9 @@
     }
 }
 
-.how-section {
+section {
     p:not(:last-of-type) {
-        margin-bottom: spacing(400); // 32px
+        margin-bottom: spacing(300);
     }
 }
 
