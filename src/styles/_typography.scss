@@ -9,14 +9,14 @@
 /* ---------------------------------- */
 
 html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  color: var(--color-dark);
-  font-family: $font-body;
-  line-height: var(--line-height-300);
+	color: var(--color-dark);
+	font-family: $font-body;
+	line-height: var(--line-height-300);
 }
 
 h1,
@@ -27,8 +27,8 @@ h5,
 h6,
 a,
 p {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /* ---------------------------------- */
@@ -36,40 +36,40 @@ p {
 /* ---------------------------------- */
 
 %title-md-base {
-  font-family: $font-heading;
-  font-size: font-size(400);
-  line-height: var(--line-height-200);
-  font-weight: var(--font-weight-extra-bold);
+	font-family: $font-heading;
+	font-size: font-size(400);
+	line-height: var(--line-height-200);
+	font-weight: var(--font-weight-extra-bold);
 
-  @include respond(sm) {
-    font-size: font-size(300);
-  }
+	@include respond(sm) {
+		font-size: font-size(300);
+	}
 
-  @include respond(xs) {
-    font-size: font-size(200);
-  }
+	@include respond(xs) {
+		font-size: font-size(200);
+	}
 }
 
 %body-md-base {
-  font-family: $font-body;
-  font-size: font-size(150);
-  line-height: var(--line-height-400);
-  font-weight: var(--font-weight-regular);
+	font-family: $font-body;
+	font-size: font-size(150);
+	line-height: var(--line-height-400);
+	font-weight: var(--font-weight-regular);
 
-  @include respond(sm) {
-    font-size: font-size(100);
-  }
+	@include respond(sm) {
+		font-size: font-size(100);
+	}
 }
 
 %body-sm-base {
-  font-family: $font-body;
-  font-size: font-size(125); // 18px
-  line-height: var(--line-height-300);
-  font-weight: var(--font-weight-regular);
+	font-family: $font-body;
+	font-size: font-size(125); // 18px
+	line-height: var(--line-height-300);
+	font-weight: var(--font-weight-regular);
 
-  @include respond(sm) {
-    font-size: font-size(100);
-  }
+	@include respond(sm) {
+		font-size: font-size(100);
+	}
 }
 
 /* ---------------------------------- */
@@ -77,23 +77,23 @@ p {
 /* ---------------------------------- */
 
 .title-lg {
-  font-family: $font-heading;
-  line-height: var(--line-height-100);
-  font-size: font-size(700);
-  font-weight: var(--font-weight-black);
+	font-family: $font-heading;
+	line-height: var(--line-height-100);
+	font-size: font-size(700);
+	font-weight: var(--font-weight-black);
 
-  @include respond(sm) {
-    font-size: font-size(300);
-  }
+	@include respond(sm) {
+		font-size: font-size(300);
+	}
 
-  @include respond(xs) {
-    font-size: font-size(200);
-  }
+	@include respond(xs) {
+		font-size: font-size(200);
+	}
 }
 
 .title-md,
 .page-title {
-  @extend %title-md-base;
+	@extend %title-md-base;
 }
 
 /* ---------------------------------- */
@@ -101,48 +101,48 @@ p {
 /* ---------------------------------- */
 
 .heading-lg {
-  font-family: $font-heading;
-  font-size: font-size(300);
-  line-height: var(--line-height-100);
-  font-weight: var(--font-weight-extra-bold);
+	font-family: $font-heading;
+	font-size: font-size(300);
+	line-height: var(--line-height-100);
+	font-weight: var(--font-weight-extra-bold);
 
-  @include respond(sm) {
-    font-size: font-size(200);
-  }
+	@include respond(sm) {
+		font-size: font-size(200);
+	}
 }
 
 .heading-md {
-  font-family: $font-heading;
-  font-size: font-size(200);
-  line-height: var(--line-height-100);
-  font-weight: var(--font-weight-extra-bold);
+	font-family: $font-heading;
+	font-size: font-size(200);
+	line-height: var(--line-height-100);
+	font-weight: var(--font-weight-extra-bold);
 
-  @include respond(sm) {
-    font-size: font-size(150);
-  }
+	@include respond(sm) {
+		font-size: font-size(150);
+	}
 }
 
 // Fixed font-weight override issue
 .heading-md-bold {
-  font-family: $font-heading;
-  font-size: font-size(200);
-  line-height: var(--line-height-100);
-  font-weight: var(--font-weight-bold);
+	font-family: $font-heading;
+	font-size: font-size(200);
+	line-height: var(--line-height-100);
+	font-weight: var(--font-weight-bold);
 
-  @include respond(sm) {
-    font-size: font-size(150);
-  }
+	@include respond(sm) {
+		font-size: font-size(150);
+	}
 }
 
 .heading-xs {
-  font-family: $font-heading;
-  font-size: font-size(125); // 18px
-  line-height: var(--line-height-100);
-  font-weight: var(--font-weight-extra-bold);
+	font-family: $font-heading;
+	font-size: font-size(125); // 18px
+	line-height: var(--line-height-100);
+	font-weight: var(--font-weight-extra-bold);
 
-  @include respond(sm) {
-    font-size: font-size(100);
-  }
+	@include respond(sm) {
+		font-size: font-size(100);
+	}
 }
 
 /* ---------------------------------- */
@@ -150,38 +150,38 @@ p {
 /* ---------------------------------- */
 
 .body-lg {
-  font-family: $font-body;
-  font-size: font-size(200);
-  line-height: var(--line-height-200);
-  font-weight: var(--font-weight-regular);
+	font-family: $font-body;
+	font-size: font-size(200);
+	line-height: var(--line-height-200);
+	font-weight: var(--font-weight-regular);
 
-  @include respond(sm) {
-    font-size: font-size(150);
-  }
+	@include respond(sm) {
+		font-size: font-size(150);
+	}
 
-  @include respond(xs) {
-    font-size: font-size(100);
-  }
+	@include respond(xs) {
+		font-size: font-size(100);
+	}
 }
 
 .body-md {
-  @extend %body-md-base;
+	@extend %body-md-base;
 }
 
 .body-md-bold,
 .body-md-link {
-  @extend %body-md-base;
-  font-weight: var(--font-weight-bold);
+	@extend %body-md-base;
+	font-weight: var(--font-weight-bold);
 }
 
 .body-sm {
-  @extend %body-sm-base;
+	@extend %body-sm-base;
 }
 
 .body-sm-bold,
 .body-sm-link {
-  @extend %body-sm-base;
-  font-weight: var(--font-weight-bold);
+	@extend %body-sm-base;
+	font-weight: var(--font-weight-bold);
 }
 
 /* ---------------------------------- */
@@ -189,17 +189,17 @@ p {
 /* ---------------------------------- */
 
 .caption-md {
-  font-family: $font-body;
-  font-size: font-size(75); // 14px
-  line-height: var(--line-height-100);
-  font-weight: var(--font-weight-regular);
+	font-family: $font-body;
+	font-size: font-size(75); // 14px
+	line-height: var(--line-height-100);
+	font-weight: var(--font-weight-regular);
 }
 
 .caption-sm {
-  font-family: $font-body;
-  font-size: font-size(50); // 12px
-  line-height: var(--line-height-100);
-  font-weight: var(--font-weight-medium);
+	font-family: $font-body;
+	font-size: font-size(50); // 12px
+	line-height: var(--line-height-100);
+	font-weight: var(--font-weight-medium);
 }
 
 /* ---------------------------------- */
@@ -207,13 +207,13 @@ p {
 /* ---------------------------------- */
 
 .remove-ul-style {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 
-  li {
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
+	li {
+		display: flex;
+		margin: 0;
+		padding: 0;
+	}
 }

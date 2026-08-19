@@ -3,393 +3,397 @@
 
 // Palette modifiers
 @each $key, $palette in $group-palettes {
-    :global(.#{$key}-card) {
-        background: map.get($palette, bg);
+	:global(.#{$key}-card) {
+		background: map.get($palette, bg);
 
-        .card-link,
-        .card-link svg {
-            $link-color: map.get($palette, link);
-            color: $link-color;
-            fill: $link-color;
-            transition: all 0.3s ease-in-out;
-        }
+		.card-link,
+		.card-link svg {
+			$link-color: map.get($palette, link);
+			color: $link-color;
+			fill: $link-color;
+			transition: all 0.3s ease-in-out;
+		}
 
-        // On card hover
-        &:hover,
-        &:focus-visible {
-            background: color.adjust(map.get($palette, bg), $lightness: -8%);
+		// On card hover
+		&:hover,
+		&:focus-visible {
+			background: color.adjust(map.get($palette, bg), $lightness: -8%);
 
-            .card-link,
-            .card-link svg {
-                color: color.adjust(map.get($palette, link), $lightness: -16%);
-                fill: color.adjust(map.get($palette, link), $lightness: -16%);
-                text-underline-offset: 0.5em;
-            }
-        }
+			.card-link,
+			.card-link svg {
+				color: color.adjust(map.get($palette, link), $lightness: -16%);
+				fill: color.adjust(map.get($palette, link), $lightness: -16%);
+				text-underline-offset: 0.5em;
+			}
+		}
 
-        // On card active (press)
-        &:active {
-            .card-link,
-            .card-link svg {
-                color: color.adjust(map.get($palette, link), $lightness: -32%);
-                fill: color.adjust(map.get($palette, link), $lightness: -32%);
-                text-underline-offset: 0.5em;
-            }
-        }
+		// On card active (press)
+		&:active {
+			.card-link,
+			.card-link svg {
+				color: color.adjust(map.get($palette, link), $lightness: -32%);
+				fill: color.adjust(map.get($palette, link), $lightness: -32%);
+				text-underline-offset: 0.5em;
+			}
+		}
 
-        // Change card's focus ring to $link-color
-        &:focus-visible {
-            outline: 3px solid map.get($palette, link);
-            outline-offset: 4px;
-            border-radius: radius(400);
-        }
+		// Change card's focus ring to $link-color
+		&:focus-visible {
+			outline: 3px solid map.get($palette, link);
+			outline-offset: 4px;
+			border-radius: radius(400);
+		}
 
-        .case-study-component-wrapper {
-            box-shadow: 0 0 56px 16px rgba(map.get($palette, link), $sample-shadow-opacity);
-        }
+		.case-study-component-wrapper {
+			box-shadow: 0
+				0
+				56px
+				16px
+				rgba(map.get($palette, link), $sample-shadow-opacity);
+		}
 
-        .case-study-image-fallback {
-            background: map.get($palette, link);
+		.case-study-image-fallback {
+			background: map.get($palette, link);
 
-            svg {
-                fill: var(--color-white);
-            }
-        }
+			svg {
+				fill: var(--color-white);
+			}
+		}
 
-        // Move arrow icon on card hover/press/focus
-        &:hover .card-link .icon,
-        &:focus-visible .card-link .icon {
-            transform: translateX(0.2em);
-            transition: transform 0.2s;
-        }
-        &:active .card-link .icon {
-            transform: translateX(0.4em);
-            transition: transform 0.1s;
-        }
+		// Move arrow icon on card hover/press/focus
+		&:hover .card-link .icon,
+		&:focus-visible .card-link .icon {
+			transform: translateX(0.2em);
+			transition: transform 0.2s;
+		}
+		&:active .card-link .icon {
+			transform: translateX(0.4em);
+			transition: transform 0.1s;
+		}
 
-        // Image grows on card hover/press/focus
-        &:hover .case-study-image-wrapper,
-        &:focus-visible .case-study-image-wrapper {
-            transform: scale(1.04);
-            transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-        }
-        &:active .case-study-image-wrapper {
-            transform: scale(1.08);
-            transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
-        }
-    }
+		// Image grows on card hover/press/focus
+		&:hover .case-study-image-wrapper,
+		&:focus-visible .case-study-image-wrapper {
+			transform: scale(1.04);
+			transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+		}
+		&:active .case-study-image-wrapper {
+			transform: scale(1.08);
+			transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
+		}
+	}
 }
 
 // Card base
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr minmax(0, 400px);
-    align-items: stretch;
-    border-radius: radius(400);
-    overflow: hidden;
-    color: var(--color-dark);
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+	display: grid;
+	grid-template-columns: 1fr minmax(0, 400px);
+	align-items: stretch;
+	border-radius: radius(400);
+	overflow: hidden;
+	color: var(--color-dark);
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
 
-    &:hover {
-        text-decoration: none;
-        color: var(--color-dark);
-    }
+	&:hover {
+		text-decoration: none;
+		color: var(--color-dark);
+	}
 }
 
 // Orientation modifiers
 .horizontal {
-    gap: 0;
+	gap: 0;
 
-    .case-study-image-wrapper {
-        right: -16px;
+	.case-study-image-wrapper {
+		right: -16px;
 
-        @include respond(sm) {
-            right: auto;
-        }
-    }
+		@include respond(sm) {
+			right: auto;
+		}
+	}
 }
 
 .vertical {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: spacing(300); // 24px
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto;
+	gap: spacing(300); // 24px
 
-    .case-study-image-wrapper {
-        width: 100%;
-        height: auto;
-    }
+	.case-study-image-wrapper {
+		width: 100%;
+		height: auto;
+	}
 
-    .case-study-component-wrapper {
-        left: spacing(800); // 64px
-        top: spacing(200);
-        bottom: 0;
-    }
+	.case-study-component-wrapper {
+		left: spacing(800); // 64px
+		top: spacing(200);
+		bottom: 0;
+	}
 
-    .content {
-        padding-bottom: spacing(300); // 24px
-    }
+	.content {
+		padding-bottom: spacing(300); // 24px
+	}
 }
 
 // Image wrapper and image
 .case-study-image-wrapper {
-    display: flex;
-    align-items: stretch;
-    height: 100%;
-    width: 400px;
-    max-width: 100%;
-    position: relative;
-    transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+	display: flex;
+	align-items: stretch;
+	height: 100%;
+	width: 400px;
+	max-width: 100%;
+	position: relative;
+	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 
+	@include respond(md) {
+		right: -16px;
+	}
 
-    @include respond(md) {
-        right: -16px;
-    }
-
-    @include respond(sm) {
-        right: auto;
-        width: 100%;
-        height: auto;
-        padding: 0 spacing(500); // 40px
-    }
+	@include respond(sm) {
+		right: auto;
+		width: 100%;
+		height: auto;
+		padding: 0 spacing(500); // 40px
+	}
 }
 
 .case-study-component-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    border-radius: 8px;
-    object-fit: cover;
-    object-position: left top;
-    bottom: -56px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	border-radius: 8px;
+	object-fit: cover;
+	object-position: left top;
+	bottom: -56px;
 
-    @include respond(md) {
-        bottom: -40px;
-        left: 0;
-        top: auto;
-    }
+	@include respond(md) {
+		bottom: -40px;
+		left: 0;
+		top: auto;
+	}
 
-    @include respond(sm) {
-        border-radius: radius(400);
-        left: auto;
-        top: auto;
-        bottom: auto;
-    }
+	@include respond(sm) {
+		border-radius: radius(400);
+		left: auto;
+		top: auto;
+		bottom: auto;
+	}
 
-    @include respond(xs) {
-        border-radius: radius(200); // 8px
-    }
+	@include respond(xs) {
+		border-radius: radius(200); // 8px
+	}
 }
 
 .case-study-image-fallback {
-    border-radius: 0;
-    padding: spacing(400) 0; // 32px 0
+	border-radius: 0;
+	padding: spacing(400) 0; // 32px 0
 }
 
 // Responsive: horizontal on md, vertical on sm/xs
 .wrapper,
 .vertical,
 .horizontal {
-    @include respond(md) {
-        grid-template-columns: 1fr minmax(0, 400px);
-        grid-template-rows: 1fr;
-        gap: spacing(200);
+	@include respond(md) {
+		grid-template-columns: 1fr minmax(0, 400px);
+		grid-template-rows: 1fr;
+		gap: spacing(200);
 
-        .case-study-component-wrapper {
-            left: 0;
-            top: auto;
-            bottom: -40px;
-        }
+		.case-study-component-wrapper {
+			left: 0;
+			top: auto;
+			bottom: -40px;
+		}
 
-        .case-study-image-wrapper {
-            width: 480px;
-            height: 100%;
-            padding: 0;
-        }
+		.case-study-image-wrapper {
+			width: 480px;
+			height: 100%;
+			padding: 0;
+		}
 
-        .text {
-            min-height: 148px;
-        }
+		.text {
+			min-height: 148px;
+		}
 
-        .content {
-            padding-bottom: spacing(500);
-        }
-    }
+		.content {
+			padding-bottom: spacing(500);
+		}
+	}
 
-    @include respond(sm) {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        padding: 40px 0;
-        align-items: center;
-        text-align: center;
-        gap: spacing(600);
+	@include respond(sm) {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		padding: 40px 0;
+		align-items: center;
+		text-align: center;
+		gap: spacing(600);
 
-        .case-study-image-wrapper {
-            width: 100%;
-            height: auto;
-            padding: 0 spacing(500);
-        }
+		.case-study-image-wrapper {
+			width: 100%;
+			height: auto;
+			padding: 0 spacing(500);
+		}
 
-        .case-study-component-wrapper {
-            left: auto;
-            top: auto;
-            bottom: auto;
-        }
+		.case-study-component-wrapper {
+			left: auto;
+			top: auto;
+			bottom: auto;
+		}
 
-        .content {
-            padding: 0 spacing(200);
-            align-items: center;
-            gap: spacing(400);
-            min-width: auto;
-            max-width: 100%;
-        }
+		.content {
+			padding: 0 spacing(200);
+			align-items: center;
+			gap: spacing(400);
+			min-width: auto;
+			max-width: 100%;
+		}
 
-        .text {
-            min-height: 0;
-        }
-    }
+		.text {
+			min-height: 0;
+		}
+	}
 
-    @include respond(xs) {
-        gap: spacing(500);
+	@include respond(xs) {
+		gap: spacing(500);
 
-        .content {
-            gap: spacing(400);
-        }
-    }
+		.content {
+			gap: spacing(400);
+		}
+	}
 }
 
 // Card content
 .content {
-    display: flex;
-    flex-direction: column;
-    padding: spacing(300) spacing(300) spacing(500) spacing(300);
-    align-items: flex-start;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: spacing(300) spacing(300) spacing(500) spacing(300);
+	align-items: flex-start;
+	width: 100%;
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    gap: spacing(100);
+	display: flex;
+	flex-direction: column;
+	gap: spacing(100);
 }
 
 .description {
-    font-weight: var(--font-weight-regular);
-    font-family: $font-body;
+	font-weight: var(--font-weight-regular);
+	font-family: $font-body;
 
-    span {
-        @extend .dot-text-divider;
-    }
+	span {
+		@extend .dot-text-divider;
+	}
 }
 
 .card-link {
-    display: flex;
-    align-items: center;
-    gap: 0.2em;
-    font-weight: var(--font-weight-bold);
-    font-family: $font-heading;
-    text-decoration: underline;
-    text-underline-offset: 0.3em;
+	display: flex;
+	align-items: center;
+	gap: 0.2em;
+	font-weight: var(--font-weight-bold);
+	font-family: $font-heading;
+	text-decoration: underline;
+	text-underline-offset: 0.3em;
 
-    .icon {
-        width: 1em;
-        height: 1em;
-        position: relative;
-        top: 0.05em;
-    }
+	.icon {
+		width: 1em;
+		height: 1em;
+		position: relative;
+		top: 0.05em;
+	}
 }
 
 .case-study-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    object-position: top left;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	object-position: top left;
 }
 
 // Work page specific styles
 .work {
-    .content {
-        min-width: 320px;
-        max-width: 480px;
-        gap: spacing(600);
+	.content {
+		min-width: 320px;
+		max-width: 480px;
+		gap: spacing(600);
 
-        @include respond(sm) {
-            min-width: 100%;
-            max-width: 100%;
-        }
-    }
+		@include respond(sm) {
+			min-width: 100%;
+			max-width: 100%;
+		}
+	}
 
-   .title {
-        @extend .heading-lg;
-        
-        @include respond(md) {
-            font-size: font-size(200);
-        }
+	.title {
+		@extend .heading-lg;
 
-        @include respond(sm) {
-            font-size: font-size(150);
-        }
+		@include respond(md) {
+			font-size: font-size(200);
+		}
 
-        @include respond(xs) {
-            font-size: font-size(125);
-        }
-    }
+		@include respond(sm) {
+			font-size: font-size(150);
+		}
 
-    .description {
-        font-size: font-size(100);
+		@include respond(xs) {
+			font-size: font-size(125);
+		}
+	}
 
-        @include respond(xs) {
-            font-size: font-size(75);
-        }
-    }
+	.description {
+		font-size: font-size(100);
 
-    .card-link {
-        font-size: font-size(150);
+		@include respond(xs) {
+			font-size: font-size(75);
+		}
+	}
 
-        @include respond(sm) {
-            font-size: font-size(125);
-        }
+	.card-link {
+		font-size: font-size(150);
 
-        @include respond(xs) {
-            font-size: font-size(100);
-        }
-    }
+		@include respond(sm) {
+			font-size: font-size(125);
+		}
+
+		@include respond(xs) {
+			font-size: font-size(100);
+		}
+	}
 }
 
 // Studies pages specific styles
 .study {
-    &.vertical, &.horizontal {
-        @include respond(md) {
-            grid-template-columns: 1fr minmax(0, 300px);
-            gap: 0;
-        }
+	&.vertical,
+	&.horizontal {
+		@include respond(md) {
+			grid-template-columns: 1fr minmax(0, 300px);
+			gap: 0;
+		}
 
-        @include respond(sm) {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto auto;
-            gap: spacing(500); // 40px
-        }
-    }
+		@include respond(sm) {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto;
+			gap: spacing(500); // 40px
+		}
+	}
 
-    .content {
-        gap: spacing(300); // 24px
-    }
+	.content {
+		gap: spacing(300); // 24px
+	}
 
-    .title {
-        @extend .heading-xs;
-    }
+	.title {
+		@extend .heading-xs;
+	}
 
-    .description {
-        @extend .caption-md;
-    }
+	.description {
+		@extend .caption-md;
+	}
 
-    .card-link {
-        font-size: font-size(100);
+	.card-link {
+		font-size: font-size(100);
 
-        @include respond(xs) {
-            font-size: font-size(75);
-        }
-    }
+		@include respond(xs) {
+			font-size: font-size(75);
+		}
+	}
 }

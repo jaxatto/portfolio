@@ -1,12 +1,12 @@
 .work-intro-wrapper {
-    padding: spacing(300) 0 spacing(500) 0; // 24px 0 40px 0
-    display: flex;
-    flex-direction: column;
-    gap: spacing(200); // 16px
-    align-items: center;
-    text-align: center;
+	padding: spacing(300) 0 spacing(500) 0; // 24px 0 40px 0
+	display: flex;
+	flex-direction: column;
+	gap: spacing(200); // 16px
+	align-items: center;
+	text-align: center;
 }
 
 .work-intro-title {
-    @extend .body-lg;
+	@extend .body-lg;
 }

@@ -18,7 +18,7 @@
 /* ------------------------------------------------------------- */
 
 .dot-text-divider:not(:last-child)::after {
-	content: "·";
+	content: '·';
 	display: inline-block;
 	margin-inline: var(--space-xs);
 	color: var(--color-content-muted);

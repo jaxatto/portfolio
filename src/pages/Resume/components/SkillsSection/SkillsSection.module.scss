@@ -1,5 +1,5 @@
 .content {
-    @extend .general-content-wrapper;
-    gap: spacing(200); // 16px
-    padding-bottom: spacing(800); // 64px
+	@extend .general-content-wrapper;
+	gap: spacing(200); // 16px
+	padding-bottom: spacing(800); // 64px
 }

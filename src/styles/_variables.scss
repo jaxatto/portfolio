@@ -16,48 +16,48 @@
 
 // Main color palette
 $main-colors: (
-  primary:      #6F42C1,
-  dark:         #1D0D3A,
-  medium:       #685E7D,
-  light:        #EADEFF,
-  "white":      #FFFFFF,
-  background:   #FFFFFF,
-  placeholder:  #CBD3DE
+	primary: #6f42c1,
+	dark: #1d0d3a,
+	medium: #685e7d,
+	light: #eadeff,
+	'white': #ffffff,
+	background: #ffffff,
+	placeholder: #cbd3de,
 );
 
 // Group palettes
 $group-palettes: (
-  primary: (
-    title: #30008B,
-    chip:  #340096,
-    link:  #5220AC,
-    bg:    #E1D1FF
-  ),
-  secondary: (
-    title: #00098A,
-    chip:  #070D6D,
-    link:  #343AA8,
-    bg:    #CFD2FF
-  ),
-  tertiary: (
-    title: #005475,
-    chip:  #00435D,
-    link:  #01628A,
-    bg:    #D1F2FF
-  ),
+	primary: (
+		title: #30008b,
+		chip: #340096,
+		link: #5220ac,
+		bg: #e1d1ff,
+	),
+	secondary: (
+		title: #00098a,
+		chip: #070d6d,
+		link: #343aa8,
+		bg: #cfd2ff,
+	),
+	tertiary: (
+		title: #005475,
+		chip: #00435d,
+		link: #01628a,
+		bg: #d1f2ff,
+	),
 );
 
 $sample-shadow-opacity: 0.32;
 
 $states-lightness: (
-  hover: -12%,
-  pressed: -24%,
+	hover: -12%,
+	pressed: -24%,
 );
 
 // Gradients
 $gradients: (
-  primary:       linear-gradient(78deg, #1E0095 9.5%, #A152FB 88.75%),
-  primary-hover: linear-gradient(83deg, #1E0095 94.32%, #A152FB 113.41%),
+	primary: linear-gradient(78deg, #1e0095 9.5%, #a152fb 88.75%),
+	primary-hover: linear-gradient(83deg, #1e0095 94.32%, #a152fb 113.41%),
 );
 
 /* ---------------------------------- */
@@ -66,44 +66,44 @@ $gradients: (
 
 // Padding and margin sizes
 $spacing: (
-  none: 0,
-  50:   4,
-  75:   6,
-  100:  8,
-  150:  12,
-  200:  16,
-  250:  20,
-  300:  24,
-  400:  32,
-  500:  40,
-  600:  48,
-  700:  56,
-  800:  64,
-  925:  104,
+	none: 0,
+	50: 4,
+	75: 6,
+	100: 8,
+	150: 12,
+	200: 16,
+	250: 20,
+	300: 24,
+	400: 32,
+	500: 40,
+	600: 48,
+	700: 56,
+	800: 64,
+	925: 104,
 );
 
 $radius: (
-  none: 0,
-  50:   2,
-  100:  4,
-  150:  6,
-  200:  8,
-  300:  12,
-  400:  16,
+	none: 0,
+	50: 2,
+	100: 4,
+	150: 6,
+	200: 8,
+	300: 12,
+	400: 16,
 );
 
 // Wrappers for content
 $wrapper-widths: (
-    content: 750,
-    site: 960
+	content: 750,
+	site: 960,
 );
 
 // Breakpoints for responsive design
 $breakpoints: (
-    xs: 340,
-    sm: 640,
-    md: 900,
-    wrapper: map.get($wrapper-widths, site),
+	xs: 340,
+	sm: 640,
+	md: 900,
+	wrapper: map.get($wrapper-widths, site),
 );
 
 // Divider offset calculation
@@ -122,32 +122,32 @@ $font-body: 'Manrope', Arial, sans-serif;
 
 // Sizes
 $font-size: (
-    50: 12,
-    75: 14,
-    100: 16,
-    125: 18,
-    150: 20,
-    200: 24,
-    300: 32,
-    400: 40,
-    700: 56,
+	50: 12,
+	75: 14,
+	100: 16,
+	125: 18,
+	150: 20,
+	200: 24,
+	300: 32,
+	400: 40,
+	700: 56,
 );
 
 $base-font-size: map.get($font-size, 100);
 
 // Line heights
 $line-height: (
-    100: 1.3,
-    200: 1.4,
-    300: 1.5,
-    400: 1.6,
+	100: 1.3,
+	200: 1.4,
+	300: 1.5,
+	400: 1.6,
 );
 
 // Weights
 $font-weights: (
-    regular: 400,
-    medium: 500,
-    bold: 700,
-    extra-bold: 800,
-    black: 900
+	regular: 400,
+	medium: 500,
+	bold: 700,
+	extra-bold: 800,
+	black: 900,
 );

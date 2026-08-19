@@ -1,5 +1,5 @@
 export type StudyMetaProps = {
-  title: string;
-  description: string;
-  linkUrl: string;
+	title: string;
+	description: string;
+	linkUrl: string;
 };

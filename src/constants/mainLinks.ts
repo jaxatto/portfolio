@@ -2,9 +2,9 @@
 // These links are used in the header and other components to navigate through the site.
 
 export const mainLinks = {
-  home: '/',
-  work: '/',
-  about: '/about',
-  resume: '/resume',
-  siteURL: 'https://jaxengeldesign.com',
+	home: '/',
+	work: '/',
+	about: '/about',
+	resume: '/resume',
+	siteURL: 'https://jaxengeldesign.com',
 };

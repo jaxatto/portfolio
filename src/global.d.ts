@@ -1,20 +1,30 @@
 declare module '*.scss' {
-  const content: { [className: string]: string };
-  export default content;
+	const content: { [className: string]: string };
+	export default content;
 }
 
 declare module '*.module.scss' {
-  const styles: { [className: string]: string };
-  export default styles;
+	const styles: { [className: string]: string };
+	export default styles;
+}
+
+declare module '*.css' {
+	const content: { [className: string]: string };
+	export default content;
+}
+
+declare module '*.module.css' {
+	const styles: { [className: string]: string };
+	export default styles;
 }
 
 declare module '*.png' {
-  const value: string;
-  export default value;
+	const value: string;
+	export default value;
 }
 
 declare module '*.svg' {
-  import * as React from 'react';
-  const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  export default ReactComponent;
+	import * as React from 'react';
+	const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+	export default ReactComponent;
 }

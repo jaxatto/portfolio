@@ -4,40 +4,37 @@ const path = require('path');
 const assetsDir = path.resolve(__dirname, '../src/assets');
 
 function stripAndAddSvgAttributes(svgContent) {
-  // Remove fill, width, height, and viewBox from the <svg ...> tag
-  let updated = svgContent.replace(
-    /<svg\b([^>]*)>/i,
-    (match, attrs) => {
-      // Remove unwanted attributes
-      let cleaned = attrs.replace(/\s*(fill|width|height|viewBox)="[^"]*"/gi, '');
-      // Add desired attributes
-      cleaned += ' width="100%" height="100%" viewBox="0 0 24 24"';
-      return `<svg${cleaned}>`;
-    }
-  );
-  // Remove fill="..." from all elements (e.g., <path>, <rect>, etc.)
-  updated = updated.replace(/\s*fill="[^"]*"/gi, '');
-  return updated;
+	// Remove fill, width, height, and viewBox from the <svg ...> tag
+	let updated = svgContent.replace(/<svg\b([^>]*)>/i, (match, attrs) => {
+		// Remove unwanted attributes
+		let cleaned = attrs.replace(/\s*(fill|width|height|viewBox)="[^"]*"/gi, '');
+		// Add desired attributes
+		cleaned += ' width="100%" height="100%" viewBox="0 0 24 24"';
+		return `<svg${cleaned}>`;
+	});
+	// Remove fill="..." from all elements (e.g., <path>, <rect>, etc.)
+	updated = updated.replace(/\s*fill="[^"]*"/gi, '');
+	return updated;
 }
 
 function processSvgFile(filePath) {
-  const content = fs.readFileSync(filePath, 'utf8');
-  const newContent = stripAndAddSvgAttributes(content);
-  if (content !== newContent) {
-    fs.writeFileSync(filePath, newContent, 'utf8');
-    console.log(`Stripped and added attributes in: ${filePath}`);
-  }
+	const content = fs.readFileSync(filePath, 'utf8');
+	const newContent = stripAndAddSvgAttributes(content);
+	if (content !== newContent) {
+		fs.writeFileSync(filePath, newContent, 'utf8');
+		console.log(`Stripped and added attributes in: ${filePath}`);
+	}
 }
 
 function walkDir(dir) {
-  fs.readdirSync(dir, { withFileTypes: true }).forEach((entry) => {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(fullPath);
-    } else if (entry.isFile() && entry.name.endsWith('.svg')) {
-      processSvgFile(fullPath);
-    }
-  });
+	fs.readdirSync(dir, { withFileTypes: true }).forEach((entry) => {
+		const fullPath = path.join(dir, entry.name);
+		if (entry.isDirectory()) {
+			walkDir(fullPath);
+		} else if (entry.isFile() && entry.name.endsWith('.svg')) {
+			processSvgFile(fullPath);
+		}
+	});
 }
 
 walkDir(assetsDir);

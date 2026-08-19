@@ -10,57 +10,57 @@
 
 // Hover style
 @mixin hover($color, $inverse: false) {
-  &:hover,
-  &:hover svg {
-    @if $inverse {
-      background-color: change-lightness($color, hover);
-      color: var(--color-white);
-      fill: var(--color-white);
-    } @else {
-      color: change-lightness($color, hover);
-      fill: change-lightness($color, hover);
-      border-color: change-lightness($color, hover);
-    }
-  }
+	&:hover,
+	&:hover svg {
+		@if $inverse {
+			background-color: change-lightness($color, hover);
+			color: var(--color-white);
+			fill: var(--color-white);
+		} @else {
+			color: change-lightness($color, hover);
+			fill: change-lightness($color, hover);
+			border-color: change-lightness($color, hover);
+		}
+	}
 }
 
 // Pressed (active) style
 @mixin pressed($color, $inverse: false) {
-  &:active,
-  &:active svg {
-    @if $inverse {
-      background-color: change-lightness($color, pressed);
-      color: var(--color-white);
-      fill: var(--color-white);
-    } @else {
-      color: change-lightness($color, pressed);
-      fill: change-lightness($color, pressed);
-      border-color: change-lightness($color, pressed);
-    }
-  }
+	&:active,
+	&:active svg {
+		@if $inverse {
+			background-color: change-lightness($color, pressed);
+			color: var(--color-white);
+			fill: var(--color-white);
+		} @else {
+			color: change-lightness($color, pressed);
+			fill: change-lightness($color, pressed);
+			border-color: change-lightness($color, pressed);
+		}
+	}
 }
 
 // Focus style
 @mixin focus($color, $inverse: false) {
-  &:focus-visible {
-    @if $inverse {
-      outline: 3px solid $color;
-      outline-offset: 3px;
-      background-color: $color;
-      color: var(--color-white);
-      fill: var(--color-white);
-    } @else {
-      outline: 3px solid $color;
-      outline-offset: 3px;
-    }
-  }
+	&:focus-visible {
+		@if $inverse {
+			outline: 3px solid $color;
+			outline-offset: 3px;
+			background-color: $color;
+			color: var(--color-white);
+			fill: var(--color-white);
+		} @else {
+			outline: 3px solid $color;
+			outline-offset: 3px;
+		}
+	}
 }
 
 // Combined interactive states
 @mixin interactive-states($color, $inverse: false) {
-  @include hover($color, $inverse);
-  @include pressed($color, $inverse);
-  @include focus($color, $inverse);
+	@include hover($color, $inverse);
+	@include pressed($color, $inverse);
+	@include focus($color, $inverse);
 }
 
 /* ---------------------------------- */
@@ -69,53 +69,53 @@
 
 // Get palette colors and apply to links
 @mixin group-palette($palette: null, $hover: true) {
-  $link-color: map.get($main-colors, primary);
+	$link-color: map.get($main-colors, primary);
 
-  @if $palette != null {
-    $palette-map: $palette;
+	@if $palette != null {
+		$palette-map: $palette;
 
-    @if map.has-key($group-palettes, $palette) {
-      $palette-map: map.get($group-palettes, $palette);
-    }
+		@if map.has-key($group-palettes, $palette) {
+			$palette-map: map.get($group-palettes, $palette);
+		}
 
-    @if map.is-map($palette-map) and map.has-key($palette-map, link) {
-      $link-color: map.get($palette-map, link);
-    }
-  }
+		@if map.is-map($palette-map) and map.has-key($palette-map, link) {
+			$link-color: map.get($palette-map, link);
+		}
+	}
 
-  color: $link-color;
-  fill: $link-color;
+	color: $link-color;
+	fill: $link-color;
 
-  @if $hover {
-    @include interactive-states($link-color);
-  }
+	@if $hover {
+		@include interactive-states($link-color);
+	}
 }
 
 // Get wrapper sizes and assign max widths
 @mixin wrapper-max-width($type: content) {
-  $width: map.get($wrapper-widths, $type);
+	$width: map.get($wrapper-widths, $type);
 
-  @if $width {
-    max-width: $width;
-    width: 100%;
+	@if $width {
+		max-width: $width;
+		width: 100%;
 
-    @if $type == site {
-      margin: 0 auto;
-    }
-  } @else {
-    @warn "Wrapper width `#{$type}` not found in `$wrapper-widths`.";
-  }
+		@if $type == site {
+			margin: 0 auto;
+		}
+	} @else {
+		@warn "Wrapper width `#{$type}` not found in `$wrapper-widths`.";
+	}
 }
 
 // Responsive breakpoint media queries
 @mixin respond($breakpoint) {
-  $value: map.get($breakpoints, $breakpoint);
-  
-  @if $value {
-    @media (max-width: $value) {
-      @content;
-    }
-  } @else {
-    @warn "Breakpoint `#{$breakpoint}` not found in `$breakpoints`.";
-  }
+	$value: map.get($breakpoints, $breakpoint);
+
+	@if $value {
+		@media (max-width: $value) {
+			@content;
+		}
+	} @else {
+		@warn "Breakpoint `#{$breakpoint}` not found in `$breakpoints`.";
+	}
 }

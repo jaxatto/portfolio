@@ -1,105 +1,105 @@
 @use 'sass:map';
 
 .wrapper {
-    @include respond(sm) {
-        text-align: center;
-    }
+	@include respond(sm) {
+		text-align: center;
+	}
 }
 
 .divider {
-    padding-top: 0;
-    padding-bottom: spacing(600);
+	padding-top: 0;
+	padding-bottom: spacing(600);
 }
 
 .content {
-    @include wrapper-max-width(content);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: spacing(500); // 40px
-    padding: 0 spacing(300) 104px spacing(300);
+	@include wrapper-max-width(content);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: spacing(500); // 40px
+	padding: 0 spacing(300) 104px spacing(300);
 
-    @include respond(sm) {
-        padding: spacing(200) spacing(200) spacing(800) spacing(200);
-    }
+	@include respond(sm) {
+		padding: spacing(200) spacing(200) spacing(800) spacing(200);
+	}
 
-    @include respond(xs) {
-        padding: spacing(100) spacing(100) spacing(600) spacing(100);
-        gap: spacing(300);
-    }
+	@include respond(xs) {
+		padding: spacing(100) spacing(100) spacing(600) spacing(100);
+		gap: spacing(300);
+	}
 }
 
 .top {
-    display: flex;
-    flex-direction: column;
-    gap: spacing(200);
-    padding-right: spacing(600);
+	display: flex;
+	flex-direction: column;
+	gap: spacing(200);
+	padding-right: spacing(600);
 
-    @include respond(sm) {
-        padding-right: 0;
-        gap: spacing(100);
-    }
+	@include respond(sm) {
+		padding-right: 0;
+		gap: spacing(100);
+	}
 }
 
 .title {
-    @extend .title-md;
-    line-height: 1.2;
-    display: flex;
-    flex-direction: column;
+	@extend .title-md;
+	line-height: 1.2;
+	display: flex;
+	flex-direction: column;
 
-    @include respond(sm) {
-        display: inline;
-        align-items: center;
+	@include respond(sm) {
+		display: inline;
+		align-items: center;
 
-        & > *:not(:last-child) {
-            margin-right: 0.2em;
-        }
-    }
+		& > *:not(:last-child) {
+			margin-right: 0.2em;
+		}
+	}
 }
 
 .description {
-    @extend .body-lg;
+	@extend .body-lg;
 }
 
 .bottom {
-    display: flex;
-    flex-direction: column;
-    gap: spacing(300);
+	display: flex;
+	flex-direction: column;
+	gap: spacing(300);
 }
 
 .button {
-    @include interactive-states(map.get($group-palettes, primary, title), true);
-    background-color: var(--group-primary-title);
-    font-size: font-size(200);
-    text-align: left;
+	@include interactive-states(map.get($group-palettes, primary, title), true);
+	background-color: var(--group-primary-title);
+	font-size: font-size(200);
+	text-align: left;
 
-    svg {
-        width: 1.2em;
-        height: 1.2em;
-        margin-right: 0.1em
-    }
+	svg {
+		width: 1.2em;
+		height: 1.2em;
+		margin-right: 0.1em;
+	}
 
-    @include respond(sm) {
-        font-size: font-size(150);
-        align-self: center
-    }
+	@include respond(sm) {
+		font-size: font-size(150);
+		align-self: center;
+	}
 
-    @include respond(sm) {
-        font-size: font-size(100);
-    }
+	@include respond(sm) {
+		font-size: font-size(100);
+	}
 }
 
 .byline {
-    @extend .body-sm;
-    display: inline-flex;
-    flex-wrap: wrap;
+	@extend .body-sm;
+	display: inline-flex;
+	flex-wrap: wrap;
 
-    >*:not(:nth-last-child(-n+2)) {
-        margin-right: 0.2em;
-    }
+	> *:not(:nth-last-child(-n + 2)) {
+		margin-right: 0.2em;
+	}
 
-    @include respond(sm) {
-        justify-content: center;
-        text-align: center;
-    }
+	@include respond(sm) {
+		justify-content: center;
+		text-align: center;
+	}
 }

@@ -1,22 +1,21 @@
 .wrapper {
-  background: var(--color-placeholder);
-  padding: spacing(75) spacing(150); // 6px 12px
-  border-radius: radius(200); // 8px
-  font-family: $font-heading;
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-100);
+	background: var(--color-placeholder);
+	padding: spacing(75) spacing(150); // 6px 12px
+	border-radius: radius(200); // 8px
+	font-family: $font-heading;
+	font-weight: var(--font-weight-bold);
+	line-height: var(--line-height-100);
 }
 
 @each $type in (primary, secondary, tertiary) {
-  .#{$type} {
-    background: var(--group-#{$type}-bg);
-    color: var(--group-#{$type}-chip);
-  }
+	.#{$type} {
+		background: var(--group-#{$type}-bg);
+		color: var(--group-#{$type}-chip);
+	}
 }
 
 .small {
-  padding: spacing(75) spacing(100); // 6px 8px
-  font-size: font-size(75); // 12px
-  border-radius: radius(100); // 4px
+	padding: spacing(75) spacing(100); // 6px 8px
+	font-size: font-size(75); // 12px
+	border-radius: radius(100); // 4px
 }
-

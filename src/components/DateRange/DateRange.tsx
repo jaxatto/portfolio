@@ -5,22 +5,26 @@ import React from 'react';
 // The component formats the date range with a separator and screen reader text for accessibility
 
 type DateRangeProps = {
-  startDate: string; // Start date of the role
-  endDate?: string;  // Optional end date of the role
-  className?: string; // Optional className for custom styling on the wrapper
+	startDate: string; // Start date of the role
+	endDate?: string; // Optional end date of the role
+	className?: string; // Optional className for custom styling on the wrapper
 };
 
-const DateRange: React.FC<DateRangeProps> = ({ startDate, endDate, className }) => (
-  <span className={className}>
-    {startDate}
-    {endDate && (
-      <>
-        <span aria-hidden="true">{' — '}</span>
-        <span className="sr-only">{' to '}</span>
-        {endDate}
-      </>
-    )}
-  </span>
+const DateRange: React.FC<DateRangeProps> = ({
+	startDate,
+	endDate,
+	className,
+}) => (
+	<span className={className}>
+		{startDate}
+		{endDate && (
+			<>
+				<span aria-hidden="true">{' — '}</span>
+				<span className="sr-only">{' to '}</span>
+				{endDate}
+			</>
+		)}
+	</span>
 );
 
 export default DateRange;

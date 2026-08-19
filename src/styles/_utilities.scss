@@ -10,12 +10,12 @@
 /* ---------------------------------- */
 
 .general-content-wrapper {
-  @extend %body-md-base;
-  @include wrapper-max-width(content);
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  gap: spacing(500); // 40px
+	@extend %body-md-base;
+	@include wrapper-max-width(content);
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	gap: spacing(500); // 40px
 }
 
 /* ---------------------------------- */
@@ -23,9 +23,9 @@
 /* ---------------------------------- */
 
 .dot-text-divider:not(:last-child)::after {
-  content: '·';
-  display: inline-block;
-  margin-inline: spacing(50); // Generates consistent horizontal spacing
-  color: var(--color-medium);
-  font-weight: var(--font-weight-bold);
+	content: '·';
+	display: inline-block;
+	margin-inline: spacing(50); // Generates consistent horizontal spacing
+	color: var(--color-medium);
+	font-weight: var(--font-weight-bold);
 }

@@ -1,83 +1,83 @@
 .wrapper {
-    @extend .general-content-wrapper;
+	@extend .general-content-wrapper;
 
-    h2 {
-        @extend .heading-md;
-        margin-bottom: spacing(200);
-    }
+	h2 {
+		@extend .heading-md;
+		margin-bottom: spacing(200);
+	}
 }
 
 .title {
-    @extend .page-title;
+	@extend .page-title;
 }
 
 section p:not(:last-of-type) {
-    margin-bottom: spacing(300);
+	margin-bottom: spacing(300);
 }
 
 .top-section {
-    display: flex;
-    flex-direction: column;
-    gap: spacing(300); // 24px
+	display: flex;
+	flex-direction: column;
+	gap: spacing(300); // 24px
 
-    ul {
-        @extend .body-md;
-        @extend .remove-ul-style;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: repeat(2, auto);
-        gap: spacing(200) spacing(400);
+	ul {
+		@extend .body-md;
+		@extend .remove-ul-style;
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: repeat(2, auto);
+		gap: spacing(200) spacing(400);
 
-        li {
-            gap: spacing(100);
-            padding: spacing(200);
-            border: 2px solid var(--color-medium);
-            border-radius: radius(300);
-        }
+		li {
+			gap: spacing(100);
+			padding: spacing(200);
+			border: 2px solid var(--color-medium);
+			border-radius: radius(300);
+		}
 
-        @include respond(sm) {
-            grid-template-columns: 1fr;
-        }
-    }
+		@include respond(sm) {
+			grid-template-columns: 1fr;
+		}
+	}
 
-    @include respond(sm) {
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
+	@include respond(sm) {
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
 }
 
 .lifestyle-image-row {
-    @extend .remove-ul-style;
-    display: flex;
-    gap: spacing(200); // 16px
+	@extend .remove-ul-style;
+	display: flex;
+	gap: spacing(200); // 16px
 
-    .lifestyle-line-item {
-        width: 100%;
-    }
+	.lifestyle-line-item {
+		width: 100%;
+	}
 
-    .lifestyle-fallback-wrapper {
-        aspect-ratio: 1;
-        width: 100%;
-        height: 100%;
-    }
-    
-    img {
-        display: flex;
-        height: auto;
-        object-fit: cover;
-        border-radius: 50%;
-        aspect-ratio: 1;
-        width: 100%;
-        height: 100%;
-    }
+	.lifestyle-fallback-wrapper {
+		aspect-ratio: 1;
+		width: 100%;
+		height: 100%;
+	}
 
-    @include respond(sm) {
-        flex-wrap: wrap;
-    }
+	img {
+		display: flex;
+		height: auto;
+		object-fit: cover;
+		border-radius: 50%;
+		aspect-ratio: 1;
+		width: 100%;
+		height: 100%;
+	}
 
-    @include respond(xs) {
-        flex-direction: column;
-        gap: spacing(200); // 16px
-    }
+	@include respond(sm) {
+		flex-wrap: wrap;
+	}
+
+	@include respond(xs) {
+		flex-direction: column;
+		gap: spacing(200); // 16px
+	}
 }

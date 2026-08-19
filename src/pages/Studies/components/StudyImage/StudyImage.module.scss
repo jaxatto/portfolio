@@ -1,33 +1,33 @@
 .study-image {
-    display: flex;
-    flex-direction: column;
-    margin-top: spacing(400); // 32px
-    gap: spacing(150); // 12px
+	display: flex;
+	flex-direction: column;
+	margin-top: spacing(400); // 32px
+	gap: spacing(150); // 12px
 }
 
 .image {
-    width: 100%;
-    height: auto;
-    border-radius: radius(400); // 16px
+	width: 100%;
+	height: auto;
+	border-radius: radius(400); // 16px
 }
 
 .square {
-    border-radius: 0;
+	border-radius: 0;
 }
 
 .image-caption {
-    @extend .caption-md;
-    color: var(--color-medium);
-    text-align: center;
+	@extend .caption-md;
+	color: var(--color-medium);
+	text-align: center;
 }
 
 .image-fallback-wrapper {
-    border-radius: radius(400); // 16px
-    padding: spacing(800) 0;  // 64px 0
+	border-radius: radius(400); // 16px
+	padding: spacing(800) 0; // 64px 0
 
-    svg {
-        height: auto;
-        width: 30%;
-        opacity: 30%;
-    }
+	svg {
+		height: auto;
+		width: 30%;
+		opacity: 30%;
+	}
 }

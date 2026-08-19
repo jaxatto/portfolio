@@ -1,103 +1,103 @@
 .banner-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: spacing(500) 0 104px 0;
+	display: flex;
+	justify-content: center;
+	padding: spacing(500) 0 104px 0;
 
-    @include respond(sm) {
-        padding: spacing(500) 0;
-    }
+	@include respond(sm) {
+		padding: spacing(500) 0;
+	}
 }
 
 .banner {
-    @include wrapper-max-width(content);
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: spacing(250);
-    flex-wrap: wrap;
-    min-width: 0;
+	@include wrapper-max-width(content);
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: spacing(250);
+	flex-wrap: wrap;
+	min-width: 0;
 
-    @include respond(sm) {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+	@include respond(sm) {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    flex: 1 1 400px;
-    min-width: 0;
-    max-width: 100%;
-    gap: spacing(50);
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	flex: 1 1 400px;
+	min-width: 0;
+	max-width: 100%;
+	gap: spacing(50);
 
-    @include respond(sm) {
-        flex: auto;
-    }
+	@include respond(sm) {
+		flex: auto;
+	}
 }
 
 .heading {
-    @extend .title-md;
+	@extend .title-md;
 }
 
 .description {
-    @extend .body-lg;
-    line-height: var(--line-height-300);
+	@extend .body-lg;
+	line-height: var(--line-height-300);
 }
 
 .underline {
-    position: relative;
-    display: inline-block;
+	position: relative;
+	display: inline-block;
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: -0.3rem;
-        right: -0.3rem;
-        bottom: 0.1rem;
-        height: 1.25em;
-        background: var(--color-light);
-        border-radius: 1.25em;
-        z-index: -1;
+	&::after {
+		content: '';
+		position: absolute;
+		left: -0.3rem;
+		right: -0.3rem;
+		bottom: 0.1rem;
+		height: 1.25em;
+		background: var(--color-light);
+		border-radius: 1.25em;
+		z-index: -1;
 
-        @include respond(xs) {
-            display: none;
-        }
-    }
+		@include respond(xs) {
+			display: none;
+		}
+	}
 }
 
 .image-wrapper {
-    position: relative;
-    display: inline-block;
-    flex: 0 0 auto;
+	position: relative;
+	display: inline-block;
+	flex: 0 0 auto;
 
-    .image-main,
-    .image-fallback {
-        border-radius: 50%;
-        width: 160px;
-        height: 160px;
-        display: block;
-    }
+	.image-main,
+	.image-fallback {
+		border-radius: 50%;
+		width: 160px;
+		height: 160px;
+		display: block;
+	}
 
-    .image-fallback {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+	.image-fallback {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .bubble {
-    position: absolute;
-    bottom: 0;
-    left: -16px;
-    background: var(--color-light);
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
+	position: absolute;
+	bottom: 0;
+	left: -16px;
+	background: var(--color-light);
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 28px;
 }

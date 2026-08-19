@@ -1,21 +1,22 @@
 .top-section {
-    margin-bottom: spacing(300);
+	margin-bottom: spacing(300);
 }
 
 .title {
-    @extend .page-title;
-    line-height: 1.2;
-    margin-bottom: spacing(100);
+	@extend .page-title;
+	line-height: 1.2;
+	margin-bottom: spacing(100);
 }
 
-.role, .date {
-    @extend .dot-text-divider;
+.role,
+.date {
+	@extend .dot-text-divider;
 }
 
 .chip-row {
-    max-width: 500px;
+	max-width: 500px;
 }
 
 .description:not(:last-of-type) {
-    margin-bottom: spacing(300);
+	margin-bottom: spacing(300);
 }
