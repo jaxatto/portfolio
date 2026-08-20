@@ -11,29 +11,6 @@
 /* ------------------------------------------------------------- */
 
 :root {
-	/* ------------------------------------------------------------- */
-	/* -- Color  --------------------------------------------------- */
-	/* ------------------------------------------------------------- */
-
-	/* -- Primitives -- */
-	--color-primitive-gray-900: #1d0d3a;
-	--color-primitive-gray-500: #685e7d;
-	--color-primitive-gray-100: #cbd3de;
-	--color-primitive-gray-50: #e1e4eb;
-	--color-primitive-gray-0: #ffffff;
-	--color-primitive-purple-900: #30008b;
-	--color-primitive-purple-600: #5220ac;
-	--color-primitive-purple-500: #6f42c1;
-	--color-primitive-purple-100: #e1d1ff;
-	--color-primitive-indigo-900: #070d6d;
-	--color-primitive-indigo-600: #5220ac;
-	--color-primitive-indigo-500: #6f42c1;
-	--color-primitive-indigo-100: #cfd2ff;
-	--color-primitive-teal-900: #00435d;
-	--color-primitive-teal-600: #5220ac;
-	--color-primitive-teal-500: #6f42c1;
-	--color-primitive-teal-100: #d1f2ff;
-
 	/* -- Content -- */
 	--color-content-default: var(--color-primitive-gray-900);
 	--color-content-muted: var(--color-primitive-gray-500);
