@@ -10,8 +10,10 @@
 		"forceConsistentCasingInFileNames": true,
 		"types": ["node"],
 		"paths": {
-			"@/*": ["./src/*"]
+			"#src/*": ["./src/*"],
+			"#tokens/*": ["./src/tokens/*"],
+			"#styles/*": ["./src/styles/*"]
 		}
 	},
-	"include": ["src", "vite.config.ts", "vite-plugins.d.ts", "tokens"]
+	"include": ["src", "scripts", "vite.config.ts", "vite-plugins.d.ts"]
 }

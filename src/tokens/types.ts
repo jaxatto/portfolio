@@ -1,16 +1,14 @@
-import {
-	primitiveColors,
-	primitiveSizes,
-	primitiveTypography,
-} from './primitives';
+/* types.ts */
+
+import { type Primitives } from './primitives';
 
 /* ------------------------------------------------------------- */
 /* -- Color  --------------------------------------------------- */
 /* ------------------------------------------------------------- */
 
-export type ColorFamily = keyof typeof primitiveColors;
+export type ColorFamily = keyof Primitives['colors'];
 export type ColorStep<TFamily extends ColorFamily> =
-	keyof (typeof primitiveColors)[TFamily];
+	keyof Primitives['colors'][TFamily];
 
 export type ColorMode = {
 	light: string;
@@ -56,20 +54,20 @@ export type SemanticThemeColors = SemanticGeneralColor & SemanticBrandColors;
 /* -- Typography  ---------------------------------------------- */
 /* ------------------------------------------------------------- */
 
-export type TypographyCategory = keyof typeof primitiveTypography;
+export type TypographyCategory = keyof Primitives['font'];
 export type TypographyStep<TCategory extends TypographyCategory> =
-	keyof (typeof primitiveTypography)[TCategory];
+	keyof Primitives['font'][TCategory];
 
 export type TextStyleDefinition = {
-	fontFamily: keyof SemanticThemeTypography['fontFamily'];
-	fontSize: keyof SemanticThemeTypography['fontSize'];
-	fontWeight: keyof SemanticThemeTypography['fontWeight'];
-	lineHeight: keyof SemanticThemeTypography['lineHeight'];
-	letterSpacing?: keyof SemanticThemeTypography['letterSpacing'];
-	textTransform?: keyof SemanticThemeTypography['textTransform'];
-	textDecoration?: keyof SemanticThemeTypography['textDecoration'];
-	textDecorationThickness?: keyof SemanticThemeTypography['textDecorationThickness'];
-	textUnderlineOffset?: keyof SemanticThemeTypography['textUnderlineOffset'];
+	family: keyof SemanticThemeTypography['family'];
+	size: keyof SemanticThemeTypography['size'];
+	weight: keyof SemanticThemeTypography['weight'];
+	'line-height': keyof SemanticThemeTypography['line-height'];
+	'letter-spacing'?: keyof SemanticThemeTypography['letter-spacing'];
+	'text-transform'?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
+	'text-decoration'?: 'none' | 'underline' | 'line-through';
+	'text-decoration-thickness'?: 'auto' | `${number}px`;
+	'text-underline-offset'?: 'auto' | `${number}px`;
 };
 
 export type TextStyleKey =
@@ -77,13 +75,12 @@ export type TextStyleKey =
 	| `${'body' | 'label'}-${'sm' | 'md' | 'lg'}`
 	| `${'body' | 'label'}-${'sm' | 'md' | 'lg'}-${'subtle' | 'link' | 'strike-through'}`;
 
-export type SemanticThemeTypography = Partial<{
-	[K in TypographyCategory]: Record<string, string | number>;
-}> & {
-	fontFamily: Record<string, string | number>;
-	fontSize: Record<string, string | number>;
-	fontWeight: Record<string, string | number>;
-	lineHeight: Record<string, string | number>;
+export type SemanticThemeTypography = {
+	family: Record<string, string>;
+	size: Record<string, string>;
+	weight: Record<string, number>;
+	'line-height': Record<string, number>;
+	'letter-spacing'?: Record<string, string>;
 	styles: Partial<Record<TextStyleKey, TextStyleDefinition>>;
 };
 
@@ -91,15 +88,18 @@ export type SemanticThemeTypography = Partial<{
 /* -- Size  ---------------------------------------------------- */
 /* ------------------------------------------------------------- */
 
-export type SizeCategory = keyof typeof primitiveSizes;
+export type SizeCategory = keyof Primitives['sizes'];
 export type SizeStep<TCategory extends SizeCategory> =
-	keyof (typeof primitiveSizes)[TCategory];
+	keyof Primitives['sizes'][TCategory];
 
-export type SemanticThemeSizes = {
-	[K in SizeCategory]: Record<string, string | number>;
-} & {
+// Helper type to decouple the generic definition from the specific layout properties
+type BaseSemanticThemeSizes = {
+	[K in SizeCategory]: Record<string, string>;
+};
+
+export type SemanticThemeSizes = BaseSemanticThemeSizes & {
 	layout: {
-		gutter: keyof SemanticThemeSizes['space'];
+		gutter: keyof BaseSemanticThemeSizes['space'];
 		'content-max': string;
 		'popout-max': string;
 	};
@@ -112,6 +112,6 @@ export type SemanticThemeSizes = {
 export type SemanticTheme = {
 	name: string;
 	colors: SemanticThemeColors;
-	typography: SemanticThemeTypography;
+	font: SemanticThemeTypography;
 	sizes: SemanticThemeSizes;
 };

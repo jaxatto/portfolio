@@ -1,10 +1,23 @@
 /* primitives.ts */
 
 /* ------------------------------------------------------------- */
+/* -- Helper Generator ----------------------------------------- */
+/* ------------------------------------------------------------- */
+
+/**
+ * Maps an array of raw numbers into an object record of `${N}px` string values.
+ * Maintains strict string-literal types for autocompletion.
+ */
+const createPxRecord = <const T extends readonly number[]>(values: T) =>
+	Object.fromEntries(values.map((v) => [v, `${v}px`])) as {
+		[K in T[number]]: `${K}px`;
+	};
+
+/* ------------------------------------------------------------- */
 /* -- Color ---------------------------------------------------- */
 /* ------------------------------------------------------------- */
 
-export const primitiveColors = {
+const primitiveColors = {
 	lime: {
 		50: '#EDFFE9',
 		100: '#BCFFAB',
@@ -78,40 +91,40 @@ export const primitiveColors = {
 		900: '#0F120F',
 	},
 	black: {
-		0: 'rgba(0, 0, 0, 0.0)',
+		0: 'rgba(0, 0, 0, 0)',
 		4: 'rgba(0, 0, 0, 0.04)',
 		6: 'rgba(0, 0, 0, 0.06)',
 		8: 'rgba(0, 0, 0, 0.08)',
 		12: 'rgba(0, 0, 0, 0.12)',
 		16: 'rgba(0, 0, 0, 0.16)',
-		20: 'rgba(0, 0, 0, 0.20)',
+		20: 'rgba(0, 0, 0, 0.2)',
 		24: 'rgba(0, 0, 0, 0.24)',
 		32: 'rgba(0, 0, 0, 0.32)',
-		40: 'rgba(0, 0, 0, 0.40)',
-		50: 'rgba(0, 0, 0, 0.50)',
-		60: 'rgba(0, 0, 0, 0.60)',
-		70: 'rgba(0, 0, 0, 0.70)',
-		80: 'rgba(0, 0, 0, 0.80)',
-		90: 'rgba(0, 0, 0, 0.90)',
-		100: 'rgba(0, 0, 0, 1.0)',
+		40: 'rgba(0, 0, 0, 0.4)',
+		50: 'rgba(0, 0, 0, 0.5)',
+		60: 'rgba(0, 0, 0, 0.6)',
+		70: 'rgba(0, 0, 0, 0.7)',
+		80: 'rgba(0, 0, 0, 0.8)',
+		90: 'rgba(0, 0, 0, 0.9)',
+		100: 'rgba(0, 0, 0, 1)',
 	},
 	white: {
-		0: 'rgba(255, 255, 255, 0.0)',
+		0: 'rgba(255, 255, 255, 0)',
 		4: 'rgba(255, 255, 255, 0.04)',
 		6: 'rgba(255, 255, 255, 0.06)',
 		8: 'rgba(255, 255, 255, 0.08)',
 		12: 'rgba(255, 255, 255, 0.12)',
 		16: 'rgba(255, 255, 255, 0.16)',
-		20: 'rgba(255, 255, 255, 0.20)',
+		20: 'rgba(255, 255, 255, 0.2)',
 		24: 'rgba(255, 255, 255, 0.24)',
 		32: 'rgba(255, 255, 255, 0.32)',
-		40: 'rgba(255, 255, 255, 0.40)',
-		50: 'rgba(255, 255, 255, 0.50)',
-		60: 'rgba(255, 255, 255, 0.60)',
-		70: 'rgba(255, 255, 255, 0.70)',
-		80: 'rgba(255, 255, 255, 0.80)',
-		90: 'rgba(255, 255, 255, 0.90)',
-		100: 'rgba(255, 255, 255, 1.0)',
+		40: 'rgba(255, 255, 255, 0.4)',
+		50: 'rgba(255, 255, 255, 0.5)',
+		60: 'rgba(255, 255, 255, 0.6)',
+		70: 'rgba(255, 255, 255, 0.7)',
+		80: 'rgba(255, 255, 255, 0.8)',
+		90: 'rgba(255, 255, 255, 0.9)',
+		100: 'rgba(255, 255, 255, 1)',
 	},
 } as const;
 
@@ -119,78 +132,43 @@ export const primitiveColors = {
 /* -- Typography ------------------------------------------------ */
 /* ------------------------------------------------------------- */
 
-export const primitiveTypography = {
-	fontSize: {
-		12: '12px',
-		14: '14px',
-		16: '16px',
-		18: '18px',
-		20: '20px',
-		24: '24px',
-		32: '32px',
-		40: '40px',
-		48: '48px',
-		56: '56px',
-		64: '64px',
+const fontSizeScale = [12, 14, 16, 18, 20, 24, 32, 40, 48, 56, 64] as const;
+
+const primitiveTypography = {
+	size: createPxRecord(fontSizeScale),
+	family: {
+		inter: "'Inter', sans-serif",
+		manrope: "'Manrope', sans-serif",
+		'roboto-mono': "'Roboto Mono', monospace",
 	},
-	fontFamily: {
-		inter: `'Inter', sans-serif'`,
-		manrope: `'Manrope', sans-serif'`,
-		'roboto-mono': `'Roboto Mono', monospace'`,
+	'line-height': {
+		'1-1': 1.1,
+		'1-2': 1.2,
+		'1-3': 1.3,
+		'1-4': 1.4,
+		'1-5': 1.5,
+		'1-6': 1.6,
 	},
-	lineHeight: {
-		'1.1': '1.1',
-		'1.2': '1.2',
-		'1.3': '1.3',
-		'1.4': '1.4',
-		'1.5': '1.5',
-		'1.6': '1.6',
+	weight: {
+		light: 300,
+		regular: 400,
+		medium: 500,
+		semibold: 600,
+		bold: 700,
+		black: 900,
+		300: 300,
+		400: 400,
+		500: 500,
+		600: 600,
+		700: 700,
+		900: 900,
 	},
-	fontWeight: {
-		light: 'light',
-		regular: 'regular',
-		medium: 'medium',
-		semibold: 'semibold',
-		bold: 'bold',
-		black: 'black',
-	},
-	textTransform: {
-		none: 'none',
-		uppercase: 'uppercase',
-		lowercase: 'lowercase',
-		capitalize: 'capitalize',
-	},
-	letterSpacing: {
+	'letter-spacing': {
 		'negative-05': '-0.05em',
 		'negative-02': '-0.02em',
 		0: '0em',
 		'02': '0.02em',
 		'05': '0.05em',
-	},
-	textDecoration: {
-		none: 'none',
-		underline: 'underline',
-		'line-through': 'line-through',
-	},
-	textDecorationThickness: {
-		auto: 'auto',
-		'1': '1px',
-		'2': '2px',
-		'3': '3px',
-		'4': '4px',
-	},
-	textUnderlineOffset: {
-		auto: 'auto',
-		'1': '1px',
-		'2': '2px',
-		'3': '3px',
-		'4': '4px',
-	},
-	textDecorationStyle: {
-		solid: 'solid',
-		double: 'double',
-		dotted: 'dotted',
-		dashed: 'dashed',
 	},
 } as const;
 
@@ -198,36 +176,27 @@ export const primitiveTypography = {
 /* -- Size ----------------------------------------------------- */
 /* ------------------------------------------------------------- */
 
-export const primitiveSizes = {
-	space: {
-		0: '0px',
-		4: '4px',
-		8: '8px',
-		12: '12px',
-		16: '16px',
-		20: '20px',
-		24: '24px',
-		32: '32px',
-		40: '40px',
-		56: '56px',
-		64: '64px',
-		80: '80px',
-	},
+const spaceScale = [0, 4, 8, 12, 16, 20, 24, 32, 40, 56, 64, 80] as const;
+const radiusScale = [0, 4, 8, 12, 16, 20, 24] as const;
+const breakpointScale = [320, 640, 768, 1024, 1280, 1536] as const;
+
+const primitiveSizes = {
+	space: createPxRecord(spaceScale),
 	radius: {
-		0: '0px',
-		4: '4px',
-		8: '8px',
-		12: '12px',
-		16: '16px',
-		20: '20px',
-		24: '24px',
+		...createPxRecord(radiusScale),
+		full: '9999px',
 	},
-	breakpoint: {
-		320: '320px',
-		640: '640px',
-		768: '768px',
-		1024: '1024px',
-		1280: '1280px',
-		1536: '1536px',
-	},
+	breakpoint: createPxRecord(breakpointScale),
 } as const;
+
+/* ------------------------------------------------------------- */
+/* -- Single Export & Type ------------------------------------- */
+/* ------------------------------------------------------------- */
+
+export const primitives = {
+	colors: primitiveColors,
+	font: primitiveTypography,
+	sizes: primitiveSizes,
+} as const;
+
+export type Primitives = typeof primitives;
