@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from '@/components/Link';
 import { content } from '@/pages/NotFound/resources/content';
-import styles from './NotFound.module.scss';
+import styles from './NotFound.module.css';
 
 const NotFound: React.FC = () => (
 	<div className={styles.wrapper}>

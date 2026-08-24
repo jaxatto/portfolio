@@ -13,5 +13,5 @@
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["src", "vite.config.ts", "vite-plugins.d.ts"]
+	"include": ["src", "vite.config.ts", "vite-plugins.d.ts", "tokens"]
 }

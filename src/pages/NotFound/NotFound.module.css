@@ -1,8 +1,4 @@
-@use 'sass:map';
-
-$light: map.get(map.get($group-palettes, secondary), bg);
-$dark: map.get(map.get($group-palettes, secondary), chip);
-$text: var(--color-white);
+/* NotFound.module.css */
 
 .wrapper {
 	position: relative;
@@ -12,8 +8,8 @@ $text: var(--color-white);
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background: $dark;
-	color: $text;
+	background: var(--color-secondary-container);
+	color: var(--color-white);
 	padding: spacing(600) spacing(300); // 48px 24px
 }
 
@@ -43,8 +39,8 @@ $text: var(--color-white);
 .subtext {
 	@extend .body-sm;
 	position: absolute;
-	bottom: 48px;
-	color: $light;
+	bottom: var(--space-section-md);
+	color: var(--color-secondary-container);
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -61,33 +57,33 @@ $text: var(--color-white);
 
 .button-404 {
 	align-self: center;
-	background: $light;
-	color: $dark;
+	background: var(--color-secondary-container);
+	color: var(--color-secondary-on-container);
 
 	svg {
-		fill: $dark;
+		fill: var(--color-secondary-on-container);
 	}
 
 	&:hover {
-		color: change-lightness($dark, hover);
-		background: change-lightness($light, hover);
+		color: change-lightness(var(--color-secondary-on-container), hover);
+		background: change-lightness(var(--color-secondary-container), hover);
 	}
 
 	&:hover svg {
-		fill: change-lightness($dark, hover);
+		fill: change-lightness(var(--color-secondary-on-container), hover);
 	}
 
 	&:active {
-		color: change-lightness($dark, pressed);
-		background: change-lightness($light, pressed);
+		color: change-lightness(var(--color-secondary-on-container), pressed);
+		background: change-lightness(var(--color-secondary-container), pressed);
 	}
 
 	&:active svg {
-		fill: change-lightness($dark, pressed);
+		fill: change-lightness(var(--color-secondary-on-container), pressed);
 	}
 
 	&:focus-visible {
-		outline-color: $light;
+		outline-color: var(--color-secondary-container);
 	}
 
 	@include respond(sm) {
@@ -101,18 +97,18 @@ $text: var(--color-white);
 }
 
 .subtext-link {
-	color: $light;
+	color: var(--color-secondary-container);
 	font-weight: var(--font-weight-bold);
 
 	&:hover {
-		color: change-lightness($light, hover);
+		color: change-lightness(var(--color-secondary-container), hover);
 	}
 
 	&:active {
-		color: change-lightness($light, pressed);
+		color: change-lightness(var(--color-secondary-container), pressed);
 	}
 
 	&:focus-visible {
-		outline-color: $light;
+		outline-color: var(--secondary-container);
 	}
 }

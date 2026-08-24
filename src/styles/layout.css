@@ -1,0 +1,35 @@
+/* layout.css */
+
+.layout-grid {
+	display: grid;
+	grid-template-columns:
+		[full-start]
+		minmax(var(--size-layout-gutter), 1fr)
+		[popout-start]
+		minmax(
+			0,
+			calc((var(--size-layout-popout-max) - var(--size-layout-content-max)) / 2)
+		)
+		[content-start]
+		min(100% - (var(--size-layout-gutter) * 2), var(--size-layout-content-max))
+		[content-end]
+		minmax(
+			0,
+			calc((var(--size-layout-popout-max) - var(--size-layout-content-max)) / 2)
+		)
+		[popout-end]
+		minmax(var(--size-layout-gutter), 1fr)
+		[full-end];
+}
+
+.layout-grid > * {
+	grid-column: content;
+}
+
+.layout-grid > .break-out-pop {
+	grid-column: popout;
+}
+
+.layout-grid > .break-out-full {
+	grid-column: full;
+}
