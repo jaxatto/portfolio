@@ -1,0 +1,121 @@
+/* reset.css */
+
+/* Apply border-box sizing to all elements */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin for all elements */
+* {
+	margin: 0;
+}
+
+/* Smooth font rendering for better readability */
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure consistent text wrapping for all text elements */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol {
+	overflow-wrap: break-word;
+}
+
+/* Enable even, balanced text wrapping for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+/* Enable text wrapping and prevent widows for paragraphs and lists */
+p,
+ul,
+ol {
+	text-wrap: pretty;
+}
+
+/* Remove default list styles for lists with a class */
+ul[class],
+ol[class] {
+	list-style: none;
+	padding: 0;
+}
+
+/* Make media elements responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* SVG elements should inherit the current text color */
+svg {
+	fill: currentcolor;
+}
+
+/* Inherit font for form elements */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Set disabled elements to have not-allowed cursor */
+[aria-disabled='true' i],
+[disabled] {
+	cursor: not-allowed;
+}
+
+/* Remove outline for elements that are focused but not focus-visible */
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Enable view transitions and smooth scrolling for users who do not prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+
+	html {
+		interpolate-size: allow-keywords;
+	}
+
+	html:focus-within {
+		scroll-behavior: smooth;
+	}
+}
