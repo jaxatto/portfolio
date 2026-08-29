@@ -1,4 +1,4 @@
-import { mainLinks } from '@constants/mainLinks';
+import { mainLinks } from '#data/constants/mainLinks';
 
 export const content = {
 	skipToMain: 'Skip to main content',

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Link from '#components/Link/Link';
 import styles from './Header.module.css';
 import { content } from './resources/content';
-import { cn } from '@/utils/cn';
+import { cn } from '#utils/cn';
 
 // Page level header component
 // This component renders the header with a skip link, brand, byline, and navigation links

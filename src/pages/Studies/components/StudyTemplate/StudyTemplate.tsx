@@ -3,9 +3,9 @@ import Layout from '#components/Layout';
 import HeaderSection from '#pages/Studies/components/HeaderSection';
 import StudySection from '#pages/Studies/components/StudySection';
 import NextStudy from '#pages/Studies/components/NextStudy';
-import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
-import type { StudySectionProps } from '@commonTypes/study/studySection';
-import type { StudyMetaProps } from '@commonTypes/study/studyMeta';
+import type { StudyHeaderProps } from '#data/commonTypes/study/studyHeader';
+import type { StudySectionProps } from '#data/commonTypes/study/studySection';
+import type { StudyMetaProps } from '#data/commonTypes/study/studyMeta';
 import styles from './StudyTemplate.module.scss';
 
 export type StudyTemplateProps = {

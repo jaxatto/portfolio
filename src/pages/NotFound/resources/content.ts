@@ -1,5 +1,5 @@
-import { mainLinks } from '@constants/mainLinks';
-import { contactInfo } from '@constants/contactInfo';
+import { mainLinks } from '#data/constants/mainLinks';
+import { contactInfo } from '#data/constants/contactInfo';
 
 export const content = {
 	title: '404',

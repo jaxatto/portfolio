@@ -1,4 +1,4 @@
-import { studyLinks } from '@constants/studyLinks';
+import { studyLinks } from '#data/constants/studyLinks';
 
 const meta = {
 	title: 'UX Design Systems Work at Indeed – Jax Engel',

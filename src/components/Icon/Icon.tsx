@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconName } from '@/constants/iconNames';
+import { IconName } from '#data/constants/iconNames';
 import Ai from '@/assets/icons/ai.svg';
 import ArrowRight from '@/assets/icons/arrow-right.svg';
 import ArrowTopRight from '@/assets/icons/arrow-top-right.svg';

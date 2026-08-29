@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { mainLinks } from '@/constants/mainLinks';
+import { mainLinks } from '#data/constants/mainLinks';
 import Icon from '#components/Icon';
 import styles from './Link.module.scss';
 

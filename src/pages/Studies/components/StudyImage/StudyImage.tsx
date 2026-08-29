@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from '#components/Image';
-import type { StudyImageProps } from '@commonTypes/study/studyImage';
+import type { StudyImageProps } from '#data/commonTypes/study/studyImage';
 import styles from './StudyImage.module.scss';
 
 const StudyImage: React.FC<StudyImageProps> = ({

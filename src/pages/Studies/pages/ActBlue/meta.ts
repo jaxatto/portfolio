@@ -1,4 +1,4 @@
-import { studyLinks } from '@constants/studyLinks';
+import { studyLinks } from '#data/constants/studyLinks';
 
 const meta = {
 	title: "Redesigning ActBlue's Salesforce Integration – Jax Engel",

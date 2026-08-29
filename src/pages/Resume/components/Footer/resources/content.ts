@@ -1,4 +1,4 @@
-import { contactInfo } from '@constants/contactInfo';
+import { contactInfo } from '#data/constants/contactInfo';
 
 export const content = {
 	heading: 'Ready for new opportunities',
