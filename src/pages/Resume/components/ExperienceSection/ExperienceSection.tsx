@@ -1,5 +1,5 @@
 import React from 'react';
-import Divider from '#componentsDivider';
+import Divider from '#components/Divider';
 import { groupRoles, GroupedRole } from './helpers/groupRoles';
 import { roles } from './resources/roles';
 import logos from './resources/logos';

@@ -1,4 +1,4 @@
-import type { ChipData } from '#componentsChipGroup';
+import type { ChipData } from '#components/ChipGroup';
 import type { StudyImageProps } from './studyImage';
 
 export type StudyHeaderProps = {

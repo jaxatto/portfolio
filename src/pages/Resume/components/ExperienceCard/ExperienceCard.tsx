@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ExperienceCard.module.scss';
-import DateRange from '#componentsDateRange/DateRange';
+import DateRange from '#components/DateRange/DateRange';
 
 export type ExperienceCardProps = {
 	title: string;

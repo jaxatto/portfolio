@@ -3,7 +3,7 @@ import contextImage from './images/figjam-min.png';
 import contributionsImage from './images/handoff-min.png';
 import outcomesImage from './images/grid-min.png';
 import deliverablesImage from './images/responsive-specs-min.png';
-import type { ChipData } from '#componentsChipGroup';
+import type { ChipData } from '#components/ChipGroup';
 
 const content = {
 	header: {

@@ -3,7 +3,7 @@ import contextImage from './images/example-min.png';
 import contributionsImage from './images/example-min.png';
 import outcomesImage from './images/example-min.png';
 import deliverablesImage from './images/example-min.png';
-import type { ChipData } from '#componentsChipGroup';
+import type { ChipData } from '#components/ChipGroup';
 
 export const content = {
 	header: {

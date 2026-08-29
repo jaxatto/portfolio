@@ -1,5 +1,5 @@
 import React from 'react';
-import ChipGroup, { ChipData } from '#componentsChipGroup';
+import ChipGroup, { ChipData } from '#components/ChipGroup';
 import styles from './SkillCard.module.scss';
 
 export type SkillCardProps = {

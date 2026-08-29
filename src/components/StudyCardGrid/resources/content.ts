@@ -1,5 +1,5 @@
 import { studyLinks } from '@/constants/studyLinks';
-import { StudyCardProps } from '#componentsStudyCard';
+import { StudyCardProps } from '#components/StudyCard';
 import primaryImage from '@/assets/samples/servicenow-sample-min.png';
 import secondaryImage from '@/assets/samples/indeed-sample-min.png';
 import tertiaryImage from '@/assets/samples/actblue-sample-min.png';

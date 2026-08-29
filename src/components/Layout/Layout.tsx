@@ -1,7 +1,7 @@
 import React from 'react';
-import Meta, { MetaProps } from '#componentsMeta';
-import Header from '#componentsHeader';
-import Footer from '#componentsFooter';
+import Meta, { MetaProps } from '#components/Meta';
+import Header from '#components/Header';
+import Footer from '#components/Footer';
 import styles from './Layout.module.css';
 
 // Layout component that wraps the main content of the application

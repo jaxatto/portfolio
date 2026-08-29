@@ -1,7 +1,7 @@
 import React from 'react';
-import ChipGroup from '#componentsChipGroup';
-import Divider from '#componentsDivider';
-import DateRange from '#componentsDateRange';
+import ChipGroup from '#components/ChipGroup';
+import Divider from '#components/Divider';
+import DateRange from '#components/DateRange';
 import StudyImage from '#pages/Studies/components/StudyImage';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import styles from './HeaderSection.module.scss';

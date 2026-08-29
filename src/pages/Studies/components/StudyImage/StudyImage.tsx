@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '#componentsImage';
+import Image from '#components/Image';
 import type { StudyImageProps } from '@commonTypes/study/studyImage';
 import styles from './StudyImage.module.scss';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '#componentsLink';
+import Link from '#components/Link';
 import { content } from '#pages/NotFound/resources/content';
 import styles from './NotFound.module.css';
 

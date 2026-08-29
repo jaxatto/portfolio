@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { mainLinks } from '@/constants/mainLinks';
-import Icon from '#componentsIcon';
+import Icon from '#components/Icon';
 import styles from './Link.module.scss';
 
 // Link component for navigation
