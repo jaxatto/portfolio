@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from '@/components/Link';
-import Divider from '@/components/Divider';
+import Link from '#componentsLink';
+import Divider from '#componentsDivider';
 import { content } from './resources/content';
 import styles from './Footer.module.css';
 import { cn } from '@/utils/cn';

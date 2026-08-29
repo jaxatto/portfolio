@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@/components/Layout';
+import Layout from '#componentsLayout';
 import HeaderSection from '@/pages/Studies/components/HeaderSection';
 import StudySection from '@/pages/Studies/components/StudySection';
 import NextStudy from '@/pages/Studies/components/NextStudy';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Divider from '@/components/Divider';
+import Divider from '#componentsDivider';
 import SkillCard from '@/pages/Resume/components/SkillCard';
 import { focus, skills, tools } from './resources/content';
 import styles from './SkillsSection.module.scss';

@@ -3,7 +3,7 @@ import contextImage from './images/workflow-min.png';
 import contributionsImage from './images/screens-min.png';
 import outcomesImage from './images/annotations-min.png';
 import deliverablesImage from './images/footer-min.png';
-import type { ChipData } from '@/components/ChipGroup';
+import type { ChipData } from '#componentsChipGroup';
 
 const content = {
 	header: {

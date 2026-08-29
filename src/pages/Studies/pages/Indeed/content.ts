@@ -3,7 +3,7 @@ import headerImage from './images/accessbility-annotations-min.png';
 import contributionsImage from './images/documentation-sample-min.png';
 import outcomesImage from './images/home-before-after-min.png';
 // import deliverablesImage from './images/name-min.png';
-import type { ChipData } from '@/components/ChipGroup';
+import type { ChipData } from '#componentsChipGroup';
 
 const content = {
 	header: {

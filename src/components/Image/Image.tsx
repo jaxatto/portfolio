@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Icon from '@/components/Icon';
+import Icon from '#componentsIcon';
 import styles from './Image.module.css';
 
 // Image component that displays an image with a fallback icon if the image fails to load

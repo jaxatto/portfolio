@@ -1,5 +1,5 @@
 import React from 'react';
-import StudyCardGrid from '@/components/StudyCardGrid';
+import StudyCardGrid from '#componentsStudyCardGrid';
 import { content } from './resources/content';
 import styles from './NextStudy.module.scss';
 

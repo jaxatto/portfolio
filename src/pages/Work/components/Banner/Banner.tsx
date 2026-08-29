@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '@/components/Image';
+import Image from '#componentsImage';
 import { content } from './resources/content';
 import styles from './Banner.module.scss';
 

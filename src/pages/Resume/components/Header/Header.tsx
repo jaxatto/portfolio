@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@/components/Link';
+import Link from '#componentsLink';
 import styles from './Header.module.scss';
 import { content } from './resources/content';
 

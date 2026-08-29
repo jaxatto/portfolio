@@ -1,7 +1,7 @@
 import React from 'react';
-import Link from '@/components/Link';
-import Image from '@/components/Image';
-import Icon from '@/components/Icon';
+import Link from '#componentsLink';
+import Image from '#componentsImage';
+import Icon from '#componentsIcon';
 import styles from './StudyCard.module.scss';
 
 // StudyCard component for displaying case studies or work examples

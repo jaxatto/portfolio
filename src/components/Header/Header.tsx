@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Link from '@/components/Link/Link';
+import Link from '#componentsLink/Link';
 import styles from './Header.module.css';
 import { content } from './resources/content';
 import { cn } from '@/utils/cn';

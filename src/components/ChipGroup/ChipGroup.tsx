@@ -1,5 +1,5 @@
 import React from 'react';
-import Chip from '@/components/Chip';
+import Chip from '#componentsChip';
 import styles from './ChipGroup.module.scss';
 
 // ChipGroup component for displaying a group of chips

@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '@/components/Layout';
-import Divider from '@/components/Divider';
-import Image from '@/components/Image';
+import Layout from '#componentsLayout';
+import Divider from '#componentsDivider';
+import Image from '#componentsImage';
 import { images } from './resources/images';
 import { content } from './resources/content';
 import { meta } from './resources/meta';
