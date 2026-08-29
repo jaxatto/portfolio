@@ -12,7 +12,8 @@
 		"paths": {
 			"#src/*": ["./src/*"],
 			"#tokens/*": ["./src/tokens/*"],
-			"#styles/*": ["./src/styles/*"]
+			"#styles/*": ["./src/styles/*"],
+			"#components/*": ["./src/components/*"]
 		}
 	},
 	"include": ["src", "scripts", "vite.config.ts", "vite-plugins.d.ts"]
