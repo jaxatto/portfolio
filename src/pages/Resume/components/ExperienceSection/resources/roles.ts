@@ -1,4 +1,4 @@
-import { ExperienceCardProps } from '@/pages/Resume/components/ExperienceCard';
+import { ExperienceCardProps } from '#pages/Resume/components/ExperienceCard';
 
 export const roles: ExperienceCardProps[] = [
 	{

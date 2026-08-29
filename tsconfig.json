@@ -13,7 +13,8 @@
 			"#src/*": ["./src/*"],
 			"#tokens/*": ["./src/tokens/*"],
 			"#styles/*": ["./src/styles/*"],
-			"#components/*": ["./src/components/*"]
+			"#components/*": ["./src/components/*"],
+			"#pages/*": ["./src/pages/*"]
 		}
 	},
 	"include": ["src", "scripts", "vite.config.ts", "vite-plugins.d.ts"]

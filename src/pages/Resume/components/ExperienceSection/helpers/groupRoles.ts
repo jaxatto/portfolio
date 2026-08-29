@@ -1,5 +1,5 @@
 // filepath: /src/components/ResumeSectionRole/groupRoles.ts
-import { ExperienceCardProps } from '@/pages/Resume/components/ExperienceCard';
+import { ExperienceCardProps } from '#pages/Resume/components/ExperienceCard';
 
 export type GroupedRole =
 	ExperienceCardProps | [ExperienceCardProps, ExperienceCardProps];

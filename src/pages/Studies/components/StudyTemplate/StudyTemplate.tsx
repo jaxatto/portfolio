@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from '#componentsLayout';
-import HeaderSection from '@/pages/Studies/components/HeaderSection';
-import StudySection from '@/pages/Studies/components/StudySection';
-import NextStudy from '@/pages/Studies/components/NextStudy';
+import HeaderSection from '#pages/Studies/components/HeaderSection';
+import StudySection from '#pages/Studies/components/StudySection';
+import NextStudy from '#pages/Studies/components/NextStudy';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
 import type { StudyMetaProps } from '@commonTypes/study/studyMeta';

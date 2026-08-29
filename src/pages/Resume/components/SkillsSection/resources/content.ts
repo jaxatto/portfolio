@@ -1,4 +1,4 @@
-import { SkillCardProps } from '@/pages/Resume/components/SkillCard';
+import { SkillCardProps } from '#pages/Resume/components/SkillCard';
 
 export const focus = {
 	heading: 'Focus areas',

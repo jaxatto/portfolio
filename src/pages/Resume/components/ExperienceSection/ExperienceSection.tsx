@@ -4,7 +4,7 @@ import { groupRoles, GroupedRole } from './helpers/groupRoles';
 import { roles } from './resources/roles';
 import logos from './resources/logos';
 import styles from './ExperienceSection.module.scss';
-import ExperienceCard from '@/pages/Resume/components/ExperienceCard';
+import ExperienceCard from '#pages/Resume/components/ExperienceCard';
 
 const groupedRoles: GroupedRole[] = groupRoles(roles);
 
