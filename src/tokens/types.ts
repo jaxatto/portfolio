@@ -15,7 +15,7 @@ export type ColorMode = {
 	dark: string;
 };
 
-export type ColorGroup = 'primary' | 'secondary' | 'tertiary';
+export type ColorGroup = 'brand' | 'primary' | 'secondary' | 'tertiary';
 
 type DynamicColorPairings<TGroup extends string> = {
 	[K in `on-${TGroup}`]: ColorMode;
@@ -37,6 +37,7 @@ export type SemanticGeneralColor = {
 	content: {
 		default: ColorMode;
 		muted: ColorMode;
+		inverse: ColorMode;
 	};
 	surface: {
 		default: ColorMode;
@@ -45,6 +46,13 @@ export type SemanticGeneralColor = {
 	};
 	border: {
 		decorative: ColorMode;
+	};
+	state: {
+		'focus-ring': ColorMode;
+		'overlay-hover': ColorMode;
+		'overlay-active': ColorMode;
+		'overlay-hover-inverse': ColorMode;
+		'overlay-active-inverse': ColorMode;
 	};
 };
 
@@ -60,20 +68,29 @@ export type TypographyStep<TCategory extends TypographyCategory> =
 
 export type TextStyleDefinition = {
 	family: keyof SemanticThemeTypography['family'];
-	size: keyof SemanticThemeTypography['size'];
+	size: keyof SemanticThemeTypography['size'] | FluidValue;
 	weight: keyof SemanticThemeTypography['weight'];
 	'line-height': keyof SemanticThemeTypography['line-height'];
 	'letter-spacing'?: keyof SemanticThemeTypography['letter-spacing'];
-	'text-transform'?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
-	'text-decoration'?: 'none' | 'underline' | 'line-through';
-	'text-decoration-thickness'?: 'auto' | `${number}px`;
-	'text-underline-offset'?: 'auto' | `${number}px`;
+	'text-transform'?: keyof NonNullable<
+		SemanticThemeTypography['text-transform']
+	>;
+	'text-decoration'?: keyof NonNullable<
+		SemanticThemeTypography['text-decoration']
+	>;
+	'text-decoration-thickness'?: keyof NonNullable<
+		SemanticThemeTypography['text-decoration-thickness']
+	>;
+	'text-underline-offset'?: keyof NonNullable<
+		SemanticThemeTypography['text-underline-offset']
+	>;
 };
 
 export type TextStyleKey =
-	| `${'heading' | 'display'}-${'sm' | 'md' | 'lg' | 'xl'}`
+	| `${'title'}-${'sm' | 'md'}`
+	| `${'heading' | 'display'}-${'sm' | 'md' | 'lg'}`
 	| `${'body' | 'label'}-${'sm' | 'md' | 'lg'}`
-	| `${'body' | 'label'}-${'sm' | 'md' | 'lg'}-${'subtle' | 'link' | 'strike-through'}`;
+	| `${'body' | 'label'}-${'sm' | 'md' | 'lg'}-${'bold' | 'link' | 'strike-through'}`;
 
 export type SemanticThemeTypography = {
 	family: Record<string, string>;
@@ -81,7 +98,17 @@ export type SemanticThemeTypography = {
 	weight: Record<string, number>;
 	'line-height': Record<string, number>;
 	'letter-spacing'?: Record<string, string>;
+	'text-transform'?: Record<string, string>;
+	'text-decoration'?: Record<string, string>;
+	'text-decoration-thickness'?: Record<string, string>;
+	'text-underline-offset'?: Record<string, string>;
 	styles: Partial<Record<TextStyleKey, TextStyleDefinition>>;
+};
+
+export type FluidValue = {
+	min: keyof SemanticThemeTypography['size'];
+	preferred: string;
+	max: keyof SemanticThemeTypography['size'];
 };
 
 /* ------------------------------------------------------------- */
@@ -102,6 +129,12 @@ export type SemanticThemeSizes = BaseSemanticThemeSizes & {
 		gutter: keyof BaseSemanticThemeSizes['space'];
 		'content-max': string;
 		'popout-max': string;
+	};
+	'border-width': {
+		none: keyof BaseSemanticThemeSizes['border-width'];
+		thin: keyof BaseSemanticThemeSizes['border-width'];
+		default: keyof BaseSemanticThemeSizes['border-width'];
+		thick: keyof BaseSemanticThemeSizes['border-width'];
 	};
 };
 

@@ -78,6 +78,11 @@ select {
 	font: inherit;
 }
 
+a,
+button {
+	cursor: pointer;
+}
+
 /* Set disabled elements to have not-allowed cursor */
 [aria-disabled='true' i],
 [disabled] {

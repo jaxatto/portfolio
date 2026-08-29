@@ -4,16 +4,20 @@ import { primitives } from './primitives';
 import { type SemanticTheme } from './types';
 
 export const defaultTheme: SemanticTheme = {
-	name: 'Default Brand',
+	name: 'Default Theme',
 	colors: {
 		content: {
 			default: {
-				light: primitives.colors.sage[900],
-				dark: primitives.colors.sage[50],
+				light: primitives.colors.purple[950],
+				dark: primitives.colors.purple[50],
 			},
 			muted: {
-				light: primitives.colors.sage[700],
-				dark: primitives.colors.sage[300],
+				light: primitives.colors.purple[700],
+				dark: primitives.colors.purple[300],
+			},
+			inverse: {
+				light: primitives.colors.white[100],
+				dark: primitives.colors.black[100],
 			},
 		},
 		surface: {
@@ -22,8 +26,8 @@ export const defaultTheme: SemanticTheme = {
 				dark: primitives.colors.black[100],
 			},
 			sunken: {
-				light: primitives.colors.sage[100],
-				dark: primitives.colors.sage[900],
+				light: primitives.colors.slate[100],
+				dark: primitives.colors.slate[900],
 			},
 			transparent: {
 				light: primitives.colors.white[0],
@@ -32,8 +36,26 @@ export const defaultTheme: SemanticTheme = {
 		},
 		border: {
 			decorative: {
-				light: primitives.colors.sage[300],
-				dark: primitives.colors.sage[700],
+				light: primitives.colors.slate[300],
+				dark: primitives.colors.slate[700],
+			},
+		},
+		brand: {
+			default: {
+				light: primitives.colors.purple[800],
+				dark: primitives.colors.purple[300],
+			},
+			'on-brand': {
+				light: primitives.colors.white[100],
+				dark: primitives.colors.black[100],
+			},
+			'brand-container': {
+				light: primitives.colors.purple[200],
+				dark: primitives.colors.purple[800],
+			},
+			'on-brand-container': {
+				light: primitives.colors.purple[900],
+				dark: primitives.colors.purple[100],
 			},
 		},
 		primary: {
@@ -46,7 +68,7 @@ export const defaultTheme: SemanticTheme = {
 				dark: primitives.colors.black[100],
 			},
 			'primary-container': {
-				light: primitives.colors.violet[100],
+				light: primitives.colors.violet[200],
 				dark: primitives.colors.violet[800],
 			},
 			'on-primary-container': {
@@ -56,38 +78,60 @@ export const defaultTheme: SemanticTheme = {
 		},
 		secondary: {
 			default: {
-				light: primitives.colors.sky[700],
-				dark: primitives.colors.sky[300],
+				light: primitives.colors.indigo[700],
+				dark: primitives.colors.indigo[300],
 			},
 			'on-secondary': {
 				light: primitives.colors.white[100],
 				dark: primitives.colors.black[100],
 			},
 			'secondary-container': {
-				light: primitives.colors.sky[100],
-				dark: primitives.colors.sky[800],
+				light: primitives.colors.indigo[200],
+				dark: primitives.colors.indigo[800],
 			},
 			'on-secondary-container': {
-				light: primitives.colors.sky[900],
-				dark: primitives.colors.sky[100],
+				light: primitives.colors.indigo[900],
+				dark: primitives.colors.indigo[100],
 			},
 		},
 		tertiary: {
 			default: {
-				light: primitives.colors.teal[700],
-				dark: primitives.colors.teal[300],
+				light: primitives.colors.sky[700],
+				dark: primitives.colors.sky[300],
 			},
 			'on-tertiary': {
 				light: primitives.colors.white[100],
 				dark: primitives.colors.black[100],
 			},
 			'tertiary-container': {
-				light: primitives.colors.teal[100],
-				dark: primitives.colors.teal[800],
+				light: primitives.colors.sky[200],
+				dark: primitives.colors.sky[800],
 			},
 			'on-tertiary-container': {
-				light: primitives.colors.teal[900],
-				dark: primitives.colors.teal[100],
+				light: primitives.colors.sky[900],
+				dark: primitives.colors.sky[100],
+			},
+		},
+		state: {
+			'focus-ring': {
+				light: primitives.colors.purple[950],
+				dark: primitives.colors.white[100],
+			},
+			'overlay-hover': {
+				light: primitives.colors.black[16],
+				dark: primitives.colors.white[16],
+			},
+			'overlay-active': {
+				light: primitives.colors.black[24],
+				dark: primitives.colors.white[24],
+			},
+			'overlay-hover-inverse': {
+				light: primitives.colors.white[16],
+				dark: primitives.colors.black[16],
+			},
+			'overlay-active-inverse': {
+				light: primitives.colors.white[24],
+				dark: primitives.colors.black[24],
 			},
 		},
 	},
@@ -102,7 +146,6 @@ export const defaultTheme: SemanticTheme = {
 		},
 		space: {
 			none: primitives.sizes.space[0],
-			'2xs': primitives.sizes.space[0],
 			xs: primitives.sizes.space[4],
 			sm: primitives.sizes.space[8],
 			md: primitives.sizes.space[12],
@@ -111,7 +154,7 @@ export const defaultTheme: SemanticTheme = {
 			'2xl': primitives.sizes.space[24],
 			'3xl': primitives.sizes.space[32],
 			'4xl': primitives.sizes.space[40],
-			'section-sm': primitives.sizes.space[40],
+			'section-sm': primitives.sizes.space[48],
 			'section-md': primitives.sizes.space[56],
 			'section-lg': primitives.sizes.space[64],
 			'section-xl': primitives.sizes.space[80],
@@ -129,6 +172,12 @@ export const defaultTheme: SemanticTheme = {
 			'content-max': '960px',
 			'popout-max': '1100px',
 		},
+		'border-width': {
+			none: primitives.sizes['border-width'][0],
+			thin: primitives.sizes['border-width'][1],
+			default: primitives.sizes['border-width'][2],
+			thick: primitives.sizes['border-width'][4],
+		},
 	},
 	font: {
 		family: {
@@ -141,17 +190,18 @@ export const defaultTheme: SemanticTheme = {
 			xs: primitives.font.size[12],
 			sm: primitives.font.size[14],
 			md: primitives.font.size[16],
-			lg: primitives.font.size[18],
-			xl: primitives.font.size[20],
-			'2xl': primitives.font.size[24],
-			'3xl': primitives.font.size[32],
+			lg: primitives.font.size[20],
+			xl: primitives.font.size[24],
+			'2xl': primitives.font.size[32],
+			'3xl': primitives.font.size[40],
+			'4xl': primitives.font.size[48],
+			'5xl': primitives.font.size[56],
 		},
 		weight: {
 			subtle: primitives.font.weight.light,
 			default: primitives.font.weight.regular,
-			emphasis: primitives.font.weight.medium,
-			strong: primitives.font.weight.semibold,
-			'extra-strong': primitives.font.weight.bold,
+			emphasis: primitives.font.weight.bold,
+			strong: primitives.font.weight.black,
 		},
 		'line-height': {
 			compact: primitives.font['line-height']['1-2'],
@@ -160,43 +210,108 @@ export const defaultTheme: SemanticTheme = {
 		},
 		'letter-spacing': {
 			compact: primitives.font['letter-spacing']['negative-02'],
-			default: primitives.font['letter-spacing'][0],
+			default: primitives.font['letter-spacing']['none'],
 			relaxed: primitives.font['letter-spacing']['02'],
 		},
+		'text-transform': {
+			none: primitives.font['text-transform']['none'],
+			uppercase: primitives.font['text-transform']['uppercase'],
+			lowercase: primitives.font['text-transform']['lowercase'],
+			'all-caps': primitives.font['text-transform']['capitalize'],
+		},
+		'text-decoration': {
+			none: primitives.font['text-decoration']['none'],
+			underline: primitives.font['text-decoration']['underline'],
+			'strike-through': primitives.font['text-decoration']['line-through'],
+		},
+		'text-decoration-thickness': {
+			auto: primitives.font['text-decoration-thickness']['auto'],
+			sm: primitives.font['text-decoration-thickness']['1'],
+			md: primitives.font['text-decoration-thickness']['2'],
+		},
+		'text-underline-offset': {
+			auto: primitives.font['text-underline-offset']['auto'],
+			sm: primitives.font['text-underline-offset']['1'],
+			md: primitives.font['text-underline-offset']['2'],
+		},
 		styles: {
+			'title-md': {
+				family: 'heading',
+				size: {
+					min: '3xl',
+					preferred: '1rem + 1.4vw',
+					max: '5xl',
+				},
+				weight: 'strong',
+				'line-height': 'compact',
+			},
+			'title-sm': {
+				family: 'heading',
+				size: {
+					min: '2xl',
+					preferred: '1rem + 1.4vw',
+					max: '3xl',
+				},
+				weight: 'strong',
+				'line-height': 'compact',
+			},
 			'heading-lg': {
 				family: 'heading',
-				size: '2xl',
+				size: {
+					min: 'xl',
+					preferred: '1rem + 1.4vw',
+					max: '2xl',
+				},
 				weight: 'strong',
 				'line-height': 'compact',
 			},
 			'heading-md': {
 				family: 'heading',
-				size: 'xl',
+				size: {
+					min: 'lg',
+					preferred: '1.1rem + 0.7vw',
+					max: 'xl',
+				},
 				weight: 'strong',
 				'line-height': 'compact',
 			},
 			'heading-sm': {
 				family: 'heading',
-				size: 'lg',
-				weight: 'emphasis',
+				size: {
+					min: 'md',
+					preferred: '1.1rem + 0.7vw',
+					max: 'lg',
+				},
+				weight: 'strong',
 				'line-height': 'compact',
 			},
 			'body-lg': {
 				family: 'body',
-				size: 'lg',
+				size: {
+					min: 'md',
+					preferred: '0.875rem + 1.4vw',
+					max: 'xl',
+				},
 				weight: 'default',
 				'line-height': 'default',
 			},
 			'body-md': {
 				family: 'body',
-				size: 'md',
+				size: {
+					min: 'md',
+					preferred: '0.875rem + 0.7vw',
+					max: 'lg',
+				},
 				weight: 'default',
 				'line-height': 'default',
 			},
 			'body-sm': {
 				family: 'body',
-				size: 'sm',
+				size: {
+					min: 'sm',
+					preferred: '0.8rem + 0.35vw',
+					max: ' md',
+				},
 				weight: 'default',
 				'line-height': 'default',
 			},
