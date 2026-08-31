@@ -13,9 +13,18 @@ const createPxRecord = <const T extends readonly number[]>(values: T) =>
 		[K in T[number]]: `${K}px`;
 	};
 
+const createPercentRecord = <const T extends readonly number[]>(values: T) =>
+	Object.fromEntries(values.map((v) => [v, `${v}%`])) as {
+		[K in T[number]]: `${K}%`;
+	};
+
 /* ------------------------------------------------------------- */
 /* -- Color ---------------------------------------------------- */
 /* ------------------------------------------------------------- */
+
+const opacityScale = [
+	0, 4, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 76, 80, 90, 100,
+] as const;
 
 const primitiveColors = {
 	red: {
@@ -356,6 +365,7 @@ const primitiveColors = {
 		900: 'oklch(21.4% 0.009 43.1deg)',
 		950: 'oklch(14.7% 0.004 49.3deg)',
 	},
+	opacity: createPercentRecord(opacityScale),
 	black: {
 		0: 'rgb(0 0 0 / 0%)',
 		4: 'rgb(0 0 0 / 4%)',
@@ -471,6 +481,9 @@ const spaceScale = [0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80] as const;
 const radiusScale = [0, 4, 8, 12, 16, 20, 24] as const;
 const borderWidthScale = [0, 1, 2, 4] as const;
 const breakpointScale = [320, 640, 768, 1024, 1280, 1536] as const;
+const shadowBlurScale = [0, 40, 56] as const;
+const shadowSpreadScale = [0, 8, 16] as const;
+const shadowOffsetScale = [0] as const;
 
 const primitiveSizes = {
 	space: {
@@ -484,6 +497,13 @@ const primitiveSizes = {
 	breakpoint: createPxRecord(breakpointScale),
 } as const;
 
+const primitiveShadow = {
+	blur: createPxRecord(shadowBlurScale),
+	spread: createPxRecord(shadowSpreadScale),
+	x: createPxRecord(shadowOffsetScale),
+	y: createPxRecord(shadowOffsetScale),
+} as const;
+
 /* ------------------------------------------------------------- */
 /* -- Single Export & Type ------------------------------------- */
 /* ------------------------------------------------------------- */
@@ -492,6 +512,7 @@ export const primitives = {
 	colors: primitiveColors,
 	font: primitiveTypography,
 	sizes: primitiveSizes,
+	shadow: primitiveShadow,
 } as const;
 
 export type Primitives = typeof primitives;

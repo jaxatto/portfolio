@@ -16,13 +16,24 @@ export function buildPrimitiveTokenContext() {
 		color: new Map<string | number, string>(),
 		font: new Map<string | number, string>(),
 		size: new Map<string | number, string>(),
+		shadow: new Map<string | number, string>(),
 	};
 	const primitiveFontMaps: PrimitiveFontMaps = {};
-	const primitiveSizeMaps: PrimitiveSizeMaps = {
-		space: new Map<string | number, string>(),
-		radius: new Map<string | number, string>(),
-		breakpoint: new Map<string | number, string>(),
-	};
+	const primitiveSizeMaps: PrimitiveSizeMaps = Object.fromEntries(
+		Object.keys(primitives.sizes).map((category) => [
+			category,
+			new Map<string | number, string>(),
+		]),
+	) as PrimitiveSizeMaps;
+
+	const missingPrimitiveSizeCategories = Object.keys(primitives.sizes).filter(
+		(category) => !(category in primitiveSizeMaps),
+	);
+	if (missingPrimitiveSizeCategories.length > 0) {
+		throw new Error(
+			`Missing primitive size maps for: ${missingPrimitiveSizeCategories.join(', ')}`,
+		);
+	}
 
 	function extractPrimitives(
 		obj: TokenTree,
@@ -57,6 +68,13 @@ export function buildPrimitiveTokenContext() {
 	}
 
 	extractPrimitives(primitives.colors as TokenTree, 'color', 'color');
+	for (const [category, values] of Object.entries(primitives.shadow)) {
+		extractPrimitives(
+			values as TokenTree,
+			`shadow-${toKebabCase(category)}`,
+			'shadow',
+		);
+	}
 	for (const [category, values] of Object.entries(primitives.font)) {
 		const fontMap = new Map<string | number, string>();
 		primitiveFontMaps[category] = fontMap;
@@ -69,11 +87,17 @@ export function buildPrimitiveTokenContext() {
 	}
 	for (const [category, values] of Object.entries(primitives.sizes)) {
 		const sizeCategory = category as PrimitiveSizeCategory;
+		const scopedMap = primitiveSizeMaps[sizeCategory];
+		if (!scopedMap) {
+			throw new Error(
+				`Missing primitive size map for category: ${String(category)}`,
+			);
+		}
 		extractPrimitives(
 			values as TokenTree,
 			`size-${toKebabCase(category)}`,
 			'size',
-			primitiveSizeMaps[sizeCategory],
+			scopedMap,
 		);
 	}
 

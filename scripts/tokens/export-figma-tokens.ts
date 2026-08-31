@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { primitives } from '#tokens/primitives';
 import { defaultTheme } from '#src/tokens/defaultTheme';
+import { extractInteractStates } from '#src/tokens/colorSteps';
 import type { ColorMode } from '#tokens/types.ts';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -52,6 +53,8 @@ function exportFigmaTokens() {
 		}
 	}
 	processColors(defaultTheme.colors, lightColors, darkColors);
+	extractInteractStates(lightColors);
+	extractInteractStates(darkColors);
 
 	/* ------------------------------------------------------------- */
 	/* -- 2. Format Fluid Styles for Inspection -------------------- */

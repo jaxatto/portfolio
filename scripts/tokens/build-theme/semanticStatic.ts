@@ -52,6 +52,18 @@ export function buildStaticSemanticVars(
 		}
 	}
 
+	for (const [category, values] of Object.entries(theme.shadow)) {
+		if (typeof values !== 'object' || values === null) {
+			continue;
+		}
+
+		for (const [key, val] of Object.entries(values)) {
+			staticSemanticVars.push(
+				`  --shadow-${category}-${toKebabCase(key)}: ${resolveValue(val, 'shadow')};`,
+			);
+		}
+	}
+
 	for (const [category, values] of Object.entries(theme.font)) {
 		if (category === 'styles') {
 			continue;

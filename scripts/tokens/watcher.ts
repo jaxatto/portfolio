@@ -141,6 +141,12 @@ async function broadcastTokens() {
 		}
 		processColors(defaultTheme.colors, lightColors, darkColors);
 
+		const { extractInteractStates } = await import(
+			`#src/tokens/colorSteps.ts${cacheBuster}`
+		);
+		extractInteractStates(lightColors);
+		extractInteractStates(darkColors);
+
 		const formattedStyles = Object.fromEntries(
 			Object.entries(defaultTheme.font.styles ?? {}).map(
 				([styleKey, styleObj]) => [

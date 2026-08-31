@@ -1,6 +1,7 @@
 /* types.ts */
 
 import { type Primitives } from './primitives';
+import { type colorGroups } from './constants';
 
 /* ------------------------------------------------------------- */
 /* -- Color  --------------------------------------------------- */
@@ -15,19 +16,31 @@ export type ColorMode = {
 	dark: string;
 };
 
-export type ColorGroup = 'brand' | 'primary' | 'secondary' | 'tertiary';
+export type ColorGroup = (typeof colorGroups)[number];
 
-type DynamicColorPairings<TGroup extends string> = {
-	[K in `on-${TGroup}`]: ColorMode;
+// on-container foregrounds get hover/active too (they sit atop the container's states);
+// only 'on-{group}' (the solid-fill foreground) doesn't need them
+type StatefulPairingKey<TGroup extends string> =
+	'default' | `${TGroup}-container` | `on-${TGroup}-container`;
+type ForegroundPairingKey<TGroup extends string> = `on-${TGroup}`;
+
+// shape before hover/active states have been derived
+export type BaseColorPairingGroup<TGroup extends string> = {
+	[K in StatefulPairingKey<TGroup>]: ColorMode;
 } & {
-	[K in `${TGroup}-container`]: ColorMode;
-} & {
-	[K in `on-${TGroup}-container`]: ColorMode;
+	[K in ForegroundPairingKey<TGroup>]: ColorMode;
 };
 
-export type ColorPairingGroup<TGroup extends string> = {
-	default: ColorMode;
-} & DynamicColorPairings<TGroup>;
+export type ColorPairingGroup<TGroup extends string> =
+	BaseColorPairingGroup<TGroup> & {
+		[
+			K in StatefulPairingKey<TGroup> as `${K}-hover` | `${K}-active`
+		]: ColorMode;
+	};
+
+export type BaseSemanticBrandColors = {
+	[K in ColorGroup]: BaseColorPairingGroup<K>;
+};
 
 export type SemanticBrandColors = {
 	[K in ColorGroup]: ColorPairingGroup<K>;
@@ -49,14 +62,14 @@ export type SemanticGeneralColor = {
 	};
 	state: {
 		'focus-ring': ColorMode;
-		'overlay-hover': ColorMode;
-		'overlay-active': ColorMode;
-		'overlay-hover-inverse': ColorMode;
-		'overlay-active-inverse': ColorMode;
+		'overlay-tint': ColorMode;
+		'overlay-tint-inverse': ColorMode;
 	};
 };
 
 export type SemanticThemeColors = SemanticGeneralColor & SemanticBrandColors;
+export type BaseSemanticThemeColors = SemanticGeneralColor &
+	BaseSemanticBrandColors;
 
 /* ------------------------------------------------------------- */
 /* -- Typography  ---------------------------------------------- */
@@ -119,6 +132,10 @@ export type SizeCategory = keyof Primitives['sizes'];
 export type SizeStep<TCategory extends SizeCategory> =
 	keyof Primitives['sizes'][TCategory];
 
+export type ShadowCategory = keyof Primitives['shadow'];
+export type ShadowStep<TCategory extends ShadowCategory> =
+	keyof Primitives['shadow'][TCategory];
+
 // Helper type to decouple the generic definition from the specific layout properties
 type BaseSemanticThemeSizes = {
 	[K in SizeCategory]: Record<string, string>;
@@ -138,6 +155,13 @@ export type SemanticThemeSizes = BaseSemanticThemeSizes & {
 	};
 };
 
+export type SemanticThemeShadow = {
+	blur: Record<string, string>;
+	spread: Record<string, string>;
+	x: Record<string, string>;
+	y: Record<string, string>;
+};
+
 /* ------------------------------------------------------------- */
 /* -- Theme  --------------------------------------------------- */
 /* ------------------------------------------------------------- */
@@ -147,4 +171,5 @@ export type SemanticTheme = {
 	colors: SemanticThemeColors;
 	font: SemanticThemeTypography;
 	sizes: SemanticThemeSizes;
+	shadow: SemanticThemeShadow;
 };

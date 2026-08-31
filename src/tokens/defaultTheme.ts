@@ -1,9 +1,12 @@
 /* defaultTheme.ts */
 
 import { primitives } from './primitives';
-import { type SemanticTheme } from './types';
+import { withInteractionStates } from './colorSteps';
+import { type BaseSemanticThemeColors, type SemanticTheme } from './types';
 
-export const defaultTheme: SemanticTheme = {
+const theme: Omit<SemanticTheme, 'colors'> & {
+	colors: BaseSemanticThemeColors;
+} = {
 	name: 'Default Theme',
 	colors: {
 		content: {
@@ -117,21 +120,13 @@ export const defaultTheme: SemanticTheme = {
 				light: primitives.colors.purple[950],
 				dark: primitives.colors.white[100],
 			},
-			'overlay-hover': {
-				light: primitives.colors.black[16],
-				dark: primitives.colors.white[16],
+			'overlay-tint': {
+				light: primitives.colors.indigo[800],
+				dark: primitives.colors.indigo[200],
 			},
-			'overlay-active': {
-				light: primitives.colors.black[24],
-				dark: primitives.colors.white[24],
-			},
-			'overlay-hover-inverse': {
-				light: primitives.colors.white[16],
-				dark: primitives.colors.black[16],
-			},
-			'overlay-active-inverse': {
-				light: primitives.colors.white[24],
-				dark: primitives.colors.black[24],
+			'overlay-tint-inverse': {
+				light: primitives.colors.indigo[200],
+				dark: primitives.colors.indigo[800],
 			},
 		},
 	},
@@ -177,6 +172,24 @@ export const defaultTheme: SemanticTheme = {
 			thin: primitives.sizes['border-width'][1],
 			default: primitives.sizes['border-width'][2],
 			thick: primitives.sizes['border-width'][4],
+		},
+	},
+	shadow: {
+		blur: {
+			none: primitives.shadow.blur[0],
+			sm: primitives.shadow.blur[40],
+			lg: primitives.shadow.blur[56],
+		},
+		spread: {
+			none: primitives.shadow.spread[0],
+			sm: primitives.shadow.spread[8],
+			md: primitives.shadow.spread[16],
+		},
+		x: {
+			none: primitives.shadow.x[0],
+		},
+		y: {
+			none: primitives.shadow.y[0],
 		},
 	},
 	font: {
@@ -317,4 +330,9 @@ export const defaultTheme: SemanticTheme = {
 			},
 		},
 	},
+};
+
+export const defaultTheme: SemanticTheme = {
+	...theme,
+	colors: withInteractionStates(theme.colors),
 };
