@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { primitives } from '#tokens/primitives';
 import { defaultTheme } from '#src/tokens/defaultTheme';
 import { extractInteractStates } from '#src/tokens/colorSteps';
-import type { ColorMode } from '#tokens/types.ts';
+import type { ColorMode } from '#tokens/types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -87,6 +87,7 @@ function exportFigmaTokens() {
 			color: primitives.colors,
 			font: primitives.font,
 			size: primitives.sizes,
+			utils: primitives.utils,
 		},
 		semantic: {
 			modes: {

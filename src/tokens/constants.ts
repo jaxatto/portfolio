@@ -7,3 +7,6 @@ export const colorGroups = [
 	'secondary',
 	'tertiary',
 ] as const;
+
+// single source of truth for light/dark mode keys (type + runtime value)
+export const colorModes = ['light', 'dark'] as const;

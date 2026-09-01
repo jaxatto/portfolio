@@ -1,7 +1,7 @@
 /* types.ts */
 
 import { type Primitives } from './primitives';
-import { type colorGroups } from './constants';
+import { type colorGroups, type colorModes } from './constants';
 
 /* ------------------------------------------------------------- */
 /* -- Color  --------------------------------------------------- */
@@ -11,10 +11,7 @@ export type ColorFamily = keyof Primitives['colors'];
 export type ColorStep<TFamily extends ColorFamily> =
 	keyof Primitives['colors'][TFamily];
 
-export type ColorMode = {
-	light: string;
-	dark: string;
-};
+export type ColorMode = Record<(typeof colorModes)[number], string>;
 
 export type ColorGroup = (typeof colorGroups)[number];
 

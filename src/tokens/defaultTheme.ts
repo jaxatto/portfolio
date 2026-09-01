@@ -121,12 +121,12 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 				dark: primitives.colors.white[100],
 			},
 			'overlay-tint': {
-				light: primitives.colors.indigo[800],
-				dark: primitives.colors.indigo[200],
+				light: primitives.colors.indigo[900],
+				dark: primitives.colors.indigo[100],
 			},
 			'overlay-tint-inverse': {
-				light: primitives.colors.indigo[200],
-				dark: primitives.colors.indigo[800],
+				light: primitives.colors.indigo[100],
+				dark: primitives.colors.indigo[900],
 			},
 		},
 	},

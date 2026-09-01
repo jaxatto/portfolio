@@ -1,23 +1,25 @@
 import { primitives } from '#tokens/primitives';
-import { toKebabCase } from './utils';
-import type {
-	PrimitiveDomain,
-	PrimitiveFontMaps,
-	PrimitiveMaps,
-	PrimitiveSizeCategory,
-	PrimitiveSizeMaps,
+import { cssVarName, toKebabCase } from './utils';
+import {
+	primitiveDomains,
+	varPrefixes,
+	type PrimitiveDomain,
+	type PrimitiveFontMaps,
+	type PrimitiveMaps,
+	type PrimitiveSizeCategory,
+	type PrimitiveSizeMaps,
 } from './types';
 
 type TokenTree = Record<string, unknown>;
 
 export function buildPrimitiveTokenContext() {
 	const primitiveVars: string[] = [];
-	const primitiveMaps: PrimitiveMaps = {
-		color: new Map<string | number, string>(),
-		font: new Map<string | number, string>(),
-		size: new Map<string | number, string>(),
-		shadow: new Map<string | number, string>(),
-	};
+	const primitiveMaps: PrimitiveMaps = Object.fromEntries(
+		primitiveDomains.map((domain) => [
+			domain,
+			new Map<string | number, string>(),
+		]),
+	) as PrimitiveMaps;
 	const primitiveFontMaps: PrimitiveFontMaps = {};
 	const primitiveSizeMaps: PrimitiveSizeMaps = Object.fromEntries(
 		Object.keys(primitives.sizes).map((category) => [
@@ -43,7 +45,7 @@ export function buildPrimitiveTokenContext() {
 	) {
 		for (const [key, val] of Object.entries(obj)) {
 			const kebabKey = toKebabCase(key);
-			const varName = `--primitive-${prefix}-${kebabKey}`;
+			const varName = cssVarName(varPrefixes.primitive, prefix, kebabKey);
 
 			if (typeof val === 'object' && val !== null) {
 				extractPrimitives(val as TokenTree, `${prefix}-${kebabKey}`, domain);
@@ -100,6 +102,7 @@ export function buildPrimitiveTokenContext() {
 			scopedMap,
 		);
 	}
+	extractPrimitives(primitives.utils as TokenTree, 'utils', 'utils');
 
 	return {
 		primitiveVars,

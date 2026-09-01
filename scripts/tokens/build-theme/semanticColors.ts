@@ -1,5 +1,5 @@
-import type { SemanticThemeColors } from '#tokens/types.ts';
-import { isColorMode, toKebabCase } from './utils';
+import type { SemanticThemeColors } from '#tokens/types';
+import { cssVarName, isColorMode } from './utils';
 import type { ResolveValue } from './types';
 
 type TokenTree = Record<string, unknown>;
@@ -13,7 +13,7 @@ export function buildSemanticColorVars(
 
 	function processColors(obj: TokenTree, prefix = 'color') {
 		for (const [key, val] of Object.entries(obj)) {
-			const varName = `--${prefix}-${toKebabCase(key)}`;
+			const varName = cssVarName(prefix, key);
 			if (isColorMode(val)) {
 				lightSemanticVars.push(
 					`  ${varName}: ${resolveValue(val.light, 'color')};`,
@@ -25,7 +25,7 @@ export function buildSemanticColorVars(
 			}
 
 			if (typeof val === 'object' && val !== null) {
-				processColors(val as TokenTree, `${prefix}-${toKebabCase(key)}`);
+				processColors(val as TokenTree, `${prefix}-${key}`);
 			}
 		}
 	}

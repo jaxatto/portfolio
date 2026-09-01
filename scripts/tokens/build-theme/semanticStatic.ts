@@ -1,9 +1,10 @@
-import type { SemanticTheme, SemanticThemeTypography } from '#tokens/types.ts';
-import { isFluidValue, toKebabCase } from './utils';
-import type {
-	PrimitiveSizeCategory,
-	PrimitiveSizeMaps,
-	ResolveValue,
+import type { SemanticTheme, SemanticThemeTypography } from '#tokens/types';
+import { cssVarName, isFluidValue } from './utils';
+import {
+	varPrefixes,
+	type PrimitiveSizeCategory,
+	type PrimitiveSizeMaps,
+	type ResolveValue,
 } from './types';
 
 type TokenTree = Record<string, unknown>;
@@ -19,7 +20,7 @@ export function buildStaticSemanticVars(
 		propName: string,
 		semanticKey: string,
 	): string {
-		return `var(--font-${toKebabCase(propName)}-${toKebabCase(semanticKey)})`;
+		return `var(${cssVarName('font', propName, semanticKey)})`;
 	}
 
 	for (const [category, values] of Object.entries(theme.sizes)) {
@@ -34,7 +35,7 @@ export function buildStaticSemanticVars(
 				typeof val === 'string'
 			) {
 				staticSemanticVars.push(
-					`  --size-layout-gutter: var(--size-space-${toKebabCase(val)});`,
+					`  ${cssVarName('size', 'layout', 'gutter')}: var(${cssVarName('size', 'space', val)});`,
 				);
 				continue;
 			}
@@ -47,7 +48,7 @@ export function buildStaticSemanticVars(
 					: null;
 
 			staticSemanticVars.push(
-				`  --size-${category}-${toKebabCase(key)}: ${categoryResolved ?? resolveValue(val, 'size')};`,
+				`  ${cssVarName('size', category, key)}: ${categoryResolved ?? resolveValue(val, 'size')};`,
 			);
 		}
 	}
@@ -59,7 +60,7 @@ export function buildStaticSemanticVars(
 
 		for (const [key, val] of Object.entries(values)) {
 			staticSemanticVars.push(
-				`  --shadow-${category}-${toKebabCase(key)}: ${resolveValue(val, 'shadow')};`,
+				`  ${cssVarName('shadow', category, key)}: ${resolveValue(val, 'shadow')};`,
 			);
 		}
 	}
@@ -74,7 +75,7 @@ export function buildStaticSemanticVars(
 
 		for (const [key, val] of Object.entries(values)) {
 			staticSemanticVars.push(
-				`  --font-${category}-${toKebabCase(key)}: ${resolveValue(val, 'font', category)};`,
+				`  ${cssVarName('font', category, key)}: ${resolveValue(val, 'font', category)};`,
 			);
 		}
 	}
@@ -119,7 +120,7 @@ export function buildStaticSemanticVars(
 					}
 				}
 
-				const varName = `--font-style-${toKebabCase(styleName)}-${toKebabCase(propName)}`;
+				const varName = cssVarName(varPrefixes.fontStyle, styleName, propName);
 				staticSemanticVars.push(`  ${varName}: ${finalValue};`);
 			}
 		}

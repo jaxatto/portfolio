@@ -1,4 +1,4 @@
-import type { SemanticThemeTypography } from '#tokens/types.ts';
+import type { SemanticThemeTypography } from '#tokens/types';
 import { isFluidValue } from './utils';
 import type {
 	PrimitiveDomain,
