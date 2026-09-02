@@ -48,6 +48,10 @@ function isColorMode(val: unknown): val is { light: string; dark: string } {
 	);
 }
 
+function withOpacity(color: string, opacity: string) {
+	return color.replace(/\)$/, ` / ${opacity})`);
+}
+
 const WEB_ONLY_KEYS = new Set([
 	'line-height',
 	'lineHeight',
@@ -115,6 +119,8 @@ async function broadcastTokens() {
 			color: primitives.colors,
 			font: primitives.font,
 			size: primitives.sizes,
+			shadow: primitives.shadow,
+			utils: primitives.utils,
 		};
 
 		/* ------------------------------------------------------------- */
@@ -146,6 +152,33 @@ async function broadcastTokens() {
 		);
 		extractInteractStates(lightColors);
 		extractInteractStates(darkColors);
+		const lightShadowColors: Record<string, any> = {};
+		const darkShadowColors: Record<string, any> = {};
+		for (const group of [
+			'brand',
+			'primary',
+			'secondary',
+			'tertiary',
+		] as const) {
+			lightShadowColors[group] = {};
+			darkShadowColors[group] = {};
+			for (const [state, shadow] of Object.entries(
+				defaultTheme.shadow[group],
+			)) {
+				const shadowState = shadow as {
+					color: { light: string; dark: string };
+					opacity: string;
+				};
+				lightShadowColors[group][state] = {
+					$value: withOpacity(shadowState.color.light, shadowState.opacity),
+					$type: 'color',
+				};
+				darkShadowColors[group][state] = {
+					$value: withOpacity(shadowState.color.dark, shadowState.opacity),
+					$type: 'color',
+				};
+			}
+		}
 
 		const formattedStyles = Object.fromEntries(
 			Object.entries(defaultTheme.font.styles ?? {}).map(
@@ -170,6 +203,16 @@ async function broadcastTokens() {
 			color: {
 				light: lightColors,
 				dark: darkColors,
+			},
+			shadow: {
+				color: {
+					light: lightShadowColors,
+					dark: darkShadowColors,
+				},
+				blur: defaultTheme.shadow.blur,
+				spread: defaultTheme.shadow.spread,
+				x: defaultTheme.shadow.x,
+				y: defaultTheme.shadow.y,
 			},
 			sizes: defaultTheme.sizes,
 			font: {

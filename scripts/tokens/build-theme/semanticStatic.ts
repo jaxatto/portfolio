@@ -54,6 +54,11 @@ export function buildStaticSemanticVars(
 	}
 
 	for (const [category, values] of Object.entries(theme.shadow)) {
+		if (
+			['color', 'brand', 'primary', 'secondary', 'tertiary'].includes(category)
+		) {
+			continue;
+		}
 		if (typeof values !== 'object' || values === null) {
 			continue;
 		}

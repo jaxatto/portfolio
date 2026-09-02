@@ -174,6 +174,16 @@ function parseDimension(val) {
 	return parsed;
 }
 
+function parseOpacity(val) {
+	if (typeof val === 'number') return val;
+	if (typeof val !== 'string') return null;
+
+	const parsed = parseFloat(val);
+	if (isNaN(parsed)) return null;
+
+	return val.trim().endsWith('%') ? parsed / 100 : parsed;
+}
+
 function sanitizeFontFamily(val) {
 	if (typeof val !== 'string') return String(val);
 	return val.split(',')[0].replace(/['"]/g, '').trim();
@@ -241,6 +251,7 @@ function extractClampMax(str) {
 function getNumericCategory(currentPath) {
 	const segments = currentPath.toLowerCase().split('/');
 	if (segments.length < 2) return null;
+	if (segments.at(-1) === 'opacity') return 'utils/opacity';
 	const top = segments[0] === 'sizes' ? 'size' : segments[0];
 	return `${top}/${segments[1]}`;
 }
@@ -397,10 +408,17 @@ async function processMessage(msg) {
 								varType = 'COLOR';
 								parsedValue = colorValue;
 							}
+						} else if (currentPath.startsWith('utils/opacity')) {
+							const opacityValue = parseOpacity(rawValue);
+							if (opacityValue !== null) {
+								varType = 'FLOAT';
+								parsedValue = opacityValue;
+							}
 						} else if (
 							currentPath.startsWith('size') ||
 							currentPath.startsWith('space') ||
 							currentPath.startsWith('radius') ||
+							currentPath.startsWith('shadow') ||
 							currentPath.includes('size') ||
 							currentPath.includes('weight')
 						) {
@@ -454,6 +472,17 @@ async function processMessage(msg) {
 		if (msg.type === 'UPDATE_SEMANTICS') {
 			const primitivesCollection = await getOrCreateCollection('primitives');
 			const semanticsCollection = await getOrCreateCollection('semantics');
+			const legacyShadowPropertyPath =
+				/^shadow\/(?:brand|primary|secondary|tertiary)\/(?:default|hover|active)(?:\/(?:color|opacity))?$/i;
+
+			for (const variable of allVars) {
+				if (
+					variable.variableCollectionId === semanticsCollection.id &&
+					legacyShadowPropertyPath.test(variable.name)
+				) {
+					variable.remove();
+				}
+			}
 
 			const incomingModes = msg.payload.modes || ['light', 'dark'];
 			const modes = ensureModes(semanticsCollection, incomingModes);
@@ -550,7 +579,10 @@ async function processMessage(msg) {
 				// D. Numeric / Clamp / Dimension Match (scoped to the same category
 				// so e.g. font/size never matches a sizes/radius value by coincidence)
 				if (varType === 'FLOAT') {
-					const numVal = parseDimension(rawStr);
+					const numVal =
+						numericCategory === 'utils/opacity'
+							? parseOpacity(rawStr)
+							: parseDimension(rawStr);
 					if (numVal === null) return null;
 					const categoryMap = primitiveByNumberByCategory.get(numericCategory);
 					const primitiveVar = categoryMap
@@ -601,10 +633,28 @@ async function processMessage(msg) {
 					} else {
 						let varType = 'STRING';
 						const normalizedPath = currentPath.toLowerCase();
+						const tokenType =
+							typeof val === 'object' && val !== null
+								? '$type' in val
+									? val.$type
+									: Object.values(val).find(
+											(modeValue) =>
+												typeof modeValue === 'object' &&
+												modeValue !== null &&
+												'$type' in modeValue,
+										)?.$type
+								: undefined;
 
-						if (normalizedPath.startsWith('color')) {
+						if (
+							tokenType === 'color' ||
+							normalizedPath.startsWith('color') ||
+							normalizedPath.endsWith('/color')
+						) {
 							varType = 'COLOR';
 						} else if (
+							tokenType === 'number' ||
+							normalizedPath.endsWith('/opacity') ||
+							normalizedPath.startsWith('shadow/') ||
 							normalizedPath.includes('size') ||
 							normalizedPath.includes('weight') ||
 							normalizedPath.includes('space') ||
@@ -676,6 +726,15 @@ async function processMessage(msg) {
 					msg.payload.color.light,
 					msg.payload.color.dark,
 				);
+			}
+			if (msg.payload.shadow?.color?.light && msg.payload.shadow?.color?.dark) {
+				semanticPayload.shadow = {
+					...msg.payload.shadow,
+					color: mergeModeTrees(
+						msg.payload.shadow.color.light,
+						msg.payload.shadow.color.dark,
+					),
+				};
 			}
 
 			await processSemanticNode(semanticPayload);

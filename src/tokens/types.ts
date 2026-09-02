@@ -43,16 +43,17 @@ export type SemanticBrandColors = {
 	[K in ColorGroup]: ColorPairingGroup<K>;
 };
 
-export type SemanticGeneralColor = {
+export type BaseSemanticGeneralColor = {
 	content: {
 		default: ColorMode;
+		variant: ColorMode;
 		muted: ColorMode;
+		link: ColorMode;
 		inverse: ColorMode;
 	};
 	surface: {
 		default: ColorMode;
 		sunken: ColorMode;
-		transparent: ColorMode;
 	};
 	border: {
 		decorative: ColorMode;
@@ -64,8 +65,15 @@ export type SemanticGeneralColor = {
 	};
 };
 
+export type SemanticGeneralColor = Omit<BaseSemanticGeneralColor, 'content'> & {
+	content: BaseSemanticGeneralColor['content'] & {
+		'default-hover': ColorMode;
+		'default-active': ColorMode;
+	};
+};
+
 export type SemanticThemeColors = SemanticGeneralColor & SemanticBrandColors;
-export type BaseSemanticThemeColors = SemanticGeneralColor &
+export type BaseSemanticThemeColors = BaseSemanticGeneralColor &
 	BaseSemanticBrandColors;
 
 /* ------------------------------------------------------------- */
@@ -157,6 +165,14 @@ export type SemanticThemeShadow = {
 	spread: Record<string, string>;
 	x: Record<string, string>;
 	y: Record<string, string>;
+	color: {
+		default: { color: ColorMode; opacity: string };
+	};
+} & {
+	[K in ColorGroup]: Record<
+		'default' | 'hover' | 'active',
+		{ color: ColorMode; opacity: string }
+	>;
 };
 
 /* ------------------------------------------------------------- */

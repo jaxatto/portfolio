@@ -1,11 +1,16 @@
-import type { SemanticThemeColors } from '#tokens/types';
+import type { SemanticThemeColors, SemanticThemeShadow } from '#tokens/types';
 import { cssVarName, isColorMode } from './utils';
 import type { ResolveValue } from './types';
 
 type TokenTree = Record<string, unknown>;
 
+function withOpacity(color: string, opacity: string) {
+	return color.replace(/\)$/, ` / ${opacity})`);
+}
+
 export function buildSemanticColorVars(
 	colors: SemanticThemeColors,
+	shadow: SemanticThemeShadow,
 	resolveValue: ResolveValue,
 ) {
 	const lightSemanticVars: string[] = [];
@@ -31,6 +36,29 @@ export function buildSemanticColorVars(
 	}
 
 	processColors(colors as TokenTree);
+	for (const [group, states] of Object.entries(shadow)) {
+		if (
+			!['color', 'brand', 'primary', 'secondary', 'tertiary'].includes(group)
+		) {
+			continue;
+		}
+		for (const [state, value] of Object.entries(states)) {
+			const shadowValue = value as {
+				color: { light: string; dark: string };
+				opacity: string;
+			};
+			const varName =
+				group === 'color'
+					? cssVarName('shadow', 'color', state)
+					: cssVarName('shadow', 'color', group, state);
+			lightSemanticVars.push(
+				`  ${varName}: ${withOpacity(shadowValue.color.light, shadowValue.opacity)};`,
+			);
+			darkSemanticVars.push(
+				`  ${varName}: ${withOpacity(shadowValue.color.dark, shadowValue.opacity)};`,
+			);
+		}
+	}
 
 	return {
 		lightSemanticVars,

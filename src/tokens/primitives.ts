@@ -22,10 +22,6 @@ const createPercentRecord = <const T extends readonly number[]>(values: T) =>
 /* -- Color ---------------------------------------------------- */
 /* ------------------------------------------------------------- */
 
-const opacityScale = [
-	0, 4, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 76, 80, 90, 100,
-] as const;
-
 const primitiveColors = {
 	red: {
 		50: 'oklch(97.1% 0.013 17.38deg)',
@@ -446,9 +442,6 @@ const spaceScale = [0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80] as const;
 const radiusScale = [0, 4, 8, 12, 16, 20, 24] as const;
 const borderWidthScale = [0, 1, 2, 4] as const;
 const breakpointScale = [320, 640, 768, 1024, 1280, 1536] as const;
-const shadowBlurScale = [0, 40, 56] as const;
-const shadowSpreadScale = [0, 8, 16] as const;
-const shadowOffsetScale = [0] as const;
 
 const primitiveSizes = {
 	space: {
@@ -462,6 +455,14 @@ const primitiveSizes = {
 	breakpoint: createPxRecord(breakpointScale),
 } as const;
 
+/* ------------------------------------------------------------- */
+/* -- Shadow --------------------------------------------------- */
+/* ------------------------------------------------------------- */
+
+const shadowBlurScale = [0, 8, 16, 40, 56, 64] as const;
+const shadowSpreadScale = [0, 8, 16, 20] as const;
+const shadowOffsetScale = [0] as const;
+
 const primitiveShadow = {
 	blur: createPxRecord(shadowBlurScale),
 	spread: createPxRecord(shadowSpreadScale),
@@ -472,6 +473,10 @@ const primitiveShadow = {
 /* ------------------------------------------------------------- */
 /* -- Utils ----------------------------------------------------- */
 /* ------------------------------------------------------------- */
+
+const opacityScale = [
+	0, 4, 8, 10, 12, 16, 20, 24, 32, 36, 40, 44, 48, 56, 64, 76, 80, 90, 100,
+] as const;
 
 const primitiveUtils = {
 	opacity: createPercentRecord(opacityScale),

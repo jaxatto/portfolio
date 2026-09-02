@@ -24,6 +24,7 @@ function buildTheme() {
 
 	const { lightSemanticVars, darkSemanticVars } = buildSemanticColorVars(
 		defaultTheme.colors,
+		defaultTheme.shadow,
 		resolveValue,
 	);
 	const staticSemanticVars = buildStaticSemanticVars(

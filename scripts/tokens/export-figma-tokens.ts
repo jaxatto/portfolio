@@ -29,6 +29,10 @@ function isFluidValue(
 	);
 }
 
+function withOpacity(color: string, opacity: string) {
+	return color.replace(/\)$/, ` / ${opacity})`);
+}
+
 function exportFigmaTokens() {
 	/* ------------------------------------------------------------- */
 	/* -- 1. Format Colors for Figma Modes (Light / Dark) ---------- */
@@ -55,6 +59,38 @@ function exportFigmaTokens() {
 	processColors(defaultTheme.colors, lightColors, darkColors);
 	extractInteractStates(lightColors);
 	extractInteractStates(darkColors);
+	const lightShadowColors: Record<string, any> = {
+		default: {
+			$value: withOpacity(
+				defaultTheme.shadow.color.default.color.light,
+				defaultTheme.shadow.color.default.opacity,
+			),
+			$type: 'color',
+		},
+	};
+	const darkShadowColors: Record<string, any> = {
+		default: {
+			$value: withOpacity(
+				defaultTheme.shadow.color.default.color.dark,
+				defaultTheme.shadow.color.default.opacity,
+			),
+			$type: 'color',
+		},
+	};
+	for (const group of ['brand', 'primary', 'secondary', 'tertiary'] as const) {
+		lightShadowColors[group] = {};
+		darkShadowColors[group] = {};
+		for (const [state, shadow] of Object.entries(defaultTheme.shadow[group])) {
+			lightShadowColors[group][state] = {
+				$value: withOpacity(shadow.color.light, shadow.opacity),
+				$type: 'color',
+			};
+			darkShadowColors[group][state] = {
+				$value: withOpacity(shadow.color.dark, shadow.opacity),
+				$type: 'color',
+			};
+		}
+	}
 
 	/* ------------------------------------------------------------- */
 	/* -- 2. Format Fluid Styles for Inspection -------------------- */
@@ -87,12 +123,23 @@ function exportFigmaTokens() {
 			color: primitives.colors,
 			font: primitives.font,
 			size: primitives.sizes,
+			shadow: primitives.shadow,
 			utils: primitives.utils,
 		},
 		semantic: {
 			modes: {
 				light: { color: lightColors },
 				dark: { color: darkColors },
+			},
+			shadow: {
+				color: {
+					light: lightShadowColors,
+					dark: darkShadowColors,
+				},
+				blur: defaultTheme.shadow.blur,
+				spread: defaultTheme.shadow.spread,
+				x: defaultTheme.shadow.x,
+				y: defaultTheme.shadow.y,
 			},
 			sizes: defaultTheme.sizes,
 			font: {

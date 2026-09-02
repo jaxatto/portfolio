@@ -2,10 +2,16 @@
 
 import { primitives } from './primitives';
 import { withInteractionStates } from './colorSteps';
-import { type BaseSemanticThemeColors, type SemanticTheme } from './types';
+import {
+	type BaseSemanticThemeColors,
+	type SemanticTheme,
+	type SemanticThemeShadow,
+} from './types';
+import { colorGroups } from './constants';
 
-const theme: Omit<SemanticTheme, 'colors'> & {
+const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 	colors: BaseSemanticThemeColors;
+	shadow: Pick<SemanticThemeShadow, 'blur' | 'spread' | 'x' | 'y'>;
 } = {
 	name: 'Default Theme',
 	colors: {
@@ -14,27 +20,31 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 				light: primitives.colors.purple[950],
 				dark: primitives.colors.purple[50],
 			},
+			variant: {
+				light: primitives.colors.slate[900],
+				dark: primitives.colors.slate[200],
+			},
 			muted: {
-				light: primitives.colors.purple[700],
-				dark: primitives.colors.purple[300],
+				light: primitives.colors.slate[700],
+				dark: primitives.colors.slate[300],
+			},
+			link: {
+				light: primitives.colors.violet[700],
+				dark: primitives.colors.violet[300],
 			},
 			inverse: {
-				light: primitives.colors.white[100],
-				dark: primitives.colors.black[100],
+				light: primitives.colors.white,
+				dark: primitives.colors.black,
 			},
 		},
 		surface: {
 			default: {
-				light: primitives.colors.white[100],
-				dark: primitives.colors.black[100],
+				light: primitives.colors.white,
+				dark: primitives.colors.slate[900],
 			},
 			sunken: {
 				light: primitives.colors.slate[100],
 				dark: primitives.colors.slate[900],
-			},
-			transparent: {
-				light: primitives.colors.white[0],
-				dark: primitives.colors.black[0],
 			},
 		},
 		border: {
@@ -49,8 +59,8 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 				dark: primitives.colors.purple[300],
 			},
 			'on-brand': {
-				light: primitives.colors.white[100],
-				dark: primitives.colors.black[100],
+				light: primitives.colors.white,
+				dark: primitives.colors.black,
 			},
 			'brand-container': {
 				light: primitives.colors.purple[200],
@@ -67,8 +77,8 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 				dark: primitives.colors.violet[300],
 			},
 			'on-primary': {
-				light: primitives.colors.white[100],
-				dark: primitives.colors.black[100],
+				light: primitives.colors.white,
+				dark: primitives.colors.black,
 			},
 			'primary-container': {
 				light: primitives.colors.violet[200],
@@ -85,8 +95,8 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 				dark: primitives.colors.indigo[300],
 			},
 			'on-secondary': {
-				light: primitives.colors.white[100],
-				dark: primitives.colors.black[100],
+				light: primitives.colors.white,
+				dark: primitives.colors.black,
 			},
 			'secondary-container': {
 				light: primitives.colors.indigo[200],
@@ -103,8 +113,8 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 				dark: primitives.colors.sky[300],
 			},
 			'on-tertiary': {
-				light: primitives.colors.white[100],
-				dark: primitives.colors.black[100],
+				light: primitives.colors.white,
+				dark: primitives.colors.black,
 			},
 			'tertiary-container': {
 				light: primitives.colors.sky[200],
@@ -118,7 +128,7 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 		state: {
 			'focus-ring': {
 				light: primitives.colors.purple[950],
-				dark: primitives.colors.white[100],
+				dark: primitives.colors.white,
 			},
 			'overlay-tint': {
 				light: primitives.colors.indigo[900],
@@ -177,13 +187,17 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 	shadow: {
 		blur: {
 			none: primitives.shadow.blur[0],
-			sm: primitives.shadow.blur[40],
-			lg: primitives.shadow.blur[56],
+			sm: primitives.shadow.blur[8],
+			md: primitives.shadow.blur[16],
+			xl: primitives.shadow.blur[40],
+			'2xl': primitives.shadow.blur[56],
+			'3xl': primitives.shadow.blur[64],
 		},
 		spread: {
 			none: primitives.shadow.spread[0],
-			sm: primitives.shadow.spread[8],
-			md: primitives.shadow.spread[16],
+			lg: primitives.shadow.spread[8],
+			xl: primitives.shadow.spread[16],
+			'2xl': primitives.shadow.spread[20],
 		},
 		x: {
 			none: primitives.shadow.x[0],
@@ -332,7 +346,41 @@ const theme: Omit<SemanticTheme, 'colors'> & {
 	},
 };
 
+const colors = withInteractionStates(theme.colors);
+const shadowColors = Object.fromEntries(
+	colorGroups.map((group) => [
+		group,
+		{
+			default: {
+				color: colors[group].default,
+				opacity: primitives.utils.opacity[40],
+			},
+			hover: {
+				color: colors[group]['default-hover'],
+				opacity: primitives.utils.opacity[48],
+			},
+			active: {
+				color: colors[group]['default-active'],
+				opacity: primitives.utils.opacity[48],
+			},
+		},
+	]),
+) as Pick<SemanticThemeShadow, (typeof colorGroups)[number]>;
+
 export const defaultTheme: SemanticTheme = {
 	...theme,
-	colors: withInteractionStates(theme.colors),
+	colors,
+	shadow: {
+		...theme.shadow,
+		color: {
+			default: {
+				color: {
+					light: primitives.colors.slate[800],
+					dark: primitives.colors.slate[800],
+				},
+				opacity: primitives.utils.opacity[10],
+			},
+		},
+		...shadowColors,
+	},
 };

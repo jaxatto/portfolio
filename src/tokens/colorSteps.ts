@@ -34,8 +34,16 @@ function getPrimitive(family: ColorFamily, step: Step): string {
 	return (primitives.colors[family] as Partial<Record<Step, string>>)[step]!;
 }
 
-/** Steps a color mode toward mid-tone: light mode darkens, dark mode lightens, per level. */
-export function deriveState(base: ColorMode, level: number): ColorMode {
+/**
+ * Steps a color mode per level: light mode darkens, dark mode lightens.
+ * Pass `invert` for colors that already sit at the extreme step (e.g. content default),
+ * so hover/active move back toward mid-tone instead of clamping at the same value.
+ */
+export function deriveState(
+	base: ColorMode,
+	level: number,
+	invert = false,
+): ColorMode {
 	const light = primitiveLookup.get(base.light);
 	const dark = primitiveLookup.get(base.dark);
 	if (!light || !dark) {
@@ -43,9 +51,10 @@ export function deriveState(base: ColorMode, level: number): ColorMode {
 			`deriveState: color is not a recognized primitive (light: ${base.light}, dark: ${base.dark})`,
 		);
 	}
+	const delta = invert ? -level : level;
 	return {
-		light: getPrimitive(light.family, shiftStep(light.step, level)),
-		dark: getPrimitive(dark.family, shiftStep(dark.step, -level)),
+		light: getPrimitive(light.family, shiftStep(light.step, delta)),
+		dark: getPrimitive(dark.family, shiftStep(dark.step, -delta)),
 	};
 }
 
@@ -63,6 +72,11 @@ export function withInteractionStates(
 			pairing[`${key}-active`] = deriveState(base, 2);
 		}
 	}
+
+	const content = themeColors.content as unknown as Record<string, ColorMode>;
+	content['default-hover'] = deriveState(content.default, 1, true);
+	content['default-active'] = deriveState(content.default, 2, true);
+
 	return themeColors;
 }
 
@@ -72,7 +86,7 @@ const interactStateSuffix = /-(?:hover|active)$/;
 // so Figma folders read as color/interact/{group}/... instead of polluting color/{group}
 export function extractInteractStates(target: Record<string, unknown>) {
 	const interact: Record<string, unknown> = {};
-	for (const group of colorGroups) {
+	for (const group of [...colorGroups, 'content']) {
 		const groupObj = target[group] as Record<string, unknown> | undefined;
 		if (!groupObj) continue;
 
