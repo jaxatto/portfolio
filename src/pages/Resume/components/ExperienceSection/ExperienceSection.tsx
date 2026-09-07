@@ -1,5 +1,4 @@
 import React from 'react';
-import Divider from '#components/Divider';
 import { groupRoles, GroupedRole } from './helpers/groupRoles';
 import { roles } from './resources/roles';
 import logos from './resources/logos';
@@ -10,7 +9,6 @@ const groupedRoles: GroupedRole[] = groupRoles(roles);
 
 const ExperienceSection: React.FC = () => (
 	<section className={styles.wrapper}>
-		<Divider variant="section-header" text="Experience" contentAlign="left" />
 		<div className={styles.content}>
 			{groupedRoles.map((item, idx) =>
 				Array.isArray(item) ? (

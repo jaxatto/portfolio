@@ -1,0 +1,34 @@
+/* StudyImage.module.css */
+
+.study-image {
+	display: flex;
+	flex-direction: column;
+	margin-top: var(--size-space-3xl);
+	gap: var(--size-space-md);
+}
+
+.image {
+	width: 100%;
+	height: auto;
+	border-radius: var(--size-radius-lg);
+}
+
+.square {
+	border-radius: 0;
+}
+
+.image-caption {
+	color: var(--color-content-muted);
+	text-align: center;
+}
+
+.image-fallback-wrapper {
+	border-radius: var(--size-radius-lg);
+	padding: var(--size-space-section-lg) 0;
+}
+
+.image-fallback-wrapper svg {
+	height: auto;
+	width: 30%;
+	opacity: 0.3;
+}

@@ -1,14 +1,13 @@
 import React from 'react';
-import Divider from '#components/Divider';
+import clsx from 'clsx';
 import SkillCard from '#pages/Resume/components/SkillCard';
 import { focus, skills, tools } from './resources/content';
-import styles from './SkillsSection.module.scss';
+import styles from './SkillsSection.module.css';
 
 const skillData = [focus, skills, tools];
 
 const SkillsSection: React.FC = () => (
-	<section className={styles.wrapper}>
-		<Divider variant="section-header" text="Skills" contentAlign="left" />
+	<section className={clsx(styles.wrapper, 'general-content-wrapper')}>
 		<div className={styles.content}>
 			{skillData.map((item) => (
 				<SkillCard

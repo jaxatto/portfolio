@@ -1,0 +1,11 @@
+/* ChipGroup.module.css */
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-space-sm);
+}
+
+.small {
+	gap: var(--size-space-sm);
+}

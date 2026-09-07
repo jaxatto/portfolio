@@ -6,11 +6,6 @@
 	}
 }
 
-.divider {
-	padding-top: 0;
-	padding-bottom: var(--size-space-section-sm);
-}
-
 .content {
 	@include wrapper-max-width(content);
 	margin: 0 auto;

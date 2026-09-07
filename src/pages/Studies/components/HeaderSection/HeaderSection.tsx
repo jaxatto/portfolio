@@ -1,6 +1,5 @@
 import React from 'react';
 import ChipGroup from '#components/ChipGroup';
-import Divider from '#components/Divider';
 import DateRange from '#components/DateRange';
 import StudyImage from '#pages/Studies/components/StudyImage';
 import type { StudyHeaderProps } from '#data/commonTypes/study/studyHeader';
@@ -26,7 +25,6 @@ const Header: React.FC<StudyHeaderProps> = ({
 			</div>
 		</div>
 		<ChipGroup chips={chips} className={styles['chip-row']} size="small" />
-		<Divider variant="section-divider" />
 		{description.map((desc, i) => (
 			<p key={i} className={styles.description}>
 				{desc}

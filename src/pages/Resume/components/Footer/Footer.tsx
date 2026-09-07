@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from '#components/Link';
-import Divider from '#components/Divider';
 import { content } from './resources/content';
 import styles from './Footer.module.scss';
 
@@ -16,11 +15,6 @@ const Footer: React.FC = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<Divider
-				variant="section-divider"
-				contentAlign="left"
-				className={styles.divider}
-			/>
 			<div className={styles.content}>
 				<div className={styles.top}>
 					<h2 className={styles.title}>

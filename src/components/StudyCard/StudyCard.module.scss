@@ -117,7 +117,7 @@
 .vertical {
 	grid-template-columns: 1fr;
 	grid-template-rows: auto auto;
-	gap: var(--size-space-2xl); // 24px
+	gap: var(--size-space-2xl);
 
 	.case-study-image-wrapper {
 		width: 100%;
@@ -131,7 +131,7 @@
 	}
 
 	.content {
-		padding-bottom: var(--size-space-2xl); // 24px
+		padding-bottom: var(--size-space-2xl);
 	}
 }
 
@@ -181,7 +181,7 @@
 	}
 
 	@include respond(xs) {
-		border-radius: var(--size-radius-sm); // 8px
+		border-radius: var(--size-radius-sm);
 	}
 }
 
@@ -281,10 +281,6 @@
 .description {
 	font-weight: var(--font-weight-regular);
 	font-family: $font-body;
-
-	span {
-		@extend .dot-text-divider;
-	}
 }
 
 .card-link {
@@ -292,7 +288,7 @@
 	align-items: center;
 	gap: 0.2em;
 	font-weight: var(--font-weight-emphasis);
-	font-family: $font-heading;
+	font-family: var(--font-family-heading);
 	text-decoration: underline;
 	text-underline-offset: 0.3em;
 
@@ -379,7 +375,7 @@
 	}
 
 	.content {
-		gap: var(--size-space-2xl); // 24px
+		gap: var(--size-space-2xl);
 	}
 
 	.title {

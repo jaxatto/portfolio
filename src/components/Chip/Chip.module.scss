@@ -1,8 +1,10 @@
+/* Chip.module.scss */
+
 .wrapper {
 	background: var(--color-placeholder);
-	padding: var(--size-space-sm) var(--size-space-md); // 6px 12px
-	border-radius: var(--size-radius-sm); // 8px
-	font-family: $font-heading;
+	padding: var(--size-space-sm) var(--size-space-md);
+	border-radius: var(--size-radius-sm);
+	font-family: var(--font-family-heading);
 	font-weight: var(--font-weight-emphasis);
 	line-height: var(--line-height-100);
 }
@@ -15,7 +17,7 @@
 }
 
 .small {
-	padding: var(--size-space-sm) var(--size-space-sm); // 6px 8px
-	font-size: var(--font-size-sm); // 12px
-	border-radius: var(--size-radius-xs); // 4px
+	padding: var(--size-space-sm) var(--size-space-sm);
+	font-size: var(--font-size-sm);
+	border-radius: var(--size-radius-xs);
 }

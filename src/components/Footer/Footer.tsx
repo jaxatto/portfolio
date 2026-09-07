@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from '#components/Link';
-import Divider from '#components/Divider';
 import { content } from './resources/content';
 import styles from './Footer.module.css';
 import { cn } from '#utils/cn';
@@ -10,8 +9,6 @@ import { cn } from '#utils/cn';
 const Footer: React.FC = () => {
 	return (
 		<footer>
-			<Divider />
-
 			<div className={styles['footer-wrapper']}>
 				<div className={styles.text}>
 					<h2 className={cn(styles.description, 'title-md')}>

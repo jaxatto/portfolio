@@ -1,6 +1,7 @@
 import React from 'react';
+import clsx from 'clsx';
 import ChipGroup, { ChipData } from '#components/ChipGroup';
-import styles from './SkillCard.module.scss';
+import styles from './SkillCard.module.css';
 
 export type SkillCardProps = {
 	heading: string;
@@ -17,13 +18,9 @@ const SkillCard: React.FC<SkillCardProps> = ({
 	theme = 'primary',
 	className = '',
 }) => (
-	<div
-		className={[styles.wrapper, styles[theme], className]
-			.filter(Boolean)
-			.join(' ')}
-	>
+	<div className={clsx(styles.wrapper, 'body-sm', styles[theme], className)}>
 		<div className={styles.top}>
-			<h3 className={styles.title}>{heading}</h3>
+			<h3 className={clsx(styles.title, 'heading-md')}>{heading}</h3>
 			<p className={styles.description}>{description}</p>
 		</div>
 		<ChipGroup

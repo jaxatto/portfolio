@@ -1,6 +1,6 @@
 import React from 'react';
+import clsx from 'clsx';
 import Layout from '#components/Layout';
-import Divider from '#components/Divider';
 import Image from '#components/Image';
 import { images } from './resources/images';
 import { content } from './resources/content';
@@ -11,11 +11,13 @@ const About: React.FC = () => (
 	<Layout
 		title={meta.title}
 		metaDescription={meta.description}
-		className={styles.wrapper}
+		className={clsx(styles.wrapper, 'general-content-wrapper')}
 	>
 		<section>
 			<div className={styles['top-section']}>
-				<h1 className={styles.title}>{content.header.title}</h1>
+				<h1 className={clsx(styles.title, 'page-title')}>
+					{content.header.title}
+				</h1>
 				<ul>
 					{content.header.bullets.map((bullet, i) => (
 						<li key={i}>
@@ -24,13 +26,12 @@ const About: React.FC = () => (
 					))}
 				</ul>
 			</div>
-			<Divider variant="section-divider" className={styles.divider} />
 			{content.header.description.map((desc, i) => (
 				<p key={i}>{desc}</p>
 			))}
 		</section>
 		<section className={styles['currently-section']}>
-			<h2>
+			<h2 className="heading-md">
 				<span aria-hidden="true">{content.currently.titleEmoji}</span>{' '}
 				{content.currently.title}
 			</h2>
@@ -38,9 +39,8 @@ const About: React.FC = () => (
 				<p key={i}>{desc}</p>
 			))}
 		</section>
-		<Divider variant="section-divider" className={styles.divider} />
 		<section className={styles['how-section']}>
-			<h2>
+			<h2 className="heading-md">
 				<span aria-hidden="true">{content.how.titleEmoji}</span>{' '}
 				{content.how.title}
 			</h2>
@@ -49,7 +49,7 @@ const About: React.FC = () => (
 			))}
 		</section>
 		<section>
-			<h2>
+			<h2 className="heading-md">
 				<span aria-hidden="true">{content.more.titleEmoji}</span>{' '}
 				{content.more.title}
 			</h2>

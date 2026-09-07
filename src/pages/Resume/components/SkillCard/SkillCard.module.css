@@ -1,19 +1,16 @@
+/* SkillCard.module.scss */
+
 .wrapper {
-	@extend .body-sm;
 	display: flex;
 	flex-direction: column;
-	border: 2px solid var(--color-medium);
+	border: 2px solid var(--color-content-muted);
 	border-radius: var(--size-radius-md);
 	padding: var(--size-space-2xl) var(--size-space-section-md)
 		var(--size-space-2xl) var(--size-space-2xl);
 	gap: var(--size-space-2xl);
-
-	@include respond(sm) {
-		padding-right: var(--size-space-2xl);
-	}
 }
 
-@each $type in (primary, secondary, tertiary) {
+/* @each $type in (primary, secondary, tertiary) {
 	.#{$type} {
 		border-color: var(--group-#{$type}-bg);
 
@@ -21,14 +18,16 @@
 			color: var(--group-#{$type}-title);
 		}
 	}
-}
-
-.title {
-	@extend .heading-md;
-}
+} */
 
 .top {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-xs); // 4px
+	gap: var(--size-space-xs);
+}
+
+@media (width <= 640px) {
+	.wrapper {
+		padding-right: var(--size-space-2xl);
+	}
 }

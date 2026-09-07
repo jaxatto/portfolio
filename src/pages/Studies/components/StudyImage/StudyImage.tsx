@@ -1,7 +1,8 @@
 import React from 'react';
+import clsx from 'clsx';
 import Image from '#components/Image';
 import type { StudyImageProps } from '#data/commonTypes/study/studyImage';
-import styles from './StudyImage.module.scss';
+import styles from './StudyImage.module.css';
 
 const StudyImage: React.FC<StudyImageProps> = ({
 	src,
@@ -19,7 +20,9 @@ const StudyImage: React.FC<StudyImageProps> = ({
 				.join(' ')}
 			fallbackClassName={styles['image-fallback-wrapper']}
 		/>
-		{caption && <p className={styles['image-caption']}>{caption}</p>}
+		{caption && (
+			<p className={clsx(styles['image-caption'], 'caption-md')}>{caption}</p>
+		)}
 	</div>
 );
 

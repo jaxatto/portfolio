@@ -1,0 +1,9 @@
+/* About.module.css */
+
+.heading-md {
+	margin-bottom: var(--size-space-lg);
+}
+
+section p:not(:last-of-type) {
+	margin-bottom: var(--size-space-2xl);
+}

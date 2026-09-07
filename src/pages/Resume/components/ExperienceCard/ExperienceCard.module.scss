@@ -29,8 +29,7 @@
 @each $type in (primary, secondary, tertiary) {
 	:global(.#{$type}-experience-card) {
 		background: var(--group-#{$type}-bg);
-		margin: var(--size-space-lg) 0; // 16px 0
-
+		margin: var(--size-space-lg) 0;
 		.logo {
 			background: var(--group-#{$type}-title);
 
@@ -60,7 +59,7 @@
 	svg {
 		width: 100%;
 		height: 100%;
-		padding: var(--size-space-sm); // 6px
+		padding: var(--size-space-sm);
 		fill: var(--color-white);
 		opacity: 0.8;
 	}
@@ -85,17 +84,6 @@
 	@extend .body-sm;
 	display: flex;
 	flex-wrap: wrap;
-}
-
-.date,
-.company,
-.location {
-	@extend .dot-text-divider;
-}
-
-.date,
-.location {
-	color: var(--color-medium);
 }
 
 .callout {

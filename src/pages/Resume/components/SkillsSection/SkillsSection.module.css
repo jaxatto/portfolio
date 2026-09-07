@@ -1,0 +1,6 @@
+/* SkillsSection.module.css */
+
+.content {
+	gap: var(--size-space-lg);
+	padding-bottom: var(--size-space-section-lg);
+}
