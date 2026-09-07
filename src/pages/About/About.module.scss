@@ -1,82 +1,82 @@
 .wrapper {
-    @extend .general-content-wrapper;
+  @extend .general-content-wrapper;
 
-    h2 {
-        @extend .heading-md;
-        margin-bottom: spacing(100); // 8px
-    }
+  h2 {
+    @extend .heading-md;
+    margin-bottom: spacing(100); // 8px
+  }
 }
 
 .title {
-    @extend .page-title;
+  @extend .page-title;
 }
 
 .top-section {
-    display: flex;
-    flex-direction: column;
-    gap: spacing(300); // 24px
+  display: flex;
+  flex-direction: column;
+  gap: spacing(300); // 24px
 
-    ul {
-        @extend .body-md;
-        @extend .remove-ul-style;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: repeat(2, auto);
-        gap: spacing(100) spacing(200); // 8px 16px
+  ul {
+    @extend .body-md;
+    @extend .remove-ul-style;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: spacing(100) spacing(200); // 8px 16px
 
-        li {
-            gap: spacing(75); // 6px
-        }
-
-        @include respond(sm) {
-            grid-template-columns: 1fr;
-        }
+    li {
+      gap: spacing(75); // 6px
     }
 
     @include respond(sm) {
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+      grid-template-columns: 1fr;
     }
+  }
+
+  @include respond(sm) {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 
-.how-section {
-    p:not(:last-of-type) {
-        margin-bottom: spacing(400); // 32px
-    }
+section {
+  p:not(:last-of-type) {
+    margin-bottom: spacing(300);
+  }
 }
 
 .lifestyle-image-row {
-    @extend .remove-ul-style;
+  @extend .remove-ul-style;
+  display: flex;
+  gap: spacing(200); // 16px
+
+  .lifestyle-line-item {
+    width: 100%;
+  }
+
+  .lifestyle-fallback-wrapper {
+    aspect-ratio: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
     display: flex;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include respond(sm) {
+    flex-wrap: wrap;
+  }
+
+  @include respond(xs) {
+    flex-direction: column;
     gap: spacing(200); // 16px
-
-    .lifestyle-line-item {
-        width: 100%;
-    }
-
-    .lifestyle-fallback-wrapper {
-        aspect-ratio: 1;
-        width: 100%;
-        height: 100%;
-    }
-    
-    img {
-        display: flex;
-        height: auto;
-        object-fit: cover;
-        border-radius: 50%;
-        aspect-ratio: 1;
-        width: 100%;
-        height: 100%;
-    }
-
-    @include respond(sm) {
-        flex-wrap: wrap;
-    }
-
-    @include respond(xs) {
-        flex-direction: column;
-        gap: spacing(200); // 16px
-    }
+  }
 }
