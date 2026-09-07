@@ -16,7 +16,8 @@
       "@assets/*": ["src/assets/*"],
       "@pages/*": ["src/pages/*"],
       "@constants/*": ["src/constants/*"],
-      "@commonTypes/*": ["src/commonTypes/*"]
+      "@commonTypes/*": ["src/commonTypes/*"],
+      "@providers/*": ["src/providers/*"]
     }
   },
   "include": ["src"]
