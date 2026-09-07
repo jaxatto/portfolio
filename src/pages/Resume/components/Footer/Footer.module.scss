@@ -39,7 +39,7 @@
 }
 
 .title {
-	@extend .title-md;
+	// @extend .title-md;
 	line-height: 1.2;
 	display: flex;
 	flex-direction: column;
@@ -55,7 +55,7 @@
 }
 
 .description {
-	@extend .body-lg;
+	// @extend .body-lg;
 }
 
 .bottom {
@@ -87,7 +87,7 @@
 }
 
 .byline {
-	@extend .body-sm;
+	// @extend .body-sm;
 	display: inline-flex;
 	flex-wrap: wrap;
 

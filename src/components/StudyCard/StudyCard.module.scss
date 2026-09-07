@@ -1,88 +1,90 @@
+/* StudyCard.module.scss */
+
 @use 'sass:map';
 @use 'sass:color';
 
 // Palette modifiers
-@each $key, $palette in $group-palettes {
-	:global(.#{$key}-card) {
-		background: map.get($palette, bg);
+// @each $key, $palette in $group-palettes {
+// 	:global(.#{$key}-card) {
+// 		background: map.get($palette, bg);
 
-		.card-link,
-		.card-link svg {
-			$link-color: map.get($palette, link);
-			color: $link-color;
-			fill: $link-color;
-			transition: all 0.3s ease-in-out;
-		}
+// 		.card-link,
+// 		.card-link svg {
+// 			$link-color: map.get($palette, link);
+// 			color: $link-color;
+// 			fill: $link-color;
+// 			transition: all 0.3s ease-in-out;
+// 		}
 
-		// On card hover
-		&:hover,
-		&:focus-visible {
-			background: color.adjust(map.get($palette, bg), $lightness: -8%);
+// 		// On card hover
+// 		&:hover,
+// 		&:focus-visible {
+// 			background: color.adjust(map.get($palette, bg), $lightness: -8%);
 
-			.card-link,
-			.card-link svg {
-				color: color.adjust(map.get($palette, link), $lightness: -16%);
-				fill: color.adjust(map.get($palette, link), $lightness: -16%);
-				text-underline-offset: 0.5em;
-			}
-		}
+// 			.card-link,
+// 			.card-link svg {
+// 				color: color.adjust(map.get($palette, link), $lightness: -16%);
+// 				fill: color.adjust(map.get($palette, link), $lightness: -16%);
+// 				text-underline-offset: 0.5em;
+// 			}
+// 		}
 
-		// On card active (press)
-		&:active {
-			.card-link,
-			.card-link svg {
-				color: color.adjust(map.get($palette, link), $lightness: -32%);
-				fill: color.adjust(map.get($palette, link), $lightness: -32%);
-				text-underline-offset: 0.5em;
-			}
-		}
+// 		// On card active (press)
+// 		&:active {
+// 			.card-link,
+// 			.card-link svg {
+// 				color: color.adjust(map.get($palette, link), $lightness: -32%);
+// 				fill: color.adjust(map.get($palette, link), $lightness: -32%);
+// 				text-underline-offset: 0.5em;
+// 			}
+// 		}
 
-		// Change card's focus ring to $link-color
-		&:focus-visible {
-			outline: 3px solid map.get($palette, link);
-			outline-offset: 4px;
-			border-radius: var(--size-radius-lg);
-		}
+// 		// Change card's focus ring to $link-color
+// 		&:focus-visible {
+// 			outline: 3px solid map.get($palette, link);
+// 			outline-offset: 4px;
+// 			border-radius: var(--size-radius-lg);
+// 		}
 
-		.case-study-component-wrapper {
-			box-shadow: 0
-				0
-				56px
-				16px
-				rgba(map.get($palette, link), $sample-shadow-opacity);
-		}
+// 		.case-study-component-wrapper {
+// 			box-shadow: 0
+// 				0
+// 				56px
+// 				16px
+// 				rgba(map.get($palette, link), $sample-shadow-opacity);
+// 		}
 
-		.case-study-image-fallback {
-			background: map.get($palette, link);
+// 		.case-study-image-fallback {
+// 			background: map.get($palette, link);
 
-			svg {
-				fill: var(--color-white);
-			}
-		}
+// 			svg {
+// 				fill: var(--color-white);
+// 			}
+// 		}
 
-		// Move arrow icon on card hover/press/focus
-		&:hover .card-link .icon,
-		&:focus-visible .card-link .icon {
-			transform: translateX(0.2em);
-			transition: transform 0.2s;
-		}
-		&:active .card-link .icon {
-			transform: translateX(0.4em);
-			transition: transform 0.1s;
-		}
+// 		// Move arrow icon on card hover/press/focus
+// 		&:hover .card-link .icon,
+// 		&:focus-visible .card-link .icon {
+// 			transform: translateX(0.2em);
+// 			transition: transform 0.2s;
+// 		}
+// 		&:active .card-link .icon {
+// 			transform: translateX(0.4em);
+// 			transition: transform 0.1s;
+// 		}
 
-		// Image grows on card hover/press/focus
-		&:hover .case-study-image-wrapper,
-		&:focus-visible .case-study-image-wrapper {
-			transform: scale(1.04);
-			transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-		}
-		&:active .case-study-image-wrapper {
-			transform: scale(1.08);
-			transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
-		}
-	}
-}
+// 		// Image grows on card hover/press/focus
+// 		&:hover .case-study-image-wrapper,
+// 		&:focus-visible .case-study-image-wrapper {
+// 			transform: scale(1.04);
+// 			transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+// 		}
+// 		&:active .case-study-image-wrapper {
+// 			transform: scale(1.08);
+// 			transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
+// 		}
+// 	}
+// }
 
 // Card base
 .wrapper {
@@ -108,9 +110,9 @@
 	.case-study-image-wrapper {
 		right: -16px;
 
-		@include respond(sm) {
-			right: auto;
-		}
+		// @include respond(sm) {
+		// 	right: auto;
+		// }
 	}
 }
 
@@ -125,7 +127,7 @@
 	}
 
 	.case-study-component-wrapper {
-		left: var(--size-space-section-lg); // 64px
+		left: var(--size-space-section-lg);
 		top: var(--size-space-lg);
 		bottom: 0;
 	}
@@ -145,16 +147,16 @@
 	position: relative;
 	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 
-	@include respond(md) {
-		right: -16px;
-	}
+	// @include respond(md) {
+	// 	right: -16px;
+	// }
 
-	@include respond(sm) {
-		right: auto;
-		width: 100%;
-		height: auto;
-		padding: 0 var(--size-space-4xl); // 40px
-	}
+	// @include respond(sm) {
+	// 	right: auto;
+	// 	width: 100%;
+	// 	height: auto;
+	// 	padding: 0 var(--size-space-4xl); // 40px
+	// }
 }
 
 .case-study-component-wrapper {
@@ -167,99 +169,99 @@
 	object-position: left top;
 	bottom: -56px;
 
-	@include respond(md) {
-		bottom: -40px;
-		left: 0;
-		top: auto;
-	}
+	// @include respond(md) {
+	// 	bottom: -40px;
+	// 	left: 0;
+	// 	top: auto;
+	// }
 
-	@include respond(sm) {
-		border-radius: var(--size-radius-lg);
-		left: auto;
-		top: auto;
-		bottom: auto;
-	}
+	// @include respond(sm) {
+	// 	border-radius: var(--size-radius-lg);
+	// 	left: auto;
+	// 	top: auto;
+	// 	bottom: auto;
+	// }
 
-	@include respond(xs) {
-		border-radius: var(--size-radius-sm);
-	}
+	// @include respond(xs) {
+	// 	border-radius: var(--size-radius-sm);
+	// }
 }
 
 .case-study-image-fallback {
 	border-radius: 0;
-	padding: var(--size-space-3xl) 0; // 32px 0
+	padding: var(--size-space-3xl) 0;
 }
 
 // Responsive: horizontal on md, vertical on sm/xs
 .wrapper,
 .vertical,
 .horizontal {
-	@include respond(md) {
-		grid-template-columns: 1fr minmax(0, 400px);
-		grid-template-rows: 1fr;
-		gap: var(--size-space-lg);
+	// @include respond(md) {
+	// 	grid-template-columns: 1fr minmax(0, 400px);
+	// 	grid-template-rows: 1fr;
+	// 	gap: var(--size-space-lg);
 
-		.case-study-component-wrapper {
-			left: 0;
-			top: auto;
-			bottom: -40px;
-		}
+	// 	.case-study-component-wrapper {
+	// 		left: 0;
+	// 		top: auto;
+	// 		bottom: -40px;
+	// 	}
 
-		.case-study-image-wrapper {
-			width: 480px;
-			height: 100%;
-			padding: 0;
-		}
+	// 	.case-study-image-wrapper {
+	// 		width: 480px;
+	// 		height: 100%;
+	// 		padding: 0;
+	// 	}
 
-		.text {
-			min-height: 148px;
-		}
+	// 	.text {
+	// 		min-height: 148px;
+	// 	}
 
-		.content {
-			padding-bottom: var(--size-space-4xl);
-		}
-	}
+	// 	.content {
+	// 		padding-bottom: var(--size-space-4xl);
+	// 	}
+	// }
 
-	@include respond(sm) {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto;
-		padding: 40px 0;
-		align-items: center;
-		text-align: center;
-		gap: var(--size-space-section-sm);
+	// @include respond(sm) {
+	// 	grid-template-columns: 1fr;
+	// 	grid-template-rows: auto auto;
+	// 	padding: 40px 0;
+	// 	align-items: center;
+	// 	text-align: center;
+	// 	gap: var(--size-space-section-sm);
 
-		.case-study-image-wrapper {
-			width: 100%;
-			height: auto;
-			padding: 0 var(--size-space-4xl);
-		}
+	// 	.case-study-image-wrapper {
+	// 		width: 100%;
+	// 		height: auto;
+	// 		padding: 0 var(--size-space-4xl);
+	// 	}
 
-		.case-study-component-wrapper {
-			left: auto;
-			top: auto;
-			bottom: auto;
-		}
+	// 	.case-study-component-wrapper {
+	// 		left: auto;
+	// 		top: auto;
+	// 		bottom: auto;
+	// 	}
 
-		.content {
-			padding: 0 var(--size-space-lg);
-			align-items: center;
-			gap: var(--size-space-3xl);
-			min-width: auto;
-			max-width: 100%;
-		}
+	// 	.content {
+	// 		padding: 0 var(--size-space-lg);
+	// 		align-items: center;
+	// 		gap: var(--size-space-3xl);
+	// 		min-width: auto;
+	// 		max-width: 100%;
+	// 	}
 
-		.text {
-			min-height: 0;
-		}
-	}
+	// 	.text {
+	// 		min-height: 0;
+	// 	}
+	// }
 
-	@include respond(xs) {
-		gap: var(--size-space-4xl);
+	// @include respond(xs) {
+	// 	gap: var(--size-space-4xl);
 
-		.content {
-			gap: var(--size-space-3xl);
-		}
-	}
+	// 	.content {
+	// 		gap: var(--size-space-3xl);
+	// 	}
+	// }
 }
 
 // Card content
@@ -280,7 +282,7 @@
 
 .description {
 	font-weight: var(--font-weight-regular);
-	font-family: $font-body;
+	font-family: var(--font-family-body);
 }
 
 .card-link {
@@ -315,46 +317,46 @@
 		max-width: 480px;
 		gap: var(--size-space-section-sm);
 
-		@include respond(sm) {
-			min-width: 100%;
-			max-width: 100%;
-		}
+		// @include respond(sm) {
+		// 	min-width: 100%;
+		// 	max-width: 100%;
+		// }
 	}
 
 	.title {
-		@extend .heading-lg;
+		// @extend .heading-lg;
 
-		@include respond(md) {
-			font-size: var(--font-size-xl);
-		}
+		// @include respond(md) {
+		// 	font-size: var(--font-size-xl);
+		// }
 
-		@include respond(sm) {
-			font-size: var(--font-size-lg);
-		}
+		// @include respond(sm) {
+		// 	font-size: var(--font-size-lg);
+		// }
 
-		@include respond(xs) {
-			font-size: var(--font-size-lg);
-		}
+		// @include respond(xs) {
+		// 	font-size: var(--font-size-lg);
+		// }
 	}
 
 	.description {
 		font-size: var(--font-size-md);
 
-		@include respond(xs) {
-			font-size: var(--font-size-sm);
-		}
+		// @include respond(xs) {
+		// 	font-size: var(--font-size-sm);
+		// }
 	}
 
 	.card-link {
 		font-size: var(--font-size-lg);
 
-		@include respond(sm) {
-			font-size: var(--font-size-lg);
-		}
+		// @include respond(sm) {
+		// 	font-size: var(--font-size-lg);
+		// }
 
-		@include respond(xs) {
-			font-size: var(--font-size-md);
-		}
+		// @include respond(xs) {
+		// 	font-size: var(--font-size-md);
+		// }
 	}
 }
 
@@ -362,16 +364,16 @@
 .study {
 	&.vertical,
 	&.horizontal {
-		@include respond(md) {
-			grid-template-columns: 1fr minmax(0, 300px);
-			gap: 0;
-		}
+		// @include respond(md) {
+		// 	grid-template-columns: 1fr minmax(0, 300px);
+		// 	gap: 0;
+		// }
 
-		@include respond(sm) {
-			grid-template-columns: 1fr;
-			grid-template-rows: auto auto;
-			gap: var(--size-space-4xl); // 40px
-		}
+		// @include respond(sm) {
+		// 	grid-template-columns: 1fr;
+		// 	grid-template-rows: auto auto;
+		// 	gap: var(--size-space-4xl); // 40px
+		// }
 	}
 
 	.content {
@@ -379,18 +381,18 @@
 	}
 
 	.title {
-		@extend .heading-xs;
+		// @extend .heading-xs;
 	}
 
 	.description {
-		@extend .caption-md;
+		// @extend .caption-md;
 	}
 
 	.card-link {
 		font-size: var(--font-size-md);
 
-		@include respond(xs) {
-			font-size: var(--font-size-sm);
-		}
+		// @include respond(xs) {
+		// 	font-size: var(--font-size-sm);
+		// }
 	}
 }

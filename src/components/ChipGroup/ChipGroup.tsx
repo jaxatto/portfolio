@@ -1,6 +1,6 @@
 import React from 'react';
 import Chip from '#components/Chip';
-import styles from './ChipGroup.module.scss';
+import styles from './ChipGroup.module.css';
 
 // ChipGroup component for displaying a group of chips
 // It allows customization of chip data, size, and theme

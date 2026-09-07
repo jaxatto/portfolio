@@ -1,15 +1,17 @@
+/* Banner.module.scss */
+
 .banner-wrapper {
 	display: flex;
 	justify-content: center;
 	padding: var(--size-space-4xl) 0 104px 0;
 
-	@include respond(sm) {
-		padding: var(--size-space-4xl) 0;
-	}
+	// @include respond(sm) {
+	// 	padding: var(--size-space-4xl) 0;
+	// }
 }
 
 .banner {
-	@include wrapper-max-width(content);
+	// @include wrapper-max-width(content);
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
@@ -17,11 +19,11 @@
 	flex-wrap: wrap;
 	min-width: 0;
 
-	@include respond(sm) {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
+	// @include respond(sm) {
+	// 	flex-direction: column;
+	// 	align-items: center;
+	// 	text-align: center;
+	// }
 }
 
 .text {
@@ -33,17 +35,17 @@
 	max-width: 100%;
 	gap: var(--size-space-xs);
 
-	@include respond(sm) {
-		flex: auto;
-	}
+	// @include respond(sm) {
+	// 	flex: auto;
+	// }
 }
 
 .heading {
-	@extend .title-md;
+	// @extend .title-md;
 }
 
 .description {
-	@extend .body-lg;
+	// @extend .body-lg;
 	line-height: var(--line-height-300);
 }
 
@@ -62,9 +64,9 @@
 		border-radius: 1.25em;
 		z-index: -1;
 
-		@include respond(xs) {
-			display: none;
-		}
+		// @include respond(xs) {
+		// 	display: none;
+		// }
 	}
 }
 

@@ -18,30 +18,30 @@
 		grid-row: 2 / 3;
 	}
 
-	@include respond(md) {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto;
-		gap: var(--size-space-lg);
+	// @include respond(md) {
+	// 	grid-template-columns: 1fr;
+	// 	grid-template-rows: auto auto auto;
+	// 	gap: var(--size-space-lg);
 
-		& > :nth-child(1),
-		& > :nth-child(2),
-		& > :nth-child(3) {
-			grid-column: 1 / 2;
-			grid-row: auto;
-		}
-	}
+	// 	& > :nth-child(1),
+	// 	& > :nth-child(2),
+	// 	& > :nth-child(3) {
+	// 		grid-column: 1 / 2;
+	// 		grid-row: auto;
+	// 	}
+	// }
 
-	@include respond(sm) {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto;
+	// @include respond(sm) {
+	// 	grid-template-columns: 1fr;
+	// 	grid-template-rows: auto auto auto;
 
-		& > :nth-child(1),
-		& > :nth-child(2),
-		& > :nth-child(3) {
-			grid-column: 1 / 2;
-			grid-row: auto;
-		}
-	}
+	// 	& > :nth-child(1),
+	// 	& > :nth-child(2),
+	// 	& > :nth-child(3) {
+	// 		grid-column: 1 / 2;
+	// 		grid-row: auto;
+	// 	}
+	// }
 }
 
 .study-grid {
@@ -49,19 +49,19 @@
 	grid-template-columns: 1fr 1fr;
 	gap: var(--size-space-lg);
 
-	@include respond(md) {
-		grid-template-columns: 1fr;
-		gap: var(--size-space-lg);
-	}
+	// @include respond(md) {
+	// 	grid-template-columns: 1fr;
+	// 	gap: var(--size-space-lg);
+	// }
 
-	@include respond(sm) {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto;
+	// @include respond(sm) {
+	// 	grid-template-columns: 1fr;
+	// 	grid-template-rows: auto auto;
 
-		& > :nth-child(1),
-		& > :nth-child(2) {
-			grid-column: 1 / 2;
-			grid-row: auto;
-		}
-	}
+	// 	& > :nth-child(1),
+	// 	& > :nth-child(2) {
+	// 		grid-column: 1 / 2;
+	// 		grid-row: auto;
+	// 	}
+	// }
 }

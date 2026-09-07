@@ -7,7 +7,7 @@ import NextStudy from '#pages/Studies/components/NextStudy';
 import type { StudyHeaderProps } from '#data/commonTypes/study/studyHeader';
 import type { StudySectionProps } from '#data/commonTypes/study/studySection';
 import type { StudyMetaProps } from '#data/commonTypes/study/studyMeta';
-import styles from './StudyTemplate.module.scss';
+import styles from './StudyTemplate.module.css';
 
 export type StudyTemplateProps = {
 	meta: StudyMetaProps;

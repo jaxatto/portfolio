@@ -1,8 +1,8 @@
 import React from 'react';
+import clsx from 'clsx';
 import Link from '#components/Link';
 import { content } from './resources/content';
 import styles from './Footer.module.css';
-import { cn } from '#utils/cn';
 
 // Page level footer component
 
@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
 		<footer>
 			<div className={styles['footer-wrapper']}>
 				<div className={styles.text}>
-					<h2 className={cn(styles.description, 'title-md')}>
+					<h2 className={clsx(styles.description, 'title-md')}>
 						{content.title}
 					</h2>
-					<p className={cn(styles.description, 'body-lg')}>
+					<p className={clsx(styles.description, 'body-lg')}>
 						{content.description}
 					</p>
 				</div>

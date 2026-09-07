@@ -1,19 +1,21 @@
+/* ExperienceCard.module.scss */
+
 .wrapper,
 :global(.experience-card-group) {
 	display: flex;
 	flex-direction: row;
 	padding: var(--size-space-2xl) var(--size-space-section-md)
-		var(--size-space-2xl) var(--size-space-2xl); // 24px 56px 24px 24px
+		var(--size-space-2xl) var(--size-space-2xl);
 	gap: var(--size-space-lg);
 	border-radius: var(--size-radius-md);
 
-	@include respond(sm) {
-		padding-right: var(--size-space-2xl); // 24px
-	}
+	// @include respond(sm) {
+	// 	padding-right: var(--size-space-2xl);
+	// }
 
-	@include respond(xs) {
-		flex-direction: column;
-	}
+	// @include respond(xs) {
+	// 	flex-direction: column;
+	// }
 }
 
 :global(.experience-card-group) {
@@ -26,24 +28,24 @@
 	}
 }
 
-@each $type in (primary, secondary, tertiary) {
-	:global(.#{$type}-experience-card) {
-		background: var(--group-#{$type}-bg);
-		margin: var(--size-space-lg) 0;
-		.logo {
-			background: var(--group-#{$type}-title);
+// @each $type in (primary, secondary, tertiary) {
+// 	:global(.#{$type}-experience-card) {
+// 		background: var(--group-#{$type}-bg);
+// 		margin: var(--size-space-lg) 0;
+// 		.logo {
+// 			background: var(--group-#{$type}-title);
 
-			svg {
-				fill: var(--color-white);
-				opacity: 0.9;
-			}
-		}
+// 			svg {
+// 				fill: var(--color-white);
+// 				opacity: 0.9;
+// 			}
+// 		}
 
-		.title {
-			color: var(--group-#{$type}-title);
-		}
-	}
-}
+// 		.title {
+// 			color: var(--group-#{$type}-title);
+// 		}
+// 	}
+// }
 
 .logo {
 	width: 56px;
@@ -64,10 +66,10 @@
 		opacity: 0.8;
 	}
 
-	@include respond(sm) {
-		width: 50px;
-		height: 50px;
-	}
+	// @include respond(sm) {
+	// 	width: 50px;
+	// 	height: 50px;
+	// }
 }
 
 .details {
@@ -77,15 +79,15 @@
 }
 
 .title {
-	@extend .heading-md-bold;
+	// @extend .heading-md-bold;
 }
 
 .sub-details {
-	@extend .body-sm;
+	// @extend .body-sm;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .callout {
-	@extend .body-sm;
+	// @extend .body-sm;
 }

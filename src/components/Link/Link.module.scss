@@ -1,3 +1,5 @@
+/* Link.module.scss */
+
 @use 'sass:map';
 
 .icon-wrapper {
@@ -12,7 +14,7 @@
 }
 
 a {
-	@include group-palette();
+	// @include group-palette();
 	text-underline-offset: 0.3em;
 	font-family: var(--font-family-heading);
 	font-weight: var(--font-weight-extra-bold);
@@ -27,7 +29,7 @@ a {
 	border-radius: 0.15em;
 
 	svg {
-		@include group-palette();
+		// @include group-palette();
 		position: relative;
 		transition: fill 0.3s ease-in-out;
 	}
@@ -46,7 +48,7 @@ a {
 .button {
 	display: flex;
 	align-self: flex-start;
-	padding: var(--size-space-lg) var(--size-space-3xl);  32px
+	padding: var(--size-space-lg) var(--size-space-3xl);
 	border-radius: var(--size-radius-xs);
 	text-decoration: none;
 	background-color: var(--color-primary);
@@ -68,6 +70,4 @@ a {
 	svg {
 		fill: var(--color-white);
 	}
-
-	@include interactive-states(map.get($main-colors, primary));
 }

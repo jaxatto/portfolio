@@ -15,8 +15,7 @@
 			"#styles/*": ["./src/styles/*"],
 			"#components/*": ["./src/components/*"],
 			"#pages/*": ["./src/pages/*"],
-			"#data/*": ["./src/data/*"],
-			"#utils/*": ["./src/utils/*"]
+			"#data/*": ["./src/data/*"]
 		}
 	},
 	"include": ["src", "scripts", "vite.config.ts", "vite-plugins.d.ts"]

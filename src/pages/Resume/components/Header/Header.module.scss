@@ -3,12 +3,12 @@
 @use 'sass:map';
 
 .wrapper {
-	@include wrapper-max-width(content);
+	// @include wrapper-max-width(content);
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	padding: var(--size-space-2xl) var(--size-space-2xl)
-		var(--size-space-section-md) var(--size-space-2xl);  24px 48px 24px
+		var(--size-space-section-md) var(--size-space-2xl);
 
 	// @include respond(sm) {
 	// 	align-items: center;
@@ -24,14 +24,14 @@
 }
 
 .page-title-lg {
-	@extend .title-lg;
+	// @extend .title-lg;
 	color: var(--group-primary-title);
-	margin-bottom: var(--size-space-xs); // 4px
+	margin-bottom: var(--size-space-xs);
 }
 
 .description {
-	@extend .body-lg;
-	margin-bottom: var(--size-space-3xl); // 32px
+	// @extend .body-lg;
+	margin-bottom: var(--size-space-3xl);
 	display: flex;
 	flex-direction: column;
 
@@ -39,18 +39,18 @@
 	// 	display: inline;
 
 	// 	.description1 {
-	// 		margin-right: var(--size-space-xs); // 4px
+	// 		margin-right: var(--size-space-xs);
 	// 	}
 	// }
 }
 
 .byline {
-	@extend .body-sm-bold;
-	margin-bottom: var(--size-space-2xl); 
+	// @extend .body-sm-bold;
+	margin-bottom: var(--size-space-2xl);
 }
 
 .button {
-	@include interactive-states(map.get($group-palettes, primary, title), true);
+	// @include interactive-states(map.get($group-palettes, primary, title), true);
 	background-color: var(--group-primary-title);
 
 	svg {

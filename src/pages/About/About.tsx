@@ -5,7 +5,7 @@ import Image from '#components/Image';
 import { images } from './resources/images';
 import { content } from './resources/content';
 import { meta } from './resources/meta';
-import styles from './About.module.scss';
+import styles from './About.module.css';
 
 const About: React.FC = () => (
 	<Layout

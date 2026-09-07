@@ -1,9 +1,9 @@
 import React from 'react';
+import clsx from 'clsx';
 import { useLocation } from 'react-router-dom';
 import Link from '#components/Link/Link';
 import styles from './Header.module.css';
 import { content } from './resources/content';
-import { cn } from '#utils/cn';
 
 // Page level header component
 // This component renders the header with a skip link, brand, byline, and navigation links
@@ -20,7 +20,7 @@ const Header: React.FC = () => {
 				<Link to="/" className={styles.link}>
 					{content.brand}
 				</Link>
-				<span className={cn(styles.byline, 'caption-md')}>
+				<span className={clsx(styles.byline, 'caption-md')}>
 					{Array.isArray(content.byline)
 						? content.byline.map((line, i) => <span key={i}>{line}</span>)
 						: content.byline}
