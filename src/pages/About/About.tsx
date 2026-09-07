@@ -1,11 +1,11 @@
-import React from 'react';
-import Layout from '@components/Layout';
-import Divider from '@components/Divider';
-import Image from '@components/Image';
-import { images } from './resources/images';
-import { content } from './resources/content';
-import { meta } from './resources/meta';
-import styles from './About.module.scss';
+import React from "react";
+import Layout from "@components/Layout";
+import Divider from "@components/Divider";
+import Image from "@components/Image";
+import { images } from "./resources/images";
+import { content } from "./resources/content";
+import { meta } from "./resources/meta";
+import styles from "./About.module.scss";
 
 const About: React.FC = () => (
   <Layout
@@ -14,10 +14,8 @@ const About: React.FC = () => (
     className={styles.wrapper}
   >
     <section>
-      <div className={styles['top-section']}>
-        <h1 className={styles.title}>
-          <span aria-hidden="true">{content.header.headingEmoji}</span> {content.header.heading}
-        </h1>
+      <div className={styles["top-section"]}>
+        <h1 className={styles.title}>{content.header.heading}</h1>
         <ul>
           {content.header.bullets.map((bullet, i) => (
             <li key={i}>
@@ -26,12 +24,13 @@ const About: React.FC = () => (
           ))}
         </ul>
       </div>
-      <Divider variant='section-divider' className={styles.divider} />
+      <Divider variant="section-divider" className={styles.divider} />
       <p>{content.header.description}</p>
     </section>
-    <section className={styles['how-section']}>
+    <section className={styles["how-section"]}>
       <h2>
-        <span aria-hidden="true">{content.how.headingEmoji}</span> {content.how.heading}
+        <span aria-hidden="true">{content.how.headingEmoji}</span>{" "}
+        {content.how.heading}
       </h2>
       {content.how.description.map((desc, i) => (
         <p key={i}>{desc}</p>
@@ -39,32 +38,29 @@ const About: React.FC = () => (
     </section>
     <section>
       <h2>
-        <span aria-hidden="true">{content.more.headingEmoji}</span> {content.more.heading}
+        <span aria-hidden="true">{content.more.headingEmoji}</span>{" "}
+        {content.more.heading}
       </h2>
       {content.more.description.map((desc, i) => (
         <p key={i}>{desc}</p>
       ))}
     </section>
     <section>
-      <ul className={styles['lifestyle-image-row']}>
-        <span className="sr-only">
-          {content.images.srOnly.intro}
-        </span>
+      <ul className={styles["lifestyle-image-row"]}>
+        <span className="sr-only">{content.images.srOnly.intro}</span>
         {images.map((img, i) => (
-          <li key={i} className={styles['lifestyle-line-item']}  >
+          <li key={i} className={styles["lifestyle-line-item"]}>
             <Image
               src={img.src}
               alt={img.alt}
               iconFallback={img.iconFallback}
               altFallback={img.altFallback}
-              className={styles['lifestyle-fallback-wrapper']}
-              fallbackClassName={styles['lifestyle-fallback-icon']}
+              className={styles["lifestyle-fallback-wrapper"]}
+              fallbackClassName={styles["lifestyle-fallback-icon"]}
             />
           </li>
         ))}
-        <span className="sr-only">
-          {content.images.srOnly.outro}
-        </span>
+        <span className="sr-only">{content.images.srOnly.outro}</span>
       </ul>
     </section>
   </Layout>
