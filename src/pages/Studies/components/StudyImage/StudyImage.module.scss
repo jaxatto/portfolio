@@ -8,7 +8,7 @@
 .image {
 	width: 100%;
 	height: auto;
-	border-radius: radius(400); // 16px
+	border-radius: var(--size-radius-lg); // 16px
 }
 
 .square {
@@ -22,7 +22,7 @@
 }
 
 .image-fallback-wrapper {
-	border-radius: radius(400); // 16px
+	border-radius: var(--size-radius-lg); // 16px
 	padding: var(--size-space-section-lg) 0; // 64px 0
 
 	svg {

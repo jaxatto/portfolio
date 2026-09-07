@@ -3,7 +3,7 @@
 	display: flex;
 	flex-direction: column;
 	border: 2px solid var(--color-medium);
-	border-radius: radius(300);
+	border-radius: var(--size-radius-md);
 	padding: var(--size-space-2xl) var(--size-space-section-md)
 		var(--size-space-2xl) var(--size-space-2xl);
 	gap: var(--size-space-2xl);

@@ -41,7 +41,7 @@
 		&:focus-visible {
 			outline: 3px solid map.get($palette, link);
 			outline-offset: 4px;
-			border-radius: radius(400);
+			border-radius: var(--size-radius-lg);
 		}
 
 		.case-study-component-wrapper {
@@ -89,7 +89,7 @@
 	display: grid;
 	grid-template-columns: 1fr minmax(0, 400px);
 	align-items: stretch;
-	border-radius: radius(400);
+	border-radius: var(--size-radius-lg);
 	overflow: hidden;
 	color: var(--color-dark);
 	text-decoration: none;
@@ -174,14 +174,14 @@
 	}
 
 	@include respond(sm) {
-		border-radius: radius(400);
+		border-radius: var(--size-radius-lg);
 		left: auto;
 		top: auto;
 		bottom: auto;
 	}
 
 	@include respond(xs) {
-		border-radius: radius(200); // 8px
+		border-radius: var(--size-radius-sm); // 8px
 	}
 }
 
@@ -329,35 +329,35 @@
 		@extend .heading-lg;
 
 		@include respond(md) {
-			font-size: font-size(200);
+			font-size: var(--font-size-xl);
 		}
 
 		@include respond(sm) {
-			font-size: font-size(150);
+			font-size: var(--font-size-lg);
 		}
 
 		@include respond(xs) {
-			font-size: font-size(125);
+			font-size: var(--font-size-lg);
 		}
 	}
 
 	.description {
-		font-size: font-size(100);
+		font-size: var(--font-size-md);
 
 		@include respond(xs) {
-			font-size: font-size(75);
+			font-size: var(--font-size-sm);
 		}
 	}
 
 	.card-link {
-		font-size: font-size(150);
+		font-size: var(--font-size-lg);
 
 		@include respond(sm) {
-			font-size: font-size(125);
+			font-size: var(--font-size-lg);
 		}
 
 		@include respond(xs) {
-			font-size: font-size(100);
+			font-size: var(--font-size-md);
 		}
 	}
 }
@@ -391,10 +391,10 @@
 	}
 
 	.card-link {
-		font-size: font-size(100);
+		font-size: var(--font-size-md);
 
 		@include respond(xs) {
-			font-size: font-size(75);
+			font-size: var(--font-size-sm);
 		}
 	}
 }

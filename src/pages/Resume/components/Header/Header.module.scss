@@ -56,11 +56,10 @@
 	}
 
 	@include respond(sm) {
-		font-size: font-size(125);
+		font-size: var(--font-size-lg);
 		align-self: center;
 	}
-
-	@include respond(xs) {
-		font-size: font-size(100);
+	var(--font-size-md) @include respond(xs) {
+		font-size: var(--font-size-md);
 	}
 }

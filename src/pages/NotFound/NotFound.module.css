@@ -97,13 +97,13 @@
 
 @media (width <= 640px) {
 	.button-404 {
-		font-size: font-size(125);
+		font-size: var(--font-size-lg);
 	}
 }
 
 @media (width <= 320px) {
 	.button-404 {
-		font-size: font-size(100);
+		font-size: var(--font-size-md);
 		padding: var(--size-space-md) var(--size-space-xl);
 	}
 }

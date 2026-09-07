@@ -5,7 +5,7 @@
 	padding: var(--size-space-2xl) var(--size-space-section-md)
 		var(--size-space-2xl) var(--size-space-2xl); // 24px 56px 24px 24px
 	gap: var(--size-space-lg);
-	border-radius: radius(300);
+	border-radius: var(--size-radius-md);
 
 	@include respond(sm) {
 		padding-right: var(--size-space-2xl); // 24px
@@ -60,7 +60,7 @@
 	svg {
 		width: 100%;
 		height: 100%;
-		padding: spacing(75); // 6px
+		padding: var(--size-space-sm); // 6px
 		fill: var(--color-white);
 		opacity: 0.8;
 	}

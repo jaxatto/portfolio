@@ -32,7 +32,7 @@ section p:not(:last-of-type) {
 			gap: var(--size-space-sm);
 			padding: var(--size-space-lg);
 			border: 2px solid var(--color-medium);
-			border-radius: radius(300);
+			border-radius: var(--size-radius-md);
 		}
 
 		@include respond(sm) {
