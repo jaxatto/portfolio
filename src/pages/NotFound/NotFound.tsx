@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Link from '#components/Link';
 import { content } from '#pages/NotFound/resources/content';
 import styles from './NotFound.module.css';
@@ -7,8 +8,10 @@ const NotFound: React.FC = () => (
 	<div className={styles.wrapper}>
 		<div className={styles.main}>
 			<div className={styles.copy}>
-				<h1 className={styles.title}>{content.title}</h1>
-				<p className={styles.description}>{content.description}</p>
+				<h1 className={clsx(styles.title, 'title-lg')}>{content.title}</h1>
+				<p className={clsx(styles.description, 'body-lg')}>
+					{content.description}
+				</p>
 			</div>
 			<Link
 				to={content.button.src}
@@ -19,13 +22,13 @@ const NotFound: React.FC = () => (
 				{content.button.label}
 			</Link>
 		</div>
-		<div className={styles.subtext}>
-			<span className={styles.preText}>{content.subtext.preText}</span>
+		<div className={clsx(styles.subtext, 'body-sm')}>
+			<span className={styles['pre-text']}>{content.subtext.preText}</span>
 			<Link to={content.subtext.src} className={styles['subtext-link']}>
 				{content.subtext.label}{' '}
 				<span className="sr-only">{content.subtext.srOnly}</span>
 			</Link>
-			<span className={styles.endText}>{content.subtext.endText}</span>
+			<span className={styles['end-text']}>{content.subtext.endText}</span>
 		</div>
 	</div>
 );

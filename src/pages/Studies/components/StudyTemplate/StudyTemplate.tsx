@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Layout from '#components/Layout';
 import HeaderSection from '#pages/Studies/components/HeaderSection';
 import StudySection from '#pages/Studies/components/StudySection';
@@ -25,7 +26,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({
 	<Layout
 		title={meta.title}
 		metaDescription={meta.description}
-		className={styles.wrapper}
+		className={clsx(styles.wrapper, 'general-content-wrapper')}
 	>
 		<HeaderSection
 			title={content.header.title}

@@ -9,8 +9,8 @@
 	align-items: center;
 	text-align: center;
 	background: var(--color-secondary-container);
-	color: var(--color-white);
-	padding: spacing(600) spacing(300); // 48px 24px
+	color: var(--color-content-inverse);
+	padding: var(--size-space-section-sm) var(--size-space-2xl);
 }
 
 .main {
@@ -18,40 +18,31 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: spacing(700);
+	gap: var(--size-space-section-md);
 }
 
 .copy {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: spacing(100);
-}
-
-.title {
-	@extend .title-lg;
-}
-
-.description {
-	@extend .body-lg;
+	gap: var(--size-radius-sm);
 }
 
 .subtext {
-	@extend .body-sm;
 	position: absolute;
-	bottom: var(--space-section-md);
+	bottom: var(--size-space-section-md);
 	color: var(--color-secondary-container);
 	display: flex;
-	flex-direction: row;
+	flex-flow: row;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
-.preText {
+.pre-text {
 	margin-right: 0.3em;
 }
 
-.endText {
+.end-text {
 	margin-left: 0.1em;
 }
 
@@ -85,20 +76,11 @@
 	&:focus-visible {
 		outline-color: var(--color-secondary-container);
 	}
-
-	@include respond(sm) {
-		font-size: font-size(125);
-	}
-
-	@include respond(xs) {
-		font-size: font-size(100);
-		padding: spacing(150) spacing(250);
-	}
 }
 
 .subtext-link {
 	color: var(--color-secondary-container);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-emphasis);
 
 	&:hover {
 		color: change-lightness(var(--color-secondary-container), hover);
@@ -109,6 +91,19 @@
 	}
 
 	&:focus-visible {
-		outline-color: var(--secondary-container);
+		outline-color: var(--color-secondary-container);
+	}
+}
+
+@media (width <= 640px) {
+	.button-404 {
+		font-size: font-size(125);
+	}
+}
+
+@media (width <= 320px) {
+	.button-404 {
+		font-size: font-size(100);
+		padding: var(--size-space-md) var(--size-space-xl);
 	}
 }

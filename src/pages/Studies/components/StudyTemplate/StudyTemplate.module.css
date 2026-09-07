@@ -1,0 +1,9 @@
+.wrapper {
+	gap: var(--size-space-section-lg);
+}
+
+@media (width >= 640px) {
+	.wrapper {
+		gap: var(--size-space-4xl);
+	}
+}

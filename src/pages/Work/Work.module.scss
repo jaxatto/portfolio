@@ -1,8 +1,8 @@
 .work-intro-wrapper {
-	padding: spacing(300) 0 spacing(500) 0; // 24px 0 40px 0
+	padding: var(--size-space-2xl) 0 var(--size-space-4xl) 0; // 24px 0 40px 0
 	display: flex;
 	flex-direction: column;
-	gap: spacing(200); // 16px
+	gap: var(--size-space-lg); // 16px
 	align-items: center;
 	text-align: center;
 }

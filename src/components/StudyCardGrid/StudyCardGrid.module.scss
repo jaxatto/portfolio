@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto auto;
-	gap: spacing(300); // 24px
+	gap: var(--size-space-2xl); // 24px
 
 	// First card spans both columns in the first row
 	& > :nth-child(1) {
@@ -21,7 +21,7 @@
 	@include respond(md) {
 		grid-template-columns: 1fr;
 		grid-template-rows: auto auto auto;
-		gap: spacing(200); // 16px
+		gap: var(--size-space-lg); // 16px
 
 		& > :nth-child(1),
 		& > :nth-child(2),
@@ -47,11 +47,11 @@
 .study-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: spacing(200); // 16px
+	gap: var(--size-space-lg); // 16px
 
 	@include respond(md) {
 		grid-template-columns: 1fr;
-		gap: spacing(200); // 16px
+		gap: var(--size-space-lg); // 16px
 	}
 
 	@include respond(sm) {

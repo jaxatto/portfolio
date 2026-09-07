@@ -3,7 +3,7 @@
 
 	h2 {
 		@extend .heading-md;
-		margin-bottom: spacing(200);
+		margin-bottom: var(--size-space-lg);
 	}
 }
 
@@ -12,13 +12,13 @@
 }
 
 section p:not(:last-of-type) {
-	margin-bottom: spacing(300);
+	margin-bottom: var(--size-space-2xl);
 }
 
 .top-section {
 	display: flex;
 	flex-direction: column;
-	gap: spacing(300); // 24px
+	gap: var(--size-space-2xl); // 24px
 
 	ul {
 		@extend .body-md;
@@ -26,11 +26,11 @@ section p:not(:last-of-type) {
 		display: grid;
 		grid-template-columns: auto 1fr;
 		grid-template-rows: repeat(2, auto);
-		gap: spacing(200) spacing(400);
+		gap: var(--size-space-lg) var(--size-space-3xl);
 
 		li {
-			gap: spacing(100);
-			padding: spacing(200);
+			gap: var(--size-space-sm);
+			padding: var(--size-space-lg);
 			border: 2px solid var(--color-medium);
 			border-radius: radius(300);
 		}
@@ -50,7 +50,7 @@ section p:not(:last-of-type) {
 .lifestyle-image-row {
 	@extend .remove-ul-style;
 	display: flex;
-	gap: spacing(200); // 16px
+	gap: var(--size-space-lg); // 16px
 
 	.lifestyle-line-item {
 		width: 100%;
@@ -78,6 +78,6 @@ section p:not(:last-of-type) {
 
 	@include respond(xs) {
 		flex-direction: column;
-		gap: spacing(200); // 16px
+		gap: var(--size-space-lg); // 16px
 	}
 }

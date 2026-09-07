@@ -1,8 +1,8 @@
 .study-image {
 	display: flex;
 	flex-direction: column;
-	margin-top: spacing(400); // 32px
-	gap: spacing(150); // 12px
+	margin-top: var(--size-space-3xl); // 32px
+	gap: var(--size-space-md); // 12px
 }
 
 .image {
@@ -23,7 +23,7 @@
 
 .image-fallback-wrapper {
 	border-radius: radius(400); // 16px
-	padding: spacing(800) 0; // 64px 0
+	padding: var(--size-space-section-lg) 0; // 64px 0
 
 	svg {
 		height: auto;

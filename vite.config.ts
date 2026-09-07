@@ -28,15 +28,15 @@ export default defineConfig({
 			'@': path.resolve(__dirname, 'src'),
 		},
 	},
-	css: {
-		postcss: {
-			plugins: [
-				pxtorem({
-					rootValue: 16,
-					propList: ['*'],
-					mediaQuery: true,
-				}),
-			],
-		},
-	},
+	// css: {
+	// 	postcss: {
+	// 		plugins: [
+	// 			pxtorem({
+	// 				rootValue: 16,
+	// 				propList: ['*'],
+	// 				mediaQuery: true,
+	// 			}),
+	// 		],
+	// 	},
+	// },
 });

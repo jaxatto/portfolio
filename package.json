@@ -9,13 +9,13 @@
 		"sync-icons": "node scripts/sync-icons.js",
 		"generate:component": "node scripts/generate-component.js",
 		"plugin:watcher": "tsx scripts/tokens/watcher.ts",
-		"dev": "npm run build-scripts && vite",
-		"build": "vite build",
+		"dev": "npx vite",
+		"build": "npx vite build",
 		"build:scripts": "npm run generate-index && npm run sync-icons",
 		"build:theme": "tsx scripts/tokens/build-theme.ts",
 		"postbuild": "cp dist/index.html dist/404.html",
-		"preview": "vite preview",
-		"predeploy": "vite build && npm run postbuild && cp CNAME dist/CNAME && npm run build-scripts",
+		"preview": "npx vite preview",
+		"predeploy": "npx vite build && npm run postbuild && cp CNAME dist/CNAME && npm run build-scripts",
 		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {

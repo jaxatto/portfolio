@@ -8,7 +8,7 @@
 
 .divider {
 	padding-top: 0;
-	padding-bottom: spacing(600);
+	padding-bottom: var(--size-space-section-sm);
 }
 
 .content {
@@ -16,28 +16,30 @@
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	gap: spacing(500); // 40px
-	padding: 0 spacing(300) 104px spacing(300);
+	gap: var(--size-space-4xl); // 40px
+	padding: 0 var(--size-space-2xl) 104px var(--size-space-2xl);
 
 	@include respond(sm) {
-		padding: spacing(200) spacing(200) spacing(800) spacing(200);
+		padding: var(--size-space-lg) var(--size-space-lg)
+			var(--size-space-section-lg) var(--size-space-lg);
 	}
 
 	@include respond(xs) {
-		padding: spacing(100) spacing(100) spacing(600) spacing(100);
-		gap: spacing(300);
+		padding: var(--size-space-sm) var(--size-space-sm)
+			var(--size-space-section-sm) var(--size-space-sm);
+		gap: var(--size-space-2xl);
 	}
 }
 
 .top {
 	display: flex;
 	flex-direction: column;
-	gap: spacing(200);
-	padding-right: spacing(600);
+	gap: var(--size-space-lg);
+	padding-right: var(--size-space-section-sm);
 
 	@include respond(sm) {
 		padding-right: 0;
-		gap: spacing(100);
+		gap: var(--size-space-sm);
 	}
 }
 
@@ -64,7 +66,7 @@
 .bottom {
 	display: flex;
 	flex-direction: column;
-	gap: spacing(300);
+	gap: var(--size-space-2xl);
 }
 
 .button {

@@ -1,4 +1,4 @@
 .title {
 	@extend .heading-md;
-	margin-bottom: spacing(200); // 16px
+	margin-bottom: var(--size-space-lg); // 16px
 }

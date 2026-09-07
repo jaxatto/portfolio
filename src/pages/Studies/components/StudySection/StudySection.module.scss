@@ -1,10 +1,10 @@
 .section-title {
 	@extend .heading-md;
-	margin-bottom: spacing(100); // 8px
+	margin-bottom: var(--size-space-sm); // 8px
 }
 
 .section-paragraph:not(:last-of-type) {
-	margin-bottom: spacing(300); // 24px
+	margin-bottom: var(--size-space-2xl); // 24px
 }
 
 .section-list {

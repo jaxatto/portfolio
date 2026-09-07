@@ -2,12 +2,13 @@
 :global(.experience-card-group) {
 	display: flex;
 	flex-direction: row;
-	padding: spacing(300) spacing(700) spacing(300) spacing(300); // 24px 56px 24px 24px
-	gap: spacing(200);
+	padding: var(--size-space-2xl) var(--size-space-section-md)
+		var(--size-space-2xl) var(--size-space-2xl); // 24px 56px 24px 24px
+	gap: var(--size-space-lg);
 	border-radius: radius(300);
 
 	@include respond(sm) {
-		padding-right: spacing(300); // 24px
+		padding-right: var(--size-space-2xl); // 24px
 	}
 
 	@include respond(xs) {
@@ -18,7 +19,7 @@
 :global(.experience-card-group) {
 	display: flex;
 	flex-direction: column;
-	gap: spacing(400);
+	gap: var(--size-space-3xl);
 
 	.wrapper {
 		padding: 0;
@@ -28,7 +29,7 @@
 @each $type in (primary, secondary, tertiary) {
 	:global(.#{$type}-experience-card) {
 		background: var(--group-#{$type}-bg);
-		margin: spacing(200) 0; // 16px 0
+		margin: var(--size-space-lg) 0; // 16px 0
 
 		.logo {
 			background: var(--group-#{$type}-title);
@@ -73,7 +74,7 @@
 .details {
 	display: flex;
 	flex-direction: column;
-	gap: spacing(200); // 16px
+	gap: var(--size-space-lg); // 16px
 }
 
 .title {

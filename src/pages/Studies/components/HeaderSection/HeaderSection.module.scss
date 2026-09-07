@@ -1,11 +1,11 @@
 .top-section {
-	margin-bottom: spacing(300);
+	margin-bottom: var(--size-space-2xl);
 }
 
 .title {
 	@extend .page-title;
 	line-height: 1.2;
-	margin-bottom: spacing(100);
+	margin-bottom: var(--size-space-sm);
 }
 
 .role,
@@ -18,5 +18,5 @@
 }
 
 .description:not(:last-of-type) {
-	margin-bottom: spacing(300);
+	margin-bottom: var(--size-space-2xl);
 }

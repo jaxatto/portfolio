@@ -117,7 +117,7 @@
 .vertical {
 	grid-template-columns: 1fr;
 	grid-template-rows: auto auto;
-	gap: spacing(300); // 24px
+	gap: var(--size-space-2xl); // 24px
 
 	.case-study-image-wrapper {
 		width: 100%;
@@ -125,13 +125,13 @@
 	}
 
 	.case-study-component-wrapper {
-		left: spacing(800); // 64px
-		top: spacing(200);
+		left: var(--size-space-section-lg); // 64px
+		top: var(--size-space-lg);
 		bottom: 0;
 	}
 
 	.content {
-		padding-bottom: spacing(300); // 24px
+		padding-bottom: var(--size-space-2xl); // 24px
 	}
 }
 
@@ -153,7 +153,7 @@
 		right: auto;
 		width: 100%;
 		height: auto;
-		padding: 0 spacing(500); // 40px
+		padding: 0 var(--size-space-4xl); // 40px
 	}
 }
 
@@ -187,7 +187,7 @@
 
 .case-study-image-fallback {
 	border-radius: 0;
-	padding: spacing(400) 0; // 32px 0
+	padding: var(--size-space-3xl) 0; // 32px 0
 }
 
 // Responsive: horizontal on md, vertical on sm/xs
@@ -197,7 +197,7 @@
 	@include respond(md) {
 		grid-template-columns: 1fr minmax(0, 400px);
 		grid-template-rows: 1fr;
-		gap: spacing(200);
+		gap: var(--size-space-lg);
 
 		.case-study-component-wrapper {
 			left: 0;
@@ -216,7 +216,7 @@
 		}
 
 		.content {
-			padding-bottom: spacing(500);
+			padding-bottom: var(--size-space-4xl);
 		}
 	}
 
@@ -226,12 +226,12 @@
 		padding: 40px 0;
 		align-items: center;
 		text-align: center;
-		gap: spacing(600);
+		gap: var(--size-space-section-sm);
 
 		.case-study-image-wrapper {
 			width: 100%;
 			height: auto;
-			padding: 0 spacing(500);
+			padding: 0 var(--size-space-4xl);
 		}
 
 		.case-study-component-wrapper {
@@ -241,9 +241,9 @@
 		}
 
 		.content {
-			padding: 0 spacing(200);
+			padding: 0 var(--size-space-lg);
 			align-items: center;
-			gap: spacing(400);
+			gap: var(--size-space-3xl);
 			min-width: auto;
 			max-width: 100%;
 		}
@@ -254,10 +254,10 @@
 	}
 
 	@include respond(xs) {
-		gap: spacing(500);
+		gap: var(--size-space-4xl);
 
 		.content {
-			gap: spacing(400);
+			gap: var(--size-space-3xl);
 		}
 	}
 }
@@ -266,7 +266,8 @@
 .content {
 	display: flex;
 	flex-direction: column;
-	padding: spacing(300) spacing(300) spacing(500) spacing(300);
+	padding: var(--size-space-2xl) var(--size-space-2xl) var(--size-space-4xl)
+		var(--size-space-2xl);
 	align-items: flex-start;
 	width: 100%;
 }
@@ -274,7 +275,7 @@
 .text {
 	display: flex;
 	flex-direction: column;
-	gap: spacing(100);
+	gap: var(--size-space-sm);
 }
 
 .description {
@@ -290,7 +291,7 @@
 	display: flex;
 	align-items: center;
 	gap: 0.2em;
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-emphasis);
 	font-family: $font-heading;
 	text-decoration: underline;
 	text-underline-offset: 0.3em;
@@ -316,7 +317,7 @@
 	.content {
 		min-width: 320px;
 		max-width: 480px;
-		gap: spacing(600);
+		gap: var(--size-space-section-sm);
 
 		@include respond(sm) {
 			min-width: 100%;
@@ -373,12 +374,12 @@
 		@include respond(sm) {
 			grid-template-columns: 1fr;
 			grid-template-rows: auto auto;
-			gap: spacing(500); // 40px
+			gap: var(--size-space-4xl); // 40px
 		}
 	}
 
 	.content {
-		gap: spacing(300); // 24px
+		gap: var(--size-space-2xl); // 24px
 	}
 
 	.title {
