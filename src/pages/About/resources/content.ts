@@ -1,46 +1,49 @@
 export const content = {
-    header: {
-        heading: 'About me',
-        bullets: [
-             { 
-                text: '10+ years product design', 
-                emoji: '📆' 
-            },
-            { 
-                text: 'Accessibility advocacy', 
-                emoji: '♿' 
-            },
-            { 
-                text: 'Design systems leadership', 
-                emoji: '🎨' 
-            },
-            { 
-                text: 'Cross-functional collaboration', 
-                emoji: '👥' 
-            },
-        ],
-        description: 'I design accessible, scalable experiences that make complex tools feel straightforward. My work spans fintech, internal tools, and enterprise platforms. I\'m currently at ServiceNow, where I help internal teams design and build tools that are practical, intuitive, and easy to maintain.',
+  header: {
+    heading: "About me",
+    bullets: [
+      {
+        text: "11+ years product design",
+        emoji: "📆",
+      },
+      {
+        text: "Accessibility advocacy",
+        emoji: "♿",
+      },
+      {
+        text: "Design systems leadership",
+        emoji: "🎨",
+      },
+      {
+        text: "Cross-functional collaboration",
+        emoji: "👥",
+      },
+    ],
+    description: [
+      "I bridge the gap between product design and engineering to build scalable, production-ready product infrastructure. My background spans interface design, enterprise tokens, complex workflow automation, and WCAG accessibility standards across fintech, automotive, and SaaS environments.",
+      "In my current role at Toyota, I design and specialize in design token automation, token-to-code pipelines, and developer tooling across our multi-brand product ecosystem. Over my career at companies like ServiceNow, Indeed, and Visa, I have focused on bringing systematic clarity and UX quality to diverse platforms.",
+    ],
+  },
+  how: {
+    heading: "Approach to Work",
+    description: [
+      "Strategic Product Design: Working alongside business and product leadership, I define requirements and transform  organizational goals into frictionless user experiences.",
+      "Concept to Execution: Using my strong front-end foundation, I build designs, handoff materials, and use modern AI workflows to set engineering teams up for success.",
+      "Building Inclusive Design Culture: I foster team cohesion through a strong feedback culture, candid critiques, and collaborative practices that invite everyone to participate in design.",
+    ],
+  },
+  more: {
+    heading: "Personal Life",
+    description: [
+      "I live in Fort Worth, Texas with my partner and our four rowdy pets: Kirby, Midna, Zelda, and Beau. When I'm not in Figma or VS Code, you can find me playing narrative-heavy video games, analyzing complex Zelda lore timelines, or watching 2-hour video essays on obscure topics.",
+    ],
+  },
+  images: {
+    srOnly: {
+      intro:
+        "Meet my pets! Midna, Kirby, Beauregard, and Zelda. Because I work remote, they're always around and up to no good (but are very cute).",
+      outro:
+        "Zelda, the black cat, is not pictured because she was sleeping somewhere hidden.",
     },
-    how: {
-        heading: 'How I work',
-        headingEmoji: '🧠',
-        description: [
-            'I lead projects from beginning to end, from shaping the problem to shipping the solution. By staying close to the details, I ensure accessibility and consistency at every step.',
-            'I\'m at my best in collaborative, technical environments, partnering closely with engineers to sweat the details. My code background and experience with AI tools help teams stay unblocke and keep projects moving quickly.',
-            'I also enjoy mentorship and knowledge sharing, whether through design critiques, pair design sessions, or leading workshops. I believe in building a culture of learning and growth, where everyone can participate in design.',
-        ],
-    },
-    more: {
-        heading: 'A little more',
-        headingEmoji: '✨',
-        description: [
-            'I live in Fort Worth, Texas with my partner and our four pets (our cat Midna insists she is the project manager). I love narrative-heavy games, deep dives into Zelda timelines, and finding ways to improve workflows that make other people\'s jobs easier.',
-        ],
-    },
-    images: {
-        srOnly: {
-            intro: 'Meet my pets! Midna, Kirby, Beauregard, and Zelda. Because I work remote, they\'re always around and up to no good (but are very cute).',
-            outro: 'Zelda, the black cat, is not pictured because she was sleeping somewhere.',
-        },
-    },
+  },
 };

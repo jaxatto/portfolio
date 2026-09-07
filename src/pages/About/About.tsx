@@ -25,22 +25,18 @@ const About: React.FC = () => (
         </ul>
       </div>
       <Divider variant="section-divider" className={styles.divider} />
-      <p>{content.header.description}</p>
+      {content.header.description.map((desc, i) => (
+        <p key={i}>{desc}</p>
+      ))}
     </section>
     <section className={styles["how-section"]}>
-      <h2>
-        <span aria-hidden="true">{content.how.headingEmoji}</span>{" "}
-        {content.how.heading}
-      </h2>
+      <h2>{content.how.heading}</h2>
       {content.how.description.map((desc, i) => (
         <p key={i}>{desc}</p>
       ))}
     </section>
     <section>
-      <h2>
-        <span aria-hidden="true">{content.more.headingEmoji}</span>{" "}
-        {content.more.heading}
-      </h2>
+      <h2>{content.more.heading}</h2>
       {content.more.description.map((desc, i) => (
         <p key={i}>{desc}</p>
       ))}
