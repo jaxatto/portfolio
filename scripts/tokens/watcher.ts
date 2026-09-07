@@ -152,8 +152,24 @@ async function broadcastTokens() {
 		);
 		extractInteractStates(lightColors);
 		extractInteractStates(darkColors);
-		const lightShadowColors: Record<string, any> = {};
-		const darkShadowColors: Record<string, any> = {};
+		const lightShadowColors: Record<string, any> = {
+			default: {
+				$value: withOpacity(
+					defaultTheme.shadow.color.default.color.light,
+					defaultTheme.shadow.color.default.opacity,
+				),
+				$type: 'color',
+			},
+		};
+		const darkShadowColors: Record<string, any> = {
+			default: {
+				$value: withOpacity(
+					defaultTheme.shadow.color.default.color.dark,
+					defaultTheme.shadow.color.default.opacity,
+				),
+				$type: 'color',
+			},
+		};
 		for (const group of [
 			'brand',
 			'primary',

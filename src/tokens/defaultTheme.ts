@@ -22,11 +22,11 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			},
 			variant: {
 				light: primitives.colors.slate[900],
-				dark: primitives.colors.slate[200],
+				dark: primitives.colors.slate[100],
 			},
 			muted: {
-				light: primitives.colors.slate[700],
-				dark: primitives.colors.slate[300],
+				light: primitives.colors.slate[600],
+				dark: primitives.colors.slate[400],
 			},
 			link: {
 				light: primitives.colors.violet[700],
@@ -43,8 +43,8 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				dark: primitives.colors.slate[900],
 			},
 			sunken: {
-				light: primitives.colors.slate[100],
-				dark: primitives.colors.slate[900],
+				light: primitives.colors.slate[200],
+				dark: primitives.colors.slate[800],
 			},
 		},
 		border: {

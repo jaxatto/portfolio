@@ -533,13 +533,13 @@
   /* ========================================== */
   --color-content-default: var(--primitive-color-purple-950);
   --color-content-variant: var(--primitive-color-slate-900);
-  --color-content-muted: var(--primitive-color-slate-700);
+  --color-content-muted: var(--primitive-color-slate-600);
   --color-content-link: var(--primitive-color-violet-700);
   --color-content-inverse: var(--primitive-color-white);
   --color-content-default-hover: var(--primitive-color-purple-900);
   --color-content-default-active: var(--primitive-color-purple-800);
   --color-surface-default: var(--primitive-color-white);
-  --color-surface-sunken: var(--primitive-color-slate-100);
+  --color-surface-sunken: var(--primitive-color-slate-200);
   --color-border-decorative: var(--primitive-color-slate-300);
   --color-brand-default: var(--primitive-color-purple-800);
   --color-brand-on-brand: var(--primitive-color-white);
@@ -604,14 +604,14 @@
 /* ============================================== */
 [data-theme="dark"] {
   --color-content-default: var(--primitive-color-purple-50);
-  --color-content-variant: var(--primitive-color-slate-200);
-  --color-content-muted: var(--primitive-color-slate-300);
+  --color-content-variant: var(--primitive-color-slate-100);
+  --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
   --color-content-default-hover: var(--primitive-color-purple-100);
   --color-content-default-active: var(--primitive-color-purple-200);
   --color-surface-default: var(--primitive-color-slate-900);
-  --color-surface-sunken: var(--primitive-color-slate-900);
+  --color-surface-sunken: var(--primitive-color-slate-800);
   --color-border-decorative: var(--primitive-color-slate-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-brand: var(--primitive-color-black);
@@ -674,14 +674,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
   --color-content-default: var(--primitive-color-purple-50);
-  --color-content-variant: var(--primitive-color-slate-200);
-  --color-content-muted: var(--primitive-color-slate-300);
+  --color-content-variant: var(--primitive-color-slate-100);
+  --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
   --color-content-default-hover: var(--primitive-color-purple-100);
   --color-content-default-active: var(--primitive-color-purple-200);
   --color-surface-default: var(--primitive-color-slate-900);
-  --color-surface-sunken: var(--primitive-color-slate-900);
+  --color-surface-sunken: var(--primitive-color-slate-800);
   --color-border-decorative: var(--primitive-color-slate-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-brand: var(--primitive-color-black);
