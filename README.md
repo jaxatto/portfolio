@@ -1,6 +1,6 @@
 # Jax Engel – Portfolio
 
-I'm a senior-level product designer with a focus on accessibility, systems thinking, and product strategy. This portfolio highlights selected case studies from my experience designing tools, platforms, and real-world interfaces that scale.
+I'm a staff-level product designer with a focus on accessibility, systems thinking, and product strategy. This portfolio highlights selected case studies from my experience designing tools, platforms, and real-world interfaces that scale.
 
 ## Live Site
 
