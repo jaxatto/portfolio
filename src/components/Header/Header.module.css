@@ -18,18 +18,13 @@ header {
 /* ------------------------------------------------------------- */
 
 .brand {
-	display: flex;
-	align-items: center;
-	gap: var(--size-space-sm);
-}
-
-.brand .link {
 	color: var(--color-content-default, #3c0366);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-heading-md-size);
 	font-style: normal;
 	font-weight: var(--font-weight-strong);
 	line-height: 120%;
+	gap: var(--size-space-sm);
 }
 
 /* ------------------------------------------------------------- */

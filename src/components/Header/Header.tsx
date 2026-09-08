@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { useLocation } from 'react-router-dom';
-import Link from '#components/Link/Link';
+import Link from '#components/Link';
+import Icon from '#components/Icon';
 import styles from './Header.module.css';
 import { mainLinks } from '#src/data/constants/mainLinks';
 
@@ -17,20 +17,17 @@ const Header: React.FC = () => {
 		{ name: 'Resume', url: mainLinks.resume },
 	];
 
-	useLocation();
-
 	return (
 		<header>
 			<a href="#main-content" className={clsx(styles['skip-link'], 'sr-only')}>
 				Skip to main content
 			</a>
-			<div className={styles.brand}>
-				<span className="material-symbols-rounded icon-32">automation</span>
 
-				<Link to="/" className={styles.link} hasUnderline={false}>
-					Jax Engel
-				</Link>
-			</div>
+			<Link to="/" className={styles.brand} hasUnderline={false}>
+				<Icon name="automation" />
+				Jax Engel
+			</Link>
+
 			<nav>
 				<ul className="list-reset">
 					{linksList.map((link, index) => (
