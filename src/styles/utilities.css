@@ -6,11 +6,11 @@
 
 .general-content-wrapper {
 	width: 100%;
-	max-width: var(--wrapper-content);
+	max-width: 960px;
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	gap: var(--space-section-sm);
+	gap: var(--size-space-section-sm);
 }
 
 /* ------------------------------------------------------------- */

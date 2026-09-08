@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { mainLinks } from '#data/constants/mainLinks';
+import { NavLink } from 'react-router-dom';
+import clsx from 'clsx';
+import { getSafeHref } from '#utils/sanitizeHref';
 import Icon from '#components/Icon';
 import styles from './Link.module.scss';
 
-// Link component for navigation
-// It supports both internal and external links, with options for new tab, icon, and styling
-// Usage: <Link to="/path" newTab iconName="arrow-right">Link Text</Link>
-
-type LinkProps = {
+export type LinkProps = {
 	to?: string;
 	href?: string;
 	newTab?: boolean;
@@ -16,8 +13,9 @@ type LinkProps = {
 	iconName?: string;
 	iconPosition?: 'right' | 'left';
 	styleAs?: 'link' | 'button';
+	hasUnderline?: boolean;
 	children: React.ReactNode;
-} & React.RefAttributes<HTMLAnchorElement>;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>; // Inherit native anchor props like aria-label, onClick, etc.
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 	(
@@ -29,71 +27,59 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 			iconName,
 			iconPosition = 'right',
 			styleAs = 'link',
+			hasUnderline = true,
 			children,
 			...props
 		},
 		ref,
 	) => {
-		const location = typeof window !== 'undefined' ? useLocation() : undefined;
-
 		const icon = iconName ? (
 			<Icon name={iconName} className={styles.icon} />
 		) : null;
 
-		const content =
-			iconPosition === 'right' ? (
-				<>
-					{children}
-					{icon}
-				</>
-			) : (
-				<>
-					{icon}
-					{children}
-				</>
-			);
+		const content = (
+			<>
+				{iconPosition === 'left' && icon}
+				{children}
+				{iconPosition === 'right' && icon}
+			</>
+		);
 
-		// Add styles.button if styleAs is 'button'
-		const linkClass = [
-			styles.link,
-			styleAs === 'button' ? styles.button : '',
-			className,
-		]
-			.filter(Boolean)
-			.join(' ');
+		const baseClass = clsx(styles.link, className, {
+			[styles.button]: styleAs === 'button',
+			[styles.underline]: hasUnderline && styleAs === 'link',
+		});
 
+		// Internal navigation (React Router)
 		if (to) {
-			const isCurrent = location && location.pathname === to;
 			return (
-				<RouterLink
+				<NavLink
 					to={to}
-					className={linkClass}
-					aria-current={isCurrent ? 'page' : undefined}
+					className={({ isActive }) =>
+						clsx(baseClass, isActive && styles.active)
+					}
+					ref={ref}
 					{...props}
-					ref={ref as any}
 				>
 					{content}
-				</RouterLink>
+				</NavLink>
 			);
 		}
 
-		const safeHref =
-			href &&
-			(href.startsWith('http://') ||
-				href.startsWith('https://') ||
-				href.startsWith('mailto:') ||
-				(href.startsWith('/') && !href.startsWith('//')) ||
-				href.startsWith(mainLinks.siteURL))
-				? href
-				: '/';
+		// External / Standard anchor navigation
+		const safeHref = getSafeHref(href);
 
 		return (
 			<a
 				href={safeHref}
-				className={linkClass}
+				className={baseClass}
 				target={newTab ? '_blank' : undefined}
 				rel={newTab ? 'noopener noreferrer' : undefined}
 				{...props}
+				aria-label={
+					props['aria-label'] ||
+					(newTab ? `${children} (opens in a new tab)` : undefined)
+				}
 				ref={ref}
 			>
 				{content}
@@ -101,5 +87,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 		);
 	},
 );
+
+Link.displayName = 'Link';
 
 export default Link;

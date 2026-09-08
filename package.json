@@ -66,6 +66,7 @@
 		"#styles/*": "./src/styles/*",
 		"#pages/*": "./src/pages/*",
 		"#components/*": "./src/components/*",
-		"#data/*": "./src/data/*"
+		"#data/*": "./src/data/*",
+		"#utils/*": "./src/utils/*"
 	}
 }

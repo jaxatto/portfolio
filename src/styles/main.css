@@ -1,15 +1,12 @@
 /* main.css */
 
-* {
-	box-sizing: border-box;
-}
+@import url('reset.css');
+@import url('variables.css');
+@import url('layout.css');
+@import url('typography.css');
+@import url('iconography.css');
+@import url('utilities.css');
 
 body {
-	background: var(--color-background);
-	margin: 0;
-}
-
-html,
-body {
-	overflow-x: hidden;
+	background: var(--color-surface-default);
 }

@@ -1,7 +1,5 @@
 /* Link.module.scss */
 
-@use 'sass:map';
-
 .icon-wrapper {
 	display: flex;
 	align-items: center;
@@ -15,9 +13,9 @@
 
 a {
 	// @include group-palette();
-	text-underline-offset: 0.3em;
+	text-decoration: none;
 	font-family: var(--font-family-heading);
-	font-weight: var(--font-weight-extra-bold);
+	font-weight: var(--font-weight-strong);
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -33,15 +31,16 @@ a {
 		position: relative;
 		transition: fill 0.3s ease-in-out;
 	}
+}
+
+.underline {
+	text-decoration: underline;
+	text-underline-offset: 0.3em;
 
 	&:hover,
 	&:active {
 		text-decoration: underline;
 		text-underline-offset: 0.5em;
-	}
-
-	&:focus-visible {
-		text-decoration: none;
 	}
 }
 
