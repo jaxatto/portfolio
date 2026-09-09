@@ -20,16 +20,34 @@ header {
 .brand {
 	color: var(--color-content-default);
 	font-family: var(--font-family-heading);
-	font-size: var(--font-style-heading-md-size);
+	font-size: var(--font-style-heading-sm-size);
 	font-style: normal;
 	font-weight: var(--font-weight-strong);
-	line-height: 120%;
+	line-height: var(--font-style-heading-sm-line-height);
 	gap: var(--size-space-sm);
 }
 
 /* ------------------------------------------------------------- */
 /* -- Navigation ----------------------------------------------- */
 /* ------------------------------------------------------------- */
+
+nav ul {
+	display: flex;
+	align-items: center;
+	gap: var(--size-space-2xl);
+}
+
+.nav-link {
+	color: var(--color-primary-default);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-weight-strong);
+}
+
+.nav-link-active {
+	color: var(--color-content-default);
+	text-decoration: underline;
+	text-underline-offset: 0.3em;
+}
 
 /* ------------------------------------------------------------- */
 /* -- Accessibility / Skip Link -------------------------------- */
