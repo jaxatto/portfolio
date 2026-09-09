@@ -1,0 +1,86 @@
+/* ModeToggle.module.css */
+
+.track {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	width: 58px;
+	height: 32px;
+	padding: var(--size-space-xs);
+	border: none;
+	border-radius: var(--size-radius-xl);
+	background: var(--color-primary-container);
+	transition: background-color 0.2s ease;
+}
+
+.track:hover {
+	background: var(--color-primary-container-hover);
+}
+
+.track:active {
+	background: var(--color-primary-container-active);
+}
+
+.track[aria-checked='true'] {
+	background: var(--color-primary-default);
+}
+
+.track[aria-checked='true']:hover {
+	background: var(--color-primary-default-hover);
+}
+
+.track[aria-checked='true']:active {
+	background: var(--color-primary-default-active);
+}
+
+.track:focus-visible {
+	outline: var(--size-border-width-default) solid var(--color-state-focus-ring);
+	outline-offset: 2px;
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 24px;
+	height: 24px;
+	font-size: 20px;
+	border-radius: var(--size-radius-xl);
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.sun {
+	background: var(--color-primary-default);
+	color: var(--color-primary-on-default);
+}
+
+.track:hover .sun {
+	background: var(--color-primary-default-hover);
+}
+
+.track:active .sun {
+	background: var(--color-primary-default-active);
+}
+
+.track[aria-checked='true'] .sun {
+	background: transparent;
+}
+
+.moon {
+	color: var(--color-primary-default);
+}
+
+.track[aria-checked='true'] .moon {
+	background: var(--color-primary-on-default);
+}
+
+.track[aria-checked='true']:hover .moon {
+	color: var(--color-primary-default-hover);
+}
+
+.track[aria-checked='true']:active .moon {
+	color: var(--color-primary-default-active);
+}

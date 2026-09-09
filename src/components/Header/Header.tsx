@@ -32,7 +32,14 @@ const Header: React.FC = () => {
 				<ul className="list-reset">
 					{linksList.map((link, index) => (
 						<li key={index}>
-							<Link to={link.url}>{link.name}</Link>
+							<Link
+								to={link.url}
+								className={styles['nav-link']}
+								activeClassName={styles['nav-link-active']}
+								hasUnderline={false}
+							>
+								{link.name}
+							</Link>
 						</li>
 					))}
 				</ul>

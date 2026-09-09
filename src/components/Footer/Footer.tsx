@@ -19,25 +19,25 @@ const Footer: React.FC = () => {
 
 			<div className={styles.card}>
 				<div className={styles.top}>
-					<h2 className={styles.title}>{content.title}</h2>
+					<h2 className={clsx(styles.title, 'title-sm')}>{content.title}</h2>
 					<p className={clsx(styles.description, 'body-lg')}>
 						{content.description}
 					</p>
 				</div>
 
 				<div className={styles.links}>
-					<Link href={content.email.src} className={styles.emailLink}>
+					<Link href={content.email.src} className={styles['email-link']}>
 						<span className="sr-only">{content.email.preText}</span>
 						{content.email.label}
 						<span className="sr-only">{content.email.srOnly}</span>
-						<Icon name="arrow_outward" className={styles.emailIcon} />
+						<Icon name="arrow_outward" className={styles['email-icon']} />
 					</Link>
 
 					<div className={styles.row}>
 						<Link
 							href={content.resume.src}
 							newTab
-							className={styles.rowLink}
+							className={styles['row-link']}
 							aria-label={content.resume.ariaLabel}
 						>
 							{content.resume.label}
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
 						<Link
 							href={content.linkedin.src}
 							newTab
-							className={styles.rowLink}
+							className={styles['row-link']}
 							aria-label={content.linkedin.ariaLabel}
 						>
 							{content.linkedin.label}
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
 						<Link
 							href={content.github.src}
 							newTab
-							className={styles.rowLink}
+							className={styles['row-link']}
 							aria-label={content.github.ariaLabel}
 						>
 							{content.github.label}

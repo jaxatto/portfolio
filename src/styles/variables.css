@@ -524,7 +524,7 @@
   --font-style-body-md-weight: var(--font-weight-default);
   --font-style-body-md-line-height: var(--font-line-height-default);
   --font-style-body-sm-family: var(--font-family-body);
-  --font-style-body-sm-size: clamp(var(--font-size-sm), 0.8rem + 0.35vw,  md);
+  --font-style-body-sm-size: clamp(var(--font-size-sm), 0.8rem + 0.35vw, var(--font-size-md));
   --font-style-body-sm-weight: var(--font-weight-default);
   --font-style-body-sm-line-height: var(--font-line-height-default);
 

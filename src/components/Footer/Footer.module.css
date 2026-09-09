@@ -92,10 +92,6 @@
 .title {
 	margin: 0;
 	color: var(--color-content-default);
-	font-family: var(--font-style-title-sm-family);
-	font-size: var(--font-style-title-sm-size);
-	font-weight: var(--font-style-title-sm-weight);
-	line-height: var(--font-style-title-sm-line-height);
 }
 
 .description {
@@ -111,7 +107,7 @@
 	width: 100%;
 }
 
-.links .emailLink {
+.links .email-link {
 	gap: var(--size-space-sm);
 	font-family: var(--font-family-body);
 	font-weight: var(--font-weight-strong);
@@ -120,7 +116,7 @@
 	flex-wrap: wrap;
 }
 
-.emailIcon {
+.email-icon {
 	font-size: 1.1em;
 }
 
@@ -131,7 +127,7 @@
 	align-items: center;
 }
 
-.row .rowLink {
+.row .row-link {
 	font-family: var(--font-family-body);
 	font-weight: var(--font-weight-emphasis);
 	font-size: var(--font-size-lg);
@@ -142,7 +138,7 @@
 /* -- Responsive Overrides ------------------------------------- */
 /* ------------------------------------------------------------- */
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
 	.footer {
 		padding: var(--size-space-section-md) var(--size-space-lg)
 			var(--size-space-section-lg);
@@ -161,12 +157,12 @@
 		gap: var(--size-space-lg);
 	}
 
-	.row .rowLink {
+	.row .row-link {
 		font-size: var(--font-size-md);
 	}
 }
 
-@media (max-width: 340px) {
+@media (width <= 340px) {
 	.card {
 		padding: var(--size-space-xl);
 	}
