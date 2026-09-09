@@ -1,4 +1,6 @@
 import React from 'react';
+import type { Variant } from '#data/commonTypes/variant';
+import { getVariantVars } from '#data/commonTypes/variant';
 import styles from './Chip.module.css';
 
 // Chip component for displaying tags or labels
@@ -7,7 +9,7 @@ import styles from './Chip.module.css';
 
 type ChipProps = {
 	children: React.ReactNode;
-	variant?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
+	variant?: Variant | 'neutral';
 	className?: string;
 	size?: 'large' | 'small';
 };
@@ -22,6 +24,7 @@ const Chip: React.FC<ChipProps> = ({
 		className={[styles.wrapper, styles[variant], styles[size], className]
 			.filter(Boolean)
 			.join(' ')}
+		style={variant !== 'neutral' ? getVariantVars(variant) : undefined}
 	>
 		{children}
 	</div>

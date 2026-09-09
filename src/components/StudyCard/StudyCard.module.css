@@ -1,87 +1,67 @@
 /* StudyCard.module.css */
 
-/* Palette modifiers */
-/* @each $key, $palette in $group-palettes {
-	:global(.#{$key}-card) {
-		background: map.get($palette, bg);
+/* Palette modifiers — colors are supplied via the `--variant-*` custom
+   properties set inline by StudyCard based on the `palette` prop. */
+:global(.brand-card),
+:global(.primary-card),
+:global(.secondary-card),
+:global(.tertiary-card) {
+	background: var(--variant-container);
 
-		.card-link,
-		.card-link svg {
-			$link-color: map.get($palette, link);
-			color: $link-color;
-			fill: $link-color;
-			transition: all 0.3s ease-in-out;
-		}
+	& .card-link,
+	& .card-link svg {
+		color: var(--variant-default);
+		fill: var(--variant-default);
+		transition: all 0.3s ease-in-out;
+	}
 
-		// On card hover
-		&:hover,
-		&:focus-visible {
-			background: color.adjust(map.get($palette, bg), $lightness: -8%);
-
-			.card-link,
-			.card-link svg {
-				color: color.adjust(map.get($palette, link), $lightness: -16%);
-				fill: color.adjust(map.get($palette, link), $lightness: -16%);
-				text-underline-offset: 0.5em;
-			}
-		}
-
-		// On card active (press)
-		&:active {
-			.card-link,
-			.card-link svg {
-				color: color.adjust(map.get($palette, link), $lightness: -32%);
-				fill: color.adjust(map.get($palette, link), $lightness: -32%);
-				text-underline-offset: 0.5em;
-			}
-		}
-
-		// Change card's focus ring to $link-color
-		&:focus-visible {
-			outline: 3px solid map.get($palette, link);
-			outline-offset: 4px;
-			border-radius: var(--size-radius-lg);
-		}
-
-		.case-study-component-wrapper {
-			box-shadow: 0
-				0
-				56px
-				16px
-				rgba(map.get($palette, link), $sample-shadow-opacity);
-		}
-
-		.case-study-image-fallback {
-			background: map.get($palette, link);
-
-			svg {
-				fill: var(--color-white);
-			}
-		}
-
-		// Move arrow icon on card hover/press/focus
-		&:hover .card-link .icon,
-		&:focus-visible .card-link .icon {
-			transform: translateX(0.2em);
-			transition: transform 0.2s;
-		}
-		&:active .card-link .icon {
-			transform: translateX(0.4em);
-			transition: transform 0.1s;
-		}
-
-		// Image grows on card hover/press/focus
-		&:hover .case-study-image-wrapper,
-		&:focus-visible .case-study-image-wrapper {
-			transform: scale(1.04);
-			transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-		}
-		&:active .case-study-image-wrapper {
-			transform: scale(1.08);
-			transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
+	/* On card hover / focus / active, lean on the same variant colors */
+	&:hover,
+	&:focus-visible,
+	&:active {
+		& .card-link,
+		& .card-link svg {
+			text-underline-offset: 0.5em;
 		}
 	}
-} */
+
+	/* Change card's focus ring to variant color */
+	&:focus-visible {
+		outline: 3px solid var(--variant-default);
+		outline-offset: 4px;
+		border-radius: var(--size-radius-lg);
+	}
+
+	& .case-study-image-fallback {
+		background: var(--variant-default);
+
+		& svg {
+			fill: var(--variant-on-default);
+		}
+	}
+
+	/* Move arrow icon on card hover/press/focus */
+	&:hover .card-link .icon,
+	&:focus-visible .card-link .icon {
+		transform: translateX(0.2em);
+		transition: transform 0.2s;
+	}
+	&:active .card-link .icon {
+		transform: translateX(0.4em);
+		transition: transform 0.1s;
+	}
+
+	/* Image grows on card hover/press/focus */
+	&:hover .case-study-image-wrapper,
+	&:focus-visible .case-study-image-wrapper {
+		transform: scale(1.04);
+		transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+	}
+	&:active .case-study-image-wrapper {
+		transform: scale(1.08);
+		transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
+	}
+}
 
 /* Card base */
 .wrapper {

@@ -2,6 +2,8 @@ import React from 'react';
 import Link from '#components/Link';
 import Image from '#components/Image';
 import Icon from '#components/Icon';
+import type { Variant } from '#data/commonTypes/variant';
+import { getVariantVars } from '#data/commonTypes/variant';
 import styles from './StudyCard.module.css';
 
 // StudyCard component for displaying case studies or work examples
@@ -17,7 +19,7 @@ export type StudyCardProps = {
 	imageAlt?: string; // Alt text for the image
 	linkUrl: string; // URL for the study
 	linkText: string; // Text for the link
-	palette?: 'primary' | 'secondary' | 'tertiary'; // Color palette for the card
+	palette?: Variant; // Color palette for the card
 	layout?: 'horizontal' | 'vertical'; // Orientation of the card content
 	count?: number; // Optional count for the card, e.g., "Case study 1"
 	total?: number; // Optional total number of cards, e.g., "of 5"
@@ -59,6 +61,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
 				.filter(Boolean)
 				.join(' ')}
 			aria-label={accessibleLabel}
+			style={getVariantVars(palette)}
 		>
 			<div className={styles.content}>
 				<div className={styles.text}>

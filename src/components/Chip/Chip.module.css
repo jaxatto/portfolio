@@ -9,19 +9,12 @@
 	line-height: var(--line-height-100);
 }
 
-.primary {
-	background: var(--group-primary-bg);
-	color: var(--group-primary-chip);
-}
-
-.secondary {
-	background: var(--group-secondary-bg);
-	color: var(--group-secondary-chip);
-}
-
+.brand,
+.primary,
+.secondary,
 .tertiary {
-	background: var(--group-tertiary-bg);
-	color: var(--group-tertiary-chip);
+	background: var(--variant-container);
+	color: var(--variant-on-container);
 }
 
 .small {

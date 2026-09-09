@@ -10,15 +10,19 @@
 	gap: var(--size-space-2xl);
 }
 
-/* @each $type in (primary, secondary, tertiary) {
-	.#{$type} {
-		border-color: var(--group-#{$type}-bg);
+.brand,
+.primary,
+.secondary,
+.tertiary {
+	border-color: var(--variant-default);
+}
 
-		.title {
-			color: var(--group-#{$type}-title);
-		}
-	}
-} */
+.brand .title,
+.primary .title,
+.secondary .title,
+.tertiary .title {
+	color: var(--variant-default);
+}
 
 .top {
 	display: flex;
