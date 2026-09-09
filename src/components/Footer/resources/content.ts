@@ -1,19 +1,28 @@
 import { contactInfo } from '#data/constants/contactInfo';
 
 export const content = {
-	title: "Let's connect",
+	title: "Let's work together",
 	description:
-		'Currently tinkering with design tokens at Toyota. Always open to talk design.',
+		'Looking for remote Staff Product Designer or Design Technologist roles.',
 	email: {
 		preText: 'Email me at',
 		label: contactInfo.email.label,
 		src: contactInfo.email.src,
 		srOnly: '(opens email client)',
 	},
+	resume: {
+		label: 'Resume',
+		src: contactInfo.resume.src,
+		ariaLabel: 'Resume (opens in a new tab)',
+	},
 	linkedin: {
-		preText: 'Find me on',
 		label: 'LinkedIn',
 		src: contactInfo.linkedin.src,
-		srOnly: '(opens in a new tab)',
+		ariaLabel: 'LinkedIn (opens in a new tab)',
+	},
+	github: {
+		label: 'GitHub',
+		src: contactInfo.github.src,
+		ariaLabel: 'GitHub (opens in a new tab)',
 	},
 };
