@@ -8,7 +8,7 @@ const NotFound: React.FC = () => (
 	<div className={styles.wrapper}>
 		<div className={styles.main}>
 			<div className={styles.copy}>
-				<h1 className={clsx(styles.title, 'title-lg')}>{content.title}</h1>
+				<h1 className={clsx(styles.title, 'title-md')}>{content.title}</h1>
 				<p className={clsx(styles.description, 'body-lg')}>
 					{content.description}
 				</p>
