@@ -18,7 +18,7 @@ header {
 /* ------------------------------------------------------------- */
 
 .brand {
-	color: var(--color-content-default, #3c0366);
+	color: var(--color-content-default);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-heading-md-size);
 	font-style: normal;
