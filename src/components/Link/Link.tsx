@@ -9,6 +9,7 @@ export type LinkProps = {
 	href?: string;
 	newTab?: boolean;
 	className?: string;
+	activeClassName?: string;
 	styleAs?: 'link' | 'button';
 	hasUnderline?: boolean;
 	children: React.ReactNode;
@@ -21,6 +22,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 			href,
 			newTab,
 			className,
+			activeClassName,
 			styleAs = 'link',
 			hasUnderline = true,
 			children,
@@ -40,7 +42,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 					{...props}
 					to={to}
 					className={({ isActive }) =>
-						clsx(baseClass, isActive && styles.active)
+						clsx(baseClass, isActive && activeClassName)
 					}
 					ref={ref}
 				>
