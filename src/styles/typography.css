@@ -15,18 +15,18 @@ body {
 /* ------------------------------------------------------------- */
 
 .title-lg {
-	font-family: var(--font-heading);
-	line-height: var(--line-height-heading);
-	font-weight: var(--font-weight-black);
-	/* Aggressive growth: 24px (--font-size-xl) -> 56px (--font-size-4xl) */
+	font-family: var(--font-family-heading);
+	line-height: var(--font-line-height-compact);
+	font-weight: var(--font-weight-strong);
+	/* Aggressive growth: 24px (--font-size-xl) -> 48px (--font-size-4xl) */
 	font-size: clamp(var(--font-size-xl), 0.28rem + 5.7vw, var(--font-size-4xl));
 }
 
 .title-md,
 .page-title {
-	font-family: var(--font-heading);
-	line-height: var(--line-height-heading);
-	font-weight: var(--font-weight-extra-bold);
+	font-family: var(--font-family-heading);
+	line-height: var(--font-line-height-compact);
+	font-weight: var(--font-weight-strong);
 	/* Moderate growth: 24px (--font-size-xl) -> 40px (--font-size-3xl) */
 	font-size: clamp(var(--font-size-xl), 0.875rem + 2.8vw, var(--font-size-3xl));
 }

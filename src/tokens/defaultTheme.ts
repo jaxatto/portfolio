@@ -337,7 +337,7 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				size: {
 					min: 'sm',
 					preferred: '0.8rem + 0.35vw',
-					max: ' md',
+					max: 'md',
 				},
 				weight: 'default',
 				'line-height': 'default',
