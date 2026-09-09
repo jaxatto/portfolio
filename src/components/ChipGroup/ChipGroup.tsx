@@ -1,5 +1,6 @@
 import React from 'react';
 import Chip from '#components/Chip';
+import type { Variant } from '#data/commonTypes/variant';
 import styles from './ChipGroup.module.css';
 
 // ChipGroup component for displaying a group of chips
@@ -9,14 +10,14 @@ import styles from './ChipGroup.module.css';
 
 export type ChipData = {
 	label: string;
-	theme?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
+	theme?: Variant | 'neutral';
 };
 
 type ChipGroupProps = {
 	chips: ChipData[];
 	className?: string;
 	size?: 'large' | 'small';
-	theme?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
+	theme?: Variant | 'neutral';
 };
 
 const ChipGroup: React.FC<ChipGroupProps> = ({

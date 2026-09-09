@@ -9,10 +9,10 @@
 	line-height: var(--line-height-100);
 }
 
-@each $type in (primary, secondary, tertiary) {
+@each $type in (brand, primary, secondary, tertiary) {
 	.#{$type} {
-		background: var(--group-#{$type}-bg);
-		color: var(--group-#{$type}-chip);
+		background: var(--variant-container);
+		color: var(--variant-on-container);
 	}
 }
 
