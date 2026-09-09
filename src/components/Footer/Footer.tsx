@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
 		<footer>
 			<div className={styles['footer-wrapper']}>
 				<div className={styles.text}>
-					<h2 className={clsx(styles.description, 'title-md')}>
+					<h2 className={clsx(styles.description, 'title-sm')}>
 						{content.title}
 					</h2>
 					<p className={clsx(styles.description, 'body-lg')}>
