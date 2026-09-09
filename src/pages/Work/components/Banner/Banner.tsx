@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from '#components/Image';
 import { content } from './resources/content';
-import styles from './Banner.module.scss';
+import styles from './Banner.module.css';
 
 const Banner: React.FC = () => (
 	<section className={styles['banner-wrapper']}>

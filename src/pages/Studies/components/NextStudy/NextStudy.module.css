@@ -1,0 +1,6 @@
+/* NextStudy.module.css */
+
+.title {
+	/* @extend .heading-md; */
+	margin-bottom: var(--size-space-lg);
+}

@@ -1,29 +1,29 @@
-@use 'sass:map';
+/* Footer.module.css */
 
 .wrapper {
-	@include respond(sm) {
+	/* @include respond(sm) {
 		text-align: center;
-	}
+	} */
 }
 
 .content {
-	@include wrapper-max-width(content);
+	/* @include wrapper-max-width(content); */
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-4xl); // 40px
+	gap: var(--size-space-4xl); /* 40px */
 	padding: 0 var(--size-space-2xl) 104px var(--size-space-2xl);
 
-	@include respond(sm) {
+	/* @include respond(sm) {
 		padding: var(--size-space-lg) var(--size-space-lg)
 			var(--size-space-section-lg) var(--size-space-lg);
-	}
+	} */
 
-	@include respond(xs) {
+	/* @include respond(xs) {
 		padding: var(--size-space-sm) var(--size-space-sm)
 			var(--size-space-section-sm) var(--size-space-sm);
 		gap: var(--size-space-2xl);
-	}
+	} */
 }
 
 .top {
@@ -32,30 +32,30 @@
 	gap: var(--size-space-lg);
 	padding-right: var(--size-space-section-sm);
 
-	@include respond(sm) {
+	/* @include respond(sm) {
 		padding-right: 0;
 		gap: var(--size-space-sm);
-	}
+	} */
 }
 
 .title {
-	// @extend .title-md;
+	/* @extend .title-md; */
 	line-height: 1.2;
 	display: flex;
 	flex-direction: column;
 
-	@include respond(sm) {
+	/* @include respond(sm) {
 		display: inline;
 		align-items: center;
 
 		& > *:not(:last-child) {
 			margin-right: 0.2em;
 		}
-	}
+	} */
 }
 
 .description {
-	// @extend .body-lg;
+	/* @extend .body-lg; */
 }
 
 .bottom {
@@ -65,38 +65,38 @@
 }
 
 .button {
-	@include interactive-states(map.get($group-palettes, primary, title), true);
+	/* @include interactive-states(map.get($group-palettes, primary, title), true); */
 	background-color: var(--group-primary-title);
 	font-size: var(--font-size-xl);
 	text-align: left;
 
-	svg {
+	& svg {
 		width: 1.2em;
 		height: 1.2em;
 		margin-right: 0.1em;
 	}
 
-	@include respond(sm) {
+	/* @include respond(sm) {
 		font-size: var(--font-size-lg);
 		align-self: center;
-	}
+	} */
 
-	@include respond(sm) {
+	/* @include respond(sm) {
 		font-size: var(--font-size-md);
-	}
+	} */
 }
 
 .byline {
-	// @extend .body-sm;
+	/* @extend .body-sm; */
 	display: inline-flex;
 	flex-wrap: wrap;
 
-	> *:not(:nth-last-child(-n + 2)) {
+	& > *:not(:nth-last-child(-n + 2)) {
 		margin-right: 0.2em;
 	}
 
-	@include respond(sm) {
+	/* @include respond(sm) {
 		justify-content: center;
 		text-align: center;
-	}
+	} */
 }

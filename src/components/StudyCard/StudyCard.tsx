@@ -2,7 +2,7 @@ import React from 'react';
 import Link from '#components/Link';
 import Image from '#components/Image';
 import Icon from '#components/Icon';
-import styles from './StudyCard.module.scss';
+import styles from './StudyCard.module.css';
 
 // StudyCard component for displaying case studies or work examples
 // It supports various props for customization, including title, description, image, link URL, and link text

@@ -1,7 +1,7 @@
 import React from 'react';
 import StudyImage from '#pages/Studies/components/StudyImage';
 import type { StudySectionProps } from '#data/commonTypes/study/studySection';
-import styles from './StudySection.module.scss';
+import styles from './StudySection.module.css';
 
 const StudySection: React.FC<{
 	section: StudySectionProps;

@@ -3,7 +3,7 @@ import ChipGroup from '#components/ChipGroup';
 import DateRange from '#components/DateRange';
 import StudyImage from '#pages/Studies/components/StudyImage';
 import type { StudyHeaderProps } from '#data/commonTypes/study/studyHeader';
-import styles from './HeaderSection.module.scss';
+import styles from './HeaderSection.module.css';
 
 const Header: React.FC<StudyHeaderProps> = ({
 	title,

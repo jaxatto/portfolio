@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ExperienceCard.module.scss';
+import styles from './ExperienceCard.module.css';
 import DateRange from '#components/DateRange/DateRange';
 
 export type ExperienceCardProps = {

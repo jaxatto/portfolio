@@ -36,7 +36,6 @@
 		"json-to-ts": "^2.1.0",
 		"postcss-pxtorem-plus": "^3.5.1",
 		"prettier": "3.9.6",
-		"sass": "^1.89.1",
 		"style-dictionary": "^5.5.2",
 		"stylelint": "^17.14.1",
 		"stylelint-config-standard": "^40.0.0",

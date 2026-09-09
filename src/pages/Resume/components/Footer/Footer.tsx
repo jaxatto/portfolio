@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from '#components/Link';
 import { content } from './resources/content';
-import styles from './Footer.module.scss';
+import styles from './Footer.module.css';
 
 const Footer: React.FC = () => {
 	// Split the byline string at the placeholders

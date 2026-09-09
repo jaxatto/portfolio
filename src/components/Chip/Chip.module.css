@@ -1,4 +1,4 @@
-/* Chip.module.scss */
+/* Chip.module.css */
 
 .wrapper {
 	background: var(--color-placeholder);
@@ -9,11 +9,19 @@
 	line-height: var(--line-height-100);
 }
 
-@each $type in (primary, secondary, tertiary) {
-	.#{$type} {
-		background: var(--group-#{$type}-bg);
-		color: var(--group-#{$type}-chip);
-	}
+.primary {
+	background: var(--group-primary-bg);
+	color: var(--group-primary-chip);
+}
+
+.secondary {
+	background: var(--group-secondary-bg);
+	color: var(--group-secondary-chip);
+}
+
+.tertiary {
+	background: var(--group-tertiary-bg);
+	color: var(--group-tertiary-chip);
 }
 
 .small {

@@ -4,7 +4,7 @@ import Banner from '#pages/Work/components/Banner';
 import StudyCardGrid from '#components/StudyCardGrid';
 import { content } from '#pages/Work/resources/content';
 import { meta } from '#pages/Work/resources/meta';
-import styles from './Work.module.scss';
+import styles from './Work.module.css';
 
 const Work: React.FC = () => (
 	<Layout title={meta.title} metaDescription={meta.description}>

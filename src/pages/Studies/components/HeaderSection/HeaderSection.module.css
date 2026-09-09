@@ -1,9 +1,11 @@
+/* HeaderSection.module.css */
+
 .top-section {
 	margin-bottom: var(--size-space-2xl);
 }
 
 .title {
-	// @extend .page-title;
+	/* @extend .page-title; */
 	line-height: 1.2;
 	margin-bottom: var(--size-space-sm);
 }

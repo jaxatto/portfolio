@@ -1,5 +1,7 @@
+/* Work.module.css */
+
 .work-intro-wrapper {
-	padding: var(--size-space-2xl) 0 var(--size-space-4xl) 0;  0 40px 0
+	padding: var(--size-space-2xl) 0 var(--size-space-4xl) 0; /* 0 40px 0 */
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-lg);
@@ -8,5 +10,5 @@
 }
 
 .work-intro-title {
-	// @extend .body-lg;
+	/* @extend .body-lg; */
 }

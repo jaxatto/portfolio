@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '#components/Link';
-import styles from './Header.module.scss';
+import styles from './Header.module.css';
 import { content } from './resources/content';
 
 const Header: React.FC = () => (

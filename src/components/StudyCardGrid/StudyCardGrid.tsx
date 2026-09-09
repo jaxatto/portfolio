@@ -1,7 +1,7 @@
 import React from 'react';
 import StudyCard from '#components/StudyCard';
 import { content } from './resources/content';
-import styles from './StudyCardGrid.module.scss';
+import styles from './StudyCardGrid.module.css';
 
 // StudyCardGrid component that displays a grid of study cards
 // It can be used on both work and study pages, with options to filter out specific cards
