@@ -39,8 +39,10 @@ nav ul {
 
 .nav-link {
 	color: var(--color-primary-default);
+	font-family: var(--font-family-body);
 	font-size: var(--font-style-body-lg-size);
 	font-weight: var(--font-weight-strong);
+	line-height: var(--font-style-body-lg-line-height);
 }
 
 .nav-link-active {
