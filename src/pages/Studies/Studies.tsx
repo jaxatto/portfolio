@@ -8,6 +8,8 @@ import actblueContent from '#pages/Studies/pages/ActBlue/content';
 import actblueMeta from '#pages/Studies/pages/ActBlue/meta';
 import servicenowContent from '#pages/Studies/pages/ServiceNow/content';
 import servicenowMeta from '#pages/Studies/pages/ServiceNow/meta';
+import tokensContent from '#pages/Studies/pages/Tokens/content';
+import tokensMeta from '#pages/Studies/pages/Tokens/meta';
 
 // Map slugs to their content/meta modules
 const studies = {
@@ -22,6 +24,10 @@ const studies = {
 	servicenow: {
 		content: servicenowContent,
 		meta: servicenowMeta,
+	},
+	tokens: {
+		content: tokensContent,
+		meta: tokensMeta,
 	},
 };
 

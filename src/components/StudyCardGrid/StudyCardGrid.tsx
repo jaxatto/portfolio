@@ -25,8 +25,8 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({
 	const filteredData = excludeUrl
 		? data.filter((card) => card.linkUrl !== excludeUrl)
 		: data;
-	// Show 3 cards for 'work', 2 cards for 'study'
-	const visibleCount = variant === 'work' ? 3 : 2;
+	// Show 4 cards for 'work', 2 cards for 'study'
+	const visibleCount = variant === 'work' ? 4 : 2;
 	const visibleData = filteredData.slice(0, visibleCount);
 
 	return (
@@ -42,7 +42,7 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({
 					count={props.count}
 					total={data.length}
 					variant={variant}
-					layout={variant === 'work' && i === 0 ? 'horizontal' : 'vertical'}
+					layout={variant === 'work' && i < 2 ? 'horizontal' : 'vertical'}
 				/>
 			))}
 		</div>

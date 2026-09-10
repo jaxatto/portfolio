@@ -1,6 +1,6 @@
 .wrapper {
-	max-width: var(--wrapper-site);
+	max-width: var(--size-layout-popout-max);
 	width: 100%;
 	margin: 0 auto;
-	padding: 0 var(--space-2xl);
+	padding: 0 var(--size-space-2xl);
 }

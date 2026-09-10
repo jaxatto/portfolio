@@ -1,90 +1,92 @@
 /* StudyCard.module.scss */
 
-@use 'sass:map';
-@use 'sass:color';
-
 // Palette modifiers
-// @each $key, $palette in $group-palettes {
-// 	:global(.#{$key}-card) {
-// 		background: map.get($palette, bg);
+// Each palette maps to the matching semantic color/shadow tokens in
+// src/styles/variables.css (container/on-container/shadow), which already
+// match the values defined for each card in the Figma design.
+$palettes: brand, primary, secondary, tertiary;
 
-// 		.card-link,
-// 		.card-link svg {
-// 			$link-color: map.get($palette, link);
-// 			color: $link-color;
-// 			fill: $link-color;
-// 			transition: all 0.3s ease-in-out;
-// 		}
+@each $palette in $palettes {
+	:global(.#{$palette}-card) {
+		background: var(--color-#{$palette}-container);
+		// Card-level ambient shadow; declared on the card itself (rather
+		// than an overflow: hidden descendant, which would clip it) so it
+		// bleeds outward past the card's rounded corners
+		box-shadow: var(--shadow-x-none) var(--shadow-y-none)
+			var(--shadow-blur-2xl) var(--shadow-spread-xl)
+			var(--shadow-color-#{$palette}-default);
 
-// 		// On card hover
-// 		&:hover,
-// 		&:focus-visible {
-// 			background: color.adjust(map.get($palette, bg), $lightness: -8%);
+		.card-link,
+		.card-link .icon {
+			color: var(--color-#{$palette}-on-container);
+			fill: var(--color-#{$palette}-on-container);
+			transition: all 0.3s ease-in-out;
+		}
 
-// 			.card-link,
-// 			.card-link svg {
-// 				color: color.adjust(map.get($palette, link), $lightness: -16%);
-// 				fill: color.adjust(map.get($palette, link), $lightness: -16%);
-// 				text-underline-offset: 0.5em;
-// 			}
-// 		}
+		.case-study-image-fallback {
+			background: var(--color-#{$palette}-on-container);
 
-// 		// On card active (press)
-// 		&:active {
-// 			.card-link,
-// 			.card-link svg {
-// 				color: color.adjust(map.get($palette, link), $lightness: -32%);
-// 				fill: color.adjust(map.get($palette, link), $lightness: -32%);
-// 				text-underline-offset: 0.5em;
-// 			}
-// 		}
+			svg {
+				fill: var(--color-content-inverse);
+			}
+		}
 
-// 		// Change card's focus ring to $link-color
-// 		&:focus-visible {
-// 			outline: 3px solid map.get($palette, link);
-// 			outline-offset: 4px;
-// 			border-radius: var(--size-radius-lg);
-// 		}
+		// On card hover
+		&:hover,
+		&:focus-visible {
+			background: var(--color-#{$palette}-container-hover);
 
-// 		.case-study-component-wrapper {
-// 			box-shadow: 0
-// 				0
-// 				56px
-// 				16px
-// 				rgba(map.get($palette, link), $sample-shadow-opacity);
-// 		}
+			.card-link,
+			.card-link .icon {
+				color: var(--color-#{$palette}-on-container-hover);
+				fill: var(--color-#{$palette}-on-container-hover);
+				text-underline-offset: 0.5em;
+			}
+		}
 
-// 		.case-study-image-fallback {
-// 			background: map.get($palette, link);
+		// On card active (press)
+		&:active {
+			background: var(--color-#{$palette}-container-active);
 
-// 			svg {
-// 				fill: var(--color-white);
-// 			}
-// 		}
+			.card-link,
+			.card-link .icon {
+				color: var(--color-#{$palette}-on-container-active);
+				fill: var(--color-#{$palette}-on-container-active);
+				text-underline-offset: 0.5em;
+			}
+		}
 
-// 		// Move arrow icon on card hover/press/focus
-// 		&:hover .card-link .icon,
-// 		&:focus-visible .card-link .icon {
-// 			transform: translateX(0.2em);
-// 			transition: transform 0.2s;
-// 		}
-// 		&:active .card-link .icon {
-// 			transform: translateX(0.4em);
-// 			transition: transform 0.1s;
-// 		}
+		// Change card's focus ring to the palette's on-container color
+		&:focus-visible {
+			outline: var(--size-border-width-default) solid
+				var(--color-#{$palette}-on-container);
+			outline-offset: var(--size-border-width-default);
+			border-radius: var(--size-radius-lg);
+		}
 
-// 		// Image grows on card hover/press/focus
-// 		&:hover .case-study-image-wrapper,
-// 		&:focus-visible .case-study-image-wrapper {
-// 			transform: scale(1.04);
-// 			transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-// 		}
-// 		&:active .case-study-image-wrapper {
-// 			transform: scale(1.08);
-// 			transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
-// 		}
-// 	}
-// }
+		// Move arrow icon on card hover/press/focus
+		&:hover .card-link .icon,
+		&:focus-visible .card-link .icon {
+			transform: translateX(0.2em);
+			transition: transform 0.2s;
+		}
+		&:active .card-link .icon {
+			transform: translateX(0.4em);
+			transition: transform 0.1s;
+		}
+
+		// Image grows on card hover/press/focus
+		&:hover .case-study-image-wrapper,
+		&:focus-visible .case-study-image-wrapper {
+			transform: scale(1.04);
+			transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+		}
+		&:active .case-study-image-wrapper {
+			transform: scale(1.08);
+			transition: transform 0.15s cubic-bezier(0.4, 0.2, 0.2, 1);
+		}
+	}
+}
 
 // Card base
 .wrapper {
@@ -93,13 +95,13 @@
 	align-items: stretch;
 	border-radius: var(--size-radius-lg);
 	overflow: hidden;
-	color: var(--color-dark);
+	color: var(--color-content-default);
 	text-decoration: none;
 	transition: all 0.3s ease-in-out;
 
 	&:hover {
 		text-decoration: none;
-		color: var(--color-dark);
+		color: var(--color-content-default);
 	}
 }
 
@@ -164,7 +166,7 @@
 	height: 100%;
 	overflow: hidden;
 	position: relative;
-	border-radius: 8px;
+	border-radius: var(--size-radius-sm);
 	object-fit: cover;
 	object-position: left top;
 	bottom: -56px;
@@ -280,17 +282,28 @@
 	gap: var(--size-space-sm);
 }
 
+.title {
+	color: var(--color-content-default);
+	font-family: var(--font-style-heading-lg-family);
+	font-size: var(--font-style-heading-lg-size);
+	font-weight: var(--font-style-heading-lg-weight);
+	line-height: var(--font-style-heading-lg-line-height);
+}
+
 .description {
-	font-weight: var(--font-weight-regular);
-	font-family: var(--font-family-body);
+	color: var(--color-content-variant);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-style-body-md-weight);
+	line-height: var(--font-style-body-md-line-height);
 }
 
 .card-link {
 	display: flex;
 	align-items: center;
-	gap: 0.2em;
-	font-weight: var(--font-weight-emphasis);
-	font-family: var(--font-family-heading);
+	gap: var(--size-space-xs);
+	font-weight: var(--font-weight-strong);
+	font-family: var(--font-family-body);
 	text-decoration: underline;
 	text-underline-offset: 0.3em;
 
@@ -336,14 +349,6 @@
 
 		// @include respond(xs) {
 		// 	font-size: var(--font-size-lg);
-		// }
-	}
-
-	.description {
-		font-size: var(--font-size-md);
-
-		// @include respond(xs) {
-		// 	font-size: var(--font-size-sm);
 		// }
 	}
 

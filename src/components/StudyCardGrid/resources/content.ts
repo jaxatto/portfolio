@@ -1,10 +1,22 @@
 import { studyLinks } from '#data/constants/studyLinks';
 import { StudyCardProps } from '#components/StudyCard';
+import brandImage from '@/assets/samples/placeholder-min.png';
 import primaryImage from '@/assets/samples/servicenow-sample-min.png';
 import secondaryImage from '@/assets/samples/indeed-sample-min.png';
 import tertiaryImage from '@/assets/samples/actblue-sample-min.png';
 
 export const content: StudyCardProps[] = [
+	{
+		title: 'Building a multi-brand token system for cross-platform apps',
+		description: ['Design systems', 'Tokens', 'Logistics'],
+		image: brandImage,
+		imageAlt: 'Design preview for a multi-brand design token system',
+		linkUrl: studyLinks.tokens,
+		linkText: 'Read tokens study',
+		palette: 'brand',
+		iconFallback: 'palette',
+		count: 1,
+	},
 	{
 		title:
 			'Designing an AI-driven tool to accelerate qualitative survey workflows',
@@ -15,7 +27,7 @@ export const content: StudyCardProps[] = [
 		linkText: 'Read AI study',
 		palette: 'primary',
 		iconFallback: 'ai',
-		count: 1,
+		count: 2,
 	},
 	{
 		title: "Scaling clarity and consistency across Indeed's hiring platform",
@@ -26,7 +38,7 @@ export const content: StudyCardProps[] = [
 		linkText: 'Read system study',
 		palette: 'secondary',
 		iconFallback: 'component',
-		count: 2,
+		count: 3,
 	},
 	{
 		title:
@@ -38,6 +50,6 @@ export const content: StudyCardProps[] = [
 		linkText: 'Read integration study',
 		palette: 'tertiary',
 		iconFallback: 'clouds',
-		count: 3,
+		count: 4,
 	},
 ];
