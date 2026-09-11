@@ -5,7 +5,7 @@ import secondaryImage from '@/assets/about/secondary-image-min.png';
 import tertiaryImage from '@/assets/about/tertiary-image-min.png';
 import Layout from '#components/Layout';
 import Image from '#components/Image';
-import Chip from '#components/Chip';
+import ChipGroup from '#components/ChipGroup';
 import styles from './About.module.css';
 
 const meta = {
@@ -50,33 +50,17 @@ const About: React.FC = () => (
 						Staff Product Designer & Design Technologist
 					</span>
 				</div>
-				<ul className={styles['chip-list']}>
-					<li>
-						<Chip variant="brand" size="small">
-							11+ years expertise
-						</Chip>
-					</li>
-					<li>
-						<Chip variant="brand" size="small">
-							Code + design
-						</Chip>
-					</li>
-					<li>
-						<Chip variant="brand" size="small">
-							Accessibility advocate
-						</Chip>
-					</li>
-					<li>
-						<Chip variant="brand" size="small">
-							Design systems leader
-						</Chip>
-					</li>
-					<li>
-						<Chip variant="brand" size="small">
-							Tokens architecture
-						</Chip>
-					</li>
-				</ul>
+				<ChipGroup
+					chips={[
+						{ label: '11+ years expertise' },
+						{ label: 'Code + design' },
+						{ label: 'Accessibility advocate' },
+						{ label: 'Design systems leader' },
+						{ label: 'Tokens architecture' },
+					]}
+					variant="brand"
+					size="small"
+				/>
 			</div>
 			<p>
 				I bridge the gap between product design and engineering to build

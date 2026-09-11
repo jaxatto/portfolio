@@ -5,45 +5,32 @@ import type { Variant } from '#data/commonTypes/variant';
 import styles from './ChipGroup.module.css';
 
 // ChipGroup component for displaying a group of chips
-// It allows customization of chip data, size, and theme
-// Usage: <ChipGroup chips={[{ label: 'Chip 1' }, { label: 'Chip 2' }]} size="small" theme="primary" />
-// Preferably pass an array of objects with label and optional theme to the chips prop
+// It allows customization of chip data, size, and variant
+// Usage: <ChipGroup chips={[{ label: 'Chip 1' }, { label: 'Chip 2' }]} size="small" variant="primary" />
+// Preferably pass an array of objects with label and optional variant to the chips prop
 
 export type ChipData = {
 	label: string;
-	theme?: Variant | 'neutral';
+	variant?: Variant;
 };
 
 type ChipGroupProps = {
 	chips: ChipData[];
 	className?: string;
 	size?: 'medium' | 'small';
-	theme?: Variant;
+	variant?: Variant;
 };
 
 const ChipGroup: React.FC<ChipGroupProps> = ({
 	chips,
 	className,
 	size = 'medium',
-	theme,
+	variant,
 }) => (
-	<ul
-		className={clsx(
-			styles['chip-group'],
-			size === 'small' && styles.small,
-			className,
-		)}
-	>
+	<ul className={clsx(styles['chip-group'], className)}>
 		{chips.map((chip) => (
 			<li key={chip.label}>
-				<Chip
-					variant={
-						(chip.theme ?? theme) === 'neutral'
-							? undefined
-							: (chip.theme ?? theme)
-					}
-					size={size}
-				>
+				<Chip variant={chip.variant ?? variant} size={size}>
 					{chip.label}
 				</Chip>
 			</li>

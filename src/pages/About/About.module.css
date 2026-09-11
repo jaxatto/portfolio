@@ -34,12 +34,6 @@
 	color: var(--color-content-variant);
 }
 
-.chip-list {
-	display: flex;
-	gap: var(--size-space-md);
-	flex-wrap: wrap;
-}
-
 .content {
 	display: flex;
 	flex-flow: column;

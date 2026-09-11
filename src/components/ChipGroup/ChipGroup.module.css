@@ -5,7 +5,3 @@
 	flex-wrap: wrap;
 	gap: var(--size-space-sm);
 }
-
-.chip-group .small {
-	gap: var(--size-space-sm);
-}
