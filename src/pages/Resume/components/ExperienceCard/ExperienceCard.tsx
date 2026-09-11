@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import styles from './ExperienceCard.module.css';
 import DateRange from '#components/DateRange/DateRange';
 
@@ -26,13 +27,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 	className,
 }) => (
 	<div
-		className={[
-			styles.wrapper,
-			theme ? `${theme}-experience-card` : '',
-			className,
-		]
-			.filter(Boolean)
-			.join(' ')}
+		className={clsx(styles.wrapper, theme && `${theme}-experience-card`, className)}
 	>
 		<div className={styles.logo}>{logo}</div>
 		<div className={styles.details}>

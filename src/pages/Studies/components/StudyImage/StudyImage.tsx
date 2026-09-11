@@ -11,13 +11,11 @@ const StudyImage: React.FC<StudyImageProps> = ({
 	className,
 	corners,
 }) => (
-	<div className={[styles['study-image'], className].filter(Boolean).join(' ')}>
+	<div className={clsx(styles['study-image'], className)}>
 		<Image
 			src={src}
 			alt={alt}
-			imgClassName={[styles.image, corners === 'square' ? styles.square : '']
-				.filter(Boolean)
-				.join(' ')}
+			imgClassName={clsx(styles.image, corners === 'square' && styles.square)}
 			fallbackClassName={styles['image-fallback-wrapper']}
 		/>
 		{caption && (

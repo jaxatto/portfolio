@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import type { Variant } from '#data/commonTypes/variant';
 import { getVariantVars } from '#data/commonTypes/variant';
 import styles from './Chip.module.css';
@@ -21,9 +22,7 @@ const Chip: React.FC<ChipProps> = ({
 	size = 'large',
 }) => (
 	<div
-		className={[styles.wrapper, styles[variant], styles[size], className]
-			.filter(Boolean)
-			.join(' ')}
+		className={clsx(styles.wrapper, styles[variant], styles[size], className)}
 		style={variant !== 'neutral' ? getVariantVars(variant) : undefined}
 	>
 		{children}

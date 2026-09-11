@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
 import Icon from '#components/Icon';
 import styles from './Image.module.css';
 
@@ -30,11 +31,7 @@ const Image: React.FC<ImageProps> = ({
 	const [error, setError] = useState(false);
 
 	return (
-		<div
-			className={[styles['component-wrapper'], className]
-				.filter(Boolean)
-				.join(' ')}
-		>
+		<div className={clsx(styles['component-wrapper'], className)}>
 			{!error ? (
 				<img
 					src={src}
@@ -43,16 +40,10 @@ const Image: React.FC<ImageProps> = ({
 					className={imgClassName}
 				/>
 			) : (
-				<div
-					className={[styles['fallback-wrapper'], fallbackClassName]
-						.filter(Boolean)
-						.join(' ')}
-				>
+				<div className={clsx(styles['fallback-wrapper'], fallbackClassName)}>
 					<Icon
 						name={iconFallback}
-						className={[styles['fallback-icon'], iconClassName]
-							.filter(Boolean)
-							.join(' ')}
+						className={clsx(styles['fallback-icon'], iconClassName)}
 						aria-hidden="true"
 					/>
 					<span className="sr-only">{altFallback ?? alt}</span>
