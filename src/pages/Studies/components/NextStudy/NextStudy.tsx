@@ -1,7 +1,13 @@
 import React from 'react';
 import StudyCardGrid from '#components/StudyCardGrid';
-import { content } from './resources/content';
 import styles from './NextStudy.module.css';
+
+
+
+const content = {
+	title: 'More of my work',
+	titleEmoji: '📚',
+};
 
 const NextStudy: React.FC<{ meta: { linkUrl: string } }> = ({ meta }) => (
 	<div className={styles.wrapper}>

@@ -1,7 +1,25 @@
 import React from 'react';
 import Link from '#components/Link';
-import { content } from './resources/content';
 import styles from './Footer.module.css';
+
+import { contactInfo } from '#data/constants/contactInfo';
+
+const content = {
+	heading: 'Ready for new opportunities',
+	description:
+		"I'm interviewing now for remote design roles on highly collaborative teams.",
+	button: 'Download resume',
+	resumeHref: contactInfo.resume.src,
+	email: {
+		label: contactInfo.email.label,
+		src: contactInfo.email.src,
+	},
+	linkedin: {
+		label: 'LinkedIn',
+		src: contactInfo.linkedin.src,
+	},
+	byline: 'Reach me at {email} or say hi on {linkedin}.',
+};
 
 const Footer: React.FC = () => {
 	// Split the byline string at the placeholders

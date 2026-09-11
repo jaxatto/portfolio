@@ -1,4 +1,4 @@
-export const meta = {
+export const portfolioMeta = {
 	title:
 		'Jax Engel | Senior Product Designer – Scalable UX, Systems Thinking, Inclusive Design',
 	description:

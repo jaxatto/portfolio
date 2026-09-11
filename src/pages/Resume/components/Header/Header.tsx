@@ -1,7 +1,19 @@
 import React from 'react';
 import Link from '#components/Link';
 import styles from './Header.module.css';
-import { content } from './resources/content';
+
+import { contactInfo } from '#data/constants/contactInfo';
+
+const content = {
+	h1: 'Resume',
+	heading: 'Jax Engel',
+	description1: 'Bridging the gap between design, code,',
+	description2: 'and collaboration.',
+	byline: 'Looking for a unicorn? 🦄',
+	buttonLabel: 'Get my resume',
+	buttonIcon: 'arrow-right',
+	buttonHref: contactInfo.resume.src,
+};
 
 const Header: React.FC = () => (
 	<section className={styles.wrapper}>

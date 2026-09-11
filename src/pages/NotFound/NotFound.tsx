@@ -1,8 +1,26 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from '#components/Link';
-import { content } from '#pages/NotFound/resources/content';
 import styles from './NotFound.module.css';
+
+import { mainLinks } from '#data/constants/mainLinks';
+import { contactInfo } from '#data/constants/contactInfo';
+
+const content = {
+	title: '404',
+	description: 'Well, this wasn’t in the flowchart.',
+	button: {
+		label: 'Return to portfolio',
+		src: mainLinks.home,
+	},
+	subtext: {
+		preText: 'Something broken? Let me know at',
+		label: contactInfo.email.label,
+		endText: `.`,
+		srOnly: '(opens email client)',
+		src: contactInfo.email.src,
+	},
+};
 
 const NotFound: React.FC = () => (
 	<div className={styles.wrapper}>
