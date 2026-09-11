@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import StudyCard from '#components/StudyCard';
 import styles from './StudyCardGrid.module.css';
 
@@ -73,11 +74,7 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({
 	const visibleData = filteredData.slice(0, visibleCount);
 
 	return (
-		<div
-			className={[styles['card-grid'], styles[variant + '-grid']]
-				.filter(Boolean)
-				.join(' ')}
-		>
+		<div className={clsx(styles['card-grid'], styles[variant + '-grid'])}>
 			{visibleData.map((props, i) => (
 				<StudyCard
 					key={props.linkUrl}

@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Chip from '#components/Chip';
 import type { Variant } from '#data/commonTypes/variant';
 import styles from './ChipGroup.module.css';
@@ -27,9 +28,7 @@ const ChipGroup: React.FC<ChipGroupProps> = ({
 	theme,
 }) => (
 	<ul
-		className={[styles.wrapper, size === 'small' ? styles.small : '', className]
-			.filter(Boolean)
-			.join(' ')}
+		className={clsx(styles.wrapper, size === 'small' && styles.small, className)}
 	>
 		{chips.map((chip) => (
 			<li key={chip.label}>

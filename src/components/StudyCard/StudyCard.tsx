@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Link from '#components/Link';
 import Image from '#components/Image';
 import Icon from '#components/Icon';
@@ -52,14 +53,12 @@ const StudyCard: React.FC<StudyCardProps> = ({
 	return (
 		<Link
 			href={linkUrl}
-			className={[
+			className={clsx(
 				styles.wrapper,
-				styles[layout] ? styles[layout] : '',
+				styles[layout] && styles[layout],
 				`${palette}-card`,
 				styles[variant],
-			]
-				.filter(Boolean)
-				.join(' ')}
+			)}
 			aria-label={accessibleLabel}
 			style={getVariantVars(palette)}
 		>
