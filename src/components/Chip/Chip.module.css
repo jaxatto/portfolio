@@ -1,12 +1,17 @@
 /* Chip.module.css */
 
-.wrapper {
-	background: var(--color-placeholder);
-	padding: var(--size-space-sm) var(--size-space-md);
+.chip {
+	display: flex;
+	padding: var(--size-space-md) var(--size-space-md);
 	border-radius: var(--size-radius-sm);
-	font-family: var(--font-family-heading);
+}
+
+.chip-label {
+	font-family: var(--font-family-body);
 	font-weight: var(--font-weight-emphasis);
-	line-height: var(--line-height-100);
+	line-height: var(--font-line-height-default);
+	font-size: var(--font-size-md);
+	text-box: trim-both cap alphabetic;
 }
 
 .brand,
@@ -17,8 +22,8 @@
 	color: var(--variant-on-container);
 }
 
-.small {
-	padding: var(--size-space-sm) var(--size-space-sm);
+.chip .small {
+	padding: var(--size-space-sm) var(--size-space-md);
 	font-size: var(--font-size-sm);
 	border-radius: var(--size-radius-xs);
 }

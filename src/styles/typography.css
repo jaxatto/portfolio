@@ -7,6 +7,7 @@
 body {
 	color: var(--color-content-default);
 	font-family: var(--font-family-body);
+	font-size: var(--font-style-body-md-size);
 	line-height: var(--font-style-body-md-line-height);
 }
 

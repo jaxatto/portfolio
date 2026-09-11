@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Meta, { MetaProps } from '#components/Meta';
 import Header from '#components/Header';
 import Footer from '#components/Footer';
@@ -20,10 +21,14 @@ const Layout: React.FC<LayoutProps> = ({
 	showFooter = true,
 	className = '',
 }) => (
-	<div className={styles.wrapper}>
+	<div className={styles['site-wrapper']}>
 		<Meta title={title} metaDescription={metaDescription} />
 		<Header />
-		<main id="main-content" className={className} tabIndex={-1}>
+		<main
+			id="main-content"
+			className={clsx(styles['main-wrapper'], 'layout-grid', className)}
+			tabIndex={-1}
+		>
 			{children}
 		</main>
 		{showFooter && <Footer />}

@@ -1,9 +1,73 @@
 /* About.module.css */
 
-.heading-md {
-	margin-bottom: var(--size-space-lg);
+.about {
+	display: flex;
+	flex-flow: column;
+	gap: var(--size-space-4xl);
 }
 
-section p:not(:last-of-type) {
-	margin-bottom: var(--size-space-2xl);
+.about section {
+	display: flex;
+	flex-flow: column;
+	gap: var(--size-space-xl);
+}
+
+.intro {
+	display: flex;
+	flex-flow: column;
+	gap: var(--size-space-2xl);
+}
+
+.header {
+	display: flex;
+	flex-flow: column;
+	gap: var(--size-space-2xl);
+}
+
+.subheader {
+	display: flex;
+	flex-flow: column;
+	gap: var(--size-space-xs);
+}
+
+.title {
+	color: var(--color-content-variant);
+}
+
+.chip-list {
+	display: flex;
+	gap: var(--size-space-md);
+	flex-wrap: wrap;
+}
+
+.content {
+	display: flex;
+	flex-flow: column;
+	gap: var(--size-space-2xl);
+}
+
+.subsection h3 {
+	display: inline;
+	font-weight: var(--font-weight-emphasis);
+	color: var(--color-content-variant);
+	margin-right: var(--size-space-xs);
+}
+
+.subsection p {
+	display: inline;
+}
+
+.image-group {
+	display: flex;
+	flex-flow: row;
+	gap: var(--size-space-2xl);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.image-item {
+	border-radius: var(--size-radius-md);
+	overflow: hidden;
 }

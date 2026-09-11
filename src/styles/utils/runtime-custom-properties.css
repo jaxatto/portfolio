@@ -1,0 +1,11 @@
+/* Runtime aliases assigned inline by getVariantVars()
+   (src/data/commonTypes/variant.ts). Not imported — Stylelint's
+   no-unknown-custom-properties only sees declarations in CSS, so this
+   file is listed in stylelint.config.mjs `referenceFiles`. */
+
+:root {
+	--variant-default: var(--color-brand-default);
+	--variant-on-default: var(--color-brand-on-default);
+	--variant-container: var(--color-brand-container);
+	--variant-on-container: var(--color-brand-on-container);
+}

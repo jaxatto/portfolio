@@ -1,32 +1,31 @@
 import React from 'react';
+import clsx from 'clsx';
 import type { Variant } from '#data/commonTypes/variant';
 import { getVariantVars } from '#data/commonTypes/variant';
 import styles from './Chip.module.css';
 
 // Chip component for displaying tags or labels
 // It supports different variants and sizes for customization
-// Usage: <Chip variant="secondary" size="small">Tag</Chip>
+// Usage: <Chip variant="secondary" size="small">Label</Chip>
 
 type ChipProps = {
 	children: React.ReactNode;
-	variant?: Variant | 'neutral';
+	variant?: Variant;
 	className?: string;
-	size?: 'large' | 'small';
+	size?: 'medium' | 'small';
 };
 
 const Chip: React.FC<ChipProps> = ({
 	children,
-	variant = 'neutral',
+	variant = 'brand',
 	className = '',
-	size = 'large',
+	size = 'medium',
 }) => (
 	<div
-		className={[styles.wrapper, styles[variant], styles[size], className]
-			.filter(Boolean)
-			.join(' ')}
-		style={variant !== 'neutral' ? getVariantVars(variant) : undefined}
+		className={clsx(styles.chip, styles[variant], styles[size], className)}
+		style={getVariantVars(variant)}
 	>
-		{children}
+		<span className={styles['chip-label']}>{children}</span>
 	</div>
 );
 

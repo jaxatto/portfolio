@@ -17,12 +17,12 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 	colors: {
 		content: {
 			default: {
-				light: primitives.colors.purple[950],
-				dark: primitives.colors.purple[50],
-			},
-			variant: {
 				light: primitives.colors.slate[900],
 				dark: primitives.colors.slate[100],
+			},
+			variant: {
+				light: primitives.colors.purple[950],
+				dark: primitives.colors.purple[50],
 			},
 			muted: {
 				light: primitives.colors.slate[600],
@@ -174,8 +174,8 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 		},
 		layout: {
 			gutter: 'lg',
-			'content-max': '960px',
-			'popout-max': '1100px',
+			'content-max': '640px',
+			'popout-max': '912px',
 		},
 		'border-width': {
 			none: primitives.sizes['border-width'][0],

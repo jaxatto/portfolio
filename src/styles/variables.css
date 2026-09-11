@@ -441,8 +441,8 @@
   --size-breakpoint-xl: var(--primitive-size-breakpoint-1280);
   --size-breakpoint-2xl: var(--primitive-size-breakpoint-1536);
   --size-layout-gutter: var(--size-space-lg);
-  --size-layout-content-max: 960px;
-  --size-layout-popout-max: 1100px;
+  --size-layout-content-max: var(--primitive-size-breakpoint-640);
+  --size-layout-popout-max: 912px;
   --size-border-width-none: var(--primitive-size-border-width-0);
   --size-border-width-thin: var(--primitive-size-border-width-1);
   --size-border-width-default: var(--primitive-size-border-width-2);
@@ -531,13 +531,13 @@
   /* ========================================== */
   /* Semantic Light Mode Colors (Default)       */
   /* ========================================== */
-  --color-content-default: var(--primitive-color-purple-950);
-  --color-content-variant: var(--primitive-color-slate-900);
+  --color-content-default: var(--primitive-color-slate-900);
+  --color-content-variant: var(--primitive-color-purple-950);
   --color-content-muted: var(--primitive-color-slate-600);
   --color-content-link: var(--primitive-color-violet-700);
   --color-content-inverse: var(--primitive-color-white);
-  --color-content-default-hover: var(--primitive-color-purple-900);
-  --color-content-default-active: var(--primitive-color-purple-800);
+  --color-content-default-hover: var(--primitive-color-slate-800);
+  --color-content-default-active: var(--primitive-color-slate-700);
   --color-surface-default: var(--primitive-color-white);
   --color-surface-sunken: var(--primitive-color-slate-200);
   --color-border-decorative: var(--primitive-color-slate-300);
@@ -603,13 +603,13 @@
 /* Semantic Dark Mode Overrides                   */
 /* ============================================== */
 [data-theme="dark"] {
-  --color-content-default: var(--primitive-color-purple-50);
-  --color-content-variant: var(--primitive-color-slate-100);
+  --color-content-default: var(--primitive-color-slate-100);
+  --color-content-variant: var(--primitive-color-purple-50);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
-  --color-content-default-hover: var(--primitive-color-purple-100);
-  --color-content-default-active: var(--primitive-color-purple-200);
+  --color-content-default-hover: var(--primitive-color-slate-200);
+  --color-content-default-active: var(--primitive-color-slate-300);
   --color-surface-default: var(--primitive-color-slate-900);
   --color-surface-sunken: var(--primitive-color-slate-800);
   --color-border-decorative: var(--primitive-color-slate-700);
@@ -673,13 +673,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-  --color-content-default: var(--primitive-color-purple-50);
-  --color-content-variant: var(--primitive-color-slate-100);
+  --color-content-default: var(--primitive-color-slate-100);
+  --color-content-variant: var(--primitive-color-purple-50);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
-  --color-content-default-hover: var(--primitive-color-purple-100);
-  --color-content-default-active: var(--primitive-color-purple-200);
+  --color-content-default-hover: var(--primitive-color-slate-200);
+  --color-content-default-active: var(--primitive-color-slate-300);
   --color-surface-default: var(--primitive-color-slate-900);
   --color-surface-sunken: var(--primitive-color-slate-800);
   --color-border-decorative: var(--primitive-color-slate-700);

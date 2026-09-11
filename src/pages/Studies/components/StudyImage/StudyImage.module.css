@@ -3,7 +3,6 @@
 .study-image {
 	display: flex;
 	flex-direction: column;
-	margin-top: var(--size-space-3xl);
 	gap: var(--size-space-md);
 }
 

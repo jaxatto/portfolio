@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import ChipGroup from '#components/ChipGroup';
 import DateRange from '#components/DateRange';
 import StudyImage from '#pages/Studies/components/StudyImage';
@@ -12,34 +13,36 @@ const Header: React.FC<StudyHeaderProps> = ({
 	description,
 	image,
 }) => (
-	<section>
-		<div className={styles['top-section']}>
-			<h1 className={styles.title}>{title}</h1>
-			<div className={styles.details}>
-				<span className={styles.role}>{roleDetails[0].role}</span>
-				<DateRange
-					startDate={roleDetails[0].startDate}
-					endDate={roleDetails[0].endDate}
-					className={styles.date}
-				/>
+	<>
+		<section>
+			<div className={styles['top-section']}>
+				<h1 className={styles.title}>{title}</h1>
+				<div className={styles.details}>
+					<span className={styles.role}>{roleDetails[0].role}</span>
+					<DateRange
+						startDate={roleDetails[0].startDate}
+						endDate={roleDetails[0].endDate}
+						className={styles.date}
+					/>
+				</div>
 			</div>
-		</div>
-		<ChipGroup chips={chips} className={styles['chip-row']} size="small" />
-		{description.map((desc, i) => (
-			<p key={i} className={styles.description}>
-				{desc}
-			</p>
-		))}
+			<ChipGroup chips={chips} className={styles['chip-row']} size="small" />
+			{description.map((desc, i) => (
+				<p key={i} className={styles.description}>
+					{desc}
+				</p>
+			))}
+		</section>
 		{image && image[0] && (
 			<StudyImage
 				src={image[0].src}
 				alt={image[0].alt}
 				caption={image[0].caption}
 				corners={image[0].corners}
-				className={styles['header-image']}
+				className={clsx(styles['header-image'], 'break-out-pop')}
 			/>
 		)}
-	</section>
+	</>
 );
 
 export default Header;

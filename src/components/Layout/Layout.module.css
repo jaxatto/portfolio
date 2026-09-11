@@ -1,6 +1,9 @@
-.wrapper {
-	max-width: var(--wrapper-site);
+.site-wrapper {
 	width: 100%;
 	margin: 0 auto;
-	padding: 0 var(--space-2xl);
+}
+
+.main-wrapper {
+	display: grid;
+	padding-block: var(--size-space-2xl);
 }
