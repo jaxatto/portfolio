@@ -2,12 +2,14 @@ import React from 'react';
 import Layout from '#components/Layout';
 import Banner from '#pages/Work/components/Banner';
 import StudyCardGrid from '#components/StudyCardGrid';
-import { content } from '#pages/Work/resources/content';
-import { meta } from '#pages/Work/resources/meta';
+import { portfolioMeta } from '#data/constants/siteMeta';
 import styles from './Work.module.css';
 
 const Work: React.FC = () => (
-	<Layout title={meta.title} metaDescription={meta.description}>
+	<Layout
+		title={portfolioMeta.title}
+		metaDescription={portfolioMeta.description}
+	>
 		<Banner />
 		<StudyCardGrid />
 	</Layout>
