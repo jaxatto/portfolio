@@ -17,22 +17,33 @@ export type ChipData = {
 type ChipGroupProps = {
 	chips: ChipData[];
 	className?: string;
-	size?: 'large' | 'small';
-	theme?: Variant | 'neutral';
+	size?: 'medium' | 'small';
+	theme?: Variant;
 };
 
 const ChipGroup: React.FC<ChipGroupProps> = ({
 	chips,
 	className,
-	size = 'large',
+	size = 'medium',
 	theme,
 }) => (
 	<ul
-		className={clsx(styles.wrapper, size === 'small' && styles.small, className)}
+		className={clsx(
+			styles['chip-group'],
+			size === 'small' && styles.small,
+			className,
+		)}
 	>
 		{chips.map((chip) => (
 			<li key={chip.label}>
-				<Chip variant={chip.theme ?? theme} size={size}>
+				<Chip
+					variant={
+						(chip.theme ?? theme) === 'neutral'
+							? undefined
+							: (chip.theme ?? theme)
+					}
+					size={size}
+				>
 					{chip.label}
 				</Chip>
 			</li>
