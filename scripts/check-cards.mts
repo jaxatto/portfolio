@@ -37,9 +37,14 @@ for (const width of widths) {
 				text: el.textContent ?? '',
 				lines: Math.round(el.getBoundingClientRect().height / lineHeight),
 				fontSize: parseFloat(style.fontSize),
-				clipped:
-					el.scrollWidth > el.clientWidth + 1 ||
-					el.scrollHeight > el.clientHeight + 1,
+				clipped: (() => {
+					// Text must stay inside its card (nothing clips it, but it could spill out).
+					const range = document.createRange();
+					range.selectNodeContents(el);
+					const text = range.getBoundingClientRect();
+					const card = (el.closest('a') as HTMLElement).getBoundingClientRect();
+					return text.right > card.right + 1 || text.bottom > card.bottom + 1;
+				})(),
 			};
 		}),
 	);

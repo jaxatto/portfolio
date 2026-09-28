@@ -37,5 +37,6 @@ Copy lives in content files, not in components. TypeScript only wires content to
 ## Migrated components (token-based plain CSS)
 Header, Footer, StudyCard, StudyCardGrid and the Work Banner are plain CSS modules that only use theme tokens (dark-mode ready). Other components are still SCSS with compile-time colors until their slice.
 - Cards: `src/components/StudyCardGrid/resources/content.json` sets order, `size` (`full` spans both columns, `half` one), `palette` (`brand`/`secondary`/`tertiary`) and `draft` (hidden until the case study exists; the Toyota card is a draft until Slice 5).
+- Work page uses `<Layout narrow>` (824px column, per the design). Card, banner and footer sizes were measured from the design image at 1158px; shapes are pure CSS.
 - Header hides the brand on `/` and marks Work active on `/case-studies/*`. The theme toggle only renders when theme switching is enabled.
 - Fonts: Inter (headings) and Manrope (body) load from Google Fonts in `src/styles/_variables.scss`; the requested weights must cover the token weights (Manrope tops out at 800, so 900 renders as 800). Card titles size with `cqi` and never truncate.

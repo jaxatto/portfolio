@@ -3,24 +3,24 @@
 .banner {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	gap: calc(var(--size-space-3xl) + 2.5rem);
-	padding: var(--size-space-section-md) 0 var(--size-space-section-lg);
+	gap: var(--size-space-4xl);
+	padding: 1.75rem 0 8.5rem 4.5rem;
 }
 
 .image-wrapper {
 	position: relative;
 	flex: 0 0 auto;
-	width: 10rem;
-	height: 10rem;
+	width: 9rem;
+	height: 9rem;
 }
 
-/* Dashed ring around the photo */
+/* Dashed ring around the photo, open on the side where the text sits */
 .ring {
 	position: absolute;
-	inset: -2.25rem;
-	border: var(--size-border-width-default) dashed var(--color-content-variant);
+	inset: -4rem;
+	border: 2px dashed var(--color-content-variant);
 	border-radius: 50%;
+	mask-image: conic-gradient(from 134deg, #000 0 272deg, transparent 272deg);
 	pointer-events: none;
 }
 
@@ -51,45 +51,51 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 3rem;
-	height: 3rem;
+	width: 2.75rem;
+	height: 2.75rem;
 	background: var(--color-brand-container);
 	border: var(--size-border-width-thick) solid var(--color-surface-default);
 	border-radius: 50%;
-	font-size: var(--font-size-xl);
+	font-size: var(--font-size-lg);
 }
 
 .text {
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-md);
-	max-width: 24rem;
+	max-width: 21rem;
 }
 
 .heading {
 	margin: 0;
 	color: var(--color-content-variant);
-	font-family: var(--font-family-heading);
-	font-size: var(--font-size-4xl);
-	font-weight: var(--font-weight-strong);
-	line-height: 1.1;
+	font-family: var(--font-style-title-md-family);
+	font-size: clamp(1.75rem, 5vw, 2.25rem);
+	font-weight: var(--font-style-title-md-weight);
+	line-height: var(--font-style-title-md-line-height);
+	letter-spacing: var(--font-letter-spacing-compact);
 }
 
 .description {
 	margin: 0;
 	color: var(--color-content-default);
-	font-family: var(--font-style-body-lg-family);
-	font-size: var(--font-size-xl);
-	font-weight: var(--font-style-body-lg-weight);
-	line-height: 1.4;
+	font-family: var(--font-style-body-md-family);
+	font-size: clamp(1.0625rem, 1.9vw, 1.375rem);
+	font-weight: var(--font-weight-subtle);
+	line-height: 1.5;
 }
 
-@media (width <= 640px) {
+@media (width <= 720px) {
 	.banner {
 		flex-direction: column;
-		gap: var(--size-space-4xl);
-		padding-top: var(--size-space-section-lg);
+		gap: var(--size-space-section-sm);
+		padding: var(--size-space-section-lg) 0 var(--size-space-section-lg);
 		text-align: center;
+	}
+
+	.ring {
+		inset: -2.25rem;
+		mask-image: none;
 	}
 
 	.image-wrapper {
@@ -97,15 +103,4 @@
 		height: 8rem;
 	}
 
-	.ring {
-		inset: -1.75rem;
-	}
-
-	.heading {
-		font-size: var(--font-size-3xl);
-	}
-
-	.description {
-		font-size: var(--font-size-lg);
-	}
 }

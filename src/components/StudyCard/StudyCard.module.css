@@ -44,24 +44,15 @@
 	position: relative;
 	display: flex;
 	overflow: hidden;
-	min-height: 15rem;
 	text-decoration: none;
 	color: var(--card-on-container);
-	background: linear-gradient(
-		180deg,
-		var(--card-container) 45%,
-		color-mix(in oklab, var(--card-container), var(--card-accent) 22%) 100%
-	);
+	background: var(--card-container);
 	border-radius: var(--size-radius-xl);
-	transition: filter 0.2s ease;
+	transition: background-color 0.2s ease;
 }
 
 .card:hover {
-	background: linear-gradient(
-		180deg,
-		var(--card-container-hover) 45%,
-		color-mix(in oklab, var(--card-container-hover), var(--card-accent) 22%) 100%
-	);
+	background: var(--card-container-hover);
 	color: var(--card-on-container);
 }
 
@@ -77,7 +68,7 @@
 /* Sizes: full = text left / image right, half = text over image */
 .full {
 	flex-direction: row;
-	align-items: stretch;
+	min-height: 16.25rem;
 }
 
 .half {
@@ -88,11 +79,14 @@
 	position: relative;
 	z-index: 1;
 	display: flex;
-	flex: 1 1 45%;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: var(--size-space-2xl);
-	padding: clamp(var(--size-space-xl), 7cqi, var(--size-space-3xl));
+	gap: var(--size-space-section-sm);
+	padding: clamp(var(--size-space-lg), 6cqi, var(--size-space-2xl));
+}
+
+.full .content {
+	flex: 0 0 50%;
 }
 
 .text {
@@ -101,15 +95,16 @@
 	gap: var(--size-space-sm);
 }
 
+/* Titles scale with the card so they stay within three lines; they never truncate. */
 .title {
 	margin: 0;
 	color: var(--card-on-container);
-	font-family: var(--font-style-heading-md-family);
-	font-size: clamp(1.125rem, 5cqi, var(--font-size-xl));
-	font-weight: var(--font-style-heading-md-weight);
+	font-family: var(--font-style-heading-lg-family);
+	font-size: clamp(1.25rem, 7.5cqi, var(--font-size-2xl));
+	font-weight: var(--font-style-heading-lg-weight);
+	line-height: 1.1;
+	letter-spacing: -0.01em;
 	overflow-wrap: break-word;
-	text-wrap: balance;
-	line-height: var(--font-style-heading-md-line-height);
 }
 
 .description {
@@ -117,16 +112,16 @@
 	flex-wrap: wrap;
 	margin: 0;
 	color: var(--color-content-default);
-	font-family: var(--font-style-body-lg-family);
-	font-size: var(--font-style-body-lg-size);
-	font-weight: var(--font-style-body-lg-weight);
-	line-height: var(--font-style-body-lg-line-height);
+	font-family: var(--font-family-body);
+	font-size: clamp(0.9375rem, 4.6cqi, 1.125rem);
+	font-weight: var(--font-weight-default);
+	line-height: 1.4;
 }
 
 .description span:not(:last-child)::after {
 	content: '·';
 	display: inline-block;
-	width: 1em;
+	width: 1.1em;
 	text-align: center;
 }
 
@@ -137,19 +132,20 @@
 	gap: var(--size-space-sm);
 	color: var(--card-on-container);
 	font-family: var(--font-family-heading);
-	font-size: var(--font-size-lg);
-	font-weight: var(--font-weight-strong);
+	font-size: clamp(0.9375rem, 4.6cqi, 1.125rem);
+	font-weight: var(--font-weight-emphasis);
 }
 
 .link-text {
 	text-decoration: underline;
+	text-decoration-thickness: 1.5px;
 	text-underline-offset: 0.3em;
 }
 
 .icon {
 	flex-shrink: 0;
-	width: 1em;
-	height: 1em;
+	width: 1.1em;
+	height: 1.1em;
 	fill: currentcolor;
 	transition: transform 0.2s ease;
 }
@@ -158,12 +154,11 @@
 	transform: translateX(4px);
 }
 
-/* Image: bleeds off the card's right and bottom edges */
+/* Image: a screenshot that bleeds off the card's right (and bottom) edge, with a soft glow.
+   Only the card clips it, so the glow stays visible above the image. */
 .image-wrapper {
 	position: relative;
 	display: flex;
-	flex: 1 1 55%;
-	min-height: 12rem;
 }
 
 .frame {
@@ -173,34 +168,25 @@
 
 .image {
 	display: block;
-	width: 100%;
+	width: 108%;
 	max-width: none;
+	height: auto;
 	border-top-left-radius: var(--size-radius-md);
-	box-shadow: 0 0 var(--shadow-blur-3xl) var(--shadow-spread-lg) var(--card-glow);
-	object-fit: cover;
-	object-position: left top;
-}
-
-.full .content {
-	flex-basis: 52%;
+	box-shadow: 0 0 var(--shadow-blur-2xl) var(--shadow-spread-xl) var(--card-glow);
 }
 
 .full .image-wrapper {
-	flex-basis: 48%;
-	margin-top: var(--size-space-3xl);
-}
-
-.full .image {
-	width: 100%;
-	height: 100%;
+	position: absolute;
+	inset: 3.2rem 0 0 50.5%;
 }
 
 .half .image-wrapper {
-	margin: 0 0 0 var(--size-space-3xl);
+	height: 14rem;
+	margin: 1.5rem 0 0 3.6rem;
 }
 
 .half .image {
-	height: 100%;
+	width: 130%;
 }
 
 .fallback {
@@ -211,14 +197,22 @@
 @media (width <= 900px) {
 	.full {
 		flex-direction: column;
+		min-height: 0;
+	}
+
+	.full .content {
+		flex: 0 0 auto;
 	}
 
 	.full .image-wrapper {
-		margin: 0 0 0 var(--size-space-3xl);
+		position: relative;
+		inset: auto;
+		height: 14rem;
+		margin: 1.5rem 0 0 3.6rem;
 	}
 
-	.card {
-		min-height: 0;
+	.full .image {
+		width: 130%;
 	}
 }
 

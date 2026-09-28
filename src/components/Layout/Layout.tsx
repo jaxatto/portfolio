@@ -11,6 +11,7 @@ type LayoutProps = {
   children: React.ReactNode; // Children elements to be rendered inside the layout
   showFooter?: boolean; // Flag to show or hide the footer
   className?: string; // Applies styles to main content
+  narrow?: boolean; // Narrower content column (the Work page design)
 } & MetaProps; // Extends MetaProps to include title and metaDescription for SEO
 
 const Layout: React.FC<LayoutProps> = ({
@@ -19,10 +20,11 @@ const Layout: React.FC<LayoutProps> = ({
   metaDescription,
   showFooter = true,
   className = '',
+  narrow = false,
 }) => (
   <div className={styles.page}>
     <span className={styles.decor} aria-hidden='true' />
-    <div className={styles.wrapper}>
+    <div className={narrow ? `${styles.wrapper} ${styles.narrow}` : styles.wrapper}>
       <Meta title={title} metaDescription={metaDescription} />
       <Header />
       <main id='main-content' className={className} tabIndex={-1}>

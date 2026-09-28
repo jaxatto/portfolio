@@ -8,6 +8,7 @@ const Work: React.FC = () => (
     <Layout
         title={meta.title}
         metaDescription={meta.description}
+        narrow
     >
         <Banner />
 
