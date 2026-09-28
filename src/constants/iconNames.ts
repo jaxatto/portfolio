@@ -9,9 +9,11 @@ export const iconNames = [
   'dog',
   'download',
   'image',
+  'moon',
   'paw',
   'pencil-ruler',
-  'person'
+  'person',
+  'sun'
 ] as const;
 
 export type IconName = typeof iconNames[number];

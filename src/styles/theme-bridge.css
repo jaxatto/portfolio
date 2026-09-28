@@ -1,0 +1,53 @@
+/*
+ * Temporary bridge between legacy SCSS custom properties and the generated theme tokens.
+ * Light mode keeps the legacy values (no visual change). Dark mode remaps them.
+ * Remove once components are migrated to tokens (Slices 3-7).
+ */
+
+[data-theme='dark'] {
+	/* Legacy SCSS variables remapped to theme tokens so existing components follow the theme. */
+	--color-background: var(--color-surface-default);
+	--color-placeholder: var(--color-surface-sunken);
+	--color-light: var(--color-border-decorative);
+	--color-medium: var(--color-content-muted);
+	--color-dark: var(--color-content-default);
+	--color-primary: var(--color-brand-default);
+	--color-white: var(--color-brand-on-default);
+	--group-primary-title: var(--color-brand-on-container);
+	--group-primary-chip: var(--color-brand-on-container);
+	--group-primary-link: var(--color-brand-default);
+	--group-primary-bg: var(--color-brand-container);
+	--group-secondary-title: var(--color-secondary-on-container);
+	--group-secondary-chip: var(--color-secondary-on-container);
+	--group-secondary-link: var(--color-secondary-default);
+	--group-secondary-bg: var(--color-secondary-container);
+	--group-tertiary-title: var(--color-tertiary-on-container);
+	--group-tertiary-chip: var(--color-tertiary-on-container);
+	--group-tertiary-link: var(--color-tertiary-default);
+	--group-tertiary-bg: var(--color-tertiary-container);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) {
+		/* Legacy SCSS variables remapped to theme tokens so existing components follow the theme. */
+		--color-background: var(--color-surface-default);
+		--color-placeholder: var(--color-surface-sunken);
+		--color-light: var(--color-border-decorative);
+		--color-medium: var(--color-content-muted);
+		--color-dark: var(--color-content-default);
+		--color-primary: var(--color-brand-default);
+		--color-white: var(--color-brand-on-default);
+		--group-primary-title: var(--color-brand-on-container);
+		--group-primary-chip: var(--color-brand-on-container);
+		--group-primary-link: var(--color-brand-default);
+		--group-primary-bg: var(--color-brand-container);
+		--group-secondary-title: var(--color-secondary-on-container);
+		--group-secondary-chip: var(--color-secondary-on-container);
+		--group-secondary-link: var(--color-secondary-default);
+		--group-secondary-bg: var(--color-secondary-container);
+		--group-tertiary-title: var(--color-tertiary-on-container);
+		--group-tertiary-chip: var(--color-tertiary-on-container);
+		--group-tertiary-link: var(--color-tertiary-default);
+		--group-tertiary-bg: var(--color-tertiary-container);
+	}
+}

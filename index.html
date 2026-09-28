@@ -16,11 +16,37 @@
     <meta name="twitter:image:alt" content="Screenshot of Jax Engel's portfolio site home page.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#ffffff" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href="https://jaxengeldesign.com/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="b2deb163-967d-4d93-8159-1cadd6efc9cf"></script>
+    <script>
+      // Apply the theme before first paint to avoid a flash. Mirrors ThemeProvider:
+      // while theme switching is gated (VITE_THEME_SWITCHING), the site is pinned to light.
+      (function () {
+        var root = document.documentElement;
+        var theme = 'light';
+        try {
+          var p = new URLSearchParams(location.search).get('themePreview');
+          if (p === '1') localStorage.setItem('themePreview', '1');
+          if (p === '0') localStorage.removeItem('themePreview');
+          var enabled = '%VITE_THEME_SWITCHING%' === 'true' || localStorage.getItem('themePreview') === '1';
+          if (enabled) {
+            var t = localStorage.getItem('theme');
+            if (t === 'light' || t === 'dark') theme = t;
+            else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+            if (t === 'light' || t === 'dark') root.setAttribute('data-theme', t);
+          } else {
+            root.setAttribute('data-theme', 'light');
+          }
+        } catch (e) {
+          root.setAttribute('data-theme', 'light');
+        }
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute('content', theme === 'dark' ? '#0f172b' : '#ffffff');
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,13 @@
+<script>
+	const ws = new WebSocket('ws://localhost:8080');
+
+	ws.onopen = () => console.log('Connected to local token watcher!');
+
+	ws.onmessage = (event) => {
+		const message = JSON.parse(event.data);
+		// Forward message from WebSocket to Figma main thread
+		parent.postMessage({ pluginMessage: message }, '*');
+	};
+
+	ws.onerror = (err) => console.error('WebSocket Error:', err);
+</script>

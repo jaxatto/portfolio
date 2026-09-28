@@ -20,6 +20,16 @@ header {
     }
 }
 
+.controls {
+    display: flex;
+    align-items: center;
+    gap: spacing(200);
+
+    @include respond(sm) {
+        flex-direction: column;
+    }
+}
+
 nav ul {
     list-style: none;
     padding: 0;

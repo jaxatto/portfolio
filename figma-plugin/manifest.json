@@ -1,0 +1,8 @@
+{
+	"name": "Local Token Bridge",
+	"id": "local-token-bridge",
+	"api": "1.0.0",
+	"main": "code.js",
+	"ui": "plugin.html",
+	"editorType": ["figma"]
+}
