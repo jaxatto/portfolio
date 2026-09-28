@@ -17,7 +17,14 @@
       "@pages/*": ["src/pages/*"],
       "@constants/*": ["src/constants/*"],
       "@commonTypes/*": ["src/commonTypes/*"],
-      "@providers/*": ["src/providers/*"]
+      "@providers/*": ["src/providers/*"],
+      "#src/*": ["src/*"],
+      "#styles/*": ["src/styles/*"],
+      "#pages/*": ["src/pages/*"],
+      "#components/*": ["src/components/*"],
+      "#assets/*": ["src/assets/*"],
+      "#constants/*": ["src/constants/*"],
+      "#providers/*": ["src/providers/*"]
     }
   },
   "include": ["src"]
