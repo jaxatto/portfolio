@@ -21,11 +21,13 @@ export const studies: Record<string, ParsedStudy> = Object.fromEntries(
 		const folder = file.split('/')[2];
 		const slug = folder.toLowerCase();
 		const linkUrl = studyLinks[slug as keyof typeof studyLinks];
-		if (!linkUrl) throw new Error(`Add "${slug}" to constants/studyLinks for ${file}`);
+		if (!linkUrl)
+			throw new Error(`Add "${slug}" to constants/studyLinks for ${file}`);
 
 		const resolveImage = (path: string) => {
 			const url = images[`./pages/${folder}/${path}`];
-			if (!url) throw new Error(`Image "${path}" not found for study "${folder}"`);
+			if (!url)
+				throw new Error(`Image "${path}" not found for study "${folder}"`);
 			return url;
 		};
 		return [slug, parseStudy(source, linkUrl, resolveImage)];

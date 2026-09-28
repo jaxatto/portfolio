@@ -18,17 +18,28 @@ for (const folder of fs.readdirSync(root)) {
 	if (!fs.existsSync(file)) continue;
 	const slug = folder.toLowerCase();
 	const linkUrl = studyLinks[slug as keyof typeof studyLinks];
-	if (!linkUrl) fail(`${folder}: "${slug}" is missing from src/constants/studyLinks.ts`);
+	if (!linkUrl)
+		fail(`${folder}: "${slug}" is missing from src/constants/studyLinks.ts`);
 
 	try {
-		const { content } = parseStudy(fs.readFileSync(file, 'utf8'), linkUrl ?? '', (image) => {
-			if (!fs.existsSync(path.join(root, folder, image))) fail(`${folder}: missing image ${image}`);
-			return image;
-		});
-		if (!content.header.description.length) fail(`${folder}: no intro paragraph`);
+		const { content } = parseStudy(
+			fs.readFileSync(file, 'utf8'),
+			linkUrl ?? '',
+			(image) => {
+				if (!fs.existsSync(path.join(root, folder, image)))
+					fail(`${folder}: missing image ${image}`);
+				return image;
+			},
+		);
+		if (!content.header.description.length)
+			fail(`${folder}: no intro paragraph`);
 		if (!content.sections.length) fail(`${folder}: no ## sections`);
-		for (const image of [...content.header.image, ...content.sections.flatMap((s) => s.image ?? [])]) {
-			if (!image.alt.trim()) fail(`${folder}: image ${image.src} has no alt text`);
+		for (const image of [
+			...content.header.image,
+			...content.sections.flatMap((s) => s.image ?? []),
+		]) {
+			if (!image.alt.trim())
+				fail(`${folder}: image ${image.src} has no alt text`);
 		}
 		console.log(`✓ ${folder}: ${content.sections.length} sections`);
 	} catch (error) {
