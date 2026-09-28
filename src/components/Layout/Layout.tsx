@@ -20,13 +20,16 @@ const Layout: React.FC<LayoutProps> = ({
   showFooter = true,
   className = '',
 }) => (
-  <div className={styles.wrapper}>
-    <Meta title={title} metaDescription={metaDescription} />
-    <Header />
-    <main id='main-content'className={className} tabIndex={-1}>
-      {children}
-    </main>
-    {showFooter && <Footer />}
+  <div className={styles.page}>
+    <span className={styles.decor} aria-hidden='true' />
+    <div className={styles.wrapper}>
+      <Meta title={title} metaDescription={metaDescription} />
+      <Header />
+      <main id='main-content' className={className} tabIndex={-1}>
+        {children}
+      </main>
+      {showFooter && <Footer />}
+    </div>
   </div>
 );
 

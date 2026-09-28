@@ -3,6 +3,7 @@ import { IconName } from '@constants/iconNames';
 import Ai from '@assets/icons/ai.svg';
 import ArrowRight from '@assets/icons/arrow-right.svg';
 import ArrowTopRight from '@assets/icons/arrow-top-right.svg';
+import Automation from '@assets/icons/automation.svg';
 import Cat from '@assets/icons/cat.svg';
 import Clouds from '@assets/icons/clouds.svg';
 import Component from '@assets/icons/component.svg';
@@ -20,6 +21,7 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'ai': Ai,
   'arrow-right': ArrowRight,
   'arrow-top-right': ArrowTopRight,
+  'automation': Automation,
   'cat': Cat,
   'clouds': Clouds,
   'component': Component,

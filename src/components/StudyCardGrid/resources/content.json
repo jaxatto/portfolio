@@ -1,17 +1,30 @@
 [
 	{
+		"study": "toyota",
+		"draft": true,
+		"size": "full",
+		"title": "Building a multi-brand token system for cross-platform apps",
+		"description": ["Design systems", "Tokens", "Logistics"],
+		"imageAlt": "Design preview for the Toyota multi-brand design token system",
+		"linkText": "Read tokens study",
+		"palette": "brand",
+		"iconFallback": "component"
+	},
+	{
 		"study": "servicenow",
-		"title": "Designing an AI-driven tool to accelerate qualitative survey workflows",
-		"description": ["Product design", "Enterprise"],
+		"size": "full",
+		"title": "Designing AI tools to speed up qualitative survey analysis",
+		"description": ["Product design", "AI", "PeopleTech"],
 		"imageAlt": "Design preview for an AI survey workflow tool interface",
 		"linkText": "Read AI study",
-		"palette": "primary",
+		"palette": "brand",
 		"iconFallback": "ai"
 	},
 	{
 		"study": "indeed",
-		"title": "Scaling clarity and consistency across Indeed's hiring platform",
-		"description": ["Design system", "Enterprise"],
+		"size": "half",
+		"title": "Scaling clarity and consistency across Indeed's platform",
+		"description": ["Design systems", "PeopleTech"],
 		"imageAlt": "Design preview for the Indeed.com hiring platform home page",
 		"linkText": "Read system study",
 		"palette": "secondary",
@@ -19,8 +32,9 @@
 	},
 	{
 		"study": "actblue",
-		"title": "Improving data visibility for teams managing critical donation data",
-		"description": ["Product design", "Nonprofit"],
+		"size": "half",
+		"title": "Improving sync visibility for teams managing donations",
+		"description": ["Product design", "Nonprofit", "FinTech"],
 		"imageAlt": "Design preview for ActBlue Salesforce integration admin page",
 		"linkText": "Read integration study",
 		"palette": "tertiary",

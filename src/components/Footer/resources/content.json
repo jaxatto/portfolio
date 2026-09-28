@@ -1,10 +1,12 @@
 {
-	"title": "Let's connect",
+	"title": "Let's work together",
 	"description": "Looking for remote Staff Product Designer or Design Technologist roles.",
 	"email": { "preText": "Email me at", "srOnly": "(opens email client)" },
 	"linkedin": {
 		"preText": "Find me on",
 		"label": "LinkedIn",
 		"srOnly": "(opens in a new tab)"
-	}
+	},
+	"resume": { "label": "Resume", "srOnly": "(opens in a new tab)" },
+	"github": { "label": "GitHub", "srOnly": "(opens in a new tab)" }
 }

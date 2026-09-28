@@ -32,3 +32,8 @@ Copy lives in content files, not in components. TypeScript only wires content to
   - Body: paragraphs before the first `##` are the header intro; an image there is the hero. Each `## <emoji> Title` is a section, in document order. Paragraphs, `- ` bullets and `![alt](images/file.png "caption"){corners=square}` images are supported (see `src/utils/content/markdown.ts`).
 - **Everything else**: `resources/*.json` next to the component or page (`content.json`, `meta.json`, `roles.json`). Shared URLs stay in `src/constants/*` and are merged in by the sibling `content.ts`. Image imports and icon/logo maps stay in TS.
 - To add a case study: create the folder with `index.md` and `images/`, add the slug to `studyLinks`, run `npm run check:content`.
+
+## Migrated components (token-based plain CSS)
+Header, Footer, StudyCard, StudyCardGrid and the Work Banner are plain CSS modules that only use theme tokens (dark-mode ready). Other components are still SCSS with compile-time colors until their slice.
+- Cards: `src/components/StudyCardGrid/resources/content.json` sets order, `size` (`full` spans both columns, `half` one), `palette` (`brand`/`secondary`/`tertiary`) and `draft` (hidden until the case study exists; the Toyota card is a draft until Slice 5).
+- Header hides the brand on `/` and marks Work active on `/case-studies/*`. The theme toggle only renders when theme switching is enabled.

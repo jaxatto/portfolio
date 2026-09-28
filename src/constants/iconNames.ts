@@ -2,6 +2,7 @@ export const iconNames = [
   'ai',
   'arrow-right',
   'arrow-top-right',
+  'automation',
   'cat',
   'clouds',
   'component',

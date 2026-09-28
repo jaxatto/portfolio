@@ -1,12 +1,12 @@
 import React from 'react';
+import clsx from 'clsx';
 import StudyCard from '@components/StudyCard';
 import { content } from './resources/content';
-import styles from './StudyCardGrid.module.scss';
+import styles from './StudyCardGrid.module.css';
 
-// StudyCardGrid component that displays a grid of study cards
-// It can be used on both work and study pages, with options to filter out specific cards
-// and control the number of visible cards based on the variant ('work' or 'study')
-// It accepts an optional `samples` prop to use a custom set of cards, and an `excludeUrl` prop to filter out a specific card by its link URL.
+// StudyCardGrid displays study cards in a two column grid.
+// 'work' uses each card's own size (full / half); 'study' shows two half-width cards
+// and can leave out the study being viewed via `excludeUrl`.
 // Usage: <StudyCardGrid samples={customSamples} variant="work" excludeUrl="/case-study-1" />
 
 type StudyCardGridProps = {
@@ -21,24 +21,21 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({
   excludeUrl,
 }) => {
   const data = samples || content;
-  // Filter out the current study
   const filteredData = excludeUrl
     ? data.filter((card) => card.linkUrl !== excludeUrl)
     : data;
-  // Show 3 cards for 'work', 2 cards for 'study'
-  const visibleCount = variant === 'work' ? 3 : 2;
-  const visibleData = filteredData.slice(0, visibleCount);
+  const visibleData = variant === 'work' ? filteredData : filteredData.slice(0, 2);
 
   return (
-    <div className={[styles['card-grid'], styles[variant+'-grid']].filter(Boolean).join(' ')}>
-      {visibleData.map((props, i) => (
+    <div className={clsx(styles.grid, styles[variant])}>
+      {visibleData.map((props) => (
         <StudyCard
           key={props.linkUrl}
           {...props}
-          count={props.count}
           total={data.length}
           variant={variant}
-          layout={variant === 'work' && i === 0 ? 'horizontal' : 'vertical'}
+          size={variant === 'work' ? props.size : 'half'}
+          className={variant === 'work' && props.size === 'full' ? styles.span : undefined}
         />
       ))}
     </div>

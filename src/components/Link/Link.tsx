@@ -17,7 +17,7 @@ type LinkProps = {
   iconPosition?: 'right' | 'left';
   styleAs?: 'link' | 'button';
   children: React.ReactNode;
-} & React.RefAttributes<HTMLAnchorElement>;
+} & React.AriaAttributes & React.RefAttributes<HTMLAnchorElement>;
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   (

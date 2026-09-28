@@ -1,7 +1,27 @@
 @use '@styles/all' as *;
 
+.page {
+    position: relative;
+    overflow: clip;
+}
+
+// Soft background shape behind the header, shared by every page
+.decor {
+    position: absolute;
+    top: -14rem;
+    left: -12rem;
+    z-index: 0;
+    width: 36rem;
+    height: 36rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 60% 60%, var(--color-tertiary-container), transparent 70%);
+    opacity: 0.7;
+    pointer-events: none;
+}
 
 .wrapper {
     @include wrapper-max-width(site);
+    position: relative;
+    z-index: 1;
     padding: 0 spacing(300); // 0 24px
 }

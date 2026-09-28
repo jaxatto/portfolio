@@ -1,0 +1,230 @@
+/* StudyCard.module.css */
+
+/* Palette: sets the tokens the card uses so the rest of the CSS is palette-agnostic. */
+.brand {
+	--card-container: var(--color-brand-container);
+	--card-container-hover: var(--color-brand-container-hover);
+	--card-container-active: var(--color-brand-container-active);
+	--card-accent: var(--color-brand-default);
+	--card-on-container: var(--color-brand-on-container);
+	--card-glow: var(--shadow-color-brand-default);
+}
+
+.primary {
+	--card-container: var(--color-primary-container);
+	--card-container-hover: var(--color-primary-container-hover);
+	--card-container-active: var(--color-primary-container-active);
+	--card-accent: var(--color-primary-default);
+	--card-on-container: var(--color-primary-on-container);
+	--card-glow: var(--shadow-color-primary-default);
+}
+
+.secondary {
+	--card-container: var(--color-secondary-container);
+	--card-container-hover: var(--color-secondary-container-hover);
+	--card-container-active: var(--color-secondary-container-active);
+	--card-accent: var(--color-secondary-default);
+	--card-on-container: var(--color-secondary-on-container);
+	--card-glow: var(--shadow-color-secondary-default);
+}
+
+.tertiary {
+	--card-container: var(--color-tertiary-container);
+	--card-container-hover: var(--color-tertiary-container-hover);
+	--card-container-active: var(--color-tertiary-container-active);
+	--card-accent: var(--color-tertiary-default);
+	--card-on-container: var(--color-tertiary-on-container);
+	--card-glow: var(--shadow-color-tertiary-default);
+}
+
+/* Card */
+
+.card {
+	position: relative;
+	display: flex;
+	overflow: hidden;
+	min-height: 15rem;
+	text-decoration: none;
+	color: var(--card-on-container);
+	background: linear-gradient(
+		180deg,
+		var(--card-container) 45%,
+		color-mix(in oklab, var(--card-container), var(--card-accent) 22%) 100%
+	);
+	border-radius: var(--size-radius-xl);
+	transition: filter 0.2s ease;
+}
+
+.card:hover {
+	background: linear-gradient(
+		180deg,
+		var(--card-container-hover) 45%,
+		color-mix(in oklab, var(--card-container-hover), var(--card-accent) 22%) 100%
+	);
+	color: var(--card-on-container);
+}
+
+.card:active {
+	background: var(--card-container-active);
+}
+
+.card:focus-visible {
+	outline: var(--size-border-width-thick) solid var(--card-accent);
+	outline-offset: 4px;
+}
+
+/* Sizes: full = text left / image right, half = text over image */
+.full {
+	flex-direction: row;
+	align-items: stretch;
+}
+
+.half {
+	flex-direction: column;
+}
+
+.content {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex: 1 1 45%;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: var(--size-space-3xl);
+	padding: var(--size-space-3xl);
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-sm);
+}
+
+.title {
+	margin: 0;
+	color: var(--card-on-container);
+	font-family: var(--font-style-heading-md-family);
+	font-size: var(--font-style-heading-md-size);
+	font-weight: var(--font-style-heading-md-weight);
+	line-height: var(--font-style-heading-md-line-height);
+}
+
+.description {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	color: var(--color-content-default);
+	font-family: var(--font-style-body-lg-family);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-style-body-lg-weight);
+	line-height: var(--font-style-body-lg-line-height);
+}
+
+.description span:not(:last-child)::after {
+	content: '·';
+	display: inline-block;
+	width: 1em;
+	text-align: center;
+}
+
+.card-link {
+	display: inline-flex;
+	align-items: center;
+	align-self: flex-start;
+	gap: var(--size-space-sm);
+	color: var(--card-on-container);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-size-lg);
+	font-weight: var(--font-weight-strong);
+}
+
+.link-text {
+	text-decoration: underline;
+	text-underline-offset: 0.3em;
+}
+
+.icon {
+	flex-shrink: 0;
+	width: 1em;
+	height: 1em;
+	fill: currentcolor;
+	transition: transform 0.2s ease;
+}
+
+.card:hover .icon {
+	transform: translateX(4px);
+}
+
+/* Image: bleeds off the card's right and bottom edges */
+.image-wrapper {
+	position: relative;
+	display: flex;
+	flex: 1 1 55%;
+	min-height: 12rem;
+}
+
+.frame {
+	width: 100%;
+	height: 100%;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	max-width: none;
+	border-top-left-radius: var(--size-radius-md);
+	box-shadow: 0 0 var(--shadow-blur-3xl) var(--shadow-spread-lg) var(--card-glow);
+	object-fit: cover;
+	object-position: left top;
+}
+
+.full .image-wrapper {
+	margin-top: var(--size-space-3xl);
+}
+
+.full .image {
+	width: 100%;
+	height: 100%;
+}
+
+.half .image-wrapper {
+	margin: 0 0 0 var(--size-space-3xl);
+}
+
+.half .image {
+	height: 100%;
+}
+
+.fallback {
+	border-radius: var(--size-radius-md);
+	background: var(--color-surface-sunken);
+}
+
+@media (width <= 720px) {
+	.full {
+		flex-direction: column;
+	}
+
+	.full .image-wrapper {
+		margin: 0 0 0 var(--size-space-3xl);
+	}
+
+	.content {
+		padding: var(--size-space-2xl);
+	}
+
+	.card {
+		min-height: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.card,
+	.icon {
+		transition: none;
+	}
+
+	.card:hover .icon {
+		transform: none;
+	}
+}

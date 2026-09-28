@@ -1,0 +1,111 @@
+/* Banner.module.css */
+
+.banner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: calc(var(--size-space-3xl) + 2.5rem);
+	padding: var(--size-space-section-md) 0 var(--size-space-section-lg);
+}
+
+.image-wrapper {
+	position: relative;
+	flex: 0 0 auto;
+	width: 10rem;
+	height: 10rem;
+}
+
+/* Dashed ring around the photo */
+.ring {
+	position: absolute;
+	inset: -2.25rem;
+	border: var(--size-border-width-default) dashed var(--color-content-variant);
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+.photo {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.image-main {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.image-fallback {
+	width: 100%;
+	height: 100%;
+}
+
+.bubble {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	background: var(--color-brand-container);
+	border: var(--size-border-width-thick) solid var(--color-surface-default);
+	border-radius: 50%;
+	font-size: var(--font-size-xl);
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-md);
+	max-width: 24rem;
+}
+
+.heading {
+	margin: 0;
+	color: var(--color-content-variant);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-size-4xl);
+	font-weight: var(--font-weight-strong);
+	line-height: 1.1;
+}
+
+.description {
+	margin: 0;
+	color: var(--color-content-default);
+	font-family: var(--font-style-body-lg-family);
+	font-size: var(--font-size-xl);
+	font-weight: var(--font-style-body-lg-weight);
+	line-height: 1.4;
+}
+
+@media (width <= 640px) {
+	.banner {
+		flex-direction: column;
+		gap: var(--size-space-4xl);
+		padding-top: var(--size-space-section-lg);
+		text-align: center;
+	}
+
+	.image-wrapper {
+		width: 8rem;
+		height: 8rem;
+	}
+
+	.ring {
+		inset: -1.75rem;
+	}
+
+	.heading {
+		font-size: var(--font-size-3xl);
+	}
+
+	.description {
+		font-size: var(--font-size-lg);
+	}
+}
