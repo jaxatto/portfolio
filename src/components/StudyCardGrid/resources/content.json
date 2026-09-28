@@ -1,0 +1,29 @@
+[
+	{
+		"study": "servicenow",
+		"title": "Designing an AI-driven tool to accelerate qualitative survey workflows",
+		"description": ["Product design", "Enterprise"],
+		"imageAlt": "Design preview for an AI survey workflow tool interface",
+		"linkText": "Read AI study",
+		"palette": "primary",
+		"iconFallback": "ai"
+	},
+	{
+		"study": "indeed",
+		"title": "Scaling clarity and consistency across Indeed's hiring platform",
+		"description": ["Design system", "Enterprise"],
+		"imageAlt": "Design preview for the Indeed.com hiring platform home page",
+		"linkText": "Read system study",
+		"palette": "secondary",
+		"iconFallback": "component"
+	},
+	{
+		"study": "actblue",
+		"title": "Improving data visibility for teams managing critical donation data",
+		"description": ["Product design", "Nonprofit"],
+		"imageAlt": "Design preview for ActBlue Salesforce integration admin page",
+		"linkText": "Read integration study",
+		"palette": "tertiary",
+		"iconFallback": "clouds"
+	}
+]

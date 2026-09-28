@@ -32,6 +32,7 @@ export default defineConfig({
       "@commonTypes": path.resolve(__dirname, "src/commonTypes/"),
       "@providers": path.resolve(__dirname, "src/providers/"),
       "#src": path.resolve(__dirname, "src"),
+      "#utils": path.resolve(__dirname, "src/utils"),
       "#tokens": path.resolve(__dirname, "src/tokens"),
       "#styles": path.resolve(__dirname, "src/styles"),
       "#pages": path.resolve(__dirname, "src/pages"),

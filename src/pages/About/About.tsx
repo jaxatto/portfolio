@@ -3,8 +3,8 @@ import Layout from "@components/Layout";
 import Divider from "@components/Divider";
 import Image from "@components/Image";
 import { images } from "./resources/images";
-import { content } from "./resources/content";
-import { meta } from "./resources/meta";
+import content from "./resources/content.json";
+import meta from "./resources/meta.json";
 import styles from "./About.module.scss";
 
 const About: React.FC = () => (

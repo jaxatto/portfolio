@@ -1,10 +1,11 @@
 import React from 'react';
 import Divider from '@components/Divider';
 import SkillCard from '@pages/Resume/components/SkillCard';
-import { focus, skills, tools } from './resources/content';
+import type { SkillCardProps } from '@pages/Resume/components/SkillCard';
+import content from './resources/content.json';
 import styles from './SkillsSection.module.scss';
 
-const skillData = [focus, skills, tools];
+const skillData = [content.focus, content.skills, content.tools];
 
 const SkillsSection: React.FC = () => (
   <section className={styles.wrapper}>
@@ -16,7 +17,7 @@ const SkillsSection: React.FC = () => (
           heading={item.heading}
           description={item.description}
           chips={item.list}
-          theme={item.theme}
+          theme={item.theme as SkillCardProps['theme']}
         />
       ))}
     </div>

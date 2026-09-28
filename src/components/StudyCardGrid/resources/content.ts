@@ -3,39 +3,19 @@ import { StudyCardProps } from '@components/StudyCard';
 import primaryImage from '@assets/samples/servicenow-sample-min.png';
 import secondaryImage from '@assets/samples/indeed-sample-min.png';
 import tertiaryImage from '@assets/samples/actblue-sample-min.png';
+import cards from './content.json';
 
-export const content: StudyCardProps[] = [
-  {
-    title: 'Designing an AI-driven tool to accelerate qualitative survey workflows',
-    description: ['Product design', 'Enterprise'],
-    image: primaryImage,
-    imageAlt: 'Design preview for an AI survey workflow tool interface',
-    linkUrl: studyLinks.servicenow,
-    linkText: 'Read AI study',
-    palette: 'primary',
-    iconFallback: 'ai',
-    count: 1,
-  },
-  {
-    title: "Scaling clarity and consistency across Indeed's hiring platform",
-    description: ['Design system', 'Enterprise'],
-    image: secondaryImage,
-    imageAlt: "Design preview for the Indeed.com hiring platform home page",
-    linkUrl: studyLinks.indeed,
-    linkText: 'Read system study',
-    palette: 'secondary',
-    iconFallback: 'component',
-    count: 2,
-  },
-  {
-    title: 'Improving data visibility for teams managing critical donation data',
-    description: ['Product design', 'Nonprofit'],
-    image: tertiaryImage,
-    imageAlt: 'Design preview for ActBlue Salesforce integration admin page',
-    linkUrl: studyLinks.actblue,
-    linkText: 'Read integration study',
-    palette: 'tertiary',
-    iconFallback: 'clouds',
-    count: 3,
-  },
-];
+// Card copy lives in content.json; this attaches links and bundled images.
+const images: Record<string, string> = {
+  servicenow: primaryImage,
+  indeed: secondaryImage,
+  actblue: tertiaryImage,
+};
+
+export const content: StudyCardProps[] = cards.map(({ study, ...card }, index) => ({
+  ...card,
+  image: images[study],
+  linkUrl: studyLinks[study as keyof typeof studyLinks],
+  palette: card.palette as StudyCardProps['palette'],
+  count: index + 1,
+}));

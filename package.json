@@ -18,15 +18,18 @@
     "deploy": "gh-pages -d dist",
     "build:theme": "tsx scripts/tokens/build-theme.ts",
     "plugin:watcher": "tsx scripts/tokens/watcher.ts",
-    "lint:css": "stylelint \"src/**/*.css\""
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "check:content": "tsx scripts/check-content.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "js-yaml": "^4.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.0.1",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
@@ -60,6 +63,7 @@
     "#assets/*": "./src/assets/*",
     "#constants/*": "./src/constants/*",
     "#providers/*": "./src/providers/*",
-    "#tokens/*": "./src/tokens/*"
+    "#tokens/*": "./src/tokens/*",
+    "#utils/*": "./src/utils/*"
   }
 }

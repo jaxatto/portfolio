@@ -1,12 +1,13 @@
 import React from 'react';
 import Divider from '@components/Divider';
 import { groupRoles, GroupedRole } from './helpers/groupRoles';
-import { roles } from './resources/roles';
+import type { ExperienceCardProps } from '@pages/Resume/components/ExperienceCard';
+import roles from './resources/roles.json';
 import logos from './resources/logos';
 import styles from './ExperienceSection.module.scss';
 import ExperienceCard from '@pages/Resume/components/ExperienceCard';
 
-const groupedRoles: GroupedRole[] = groupRoles(roles);
+const groupedRoles: GroupedRole[] = groupRoles(roles as ExperienceCardProps[]);
 
 const ExperienceSection: React.FC = () => (
   <section className={styles.wrapper}>

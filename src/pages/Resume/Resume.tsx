@@ -4,7 +4,7 @@ import Header from '@pages/Resume/components/Header';
 import ExperienceSection from '@pages/Resume/components/ExperienceSection';
 import SkillsSection from '@pages/Resume/components/SkillsSection';
 import Footer from '@components/Footer';
-import { meta } from '@pages/Work/resources/meta';
+import meta from '@pages/Resume/resources/meta.json';
 
 
 const Resume: React.FC = () => (

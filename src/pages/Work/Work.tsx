@@ -3,8 +3,8 @@ import Layout from '@components/Layout';
 import Divider from '@components/Divider';
 import Banner from '@pages/Work/components/Banner';
 import StudyCardGrid from '@components/StudyCardGrid';
-import { content } from '@pages/Work/resources/content';
-import { meta } from '@pages/Work/resources/meta';
+import content from '@pages/Work/resources/content.json';
+import meta from '@pages/Work/resources/meta.json';
 import styles from './Work.module.scss';
 
 const Work: React.FC = () => (

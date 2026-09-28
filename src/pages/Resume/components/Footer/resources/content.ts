@@ -1,17 +1,18 @@
 import { contactInfo } from "@constants/contactInfo";
+import copy from "./content.json";
 
 export const content = {
-  heading: "Ready for new opportunities",
-  description: "I'm interviewing now for remote design roles on highly collaborative teams.",
-  button: "Download resume",
+  heading: copy.heading,
+  description: copy.description,
+  button: copy.button,
+  byline: copy.byline,
   resumeHref: contactInfo.resume.src,
   email: {
     label: contactInfo.email.label,
     src: contactInfo.email.src,
   },
   linkedin: {
-    label: 'LinkedIn',
+    label: copy.linkedinLabel,
     src: contactInfo.linkedin.src,
   },
-  byline: "Reach me at {email} or say hi on {linkedin}."
 };

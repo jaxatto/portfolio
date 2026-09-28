@@ -1,6 +1,6 @@
 import React from 'react';
 import StudyCardGrid from '@components/StudyCardGrid';
-import { content } from './resources/content';
+import content from './resources/content.json';
 import styles from './NextStudy.module.scss';
 
 const NextStudy: React.FC<{ meta: { linkUrl: string } }> = ({ meta }) => (

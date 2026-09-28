@@ -1,11 +1,10 @@
 import { mainLinks } from "@constants/mainLinks";
+import copy from "./content.json";
 
 export const content = {
-  skipToMain: "Skip to main content",
-  brand: "Jax Engel",
-  links: [
-    { name: "Work", url: mainLinks.work },
-    { name: "About", url: mainLinks.about },
-    { name: "Resume", url: mainLinks.resume },
-  ],
+  ...copy,
+  links: copy.links.map(({ name, page }) => ({
+    name,
+    url: mainLinks[page as keyof typeof mainLinks],
+  })),
 };

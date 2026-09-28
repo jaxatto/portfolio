@@ -1,0 +1,9 @@
+{
+	"skipToMain": "Skip to main content",
+	"brand": "Jax Engel",
+	"links": [
+		{ "name": "Work", "page": "work" },
+		{ "name": "About", "page": "about" },
+		{ "name": "Resume", "page": "resume" }
+	]
+}

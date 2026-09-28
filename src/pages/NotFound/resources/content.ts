@@ -1,18 +1,13 @@
 import { mainLinks } from '@constants/mainLinks';
 import { contactInfo } from '@constants/contactInfo';
+import copy from './content.json';
 
 export const content = {
-  title: '404',
-  description: 'Well, this wasn’t in the flowchart.',
-  button: {
-    label: 'Return to portfolio',
-    src: mainLinks.home,
-  },
+  ...copy,
+  button: { ...copy.button, src: mainLinks.home },
   subtext: {
-    preText: 'Something broken? Let me know at',
+    ...copy.subtext,
     label: contactInfo.email.label,
-    endText: `.`,
-    srOnly: '(opens email client)',
     src: contactInfo.email.src,
   },
 };

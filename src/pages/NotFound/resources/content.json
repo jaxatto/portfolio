@@ -1,0 +1,10 @@
+{
+	"title": "404",
+	"description": "Well, this wasn’t in the flowchart.",
+	"button": { "label": "Return to portfolio" },
+	"subtext": {
+		"preText": "Something broken? Let me know at",
+		"endText": ".",
+		"srOnly": "(opens email client)"
+	}
+}
