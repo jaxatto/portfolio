@@ -9,6 +9,7 @@ Jax Engel's portfolio (jaxengeldesign.com): React 19 + TypeScript SPA, Vite, SCS
 - `npm run plugin:watcher` watches tokens and syncs the Figma plugin (`figma-plugin/`) over ws://127.0.0.1:8080
 - `npm run lint:css` runs stylelint on plain CSS
 - `npm run check:content` validates case study Markdown (parses, slug registered, images exist, alt text present)
+- `npm run check:cards` (after `npm run build`) checks study card titles stay within 3 lines at 12 widths; `-- --stress` (env `STRESS_EM`) simulates wider fonts; `PLAYWRIGHT_CHROMIUM_PATH` picks the browser
 - `npm run deploy` publishes `dist/` via gh-pages
 
 ## Conventions
@@ -37,3 +38,4 @@ Copy lives in content files, not in components. TypeScript only wires content to
 Header, Footer, StudyCard, StudyCardGrid and the Work Banner are plain CSS modules that only use theme tokens (dark-mode ready). Other components are still SCSS with compile-time colors until their slice.
 - Cards: `src/components/StudyCardGrid/resources/content.json` sets order, `size` (`full` spans both columns, `half` one), `palette` (`brand`/`secondary`/`tertiary`) and `draft` (hidden until the case study exists; the Toyota card is a draft until Slice 5).
 - Header hides the brand on `/` and marks Work active on `/case-studies/*`. The theme toggle only renders when theme switching is enabled.
+- Fonts: Inter (headings) and Manrope (body) load from Google Fonts in `src/styles/_variables.scss`; the requested weights must cover the token weights (Manrope tops out at 800, so 900 renders as 800). Card titles size with `cqi` and never truncate.

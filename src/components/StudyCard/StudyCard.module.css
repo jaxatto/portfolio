@@ -40,6 +40,7 @@
 /* Card */
 
 .card {
+	container-type: inline-size;
 	position: relative;
 	display: flex;
 	overflow: hidden;
@@ -90,8 +91,8 @@
 	flex: 1 1 45%;
 	flex-direction: column;
 	justify-content: space-between;
-	gap: var(--size-space-3xl);
-	padding: var(--size-space-3xl);
+	gap: var(--size-space-2xl);
+	padding: clamp(var(--size-space-xl), 7cqi, var(--size-space-3xl));
 }
 
 .text {
@@ -104,8 +105,10 @@
 	margin: 0;
 	color: var(--card-on-container);
 	font-family: var(--font-style-heading-md-family);
-	font-size: var(--font-style-heading-md-size);
+	font-size: clamp(1.125rem, 5cqi, var(--font-size-xl));
 	font-weight: var(--font-style-heading-md-weight);
+	overflow-wrap: break-word;
+	text-wrap: balance;
 	line-height: var(--font-style-heading-md-line-height);
 }
 
@@ -178,7 +181,12 @@
 	object-position: left top;
 }
 
+.full .content {
+	flex-basis: 52%;
+}
+
 .full .image-wrapper {
+	flex-basis: 48%;
 	margin-top: var(--size-space-3xl);
 }
 
@@ -200,17 +208,13 @@
 	background: var(--color-surface-sunken);
 }
 
-@media (width <= 720px) {
+@media (width <= 900px) {
 	.full {
 		flex-direction: column;
 	}
 
 	.full .image-wrapper {
 		margin: 0 0 0 var(--size-space-3xl);
-	}
-
-	.content {
-		padding: var(--size-space-2xl);
 	}
 
 	.card {

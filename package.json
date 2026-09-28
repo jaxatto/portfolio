@@ -19,7 +19,8 @@
     "build:theme": "tsx scripts/tokens/build-theme.ts",
     "plugin:watcher": "tsx scripts/tokens/watcher.ts",
     "lint:css": "stylelint \"src/**/*.css\"",
-    "check:content": "tsx scripts/check-content.ts"
+    "check:content": "tsx scripts/check-content.ts",
+    "check:cards": "tsx scripts/check-cards.mts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -38,6 +39,7 @@
     "@vitejs/plugin-react": "^4.5.1",
     "chokidar": "^5.0.0",
     "gh-pages": "^6.3.0",
+    "playwright": "^1.56.1",
     "prettier": "3.9.9",
     "sass": "^1.89.1",
     "stylelint": "^17.15.0",
