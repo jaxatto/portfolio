@@ -3,7 +3,7 @@
 .grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: var(--size-space-2xl) calc(var(--size-space-2xl) + 4px);
+	gap: var(--size-space-3xl);
 }
 
 /* Full-size cards span both columns */
@@ -11,7 +11,7 @@
 	grid-column: 1 / -1;
 }
 
-@media (width <= 900px) {
+@media (width <= 960px) {
 	.grid {
 		grid-template-columns: minmax(0, 1fr);
 	}

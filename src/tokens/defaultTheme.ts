@@ -17,12 +17,12 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 	colors: {
 		content: {
 			default: {
-				light: primitives.colors.slate[900],
-				dark: primitives.colors.slate[100],
-			},
-			variant: {
 				light: primitives.colors.purple[950],
 				dark: primitives.colors.purple[50],
+			},
+			variant: {
+				light: primitives.colors.slate[900],
+				dark: primitives.colors.slate[100],
 			},
 			muted: {
 				light: primitives.colors.slate[600],
@@ -276,7 +276,7 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				family: 'heading',
 				size: {
 					min: '2xl',
-					preferred: '1rem + 1.4vw',
+					preferred: '1.25rem + 2vw',
 					max: '3xl',
 				},
 				weight: 'strong',

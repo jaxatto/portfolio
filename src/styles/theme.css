@@ -500,7 +500,7 @@
   --font-style-title-md-weight: var(--font-weight-strong);
   --font-style-title-md-line-height: var(--font-line-height-compact);
   --font-style-title-sm-family: var(--font-family-heading);
-  --font-style-title-sm-size: clamp(var(--font-size-2xl), 1rem + 1.4vw, var(--font-size-3xl));
+  --font-style-title-sm-size: clamp(var(--font-size-2xl), 1.25rem + 2vw, var(--font-size-3xl));
   --font-style-title-sm-weight: var(--font-weight-strong);
   --font-style-title-sm-line-height: var(--font-line-height-compact);
   --font-style-heading-lg-family: var(--font-family-heading);
@@ -531,13 +531,13 @@
   /* ========================================== */
   /* Semantic Light Mode Colors (Default)       */
   /* ========================================== */
-  --color-content-default: var(--primitive-color-slate-900);
-  --color-content-variant: var(--primitive-color-purple-950);
+  --color-content-default: var(--primitive-color-purple-950);
+  --color-content-variant: var(--primitive-color-slate-900);
   --color-content-muted: var(--primitive-color-slate-600);
   --color-content-link: var(--primitive-color-violet-700);
   --color-content-inverse: var(--primitive-color-white);
-  --color-content-default-hover: var(--primitive-color-slate-800);
-  --color-content-default-active: var(--primitive-color-slate-700);
+  --color-content-default-hover: var(--primitive-color-purple-900);
+  --color-content-default-active: var(--primitive-color-purple-800);
   --color-surface-default: var(--primitive-color-white);
   --color-surface-sunken: var(--primitive-color-slate-200);
   --color-border-decorative: var(--primitive-color-slate-300);
@@ -603,13 +603,13 @@
 /* Semantic Dark Mode Overrides                   */
 /* ============================================== */
 [data-theme="dark"] {
-  --color-content-default: var(--primitive-color-slate-100);
-  --color-content-variant: var(--primitive-color-purple-50);
+  --color-content-default: var(--primitive-color-purple-50);
+  --color-content-variant: var(--primitive-color-slate-100);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
-  --color-content-default-hover: var(--primitive-color-slate-200);
-  --color-content-default-active: var(--primitive-color-slate-300);
+  --color-content-default-hover: var(--primitive-color-purple-100);
+  --color-content-default-active: var(--primitive-color-purple-200);
   --color-surface-default: var(--primitive-color-slate-900);
   --color-surface-sunken: var(--primitive-color-slate-800);
   --color-border-decorative: var(--primitive-color-slate-700);
@@ -673,13 +673,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-  --color-content-default: var(--primitive-color-slate-100);
-  --color-content-variant: var(--primitive-color-purple-50);
+  --color-content-default: var(--primitive-color-purple-50);
+  --color-content-variant: var(--primitive-color-slate-100);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
-  --color-content-default-hover: var(--primitive-color-slate-200);
-  --color-content-default-active: var(--primitive-color-slate-300);
+  --color-content-default-hover: var(--primitive-color-purple-100);
+  --color-content-default-active: var(--primitive-color-purple-200);
   --color-surface-default: var(--primitive-color-slate-900);
   --color-surface-sunken: var(--primitive-color-slate-800);
   --color-border-decorative: var(--primitive-color-slate-700);

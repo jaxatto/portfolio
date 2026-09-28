@@ -1,68 +1,73 @@
-/* Footer.module.css */
+/* Footer.module.css (Figma "Footer"): 696px card over CSS decorations. The lilac shape and
+   blue dot are approximated here until the exported SVG can be used. */
 
 .footer {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	padding: var(--size-space-section-lg) 0 var(--size-space-section-xl);
-}
-
-/* The stage is the card's box; the decorations are positioned relative to it. */
-.stage {
 	position: relative;
-	width: 100%;
-	max-width: 40rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: clip;
+
+	/* full-bleed, even when rendered inside a narrower content column */
+	width: 100vw;
+	margin-inline: calc(50% - 50vw);
+	padding: var(--size-space-section-xl) var(--size-space-section-lg) 6.5rem;
 }
 
-/* Decorations (pure CSS shapes) */
-
+/* Decorations: a 1562 x 1064 canvas centered on the page */
 .decorations {
 	position: absolute;
-	inset: 0;
+	top: 5.3125rem;
+	left: 50%;
+	width: 97.625rem;
+	height: 66.5rem;
+	transform: translateX(-50%);
 	pointer-events: none;
 }
 
 .blob {
 	position: absolute;
-	top: 5.5rem;
-	left: -32rem;
-	width: 70rem;
+	bottom: 0;
+	left: 0;
+	width: 60rem;
 	aspect-ratio: 1;
 	background: var(--color-brand-container);
-	opacity: 0.55;
+	opacity: 0.45;
 	border-radius: 50%;
 }
 
 .dot {
 	position: absolute;
-	top: 6rem;
-	left: -12.9rem;
-	width: 4.7rem;
-	height: 4.7rem;
+	top: 6.5rem;
+	left: 12.5rem;
+	width: 5rem;
+	height: 5rem;
 	background: var(--color-tertiary-container);
-	opacity: 0.45;
+	opacity: 0.6;
 	border-radius: 50%;
 }
 
 .glow {
 	position: absolute;
-	top: 0.5rem;
-	left: 41rem;
-	width: 14.75rem;
-	height: 14.75rem;
-	border: 3.6rem solid var(--color-secondary-container);
-	opacity: 0.55;
+	right: 2.75rem;
+	bottom: 44.625rem;
+	box-sizing: border-box;
+	width: 21.875rem;
+	height: 21.875rem;
+	border: 4.0625rem solid var(--color-secondary-container);
+	opacity: 0.5;
 	border-radius: 50%;
-	filter: blur(12px);
+	filter: blur(16px);
 }
 
 .arc {
 	position: absolute;
-	top: 4.5rem;
-	left: 32rem;
-	width: 27.5rem;
-	aspect-ratio: 1;
-	border: var(--size-border-width-default) dashed var(--color-content-variant);
+	bottom: 14.0625rem;
+	left: 51.875rem;
+	box-sizing: border-box;
+	width: 45.75rem;
+	height: 45.75rem;
+	border: var(--size-border-width-default) dashed var(--color-content-default);
 	border-radius: 50%;
 }
 
@@ -73,8 +78,9 @@
 	z-index: 1;
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-3xl);
-	padding: var(--size-space-4xl) var(--size-space-4xl) var(--size-space-3xl);
+	gap: var(--size-space-4xl);
+	width: min(43.5rem, 100%);
+	padding: var(--size-space-4xl);
 	background: var(--color-surface-default);
 	border-radius: var(--size-radius-xl);
 }
@@ -82,26 +88,25 @@
 .top {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-lg);
-	max-width: 29rem;
+	gap: var(--size-space-xl);
 }
 
 .title {
 	margin: 0;
-	color: var(--color-content-variant);
-	font-family: var(--font-style-title-md-family);
-	font-size: clamp(1.75rem, 6vw, 2.35rem);
-	font-weight: var(--font-style-title-md-weight);
-	line-height: var(--font-style-title-md-line-height);
-	letter-spacing: var(--font-letter-spacing-compact);
+	color: var(--color-content-default);
+	font-family: var(--font-style-title-sm-family);
+	font-size: var(--font-style-title-sm-size);
+	font-weight: var(--font-style-title-sm-weight);
+	line-height: 1.2;
 }
 
 .description {
+	max-width: 31rem;
 	margin: 0;
-	color: var(--color-content-default);
-	font-family: var(--font-style-body-md-family);
-	font-size: clamp(1.0625rem, 1.9vw, 1.375rem);
-	font-weight: var(--font-weight-subtle);
+	color: var(--color-content-variant);
+	font-family: var(--font-style-body-lg-family);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-style-body-lg-weight);
 	line-height: 1.5;
 }
 
@@ -118,35 +123,42 @@
 	gap: var(--size-space-sm);
 	color: var(--color-content-link);
 	font-family: var(--font-family-body);
-	font-size: clamp(1.125rem, 5vw, 1.625rem);
-	font-weight: var(--font-weight-emphasis);
+	font-size: clamp(1.25rem, 5.5vw, 1.75rem);
+	font-weight: var(--font-weight-strong);
+	line-height: 1.5;
 	text-decoration: underline;
-	text-decoration-thickness: 1.5px;
-	text-underline-offset: 0.25em;
+	text-decoration-thickness: var(--size-border-width-default);
+	text-underline-offset: 0.2em;
+}
+
+.primary-link svg {
+	width: 2rem;
+	height: 2rem;
 }
 
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	align-items: center;
+	align-items: flex-start;
 	gap: var(--size-space-xl);
 }
 
 .row-link {
-	color: var(--color-content-link);
+	color: var(--color-primary-default);
 	font-family: var(--font-family-body);
-	font-size: 1.125rem;
+	font-size: var(--font-style-body-md-size);
 	font-weight: var(--font-weight-emphasis);
+	line-height: 1.5;
 	text-decoration: underline;
-	text-decoration-thickness: 1.5px;
-	text-underline-offset: 0.25em;
+	text-decoration-thickness: var(--size-border-width-default);
+	text-underline-offset: 0.2em;
 }
 
 .primary-link:hover,
 .primary-link:active,
 .row-link:hover,
 .row-link:active {
-	color: var(--color-content-variant);
+	color: var(--color-primary-default-hover);
 }
 
 .primary-link:focus-visible,
@@ -158,26 +170,16 @@
 
 @media (width <= 720px) {
 	.footer {
-		padding: var(--size-space-section-md) 0 var(--size-space-section-lg);
+		padding: var(--size-space-section-md) var(--size-space-lg) var(--size-space-section-xl);
 	}
 
 	.card {
 		padding: var(--size-space-2xl);
 	}
 
-	.blob {
-		top: 12rem;
-		left: -30rem;
-	}
-
-	.dot,
-	.glow,
-	.arc {
+	.arc,
+	.glow {
 		display: none;
-	}
-
-	.row {
-		gap: var(--size-space-lg);
 	}
 }
 
@@ -188,7 +190,6 @@
 
 	.row {
 		flex-direction: column;
-		align-items: flex-start;
 		gap: var(--size-space-md);
 	}
 }

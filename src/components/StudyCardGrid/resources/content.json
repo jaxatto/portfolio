@@ -17,7 +17,7 @@
 		"description": ["Product design", "AI", "PeopleTech"],
 		"imageAlt": "Design preview for an AI survey workflow tool interface",
 		"linkText": "Read AI study",
-		"palette": "brand",
+		"palette": "primary",
 		"iconFallback": "ai"
 	},
 	{

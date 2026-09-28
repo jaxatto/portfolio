@@ -64,7 +64,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
 			aria-label={accessibleLabel}
 		>
 			<div className={styles.content}>
-				<div className={styles.text}>
+				<div className={styles.copy}>
 					<h3 className={styles.title}>{title}</h3>
 					<p className={styles.description}>
 						{description.map((desc) => (
@@ -77,19 +77,21 @@ const StudyCard: React.FC<StudyCardProps> = ({
 					<Icon name="arrow-right" className={styles.icon} aria-hidden="true" />
 				</span>
 			</div>
-			<div className={styles['image-wrapper']}>
-				{typeof image === 'string' ? (
-					<Image
-						src={image}
-						alt={imageAlt}
-						iconFallback={iconFallback}
-						className={styles.frame}
-						imgClassName={styles.image}
-						fallbackClassName={styles.fallback}
-					/>
-				) : (
-					image
-				)}
+			<div className={styles.preview}>
+				<div className={styles['image-box']}>
+					{typeof image === 'string' ? (
+						<Image
+							src={image}
+							alt={imageAlt}
+							iconFallback={iconFallback}
+							className={styles.frame}
+							imgClassName={styles.image}
+							fallbackClassName={styles.fallback}
+						/>
+					) : (
+						image
+					)}
+				</div>
 			</div>
 		</Link>
 	);

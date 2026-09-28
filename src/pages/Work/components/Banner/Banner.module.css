@@ -1,26 +1,31 @@
-/* Banner.module.css */
+/* Banner.module.css (Figma "Banner"): 160px photo inside a 308px dashed ring,
+   with the intro on a white card that sits over the ring. */
 
 .banner {
 	display: flex;
+	padding: 0 0 5rem 5rem;
+}
+
+.row {
+	display: flex;
 	align-items: center;
-	gap: var(--size-space-4xl);
-	padding: 1.75rem 0 8.5rem 4.5rem;
+	gap: var(--size-space-xl);
+	width: min(37.5rem, 100%);
+	min-height: 19.25rem;
 }
 
 .image-wrapper {
 	position: relative;
 	flex: 0 0 auto;
-	width: 9rem;
-	height: 9rem;
+	width: 10rem;
+	height: 10rem;
 }
 
-/* Dashed ring around the photo, open on the side where the text sits */
 .ring {
 	position: absolute;
-	inset: -4rem;
-	border: 2px dashed var(--color-content-variant);
+	inset: -4.625rem;
+	border: var(--size-border-width-default) dashed var(--color-content-default);
 	border-radius: 50%;
-	mask-image: conic-gradient(from 134deg, #000 0 272deg, transparent 272deg);
 	pointer-events: none;
 }
 
@@ -53,54 +58,62 @@
 	justify-content: center;
 	width: 3rem;
 	height: 3rem;
-	background: var(--color-brand-container);
-	border: var(--size-border-width-thick) solid var(--color-surface-default);
+	background: var(--color-secondary-container);
 	border-radius: 50%;
+	font-family: Arial, sans-serif;
 	font-size: 1.75rem;
+	line-height: 1.5;
+	text-shadow: 0 2px 4px rgb(49 44 133 / 48%);
 }
 
-.text {
+.copy {
+	position: relative;
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	gap: var(--size-space-md);
-	max-width: 21rem;
+	min-width: 0;
+	padding: var(--size-space-2xl);
+	background: var(--color-surface-default);
+	border-radius: var(--size-radius-xl);
 }
 
 .heading {
 	margin: 0;
-	color: var(--color-content-variant);
-	font-family: var(--font-style-title-md-family);
-	font-size: clamp(1.75rem, 5vw, 2.25rem);
-	font-weight: var(--font-style-title-md-weight);
-	line-height: var(--font-style-title-md-line-height);
-	letter-spacing: var(--font-letter-spacing-compact);
+	color: var(--color-content-default);
+	font-family: var(--font-style-title-sm-family);
+	font-size: var(--font-style-title-sm-size);
+	font-weight: var(--font-style-title-sm-weight);
+	line-height: 1.2;
 }
 
 .description {
 	margin: 0;
-	color: var(--color-content-default);
-	font-family: var(--font-style-body-md-family);
-	font-size: clamp(1.0625rem, 1.9vw, 1.375rem);
-	font-weight: var(--font-weight-subtle);
+	color: var(--color-content-variant);
+	font-family: var(--font-style-body-lg-family);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-style-body-lg-weight);
 	line-height: 1.5;
 }
 
 @media (width <= 720px) {
 	.banner {
+		padding: var(--size-space-section-md) 0 var(--size-space-section-lg);
+	}
+
+	.row {
 		flex-direction: column;
-		gap: var(--size-space-section-sm);
-		padding: var(--size-space-section-lg) 0 var(--size-space-section-lg);
+		gap: var(--size-space-section-md);
+		width: 100%;
+		min-height: 0;
 		text-align: center;
 	}
 
 	.ring {
-		inset: -2.25rem;
-		mask-image: none;
+		inset: -2.5rem;
 	}
 
-	.image-wrapper {
-		width: 8rem;
-		height: 8rem;
+	.copy {
+		width: 100%;
 	}
-
 }

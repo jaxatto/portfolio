@@ -5,18 +5,30 @@
     overflow: clip;
 }
 
-// Soft background shape behind the header, shared by every page
+// Soft blue shape behind the header (Figma "Decor"): a 755px ring with a 200px band,
+// half transparent and blurred, clipped to the page's top-left 532 x 484 corner.
 .decor {
     position: absolute;
-    top: -5rem;
-    left: -16rem;
+    top: 0;
+    left: 0;
     z-index: 0;
-    width: 32rem;
-    height: 32rem;
-    border-radius: 50%;
-    background: radial-gradient(closest-side, var(--color-tertiary-container) 55%, transparent 100%);
-    opacity: 0.55;
+    width: px-to-rem(532);
+    height: px-to-rem(484);
+    overflow: clip;
     pointer-events: none;
+}
+
+.ring {
+    position: absolute;
+    top: px-to-rem(-345);
+    left: px-to-rem(-302);
+    box-sizing: border-box;
+    width: px-to-rem(755);
+    height: px-to-rem(755);
+    border: px-to-rem(200) solid var(--color-tertiary-container);
+    border-radius: 50%;
+    opacity: 0.5;
+    filter: blur(16px);
 }
 
 .wrapper {
@@ -24,9 +36,4 @@
     position: relative;
     z-index: 1;
     padding: 0 spacing(300); // 0 24px
-}
-
-// Work page design: 824px content column (872px including the gutters)
-.narrow {
-    max-width: px-to-rem(872);
 }

@@ -37,17 +37,18 @@
 	--card-glow: var(--shadow-color-tertiary-default);
 }
 
-/* Card */
+/* Card: 16px radius, 24px padding, 48px between copy and link (Figma "Study Card") */
 
 .card {
 	container-type: inline-size;
 	position: relative;
 	display: flex;
+	align-items: stretch; /* the legacy global `a` rule centers flex children */
 	overflow: hidden;
 	text-decoration: none;
 	color: var(--card-on-container);
 	background: var(--card-container);
-	border-radius: var(--size-radius-xl);
+	border-radius: var(--size-radius-lg);
 	transition: background-color 0.2s ease;
 }
 
@@ -65,10 +66,9 @@
 	outline-offset: 4px;
 }
 
-/* Sizes: full = text left / image right, half = text over image */
+/* full = copy left / preview right; half = copy over preview */
 .full {
 	flex-direction: row;
-	min-height: 16.25rem;
 }
 
 .half {
@@ -76,20 +76,19 @@
 }
 
 .content {
-	position: relative;
-	z-index: 1;
 	display: flex;
+	flex: 1 1 0;
 	flex-direction: column;
-	justify-content: space-between;
 	gap: var(--size-space-section-sm);
-	padding: clamp(var(--size-space-lg), 6cqi, var(--size-space-2xl));
+	min-width: 0;
+	padding: var(--size-space-2xl) var(--size-space-2xl) var(--size-space-3xl);
 }
 
-.full .content {
-	flex: 0 0 50%;
+.half .content {
+	flex: none;
 }
 
-.text {
+.copy {
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-sm);
@@ -100,10 +99,9 @@
 	margin: 0;
 	color: var(--card-on-container);
 	font-family: var(--font-style-heading-lg-family);
-	font-size: clamp(1.25rem, 7.5cqi, var(--font-size-2xl));
+	font-size: clamp(1.125rem, calc(8.33cqi - 4.67px), var(--font-size-2xl));
 	font-weight: var(--font-style-heading-lg-weight);
-	line-height: 1.1;
-	letter-spacing: -0.01em;
+	line-height: 1.2;
 	overflow-wrap: break-word;
 }
 
@@ -111,17 +109,17 @@
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0;
-	color: var(--color-content-default);
+	color: var(--color-content-variant);
 	font-family: var(--font-family-body);
-	font-size: clamp(0.9375rem, 4.6cqi, 1.125rem);
+	font-size: clamp(1rem, 4.6cqi, var(--font-size-lg));
 	font-weight: var(--font-weight-default);
-	line-height: 1.4;
+	line-height: 1.5;
 }
 
 .description span:not(:last-child)::after {
 	content: '·';
 	display: inline-block;
-	width: 1.1em;
+	width: 1.15em;
 	text-align: center;
 }
 
@@ -129,23 +127,24 @@
 	display: inline-flex;
 	align-items: center;
 	align-self: flex-start;
-	gap: var(--size-space-sm);
+	gap: var(--size-space-xs);
 	color: var(--card-on-container);
-	font-family: var(--font-family-heading);
-	font-size: clamp(0.9375rem, 4.6cqi, 1.125rem);
-	font-weight: var(--font-weight-emphasis);
+	font-family: var(--font-family-body);
+	font-size: clamp(1rem, 4.6cqi, var(--font-size-lg));
+	font-weight: var(--font-weight-strong);
+	line-height: 1.5;
 }
 
 .link-text {
 	text-decoration: underline;
-	text-decoration-thickness: 1.5px;
-	text-underline-offset: 0.3em;
+	text-decoration-thickness: var(--size-border-width-default);
+	text-underline-offset: 0.25em;
 }
 
 .icon {
 	flex-shrink: 0;
-	width: 1.1em;
-	height: 1.1em;
+	width: 1.2em;
+	height: 1.2em;
 	fill: currentcolor;
 	transition: transform 0.2s ease;
 }
@@ -160,92 +159,110 @@
 	transition-duration: 0.1s;
 }
 
-/* Image: a screenshot that bleeds off the card's right (and bottom) edge, with a soft glow.
-   Only the card clips it, so the glow stays visible above the image. */
-.image-wrapper {
-	position: relative;
+/* Preview: a screenshot in a 500px box that bleeds off the card edge, with a glow.
+   Full: 48px from the copy, 56px from the top. Half: 64px from the left, 24px from the top. */
+.preview {
 	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	transform-origin: 0 0;
 	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-.frame {
-	width: 100%;
-	height: 100%;
+/* 12px narrower than the design's 500px so the copy has slack before a title wraps to a 4th line */
+.full .preview {
+	flex: 0 0 30.5rem;
+	padding: 3.5rem 0 0 3rem;
 }
 
-.image {
-	display: block;
-	width: 108%;
-	max-width: none;
-	height: auto;
-	border-top-left-radius: var(--size-radius-md);
-	box-shadow: 0 0 var(--shadow-blur-2xl) var(--shadow-spread-xl) var(--card-glow);
+.half .preview {
+	height: 17rem;
+	padding: var(--size-space-2xl) 0 0 var(--size-space-section-lg);
 }
 
-.full .image-wrapper {
-	position: absolute;
-	inset: 3.2rem 0 0 50.5%;
-}
-
-.half .image-wrapper {
-	height: 14rem;
-	margin: 1.5rem 0 0 3.6rem;
-}
-
-.half .image {
-	width: 130%;
-}
-
-.card:hover .image-wrapper,
-.card:focus-visible .image-wrapper {
+.card:hover .preview,
+.card:focus-visible .preview {
 	transform: scale(1.04);
 }
 
-.card:active .image-wrapper {
+.card:active .preview {
 	transform: scale(1.08);
 	transition-duration: 0.15s;
 }
 
+.image-box {
+	position: relative;
+	flex: 1;
+	align-self: flex-start;
+	width: 31.25rem;
+	min-height: 0;
+	overflow: clip;
+	background: var(--color-surface-sunken);
+	border-top-left-radius: var(--size-radius-sm);
+	box-shadow: var(--shadow-x-none) var(--shadow-y-none) var(--shadow-blur-2xl)
+		var(--shadow-spread-xl) var(--card-glow);
+}
+
+.frame {
+	position: absolute;
+	top: -1px;
+	left: 0;
+	width: 32.75rem;
+}
+
+.half .frame {
+	width: 34.375rem;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.half .image {
+	border-radius: var(--size-radius-sm);
+}
+
 .fallback {
-	border-radius: var(--size-radius-md);
+	min-height: 12rem;
+	border-radius: var(--size-radius-sm);
 	background: var(--color-surface-sunken);
 }
 
-@media (width <= 900px) {
+@media (width <= 960px) {
 	.full {
 		flex-direction: column;
-		min-height: 0;
 	}
 
 	.full .content {
-		flex: 0 0 auto;
+		flex: none;
 	}
 
-	.full .image-wrapper {
-		position: relative;
-		inset: auto;
-		height: 14rem;
-		margin: 1.5rem 0 0 3.6rem;
+	.full .preview {
+		flex: none;
+		height: 17rem;
+		padding: var(--size-space-2xl) 0 0 var(--size-space-section-lg);
 	}
 
-	.full .image {
-		width: 130%;
+	.full .frame {
+		width: 34.375rem;
 	}
 }
 
 @media (prefers-reduced-motion: reduce) {
 	.card,
 	.icon,
-	.image-wrapper {
+	.preview {
 		transition: none;
 	}
 
 	.card:hover .icon,
 	.card:focus-visible .icon,
 	.card:active .icon,
-	.card:hover .image-wrapper,
-	.card:focus-visible .image-wrapper,
-	.card:active .image-wrapper {
+	.card:hover .preview,
+	.card:focus-visible .preview,
+	.card:active .preview {
 		transform: none;
 	}
 }
