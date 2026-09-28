@@ -47,16 +47,16 @@
 .bubble {
 	position: absolute;
 	bottom: 0;
-	left: 0;
+	left: -1rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 2.75rem;
-	height: 2.75rem;
+	width: 3rem;
+	height: 3rem;
 	background: var(--color-brand-container);
 	border: var(--size-border-width-thick) solid var(--color-surface-default);
 	border-radius: 50%;
-	font-size: var(--font-size-lg);
+	font-size: 1.75rem;
 }
 
 .text {

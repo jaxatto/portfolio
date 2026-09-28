@@ -150,8 +150,14 @@
 	transition: transform 0.2s ease;
 }
 
-.card:hover .icon {
-	transform: translateX(4px);
+.card:hover .icon,
+.card:focus-visible .icon {
+	transform: translateX(0.2em);
+}
+
+.card:active .icon {
+	transform: translateX(0.4em);
+	transition-duration: 0.1s;
 }
 
 /* Image: a screenshot that bleeds off the card's right (and bottom) edge, with a soft glow.
@@ -159,6 +165,7 @@
 .image-wrapper {
 	position: relative;
 	display: flex;
+	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
 .frame {
@@ -187,6 +194,16 @@
 
 .half .image {
 	width: 130%;
+}
+
+.card:hover .image-wrapper,
+.card:focus-visible .image-wrapper {
+	transform: scale(1.04);
+}
+
+.card:active .image-wrapper {
+	transform: scale(1.08);
+	transition-duration: 0.15s;
 }
 
 .fallback {
@@ -218,11 +235,17 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.card,
-	.icon {
+	.icon,
+	.image-wrapper {
 		transition: none;
 	}
 
-	.card:hover .icon {
+	.card:hover .icon,
+	.card:focus-visible .icon,
+	.card:active .icon,
+	.card:hover .image-wrapper,
+	.card:focus-visible .image-wrapper,
+	.card:active .image-wrapper {
 		transform: none;
 	}
 }
