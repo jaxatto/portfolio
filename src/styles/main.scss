@@ -5,7 +5,7 @@
 }
 
 body {
-    background: var(--color-background);
+    background: var(--color-surface-default); // token; was legacy --color-background (same white in light)
     margin: 0;
 }
 
