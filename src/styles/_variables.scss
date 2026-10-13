@@ -1,5 +1,8 @@
 @use 'sass:map';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Manrope:wght@400;500&display=swap');
+// NOTE: weights must cover the token weights in src/tokens (400 default, 700 emphasis, 900 strong)
+// plus the legacy SCSS weights still in use (500, 800). Manrope tops out at 800, so Manrope text
+// set to 900 renders as 800. See docs/decisions.md D-010.
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Manrope:wght@400;500;700;800&display=swap');
 
 /* ---------------------------------- */
 /* -------- Color variables --------- */
