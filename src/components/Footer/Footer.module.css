@@ -1,0 +1,146 @@
+/* Footer (Figma "Footer", 1280px): a 696px surface card centered over decorative shapes. */
+
+.footer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+	/* Figma's 104px bottom padding is not a space token: section-xl (80) + 2xl (24). */
+	padding: var(--size-space-section-xl) var(--size-space-section-lg)
+		calc(var(--size-space-section-xl) + var(--size-space-2xl));
+	overflow: hidden;
+}
+
+/* Shapes sit behind everything (including page content, which never overlaps the footer). */
+.decor {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+}
+
+/* 1562x1064 frame, centered horizontally, 85px below the footer top (Figma "Footer Decorations"). */
+.decor-frame {
+	position: absolute;
+	top: 85px;
+	left: 50%;
+	width: 1562px;
+	height: 1064px;
+	transform: translateX(-50%);
+}
+
+/* Every shape is a container color at 50% opacity, matching the light and dark Figma screens. */
+.decor-ring {
+	position: absolute;
+	top: 0;
+	right: 44px;
+	box-sizing: border-box;
+	width: 350px;
+	height: 350px;
+	border: 65px solid var(--color-secondary-container);
+	border-radius: 9999px;
+	opacity: 0.5;
+	filter: blur(16px);
+}
+
+.decor-circle {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 960px;
+	height: 960px;
+	border-radius: 9999px;
+	background: color-mix(in srgb, var(--color-brand-container) 50%, transparent);
+}
+
+.decor-dot {
+	position: absolute;
+	top: 14px;
+	left: 205px;
+	width: 84px;
+	height: 84px;
+	border-radius: 9999px;
+	background: color-mix(in srgb, var(--color-tertiary-container) 50%, transparent);
+}
+
+.decor-dashed {
+	position: absolute;
+	bottom: 225px;
+	left: 830px;
+	box-sizing: border-box;
+	width: 732px;
+	height: 732px;
+	border: var(--size-border-width-default) dashed var(--color-content-default);
+	border-radius: 9999px;
+}
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-4xl);
+	box-sizing: border-box;
+	width: 696px;
+	max-width: 100%;
+	padding: var(--size-space-4xl);
+	border-radius: var(--size-radius-xl);
+	background: var(--color-surface-default);
+}
+
+.top {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-xl);
+}
+
+.title {
+	margin: 0;
+	color: var(--color-content-default);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-title-sm-size);
+	font-weight: var(--font-style-title-sm-weight);
+	line-height: var(--font-style-title-sm-line-height);
+}
+
+.description {
+	margin: 0;
+	color: var(--color-content-variant);
+	font-family: var(--font-family-body);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-style-body-lg-weight);
+	line-height: var(--font-style-body-lg-line-height);
+}
+
+/* Figma breaks the line after "or"; on narrow screens let it wrap naturally. */
+@media (width > 640px) {
+	.line {
+		display: block;
+	}
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--size-space-lg);
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-space-xl);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* TODO(jax): no mobile design yet (D-008). Proposal: tighter side padding, smaller card padding. */
+@media (width <= 640px) {
+	.footer {
+		padding-inline: var(--size-space-lg);
+	}
+
+	.card {
+		padding: var(--size-space-2xl);
+	}
+}
