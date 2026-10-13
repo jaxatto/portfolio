@@ -63,7 +63,7 @@ File `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/desig
 
   Each page has a second frame with an adjacent id (Home `2839:21652`, About `2850:26578`, Indeed `2853:27125`, ActBlue `2860:33874`, ServiceNow `2860:34445`, Toyota `2951:40612`), probably the mobile versions. Confirm with Jax and check frame widths before relying on that.
 - Figma has **desktop designs only**, in light and dark. There are no mobile designs. Mobile/tablet behavior is a joint design decision: propose it from the desktop system, get Jax's OK, log it in `docs/decisions.md`.
-- Jax's screenshots are meant for `temp/`, but `temp/` is gitignored, so they never reach cloud sessions. Prefer Figma. If a screenshot is truly needed, Jax adds it under `design/screens/` (not ignored).
+- **Exported screens** are in [`screens/`](screens/) in the repo (1280px wide). For each page, `Name.png` is the light theme and `Name-1.png` is the dark theme (Home, About, and the Indeed, ActBlue, ServiceNow and Toyota studies). There are also component crops: Header, Footer, Nav, Nav Item, Menu Item, Mode Toggle, Theme Picker, Chip, Link, Study Card, Study Card Link. Use them for a quick visual check. Figma remains the source for exact values.
 - If Figma and the live site disagree, Figma wins. If a design can't be built as drawn (accessibility, behavior), say so before deviating.
 
 ## Tokens and styling

@@ -29,5 +29,5 @@ Setup done: `CLAUDE.md`, this plan, `docs/decisions.md`, project skills, `redesi
 ## Setup still needed
 
 - **`i-have-adhd` skill:** it isn't visible to Claude in the cloud sessions so far (not in the claude.ai skills list, not in this repo). To get it into every session across Claude, enable it in your claude.ai skills settings, or paste its contents to a session and it can be added at `.claude/skills/i-have-adhd/SKILL.md` for this repo. `CLAUDE.md` already tells every session to load it when present.
-- **Design screenshots:** Jax put them in `temp/`, which is gitignored, so cloud sessions can't see them. Figma is the source of truth, so this is optional. If wanted, add them under `design/screens/`.
+- **Design screenshots:** done. They're in `screens/` (light `Name.png`, dark `Name-1.png`, plus component crops).
 - **Local preview:** the dev server runs in the cloud container. Each change comes with a route to review and a screenshot, since `localhost` links may not open from Jax's browser. Tell me if they do.
