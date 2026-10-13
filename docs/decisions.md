@@ -33,3 +33,12 @@ Figma contains desktop designs only (light and dark). Responsive behavior is pro
 
 ## D-009 Review links with every change — decided, 2026-10-13
 After each change the dev server is up and Jax gets the exact route/section to review plus a screenshot. Files are always shared as real links.
+
+## D-010 Manrope has no 900 weight — proposed, 2026-10-13
+Figma sets Manrope text (body links, "extra-strong") to weight 900, but Manrope's heaviest weight is 800, so it renders as 800. Options: (a) keep 900 in the tokens and accept 800 (no visible change from today), (b) change the Figma/token weight for Manrope to 800 so design and code agree. Lean: (b), so the file says what the screen shows. Needs Jax's call. Fonts load Inter 400/700/800/900 and Manrope 400/500/700/800 (`_variables.scss`).
+
+## D-011 Dark mode gated until components migrate — decided, 2026-10-13
+D-006 stands (ship light and dark). Until the components that use legacy SCSS colors are migrated, `VITE_THEME_SWITCHING=false` pins the site to light so nothing half-restyles. Flip it when Header, Footer, Work and the shared components are on tokens.
+
+## D-012 Token port scope and TypeScript 5 — decided, 2026-10-13
+Slice 0 ported the token source, build script, generated `theme.css`, `ThemeProvider` and the pre-paint theme script. Left behind for now: Figma plugin sync (`watcher.ts`, `export-figma-tokens.ts`, `tokens.json`), stylelint, and `theme-bridge.css` (a temporary dark-mode patch for legacy components that the gate makes unnecessary). TypeScript upgraded 4.9 → 5.9 because the token types use `const` type parameters (TS 5.0+); `update-content` shipped with that unresolved typecheck error.

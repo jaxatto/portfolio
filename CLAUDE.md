@@ -68,13 +68,20 @@ File `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/desig
 
 ## Tokens and styling
 
-Direction (see `docs/decisions.md` D-002): adopt the token system from `origin/update-content` (`src/tokens/`, the `scripts/tokens/` build, generated `theme.css`, light/dark semantic tokens), and **ship light and dark themes**. Keep SCSS only where it earns its place (mixins like `respond()`, build-time helpers); components consume tokens as CSS custom properties. New and migrated components use tokens only, with no hard-coded colors, sizes or breakpoints that have a token. Until the token slice lands, `main` still uses the older SCSS variables in `src/styles/`.
+Token system (D-002, ported in slice 0): `src/tokens/` (`primitives.ts` raw values, `defaultTheme.ts` semantic light/dark tokens, `colorSteps.ts` hover/active states, `types.ts`) compiles with `npm run build:theme` (`scripts/tokens/build-theme*`) into `src/styles/theme.css`. **Never hand-edit `theme.css`**; edit the TS and rebuild, and commit both. Semantic tokens are CSS custom properties (`--color-brand-default`, `--size-space-lg`, `--font-style-body-md-size`, ...); components use these, never primitives or raw values. Light is `:root`, dark is `[data-theme='dark']` (and a `prefers-color-scheme` block).
 
-## Commands (on `main`)
+- `src/providers/Theme` sets `data-theme`, persists the choice, follows the OS when nothing is stored. Switching is **gated** by `VITE_THEME_SWITCHING` in `.env` (currently `false`, site pinned to light) until components are migrated to tokens. Preview with `?themePreview=1` (`=0` clears). Flip the flag when the dark designs are built (D-006, D-011). The inline script in `index.html` must mirror the provider's logic.
+- Colors, spacing, radius, border width and the type scale were verified against Figma (light and dark) in slice 0. Type sizes are fluid `clamp()`s that reach the Figma desktop sizes at about 1280px; their smaller-screen behavior is a proposal pending Jax (D-008).
+- New and migrated components are plain CSS modules using tokens (`Name.module.css`). Keep SCSS only where it earns its place (e.g. `respond()` breakpoints). Legacy SCSS components still use the old `src/styles/_variables.scss` until their slice.
+- Import aliases: legacy `@components/*` etc. and new `#components/*`, `#tokens/*` etc. both work (`vite.config.ts`, `tsconfig.json` and `package.json` `imports` must stay in sync). Prefer `#` in new code.
+- Not ported from `update-content`: the Figma plugin sync (`watcher.ts`, `export-figma-tokens.ts`, `tokens.json`), `stylelint`, and `theme-bridge.css` (D-012). Revisit when needed.
+
+## Commands
 
 ```
 npm ci                                   # install
 npm run dev                              # build-scripts (generate-index, sync-icons) then vite
+npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
 npm run build                            # vite build; postbuild copies index.html to 404.html
 npm run preview                          # serve dist/
 npm run generate:component -- Name       # scaffold src/components/Name
@@ -84,7 +91,7 @@ npm run sync-icons                       # regenerate icon list from src/assets/
 npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
-No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). Known baseline: `npx tsc --noEmit` reports one existing error in `src/index.tsx` (unused `@ts-expect-error`); don't treat it as yours.
+No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). Known baseline: `npx tsc --noEmit` reports one existing error in `src/index.tsx` (unused `@ts-expect-error` on the SCSS import); don't treat it as yours. TypeScript is 5.x.
 
 ## Structure and conventions
 
