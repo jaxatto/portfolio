@@ -25,7 +25,9 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 
 - **Collaborate on design and copy.** Jax's designs and drafts are the starting point, not the ceiling. If something in the content or design could be better (weak positioning, vague claims, missing outcomes, inconsistent patterns, accessibility gaps, hierarchy problems), say so plainly with a concrete suggestion and why it helps a hiring manager. Then discuss it. Don't silently rewrite copy and don't silently ship a design deviation; propose, agree, then do. Use the `portfolio-critique` skill for a structured pass.
 - **Consistency over one-offs.** Everything draws from the token system and shared components. If something needs a value, size, color, component or pattern that doesn't exist, stop and raise it, agree on whether it's a new token/variant or a design change, and log it in `docs/decisions.md`. No quiet one-off styles.
-- **Small slices, small commits, frequent merges.** One page or component per slice. Commit often (one logical change per commit, short imperative subject matching history, e.g. "update about page"), push after each commit so work is saved, and merge to `main` in small steps so `main` is always deployable. At the end of a slice, offer to open a PR; open it when Jax says yes. Jax approves merges. Never run `npm run deploy` unless asked.
+- **Small slices, small commits, frequent merges.** One page or component per slice. Commit often (one logical change per commit, short imperative subject matching history, e.g. "update about page") and push after each commit so work is saved. Slices merge into the long-lived **`redesign`** branch, not `main`, and only after Jax approves (see Git). `main` stays the live site until Jax decides to bring `redesign` back. Never run `npm run deploy` unless asked.
+- **Every change is reviewable.** After any change, make sure the dev server is running (`npm run dev -- --no-open --host 0.0.0.0`, port 5173), then give Jax the exact place to look: the route and section, e.g. `http://localhost:5173/about` plus which section/breakpoint, and a screenshot of that area sent with `SendUserFile` (Playwright with `/opt/pw-browsers/chromium`; it works from the scratchpad). The cloud container's localhost may not open from Jax's browser, so the screenshot is the dependable part. For changes to docs, skills or other files, link the file.
+- **Always make file links real.** Whenever you mention a file, give a markdown link with its absolute path, e.g. [CLAUDE.md](/home/user/portfolio/CLAUDE.md), so Jax can open it. Files outside the working directory, scratchpad and memory directories can't be opened by Jax, so copy anything meant for them into the repo or scratchpad first.
 - **Foundations before pages.** Tokens, typography, layout, header and footer come first.
 - **Match Figma, then stop.** Read exact values from Figma, not from screenshots. Don't add features or refactors that weren't asked for; mention them and leave them alone.
 - **Be honest about verification.** Say what was built, what was checked (build, typecheck, viewport widths), and what wasn't.
@@ -39,8 +41,9 @@ Add comments where they help the next reader or session: *why* something is the 
 ## Git
 
 - Commit as Jax: `Jax Engel <6673768+jaxatto@users.noreply.github.com>`. At the start of a session check `git config user.name` / `user.email`; set them locally if they say anything else.
-- Branch from the latest `main` for each slice. Work only on the branch the session designates, and never push directly to `main`.
-- `origin/update-content` is an earlier attempt, kept as a quarry (see below). Don't merge it or build on top of it.
+- **Branches.** `main` = live site. `redesign` = integration branch for all redesign work (created from `main`, 2026-10-13). Work happens on the session's designated branch, which is branched from the latest `redesign`. Merge into `redesign` only when Jax has approved the slice; never merge to or push to `main`, and never merge to `redesign` unprompted. When Jax says redesign is ready, bringing it into `main` is a separate, explicit step.
+- Merging: after approval, open a PR from the working branch into `redesign` and merge it. Keep PRs one slice each.
+- `origin/update-content` and its siblings are earlier attempts, kept as quarries (see below). Don't merge them or build on top of them.
 
 ## Design source: Figma
 
@@ -59,12 +62,13 @@ File `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/desig
 | Toyota study | `2948:40398` |
 
   Each page has a second frame with an adjacent id (Home `2839:21652`, About `2850:26578`, Indeed `2853:27125`, ActBlue `2860:33874`, ServiceNow `2860:34445`, Toyota `2951:40612`), probably the mobile versions. Confirm with Jax and check frame widths before relying on that.
-- Jax also keeps design screenshots in `~/desktop/screens` on their own machine. Cloud sessions can't see that folder. If screenshots are needed, Jax has to add them to the repo (see `docs/plan.md`).
+- Figma has **desktop designs only**, in light and dark. There are no mobile designs. Mobile/tablet behavior is a joint design decision: propose it from the desktop system, get Jax's OK, log it in `docs/decisions.md`.
+- Jax's screenshots are meant for `temp/`, but `temp/` is gitignored, so they never reach cloud sessions. Prefer Figma. If a screenshot is truly needed, Jax adds it under `design/screens/` (not ignored).
 - If Figma and the live site disagree, Figma wins. If a design can't be built as drawn (accessibility, behavior), say so before deviating.
 
 ## Tokens and styling
 
-Direction (see `docs/decisions.md` D-002): adopt the token system from `origin/update-content` (`src/tokens/`, the `scripts/tokens/` build, generated `theme.css`, light/dark semantic tokens). Keep SCSS only where it earns its place (mixins like `respond()`, build-time helpers); components consume tokens as CSS custom properties. New and migrated components use tokens only, with no hard-coded colors, sizes or breakpoints that have a token. Until the token slice lands, `main` still uses the older SCSS variables in `src/styles/`.
+Direction (see `docs/decisions.md` D-002): adopt the token system from `origin/update-content` (`src/tokens/`, the `scripts/tokens/` build, generated `theme.css`, light/dark semantic tokens), and **ship light and dark themes**. Keep SCSS only where it earns its place (mixins like `respond()`, build-time helpers); components consume tokens as CSS custom properties. New and migrated components use tokens only, with no hard-coded colors, sizes or breakpoints that have a token. Until the token slice lands, `main` still uses the older SCSS variables in `src/styles/`.
 
 ## Commands (on `main`)
 
@@ -108,10 +112,10 @@ src/styles/            _variables, _typography, _mixins, _functions, _utilities
 
 An earlier, larger attempt at the redesign, committed under a different identity. It holds the token pipeline and light/dark theming, case studies moved to Markdown/JSON, and new Header/Footer/Work page/study cards, plus its own longer `CLAUDE.md`.
 
+- Related remote branches: `update-content-archive` (older big-bang work, 52 commits), `update-content-collab`, `figma-home-work-update` (earlier Home/Work attempt), `agents/shared-logic-for-variant-colors`, `test`. Look there before reinventing something.
 - Read with `git show origin/update-content:<path>` or `git diff main...origin/update-content -- <path>`.
 - Port a piece only as part of a slice Jax has chosen, re-checked against current Figma values. Don't cherry-pick whole commits blindly, and carry over only conventions recorded in `docs/decisions.md`.
-- Its `CLAUDE.md` mentions an `origin/update-content-archive` branch that doesn't exist on the remote.
 
 ## Skills
 
-Project skills live in `.claude/skills/`. Current: `ship-slice` (verify, commit, push, offer PR) and `portfolio-critique` (structured content/design review for hiring impact).
+Project skills live in `.claude/skills/`. Current: `ship-slice` (verify, commit, push, review links, merge to `redesign` on approval) and `portfolio-critique` (structured content/design review for hiring impact).
