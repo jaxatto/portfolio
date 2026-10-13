@@ -96,7 +96,8 @@ No test runner or lint script exists yet. Verify with `npm run build` plus a vis
 ## Structure and conventions
 
 ```
-src/components/        shared: Name/{Name.tsx, Name.module.scss, index.ts, resources/}
+src/components/        shared: Name/{Name.tsx, Name.module.css (migrated) or .scss (legacy), index.ts}
+                       migrated so far: Header, Footer, ModeToggle, TextLink (see D-014); Layout is full-width, only <main> is constrained
 src/pages/             Work, About, Resume, Studies, NotFound (+ pages/<Page>/components)
 src/pages/Studies/pages/<Study>/   content.ts, meta.ts, images/
 src/constants/         shared links and icon names
@@ -108,7 +109,7 @@ src/styles/            _variables, _typography, _mixins, _functions, _utilities
 - Import aliases (keep `vite.config.ts` and `tsconfig.json` in sync): `@components`, `@pages`, `@styles`, `@assets`, `@constants`, `@commonTypes`, `@providers`.
 - `src/styles/_all.scss` is injected into every SCSS module; don't `@use` it manually.
 - Scaffold with `generate:component` instead of hand-making folders.
-- **Where copy lives is undecided** (`docs/decisions.md` D-003). Until it's decided, edit copy where it already lives and don't add new copy files in a new style.
+- **Copy lives inline** in components for short page copy (D-003); case studies will use Markdown/JSON. Don't add new `resources/*.ts` copy files. Older components still have them until migrated.
 - **Accessibility is part of the pitch.** Semantic HTML, one `h1` per page, sensible heading order, visible focus, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, enough contrast, keyboard operable. Treat regressions as bugs.
 - Match the surrounding file's quotes and semicolons (the codebase mixes them) and don't reformat files you aren't otherwise changing. TypeScript strict, function components with `React.FC`.
 - Images are `*-min.png`, already compressed. Every rendered image gets meaningful `alt` text.

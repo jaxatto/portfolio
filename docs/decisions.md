@@ -8,13 +8,8 @@ Commits are authored as Jax Engel. Work in small slices with frequent small comm
 ## D-002 Adopt the `update-content` token system — decided, 2026-10-13
 Use the token pipeline from `origin/update-content` (`src/tokens/`, `scripts/tokens/`, generated `theme.css`, light/dark semantic tokens) as the styling foundation. Keep SCSS only where it earns its place (e.g. `respond()` mixin); components consume tokens as CSS custom properties. Port it as its own foundations slice and re-check values against current Figma. Dark mode ships (see D-006).
 
-## D-003 Where copy lives — proposed, 2026-10-13
-Jax agreed with the lean below in principle (2026-10-13) but wants it confirmed when the first page slice starts. Options:
-- (a) `resources/*.ts` next to each component (current `main`). Copy is separated from layout, but hard to read in context and adds boilerplate.
-- (b) Markdown/JSON files (what `update-content` did). Good for long-form case studies, heavy for short page copy.
-- (c) Inline in components. Easiest to read and edit alongside layout.
-
-Lean to discuss: Markdown for case studies, inline for short page copy, retire `resources/` for new work. Until decided, edit copy where it already lives and add no new copy files.
+## D-003 Where copy lives — decided, 2026-10-13
+Short page copy lives inline in components, next to its markup. Case studies get Markdown/JSON files when we build them (slice 3/4). No new `resources/*.ts` copy files. Existing ones are folded in as each component is migrated (Header and Footer done in slice 1).
 
 ## D-004 Copy is collaborative — decided, 2026-10-13
 Copy can be revised and improved, but through discussion. Claude proposes concrete changes with reasoning aimed at the hiring goal; Jax decides.
@@ -45,3 +40,15 @@ Slice 0 ported the token source, build script, generated `theme.css`, `ThemeProv
 
 ## D-013 Fluid type scale — decided, 2026-10-13
 Type sizes may be fluid (`clamp()`), and need not match the token values at every width, as long as the size at desktop (1280px) equals Figma. The ported scale reaches Figma's desktop sizes at about 1280px (title-sm 40, heading-lg 32, body-lg 24, body-md 20). Smaller-screen behavior is still tuned per slice and checked with Jax (D-008).
+
+## D-014 Slice 1 patterns — decided, 2026-10-13
+- **Focus ring:** 2px solid `--color-content-default`, 2px offset (the dark ring in Figma). There is no dedicated focus token; if one is wanted later, add it and swap it in everywhere.
+- **TextLink** (`src/components/TextLink`) is the token-based Figma Link. The legacy SCSS `Link` stays until its last consumers (study cards, NotFound, Resume) are migrated, then it is deleted.
+- **Decorative shapes** are CSS (header ring, footer circle, dot, ring, dashed circle) because Figma's SVG export isn't available to us. Fills are container colors at 50% opacity (verified against light and dark exports); positions and sizes come from Figma. Dashed rings use `content-default`.
+- **32px** for the footer email link and the wave emoji (Figma has 28px, which is off the scale). The email link is fluid down to 16px so it fits 375px screens.
+- **Footer bottom padding** is `section-xl + 2xl` (104px in Figma, not a token).
+- **Header** shows the intro (photo, greeting) on Home only; other pages show brand + nav. Header and Footer are full width; only `<main>` is constrained to the site width.
+- **Mode toggle** renders only while theme switching is enabled (D-011). The multi-theme picker (Unicorn, Forest, ...) is a later slice.
+- **Page background** now uses `--color-surface-default` (same white in light).
+- **Placeholders:** the sun, moon and automation (brand mark) icons are hand-made stand-ins from `update-content` until Figma exports are available.
+- **Site metadata** says Staff everywhere (title, description, Open Graph, Work and Resume pages).
