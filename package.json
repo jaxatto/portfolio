@@ -15,7 +15,8 @@
     "postbuild": "cp dist/index.html dist/404.html",
     "preview": "vite preview",
     "predeploy": "vite build && npm run postbuild && cp CNAME dist/CNAME && npm run build-scripts",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "build:theme": "tsx scripts/tokens/build-theme.ts"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -30,7 +31,8 @@
     "@vitejs/plugin-react": "^4.5.1",
     "gh-pages": "^6.3.0",
     "sass": "^1.89.1",
-    "typescript": "^4.1.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
     "vite": "^6.3.5",
     "vite-plugin-svgr": "^4.3.0"
   },
@@ -40,5 +42,15 @@
   "allowScripts": {
     "@parcel/watcher@2.5.1": true,
     "fsevents@2.3.3": true
+  },
+  "imports": {
+    "#src/*": "./src/*",
+    "#styles/*": "./src/styles/*",
+    "#pages/*": "./src/pages/*",
+    "#components/*": "./src/components/*",
+    "#assets/*": "./src/assets/*",
+    "#constants/*": "./src/constants/*",
+    "#providers/*": "./src/providers/*",
+    "#tokens/*": "./src/tokens/*"
   }
 }

@@ -63,18 +63,25 @@ File `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/desig
 
   Each page has a second frame with an adjacent id (Home `2839:21652`, About `2850:26578`, Indeed `2853:27125`, ActBlue `2860:33874`, ServiceNow `2860:34445`, Toyota `2951:40612`), probably the mobile versions. Confirm with Jax and check frame widths before relying on that.
 - Figma has **desktop designs only**, in light and dark. There are no mobile designs. Mobile/tablet behavior is a joint design decision: propose it from the desktop system, get Jax's OK, log it in `docs/decisions.md`.
-- Jax's screenshots are meant for `temp/`, but `temp/` is gitignored, so they never reach cloud sessions. Prefer Figma. If a screenshot is truly needed, Jax adds it under `design/screens/` (not ignored).
+- **Exported screens** are in [`screens/`](screens/) in the repo (1280px wide). For each page, `Name.png` is the light theme and `Name-1.png` is the dark theme (Home, About, and the Indeed, ActBlue, ServiceNow and Toyota studies). There are also component crops: Header, Footer, Nav, Nav Item, Menu Item, Mode Toggle, Theme Picker, Chip, Link, Study Card, Study Card Link. Use them for a quick visual check. Figma remains the source for exact values.
 - If Figma and the live site disagree, Figma wins. If a design can't be built as drawn (accessibility, behavior), say so before deviating.
 
 ## Tokens and styling
 
-Direction (see `docs/decisions.md` D-002): adopt the token system from `origin/update-content` (`src/tokens/`, the `scripts/tokens/` build, generated `theme.css`, light/dark semantic tokens), and **ship light and dark themes**. Keep SCSS only where it earns its place (mixins like `respond()`, build-time helpers); components consume tokens as CSS custom properties. New and migrated components use tokens only, with no hard-coded colors, sizes or breakpoints that have a token. Until the token slice lands, `main` still uses the older SCSS variables in `src/styles/`.
+Token system (D-002, ported in slice 0): `src/tokens/` (`primitives.ts` raw values, `defaultTheme.ts` semantic light/dark tokens, `colorSteps.ts` hover/active states, `types.ts`) compiles with `npm run build:theme` (`scripts/tokens/build-theme*`) into `src/styles/theme.css`. **Never hand-edit `theme.css`**; edit the TS and rebuild, and commit both. Semantic tokens are CSS custom properties (`--color-brand-default`, `--size-space-lg`, `--font-style-body-md-size`, ...); components use these, never primitives or raw values. Light is `:root`, dark is `[data-theme='dark']` (and a `prefers-color-scheme` block).
 
-## Commands (on `main`)
+- `src/providers/Theme` sets `data-theme`, persists the choice, follows the OS when nothing is stored. Switching is **gated** by `VITE_THEME_SWITCHING` in `.env` (currently `false`, site pinned to light) until components are migrated to tokens. Preview with `?themePreview=1` (`=0` clears). Flip the flag when the dark designs are built (D-006, D-011). The inline script in `index.html` must mirror the provider's logic.
+- Colors, spacing, radius, border width and the type scale were verified against Figma (light and dark) in slice 0. Type sizes are fluid `clamp()`s that reach the Figma desktop sizes at about 1280px; only the desktop size must match Figma, smaller sizes are tuned per slice (D-013). Manrope has no 900 weight; use 800 where Figma says 900 (D-010).
+- New and migrated components are plain CSS modules using tokens (`Name.module.css`). Keep SCSS only where it earns its place (e.g. `respond()` breakpoints). Legacy SCSS components still use the old `src/styles/_variables.scss` until their slice.
+- Import aliases: legacy `@components/*` etc. and new `#components/*`, `#tokens/*` etc. both work (`vite.config.ts`, `tsconfig.json` and `package.json` `imports` must stay in sync). Prefer `#` in new code.
+- Not ported from `update-content`: the Figma plugin sync (`watcher.ts`, `export-figma-tokens.ts`, `tokens.json`), `stylelint`, and `theme-bridge.css` (D-012). Revisit when needed.
+
+## Commands
 
 ```
 npm ci                                   # install
 npm run dev                              # build-scripts (generate-index, sync-icons) then vite
+npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
 npm run build                            # vite build; postbuild copies index.html to 404.html
 npm run preview                          # serve dist/
 npm run generate:component -- Name       # scaffold src/components/Name
@@ -84,7 +91,7 @@ npm run sync-icons                       # regenerate icon list from src/assets/
 npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
-No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). Known baseline: `npx tsc --noEmit` reports one existing error in `src/index.tsx` (unused `@ts-expect-error`); don't treat it as yours.
+No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). Known baseline: `npx tsc --noEmit` reports one existing error in `src/index.tsx` (unused `@ts-expect-error` on the SCSS import); don't treat it as yours. TypeScript is 5.x.
 
 ## Structure and conventions
 

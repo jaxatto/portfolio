@@ -31,6 +31,16 @@ export default defineConfig({
       "@constants": path.resolve(__dirname, "src/constants/"),
       "@commonTypes": path.resolve(__dirname, "src/commonTypes/"),
       "@providers": path.resolve(__dirname, "src/providers/"),
+      // "#" aliases mirror package.json "imports" and tsconfig paths. Token code and the
+      // theme build script use them (D-002). Legacy "@" aliases stay until migrated.
+      "#src": path.resolve(__dirname, "src"),
+      "#tokens": path.resolve(__dirname, "src/tokens"),
+      "#styles": path.resolve(__dirname, "src/styles"),
+      "#pages": path.resolve(__dirname, "src/pages"),
+      "#components": path.resolve(__dirname, "src/components"),
+      "#assets": path.resolve(__dirname, "src/assets"),
+      "#constants": path.resolve(__dirname, "src/constants"),
+      "#providers": path.resolve(__dirname, "src/providers"),
     },
   },
   css: {
