@@ -1,0 +1,46 @@
+/* Link: default, hover, pressed and focus states from Figma. */
+
+.link {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-space-sm);
+	border-radius: var(--size-radius-sm);
+	color: var(--color-content-link);
+	font-family: var(--font-family-body);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-weight-emphasis);
+	line-height: var(--font-line-height-default);
+	text-decoration: underline;
+	text-decoration-thickness: var(--font-text-decoration-thickness-md);
+	text-decoration-skip-ink: none;
+	text-underline-offset: var(--font-text-underline-offset-md);
+}
+
+/* Large: the footer email link. 32px per Jax (Figma has 28px, which is off the type scale). */
+.large {
+	/* Fluid so the 24-character email plus arrow fits narrow cards; reaches 32px at about 550px wide (D-013). */
+	font-size: clamp(var(--font-size-md), 7.4vw - 9px, var(--font-size-2xl));
+	overflow-wrap: anywhere;
+	font-weight: var(--font-weight-extra-strong);
+}
+
+.link:hover {
+	color: var(--color-primary-default-hover);
+}
+
+.link:active {
+	color: var(--color-primary-default-active);
+}
+
+/* NOTE: focus ring is content-default (the dark ring in Figma); no dedicated token. See D-014. */
+.link:focus-visible {
+	outline: var(--size-border-width-default) solid var(--color-content-default);
+	outline-offset: 2px;
+}
+
+.icon {
+	width: 1em;
+	height: 1em;
+	flex-shrink: 0;
+	fill: currentcolor;
+}
