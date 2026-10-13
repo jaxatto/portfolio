@@ -1,30 +1,53 @@
 # CLAUDE.md
 
-Jax Engel's portfolio (https://jaxengeldesign.com): React 19 + TypeScript SPA, Vite, SCSS modules, React Router, deployed to GitHub Pages. This file describes `main`. Keep it current: when a change alters a convention or command below, update this file in the same commit.
+Jax Engel's portfolio (https://jaxengeldesign.com): React 19 + TypeScript SPA, Vite, SCSS modules, React Router, deployed to GitHub Pages. This file describes `main`.
 
-## Working agreement
+**Goal: get Jax hired.** Every change should make the portfolio stronger to a hiring manager or design leader reviewing a staff-level product designer. Polish, clarity, accessibility and craft matter more than feature count.
 
-- **Jax decides design and copy.** The Figma file is the design source of truth. Final copy comes from Jax. Never rewrite, shorten or "improve" copy, and never invent placeholder copy that could ship. If copy or a design detail is missing, ask.
-- **Work in small slices.** One page or one component per slice, each ending in something Jax can look at, and each leaving the site deployable. Don't start the next slice until Jax has reviewed the last.
-- **Foundations first.** Tokens, typography, layout, header and footer land before any page uses them.
-- **Match the design exactly, then stop.** Read values from Figma (see below), not from screenshots or by eye. Don't add features, sections, animations or refactors that weren't asked for. Mention anything you notice and leave it alone.
-- **Never** push to `main`, open a PR, or run `npm run deploy` unless Jax asks. `deploy` publishes the live site.
-- Be honest about verification: say what you built, what you checked (build, typecheck, a screenshot at which widths), and what you did not.
+## Start of every session
+
+1. If a skill named `i-have-adhd` is available, load it and follow it for the whole session. (Jax wants it in every Claude session. See `docs/plan.md` → Setup.)
+2. Read `docs/plan.md` (where we are, what's next) and skim `docs/decisions.md` (what's already decided). Don't re-ask settled questions.
+3. Check `git status` and the current branch. Confirm the git identity (below).
+
+## Shared memory across sessions
+
+The repo is the memory. Sessions are ephemeral, so anything worth keeping goes in a file and gets committed.
+
+- `CLAUDE.md` (this file): stable rules and how to work. Short. Change it rarely.
+- `docs/plan.md`: goal, roadmap, current slice, open questions, next steps. Update at the end of every slice or session.
+- `docs/decisions.md`: one short entry per design/architecture/copy decision (what, why, date). If a choice sets a pattern, log it before or with the commit that uses it.
+- `.claude/skills/`: repeatable procedures (see Skills).
+
+Keep all of it lean: current facts and decisions only, no history, no narration. Delete or fold entries that go stale.
+
+## How we work together
+
+- **Collaborate on design and copy.** Jax's designs and drafts are the starting point, not the ceiling. If something in the content or design could be better (weak positioning, vague claims, missing outcomes, inconsistent patterns, accessibility gaps, hierarchy problems), say so plainly with a concrete suggestion and why it helps a hiring manager. Then discuss it. Don't silently rewrite copy and don't silently ship a design deviation; propose, agree, then do. Use the `portfolio-critique` skill for a structured pass.
+- **Consistency over one-offs.** Everything draws from the token system and shared components. If something needs a value, size, color, component or pattern that doesn't exist, stop and raise it, agree on whether it's a new token/variant or a design change, and log it in `docs/decisions.md`. No quiet one-off styles.
+- **Small slices, small commits, frequent merges.** One page or component per slice. Commit often (one logical change per commit, short imperative subject matching history, e.g. "update about page"), push after each commit so work is saved, and merge to `main` in small steps so `main` is always deployable. At the end of a slice, offer to open a PR; open it when Jax says yes. Jax approves merges. Never run `npm run deploy` unless asked.
+- **Foundations before pages.** Tokens, typography, layout, header and footer come first.
+- **Match Figma, then stop.** Read exact values from Figma, not from screenshots. Don't add features or refactors that weren't asked for; mention them and leave them alone.
+- **Be honest about verification.** Say what was built, what was checked (build, typecheck, viewport widths), and what wasn't.
+- **Resume page is a later, joint effort.** Don't change `src/pages/Resume` or the resume PDF until Jax starts that work.
+- **Make skills for repeat tasks.** When a procedure comes up a second time (or is obviously going to), write it as a skill in `.claude/skills/<name>/SKILL.md`. Also look for good existing skills or plugins (SearchSkills, SearchPlugins) when a task would benefit, and propose them to Jax rather than installing silently.
+
+## Code comments
+
+Add comments where they help the next reader or session: *why* something is the way it is, a design/accessibility reason, a non-obvious Figma-to-code mapping, a workaround, a known limitation, or a pointer to a decision (`// See docs/decisions.md D-004`). Use `// NOTE:` for context and `// TODO(jax):` for an open question that needs a design or copy decision. Don't narrate obvious code. Keep comments true; update or delete them when the code changes.
 
 ## Git
 
-- Commit as Jax: `Jax Engel <6673768+jaxatto@users.noreply.github.com>`. Check `git config user.name` and `user.email` before the first commit of a session and set them locally (`git config user.name "Jax Engel"`, `git config user.email "6673768+jaxatto@users.noreply.github.com"`) if they say anything else.
-- Short imperative commit subjects, matching history ("update about page", "fix spacing in about"). One logical change per commit.
-- Branch from the latest `main` for each slice. Keep slices small enough to review in one sitting.
-- The branch `update-content` is an earlier attempt, kept as reference only (see below). Don't merge it and don't build on top of it.
+- Commit as Jax: `Jax Engel <6673768+jaxatto@users.noreply.github.com>`. At the start of a session check `git config user.name` / `user.email`; set them locally if they say anything else.
+- Branch from the latest `main` for each slice. Work only on the branch the session designates, and never push directly to `main`.
+- `origin/update-content` is an earlier attempt, kept as a quarry (see below). Don't merge it or build on top of it.
 
 ## Design source: Figma
 
-File: `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/design/MqsYPIWOx9imJtSiXidiww/Portfolio-2026).
+File `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/design/MqsYPIWOx9imJtSiXidiww/Portfolio-2026).
 
-- Use the Figma MCP: `get_design_context` for layout and values, `get_variable_defs` for tokens, `get_metadata` for structure. Load the `figma-design-to-code` skill first. Its output is a reference to adapt to this codebase's components and tokens, not code to paste.
-- Current designs are on the **Screens** page (`0:1`). Ignore **Old Screens** and the Sandbox/Presi pages unless asked.
-- Frames (desktop frames are 1280px wide, content column 912px):
+- Use the Figma MCP: `get_design_context` (layout and values), `get_variable_defs` (tokens), `get_metadata` (structure). Load the `figma-design-to-code` skill before `get_design_context`. Its output is a reference to adapt to this codebase, not code to paste.
+- Current designs are on the **Screens** page (`0:1`). Ignore **Old Screens** and the Sandbox/Presi pages unless asked. Desktop frames are 1280px wide with a 912px content column.
 
 | Page | Node |
 | --- | --- |
@@ -35,73 +58,60 @@ File: `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/desi
 | ServiceNow study | `2860:34444` |
 | Toyota study | `2948:40398` |
 
-  Each page has a second frame with an adjacent id (Home `2839:21652`, About `2850:26578`, Indeed `2853:27125`, ActBlue `2860:33874`, ServiceNow `2860:34445`, Toyota `2951:40612`). These are probably the mobile versions. Confirm with Jax before relying on that, and check actual frame widths.
-- Shared pieces on Home: Header (`2844:24831`), Footer (`2844:23717`), Study Card.
+  Each page has a second frame with an adjacent id (Home `2839:21652`, About `2850:26578`, Indeed `2853:27125`, ActBlue `2860:33874`, ServiceNow `2860:34445`, Toyota `2951:40612`), probably the mobile versions. Confirm with Jax and check frame widths before relying on that.
+- Jax also keeps design screenshots in `~/desktop/screens` on their own machine. Cloud sessions can't see that folder. If screenshots are needed, Jax has to add them to the repo (see `docs/plan.md`).
 - If Figma and the live site disagree, Figma wins. If a design can't be built as drawn (accessibility, behavior), say so before deviating.
 
-## Commands
+## Tokens and styling
+
+Direction (see `docs/decisions.md` D-002): adopt the token system from `origin/update-content` (`src/tokens/`, the `scripts/tokens/` build, generated `theme.css`, light/dark semantic tokens). Keep SCSS only where it earns its place (mixins like `respond()`, build-time helpers); components consume tokens as CSS custom properties. New and migrated components use tokens only, with no hard-coded colors, sizes or breakpoints that have a token. Until the token slice lands, `main` still uses the older SCSS variables in `src/styles/`.
+
+## Commands (on `main`)
 
 ```
-npm ci                 # install
-npm run dev            # runs build-scripts (generate-index, sync-icons) then vite
-npm run build          # vite build; postbuild copies index.html to 404.html (SPA fallback on Pages)
-npm run preview        # serve dist/
-npm run generate:component -- Name          # scaffold src/components/Name
-npm run generate:component -- Page/Name     # scaffold src/pages/Page/components/Name
-npm run generate-index # regenerate index.ts barrels
-npm run sync-icons     # regenerate icon list from src/assets/icons
-npm run deploy         # publishes dist/ to GitHub Pages. Only when Jax asks.
+npm ci                                   # install
+npm run dev                              # build-scripts (generate-index, sync-icons) then vite
+npm run build                            # vite build; postbuild copies index.html to 404.html
+npm run preview                          # serve dist/
+npm run generate:component -- Name       # scaffold src/components/Name
+npm run generate:component -- Page/Name  # scaffold src/pages/Page/components/Name
+npm run generate-index                   # regenerate index.ts barrels
+npm run sync-icons                       # regenerate icon list from src/assets/icons
+npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
-There is no test runner and no lint script. Verify with `npm run build` plus a visual check.
+No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). Known baseline: `npx tsc --noEmit` reports one existing error in `src/index.tsx` (unused `@ts-expect-error`); don't treat it as yours.
 
-Known baseline: `npx tsc --noEmit` reports one existing error (`src/index.tsx`: unused `@ts-expect-error`). Don't treat it as caused by your change, and don't fix it unless asked.
-
-## Structure
+## Structure and conventions
 
 ```
-src/
-  components/     shared components: Name/{Name.tsx, Name.module.scss, index.ts, resources/}
-  pages/          Work, About, Resume, Studies, NotFound; page-local parts in pages/<Page>/components
-  pages/Studies/pages/<Study>/   per-study content.ts, meta.ts, images/
-  constants/      shared links and icon names (mainLinks, studyLinks, contactInfo, iconNames)
-  providers/      SiteConfig context
-  commonTypes/    shared types (study header/section/image/meta)
-  styles/         _variables, _typography, _mixins, _functions, _utilities, main.scss
-  assets/         icons, logos, about and sample images
+src/components/        shared: Name/{Name.tsx, Name.module.scss, index.ts, resources/}
+src/pages/             Work, About, Resume, Studies, NotFound (+ pages/<Page>/components)
+src/pages/Studies/pages/<Study>/   content.ts, meta.ts, images/
+src/constants/         shared links and icon names
+src/providers/         SiteConfig context
+src/styles/            _variables, _typography, _mixins, _functions, _utilities
 ```
 
-- Routes live in `src/App.tsx`. A new case study needs a route-reachable slug in `src/constants/studyLinks.ts` and a card in `StudyCardGrid/resources/content.ts`.
-- Import aliases (`vite.config.ts` and `tsconfig.json` must stay in sync): `@components`, `@pages`, `@styles`, `@assets`, `@constants`, `@commonTypes`, `@providers`.
-- `src/styles/_all.scss` is injected into every SCSS module (`additionalData` in `vite.config.ts`), so don't `@use` it manually.
-- Each component folder exports through an `index.ts` barrel. Use the generator instead of hand-creating folders.
-
-## Conventions
-
-- **Content out of components.** Copy lives in `resources/content.ts` (or `meta.ts`) next to the component or page. Components render it. This keeps copy changes reviewable apart from layout changes.
-- **Styling.** SCSS modules per component. Use the existing tokens and helpers in `src/styles/` (`font-size()`, `respond()`, spacing/radius maps, CSS custom properties like `--color-dark`). Don't hard-code colors, sizes or breakpoints that have a token. If Figma has a value with no token, say so and propose one rather than inlining it.
-- **Responsive.** Breakpoints are in `$breakpoints` (`xs` 340, `sm` 640, `md` 900, site width 960). Check every slice at desktop (1280), tablet and mobile (about 375) widths.
-- **Accessibility is a core part of this portfolio's pitch.** Semantic HTML, one `h1` per page, a sensible heading order, visible focus states, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, sufficient contrast, keyboard operable. Treat regressions here as bugs.
-- **Style.** TypeScript strict. Function components with `React.FC`. Match the surrounding file for quotes and semicolons (the codebase mixes them; don't reformat files you aren't otherwise changing).
-- **Images** are named `*-min.png` and are already compressed. Keep descriptive names and add alt text where they're rendered.
-- **Fonts.** Inter (headings) and Manrope (body) load from Google Fonts in `_variables.scss`. Make sure the weights requested cover the weights the design uses.
-- **SEO and meta.** Per-page `title` and `description` live in each page's `resources/meta.ts` and render through `Meta`/`Layout`. Site-wide defaults are in `index.html`.
+- Routes: `src/App.tsx`. A new case study needs a slug in `src/constants/studyLinks.ts` and a card in `StudyCardGrid/resources/content.ts`.
+- Import aliases (keep `vite.config.ts` and `tsconfig.json` in sync): `@components`, `@pages`, `@styles`, `@assets`, `@constants`, `@commonTypes`, `@providers`.
+- `src/styles/_all.scss` is injected into every SCSS module; don't `@use` it manually.
+- Scaffold with `generate:component` instead of hand-making folders.
+- **Where copy lives is undecided** (`docs/decisions.md` D-003). Until it's decided, edit copy where it already lives and don't add new copy files in a new style.
+- **Accessibility is part of the pitch.** Semantic HTML, one `h1` per page, sensible heading order, visible focus, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, enough contrast, keyboard operable. Treat regressions as bugs.
+- Match the surrounding file's quotes and semicolons (the codebase mixes them) and don't reformat files you aren't otherwise changing. TypeScript strict, function components with `React.FC`.
+- Images are `*-min.png`, already compressed. Every rendered image gets meaningful `alt` text.
+- Fonts: Inter (headings) and Manrope (body) from Google Fonts in `_variables.scss`; the requested weights must cover the weights the design uses.
+- Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`.
 
 ## Reference branch: `update-content`
 
-An earlier, larger attempt at the redesign, committed under a different identity. It is useful as a quarry, not a base. It contains slices for a design-token pipeline with light/dark theming, case study content moved to Markdown/JSON, and new Header/Footer/Work page/study cards, plus its own longer `CLAUDE.md`.
+An earlier, larger attempt at the redesign, committed under a different identity. It holds the token pipeline and light/dark theming, case studies moved to Markdown/JSON, and new Header/Footer/Work page/study cards, plus its own longer `CLAUDE.md`.
 
-- Read it with `git show origin/update-content:<path>` or `git diff main...origin/update-content -- <path>`.
-- Port a piece only when Jax has chosen to adopt it for the slice at hand. Reimplement against the current Figma values rather than cherry-picking whole commits, and carry over only the conventions Jax has approved.
-- Its `CLAUDE.md` mentions an `origin/update-content-archive` branch that does not exist on the remote.
+- Read with `git show origin/update-content:<path>` or `git diff main...origin/update-content -- <path>`.
+- Port a piece only as part of a slice Jax has chosen, re-checked against current Figma values. Don't cherry-pick whole commits blindly, and carry over only conventions recorded in `docs/decisions.md`.
+- Its `CLAUDE.md` mentions an `origin/update-content-archive` branch that doesn't exist on the remote.
 
-## Slice log
+## Skills
 
-Update this as slices land so a fresh session knows where things stand.
-
-- [ ] Foundations (tokens, typography, layout)
-- [ ] Header and footer
-- [ ] Home / Work page and study cards
-- [ ] Case study template and content (Indeed, ActBlue, ServiceNow, Toyota)
-- [ ] About
-- [ ] Resume
+Project skills live in `.claude/skills/`. Current: `ship-slice` (verify, commit, push, offer PR) and `portfolio-critique` (structured content/design review for hiring impact).
