@@ -18,9 +18,23 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slice 0 merged into `redesign` (PR 2). Starting slice 1: reading Header, Footer, Nav, Mode Toggle and Theme Picker from Figma, then a short plan for Jax before building.
+Slice 0 merged into `redesign` (PR 2). Slice 1 (header, footer, nav, mode toggle) is planned, not built: waiting on Jax's answers to the slice 1 questions below. Findings from Figma:
+- Header = nav (Work/About/Resume + mode toggle) + intro banner (photo, "Hello, I'm Jax!"). Figma's `hasIntro` variant means the intro shows on Home only; confirm what other pages show.
+- Footer = "Let's work together" card + email, then Resume / LinkedIn / GitHub links, on decorative shapes.
+- Theme Picker is bigger than light/dark: five named themes (Unicorn, Forest, Cyberpunk, Cotton Candy, Racetrack) plus a Switch Mode row. The nav only shows the mode toggle.
+- Footer email link and the wave emoji are 28px, which is off the type scale (24/32).
+- Figma asset downloads are blocked in the cloud sandbox, so the footer decor SVG (node `2844:23672`) can't be fetched; Jax can export it to the repo, or we approximate in CSS.
+- `index.html`, Work and Resume meta still say "Senior Product Designer" while the hero/footer target Staff roles.
 
 ## Open questions for Jax
+
+Slice 1:
+- Multi-theme picker (Unicorn, Forest, ...): ship it, and when? Proposal: slice 1 builds the light/dark mode toggle only; the picker is its own later slice.
+- 28px (footer email link, wave emoji): add 28 to the type scale, or change the design to 24/32?
+- Footer decor SVG: export to `src/assets/decor/`, or approximate in CSS?
+- Meta title/description: change "Senior" to "Staff" site-wide?
+
+Other:
 
 1. Component-level values in Figma (study card padding 48/56, link gap 4, border offset 2) aren't tokens yet. Decide at the Header/Footer and Home slices whether they become tokens.
 2. Where should copy live (D-003)? Leaning: Markdown for case studies, inline for short page copy. Confirm at the first page slice.
