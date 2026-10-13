@@ -6,8 +6,8 @@ Goal: make the portfolio as strong as possible for getting Jax hired as a staff-
 
 Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
-- [~] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout. Built; awaiting Jax's review and merge into `redesign`
-- [ ] 1. Header and footer
+- [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
+- [~] 1. Header and footer (incl. nav, mode toggle, theme picker)
 - [ ] 2. Home / Work page and study cards
 - [ ] 3. Case study template
 - [ ] 4. Case study content: Indeed, ActBlue, ServiceNow, Toyota (copy + design review for each)
@@ -18,7 +18,7 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slice 0 (foundations) is built on branch `claude/admiring-goodall-b1qiwh`, awaiting review. Tokens verified against Figma in light and dark; site renders pixel-identical to before. Next: slice 1 (header and footer, including the mode toggle / theme picker).
+Slice 0 merged into `redesign` (PR 2). Starting slice 1: reading Header, Footer, Nav, Mode Toggle and Theme Picker from Figma, then a short plan for Jax before building.
 
 ## Open questions for Jax
 
