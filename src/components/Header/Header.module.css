@@ -1,0 +1,298 @@
+/* Header: nav bar on every page, plus the intro on Home (Figma "Header", 1280px, content column 912px). */
+
+/* NOTE: no position/z-index on .header, so the decor (z-index: -1) paints behind page content
+   but above the page background. Keep it that way. */
+.header {
+	padding-block: var(--size-space-section-md);
+}
+
+.decor {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: min(532px, 100%);
+	height: 484px;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.decor-ring {
+	position: absolute;
+	top: -345px;
+	left: -302px;
+	box-sizing: border-box;
+	width: 755px;
+	height: 755px;
+	border: 200px solid var(--color-tertiary-container);
+	border-radius: 9999px;
+	opacity: 0.5;
+	filter: blur(16px);
+}
+
+.bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--size-space-2xl);
+	box-sizing: border-box;
+	width: 100%;
+	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+	margin-inline: auto;
+	padding-inline: var(--size-space-2xl);
+}
+
+.bar-home {
+	justify-content: flex-end;
+}
+
+.brand {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-space-sm);
+	border-radius: var(--size-radius-sm);
+	color: var(--color-content-default);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-heading-md-size);
+	font-weight: var(--font-weight-strong);
+	line-height: var(--font-style-heading-md-line-height);
+	text-decoration: none;
+}
+
+.brand:hover {
+	color: var(--color-content-default-hover);
+}
+
+.brand:active {
+	color: var(--color-content-default-active);
+}
+
+.brand-icon {
+	width: 1em;
+	height: 1em;
+	fill: currentcolor;
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+	gap: var(--size-space-2xl);
+	min-height: 40px;
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	gap: var(--size-space-2xl);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Nav item: Manrope bold (800, D-010), primary color; the current page is dark with a dotted underline. */
+.nav-link {
+	display: block;
+	border-radius: var(--size-radius-sm);
+	color: var(--color-primary-default);
+	font-family: var(--font-family-body);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-weight-extra-strong);
+	line-height: var(--font-line-height-default);
+	text-decoration: none;
+	text-underline-offset: 0.2em;
+	text-decoration-thickness: var(--font-text-decoration-thickness-md);
+}
+
+.nav-link:hover {
+	color: var(--color-primary-default-hover);
+}
+
+.nav-link:active {
+	color: var(--color-primary-default-active);
+}
+
+.nav-link[aria-current='page'] {
+	color: var(--color-content-default);
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+}
+
+.nav-link[aria-current='page']:hover {
+	color: var(--color-content-default-hover);
+}
+
+.nav-link[aria-current='page']:active {
+	color: var(--color-content-default-active);
+}
+
+/* NOTE: focus ring is content-default (the dark ring in Figma); no dedicated token. See D-014. */
+.nav-link:focus-visible,
+.brand:focus-visible {
+	outline: var(--size-border-width-default) solid var(--color-content-default);
+	outline-offset: 2px;
+}
+
+.skip-link {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+.skip-link:focus-visible {
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: auto;
+	height: auto;
+	margin: var(--size-space-md);
+	padding: var(--size-space-md) var(--size-space-lg);
+	overflow: visible;
+	clip-path: none;
+	white-space: normal;
+	background: var(--color-primary-default);
+	color: var(--color-primary-on-default);
+	font-size: var(--font-size-md);
+	border-radius: var(--size-radius-sm);
+}
+
+/* Intro (Home only): photo with a dashed ring and wave, beside a surface card with the greeting. */
+.intro {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+	margin-inline: auto;
+	padding-inline: var(--size-space-2xl);
+	padding-bottom: var(--size-space-2xl);
+}
+
+.intro-content {
+	display: flex;
+	align-items: center;
+	gap: var(--size-space-xl);
+	box-sizing: border-box;
+	/* Figma: 80px inset + 600px content (the frame says 675, but its content is 600 wide). */
+	max-width: calc(var(--size-space-section-xl) + 600px);
+	min-height: 308px;
+	padding-left: var(--size-space-section-xl);
+}
+
+.photo {
+	position: relative;
+	flex-shrink: 0;
+	width: 160px;
+	height: 160px;
+}
+
+/* Dashed ring, 308px, centered on the photo. The copy card (opaque) covers its right side. */
+.photo-circle {
+	position: absolute;
+	top: -74px;
+	left: -74px;
+	box-sizing: border-box;
+	width: 308px;
+	height: 308px;
+	border: var(--size-border-width-default) dashed var(--color-content-default);
+	border-radius: 9999px;
+}
+
+.photo-frame {
+	position: relative;
+	width: 160px;
+	height: 160px;
+	overflow: hidden;
+	border-radius: 9999px;
+}
+
+.photo-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.emoji {
+	position: absolute;
+	bottom: 0;
+	left: calc(-1 * var(--size-space-lg));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 9999px;
+	background: var(--color-secondary-container);
+	/* 32px per Jax (Figma has 28px, which is off the scale). Shadow color is the Figma value. */
+	font-size: var(--font-size-2xl);
+	line-height: 1;
+	text-shadow: 0 2px 4px rgb(49 44 133 / 48%);
+}
+
+.copy {
+	position: relative;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-md);
+	box-sizing: border-box;
+	padding: var(--size-space-2xl);
+	border-radius: var(--size-radius-xl);
+	background: var(--color-surface-default);
+}
+
+.heading {
+	margin: 0;
+	color: var(--color-content-default);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-title-sm-size);
+	font-weight: var(--font-style-title-sm-weight);
+	line-height: var(--font-style-title-sm-line-height);
+}
+
+.description {
+	margin: 0;
+	color: var(--color-content-variant);
+	font-family: var(--font-family-body);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-style-body-lg-weight);
+	line-height: var(--font-style-body-lg-line-height);
+}
+
+/* TODO(jax): no mobile design yet (D-008). Proposal: nav wraps under the brand, the photo stacks above
+   the card, the dashed ring shrinks so it clears the nav, and the left inset goes away. */
+@media (width <= 640px) {
+	.bar {
+		flex-wrap: wrap;
+	}
+
+	.intro-content {
+		flex-direction: column;
+		align-items: stretch;
+		padding-left: 0;
+		gap: var(--size-space-3xl);
+		padding-top: var(--size-space-2xl);
+	}
+
+	.photo {
+		align-self: center;
+		width: 128px;
+		height: 128px;
+	}
+
+	.photo-frame {
+		width: 128px;
+		height: 128px;
+	}
+
+	.photo-circle {
+		top: -24px;
+		left: -24px;
+		width: 176px;
+		height: 176px;
+	}
+}
