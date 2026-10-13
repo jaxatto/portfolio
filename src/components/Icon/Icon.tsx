@@ -3,6 +3,7 @@ import { IconName } from '@constants/iconNames';
 import Ai from '@assets/icons/ai.svg';
 import ArrowRight from '@assets/icons/arrow-right.svg';
 import ArrowTopRight from '@assets/icons/arrow-top-right.svg';
+import Automation from '@assets/icons/automation.svg';
 import Cat from '@assets/icons/cat.svg';
 import Clouds from '@assets/icons/clouds.svg';
 import Component from '@assets/icons/component.svg';
@@ -10,14 +11,17 @@ import Controller from '@assets/icons/controller.svg';
 import Dog from '@assets/icons/dog.svg';
 import Download from '@assets/icons/download.svg';
 import Image from '@assets/icons/image.svg';
+import Moon from '@assets/icons/moon.svg';
 import Paw from '@assets/icons/paw.svg';
 import PencilRuler from '@assets/icons/pencil-ruler.svg';
 import Person from '@assets/icons/person.svg';
+import Sun from '@assets/icons/sun.svg';
 
 const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'ai': Ai,
   'arrow-right': ArrowRight,
   'arrow-top-right': ArrowTopRight,
+  'automation': Automation,
   'cat': Cat,
   'clouds': Clouds,
   'component': Component,
@@ -25,9 +29,11 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'dog': Dog,
   'download': Download,
   'image': Image,
+  'moon': Moon,
   'paw': Paw,
   'pencil-ruler': PencilRuler,
   'person': Person,
+  'sun': Sun,
 };
 
 type IconProps = {
