@@ -22,13 +22,10 @@ Slice 0 (foundations) is built on branch `claude/admiring-goodall-b1qiwh`, await
 
 ## Open questions for Jax
 
-1. Manrope weight 900 doesn't exist (D-010): change the design/tokens to 800?
-2. Fluid type: the ported scale shrinks smoothly below 1280px; OK as the starting point for tablet/mobile (D-008)?
-3. Component-level values in Figma (study card padding 48/56, link gap 4, border offset 2) aren't tokens yet. Decide at the Header/Footer and Home slices whether they become tokens.
-
-4. Where should copy live (D-003)? Leaning: Markdown for case studies, inline for short page copy. Confirm at the first page slice.
-5. Mobile/tablet: no designs exist (D-008). Plan: propose breakpoints from the desktop system per slice and agree before building.
-6. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (Used by the first `portfolio-critique` pass.)
+1. Component-level values in Figma (study card padding 48/56, link gap 4, border offset 2) aren't tokens yet. Decide at the Header/Footer and Home slices whether they become tokens.
+2. Where should copy live (D-003)? Leaning: Markdown for case studies, inline for short page copy. Confirm at the first page slice.
+3. Mobile/tablet: no designs exist (D-008). Plan: propose breakpoints from the desktop system per slice and agree before building.
+4. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (Used by the first `portfolio-critique` pass.)
 
 ## Setup still needed
 
