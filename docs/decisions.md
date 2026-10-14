@@ -107,6 +107,6 @@ Also (D-022): the "404" is a display size derived from the largest type token (`
 
 Also (D-022): hover/pressed on the 404 header use new `--color-content-on-accent-hover` / `-active` (indigo-200 / 300 in both themes); the container tokens went dark in dark mode and made the nav and toggle illegible. The mobile divider is a 22% tint of on-accent.
 
-## D-023: Header brand is plain text — 2026-10-13
+## D-023: Header brand — 2026-10-13
 
-On inner pages "Jax Engel" in the nav row is regular weight and not a link; "Work" already goes Home, so a second link duplicated it. Lives in `Header.tsx` / `.brand`.
+On inner pages "Jax Engel" in the nav row is regular weight and stays a link to Home. It gets the nav links' hover: violet text and the 3px line growing in from the left at the same position. No visited or current state.
