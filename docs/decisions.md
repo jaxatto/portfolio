@@ -78,3 +78,7 @@ Type sizes may be fluid (`clamp()`), and need not match the token values at ever
 - **Hero pointer** is a Figma multiplayer cursor: a solid indigo arrow (selection box color) with a thin white edge and a name tag ("Jax"), tip up-left on the box's bottom-right handle. It fades in only while the box is being dragged (middle of the 8s drag, hidden during the 4s pause) so the tag isn't over the line below all the time, and it is hidden under reduced motion.
 - **Site cursor** is the hero pointer's arrow shape in black with a thin white edge and a soft drop shadow (CSS `cursor` on `html`, hotspot at the tip). Links, buttons and inputs keep their own cursors. Trade-off: over plain text the arrow replaces the browser's I-beam.
 - **Over the "build" chip** the cursor becomes the browser's I-beam, matching the typing cursor in the chip.
+
+## D-018: Home header on mobile (≤640px) — 2026-10-13
+
+Proposal, pending Jax's OK (no mobile design exists, D-008). The role line sits above the nav (full-width row), the hero sentence steps down to `--font-size-2xl`, "Hi, I'm Jax!" takes its own line, and the space above the hero drops to `--size-space-section-md`. Checked at 320, 375 and 768; tablet needs no change.

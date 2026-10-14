@@ -456,10 +456,28 @@
 	}
 }
 
-/* TODO(jax): no mobile design yet (D-008). Proposal: nav wraps under the brand on inner pages and
-   the type steps down (already fluid). */
+/* Mobile (no Figma design, D-008; proposal pending Jax's OK): the role line sits above the nav,
+   the sentence steps down one size and the greeting takes its own line, so the sentence reads as
+   two short blocks instead of seven ragged lines. */
 @media (width <= 640px) {
 	.bar {
 		flex-wrap: wrap;
+		row-gap: var(--size-space-sm);
+	}
+
+	.bar:has(.role) .role {
+		flex-basis: 100%;
+	}
+
+	.intro {
+		padding-top: var(--size-space-section-md);
+	}
+
+	.heading {
+		font-size: var(--font-size-2xl);
+	}
+
+	.greeting {
+		display: block;
 	}
 }
