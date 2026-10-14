@@ -25,9 +25,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.slate[900],
 				dark: primitives.colors.purple[50],
 			},
-			// Role label: same as default in light, one step dimmer in dark. See D-019.
+			// Role label: near-black like the nav in light, one step dimmer than default in dark. See D-019.
 			secondary: {
-				light: primitives.colors.purple[950],
+				light: primitives.colors.slate[900],
 				dark: primitives.colors.purple[200],
 			},
 			// Hero greeting and sentence: same as default in light, true white in dark. See D-019.

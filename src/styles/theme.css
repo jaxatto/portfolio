@@ -539,7 +539,7 @@
   /* ========================================== */
   --color-content-default: var(--primitive-color-purple-950);
   --color-content-variant: var(--primitive-color-slate-900);
-  --color-content-secondary: var(--primitive-color-purple-950);
+  --color-content-secondary: var(--primitive-color-slate-900);
   --color-content-emphasis: var(--primitive-color-purple-950);
   --color-content-muted: var(--primitive-color-slate-600);
   --color-content-link: var(--primitive-color-violet-700);

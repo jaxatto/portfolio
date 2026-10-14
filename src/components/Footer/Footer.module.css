@@ -43,7 +43,7 @@
 	margin: 0;
 	max-width: 28em;
 	text-wrap: balance;
-	color: var(--color-content-default);
+	color: var(--color-content-variant);
 	font-family: var(--font-family-body);
 	font-size: var(--font-style-body-lg-size);
 	font-weight: var(--font-style-body-lg-weight);
@@ -65,6 +65,10 @@
    always-on underline. */
 .main .email {
 	position: relative;
+	/* Hug the text so the hover line spans the email, not the column. */
+	align-self: flex-start;
+	/* +16px above (on top of the column gap). */
+	margin-top: var(--size-space-lg);
 	padding-bottom: var(--size-space-sm);
 	text-decoration: none;
 	color: var(--color-content-link);
