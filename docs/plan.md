@@ -7,7 +7,7 @@ Goal: make the portfolio as strong as possible for getting Jax hired as a staff-
 Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
-- [~] 1. Header and footer (nav, mode toggle, Home intro). Header, hero and mobile header approved by Jax; footer next (Jax is doing it); dark mode reviewed per page as each slice lands. Multi-theme picker deferred to its own later slice
+- [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [ ] 2. Home / Work page and study cards
 - [ ] 3. Case study template
 - [ ] 4. Case study content: Indeed, ActBlue, ServiceNow, Toyota (copy + design review for each)
@@ -18,24 +18,22 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slice 1 (header, toggle) is built and Jax is happy with the Home header and hero (2026-10-13). The header was reworked from the Figma design through review; the decisions are D-014 to D-017. Footer circles are removed (D-020); the footer is built (D-024: quiet on Home, accent elsewhere), pending Jax's review. Home meta is updated (provisional); other pages' meta still old. Next: slice 2 (Home / Work page and study cards). Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
+Slice 1 is done and merged to `redesign` (PR #3, 2026-10-14). Next: slice 2 (Home / Work page and study cards). Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`). Until each page is migrated to tokens, About, the case studies and Resume use a TEMP white-text rule in dark mode (D-027, `main.scss`); delete it per page as each slice lands.
 
 ## Open questions for Jax
 
-Header / hero:
-- Hero copy: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Provisional until then.
-- Page title and meta description still say "Staff Product Designer – Scalable UX, Systems Thinking, Inclusive Design" and "at ServiceNow" (the About design says Toyota). Update with the hero copy; the footer says "Design Technologist", which the research shows few people use as a label (`docs/research/portfolio-landscape.md`): consider "Design Engineer".
-- Mobile and tablet are not checked yet. Nav wraps below 640px; the hero sentence is fluid. Propose and agree before building (D-008).
-- Dark mode review of the header and hero (selection box, pointer, chip, toggle, selection color).
-- The footer's circles and dashed ring vs the circle-free header: keep, or bring in line?
-- Pointer motion: the hero loop is 8s drag plus 4s pause; a mono token and a hover-offset token exist only as CSS variables (D-015, D-017).
+Copy (all marked `TODO(jax)`, provisional):
+- Hero: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Revisit later if needed.
+- Footer line: "Open to remote Staff Product Designer and Design Engineer roles." (D-021, D-024).
+- 404 quips: seven phrases in `src/pages/NotFound/resources/content.ts`, picked at random (D-022).
+- Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Other pages' titles and meta still say "Staff Product Designer – Scalable UX…" and "at ServiceNow" (the About design says Toyota); each page's slice updates its own.
 
-Other:
-1. Component-level values in Figma (study card padding 48/56, link gap 4, border offset 2) aren't tokens yet. Decide at the Home slice.
-2. Mobile/tablet: no designs exist (D-008). Propose per slice, agree before building.
-3. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
-4. GitHub link in the footer points to `https://github.com/jaxatto`. Correct?
-5. Icons: the brand mark is gone from the header; the arrows, sun and moon are drawn in code. Export final icons from Figma if wanted.
+Design / tokens:
+1. Component-level values in Figma (study card padding 48/56, link gap 4, border offset 2) aren't tokens yet. Decide at the Home slice (slice 2).
+2. Mobile/tablet: no designs exist (D-008). Propose per slice, agree before building. There is no tablet design for the footer (stacks at 640px).
+3. The link arrows are Phosphor bold, so their stroke scales with size (slimmer at small sizes than the old hand-drawn ones). Revisit if it reads light (D-026).
+4. Unused icons `file.svg` and `download.svg` are still in the icon set; remove when their last consumer is migrated.
+5. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
 
 ## Setup still needed
 
