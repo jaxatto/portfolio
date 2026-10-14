@@ -138,3 +138,5 @@ The footer links (file-with-arrow for Resume, LinkedIn, GitHub), the link arrows
 ## D-027: Legacy pages in dark mode, stopgap — 2026-10-14
 
 About, the case studies and Resume use hard-coded dark text from the old palette and were unreadable on the dark ground (1.01:1). Until each is migrated, a single TEMP rule in `main.scss` sets their body text to white in dark mode, leaving text inside pale chips and cards alone. Each page's own slice replaces this with tokens and deletes the rule. Also: the link hover distance is now a real token (`--font-text-underline-offset-lg`, 4px), replacing the CSS variable in `main.scss`; and the Resume page uses the layout's footer, so the accent footer is full-bleed there.
+
+Also (D-017): keyboard focus on the mode toggle shows only the focus ring: no violet and no line, like the nav links. Hover keeps both. The tooltip still shows on focus.
