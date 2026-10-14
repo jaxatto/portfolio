@@ -1,9 +1,13 @@
 import React from 'react';
 import Link from '@components/Link';
+import Header from '@components/Header';
 import { content } from '@pages/NotFound/resources/content';
 import styles from './NotFound.module.scss';
 
 const NotFound: React.FC = () => (
+  <>
+    {/* Same nav header as every other page (it is not wrapped in Layout). */}
+    <Header />
   <div className={styles.wrapper}>
     <div className={styles.main}>
       <div className={styles.copy}>
@@ -18,6 +22,7 @@ const NotFound: React.FC = () => (
       <span className={styles.endText}>{content.subtext.endText}</span>
     </div>
   </div>
+  </>
 );
 
 export default NotFound;

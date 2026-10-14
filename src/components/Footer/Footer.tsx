@@ -4,7 +4,7 @@ import { useSiteConfig } from '#providers/SiteConfig';
 import { contactInfo } from '#constants/contactInfo';
 import styles from './Footer.module.css';
 
-// Page footer: call-to-action card over decorative shapes.
+// Page footer: call-to-action card.
 // Copy is inline on purpose (D-003).
 
 const Footer: React.FC = () => {
@@ -12,17 +12,6 @@ const Footer: React.FC = () => {
 
 	return (
 		<footer className={styles.footer}>
-			{/* Decorative shapes, all drawn in CSS (Figma's SVG export isn't available to us). */}
-			<div className={styles.decor} aria-hidden="true">
-				<div className={styles['decor-frame']}>
-					<div className={styles['decor-ring']} />
-					<div className={styles['decor-circle']}>
-						<div className={styles['decor-dot']} />
-					</div>
-					<div className={styles['decor-dashed']} />
-				</div>
-			</div>
-
 			<div className={styles.card}>
 				<div className={styles.top}>
 					<h2 className={styles.title}>Let’s work together</h2>
