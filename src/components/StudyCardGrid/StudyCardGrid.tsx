@@ -12,11 +12,10 @@ import styles from './StudyCardGrid.module.css';
 
 const cards: StudyCardProps[] = [
 	{
-		eyebrow: 'ServiceNow · Staff Designer · 2024–now',
 		title: 'Turning thousands of open-ended survey responses into themes in minutes',
 		outcome:
 			'Reshaped an AI research tool that replaces 10+ hours of manual coding per 100 responses; demoed to senior leadership and now in user testing.',
-		description: ['Product design', 'AI', 'Enterprise'],
+		description: ['ServiceNow', 'Product design', 'AI', 'Enterprise'],
 		image: themeweaverImage,
 		imageAlt: '',
 		linkUrl: studyLinks.servicenow,
@@ -24,22 +23,20 @@ const cards: StudyCardProps[] = [
 		palette: 'primary',
 	},
 	{
-		eyebrow: 'ActBlue · Senior Product Designer · 2022–23',
 		title: 'Giving campaign admins self-serve setup and sync visibility for Salesforce',
 		outcome:
 			'Rebuilt the integration end to end so admins fix sync issues without support, saving an estimated $1.5M a year.',
-		description: ['Product design', 'Nonprofit', 'FinTech'],
+		description: ['ActBlue', 'Product design', 'Nonprofit', 'FinTech'],
 		image: actblueImage,
 		linkUrl: studyLinks.actblue,
 		linkText: 'Read the integration case study',
 		palette: 'tertiary',
 	},
 	{
-		eyebrow: 'Indeed · UX Designer · 2020',
 		title: 'Scaling a design system through a rebrand',
 		outcome:
 			'Made the component library more accessible and easier to contribute to, and mentored a junior designer into system work.',
-		description: ['Design systems', 'Accessibility', 'PeopleTech'],
+		description: ['Indeed', 'Design systems', 'Accessibility', 'PeopleTech'],
 		image: indeedImage,
 		linkUrl: studyLinks.indeed,
 		linkText: 'Read the design system case study',
@@ -51,7 +48,7 @@ const cards: StudyCardProps[] = [
 		image: themeweaverImage,
 		linkText: 'Read the tokens case study',
 		palette: 'brand',
-		// TODO(jax): no tokens case study yet, so the card is inert. Add eyebrow and outcome with it.
+		// TODO(jax): no tokens case study yet, so the card is inert. Add the outcome with it.
 	},
 ];
 

@@ -8,13 +8,12 @@ import styles from './StudyCard.module.css';
 // The whole card is clickable through a stretched link (the link text's ::after covers the card),
 // so the heading stays a real heading and the link name is unique: "Read AI study: <title>".
 // Without `linkUrl` the card is inert (case study not written yet) and shows `placeholder`.
-// Anatomy: eyebrow, title, outcome, tags, link (D-029). See also D-028.
+// Anatomy: title, outcome, company + tags, link (D-029). See also D-028.
 
 export type StudyCardProps = {
-	eyebrow?: string; // Company · role · years, above the title
 	title: string; // The problem solved
 	outcome?: string; // One sentence of proof: what changed and Jax's part
-	description: string[]; // Tags, joined with a middle dot (quiet, below the outcome)
+	description: string[]; // Company then tags, joined with a middle dot (quiet, below the outcome)
 	image: string;
 	imageAlt?: string; // Empty by default: the preview is decorative next to the title
 	linkUrl?: string;
@@ -26,7 +25,6 @@ export type StudyCardProps = {
 };
 
 const StudyCard: React.FC<StudyCardProps> = ({
-	eyebrow,
 	title,
 	outcome,
 	description,
@@ -50,7 +48,6 @@ const StudyCard: React.FC<StudyCardProps> = ({
 	>
 		<div className={styles.content}>
 			<div className={styles.text}>
-				{eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
 				<h3 className={styles.title}>{title}</h3>
 				{outcome && <p className={styles.outcome}>{outcome}</p>}
 				<p className={styles.description}>

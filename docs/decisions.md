@@ -149,7 +149,7 @@ Revised (D-028, 2026-10-14): the Home cards are one stacked column of horizontal
 
 ## D-029: Study card anatomy and copy — decided, 2026-10-14
 
-Cards read: eyebrow (company · role · years), title (the problem solved), one outcome sentence, quiet tags, link. Why: a skimming reviewer needs brand, seniority and proof on the card, not a category label. Outcome lines use only facts already in each study (ActBlue's "$1.5M a year" stays "estimated"; ServiceNow's 95% tool accuracy is left in the study so it isn't read as Jax's impact; Indeed has no metric, so it states scope and mentoring). Order: ServiceNow, ActBlue, Indeed, then the inert tokens card (D-028). This adds two text lines beyond the Figma frame; TODO(jax): update Figma. Link text is "Read the <topic> case study".
+Cards read: title (the problem solved), one outcome sentence, company then quiet tags, link. (Revised 2026-10-14: the company · role · years eyebrow and the glow behind the sample were removed, and the preview column went from 500 to 440px so the text is wider. Role and years live in the case studies.) Why: a skimming reviewer needs brand, seniority and proof on the card, not a category label. Outcome lines use only facts already in each study (ActBlue's "$1.5M a year" stays "estimated"; ServiceNow's 95% tool accuracy is left in the study so it isn't read as Jax's impact; Indeed has no metric, so it states scope and mentoring). Order: ServiceNow, ActBlue, Indeed, then the inert tokens card (D-028). This adds two text lines beyond the Figma frame; TODO(jax): update Figma. Link text is "Read the <topic> case study".
 
 ## D-030: Cards stay in the 912px column; the sample pops out — proposed, 2026-10-14
 

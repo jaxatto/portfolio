@@ -9,8 +9,6 @@
 	--card-fg: var(--color-brand-on-container);
 	--card-fg-hover: var(--color-brand-on-container-hover);
 	--card-fg-active: var(--color-brand-on-container-active);
-	--card-glow: var(--shadow-color-brand-default);
-	--card-glow-hover: var(--shadow-color-brand-hover);
 
 	position: relative;
 	display: flex;
@@ -33,8 +31,6 @@
 	--card-fg: var(--color-primary-on-container);
 	--card-fg-hover: var(--color-primary-on-container-hover);
 	--card-fg-active: var(--color-primary-on-container-active);
-	--card-glow: var(--shadow-color-primary-default);
-	--card-glow-hover: var(--shadow-color-primary-hover);
 }
 
 .secondary {
@@ -43,8 +39,6 @@
 	--card-fg: var(--color-secondary-on-container);
 	--card-fg-hover: var(--color-secondary-on-container-hover);
 	--card-fg-active: var(--color-secondary-on-container-active);
-	--card-glow: var(--shadow-color-secondary-default);
-	--card-glow-hover: var(--shadow-color-secondary-hover);
 }
 
 .tertiary {
@@ -53,8 +47,6 @@
 	--card-fg: var(--color-tertiary-on-container);
 	--card-fg-hover: var(--color-tertiary-on-container-hover);
 	--card-fg-active: var(--color-tertiary-on-container-active);
-	--card-glow: var(--shadow-color-tertiary-default);
-	--card-glow-hover: var(--shadow-color-tertiary-hover);
 }
 
 .card:not(.inert):hover {
@@ -93,15 +85,6 @@
 	font-weight: var(--font-style-heading-md-weight);
 	line-height: var(--font-style-heading-md-line-height);
 	text-wrap: balance;
-}
-
-.eyebrow {
-	margin: 0;
-	color: var(--card-fg);
-	font-family: var(--font-style-body-sm-family);
-	font-size: var(--font-style-body-sm-size);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-style-body-sm-line-height);
 }
 
 .outcome {
@@ -209,16 +192,6 @@
 	overflow: hidden;
 	border-top-left-radius: var(--size-radius-sm);
 	background: var(--color-surface-sunken);
-	box-shadow:
-		var(--shadow-x-none) var(--shadow-y-none) var(--shadow-blur-2xl) var(--shadow-spread-xl)
-		var(--card-glow);
-	transition: box-shadow 0.2s ease;
-}
-
-.card:hover .sample {
-	box-shadow:
-		var(--shadow-x-none) var(--shadow-y-none) var(--shadow-blur-2xl) var(--shadow-spread-xl)
-		var(--card-glow-hover);
 }
 
 .image {
@@ -242,7 +215,7 @@
 	}
 
 	.horizontal .preview {
-		flex: 0 0 31.25rem; /* 500px */
+		flex: 0 0 27.5rem; /* 440px: narrower preview, wider text (D-029) */
 		height: auto;
 		padding: var(--size-space-section-md) 0 0 var(--size-space-section-sm);
 	}
