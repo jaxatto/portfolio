@@ -12,8 +12,12 @@
 	line-height: var(--font-line-height-default);
 	text-decoration: underline;
 	text-decoration-thickness: var(--font-text-decoration-thickness-md);
-	text-decoration-skip-ink: none;
+	/* Skip descenders (g, y, p) so the underline doesn't cut through them. Figma had `none`; see decisions. */
+	text-decoration-skip-ink: auto;
 	text-underline-offset: var(--font-text-underline-offset-md);
+	transition:
+		color 0.2s ease,
+		text-underline-offset 0.2s ease;
 }
 
 /* Large: the footer email link. 32px per Jax (Figma has 28px, which is off the type scale). */
@@ -25,17 +29,19 @@
 }
 
 .link:hover {
-	color: var(--color-primary-default-hover);
+	color: var(--color-primary-default-active);
+	text-underline-offset: var(--link-underline-offset-hover);
 }
 
 .link:active {
-	color: var(--color-primary-default-active);
+	color: var(--color-primary-on-container-active);
+	text-underline-offset: var(--font-text-underline-offset-md);
 }
 
-/* NOTE: focus ring is content-default (the dark ring in Figma); no dedicated token. See D-014. */
+/* Focus ring uses the state-focus-ring token (purple-950 light, white dark). See D-014. */
 .link:focus-visible {
-	outline: var(--size-border-width-default) solid var(--color-content-default);
-	outline-offset: 2px;
+	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
+	outline-offset: 3px;
 }
 
 .icon {
