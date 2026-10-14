@@ -68,7 +68,10 @@ const Header: React.FC = () => {
 					{/* The "design" selection box (with a resizing cursor) and the "build" chip are decorative: the
 					    box parts are aria-hidden and empty, so the sentence reads cleanly to assistive tech. */}
 					<h1 className={styles.heading}>
-						<strong className={styles.greeting}>Hi, I’m Jax!</strong> I{' '}
+						<strong className={styles.greeting}>Hi, I’m Jax!</strong>{' '}
+						{/* Mobile only: the role as a byline under the greeting (display:none above 640px, so
+						    assistive tech hears it once). See D-018. */}
+						<span className={styles.byline}>Staff Product Designer</span> I{' '}
 						<span className={styles.design}>
 							<span className={styles.selection} aria-hidden="true">
 								<i className={styles['handle-tl']} />

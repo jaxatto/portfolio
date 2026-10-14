@@ -456,21 +456,32 @@
 	}
 }
 
-/* Mobile (no Figma design, D-008; proposal pending Jax's OK): the role line sits above the nav,
-   the sentence steps down one size and the greeting takes its own line, so the sentence reads as
-   two short blocks instead of seven ragged lines. */
+/* Byline: mobile only, see the media query below. */
+.byline {
+	display: none;
+}
+
+/* Mobile (no Figma design, D-008; D-018): the nav row is a bar (links left, toggle at the right edge,
+   hairline under it), the role moves from the bar to a byline under the greeting, and the sentence
+   steps down one size. */
 @media (width <= 640px) {
 	.bar {
 		flex-wrap: wrap;
 		row-gap: var(--size-space-sm);
 	}
 
+	.controls {
+		flex: 1 0 100%;
+		justify-content: space-between;
+		border-bottom: 1px solid var(--color-border-decorative);
+	}
+
 	.bar:has(.role) .role {
-		flex-basis: 100%;
+		display: none;
 	}
 
 	.intro {
-		padding-top: var(--size-space-section-md);
+		padding-top: var(--size-space-section-sm);
 	}
 
 	.heading {
@@ -479,6 +490,14 @@
 
 	.greeting {
 		display: block;
+	}
+
+	.byline {
+		display: block;
 		margin-bottom: var(--size-space-lg);
+		color: var(--color-content-variant);
+		font-size: var(--font-style-body-md-size);
+		font-weight: var(--font-weight-default);
+		line-height: var(--font-style-body-md-line-height);
 	}
 }

@@ -81,4 +81,4 @@ Type sizes may be fluid (`clamp()`), and need not match the token values at ever
 
 ## D-018: Home header on mobile (≤640px) — 2026-10-13
 
-Proposal, pending Jax's OK (no mobile design exists, D-008). The role line sits above the nav (full-width row), the hero sentence steps down to `--font-size-2xl`, "Hi, I'm Jax!" takes its own line, and the space above the hero drops to `--size-space-section-md`. Checked at 320, 375 and 768; tablet needs no change.
+Proposal, pending Jax's OK (no mobile design exists, D-008). The nav row is a bar: links left, mode toggle at the right edge, hairline (`--color-border-decorative`) under it. The role moves from the bar to a byline under "Hi, I'm Jax!" (a second element inside the h1, shown only on mobile; the bar's copy is hidden there, so it is announced once). The sentence steps down to `--font-size-2xl` and the greeting takes its own line. Checked at 320, 375 and 768; tablet needs no change.
