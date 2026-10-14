@@ -51,6 +51,15 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.white,
 				dark: primitives.colors.white,
 			},
+			// Hover / pressed for interactive content on the accent ground: pale in both themes. D-022.
+			'on-accent-hover': {
+				light: primitives.colors.indigo[200],
+				dark: primitives.colors.indigo[200],
+			},
+			'on-accent-active': {
+				light: primitives.colors.indigo[300],
+				dark: primitives.colors.indigo[300],
+			},
 		},
 		surface: {
 			default: {

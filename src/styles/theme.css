@@ -545,6 +545,8 @@
   --color-content-link: var(--primitive-color-violet-700);
   --color-content-inverse: var(--primitive-color-white);
   --color-content-on-accent: var(--primitive-color-white);
+  --color-content-on-accent-hover: var(--primitive-color-indigo-200);
+  --color-content-on-accent-active: var(--primitive-color-indigo-300);
   --color-content-default-hover: var(--primitive-color-purple-900);
   --color-content-default-active: var(--primitive-color-purple-800);
   --color-surface-default: var(--primitive-color-white);
@@ -621,6 +623,8 @@
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
   --color-content-on-accent: var(--primitive-color-white);
+  --color-content-on-accent-hover: var(--primitive-color-indigo-200);
+  --color-content-on-accent-active: var(--primitive-color-indigo-300);
   --color-content-default-hover: var(--primitive-color-purple-100);
   --color-content-default-active: var(--primitive-color-purple-200);
   --color-surface-default: var(--primitive-color-night-900);
@@ -695,6 +699,8 @@
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
   --color-content-on-accent: var(--primitive-color-white);
+  --color-content-on-accent-hover: var(--primitive-color-indigo-200);
+  --color-content-on-accent-active: var(--primitive-color-indigo-300);
   --color-content-default-hover: var(--primitive-color-purple-100);
   --color-content-default-active: var(--primitive-color-purple-200);
   --color-surface-default: var(--primitive-color-night-900);

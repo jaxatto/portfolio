@@ -51,6 +51,8 @@ export type BaseSemanticGeneralColor = {
 		link: ColorMode;
 		inverse: ColorMode;
 		'on-accent': ColorMode;
+		'on-accent-hover': ColorMode;
+		'on-accent-active': ColorMode;
 		secondary: ColorMode;
 		emphasis: ColorMode;
 	};
