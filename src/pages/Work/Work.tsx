@@ -1,25 +1,22 @@
 import React from 'react';
 import Layout from '@components/Layout';
-import Divider from '@components/Divider';
-import Banner from '@pages/Work/components/Banner';
 import StudyCardGrid from '@components/StudyCardGrid';
-import { content } from '@pages/Work/resources/content';
-import { meta } from '@pages/Work/resources/meta';
-import styles from './Work.module.scss';
+
+// Home page SEO copy, inline (D-003). TODO(jax): provisional, review with the hero copy (D-016).
+// The old resources/meta.ts stays for the Resume page until its slice.
+const meta = {
+    title: 'Jax Engel | Staff Product Designer and Design Engineer',
+    description:
+        'Jax Engel is a staff product designer who designs and builds accessible products and the systems behind them: enterprise tools, fintech, design systems and AI-assisted workflows. Open to remote roles.',
+};
 
 const Work: React.FC = () => (
     <Layout
+        footerVariant="quiet"
         title={meta.title}
         metaDescription={meta.description}
     >
-        <Banner />
-        
-        <section>
-            <div className={styles['work-intro-wrapper']}>
-                <Divider />
-                <h2 className={styles['work-intro-title']}>{content.workIntro}</h2>
-            </div>
-
+        <section id="work">
             <StudyCardGrid />
         </section>
     </Layout>

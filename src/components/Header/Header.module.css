@@ -1,0 +1,502 @@
+/* Header: nav row on every page, plus the intro on Home (D-016, D-017). */
+
+.header {
+	padding-block: var(--size-space-section-md) var(--size-space-section-sm);
+}
+
+.bar {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: var(--size-space-2xl);
+	box-sizing: border-box;
+	width: 100%;
+	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+	min-height: 44px;
+	margin-inline: auto;
+	padding-inline: var(--size-space-2xl);
+}
+
+/* Brand (inner pages) or role line (Home) on the left, nav and toggle on the right. */
+.bar:has(.brand),
+.bar:has(.role) {
+	justify-content: space-between;
+}
+
+/* Brand (inner pages): the name, regular weight, with the same hover treatment as the nav links:
+   violet text and a line that grows in from the left at the same position (see .nav-link). */
+.brand {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 44px;
+	border-radius: var(--size-radius-sm);
+	color: var(--color-content-variant);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-heading-md-size);
+	font-weight: var(--font-weight-default);
+	line-height: var(--font-style-heading-md-line-height);
+	text-decoration: none;
+}
+
+.brand::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 2px;
+	left: 0;
+	height: 3px;
+	border-radius: 2px;
+	background: var(--color-primary-default);
+	transform: scaleX(0);
+	transform-origin: right center;
+	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.brand:hover {
+	color: var(--color-primary-default);
+}
+
+.brand:hover::after {
+	transform: scaleX(1);
+	transform-origin: left center;
+}
+
+.brand:active {
+	color: var(--color-primary-default-active);
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+	/* Tight to the nav labels: the icon button already has its own internal padding. */
+	gap: var(--size-space-sm);
+	height: 44px;
+}
+
+.controls nav,
+.list,
+.list li {
+	display: flex;
+	height: 100%;
+}
+
+.list {
+	align-items: stretch;
+	gap: var(--size-space-2xl);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Nav item: quiet bold words. Every link has a line drawn with ::after at the same position (full
+   width, 3px, rounded). The current page always shows it (it grows in when the page becomes
+   current); other links grow it in on hover. Hover color is violet on all of them. No native
+   underline here. See D-017. */
+.nav-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	border-radius: var(--size-radius-sm);
+	color: var(--color-content-variant);
+	/* Inter, like the label and the sentence: the top of the page is one typeface. See D-017. */
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-weight-emphasis);
+	line-height: var(--font-line-height-default);
+	text-decoration: none;
+}
+
+.nav-link::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 2px;
+	left: 0;
+	height: 3px;
+	border-radius: 2px;
+	background: var(--color-primary-default);
+	transform: scaleX(0);
+	transform-origin: right center;
+	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.nav-link:hover {
+	color: var(--color-primary-default);
+}
+
+.nav-link:hover::after {
+	transform: scaleX(1);
+	transform-origin: left center;
+}
+
+.nav-link:active {
+	color: var(--color-primary-default-active);
+}
+
+.nav-link[aria-current='page'] {
+	color: var(--color-content-variant);
+}
+
+.nav-link[aria-current='page']::after {
+	transform: scaleX(1);
+	transform-origin: left center;
+	animation: grow-line 0.45s cubic-bezier(0.4, 0.2, 0.2, 1) both;
+}
+
+.nav-link[aria-current='page']:hover {
+	color: var(--color-primary-default);
+}
+
+.nav-link[aria-current='page']:active {
+	color: var(--color-primary-default-active);
+}
+
+@keyframes grow-line {
+	from {
+		transform: scaleX(0);
+	}
+
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nav-link::after {
+		transition: none;
+	}
+
+	.nav-link[aria-current='page']::after {
+		animation: none;
+	}
+}
+
+/* Focus ring uses the state-focus-ring token (purple-950 light, white dark). See D-014. */
+.nav-link:focus-visible,
+.brand:focus-visible {
+	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
+	outline-offset: 3px;
+}
+
+/* The legacy global `a { transition: all .3s }` (Link.module.scss) would animate the focus ring's
+   size and position between items. Keep the ring static; only color eases. */
+.brand,
+.nav-link {
+	transition:
+		color 0.2s ease,
+		text-decoration-color 0.2s ease,
+		text-underline-offset 0.2s ease;
+}
+
+.skip-link {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+.skip-link:focus-visible {
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: auto;
+	height: auto;
+	margin: var(--size-space-md);
+	padding: var(--size-space-md) var(--size-space-lg);
+	overflow: visible;
+	clip-path: none;
+	white-space: normal;
+	background: var(--color-primary-default);
+	color: var(--color-primary-on-default);
+	font-size: var(--font-size-md);
+	border-radius: var(--size-radius-sm);
+}
+
+/* Intro (Home only): role, then one sentence. No photo; type, color and two small marks carry it. */
+.intro {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+	margin-inline: auto;
+	padding-inline: var(--size-space-2xl);
+	/* 120px under the nav row (no token that size: section-xl 80 + 40), less before the first card
+	   (header's own bottom padding adds 48px). */
+	padding-top: calc(var(--size-space-section-xl) + 40px);
+	padding-bottom: var(--size-space-lg);
+}
+
+/* Role label: plain text in the body color. Lives in the nav row's left slot on Home (D-017). Tried
+   and dropped: violet text, muted text, an accent bar, a filled chip and a status dot. */
+.role {
+	margin: 0;
+	color: var(--color-content-secondary);
+	/* Same face and weight as the sentence below (Inter, regular): Manrope at the same weight read too
+	   light, and a bold label read as another nav item. */
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-weight-default);
+	line-height: var(--font-style-body-lg-line-height);
+}
+
+/* One sentence: the greeting is heavy and the same dark color, the rest is regular weight. */
+.heading {
+	/* 900px so the larger "build" chip and the box's extra margin don't push "accessible" to a
+	   third line at desktop width. */
+	max-width: 900px;
+	margin: 0;
+	color: var(--color-content-emphasis);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-title-md-size);
+	font-weight: var(--font-weight-default);
+	line-height: var(--font-line-height-default);
+}
+
+.greeting {
+	font-weight: var(--font-weight-extra-strong);
+}
+
+/* "design": a design-tool selection box with corner handles and a pointer that slowly resizes it.
+   The box is an empty aria-hidden overlay, so it never reflows the text. See D-017. */
+.design {
+	position: relative;
+	display: inline-block;
+	margin-inline: 0.04em;
+	padding-inline: 0.1em;
+}
+
+.selection {
+	position: absolute;
+	inset: 0;
+	box-sizing: border-box;
+	border: var(--size-border-width-default) solid var(--color-secondary-default);
+	pointer-events: none;
+	animation: resize-box 12s ease-in-out infinite;
+}
+
+.handle-tl,
+.handle-tr,
+.handle-bl,
+.handle-br {
+	position: absolute;
+	box-sizing: border-box;
+	width: 0.2em;
+	height: 0.2em;
+	background: var(--color-surface-default);
+	border: var(--size-border-width-default) solid var(--color-secondary-default);
+}
+
+.handle-tl {
+	top: calc(-1 * var(--size-border-width-default));
+	left: calc(-1 * var(--size-border-width-default));
+	transform: translate(-50%, -50%);
+}
+
+.handle-tr {
+	top: calc(-1 * var(--size-border-width-default));
+	right: calc(-1 * var(--size-border-width-default));
+	transform: translate(50%, -50%);
+}
+
+.handle-bl {
+	bottom: calc(-1 * var(--size-border-width-default));
+	left: calc(-1 * var(--size-border-width-default));
+	transform: translate(-50%, 50%);
+}
+
+.handle-br {
+	right: calc(-1 * var(--size-border-width-default));
+	bottom: calc(-1 * var(--size-border-width-default));
+	transform: translate(50%, 50%);
+}
+
+/* A Figma multiplayer cursor: arrow plus a name tag, in the same color as the selection box (as Figma
+   colors a person's cursor and selection alike). Authentic orientation: tip up-left, on the box's
+   bottom-right handle (the corner being dragged), with the tag below it. It only shows while the box
+   is being dragged and fades out at rest, so the tag is not sitting over the line below all the
+   time. Decorative only (aria-hidden parent). See D-017. */
+.pointer {
+	--pointer-color: var(--color-secondary-default);
+
+	position: absolute;
+	top: 100%;
+	left: 100%;
+	display: inline-flex;
+	flex-direction: column;
+	margin: 1px 0 0 1px;
+	pointer-events: none;
+	user-select: none;
+	animation: pointer-drag 12s ease-in-out infinite;
+}
+
+.pointer-arrow {
+	display: block;
+	overflow: visible;
+	filter: drop-shadow(0 2px 3px rgb(0 0 0 / 20%));
+}
+
+.pointer-fill {
+	fill: var(--pointer-color);
+	/* The thin white edge Figma draws around a cursor so it reads on any background. */
+	stroke: var(--color-surface-default);
+	stroke-width: 1.2;
+	stroke-linejoin: round;
+}
+
+/* 12s cycle = an 8s drag (first two thirds) then a 4s pause at rest before it repeats. */
+@keyframes resize-box {
+	0%,
+	13% {
+		right: 0;
+		bottom: 0;
+	}
+
+	30%,
+	40% {
+		right: -0.3em;
+		bottom: -0.1em;
+	}
+
+	57%,
+	100% {
+		right: 0;
+		bottom: 0;
+	}
+}
+
+/* Same 12s cycle as the box: the pointer fades in as the drag starts and out as it ends, and stays
+   hidden during the 4s pause. */
+@keyframes pointer-drag {
+	0%,
+	8% {
+		opacity: 0;
+	}
+
+	16%,
+	52% {
+		opacity: 1;
+	}
+
+	60%,
+	100% {
+		opacity: 0;
+	}
+}
+
+/* "build": a code chip with a blinking terminal cursor. Mono token = Roboto Mono, loaded in
+   _variables.scss (D-017). */
+.build {
+	display: inline-block;
+	padding-inline: 0.3em;
+	border-radius: var(--size-radius-md);
+	background: var(--color-primary-container);
+	color: var(--color-primary-on-container);
+	font-family: var(--font-family-mono);
+	font-size: 0.9em;
+	font-weight: var(--font-weight-emphasis);
+	/* The I-beam over the chip, a nod to the typing cursor inside it (the site cursor is the arrow
+	   everywhere else). */
+	cursor: text;
+}
+
+.build::after {
+	content: '';
+	display: inline-block;
+	width: 0.12em;
+	height: 0.85em;
+	margin-left: 0.15em;
+	background: var(--color-primary-default);
+	vertical-align: -0.1em;
+	animation: blink 1.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+	0%,
+	55% {
+		opacity: 1;
+	}
+
+	75%,
+	100% {
+		opacity: 0.15;
+	}
+}
+
+/* No looping motion for people who ask for less: the box and cursor stay still, solid. */
+@media (prefers-reduced-motion: reduce) {
+	.selection,
+	.pointer,
+	.build::after {
+		animation: none;
+	}
+
+	/* Still box, no pointer: the pointer only makes sense mid-drag. */
+	.pointer {
+		display: none;
+	}
+}
+
+/* Byline: mobile only, see the media query below. */
+.byline {
+	display: none;
+}
+
+/* Mobile (no Figma design, D-008; D-018): the nav row is a bar (links left, toggle at the right edge,
+   hairline under it), the role moves from the bar to a byline under the greeting, and the sentence
+   steps down one size. */
+@media (width <= 640px) {
+	.bar {
+		flex-wrap: wrap;
+		row-gap: var(--size-space-sm);
+	}
+
+	.controls {
+		flex: 1 0 100%;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	/* Divider: drawn 2px up from the row's bottom and behind the content, so the current page's
+	   line sits over it. */
+	.controls::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 2px;
+		left: 0;
+		z-index: -1;
+		height: 1px;
+		background: var(--color-border-decorative);
+	}
+
+	.bar:has(.role) .role {
+		display: none;
+	}
+
+	.intro {
+		padding-top: var(--size-space-section-sm);
+	}
+
+	.heading {
+		font-size: var(--font-size-2xl);
+	}
+
+	.greeting {
+		display: block;
+	}
+
+	.byline {
+		display: block;
+		margin-bottom: var(--size-space-2xl);
+		color: var(--color-content-secondary);
+		font-size: var(--font-style-body-md-size);
+		font-weight: var(--font-weight-default);
+		line-height: var(--font-style-body-md-line-height);
+	}
+}

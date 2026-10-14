@@ -249,6 +249,9 @@
   --primitive-color-stone-800: oklch(26.8% 0.007 34.298deg);
   --primitive-color-stone-900: oklch(21.6% 0.006 56.043deg);
   --primitive-color-stone-950: oklch(14.7% 0.004 49.25deg);
+  --primitive-color-night-700: oklch(38% 0.05 280deg);
+  --primitive-color-night-800: oklch(28% 0.05 280deg);
+  --primitive-color-night-900: oklch(21% 0.05 280deg);
   --primitive-color-mauve-50: oklch(98.5% 0 0deg);
   --primitive-color-mauve-100: oklch(96% 0.003 325.6deg);
   --primitive-color-mauve-200: oklch(92.2% 0.005 325.62deg);
@@ -332,12 +335,14 @@
   --primitive-font-weight-500: 500;
   --primitive-font-weight-600: 600;
   --primitive-font-weight-700: 700;
+  --primitive-font-weight-800: 800;
   --primitive-font-weight-900: 900;
   --primitive-font-weight-light: 300;
   --primitive-font-weight-regular: 400;
   --primitive-font-weight-medium: 500;
   --primitive-font-weight-semibold: 600;
   --primitive-font-weight-bold: 700;
+  --primitive-font-weight-extrabold: 800;
   --primitive-font-weight-black: 900;
   --primitive-font-letter-spacing-negative-05: -0.05em;
   --primitive-font-letter-spacing-negative-02: -0.02em;
@@ -475,6 +480,7 @@
   --font-weight-subtle: var(--primitive-font-weight-300);
   --font-weight-default: var(--primitive-font-weight-400);
   --font-weight-emphasis: var(--primitive-font-weight-700);
+  --font-weight-extra-strong: var(--primitive-font-weight-800);
   --font-weight-strong: var(--primitive-font-weight-900);
   --font-line-height-compact: var(--primitive-font-line-height-1-2);
   --font-line-height-default: var(--primitive-font-line-height-1-5);
@@ -495,6 +501,7 @@
   --font-text-underline-offset-auto: var(--primitive-font-text-underline-offset-auto);
   --font-text-underline-offset-sm: var(--primitive-font-text-underline-offset-1);
   --font-text-underline-offset-md: var(--primitive-font-text-underline-offset-2);
+  --font-text-underline-offset-lg: var(--primitive-font-text-underline-offset-4);
   --font-style-title-md-family: var(--font-family-heading);
   --font-style-title-md-size: clamp(var(--font-size-3xl), 1rem + 1.4vw, var(--font-size-5xl));
   --font-style-title-md-weight: var(--font-weight-strong);
@@ -533,13 +540,19 @@
   /* ========================================== */
   --color-content-default: var(--primitive-color-purple-950);
   --color-content-variant: var(--primitive-color-slate-900);
+  --color-content-secondary: var(--primitive-color-slate-900);
+  --color-content-emphasis: var(--primitive-color-purple-950);
   --color-content-muted: var(--primitive-color-slate-600);
   --color-content-link: var(--primitive-color-violet-700);
   --color-content-inverse: var(--primitive-color-white);
+  --color-content-on-accent: var(--primitive-color-white);
+  --color-content-on-accent-hover: var(--primitive-color-indigo-200);
+  --color-content-on-accent-active: var(--primitive-color-indigo-300);
   --color-content-default-hover: var(--primitive-color-purple-900);
   --color-content-default-active: var(--primitive-color-purple-800);
   --color-surface-default: var(--primitive-color-white);
   --color-surface-sunken: var(--primitive-color-slate-200);
+  --color-surface-accent: var(--primitive-color-indigo-900);
   --color-border-decorative: var(--primitive-color-slate-300);
   --color-brand-default: var(--primitive-color-purple-800);
   --color-brand-on-default: var(--primitive-color-white);
@@ -604,15 +617,21 @@
 /* ============================================== */
 [data-theme="dark"] {
   --color-content-default: var(--primitive-color-purple-50);
-  --color-content-variant: var(--primitive-color-slate-100);
+  --color-content-variant: var(--primitive-color-purple-50);
+  --color-content-secondary: var(--primitive-color-purple-200);
+  --color-content-emphasis: var(--primitive-color-white);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
+  --color-content-on-accent: var(--primitive-color-white);
+  --color-content-on-accent-hover: var(--primitive-color-indigo-200);
+  --color-content-on-accent-active: var(--primitive-color-indigo-300);
   --color-content-default-hover: var(--primitive-color-purple-100);
   --color-content-default-active: var(--primitive-color-purple-200);
-  --color-surface-default: var(--primitive-color-slate-900);
-  --color-surface-sunken: var(--primitive-color-slate-800);
-  --color-border-decorative: var(--primitive-color-slate-700);
+  --color-surface-default: var(--primitive-color-night-900);
+  --color-surface-sunken: var(--primitive-color-night-800);
+  --color-surface-accent: var(--primitive-color-indigo-900);
+  --color-border-decorative: var(--primitive-color-night-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-default: var(--primitive-color-black);
   --color-brand-container: var(--primitive-color-purple-800);
@@ -674,15 +693,21 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
   --color-content-default: var(--primitive-color-purple-50);
-  --color-content-variant: var(--primitive-color-slate-100);
+  --color-content-variant: var(--primitive-color-purple-50);
+  --color-content-secondary: var(--primitive-color-purple-200);
+  --color-content-emphasis: var(--primitive-color-white);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
+  --color-content-on-accent: var(--primitive-color-white);
+  --color-content-on-accent-hover: var(--primitive-color-indigo-200);
+  --color-content-on-accent-active: var(--primitive-color-indigo-300);
   --color-content-default-hover: var(--primitive-color-purple-100);
   --color-content-default-active: var(--primitive-color-purple-200);
-  --color-surface-default: var(--primitive-color-slate-900);
-  --color-surface-sunken: var(--primitive-color-slate-800);
-  --color-border-decorative: var(--primitive-color-slate-700);
+  --color-surface-default: var(--primitive-color-night-900);
+  --color-surface-sunken: var(--primitive-color-night-800);
+  --color-surface-accent: var(--primitive-color-indigo-900);
+  --color-border-decorative: var(--primitive-color-night-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-default: var(--primitive-color-black);
   --color-brand-container: var(--primitive-color-purple-800);

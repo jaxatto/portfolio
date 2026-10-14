@@ -1,0 +1,101 @@
+/* Mode Toggle: an icon button that shows the mode you will switch to (moon in light mode, sun in dark).
+   No track and no background: like the nav links, it turns violet and draws the same accent line under
+   the icon on hover (same 3px line, easing and duration). Keyboard focus shows only the focus ring,
+   like the nav links: no color change, no line. See D-017. */
+
+.button {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	border-radius: var(--size-radius-md);
+	background: none;
+	/* Same near-black as the nav labels. */
+	color: var(--color-content-variant);
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+
+.button:hover {
+	color: var(--color-primary-default);
+}
+
+.button:active {
+	color: var(--color-primary-default-active);
+}
+
+/* The accent line under the icon: same size, easing and duration as the nav links' line, aligned to the
+   nav line's baseline (the button is 40px in a 44px row, so bottom: 0 lands on the same y). It grows
+   in from the left on hover and shrinks out to the right, like the nav. */
+.button::after {
+	content: '';
+	position: absolute;
+	right: 9px;
+	bottom: 0;
+	left: 9px;
+	height: 3px;
+	border-radius: 2px;
+	background: var(--color-primary-default);
+	transform: scaleX(0);
+	transform-origin: right center;
+	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.button:hover::after {
+	transform: scaleX(1);
+	transform-origin: left center;
+}
+
+.button:active::after {
+	background: var(--color-primary-default-active);
+}
+
+/* Keyboard focus also gets the focus ring (token), so it stays visible without a background. See D-014. */
+.button:focus-visible {
+	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
+	outline-offset: 3px;
+}
+
+/* Both icons share the slot. Light mode shows the moon (switch to dark); dark mode shows the sun. */
+.icon {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	transition:
+		opacity 0.25s ease,
+		transform 0.35s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.icon svg {
+	width: 1em;
+	height: 1em;
+}
+
+.sun {
+	opacity: 0;
+	transform: rotate(-60deg) scale(0.6);
+}
+
+.button[data-mode='dark'] .sun {
+	opacity: 1;
+	transform: none;
+}
+
+.button[data-mode='dark'] .moon {
+	opacity: 0;
+	transform: rotate(60deg) scale(0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.button,
+	.button::after,
+	.icon {
+		transition: none;
+	}
+}

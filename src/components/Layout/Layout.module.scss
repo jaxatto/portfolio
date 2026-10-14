@@ -1,7 +1,7 @@
 @use '@styles/all' as *;
 
 
-.wrapper {
+.main {
     @include wrapper-max-width(site);
     padding: 0 spacing(300); // 0 24px
 }

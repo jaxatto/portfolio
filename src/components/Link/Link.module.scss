@@ -13,7 +13,6 @@
 
 a {
     @include group-palette();
-    text-underline-offset: 0.3em;
     font-family: $font-heading;
     font-weight: var(--font-weight-extra-bold);
     margin: 0;
@@ -23,6 +22,13 @@ a {
     width: auto;
     flex: 0 1 auto;
     gap: 0.2em;
+    // Underline is always present but transparent, so on hover it fades in and slides down to
+    // its final offset (a `none` -> `underline` change can't animate).
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0;
+    text-decoration-thickness: var(--font-text-decoration-thickness-md);
+    text-decoration-skip-ink: auto;
     transition: all 0.3s ease-in-out;
     border-radius: 0.15em;
 
@@ -33,13 +39,13 @@ a {
     }
 
     &:hover, &:active {
-        text-decoration: underline;
-        text-underline-offset: 0.5em;
+        text-decoration-color: currentcolor;
+        text-underline-offset: var(--font-text-underline-offset-lg);
     }
 
-    &:focus-visible {
-        text-decoration: none;
-    }
+    // NOTE: there used to be `&:focus-visible { text-decoration: none }` here. The shorthand also
+    // reset the underline color to currentcolor, so on blur the transparent underline faded out
+    // visibly (a flash when tabbing). The focus ring is the focus indicator; underlines stay as is.
 }
 
 .button {

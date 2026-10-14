@@ -50,10 +50,16 @@ export type BaseSemanticGeneralColor = {
 		muted: ColorMode;
 		link: ColorMode;
 		inverse: ColorMode;
+		'on-accent': ColorMode;
+		'on-accent-hover': ColorMode;
+		'on-accent-active': ColorMode;
+		secondary: ColorMode;
+		emphasis: ColorMode;
 	};
 	surface: {
 		default: ColorMode;
 		sunken: ColorMode;
+		accent: ColorMode;
 	};
 	border: {
 		decorative: ColorMode;

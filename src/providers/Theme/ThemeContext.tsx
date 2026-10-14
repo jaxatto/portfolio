@@ -4,6 +4,7 @@ import React, {
 	useContext,
 	useEffect,
 	useMemo,
+	useRef,
 	useState,
 } from 'react';
 
@@ -87,8 +88,21 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 	const theme: ThemeId =
 		preference === 'system' ? (systemDark ? 'dark' : 'light') : preference;
 
+	const hasAppliedTheme = useRef(false);
+
 	useEffect(() => {
 		const root = document.documentElement;
+		// Fade colors on later switches only (not first paint). The `theme-fading` rule lives in
+		// styles/main.scss and is skipped for prefers-reduced-motion.
+		let timer: number | undefined;
+		if (hasAppliedTheme.current) {
+			root.classList.add('theme-fading');
+			timer = window.setTimeout(
+				() => root.classList.remove('theme-fading'),
+				900,
+			);
+		}
+		hasAppliedTheme.current = true;
 		if (preference === 'system') {
 			root.removeAttribute('data-theme');
 		} else {
@@ -100,6 +114,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 		document
 			.querySelector('meta[name="color-scheme"]')
 			?.setAttribute('content', 'light dark');
+		return () => window.clearTimeout(timer);
 	}, [preference, theme]);
 
 	const setPreference = useCallback(

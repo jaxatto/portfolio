@@ -309,6 +309,13 @@ const primitiveColors = {
 		900: 'oklch(21.6% 0.006 56.043deg)',
 		950: 'oklch(14.7% 0.004 49.25deg)',
 	},
+	// Project-specific, not Tailwind: the dark-mode ground, a slate pushed from blue (265°) toward
+	// purple (280°). See D-019.
+	night: {
+		700: 'oklch(38% 0.05 280deg)',
+		800: 'oklch(28% 0.05 280deg)',
+		900: 'oklch(21% 0.05 280deg)',
+	},
 	mauve: {
 		50: 'oklch(98.5% 0 0deg)',
 		100: 'oklch(96% 0.003 325.6deg)',
@@ -392,12 +399,14 @@ const primitiveTypography = {
 		medium: 500,
 		semibold: 600,
 		bold: 700,
+		extrabold: 800,
 		black: 900,
 		300: 300,
 		400: 400,
 		500: 500,
 		600: 600,
 		700: 700,
+		800: 800,
 		900: 900,
 	},
 	'letter-spacing': {

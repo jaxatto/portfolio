@@ -20,9 +20,20 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.purple[950],
 				dark: primitives.colors.purple[50],
 			},
+			// Dark variant matches default so nav labels and the toggle share the page's purple-tinted white.
 			variant: {
 				light: primitives.colors.slate[900],
-				dark: primitives.colors.slate[100],
+				dark: primitives.colors.purple[50],
+			},
+			// Role label: near-black like the nav in light, one step dimmer than default in dark. See D-019.
+			secondary: {
+				light: primitives.colors.slate[900],
+				dark: primitives.colors.purple[200],
+			},
+			// Hero greeting and sentence: same as default in light, true white in dark. See D-019.
+			emphasis: {
+				light: primitives.colors.purple[950],
+				dark: primitives.colors.white,
 			},
 			muted: {
 				light: primitives.colors.slate[600],
@@ -36,21 +47,39 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.white,
 				dark: primitives.colors.black,
 			},
+			'on-accent': {
+				light: primitives.colors.white,
+				dark: primitives.colors.white,
+			},
+			// Hover / pressed for interactive content on the accent ground: pale in both themes. D-022.
+			'on-accent-hover': {
+				light: primitives.colors.indigo[200],
+				dark: primitives.colors.indigo[200],
+			},
+			'on-accent-active': {
+				light: primitives.colors.indigo[300],
+				dark: primitives.colors.indigo[300],
+			},
 		},
 		surface: {
 			default: {
 				light: primitives.colors.white,
-				dark: primitives.colors.slate[900],
+				dark: primitives.colors.night[900],
 			},
 			sunken: {
 				light: primitives.colors.slate[200],
-				dark: primitives.colors.slate[800],
+				dark: primitives.colors.night[800],
+			},
+			// Feature ground for full-bleed moments (the 404, the footer); content on it is content.on-accent. Same in both themes: indigo-950 vanished against the dark ground. D-022, D-024.
+			accent: {
+				light: primitives.colors.indigo[900],
+				dark: primitives.colors.indigo[900],
 			},
 		},
 		border: {
 			decorative: {
 				light: primitives.colors.slate[300],
-				dark: primitives.colors.slate[700],
+				dark: primitives.colors.night[700],
 			},
 		},
 		brand: {
@@ -228,6 +257,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			subtle: primitives.font.weight.light,
 			default: primitives.font.weight.regular,
 			emphasis: primitives.font.weight.bold,
+			// NOTE: Figma sets Manrope text to 900, but Manrope stops at 800 (D-010). Use this for Manrope
+			// bold text such as nav items and links; `strong` (900) is for Inter headings.
+			'extra-strong': primitives.font.weight.extrabold,
 			strong: primitives.font.weight.black,
 		},
 		'line-height': {
@@ -260,6 +292,8 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			auto: primitives.font['text-underline-offset']['auto'],
 			sm: primitives.font['text-underline-offset']['1'],
 			md: primitives.font['text-underline-offset']['2'],
+			// Hover distance for links: the line moves from `md` out to `lg` (D-015).
+			lg: primitives.font['text-underline-offset']['4'],
 		},
 		styles: {
 			'title-md': {
