@@ -1,94 +1,79 @@
 import React from 'react';
-import Link from '@components/Link';
-import Image from '@components/Image';
-import Icon from '@components/Icon';
-import styles from './StudyCard.module.scss';
+import { Link as RouterLink } from 'react-router-dom';
+import clsx from 'clsx';
+import Icon from '#components/Icon';
+import styles from './StudyCard.module.css';
 
-// StudyCard component for displaying case studies or work examples
-// It supports various props for customization, including title, description, image, link URL, and link text
-// Usage: <StudyCard title="Case Study Title" description={["Byline text"]} image="image-url.jpg" linkUrl="/case-study" linkText="Read more" />
-// The component can be used in different layouts (horizontal or vertical) and palettes (primary, secondary, tertiary)
-// It also supports an optional count and total for displaying the number of case studies
+// Figma "Study Card" (Home, node 2726:63413). Palette = container / on-container token pair.
+// The whole card is clickable through a stretched link (the link text's ::after covers the card),
+// so the heading stays a real heading and the link name is unique: "Read AI study: <title>".
+// Without `linkUrl` the card is inert (case study not written yet) and shows `placeholder`.
+// See docs/decisions.md D-028.
 
 export type StudyCardProps = {
-  title: string; // Card title
-  description: string[]; // Byline text divided by dot
-  image: string | React.ReactNode; // Image URL or React node
-  imageAlt?: string; // Alt text for the image
-  linkUrl: string; // URL for the study
-  linkText: string; // Text for the link
-  palette?: 'primary' | 'secondary' | 'tertiary'; // Color palette for the card
-  layout?: 'horizontal' | 'vertical'; // Orientation of the card content
-  count?: number; // Optional count for the card, e.g., "Case study 1"
-  total?: number; // Optional total number of cards, e.g., "of 5"
-  iconFallback?: string; // Fallback icon name if image fails to load
-  variant?: 'work' | 'study'; // Variant used on home/work page or on case study page
+	title: string;
+	description: string[]; // Byline parts, joined with a middle dot
+	image: string;
+	imageAlt?: string; // Empty by default: the preview is decorative next to the title
+	linkUrl?: string;
+	linkText: string;
+	palette?: 'brand' | 'primary' | 'secondary' | 'tertiary';
+	layout?: 'horizontal' | 'vertical'; // Horizontal: preview beside the text (desktop only)
+	variant?: 'work' | 'study'; // 'study' = smaller type, used under a case study
+	placeholder?: string; // Replaces the link while the study doesn't exist
 };
 
 const StudyCard: React.FC<StudyCardProps> = ({
-  title,
-  description,
-  image,
-  imageAlt = '', // Image is decorative by default
-  linkUrl,
-  linkText,
-  palette = 'primary',
-  layout = 'vertical',
-  count,
-  total,
-  iconFallback = 'pencilRuler', // Default icon fallback
-  variant = 'work',
-}) => {
-  const accessibleLabel = [
-    `Case study${typeof count === 'number' ? ` ${count}` : ''}${typeof total === 'number' ? ` of ${total}` : ''}:`,
-    title,
-    linkText
-  ].filter(Boolean).join(' – ');
-
-  return (
-    <Link
-      href={linkUrl}
-      className={[
-        styles.wrapper,
-        styles[layout] ? styles[layout] : '',
-        `${palette}-card`,
-        styles[variant]
-      ].filter(Boolean).join(' ')}
-      aria-label={accessibleLabel}
-    >
-      <div className={styles.content}>
-        <div className={styles.text}>
-          <h3 className={styles.title}>
-            {title}
-          </h3>
-          <p className={styles.description}>
-            {description.map((desc, i) => (
-              <span key={i}>{desc}</span>
-            ))}
-          </p>
-        </div>
-        <span className={styles['card-link']}>
-          {linkText}
-          <Icon 
-            name="arrow-right" 
-            className={styles.icon}
-          />
-        </span>
-      </div>
-      <div className={styles['case-study-image-wrapper']}>
-        {typeof image === 'string'
-          ? <Image 
-              src={image} 
-              alt={imageAlt} 
-              iconFallback={iconFallback} 
-              imgClassName={styles['case-study-image']}
-              className={styles['case-study-component-wrapper']} 
-              fallbackClassName={styles['case-study-image-fallback']}
-            />
-          : image}
-      </div>
-    </Link>
-  );
-}
+	title,
+	description,
+	image,
+	imageAlt = '',
+	linkUrl,
+	linkText,
+	palette = 'brand',
+	layout = 'vertical',
+	variant = 'work',
+	placeholder = 'Case study coming soon',
+}) => (
+	<article
+		className={clsx(
+			styles.card,
+			styles[palette],
+			layout === 'horizontal' && styles.horizontal,
+			variant === 'study' && styles.study,
+			!linkUrl && styles.inert,
+		)}
+	>
+		<div className={styles.content}>
+			<div className={styles.text}>
+				<h3 className={styles.title}>{title}</h3>
+				<p className={styles.description}>
+					{description.map((part, i) => (
+						<React.Fragment key={part}>
+							{i > 0 && <span aria-hidden="true" className={styles.dot}> · </span>}
+							{part}
+						</React.Fragment>
+					))}
+				</p>
+			</div>
+			{linkUrl ? (
+				<RouterLink to={linkUrl} className={styles.link}>
+					<span className={styles.linkText}>
+						{linkText}
+						<span className="sr-only">: {title}</span>
+					</span>
+					<Icon name="arrow-right" className={styles.icon} aria-hidden="true" />
+				</RouterLink>
+			) : (
+				<p className={styles.placeholder}>{placeholder}</p>
+			)}
+		</div>
+		<div className={styles.preview}>
+			<div className={styles.sample}>
+				<img src={image} alt={imageAlt} className={styles.image} />
+			</div>
+		</div>
+	</article>
+);
 
 export default StudyCard;

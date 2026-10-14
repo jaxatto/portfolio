@@ -8,7 +8,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
-- [ ] 2. Home / Work page and study cards
+- [~] 2. Home / Work page and study cards (built, D-028; awaiting Jax review)
 - [ ] 3. Case study template
 - [ ] 4. Case study content: Indeed, ActBlue, ServiceNow, Toyota (copy + design review for each)
 - [ ] 5. About
@@ -29,7 +29,7 @@ Copy (all marked `TODO(jax)`, provisional):
 - Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Other pages' titles and meta still say "Staff Product Designer – Scalable UX…" and "at ServiceNow" (the About design says Toyota); each page's slice updates its own.
 
 Design / tokens:
-1. Component-level values in Figma (study card padding 48/56, link gap 4, border offset 2) aren't tokens yet. Decide at the Home slice (slice 2).
+1. Tokens study card is inert ("Case study coming soon") until that study exists; write it or drop the card (D-028).
 2. Mobile/tablet: no designs exist (D-008). Propose per slice, agree before building. There is no tablet design for the footer (stacks at 640px).
 3. The link arrows are Phosphor bold, so their stroke scales with size (slimmer at small sizes than the old hand-drawn ones). Revisit if it reads light (D-026).
 4. Unused icons `file.svg` and `download.svg` are still in the icon set; remove when their last consumer is migrated.

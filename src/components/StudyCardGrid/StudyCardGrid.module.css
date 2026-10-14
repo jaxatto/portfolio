@@ -1,0 +1,30 @@
+/* Figma Home: two full-width cards, then two side by side, 32px gap. */
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--size-space-3xl);
+}
+
+.grid > :nth-child(-n + 2) {
+	grid-column: 1 / -1;
+}
+
+.study {
+	gap: var(--size-space-lg);
+}
+
+.study > :nth-child(-n + 2) {
+	grid-column: auto;
+}
+
+/* Tablet and mobile (no Figma design, D-008, D-028): one column. */
+@media (max-width: 900px) {
+	.grid {
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--size-space-2xl);
+	}
+
+	.grid > * {
+		grid-column: 1 / -1;
+	}
+}

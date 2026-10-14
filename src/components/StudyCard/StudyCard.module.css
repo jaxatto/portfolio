@@ -1,0 +1,269 @@
+/* Study card, from Figma node 2726:63413. All values are tokens (D-005, D-028):
+   Figma's study-card padding 48 / 56 and link gap 4 are the existing space tokens
+   section-sm / section-md / xs, so no component tokens were added. */
+
+.card {
+	/* Palette tokens are set by the modifier classes below. */
+	--card-bg: var(--color-brand-container);
+	--card-bg-hover: var(--color-brand-container-hover);
+	--card-fg: var(--color-brand-on-container);
+	--card-fg-hover: var(--color-brand-on-container-hover);
+	--card-fg-active: var(--color-brand-on-container-active);
+	--card-glow: var(--shadow-color-brand-default);
+	--card-glow-hover: var(--shadow-color-brand-hover);
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border-radius: var(--size-radius-lg);
+	background: var(--card-bg);
+	color: var(--color-content-variant);
+	transition: background-color 0.2s ease;
+}
+
+.brand {
+	/* defaults above */
+	--card-bg: var(--color-brand-container);
+}
+
+.primary {
+	--card-bg: var(--color-primary-container);
+	--card-bg-hover: var(--color-primary-container-hover);
+	--card-fg: var(--color-primary-on-container);
+	--card-fg-hover: var(--color-primary-on-container-hover);
+	--card-fg-active: var(--color-primary-on-container-active);
+	--card-glow: var(--shadow-color-primary-default);
+	--card-glow-hover: var(--shadow-color-primary-hover);
+}
+
+.secondary {
+	--card-bg: var(--color-secondary-container);
+	--card-bg-hover: var(--color-secondary-container-hover);
+	--card-fg: var(--color-secondary-on-container);
+	--card-fg-hover: var(--color-secondary-on-container-hover);
+	--card-fg-active: var(--color-secondary-on-container-active);
+	--card-glow: var(--shadow-color-secondary-default);
+	--card-glow-hover: var(--shadow-color-secondary-hover);
+}
+
+.tertiary {
+	--card-bg: var(--color-tertiary-container);
+	--card-bg-hover: var(--color-tertiary-container-hover);
+	--card-fg: var(--color-tertiary-on-container);
+	--card-fg-hover: var(--color-tertiary-on-container-hover);
+	--card-fg-active: var(--color-tertiary-on-container-active);
+	--card-glow: var(--shadow-color-tertiary-default);
+	--card-glow-hover: var(--shadow-color-tertiary-hover);
+}
+
+.card:not(.inert):hover {
+	background: var(--card-bg-hover);
+}
+
+/* The link is stretched over the card, so keyboard focus rings the whole card. */
+.card:has(.link:focus-visible) {
+	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
+	outline-offset: 3px;
+}
+
+/* Text */
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--size-space-section-sm);
+	padding: var(--size-space-2xl) var(--size-space-2xl) var(--size-space-3xl);
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-sm);
+	width: 100%;
+}
+
+.title {
+	margin: 0;
+	color: var(--card-fg);
+	font-family: var(--font-style-heading-lg-family);
+	font-size: var(--font-style-heading-lg-size);
+	font-weight: var(--font-style-heading-lg-weight);
+	line-height: var(--font-style-heading-lg-line-height);
+	text-wrap: balance;
+}
+
+.description {
+	margin: 0;
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-style-body-md-weight);
+	line-height: var(--font-style-body-md-line-height);
+}
+
+.dot {
+	white-space: pre;
+}
+
+/* Link: bold, underlined at rest like TextLink (D-015, D-026); grows its offset on hover. */
+.link {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-space-xs);
+	color: var(--card-fg);
+	font-family: var(--font-family-body);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-weight-extra-strong);
+	line-height: var(--font-line-height-default);
+	text-decoration: none;
+}
+
+.linkText {
+	text-decoration: underline;
+	text-decoration-thickness: var(--font-text-decoration-thickness-md);
+	text-decoration-skip-ink: auto;
+	text-underline-offset: var(--font-text-underline-offset-md);
+	transition: text-underline-offset 0.2s ease;
+}
+
+/* Stretched link: the whole card is the click target. */
+.link::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+}
+
+.icon {
+	width: 1.2em;
+	height: 1.2em;
+	flex-shrink: 0;
+	color: inherit;
+	fill: currentcolor;
+	transition: transform 0.2s ease;
+}
+
+.card:hover .link,
+.link:focus-visible {
+	color: var(--card-fg-hover);
+}
+
+.card:hover .linkText,
+.link:focus-visible .linkText {
+	text-underline-offset: var(--font-text-underline-offset-lg);
+}
+
+.card:hover .icon,
+.link:focus-visible .icon {
+	transform: translateX(var(--size-space-xs));
+}
+
+.card:active .link {
+	color: var(--card-fg-active);
+}
+
+.link:focus-visible {
+	outline: none;
+}
+
+.placeholder {
+	margin: 0;
+	color: var(--card-fg);
+	font-family: var(--font-family-body);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-weight-extra-strong);
+	line-height: var(--font-line-height-default);
+}
+
+/* Preview: the sample UI is cropped by the card's right and bottom edges, on purpose. */
+.preview {
+	display: flex;
+	flex-direction: column;
+	height: 17rem; /* 272px, Figma sample height in vertical cards */
+	padding: var(--size-space-2xl) 0 0 var(--size-space-section-lg);
+}
+
+.sample {
+	position: relative;
+	flex: 1;
+	min-width: 31.25rem; /* 500px: the sample bleeds past the card on narrow widths */
+	overflow: hidden;
+	border-top-left-radius: var(--size-radius-sm);
+	background: var(--color-surface-sunken);
+	box-shadow:
+		var(--shadow-x-none) var(--shadow-y-none) var(--shadow-blur-2xl) var(--shadow-spread-xl)
+		var(--card-glow);
+	transition: box-shadow 0.2s ease;
+}
+
+.card:hover .sample {
+	box-shadow:
+		var(--shadow-x-none) var(--shadow-y-none) var(--shadow-blur-2xl) var(--shadow-spread-xl)
+		var(--card-glow-hover);
+}
+
+.image {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* Desktop: horizontal cards put the preview beside the text. */
+@media (min-width: 900px) {
+	.horizontal {
+		flex-direction: row;
+	}
+
+	.horizontal .content {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.horizontal .preview {
+		flex: 0 0 31.25rem; /* 500px */
+		height: auto;
+		padding: var(--size-space-section-md) 0 0 var(--size-space-section-sm);
+	}
+
+	.horizontal .sample {
+		min-width: 0;
+	}
+}
+
+/* Study (under a case study): smaller type, text and preview stay stacked. */
+.study .title {
+	font-family: var(--font-style-heading-md-family);
+	font-size: var(--font-style-heading-md-size);
+	font-weight: var(--font-style-heading-md-weight);
+	line-height: var(--font-style-heading-md-line-height);
+}
+
+.study .description,
+.study .link,
+.study .placeholder {
+	font-size: var(--font-style-body-sm-size);
+}
+
+.study .content {
+	gap: var(--size-space-2xl);
+}
+
+/* Mobile (no Figma design, D-008; see D-028): tighter padding and a shorter preview. */
+@media (max-width: 640px) {
+	.content {
+		gap: var(--size-space-4xl);
+	}
+
+	.preview {
+		height: 12.5rem; /* 200px */
+		padding: var(--size-space-lg) 0 0 var(--size-space-2xl);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.card,
+	.linkText,
+	.icon,
+	.sample {
+		transition: none;
+	}
+}

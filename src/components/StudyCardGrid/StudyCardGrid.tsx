@@ -1,48 +1,75 @@
 import React from 'react';
-import StudyCard from '@components/StudyCard';
-import { content } from './resources/content';
-import styles from './StudyCardGrid.module.scss';
+import clsx from 'clsx';
+import StudyCard, { StudyCardProps } from '#components/StudyCard';
+import { studyLinks } from '@constants/studyLinks';
+import themeweaverImage from '@assets/samples/servicenow-sample-min.png';
+import indeedImage from '@assets/samples/indeed-sample-min.png';
+import actblueImage from '@assets/samples/actblue-sample-min.png';
+import styles from './StudyCardGrid.module.css';
 
-// StudyCardGrid component that displays a grid of study cards
-// It can be used on both work and study pages, with options to filter out specific cards
-// and control the number of visible cards based on the variant ('work' or 'study')
-// It accepts an optional `samples` prop to use a custom set of cards, and an `excludeUrl` prop to filter out a specific card by its link URL.
-// Usage: <StudyCardGrid samples={customSamples} variant="work" excludeUrl="/case-study-1" />
+// Cards for the Home page and the "next study" row under each case study (D-028).
+// Copy is inline (D-003). Figma: Home 2839:21650. Palettes run brand, primary, secondary, tertiary.
+// TODO(jax): outcomes/metrics for each card's byline; run portfolio-critique when the studies are written.
+
+const cards: StudyCardProps[] = [
+	{
+		title: 'Building a multi-brand token system for cross-platform apps',
+		description: ['Design systems', 'Tokens', 'Logistics'],
+		image: themeweaverImage,
+		linkText: 'Read tokens study',
+		palette: 'brand',
+		// TODO(jax): no tokens case study exists yet. The card is inert until it has a route.
+	},
+	{
+		title: 'Designing AI tools to speed up qualitative survey analysis',
+		description: ['Product design', 'AI', 'PeopleTech'],
+		image: themeweaverImage,
+		linkUrl: studyLinks.servicenow,
+		linkText: 'Read AI study',
+		palette: 'primary',
+	},
+	{
+		title: 'Scaling clarity and consistency across Indeed’s platform',
+		description: ['Design systems', 'PeopleTech'],
+		image: indeedImage,
+		linkUrl: studyLinks.indeed,
+		linkText: 'Read system study',
+		palette: 'secondary',
+	},
+	{
+		title: 'Improving sync visibility for teams managing donations',
+		description: ['Product design', 'Nonprofit', 'FinTech'],
+		image: actblueImage,
+		linkUrl: studyLinks.actblue,
+		linkText: 'Read integration study',
+		palette: 'tertiary',
+	},
+];
 
 type StudyCardGridProps = {
-  samples?: typeof content; // Optional prop to pass a custom set of samples
-  variant?: 'work' | 'study'; // 'work' for work page, 'study' for study page
-  excludeUrl?: string; // Filters out a specific card by its linkUrl
+	variant?: 'work' | 'study'; // 'work' = Home (all cards), 'study' = two linked cards under a study
+	excludeUrl?: string; // Hides the current study
 };
 
-const StudyCardGrid: React.FC<StudyCardGridProps> = ({
-  samples,
-  variant = 'work',
-  excludeUrl,
-}) => {
-  const data = samples || content;
-  // Filter out the current study
-  const filteredData = excludeUrl
-    ? data.filter((card) => card.linkUrl !== excludeUrl)
-    : data;
-  // Show 3 cards for 'work', 2 cards for 'study'
-  const visibleCount = variant === 'work' ? 3 : 2;
-  const visibleData = filteredData.slice(0, visibleCount);
+const StudyCardGrid: React.FC<StudyCardGridProps> = ({ variant = 'work', excludeUrl }) => {
+	const visible =
+		variant === 'work'
+			? cards
+			: cards.filter((card) => card.linkUrl && card.linkUrl !== excludeUrl).slice(0, 2);
 
-  return (
-    <div className={[styles['card-grid'], styles[variant+'-grid']].filter(Boolean).join(' ')}>
-      {visibleData.map((props, i) => (
-        <StudyCard
-          key={props.linkUrl}
-          {...props}
-          count={props.count}
-          total={data.length}
-          variant={variant}
-          layout={variant === 'work' && i === 0 ? 'horizontal' : 'vertical'}
-        />
-      ))}
-    </div>
-  );
+	return (
+		<div className={clsx(styles.grid, variant === 'study' && styles.study)}>
+			{visible.map((card, i) => (
+				<StudyCard
+					key={card.title}
+					{...card}
+					variant={variant}
+					// First two cards span the row, with the preview beside the text (Figma).
+					layout={variant === 'work' && i < 2 ? 'horizontal' : 'vertical'}
+				/>
+			))}
+		</div>
+	);
 };
 
 export default StudyCardGrid;

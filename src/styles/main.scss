@@ -59,7 +59,7 @@ body {
 // TEMP (dark mode, legacy pages): About, the case studies and Resume still use hard-coded dark
 // text colors from the old palette, which vanish on the dark ground. Until each page is migrated
 // to tokens (its own slice), page text in dark mode is plain white. Text inside the pale
-// chips and pale cards (the palette classes _primary_ / _secondary_ / _tertiary_, *-card, and the
+// chips and pale cards (the palette classes _primary_ / _secondary_ / _tertiary_, the migrated StudyCard, and the
 // experience cards) keeps its own color.
 // Delete this block as pages are migrated. See docs/decisions.md D-027.
 html[data-theme='dark'] main :is(h1, h2, h3, h4, p, li, dt, dd, span, figcaption, strong, em):not(
@@ -67,9 +67,7 @@ html[data-theme='dark'] main :is(h1, h2, h3, h4, p, li, dt, dd, span, figcaption
             [class*='_primary_'],
             [class*='_secondary_'],
             [class*='_tertiary_'],
-            [class*='primary-card'],
-            [class*='secondary-card'],
-            [class*='tertiary-card'],
+            article[class*='_card_'],
             [class*='primary-experience-card'],
             [class*='secondary-experience-card'],
             [class*='tertiary-experience-card']
