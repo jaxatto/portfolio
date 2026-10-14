@@ -118,3 +118,5 @@ No card, no shapes. Content aligns to the header's column: heading, one line of 
 - `accent` (every other page, and the default): full-bleed `--color-surface-accent`, with text and link tokens re-pointed to on-accent values.
 
 To make the accent ground read in dark mode, `surface-accent` is indigo-900 in both themes (indigo-950 vanished against the dark ground); the 404 follows. Footer copy is provisional: "Open to remote Staff Product Designer and Design Engineer roles." (D-021). `TextLink` icons now inherit the link color; a legacy global `a svg` rule had forced a fixed purple on every arrow.
+
+Also (D-024): the footer's Resume / LinkedIn / GitHub are icon-only links (file, LinkedIn mark, GitHub mark; 44px targets, `sr-only` names, `title` tooltips), and the footer email plus these icons take the nav links' treatment (D-017): no resting underline, violet and a 3px line growing from the left on hover. In-content `TextLink`s keep the always-on underline so links stay recognizable in text. Brand marks are Octicons (MIT) and Simple Icons (CC0).

@@ -10,7 +10,10 @@ import Component from '@assets/icons/component.svg';
 import Controller from '@assets/icons/controller.svg';
 import Dog from '@assets/icons/dog.svg';
 import Download from '@assets/icons/download.svg';
+import File from '@assets/icons/file.svg';
+import Github from '@assets/icons/github.svg';
 import Image from '@assets/icons/image.svg';
+import Linkedin from '@assets/icons/linkedin.svg';
 import Moon from '@assets/icons/moon.svg';
 import Paw from '@assets/icons/paw.svg';
 import PencilRuler from '@assets/icons/pencil-ruler.svg';
@@ -28,7 +31,10 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'controller': Controller,
   'dog': Dog,
   'download': Download,
+  'file': File,
+  'github': Github,
   'image': Image,
+  'linkedin': Linkedin,
   'moon': Moon,
   'paw': Paw,
   'pencil-ruler': PencilRuler,

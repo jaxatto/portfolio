@@ -52,3 +52,10 @@
 	color: inherit;
 	fill: currentcolor;
 }
+
+/* Legacy `a:hover svg` / `a:active svg` rules would recolor the arrow; it always follows the text. */
+.link:hover .icon,
+.link:active .icon,
+.link:focus-visible .icon {
+	color: inherit;
+}

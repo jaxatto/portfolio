@@ -42,6 +42,7 @@
 .description {
 	margin: 0;
 	max-width: 28em;
+	text-wrap: balance;
 	color: var(--color-content-default);
 	font-family: var(--font-family-body);
 	font-size: var(--font-style-body-lg-size);
@@ -53,10 +54,91 @@
 	display: flex;
 	flex: none;
 	flex-wrap: wrap;
-	gap: var(--size-space-xl);
+	gap: var(--size-space-sm);
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+/* Email and icon links use the nav links' treatment (D-017): no resting underline, violet on hover
+   and a 3px line growing in from the left, at the same position. In-content links keep their
+   always-on underline. */
+.main .email {
+	position: relative;
+	padding-bottom: var(--size-space-sm);
+	text-decoration: none;
+	color: var(--color-content-link);
+}
+
+.email::after,
+.icon-link::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 2px;
+	left: 0;
+	height: 3px;
+	border-radius: 2px;
+	background: var(--color-primary-default);
+	transform: scaleX(0);
+	transform-origin: right center;
+	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.main .email:hover {
+	color: var(--color-primary-default);
+	text-underline-offset: 0;
+}
+
+.email:hover::after,
+.icon-link:hover::after {
+	transform: scaleX(1);
+	transform-origin: left center;
+}
+
+.icon-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border-radius: var(--size-radius-sm);
+	color: var(--color-content-variant);
+	transition: color 0.2s ease;
+}
+
+.icon-link svg {
+	width: 24px;
+	height: 24px;
+	/* Beats the legacy global `a svg` fixed purple. */
+	color: inherit;
+	fill: none;
+}
+
+/* Same legacy hover rule as in TextLink: the icon always follows the link color. */
+.icon-link:hover svg,
+.icon-link:active svg,
+.icon-link:focus-visible svg {
+	color: inherit;
+}
+
+/* Brand marks are filled shapes; the file icon is stroke-drawn. */
+.icon-link svg path[fill='currentColor'] {
+	fill: currentcolor;
+}
+
+.icon-link:hover {
+	color: var(--color-primary-default);
+}
+
+.icon-link:active {
+	color: var(--color-primary-default-active);
+}
+
+.icon-link:focus-visible {
+	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
+	outline-offset: 3px;
 }
 
 /* Quiet: the page ground with a hairline across the content column. */
@@ -89,7 +171,8 @@
 	--color-content-variant: var(--color-content-on-accent);
 	--color-content-emphasis: var(--color-content-on-accent);
 	--color-content-link: var(--color-content-on-accent);
-	--color-primary-default-active: var(--color-content-on-accent-hover);
+	--color-primary-default: var(--color-content-on-accent-hover);
+	--color-primary-default-active: var(--color-content-on-accent-active);
 	--color-primary-on-container-active: var(--color-content-on-accent-active);
 	--color-state-focus-ring: var(--color-content-on-accent);
 }

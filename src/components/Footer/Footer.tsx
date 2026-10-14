@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import TextLink from '#components/TextLink';
+import Icon from '#components/Icon';
 import { useSiteConfig } from '#providers/SiteConfig';
 import { contactInfo } from '#constants/contactInfo';
 import styles from './Footer.module.css';
@@ -31,35 +32,57 @@ const Footer: React.FC<FooterProps> = ({ variant = 'accent' }) => {
 						</p>
 					</div>
 					{isJobSeeking ? (
-						<TextLink href={contactInfo.email.src} icon="arrow-top-right" size="lg">
+						<TextLink href={contactInfo.email.src} icon="arrow-top-right" size="lg" className={styles.email}>
 							<span className="sr-only">Email me at </span>
 							{contactInfo.email.label}
 							<span className="sr-only"> (opens email client)</span>
 						</TextLink>
 					) : (
-						<TextLink href={contactInfo.linkedin.src} newTab icon="arrow-top-right" size="lg">
+						<TextLink href={contactInfo.linkedin.src} newTab icon="arrow-top-right" size="lg" className={styles.email}>
 							<span className="sr-only">Find me on </span>LinkedIn
 							<span className="sr-only"> (opens in a new tab)</span>
 						</TextLink>
 					)}
 				</div>
+				{/* Icon-only links: each keeps a real accessible name (sr-only text + title) and a 44px target. */}
 				<ul className={styles.row}>
 					<li>
-						<TextLink href={contactInfo.resume.src} newTab>
-							Resume<span className="sr-only"> (PDF, opens in a new tab)</span>
-						</TextLink>
+						<a
+							href={contactInfo.resume.src}
+							className={styles['icon-link']}
+							target="_blank"
+							rel="noopener noreferrer"
+							title="Resume"
+						>
+							<Icon name="file" aria-hidden="true" />
+							<span className="sr-only">Resume (PDF, opens in a new tab)</span>
+						</a>
 					</li>
 					{isJobSeeking && (
 						<li>
-							<TextLink href={contactInfo.linkedin.src} newTab>
-								LinkedIn<span className="sr-only"> (opens in a new tab)</span>
-							</TextLink>
+							<a
+								href={contactInfo.linkedin.src}
+								className={styles['icon-link']}
+								target="_blank"
+								rel="noopener noreferrer"
+								title="LinkedIn"
+							>
+								<Icon name="linkedin" aria-hidden="true" />
+								<span className="sr-only">LinkedIn (opens in a new tab)</span>
+							</a>
 						</li>
 					)}
 					<li>
-						<TextLink href={contactInfo.github.src} newTab>
-							GitHub<span className="sr-only"> (opens in a new tab)</span>
-						</TextLink>
+						<a
+							href={contactInfo.github.src}
+							className={styles['icon-link']}
+							target="_blank"
+							rel="noopener noreferrer"
+							title="GitHub"
+						>
+							<Icon name="github" aria-hidden="true" />
+							<span className="sr-only">GitHub (opens in a new tab)</span>
+						</a>
 					</li>
 				</ul>
 			</div>
