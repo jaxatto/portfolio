@@ -479,5 +479,6 @@
 
 	.greeting {
 		display: block;
+		margin-bottom: var(--size-space-lg);
 	}
 }
