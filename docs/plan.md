@@ -7,7 +7,7 @@ Goal: make the portfolio as strong as possible for getting Jax hired as a staff-
 Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
-- [~] 1. Header and footer (nav, mode toggle, Home intro). Header and hero done and approved by Jax; footer to revisit; mobile unchecked. Multi-theme picker deferred to its own later slice
+- [~] 1. Header and footer (nav, mode toggle, Home intro). Header, hero and mobile header approved by Jax; footer next (Jax is doing it); dark mode reviewed per page as each slice lands. Multi-theme picker deferred to its own later slice
 - [ ] 2. Home / Work page and study cards
 - [ ] 3. Case study template
 - [ ] 4. Case study content: Indeed, ActBlue, ServiceNow, Toyota (copy + design review for each)

@@ -79,9 +79,9 @@ Type sizes may be fluid (`clamp()`), and need not match the token values at ever
 - **Site cursor** is the hero pointer's arrow shape in black with a thin white edge and a soft drop shadow (CSS `cursor` on `html`, hotspot at the tip). Links, buttons and inputs keep their own cursors. Trade-off: over plain text the arrow replaces the browser's I-beam.
 - **Over the "build" chip** the cursor becomes the browser's I-beam, matching the typing cursor in the chip.
 
-## D-018: Home header on mobile (≤640px) — 2026-10-13
+## D-018: Home header on mobile (≤640px) — decided, 2026-10-13
 
-Proposal, pending Jax's OK (no mobile design exists, D-008). The nav row is a bar: links left, mode toggle at the right edge, hairline (`--color-border-decorative`) under it. The role moves from the bar to a byline under "Hi, I'm Jax!" (a second element inside the h1, shown only on mobile; the bar's copy is hidden there, so it is announced once). The sentence steps down to `--font-size-2xl` and the greeting takes its own line. Checked at 320, 375 and 768; tablet needs no change.
+Approved by Jax (no mobile design exists, D-008). The nav row is a bar: links left, mode toggle at the right edge, hairline (`--color-border-decorative`) under it. The role moves from the bar to a byline under "Hi, I'm Jax!" (a second element inside the h1, shown only on mobile; the bar's copy is hidden there, so it is announced once). The sentence steps down to `--font-size-2xl` and the greeting takes its own line. Checked at 320, 375 and 768; tablet needs no change.
 
 ## D-019: Dark-mode header text — 2026-10-13
 
@@ -94,3 +94,7 @@ Also (dark): app surfaces move from slate to a new project primitive `night` (hu
 - Footer: the decorative circles (dashed ring, dot, blurred circle) are removed; the footer is the card alone until its own pass. The hero "Jax" cursor tag stays hidden (`TEMP` rule in Header.module.css); it adds little next to the resizing box.
 - Home meta (provisional, TODO(jax)): title "Jax Engel | Staff Product Designer and Design Technologist" and a description naming accessible products, systems, enterprise/fintech and AI-assisted workflows. Set inline in `Work.tsx` and in `index.html` (the static Home tags). Other pages keep their old meta until their slices; `Work/resources/meta.ts` stays for Resume.
 - The nav header is in `Layout`, so Work, About, Resume and the case studies all use it. The 404 page now renders it too.
+
+## D-021: Title wording — decided, 2026-10-13
+
+"Staff Product Designer" is the title everywhere. "Design Engineer" (not "Design Technologist") is added only where the context is relevant and there is room, e.g. the Home page title. Existing "Design Technologist" mentions (footer copy) change when the footer is redone; other pages' meta change in their slices. Dark mode is reviewed page by page, header done.
