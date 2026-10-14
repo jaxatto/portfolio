@@ -158,3 +158,8 @@ Replaces the tried-and-reverted D-030 (breakout), D-031 (full-width bands), D-03
 ## D-035: Cards: sample inside the window, no tag line — decided, 2026-10-14
 
 Revises D-034. (1) The sample no longer pops out: it is cropped by the card's right and bottom edges again (Figma). In the 960px card the text box is 580px (40px narrower) and the sample starts at 588px (80px further left than before) and is 372px wide. (2) The tag line (company, then categories) is removed: it added a fourth text style (title, outcome, tags, link). The company moves into the link ("Read the ServiceNow case study"); the categories are already said by the title and outcome. Three styles remain. If the categories are missed, they can return as a chip row in the existing Chip component rather than as another text style. Link text for the tokens card has no company until its study exists. The narrower text box pushed the ServiceNow title to three lines, so it is now "Turning survey responses into themes in minutes" (TODO(jax): confirm).
+
+## D-036: Card measures, second pass — decided, 2026-10-14
+
+Revises D-035 in the 960px card: the text is 508px wide (was 532; box 548px with 24px left and 16px right padding), the sample is 412px wide (was 372) and starts at 548px with no extra left padding, and its top is 32px (`space-3xl`, was 56) below the card top so it lines up with the text block's top padding rhythm. Titles still wrap to two lines.
+The tokens card title is now "A multi-brand token system for cross-platform apps" so it stays at two lines (TODO(jax): placeholder until its study exists).

@@ -190,20 +190,22 @@
 /* Desktop: horizontal cards put the preview beside the text. */
 @media (min-width: 900px) {
 	/* The sample stays inside the card window: cropped by its right and bottom edges (D-035).
-	   Layout in a 960px card: text box 580px, sample 372px wide starting at 588px. */
+	   Layout in a 960px card: text 508px wide (box 548px incl. 24px left, 16px right padding),
+	   sample 412px wide starting at 548px, 32px below the card top (D-036). */
 	.horizontal {
 		flex-direction: row;
 	}
 
 	.horizontal .content {
-		flex: 0 1 36.25rem; /* 580px */
+		flex: 0 1 34.25rem; /* 548px */
 		min-width: 0;
+		padding-right: var(--size-space-lg);
 	}
 
 	.horizontal .preview {
 		flex: 1;
 		height: auto;
-		padding: var(--size-space-section-md) 0 0 var(--size-space-sm);
+		padding: var(--size-space-3xl) 0 0;
 	}
 
 	.horizontal .sample {

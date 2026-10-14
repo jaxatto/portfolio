@@ -40,7 +40,7 @@ const cards: StudyCardProps[] = [
 		palette: 'secondary',
 	},
 	{
-		title: 'Building a multi-brand token system for cross-platform apps',
+		title: 'A multi-brand token system for cross-platform apps',
 		image: themeweaverImage,
 		linkText: 'Read the tokens case study',
 		palette: 'tertiary',
