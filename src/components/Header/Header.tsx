@@ -1,16 +1,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import clsx from 'clsx';
-import Icon from '#components/Icon';
 import ModeToggle from '#components/ModeToggle';
-import Image from '#components/Image';
 import { useTheme } from '#providers/Theme';
 import { mainLinks } from '#constants/mainLinks';
-import profileImg from '#assets/jax-engel-min.png';
 import styles from './Header.module.css';
 
-// Page header: skip link, nav bar (brand, main links, mode toggle) and, on Home only, the intro.
-// Copy is inline on purpose (D-003): short page copy stays next to its markup.
+// Page header: skip link, nav row (brand on inner pages, main links, mode toggle) and, on Home only,
+// the intro. Copy is inline on purpose (D-003). Layout and treatments: D-016, D-017.
 
 const navLinks = [
 	{ name: 'Work', url: mainLinks.work },
@@ -35,15 +31,13 @@ const Header: React.FC = () => {
 				Skip to main content
 			</a>
 
-			{/* Decorative blurred ring behind the top-left corner. Sits behind page content. */}
-			<div className={styles.decor} aria-hidden="true">
-				<div className={styles['decor-ring']} />
-			</div>
-
-			<div className={clsx(styles.bar, isHome && styles['bar-home'])}>
-				{!isHome && (
+			<div className={styles.bar}>
+				{/* Left slot: the brand on inner pages; on Home the greeting carries the name, so the slot
+				    holds the role instead. TODO(jax): role line is provisional (content pass). */}
+				{isHome ? (
+					<p className={styles.role}>Staff Product Designer</p>
+				) : (
 					<Link to={mainLinks.home} className={styles.brand}>
-						<Icon name="automation" className={styles['brand-icon']} aria-hidden="true" />
 						Jax Engel
 					</Link>
 				)}
@@ -70,29 +64,36 @@ const Header: React.FC = () => {
 
 			{isHome && (
 				<div className={styles.intro}>
-					<div className={styles['intro-content']}>
-						<div className={styles.photo}>
-							<span className={styles['photo-circle']} aria-hidden="true" />
-							<Image
-								src={profileImg}
-								alt="Jax Engel is a feminine-looking person with chin length brown hair and brown eyes. She is outside in the sunshine, wearing a maroon hooded sweater."
-								iconFallback="person"
-								className={styles['photo-frame']}
-								imgClassName={styles['photo-img']}
-							/>
-							<span className={styles.emoji} aria-hidden="true">
-								👋
+					{/* TODO(jax): H1 and treatments are provisional, to be reviewed with the content pass. */}
+					{/* The "design" selection box (with a resizing cursor) and the "build" chip are decorative: the
+					    box parts are aria-hidden and empty, so the sentence reads cleanly to assistive tech. */}
+					<h1 className={styles.heading}>
+						<strong className={styles.greeting}>Hi, I’m Jax!</strong> I{' '}
+						<span className={styles.design}>
+							<span className={styles.selection} aria-hidden="true">
+								<i className={styles['handle-tl']} />
+								<i className={styles['handle-tr']} />
+								<i className={styles['handle-bl']} />
+								<i className={styles['handle-br']} />
+								<span className={styles.pointer}>
+									<svg
+										className={styles['pointer-arrow']}
+										width="14"
+										height="19"
+										viewBox="0 0 14 19"
+										focusable="false"
+									>
+										<path d="M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z" className={styles['pointer-fill']} />
+									</svg>
+									<span className={styles['pointer-label']} />
+								</span>
 							</span>
-						</div>
-						<div className={styles.copy}>
-							<h1 className={styles.heading}>Hello, I’m Jax!</h1>
-							{/* TODO(jax): hero line is generic; discuss a more specific version (scale, domain, outcomes). */}
-							<p className={styles.description}>
-								I design product experiences that are accessible, scalable, and built on
-								systems-level thinking.
-							</p>
-						</div>
-					</div>
+							design
+						</span>{' '}
+						and{' '}
+						<span className={styles.build}>build</span> accessible products and the systems
+						behind them.
+					</h1>
 				</div>
 			)}
 		</header>
