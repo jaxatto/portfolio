@@ -42,7 +42,7 @@ Slice 0 ported the token source, build script, generated `theme.css`, `ThemeProv
 Type sizes may be fluid (`clamp()`), and need not match the token values at every width, as long as the size at desktop (1280px) equals Figma. The ported scale reaches Figma's desktop sizes at about 1280px (title-sm 40, heading-lg 32, body-lg 24, body-md 20). Smaller-screen behavior is still tuned per slice and checked with Jax (D-008).
 
 ## D-014 Slice 1 patterns — decided, 2026-10-13
-- **Focus ring:** 2px solid `--color-content-default`, 2px offset (the dark ring in Figma). There is no dedicated focus token; if one is wanted later, add it and swap it in everywhere.
+- **Focus ring:** 3px solid `--color-state-focus-ring`, 3px offset (2px / 2px in Figma; thickened and pushed out per Jax's review, 2026-10-13). Same on nav, brand, TextLink and the mode toggle.
 - **TextLink** (`src/components/TextLink`) is the token-based Figma Link. The legacy SCSS `Link` stays until its last consumers (study cards, NotFound, Resume) are migrated, then it is deleted.
 - **Decorative shapes** are CSS (header ring, footer circle, dot, ring, dashed circle) because Figma's SVG export isn't available to us. Fills are container colors at 50% opacity (verified against light and dark exports); positions and sizes come from Figma. Dashed rings use `content-default`.
 - **32px** for the footer email link and the wave emoji (Figma has 28px, which is off the scale). The email link is fluid down to 16px so it fits 375px screens.
@@ -52,3 +52,29 @@ Type sizes may be fluid (`clamp()`), and need not match the token values at ever
 - **Page background** now uses `--color-surface-default` (same white in light).
 - **Placeholders:** the sun, moon and automation (brand mark) icons are hand-made stand-ins from `update-content` until Figma exports are available.
 - **Site metadata** says Staff everywhere (title, description, Open Graph, Work and Resume pages).
+
+## D-015 Link hover and pressed states — decided, 2026-10-13
+- **Colors are existing tokens only.** The `*-hover` tokens are too subtle on their own (about 0.06 lightness), so links step further along the ramp: hover uses `primary-default-active` (violet links) or `content-default-active` (dark links); pressed uses the deepest step (`primary-on-container-active`, or back to `content-default` for dark links).
+- **Hover also moves the underline:** it is always present but transparent, fades in and slides down to 4px (`--link-underline-offset-hover`, md token + 2px). Thickness stays 2px the whole time (tried thickening to 3px, dropped). Pressed pulls it back to the 2px rest offset so the link feels pushed in.
+- **Skip-ink is `auto`** on all links (Figma had `none` on Link).
+- Open: the 4px hover offset is a CSS variable, not a token. Add one if this pattern is kept.
+
+## D-016 Home hero: copy and structure — decided, 2026-10-13
+- **Header is light:** a nav row, a role line ("Staff Product Designer") and one sentence ("Hi, I'm Jax! I design and build accessible products and the systems behind them."). No photo, no hero actions (the nav already has Work and Resume), no brand mark on Home (the greeting carries the name; inner pages show the brand).
+- **Tried and dropped:** a pitch paragraph, a "How I work" pillars section, the photo with dashed ring and blurred rings, and a wave emoji bubble. They were heavy or competed with the nav. Reconsider pillars in the content pass if the proof points exist.
+- **Targets:** staff product design and design technologist / design engineering roles. The role line is one title; Design Technologist comes through "design and build" and the footer. Page title and meta still say Staff Product Designer; revisit with the copy.
+- Open: one concrete AI example and one proof point (metric or shipped outcome).
+
+## D-017 Home hero: visual language and toggle — decided, 2026-10-13
+- **Type and color carry it:** dark heavy greeting, regular weight for the rest; the role label sits in the nav row's left slot on Home (the brand's slot on inner pages) as plain dark text (tried violet text, muted text, an accent bar, a filled chip that read as a third chip style, and a status dot; all were dropped); as an eyebrow above the sentence it floated and collided with the "design" box; every nav link has a full-width accent line drawn with `::after` at one position: always shown on the current page (it grows in when the page becomes current), grown in on hover for the others (a shape, not only a color); hover color is violet on all; no native underline in the nav.
+- **Motion (hero):** the selection box slowly resizes (8s drag, then a 4s pause, repeating) with a design-tool pointer on its corner handle, and the "build" cursor blinks subtly (1.4s). Both stop under `prefers-reduced-motion`. Overlays are empty and `aria-hidden`, so text never reflows.
+- **Two small tool marks** (CSS only, hidden from assistive tech by being pseudo-elements): "design" gets a selection box with corner handles (secondary color), "build" gets a code chip with a terminal cursor (primary container). Checked against ~37 portfolios; none does this (2026-10-13).
+- **Mono font is Roboto Mono** (the existing `--font-family-mono` token), loaded at 500 and 700 in `_variables.scss`, so "build" never falls back to a system font.
+- **Top of the page is all Inter:** the role label (regular), the nav words (bold) and the sentence. Manrope stays for body text elsewhere.
+- **Mode toggle** is an icon-only button showing the mode you will switch to (moon in light, sun in dark), near-black like the nav labels, no background, turning violet and drawing the nav's accent line under the icon on hover and focus (focus also shows the ring) (Figma had a pill switch; a segmented control was tried and took too much focus). It is a plain button whose accessible name states the action ("Switch to dark mode" / "Switch to light mode"), since the icon shows the target mode.
+- **Inner pages:** brand left, nav and toggle right, on the same row.
+- **Sun icon** is a filled sunburst (disc with 8 pointed rays) so it pairs with the solid moon; outlined options looked lighter than the moon.
+- **Text selection** uses `primary-container` with `primary-on-container` text (global `::selection` in `main.scss`) instead of the browser's blue.
+- **Hero pointer** is a Figma multiplayer cursor: a solid indigo arrow (selection box color) with a thin white edge and a name tag ("Jax"), tip up-left on the box's bottom-right handle. It fades in only while the box is being dragged (middle of the 8s drag, hidden during the 4s pause) so the tag isn't over the line below all the time, and it is hidden under reduced motion.
+- **Site cursor** is the hero pointer's arrow shape in black with a thin white edge and a soft drop shadow (CSS `cursor` on `html`, hotspot at the tip). Links, buttons and inputs keep their own cursors. Trade-off: over plain text the arrow replaces the browser's I-beam.
+- **Over the "build" chip** the cursor becomes the browser's I-beam, matching the typing cursor in the chip.

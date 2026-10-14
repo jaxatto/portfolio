@@ -7,7 +7,7 @@ Goal: make the portfolio as strong as possible for getting Jax hired as a staff-
 Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
-- [~] 1. Header and footer (nav, mode toggle, Home intro). Built; awaiting Jax's review. Multi-theme picker deferred to its own later slice
+- [~] 1. Header and footer (nav, mode toggle, Home intro). Header and hero done and approved by Jax; footer to revisit; mobile unchecked. Multi-theme picker deferred to its own later slice
 - [ ] 2. Home / Work page and study cards
 - [ ] 3. Case study template
 - [ ] 4. Case study content: Indeed, ActBlue, ServiceNow, Toyota (copy + design review for each)
@@ -18,22 +18,25 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slice 1 (Header, Footer, ModeToggle, TextLink) is built on `claude/admiring-goodall-b1qiwh`, awaiting Jax's review. Light and dark header/footer match the Figma exports (about 1.5% of header pixels differ, text anti-aliasing). Next: slice 2 (Home / Work page and study cards), after review. Dark mode stays gated until slice 2 lands (D-011).
+Slice 1 (header, toggle) is built and Jax is happy with the Home header and hero (2026-10-13). The header was reworked from the Figma design through review; the decisions are D-014 to D-017. Footer is unchanged this session and still has the Figma circles (dashed ring, dot, blurred circle); revisit it against the new header. Next: slice 2 (Home / Work page and study cards). Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
 
 ## Open questions for Jax
 
-Slice 1 review:
-- Hero line: discuss a more specific version (scale, domain, outcomes). Send details and I'll draft options.
-- Mobile proposal (D-008): nav wraps under the brand, photo stacks above the greeting card, dashed ring shrinks to clear the nav, footer card tightens. OK?
-- GitHub link in the footer points to `https://github.com/jaxatto`. Correct?
-- Icons: sun, moon and the brand mark are placeholders. Export them from Figma into the repo, or allow `www.figma.com` in the cloud environment's network settings so I can download assets.
-- Site description says "at ServiceNow", but the About design says current role is Toyota. Update the description?
-- Header intro appears on Home only. What should case study pages show (brand + nav only)?
+Header / hero:
+- Hero copy: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Provisional until then.
+- Page title and meta description still say "Staff Product Designer – Scalable UX, Systems Thinking, Inclusive Design" and "at ServiceNow" (the About design says Toyota). Update with the hero copy; the footer says "Design Technologist", which the research shows few people use as a label (`docs/research/portfolio-landscape.md`): consider "Design Engineer".
+- Mobile and tablet are not checked yet. Nav wraps below 640px; the hero sentence is fluid. Propose and agree before building (D-008).
+- Dark mode review of the header and hero (selection box, pointer, chip, toggle, selection color).
+- The footer's circles and dashed ring vs the circle-free header: keep, or bring in line?
+- The "Jax" tag on the hero pointer is hidden for comparison (`.pointer-label { display: none }`, marked TEMP). Decide and remove or restore.
+- Pointer motion: the hero loop is 8s drag plus 4s pause; a mono token and a hover-offset token exist only as CSS variables (D-015, D-017).
 
 Other:
 1. Component-level values in Figma (study card padding 48/56, link gap 4, border offset 2) aren't tokens yet. Decide at the Home slice.
 2. Mobile/tablet: no designs exist (D-008). Propose per slice, agree before building.
 3. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
+4. GitHub link in the footer points to `https://github.com/jaxatto`. Correct?
+5. Icons: the brand mark is gone from the header; the arrows, sun and moon are drawn in code. Export final icons from Figma if wanted.
 
 ## Setup still needed
 
