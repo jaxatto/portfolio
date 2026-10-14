@@ -473,7 +473,20 @@
 	.controls {
 		flex: 1 0 100%;
 		justify-content: space-between;
-		border-bottom: 1px solid var(--color-border-decorative);
+		position: relative;
+	}
+
+	/* Divider: drawn 2px up from the row's bottom and behind the content, so the current page's
+	   line sits over it. */
+	.controls::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 2px;
+		left: 0;
+		z-index: -1;
+		height: 1px;
+		background: var(--color-border-decorative);
 	}
 
 	.bar:has(.role) .role {
@@ -494,7 +507,7 @@
 
 	.byline {
 		display: block;
-		margin-bottom: var(--size-space-lg);
+		margin-bottom: var(--size-space-2xl);
 		color: var(--color-content-variant);
 		font-size: var(--font-style-body-md-size);
 		font-weight: var(--font-weight-default);
