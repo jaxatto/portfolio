@@ -60,6 +60,10 @@ export type BaseSemanticGeneralColor = {
 		default: ColorMode;
 		sunken: ColorMode;
 		accent: ColorMode;
+		'band-1': ColorMode;
+		'band-2': ColorMode;
+		'band-3': ColorMode;
+		'band-4': ColorMode;
 	};
 	border: {
 		decorative: ColorMode;

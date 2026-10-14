@@ -553,6 +553,10 @@
   --color-surface-default: var(--primitive-color-white);
   --color-surface-sunken: var(--primitive-color-slate-200);
   --color-surface-accent: var(--primitive-color-indigo-900);
+  --color-surface-band-1: var(--primitive-color-purple-300);
+  --color-surface-band-2: var(--primitive-color-purple-200);
+  --color-surface-band-3: var(--primitive-color-purple-100);
+  --color-surface-band-4: var(--primitive-color-purple-50);
   --color-border-decorative: var(--primitive-color-slate-300);
   --color-brand-default: var(--primitive-color-purple-800);
   --color-brand-on-default: var(--primitive-color-white);
@@ -631,6 +635,10 @@
   --color-surface-default: var(--primitive-color-night-900);
   --color-surface-sunken: var(--primitive-color-night-800);
   --color-surface-accent: var(--primitive-color-indigo-900);
+  --color-surface-band-1: var(--primitive-color-purple-700);
+  --color-surface-band-2: var(--primitive-color-purple-800);
+  --color-surface-band-3: var(--primitive-color-purple-900);
+  --color-surface-band-4: var(--primitive-color-purple-950);
   --color-border-decorative: var(--primitive-color-night-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-default: var(--primitive-color-black);
@@ -707,6 +715,10 @@
   --color-surface-default: var(--primitive-color-night-900);
   --color-surface-sunken: var(--primitive-color-night-800);
   --color-surface-accent: var(--primitive-color-indigo-900);
+  --color-surface-band-1: var(--primitive-color-purple-700);
+  --color-surface-band-2: var(--primitive-color-purple-800);
+  --color-surface-band-3: var(--primitive-color-purple-900);
+  --color-surface-band-4: var(--primitive-color-purple-950);
   --color-border-decorative: var(--primitive-color-night-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-default: var(--primitive-color-black);

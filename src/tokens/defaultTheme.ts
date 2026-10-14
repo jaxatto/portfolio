@@ -75,6 +75,23 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.indigo[900],
 				dark: primitives.colors.indigo[900],
 			},
+			// Home study bands: one hue stepped from most to least intense, top to bottom. Text on them is brand.on-brand-container. D-032.
+			'band-1': {
+				light: primitives.colors.purple[300],
+				dark: primitives.colors.purple[700],
+			},
+			'band-2': {
+				light: primitives.colors.purple[200],
+				dark: primitives.colors.purple[800],
+			},
+			'band-3': {
+				light: primitives.colors.purple[100],
+				dark: primitives.colors.purple[900],
+			},
+			'band-4': {
+				light: primitives.colors.purple[50],
+				dark: primitives.colors.purple[950],
+			},
 		},
 		border: {
 			decorative: {
