@@ -501,6 +501,7 @@
   --font-text-underline-offset-auto: var(--primitive-font-text-underline-offset-auto);
   --font-text-underline-offset-sm: var(--primitive-font-text-underline-offset-1);
   --font-text-underline-offset-md: var(--primitive-font-text-underline-offset-2);
+  --font-text-underline-offset-lg: var(--primitive-font-text-underline-offset-4);
   --font-style-title-md-family: var(--font-family-heading);
   --font-style-title-md-size: clamp(var(--font-size-3xl), 1rem + 1.4vw, var(--font-size-5xl));
   --font-style-title-md-weight: var(--font-weight-strong);

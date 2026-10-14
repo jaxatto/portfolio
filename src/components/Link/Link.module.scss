@@ -40,7 +40,7 @@ a {
 
     &:hover, &:active {
         text-decoration-color: currentcolor;
-        text-underline-offset: var(--link-underline-offset-hover);
+        text-underline-offset: var(--font-text-underline-offset-lg);
     }
 
     // NOTE: there used to be `&:focus-visible { text-decoration: none }` here. The shorthand also

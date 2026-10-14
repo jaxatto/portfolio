@@ -292,6 +292,8 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			auto: primitives.font['text-underline-offset']['auto'],
 			sm: primitives.font['text-underline-offset']['1'],
 			md: primitives.font['text-underline-offset']['2'],
+			// Hover distance for links: the line moves from `md` out to `lg` (D-015).
+			lg: primitives.font['text-underline-offset']['4'],
 		},
 		styles: {
 			'title-md': {

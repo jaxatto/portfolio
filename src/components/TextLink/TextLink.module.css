@@ -30,7 +30,7 @@
 
 .link:hover {
 	color: var(--color-primary-default-active);
-	text-underline-offset: var(--link-underline-offset-hover);
+	text-underline-offset: var(--font-text-underline-offset-lg);
 }
 
 .link:active {
