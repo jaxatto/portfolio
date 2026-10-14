@@ -1,30 +1,23 @@
-/* Figma Home: two full-width cards, then two side by side, 32px gap. */
+/* One column at every width: any number of studies stacks (D-028).
+   Figma Home had a 2-up row; Jax chose to stack instead. */
 .grid {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: minmax(0, 1fr);
 	gap: var(--size-space-3xl);
 }
 
-.grid > :nth-child(-n + 2) {
-	grid-column: 1 / -1;
-}
-
+/* Under a case study: two cards side by side on desktop. */
 .study {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: var(--size-space-lg);
 }
 
-.study > :nth-child(-n + 2) {
-	grid-column: auto;
-}
-
-/* Tablet and mobile (no Figma design, D-008, D-028): one column. */
 @media (max-width: 900px) {
 	.grid {
-		grid-template-columns: minmax(0, 1fr);
 		gap: var(--size-space-2xl);
 	}
 
-	.grid > * {
-		grid-column: 1 / -1;
+	.study {
+		grid-template-columns: minmax(0, 1fr);
 	}
 }
