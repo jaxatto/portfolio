@@ -125,7 +125,8 @@
 	height: 22px;
 	/* Beats the legacy global `a svg` fixed purple. */
 	color: inherit;
-	fill: none;
+	/* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
+	fill: currentcolor;
 }
 
 /* Same legacy hover rule as in TextLink: the icon always follows the link color. */
@@ -133,11 +134,6 @@
 .icon-link:active svg,
 .icon-link:focus-visible svg {
 	color: inherit;
-}
-
-/* Brand marks are filled shapes; the file icon is stroke-drawn. */
-.icon-link svg path[fill='currentColor'] {
-	fill: currentcolor;
 }
 
 .icon-link:hover {
