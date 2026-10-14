@@ -129,4 +129,4 @@ Icon-only controls (footer Resume / LinkedIn / GitHub and the mode toggle) show 
 
 Footer icon buttons now share the mode toggle's target (40px, `radius-md`), 9px line inset and focus ring, so the row's right edge lines up with the toggle; on mobile the row is pulled left 9px so the glyphs are flush with the text, and the description is full width.
 
-Also (D-024): the footer GitHub icon is Font Awesome Free's `github-alt` (the cat head without the circle), kept with its license comment in `src/assets/icons/github.svg` (CC BY 4.0, attribution via the file comment). The previous Octicons circle mark is in git history if we go back.
+Also (D-024): the footer GitHub icon is the Octicons `mark-github` (MIT), sized 22px like the full box (the other icons' glyphs are 20px; the circle mark reads smaller at the same size).
