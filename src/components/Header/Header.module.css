@@ -23,34 +23,14 @@
 	justify-content: space-between;
 }
 
+/* Name only, not a link: the "Work" nav item already goes Home. */
 .brand {
-	display: inline-flex;
-	align-items: center;
-	gap: var(--size-space-sm);
-	border-radius: var(--size-radius-sm);
+	margin: 0;
 	color: var(--color-content-default);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-heading-md-size);
 	font-weight: var(--font-weight-default);
 	line-height: var(--font-style-heading-md-line-height);
-	/* Same transparent-underline hover animation as .nav-link (see below). */
-	text-decoration: underline;
-	text-decoration-color: transparent;
-	text-underline-offset: 0;
-	text-decoration-thickness: var(--font-text-decoration-thickness-md);
-	text-decoration-skip-ink: auto;
-}
-
-.brand:hover {
-	color: var(--color-content-default-active);
-	text-decoration-color: currentcolor;
-	text-underline-offset: var(--link-underline-offset-hover);
-}
-
-.brand:active {
-	color: var(--color-content-default);
-	text-decoration-color: currentcolor;
-	text-underline-offset: var(--font-text-underline-offset-md);
 }
 
 .controls {

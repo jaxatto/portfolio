@@ -106,3 +106,7 @@ The 404 keeps its dark full-bleed look but uses semantic tokens instead of the l
 Also (D-022): the "404" is a display size derived from the largest type token (`clamp(5xl, 18vw, 5xl × 2.5)`, 56px to 140px), since no token goes past 56px. The quip is one of seven phrases (`NotFound/resources/content.ts`) picked at random per visit; provisional copy.
 
 Also (D-022): hover/pressed on the 404 header use new `--color-content-on-accent-hover` / `-active` (indigo-200 / 300 in both themes); the container tokens went dark in dark mode and made the nav and toggle illegible. The mobile divider is a 22% tint of on-accent.
+
+## D-023: Header brand is plain text — 2026-10-13
+
+On inner pages "Jax Engel" in the nav row is regular weight and not a link; "Work" already goes Home, so a second link duplicated it. Lives in `Header.tsx` / `.brand`.

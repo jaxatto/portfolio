@@ -37,9 +37,8 @@ const Header: React.FC = () => {
 				{isHome ? (
 					<p className={styles.role}>Staff Product Designer</p>
 				) : (
-					<Link to={mainLinks.home} className={styles.brand}>
-						Jax Engel
-					</Link>
+					// Plain text, not a link: "Work" already goes to Home, so a second link would duplicate it.
+					<p className={styles.brand}>Jax Engel</p>
 				)}
 				<div className={styles.controls}>
 					<nav aria-label="Main">
