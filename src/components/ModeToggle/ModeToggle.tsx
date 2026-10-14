@@ -16,10 +16,14 @@ type ModeToggleProps = {
 	className?: string;
 };
 
-const ModeToggle: React.FC<ModeToggleProps> = ({ checked, onChange, className }) => (
+const ModeToggle: React.FC<ModeToggleProps> = ({ checked, onChange, className }) => {
+	const label = checked ? 'Switch to light mode' : 'Switch to dark mode';
+
+	return (
 	<button
 		type="button"
-		aria-label={checked ? 'Switch to light mode' : 'Switch to dark mode'}
+		aria-label={label}
+		data-tooltip={label}
 		data-mode={checked ? 'dark' : 'light'}
 		className={clsx(styles.button, className)}
 		onClick={() => onChange(!checked)}
@@ -31,6 +35,7 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ checked, onChange, className })
 			<Icon name="moon" aria-hidden="true" />
 		</span>
 	</button>
-);
+	);
+};
 
 export default ModeToggle;

@@ -44,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ variant = 'accent' }) => {
 						</TextLink>
 					)}
 				</div>
-				{/* Icon-only links: each keeps a real accessible name (sr-only text + title) and a 44px target. */}
+				{/* Icon-only links: each keeps a real accessible name (sr-only text) plus a tooltip, in a 40px target like the nav's mode toggle. */}
 				<ul className={styles.row}>
 					<li>
 						<a
@@ -52,7 +52,7 @@ const Footer: React.FC<FooterProps> = ({ variant = 'accent' }) => {
 							className={styles['icon-link']}
 							target="_blank"
 							rel="noopener noreferrer"
-							title="Resume"
+							data-tooltip="Resume"
 						>
 							<Icon name="file" aria-hidden="true" />
 							<span className="sr-only">Resume (PDF, opens in a new tab)</span>
@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ variant = 'accent' }) => {
 								className={styles['icon-link']}
 								target="_blank"
 								rel="noopener noreferrer"
-								title="LinkedIn"
+								data-tooltip="LinkedIn"
 							>
 								<Icon name="linkedin" aria-hidden="true" />
 								<span className="sr-only">LinkedIn (opens in a new tab)</span>
@@ -78,7 +78,7 @@ const Footer: React.FC<FooterProps> = ({ variant = 'accent' }) => {
 							className={styles['icon-link']}
 							target="_blank"
 							rel="noopener noreferrer"
-							title="GitHub"
+							data-tooltip="GitHub"
 						>
 							<Icon name="github" aria-hidden="true" />
 							<span className="sr-only">GitHub (opens in a new tab)</span>

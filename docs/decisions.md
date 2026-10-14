@@ -122,3 +122,9 @@ To make the accent ground read in dark mode, `surface-accent` is indigo-900 in b
 Also (D-024): the footer's Resume / LinkedIn / GitHub are icon-only links (file, LinkedIn mark, GitHub mark; 44px targets, `sr-only` names, `title` tooltips), and the footer email plus these icons take the nav links' treatment (D-017): no resting underline, violet and a 3px line growing from the left on hover. In-content `TextLink`s keep the always-on underline so links stay recognizable in text. Brand marks are Octicons (MIT) and Simple Icons (CC0).
 
 Also (D-019, D-024): `--color-content-secondary` is now near-black (slate-900) in light so the role label matches the nav; dark stays one step dimmer (purple-200). Footer copy uses `content-variant`. The footer email hugs its text, has 16px more space above, and its arrow is heavier (`+1px`, large links only).
+
+## D-025: Icon-button tooltips — 2026-10-14
+
+Icon-only controls (footer Resume / LinkedIn / GitHub and the mode toggle) show a tooltip styled like a Figma cursor name tag: brand color, rounded with one square corner, small Inter label. It is anchored under the control and right-aligned to it, not attached to the cursor: a following tag is jittery, unreachable by keyboard and breaks WCAG 1.4.13 (hoverable, dismissible, persistent). It appears on hover (after 0.4s) and on keyboard focus, and Escape hides it until the pointer moves. It is visual only; names stay in `aria-label` / `sr-only` text, and the generated content has empty alt text so it isn't announced twice. Lives in `src/styles/tooltip.css` (`data-tooltip="Label"`).
+
+Footer icon buttons now share the mode toggle's target (40px, `radius-md`), 9px line inset and focus ring, so the row's right edge lines up with the toggle; on mobile the row is pulled left 9px so the glyphs are flush with the text, and the description is full width.

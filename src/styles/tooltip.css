@@ -1,0 +1,58 @@
+/* Tooltip for icon-only controls: [data-tooltip="Label"] on a positioned element. Styled like a
+   Figma cursor name tag (rounded, one square corner, the brand color), anchored under the element
+   and right-aligned to it, so it never leaves the viewport at the page edge. Shown on hover and on
+   keyboard focus; hoverable (it is part of the element); dismissed with Escape (see index.tsx).
+   The accessible name still comes from aria-label / sr-only text: this is visual only. D-025. */
+
+[data-tooltip]::before {
+	content: attr(data-tooltip);
+	/* Empty alt text: generated content is otherwise read as part of the link's name (a double
+	   announcement). Browsers without alt-text support keep the line above. */
+	content: attr(data-tooltip) / '';
+	position: absolute;
+	top: calc(100% + var(--size-space-md));
+	right: 0;
+	z-index: 20;
+	padding: var(--size-space-xs) var(--size-space-sm);
+	border-radius: var(--size-radius-md) 0 var(--size-radius-md) var(--size-radius-md);
+	background: var(--color-secondary-default);
+	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+	color: var(--color-secondary-on-default);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-size-sm);
+	font-style: normal;
+	font-weight: var(--font-weight-emphasis);
+	line-height: 1.2;
+	text-decoration: none;
+	white-space: nowrap;
+	opacity: 0;
+	transform: translateY(-4px);
+	transition:
+		opacity 0.15s ease,
+		transform 0.15s ease;
+	pointer-events: none;
+}
+
+/* A short delay on hover so a passing cursor doesn't flash it; focus shows it at once. */
+[data-tooltip]:hover::before {
+	opacity: 1;
+	transform: none;
+	transition-delay: 0.4s;
+}
+
+[data-tooltip]:focus-visible::before {
+	opacity: 1;
+	transform: none;
+}
+
+/* Escape hides every tooltip until the pointer moves or focus changes (WCAG 1.4.13). */
+html[data-tooltips-hidden] [data-tooltip]::before {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[data-tooltip]::before {
+		transform: none;
+		transition: none;
+	}
+}

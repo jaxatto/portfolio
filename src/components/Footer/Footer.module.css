@@ -54,7 +54,7 @@
 	display: flex;
 	flex: none;
 	flex-wrap: wrap;
-	/* 16px: 44px targets plus focus rings (3px outline, 3px offset) would overlap at 8px. */
+	/* 16px: 40px targets plus focus rings (3px outline, 3px offset) would overlap at 8px. */
 	gap: var(--size-space-lg);
 	margin: 0;
 	padding: 0;
@@ -106,16 +106,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 44px;
-	height: 44px;
-	border-radius: var(--size-radius-sm);
+	/* Same target, radius, line inset and focus ring as the nav's mode toggle, so the right edge of
+	   the icon row lines up with it. */
+	width: 40px;
+	height: 40px;
+	border-radius: var(--size-radius-md);
 	color: var(--color-content-variant);
 	transition: color 0.2s ease;
 }
 
+.icon-link::after {
+	right: 9px;
+	left: 9px;
+}
+
 .icon-link svg {
-	width: 24px;
-	height: 24px;
+	width: 22px;
+	height: 22px;
 	/* Beats the legacy global `a svg` fixed purple. */
 	color: inherit;
 	fill: none;
@@ -186,6 +193,15 @@
 @media (width <= 640px) {
 	.row {
 		flex: initial;
+		/* Stacked under the email: pull the row left by the glyph's inset in its 40px target (9px) so
+		   the first glyph is flush with the text edge. On desktop the row's box is flush right,
+		   like the nav's mode toggle. */
+		margin-inline-start: -9px;
+	}
+
+	.description {
+		max-width: none;
+		text-wrap: wrap;
 	}
 
 	.inner {
