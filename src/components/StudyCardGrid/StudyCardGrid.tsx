@@ -8,41 +8,50 @@ import actblueImage from '@assets/samples/actblue-sample-min.png';
 import styles from './StudyCardGrid.module.css';
 
 // Cards for the Home page and the "next study" row under each case study (D-028).
-// Copy is inline (D-003). Figma: Home 2839:21650. Palettes run brand, primary, secondary, tertiary.
-// TODO(jax): outcomes/metrics for each card's byline; run portfolio-critique when the studies are written.
+// Copy is inline (D-003). Figma: Home 2839:21650. Outcome lines come from each study's own content (D-029).
 
 const cards: StudyCardProps[] = [
+	{
+		eyebrow: 'ServiceNow · Staff Designer · 2024–now',
+		title: 'Turning thousands of open-ended survey responses into themes in minutes',
+		outcome:
+			'Reshaped an AI research tool that replaces 10+ hours of manual coding per 100 responses; demoed to senior leadership and now in user testing.',
+		description: ['Product design', 'AI', 'Enterprise'],
+		image: themeweaverImage,
+		imageAlt: '',
+		linkUrl: studyLinks.servicenow,
+		linkText: 'Read the AI case study',
+		palette: 'primary',
+	},
+	{
+		eyebrow: 'ActBlue · Senior Product Designer · 2022–23',
+		title: 'Giving campaign admins self-serve setup and sync visibility for Salesforce',
+		outcome:
+			'Rebuilt the integration end to end so admins fix sync issues without support, saving an estimated $1.5M a year.',
+		description: ['Product design', 'Nonprofit', 'FinTech'],
+		image: actblueImage,
+		linkUrl: studyLinks.actblue,
+		linkText: 'Read the integration case study',
+		palette: 'tertiary',
+	},
+	{
+		eyebrow: 'Indeed · UX Designer · 2020',
+		title: 'Scaling a design system through a rebrand',
+		outcome:
+			'Made the component library more accessible and easier to contribute to, and mentored a junior designer into system work.',
+		description: ['Design systems', 'Accessibility', 'PeopleTech'],
+		image: indeedImage,
+		linkUrl: studyLinks.indeed,
+		linkText: 'Read the design system case study',
+		palette: 'secondary',
+	},
 	{
 		title: 'Building a multi-brand token system for cross-platform apps',
 		description: ['Design systems', 'Tokens', 'Logistics'],
 		image: themeweaverImage,
-		linkText: 'Read tokens study',
+		linkText: 'Read the tokens case study',
 		palette: 'brand',
-		// TODO(jax): no tokens case study exists yet. The card is inert until it has a route.
-	},
-	{
-		title: 'Designing AI tools to speed up qualitative survey analysis',
-		description: ['Product design', 'AI', 'PeopleTech'],
-		image: themeweaverImage,
-		linkUrl: studyLinks.servicenow,
-		linkText: 'Read AI study',
-		palette: 'primary',
-	},
-	{
-		title: 'Scaling clarity and consistency across Indeed’s platform',
-		description: ['Design systems', 'PeopleTech'],
-		image: indeedImage,
-		linkUrl: studyLinks.indeed,
-		linkText: 'Read system study',
-		palette: 'secondary',
-	},
-	{
-		title: 'Improving sync visibility for teams managing donations',
-		description: ['Product design', 'Nonprofit', 'FinTech'],
-		image: actblueImage,
-		linkUrl: studyLinks.actblue,
-		linkText: 'Read integration study',
-		palette: 'tertiary',
+		// TODO(jax): no tokens case study yet, so the card is inert. Add eyebrow and outcome with it.
 	},
 ];
 
