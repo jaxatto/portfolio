@@ -163,3 +163,7 @@ Revises D-034. (1) The sample no longer pops out: it is cropped by the card's ri
 
 Revises D-035 in the 960px card: the text is 508px wide (was 532; box 548px with 24px left and 16px right padding), the sample is 412px wide (was 372) and starts at 548px with no extra left padding, and its top is 32px (`space-3xl`, was 56) below the card top so it lines up with the text block's top padding rhythm. Titles still wrap to two lines.
 The tokens card title is now "A multi-brand token system for cross-platform apps" so it stays at two lines (TODO(jax): placeholder until its study exists).
+
+## D-037: 40px card titles — decided, 2026-10-14
+
+Revises D-036. On desktop (≥900px) card titles are 40px (`font-size-3xl`, heading-lg + 8px); below that they stay `heading-lg`. The text is 492px wide (box 532px). At 40px the titles had to be shortened to hold two lines: "Turning surveys into themes in minutes", "Self-serve setup and visible syncs" (the outcome line carries "campaign admins"), "Scaling a design system through a rebrand", "Multi-brand tokens for cross-platform apps" (placeholder). TODO(jax): confirm the wording.

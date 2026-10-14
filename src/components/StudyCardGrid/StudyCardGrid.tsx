@@ -12,7 +12,7 @@ import styles from './StudyCardGrid.module.css';
 
 const cards: StudyCardProps[] = [
 	{
-		title: 'Turning survey responses into themes in minutes',
+		title: 'Turning surveys into themes in minutes',
 		outcome:
 			'Reshaped an AI research tool that replaces 10+ hours of manual coding per 100 responses; demoed to senior leadership and now in user testing.',
 		image: themeweaverImage,
@@ -22,7 +22,7 @@ const cards: StudyCardProps[] = [
 		palette: 'brand',
 	},
 	{
-		title: 'Self-serve setup and visible syncs for campaign admins',
+		title: 'Self-serve setup and visible syncs',
 		outcome:
 			'Rebuilt the integration end to end so admins fix sync issues without support, saving an estimated $1.5M a year.',
 		image: actblueImage,
@@ -40,7 +40,7 @@ const cards: StudyCardProps[] = [
 		palette: 'secondary',
 	},
 	{
-		title: 'A multi-brand token system for cross-platform apps',
+		title: 'Multi-brand tokens for cross-platform apps',
 		image: themeweaverImage,
 		linkText: 'Read the tokens case study',
 		palette: 'tertiary',
