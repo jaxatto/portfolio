@@ -54,7 +54,8 @@
 	display: flex;
 	flex: none;
 	flex-wrap: wrap;
-	gap: var(--size-space-sm);
+	/* 16px: 44px targets plus focus rings (3px outline, 3px offset) would overlap at 8px. */
+	gap: var(--size-space-lg);
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -69,7 +70,6 @@
 	align-self: flex-start;
 	/* +16px above (on top of the column gap). */
 	margin-top: var(--size-space-lg);
-	padding-bottom: var(--size-space-sm);
 	text-decoration: none;
 	color: var(--color-content-link);
 }
@@ -79,7 +79,8 @@
 	content: '';
 	position: absolute;
 	right: 0;
-	bottom: 2px;
+	/* Drawn below the box (not by padding) so focus rings stay centered; same offset on both. */
+	bottom: calc(-1 * var(--size-space-sm) + 2px);
 	left: 0;
 	height: 3px;
 	border-radius: 2px;
@@ -118,8 +119,6 @@
 	/* Beats the legacy global `a svg` fixed purple. */
 	color: inherit;
 	fill: none;
-	/* Lifts the glyph so it centers on the email text beside it; the line below stays put. */
-	transform: translateY(-8px);
 }
 
 /* Same legacy hover rule as in TextLink: the icon always follows the link color. */
