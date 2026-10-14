@@ -79,8 +79,8 @@
 	content: '';
 	position: absolute;
 	right: 0;
-	/* Drawn below the box (not by padding) so focus rings stay centered; same offset on both (4px closer than the first pass). */
-	bottom: calc(-1 * var(--size-space-xs) + 2px);
+	/* Drawn below the box (not by padding) so focus rings stay centered; same offset on both: the line's bottom edge is flush with the box. */
+	bottom: 0;
 	left: 0;
 	height: 3px;
 	border-radius: 2px;
