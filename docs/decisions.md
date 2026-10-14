@@ -87,4 +87,4 @@ Proposal, pending Jax's OK (no mobile design exists, D-008). The nav row is a ba
 
 Hero sentence uses new `--color-content-emphasis` (light = purple-950 like default, dark = true white) so the greeting and "I design…" are the brightest thing on the page. Dark `--color-content-variant` moves from slate-100 to purple-50, so nav labels, the mode toggle and the mobile byline match the page's purple-tinted white. Light mode is unchanged. Footer text that uses `content-variant` follows.
 
-Also (dark): app surfaces move from slate to stone (surface default 900, sunken 800, decorative border 700) for a warmer ground, and new `--color-content-secondary` (light = purple-950, dark = purple-200) dims the role label and mobile byline one step.
+Also (dark): app surfaces move from slate to a new project primitive `night` (hue 280°, between slate and purple; surface default 900, sunken 800, decorative border 700) so the ground is blue-purple, not blue. Stone was tried and read too warm, and new `--color-content-secondary` (light = purple-950, dark = purple-200) dims the role label and mobile byline one step.

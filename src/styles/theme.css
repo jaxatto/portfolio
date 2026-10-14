@@ -249,6 +249,9 @@
   --primitive-color-stone-800: oklch(26.8% 0.007 34.298deg);
   --primitive-color-stone-900: oklch(21.6% 0.006 56.043deg);
   --primitive-color-stone-950: oklch(14.7% 0.004 49.25deg);
+  --primitive-color-night-700: oklch(38% 0.05 280deg);
+  --primitive-color-night-800: oklch(28% 0.05 280deg);
+  --primitive-color-night-900: oklch(21% 0.05 280deg);
   --primitive-color-mauve-50: oklch(98.5% 0 0deg);
   --primitive-color-mauve-100: oklch(96% 0.003 325.6deg);
   --primitive-color-mauve-200: oklch(92.2% 0.005 325.62deg);
@@ -617,9 +620,9 @@
   --color-content-inverse: var(--primitive-color-black);
   --color-content-default-hover: var(--primitive-color-purple-100);
   --color-content-default-active: var(--primitive-color-purple-200);
-  --color-surface-default: var(--primitive-color-stone-900);
-  --color-surface-sunken: var(--primitive-color-stone-800);
-  --color-border-decorative: var(--primitive-color-stone-700);
+  --color-surface-default: var(--primitive-color-night-900);
+  --color-surface-sunken: var(--primitive-color-night-800);
+  --color-border-decorative: var(--primitive-color-night-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-default: var(--primitive-color-black);
   --color-brand-container: var(--primitive-color-purple-800);
@@ -689,9 +692,9 @@
   --color-content-inverse: var(--primitive-color-black);
   --color-content-default-hover: var(--primitive-color-purple-100);
   --color-content-default-active: var(--primitive-color-purple-200);
-  --color-surface-default: var(--primitive-color-stone-900);
-  --color-surface-sunken: var(--primitive-color-stone-800);
-  --color-border-decorative: var(--primitive-color-stone-700);
+  --color-surface-default: var(--primitive-color-night-900);
+  --color-surface-sunken: var(--primitive-color-night-800);
+  --color-border-decorative: var(--primitive-color-night-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-default: var(--primitive-color-black);
   --color-brand-container: var(--primitive-color-purple-800);

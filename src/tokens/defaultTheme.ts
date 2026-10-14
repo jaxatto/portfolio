@@ -51,17 +51,17 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 		surface: {
 			default: {
 				light: primitives.colors.white,
-				dark: primitives.colors.stone[900],
+				dark: primitives.colors.night[900],
 			},
 			sunken: {
 				light: primitives.colors.slate[200],
-				dark: primitives.colors.stone[800],
+				dark: primitives.colors.night[800],
 			},
 		},
 		border: {
 			decorative: {
 				light: primitives.colors.slate[300],
-				dark: primitives.colors.stone[700],
+				dark: primitives.colors.night[700],
 			},
 		},
 		brand: {
