@@ -79,6 +79,16 @@
 	color: var(--color-content-link);
 }
 
+.email::before {
+	/* Invisible hit area: grows the tap target to 44px tall when the text line is shorter (phones),
+	   without moving the text, the hover line or the focus ring. */
+	content: '';
+	position: absolute;
+	inset-inline: 0;
+	top: min(0px, calc((100% - 44px) / 2));
+	bottom: min(0px, calc((100% - 44px) / 2));
+}
+
 .email::after,
 .icon-link::after {
 	content: '';
