@@ -229,8 +229,11 @@
 
 /* Desktop: horizontal cards put the preview beside the text. */
 @media (min-width: 900px) {
+	/* The sample pops out of the card by 24px at the right and bottom instead of being cropped
+	   by it (D-030). The card's rounded background doesn't need overflow: hidden here. */
 	.horizontal {
 		flex-direction: row;
+		overflow: visible;
 	}
 
 	.horizontal .content {
@@ -246,6 +249,16 @@
 
 	.horizontal .sample {
 		min-width: 0;
+		margin-right: calc(-1 * var(--size-space-2xl));
+		margin-bottom: calc(-1 * var(--size-space-2xl));
+		border-radius: var(--size-radius-sm);
+	}
+
+	/* Fill the whole sample so no sunken-grey strip shows below a short screenshot. */
+	.horizontal .image {
+		height: 100%;
+		object-fit: cover;
+		object-position: top left;
 	}
 }
 
