@@ -10,6 +10,7 @@ export const iconNames = [
   'dog',
   'download',
   'file',
+  'file-arrow-down',
   'github',
   'image',
   'linkedin',

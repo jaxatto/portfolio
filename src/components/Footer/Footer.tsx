@@ -55,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({ variant = 'accent' }) => {
 							rel="noopener noreferrer"
 							data-tooltip="Resume"
 						>
-							<Icon name="download" aria-hidden="true" />
+							<Icon name="file-arrow-down" aria-hidden="true" />
 							<span className="sr-only">Resume (PDF, opens in a new tab)</span>
 						</a>
 					</li>

@@ -1,12 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="0.6">
-<!-- Filled sunburst: a disc with 8 pointed rays. Filled to match the solid moon (see D-017). -->
-<circle cx="12" cy="12" r="4.6"/>
-<polygon points="23.00,12.00 19.06,13.43 19.06,10.57"/>
-<polygon points="19.78,19.78 15.98,18.00 18.00,15.98"/>
-<polygon points="12.00,23.00 10.57,19.06 13.43,19.06"/>
-<polygon points="4.22,19.78 6.00,15.98 8.02,18.00"/>
-<polygon points="1.00,12.00 4.94,10.57 4.94,13.43"/>
-<polygon points="4.22,4.22 8.02,6.00 6.00,8.02"/>
-<polygon points="12.00,1.00 13.43,4.94 10.57,4.94"/>
-<polygon points="19.78,4.22 18.00,8.02 15.98,6.00"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256" fill="currentColor">
+<!-- Phosphor Icons (bold), MIT License, https://phosphoricons.com --><path d="M116,36V20a12,12,0,0,1,24,0V36a12,12,0,0,1-24,0Zm80,92a68,68,0,1,1-68-68A68.07,68.07,0,0,1,196,128Zm-24,0a44,44,0,1,0-44,44A44.05,44.05,0,0,0,172,128ZM51.51,68.49a12,12,0,1,0,17-17l-12-12a12,12,0,0,0-17,17Zm0,119-12,12a12,12,0,0,0,17,17l12-12a12,12,0,1,0-17-17ZM196,72a12,12,0,0,0,8.49-3.51l12-12a12,12,0,0,0-17-17l-12,12A12,12,0,0,0,196,72Zm8.49,115.51a12,12,0,0,0-17,17l12,12a12,12,0,0,0,17-17ZM48,128a12,12,0,0,0-12-12H20a12,12,0,0,0,0,24H36A12,12,0,0,0,48,128Zm80,80a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V220A12,12,0,0,0,128,208Zm108-92H220a12,12,0,0,0,0,24h16a12,12,0,0,0,0-24Z"/></svg>

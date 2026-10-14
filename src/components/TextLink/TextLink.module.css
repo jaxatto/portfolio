@@ -28,11 +28,6 @@
 	font-weight: var(--font-weight-extra-strong);
 }
 
-.large .icon path {
-	/* A heavier arrow beside the 32px email; the inline stroke-width on the svg needs !important. */
-	stroke-width: calc(var(--font-text-decoration-thickness-md, 2px) + 1px) !important;
-}
-
 .link:hover {
 	color: var(--color-primary-default-active);
 	text-underline-offset: var(--link-underline-offset-hover);

@@ -126,8 +126,8 @@
 }
 
 .icon-link svg {
-	width: 22px;
-	height: 22px;
+	width: 24px;
+	height: 24px;
 	/* Beats the legacy global `a svg` fixed purple. */
 	color: inherit;
 	/* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */

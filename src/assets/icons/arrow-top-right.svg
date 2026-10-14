@@ -1,4 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
-<!-- Stroke-drawn; thickness is the underline thickness + 0.15px. See arrow-right.svg. -->
-<path d="M6 18L18 6M8.5 6H18V15.5" fill="none" stroke="currentColor" vector-effect="non-scaling-stroke" style="stroke-width: calc(var(--font-text-decoration-thickness-md, 2px) + 0.15px)" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256" fill="currentColor">
+<!-- Phosphor Icons (bold), MIT License, https://phosphoricons.com --><path d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"/></svg>

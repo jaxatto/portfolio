@@ -130,3 +130,7 @@ Icon-only controls (footer Resume / LinkedIn / GitHub and the mode toggle) show 
 Footer icon buttons now share the mode toggle's target (40px, `radius-md`), 9px line inset and focus ring, so the row's right edge lines up with the toggle; on mobile the row is pulled left 9px so the glyphs are flush with the text, and the description is full width.
 
 Also (D-024): the footer GitHub icon is the Octicons `mark-github` (MIT), sized 22px like the full box (the other icons' glyphs are 20px; the circle mark reads smaller at the same size).
+
+## D-026: One icon family — Phosphor bold — 2026-10-14
+
+The footer links (file-with-arrow for Resume, LinkedIn, GitHub), the link arrows (right, up-right) and the mode toggle's sun and moon now come from Phosphor Icons, bold weight (MIT; license noted in each SVG). One family at one weight replaces three sources (our hand-drawn strokes, Simple Icons, Octicons) that never matched. Icons are filled glyphs in `currentColor`, so their stroke scales with size instead of being tied to the underline thickness token (the earlier non-scaling stroke). GitHub is Phosphor's cat-head mark, not the circle. The old `download`, `file` and other decorative icons stay until their pages are migrated.

@@ -10,6 +10,7 @@ import Component from '@assets/icons/component.svg';
 import Controller from '@assets/icons/controller.svg';
 import Dog from '@assets/icons/dog.svg';
 import Download from '@assets/icons/download.svg';
+import FileArrowDown from '@assets/icons/file-arrow-down.svg';
 import File from '@assets/icons/file.svg';
 import Github from '@assets/icons/github.svg';
 import Image from '@assets/icons/image.svg';
@@ -31,6 +32,7 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'controller': Controller,
   'dog': Dog,
   'download': Download,
+  'file-arrow-down': FileArrowDown,
   'file': File,
   'github': Github,
   'image': Image,

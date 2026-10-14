@@ -1,4 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
-<!-- Stroke-drawn. The stroke is a fixed screen width (non-scaling) tied to the link underline thickness token plus 0.15px (slightly heavier than the underline, per Jax), whatever the icon size. `fill="none"` stops the CSS `fill` that links set; color comes from currentColor. -->
-<path d="M3 12H20.5M13.5 5L20.5 12L13.5 19" fill="none" stroke="currentColor" vector-effect="non-scaling-stroke" style="stroke-width: calc(var(--font-text-decoration-thickness-md, 2px) + 0.15px)" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256" fill="currentColor">
+<!-- Phosphor Icons (bold), MIT License, https://phosphoricons.com --><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg>

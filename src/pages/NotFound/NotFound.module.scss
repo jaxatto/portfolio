@@ -75,10 +75,11 @@
   background: var(--color-secondary-container);
   color: var(--color-secondary-on-container);
 
-  // The arrow is stroke-drawn in currentColor, so it takes `color`, not `fill`. `[class]` raises
+  // The arrow is a filled glyph (Phosphor), so it needs `fill` as well as `color`. `[class]` raises
   // specificity over the legacy Link styles, which set a fixed purple on the svg.
   svg[class] {
     color: var(--color-secondary-on-container);
+    fill: var(--color-secondary-on-container);
   }
 
   &:hover {
@@ -88,6 +89,7 @@
 
   &:hover svg[class] {
     color: var(--color-secondary-on-container-hover);
+    fill: var(--color-secondary-on-container-hover);
   }
 
   &:active {
@@ -97,6 +99,7 @@
 
   &:active svg[class] {
     color: var(--color-secondary-on-container-active);
+    fill: var(--color-secondary-on-container-active);
   }
 
   &:focus-visible {
