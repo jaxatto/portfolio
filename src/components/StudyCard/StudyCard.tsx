@@ -5,8 +5,7 @@ import Icon from '#components/Icon';
 import styles from './StudyCard.module.css';
 
 // Figma "Study Card" (Home, node 2726:63413). Palette = container / on-container token pair.
-// The whole card is clickable through a stretched link (the link text's ::after covers the card),
-// so the heading stays a real heading and the link name is unique: "Read AI study: <title>".
+// Only the link text is clickable (D-033); its accessible name includes the title: "Read AI study: <title>".
 // Without `linkUrl` the card is inert (case study not written yet) and shows `placeholder`.
 // Anatomy: title, outcome, company + tags, link (D-029). See also D-028.
 

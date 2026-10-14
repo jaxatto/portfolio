@@ -5,7 +5,6 @@
 .card {
 	/* Palette tokens are set by the modifier classes below. */
 	--card-bg: var(--color-brand-container);
-	--card-bg-hover: var(--color-brand-container-hover);
 	--card-fg: var(--color-brand-on-container);
 	--card-fg-hover: var(--color-brand-on-container-hover);
 	--card-fg-active: var(--color-brand-on-container-active);
@@ -27,7 +26,6 @@
 
 .primary {
 	--card-bg: var(--color-primary-container);
-	--card-bg-hover: var(--color-primary-container-hover);
 	--card-fg: var(--color-primary-on-container);
 	--card-fg-hover: var(--color-primary-on-container-hover);
 	--card-fg-active: var(--color-primary-on-container-active);
@@ -35,7 +33,6 @@
 
 .secondary {
 	--card-bg: var(--color-secondary-container);
-	--card-bg-hover: var(--color-secondary-container-hover);
 	--card-fg: var(--color-secondary-on-container);
 	--card-fg-hover: var(--color-secondary-on-container-hover);
 	--card-fg-active: var(--color-secondary-on-container-active);
@@ -43,14 +40,9 @@
 
 .tertiary {
 	--card-bg: var(--color-tertiary-container);
-	--card-bg-hover: var(--color-tertiary-container-hover);
 	--card-fg: var(--color-tertiary-on-container);
 	--card-fg-hover: var(--color-tertiary-on-container-hover);
 	--card-fg-active: var(--color-tertiary-on-container-active);
-}
-
-.card:not(.inert):hover {
-	background: var(--card-bg-hover);
 }
 
 /* The link is stretched over the card, so keyboard focus rings the whole card. */
@@ -78,12 +70,11 @@
 .title {
 	margin: 0;
 	color: var(--card-fg);
-	/* heading-md (24px at desktop), not Figma's heading-lg: with the outcome line a 32px title is
-	   too heavy. See D-030. */
-	font-family: var(--font-style-heading-md-family);
-	font-size: var(--font-style-heading-md-size);
-	font-weight: var(--font-style-heading-md-weight);
-	line-height: var(--font-style-heading-md-line-height);
+	/* heading-lg (32px at desktop, Figma). Titles are written to wrap to two lines (D-033). */
+	font-family: var(--font-style-heading-lg-family);
+	font-size: var(--font-style-heading-lg-size);
+	font-weight: var(--font-style-heading-lg-weight);
+	line-height: var(--font-style-heading-lg-line-height);
 	text-wrap: balance;
 }
 
@@ -119,6 +110,7 @@
 	font-weight: var(--font-weight-extra-strong);
 	line-height: var(--font-line-height-default);
 	text-decoration: none;
+	min-height: 2.75rem; /* 44px tap target */
 }
 
 .linkText {
@@ -127,13 +119,6 @@
 	text-decoration-skip-ink: auto;
 	text-underline-offset: var(--font-text-underline-offset-md);
 	transition: text-underline-offset 0.2s ease;
-}
-
-/* Stretched link: the whole card is the click target. */
-.link::after {
-	content: '';
-	position: absolute;
-	inset: 0;
 }
 
 .icon {
@@ -145,22 +130,22 @@
 	transition: transform 0.2s ease;
 }
 
-.card:hover .link,
+.link:hover,
 .link:focus-visible {
 	color: var(--card-fg-hover);
 }
 
-.card:hover .linkText,
+.link:hover .linkText,
 .link:focus-visible .linkText {
 	text-underline-offset: var(--font-text-underline-offset-lg);
 }
 
-.card:hover .icon,
+.link:hover .icon,
 .link:focus-visible .icon {
 	transform: translateX(var(--size-space-xs));
 }
 
-.card:active .link {
+.link:active {
 	color: var(--card-fg-active);
 }
 
@@ -281,10 +266,6 @@
 		box-shadow 0.2s ease;
 }
 
-.band:not(.inert):hover {
-	box-shadow: 0 0 0 100vmax var(--card-bg-hover);
-}
-
 /* The band is clipped above and below, so the focus ring goes on the link text instead. */
 .band:has(.link:focus-visible) {
 	outline: none;
@@ -297,7 +278,8 @@
 }
 
 .band .content {
-	padding: var(--size-space-section-md) 0;
+	padding: var(--size-space-4xl) 0;
+	gap: var(--size-space-2xl);
 }
 
 .band .preview {
@@ -310,11 +292,14 @@
 		--bleed: max(0px, (100vw - 57rem) / 2);
 	}
 
+	/* Narrow preview column (340px): the text gets about 100px more (D-033). */
 	.band .preview {
-		padding: var(--size-space-section-md) 0 0 var(--size-space-section-sm);
+		flex: 0 0 21.25rem;
+		padding: var(--size-space-4xl) 0 0 var(--size-space-section-sm);
 	}
 
 	.band .sample {
+		max-width: 36rem;
 		margin-right: calc(-1 * var(--bleed));
 		margin-bottom: 0;
 		border-radius: var(--size-radius-sm) 0 0 0;

@@ -12,7 +12,7 @@ import styles from './StudyCardGrid.module.css';
 
 const cards: StudyCardProps[] = [
 	{
-		title: 'Turning thousands of open-ended survey responses into themes in minutes',
+		title: 'Turning thousands of survey responses into themes in minutes',
 		outcome:
 			'Reshaped an AI research tool that replaces 10+ hours of manual coding per 100 responses; demoed to senior leadership and now in user testing.',
 		description: ['ServiceNow', 'Product design', 'AI', 'Enterprise'],
@@ -23,7 +23,7 @@ const cards: StudyCardProps[] = [
 		palette: 'brand',
 	},
 	{
-		title: 'Giving campaign admins self-serve setup and sync visibility for Salesforce',
+		title: 'Self-serve setup and visible syncs for campaign admins',
 		outcome:
 			'Rebuilt the integration end to end so admins fix sync issues without support, saving an estimated $1.5M a year.',
 		description: ['ActBlue', 'Product design', 'Nonprofit', 'FinTech'],
