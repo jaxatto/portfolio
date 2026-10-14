@@ -21,7 +21,6 @@ export type StudyCardProps = {
 	palette?: 'brand' | 'primary' | 'secondary' | 'tertiary';
 	layout?: 'horizontal' | 'vertical'; // Horizontal: preview beside the text (desktop only)
 	variant?: 'work' | 'study'; // 'study' = smaller type, used under a case study
-	step?: 1 | 2 | 3 | 4; // Home band tone, 1 = most intense (D-032). Ignored under a case study
 	placeholder?: string; // Replaces the link while the study doesn't exist
 };
 
@@ -36,7 +35,6 @@ const StudyCard: React.FC<StudyCardProps> = ({
 	palette = 'brand',
 	layout = 'vertical',
 	variant = 'work',
-	step = 1,
 	placeholder = 'Case study coming soon',
 }) => (
 	<article
@@ -46,7 +44,6 @@ const StudyCard: React.FC<StudyCardProps> = ({
 			layout === 'horizontal' && styles.horizontal,
 			variant === 'study' && styles.study,
 			variant === 'work' && styles.band,
-			variant === 'work' && styles[`step${step}`],
 			!linkUrl && styles.inert,
 		)}
 	>

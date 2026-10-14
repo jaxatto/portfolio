@@ -158,7 +158,3 @@ A 1120px breakout was tried and rejected by Jax. Instead, on desktop (≥900px) 
 ## D-031: Home study cards as full-width bands — proposed (prototype), 2026-10-14
 
 Replaces the rounded-card pop-out of D-030. Each Home study is a band whose background spans the viewport (a `100vmax` box-shadow clipped above and below, so it adds no scroll width; `Layout`'s root has `overflow-x: clip` as a guard). Text and the sample stay in the 912px column and line up with the header and hero; the sample bleeds off the right edge of the viewport and is cropped by the band's bottom edge. Bands touch, with no gap or radius; the focus ring sits on the link text because the band is clipped. The "next study" row under case studies keeps the rounded card. TODO(jax): decide to keep or revert (one commit); update Figma if kept.
-
-## D-032: Band tones — one hue, stepped — proposed, 2026-10-14
-
-The four palettes (D-028) are replaced on Home by one hue (brand purple) stepped from most to least intense, top to bottom: new `surface.band-1` to `band-4` tokens (light: purple 300, 200, 100, 50; dark: purple 700, 800, 900, 950). Text on every band is `brand.on-brand-container` (purple-900 / purple-100). Hover mixes 10% of the text color into the band; no hover tokens added. The ramp has four steps: a fifth study repeats the lightest, so adding one needs a ramp decision (finer steps or a fifth token). Palettes remain for the cards under case studies. TODO(jax): check contrast of the small tag line on band-1 in light and band-1 in dark after review.

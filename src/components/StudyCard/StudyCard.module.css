@@ -272,12 +272,6 @@
    adding scroll width, and the clip-path keeps it from spilling above or below. The sample
    bleeds off the right edge of the viewport and is cropped by the band's bottom edge. D-031 */
 .band {
-	/* One hue for every band; the tone comes from the step (D-032). Hover deepens the tone toward
-	   the text color. */
-	--card-fg: var(--color-brand-on-container);
-	--card-fg-hover: var(--color-brand-on-container-hover);
-	--card-fg-active: var(--color-brand-on-container-active);
-	--card-bg-hover: color-mix(in oklch, var(--card-bg), var(--card-fg) 10%);
 	border-radius: 0;
 	overflow: visible;
 	box-shadow: 0 0 0 100vmax var(--card-bg);
@@ -285,22 +279,6 @@
 	transition:
 		background-color 0.2s ease,
 		box-shadow 0.2s ease;
-}
-
-.step1 {
-	--card-bg: var(--color-surface-band-1);
-}
-
-.step2 {
-	--card-bg: var(--color-surface-band-2);
-}
-
-.step3 {
-	--card-bg: var(--color-surface-band-3);
-}
-
-.step4 {
-	--card-bg: var(--color-surface-band-4);
 }
 
 .band:not(.inert):hover {

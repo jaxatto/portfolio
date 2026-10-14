@@ -65,13 +65,11 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({ variant = 'work', exclude
 
 	return (
 		<div className={clsx(styles.grid, variant === 'study' && styles.study)}>
-			{visible.map((card, i) => (
+			{visible.map((card) => (
 				<StudyCard
 					key={card.title}
 					{...card}
 					variant={variant}
-					// One hue stepped top to bottom (D-032); a fifth study repeats the lightest step.
-					step={Math.min(i + 1, 4) as 1 | 2 | 3 | 4}
 					// Work: every card is horizontal and stacked, so any number of studies works (D-028).
 					layout={variant === 'work' ? 'horizontal' : 'vertical'}
 				/>
