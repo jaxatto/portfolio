@@ -20,9 +20,15 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.purple[950],
 				dark: primitives.colors.purple[50],
 			},
+			// Dark variant matches default so nav labels and the toggle share the page's purple-tinted white.
 			variant: {
 				light: primitives.colors.slate[900],
-				dark: primitives.colors.slate[100],
+				dark: primitives.colors.purple[50],
+			},
+			// Hero greeting and sentence: same as default in light, true white in dark. See D-019.
+			emphasis: {
+				light: primitives.colors.purple[950],
+				dark: primitives.colors.white,
 			},
 			muted: {
 				light: primitives.colors.slate[600],

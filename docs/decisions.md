@@ -82,3 +82,7 @@ Type sizes may be fluid (`clamp()`), and need not match the token values at ever
 ## D-018: Home header on mobile (≤640px) — 2026-10-13
 
 Proposal, pending Jax's OK (no mobile design exists, D-008). The nav row is a bar: links left, mode toggle at the right edge, hairline (`--color-border-decorative`) under it. The role moves from the bar to a byline under "Hi, I'm Jax!" (a second element inside the h1, shown only on mobile; the bar's copy is hidden there, so it is announced once). The sentence steps down to `--font-size-2xl` and the greeting takes its own line. Checked at 320, 375 and 768; tablet needs no change.
+
+## D-019: Dark-mode header text — 2026-10-13
+
+Hero sentence uses new `--color-content-emphasis` (light = purple-950 like default, dark = true white) so the greeting and "I design…" are the brightest thing on the page. Dark `--color-content-variant` moves from slate-100 to purple-50, so nav labels, the mode toggle and the mobile byline match the page's purple-tinted white. Light mode is unchanged. Footer text that uses `content-variant` follows.

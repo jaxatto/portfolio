@@ -238,7 +238,7 @@
 	   third line at desktop width. */
 	max-width: 900px;
 	margin: 0;
-	color: var(--color-content-default);
+	color: var(--color-content-emphasis);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-title-md-size);
 	font-weight: var(--font-weight-default);
