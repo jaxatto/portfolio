@@ -1,6 +1,7 @@
 /* Mode Toggle: an icon button that shows the mode you will switch to (moon in light mode, sun in dark).
    No track and no background: like the nav links, it turns violet and draws the same accent line under
-   the icon on hover and focus (same 3px line, easing and duration). See D-017. */
+   the icon on hover (same 3px line, easing and duration). Keyboard focus shows the focus ring, like the
+   nav links, not the line. See D-017. */
 
 .button {
 	position: relative;
@@ -45,8 +46,7 @@
 	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-.button:hover::after,
-.button:focus-visible::after {
+.button:hover::after {
 	transform: scaleX(1);
 	transform-origin: left center;
 }
