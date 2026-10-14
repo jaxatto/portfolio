@@ -1,37 +1,38 @@
-@use 'sass:map';
+// 404: a full-bleed accent ground with the shared nav header on it. Colors are semantic tokens
+// (surface-accent / content-on-accent / secondary-container), so light and dark both work. D-022.
 
-$light: map.get(map.get($group-palettes, secondary), bg);
-$dark: map.get(map.get($group-palettes, secondary), chip);
-$text: var(--color-white);
-
-// The shared header (nav, brand, toggle) reads its colors from tokens, so they are re-pointed to
-// light values inside this dark page. See D-020.
+// The shared header reads its colors from tokens, so they are re-pointed to on-accent values inside
+// this page.
 .page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: $dark;
-  color: $text;
-  --color-content-default: #{$text};
-  --color-content-variant: #{$text};
-  --color-content-emphasis: #{$text};
-  --color-content-default-hover: #{$light};
-  --color-content-default-active: #{$light};
-  --color-primary-default: #{$light};
-  --color-primary-default-active: #{$light};
+  background: var(--color-surface-accent);
+  color: var(--color-content-on-accent);
+  --color-content-default: var(--color-content-on-accent);
+  --color-content-variant: var(--color-content-on-accent);
+  --color-content-emphasis: var(--color-content-on-accent);
+  --color-content-default-hover: var(--color-secondary-container);
+  --color-content-default-active: var(--color-secondary-container);
+  --color-primary-default: var(--color-secondary-container);
+  --color-primary-default-active: var(--color-secondary-container);
+  --color-state-focus-ring: var(--color-content-on-accent);
 }
 
 .wrapper {
-  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: $dark;
-  color: $text;
   padding: spacing(600) spacing(300); // 48px 24px
+
+  // Phones: the message sits near the top, under the header, instead of floating mid-screen.
+  @media (width <= 640px) {
+    justify-content: flex-start;
+    padding-top: var(--size-space-section-md);
+  }
 }
 
 .main {
@@ -57,54 +58,35 @@ $text: var(--color-white);
   @extend .body-lg;
 }
 
-.subtext {
-  @extend .body-sm;
-  position: absolute;
-  bottom: 48px;
-  color: $light;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.preText {
-  margin-right: 0.3em;
-}
-
-.endText {
-  margin-lefT: 0.1em;
-}
-
 .button-404 {
   align-self: center;
-  background: $light;
-  color: $dark;
+  background: var(--color-secondary-container);
+  color: var(--color-secondary-on-container);
 
   svg {
-    fill: $dark;
+    fill: var(--color-secondary-on-container);
   }
 
   &:hover {
-    color: change-lightness($dark, hover);
-    background: change-lightness($light, hover);
+    background: var(--color-secondary-container-hover);
+    color: var(--color-secondary-on-container-hover);
   }
 
   &:hover svg {
-    fill: change-lightness($dark, hover);
+    fill: var(--color-secondary-on-container-hover);
   }
 
   &:active {
-    color: change-lightness($dark, pressed);
-    background: change-lightness($light, pressed);
+    background: var(--color-secondary-container-active);
+    color: var(--color-secondary-on-container-active);
   }
 
   &:active svg {
-    fill: change-lightness($dark, pressed);
+    fill: var(--color-secondary-on-container-active);
   }
 
   &:focus-visible {
-    outline-color: $light;
+    outline-color: var(--color-content-on-accent);
   }
 
   @include respond(sm) {
@@ -114,22 +96,5 @@ $text: var(--color-white);
   @include respond(xs) {
     font-size: font-size(100);
     padding: spacing(150) spacing(250);
-  }
-}
-
-.subtext-link {
-  color: $light;
-  font-weight: var(--font-weight-bold);
-
-  &:hover {
-    color: change-lightness($light, hover);
-  }
-
-  &:active {
-    color: change-lightness($light, pressed);
-  }
-
-  &:focus-visible {
-    outline-color: $light;
   }
 }

@@ -98,3 +98,7 @@ Also (dark): app surfaces move from slate to a new project primitive `night` (hu
 ## D-021: Title wording — decided, 2026-10-13
 
 "Staff Product Designer" is the title everywhere. "Design Engineer" (not "Design Technologist") is added only where the context is relevant and there is room, e.g. the Home page title. Existing "Design Technologist" mentions (footer copy) change when the footer is redone; other pages' meta change in their slices. Dark mode is reviewed page by page, header done.
+
+## D-022: 404 ground tokens — 2026-10-13
+
+The 404 keeps its dark full-bleed look but uses semantic tokens instead of the legacy palette: new `--color-surface-accent` (light indigo-900, dark indigo-950) and `--color-content-on-accent` (white). The button uses `secondary-container`. The mode toggle is back. The bottom email line is removed, and on phones the message sits under the header instead of mid-screen. Slightly lighter and more violet than the old navy (indigo-900, not a custom blue).

@@ -47,6 +47,10 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.white,
 				dark: primitives.colors.black,
 			},
+			'on-accent': {
+				light: primitives.colors.white,
+				dark: primitives.colors.white,
+			},
 		},
 		surface: {
 			default: {
@@ -56,6 +60,11 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			sunken: {
 				light: primitives.colors.slate[200],
 				dark: primitives.colors.night[800],
+			},
+			// Dark feature ground for full-bleed moments (the 404); content on it is content.on-accent. D-022.
+			accent: {
+				light: primitives.colors.indigo[900],
+				dark: primitives.colors.indigo[950],
 			},
 		},
 		border: {
