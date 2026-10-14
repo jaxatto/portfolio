@@ -20,7 +20,11 @@ const isActive = (pathname: string, url: string) =>
 		? pathname === url || pathname.startsWith('/case-studies')
 		: pathname === url;
 
-const Header: React.FC = () => {
+type HeaderProps = {
+	hideModeToggle?: boolean; // 404 keeps its own fixed colors, so theme choice does nothing there
+};
+
+const Header: React.FC<HeaderProps> = ({ hideModeToggle = false }) => {
 	const { theme, enabled, toggleTheme } = useTheme();
 	const { pathname } = useLocation();
 	const isHome = pathname === mainLinks.home;
@@ -58,7 +62,7 @@ const Header: React.FC = () => {
 						</ul>
 					</nav>
 					{/* Hidden until theme switching is enabled (D-011). */}
-					{enabled && <ModeToggle checked={theme === 'dark'} onChange={toggleTheme} />}
+					{enabled && !hideModeToggle && <ModeToggle checked={theme === 'dark'} onChange={toggleTheme} />}
 				</div>
 			</div>
 

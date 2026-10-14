@@ -7,7 +7,7 @@ import styles from './NotFound.module.scss';
 const NotFound: React.FC = () => (
   // The page keeps its own dark ground; the shared nav header sits on it, recolored via tokens.
   <div className={styles.page}>
-    <Header />
+    <Header hideModeToggle />
   <div className={styles.wrapper}>
     <div className={styles.main}>
       <div className={styles.copy}>
