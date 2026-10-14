@@ -7,6 +7,9 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  // New stacking context: the header's divider uses z-index -1 and would otherwise fall behind
+  // this background.
+  isolation: isolate;
   background: var(--color-surface-accent);
   color: var(--color-content-on-accent);
   --color-content-default: var(--color-content-on-accent);
@@ -17,6 +20,8 @@
   --color-primary-default: var(--color-secondary-container);
   --color-primary-default-active: var(--color-secondary-container);
   --color-state-focus-ring: var(--color-content-on-accent);
+  // Mobile nav divider: the default slate is invisible on this ground.
+  --color-border-decorative: var(--color-secondary-container-active);
 }
 
 .wrapper {
@@ -63,8 +68,10 @@
   background: var(--color-secondary-container);
   color: var(--color-secondary-on-container);
 
-  svg {
-    fill: var(--color-secondary-on-container);
+  // The arrow is stroke-drawn in currentColor, so it takes `color`, not `fill`. `[class]` raises
+  // specificity over the legacy Link styles, which set a fixed purple on the svg.
+  svg[class] {
+    color: var(--color-secondary-on-container);
   }
 
   &:hover {
@@ -72,8 +79,8 @@
     color: var(--color-secondary-on-container-hover);
   }
 
-  &:hover svg {
-    fill: var(--color-secondary-on-container-hover);
+  &:hover svg[class] {
+    color: var(--color-secondary-on-container-hover);
   }
 
   &:active {
@@ -81,8 +88,8 @@
     color: var(--color-secondary-on-container-active);
   }
 
-  &:active svg {
-    fill: var(--color-secondary-on-container-active);
+  &:active svg[class] {
+    color: var(--color-secondary-on-container-active);
   }
 
   &:focus-visible {
