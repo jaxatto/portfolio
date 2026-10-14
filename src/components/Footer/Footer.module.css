@@ -1,38 +1,38 @@
-/* Footer (Figma "Footer", 1280px): a 696px card, centered. Decorative shapes removed, D-020. */
+/* Footer: content aligned to the header's column; quiet (hairline) or accent (full-bleed ground).
+   D-024. */
 
 .footer {
-	position: relative;
-	display: flex;
-	justify-content: center;
 	box-sizing: border-box;
-	/* Figma's 104px bottom padding is not a space token: section-xl (80) + 2xl (24). */
-	padding: var(--size-space-section-xl) var(--size-space-section-lg)
-		calc(var(--size-space-section-xl) + var(--size-space-2xl));
-	overflow: hidden;
+	width: 100%;
 }
 
-.card {
-	position: relative;
+.inner {
 	display: flex;
-	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-between;
 	gap: var(--size-space-4xl);
 	box-sizing: border-box;
-	width: 696px;
-	max-width: 100%;
-	padding: var(--size-space-4xl);
-	border-radius: var(--size-radius-xl);
-	background: var(--color-surface-default);
+	width: 100%;
+	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+	margin-inline: auto;
+	padding-inline: var(--size-space-2xl);
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-2xl);
 }
 
 .top {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-xl);
+	gap: var(--size-space-md);
 }
 
 .title {
 	margin: 0;
-	color: var(--color-content-default);
+	color: var(--color-content-emphasis);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-title-sm-size);
 	font-weight: var(--font-style-title-sm-weight);
@@ -41,29 +41,17 @@
 
 .description {
 	margin: 0;
-	color: var(--color-content-variant);
+	max-width: 28em;
+	color: var(--color-content-default);
 	font-family: var(--font-family-body);
 	font-size: var(--font-style-body-lg-size);
 	font-weight: var(--font-style-body-lg-weight);
 	line-height: var(--font-style-body-lg-line-height);
 }
 
-/* Figma breaks the line after "or"; on narrow screens let it wrap naturally. */
-@media (width > 640px) {
-	.line {
-		display: block;
-	}
-}
-
-.links {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: var(--size-space-lg);
-}
-
 .row {
 	display: flex;
+	flex: none;
 	flex-wrap: wrap;
 	gap: var(--size-space-xl);
 	margin: 0;
@@ -71,13 +59,54 @@
 	list-style: none;
 }
 
-/* TODO(jax): no mobile design yet (D-008). Proposal: tighter side padding, smaller card padding. */
+/* Quiet: the page ground with a hairline across the content column. */
+.quiet {
+	padding-block: var(--size-space-section-sm) var(--size-space-section-lg);
+}
+
+.quiet .inner {
+	padding-top: var(--size-space-section-sm);
+	position: relative;
+}
+
+.quiet .inner::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: var(--size-space-2xl);
+	left: var(--size-space-2xl);
+	height: 1px;
+	background: var(--color-border-decorative);
+}
+
+/* Accent: full-bleed ground. The text and link tokens are re-pointed to their on-accent values
+   inside it, so the shared TextLink works unchanged. */
+.accent {
+	padding-block: var(--size-space-section-lg);
+	background: var(--color-surface-accent);
+	color: var(--color-content-on-accent);
+	--color-content-default: var(--color-content-on-accent);
+	--color-content-variant: var(--color-content-on-accent);
+	--color-content-emphasis: var(--color-content-on-accent);
+	--color-content-link: var(--color-content-on-accent);
+	--color-primary-default-active: var(--color-content-on-accent-hover);
+	--color-primary-on-container-active: var(--color-content-on-accent-active);
+	--color-state-focus-ring: var(--color-content-on-accent);
+}
+
+/* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
 @media (width <= 640px) {
-	.footer {
-		padding-inline: var(--size-space-lg);
+	.row {
+		flex: initial;
 	}
 
-	.card {
-		padding: var(--size-space-2xl);
+	.inner {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--size-space-2xl);
+	}
+
+	.quiet .inner {
+		padding-top: var(--size-space-section-sm);
 	}
 }

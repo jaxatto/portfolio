@@ -629,7 +629,7 @@
   --color-content-default-active: var(--primitive-color-purple-200);
   --color-surface-default: var(--primitive-color-night-900);
   --color-surface-sunken: var(--primitive-color-night-800);
-  --color-surface-accent: var(--primitive-color-indigo-950);
+  --color-surface-accent: var(--primitive-color-indigo-900);
   --color-border-decorative: var(--primitive-color-night-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-default: var(--primitive-color-black);
@@ -705,7 +705,7 @@
   --color-content-default-active: var(--primitive-color-purple-200);
   --color-surface-default: var(--primitive-color-night-900);
   --color-surface-sunken: var(--primitive-color-night-800);
-  --color-surface-accent: var(--primitive-color-indigo-950);
+  --color-surface-accent: var(--primitive-color-indigo-900);
   --color-border-decorative: var(--primitive-color-night-700);
   --color-brand-default: var(--primitive-color-purple-300);
   --color-brand-on-default: var(--primitive-color-black);

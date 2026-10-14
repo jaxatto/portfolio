@@ -48,5 +48,7 @@
 	width: 1em;
 	height: 1em;
 	flex-shrink: 0;
+	/* The legacy global `a svg` palette rule sets a fixed purple; the arrow follows the link text. */
+	color: inherit;
 	fill: currentcolor;
 }

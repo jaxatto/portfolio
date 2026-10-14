@@ -70,10 +70,10 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.slate[200],
 				dark: primitives.colors.night[800],
 			},
-			// Dark feature ground for full-bleed moments (the 404); content on it is content.on-accent. D-022.
+			// Feature ground for full-bleed moments (the 404, the footer); content on it is content.on-accent. Same in both themes: indigo-950 vanished against the dark ground. D-022, D-024.
 			accent: {
 				light: primitives.colors.indigo[900],
-				dark: primitives.colors.indigo[950],
+				dark: primitives.colors.indigo[900],
 			},
 		},
 		border: {

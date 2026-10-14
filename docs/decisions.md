@@ -110,3 +110,11 @@ Also (D-022): hover/pressed on the 404 header use new `--color-content-on-accent
 ## D-023: Header brand — 2026-10-13
 
 On inner pages "Jax Engel" in the nav row is regular weight and stays a link to Home. It uses the nav links' text color (`content-variant`, near-black) and hover; the current nav link is the same color and differs only by its line. Hover: violet text and the 3px line growing in from the left at the same position. No visited or current state.
+
+## D-024: Footer variants — decided direction, 2026-10-13
+
+No card, no shapes. Content aligns to the header's column: heading, one line of copy and the email on the left, Resume / LinkedIn / GitHub on the right; one column on phones. Two variants:
+- `quiet` (Home): page ground with a hairline above. Home already ends in colorful cards.
+- `accent` (every other page, and the default): full-bleed `--color-surface-accent`, with text and link tokens re-pointed to on-accent values.
+
+To make the accent ground read in dark mode, `surface-accent` is indigo-900 in both themes (indigo-950 vanished against the dark ground); the 404 follows. Footer copy is provisional: "Open to remote Staff Product Designer and Design Engineer roles." (D-021). `TextLink` icons now inherit the link color; a legacy global `a svg` rule had forced a fixed purple on every arrow.

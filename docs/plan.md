@@ -18,7 +18,7 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slice 1 (header, toggle) is built and Jax is happy with the Home header and hero (2026-10-13). The header was reworked from the Figma design through review; the decisions are D-014 to D-017. Footer circles are removed (D-020); the footer is next to design. Home meta is updated (provisional); other pages' meta still old. Next: slice 2 (Home / Work page and study cards). Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
+Slice 1 (header, toggle) is built and Jax is happy with the Home header and hero (2026-10-13). The header was reworked from the Figma design through review; the decisions are D-014 to D-017. Footer circles are removed (D-020); the footer is built (D-024: quiet on Home, accent elsewhere), pending Jax's review. Home meta is updated (provisional); other pages' meta still old. Next: slice 2 (Home / Work page and study cards). Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
 
 ## Open questions for Jax
 
