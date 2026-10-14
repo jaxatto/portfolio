@@ -150,3 +150,7 @@ Revised (D-028, 2026-10-14): the Home cards are one stacked column of horizontal
 ## D-029: Study card anatomy and copy — decided, 2026-10-14
 
 Cards read: eyebrow (company · role · years), title (the problem solved), one outcome sentence, quiet tags, link. Why: a skimming reviewer needs brand, seniority and proof on the card, not a category label. Outcome lines use only facts already in each study (ActBlue's "$1.5M a year" stays "estimated"; ServiceNow's 95% tool accuracy is left in the study so it isn't read as Jax's impact; Indeed has no metric, so it states scope and mentoring). Order: ServiceNow, ActBlue, Indeed, then the inert tokens card (D-028). This adds two text lines beyond the Figma frame; TODO(jax): update Figma. Link text is "Read the <topic> case study".
+
+## D-030: Home cards break out to 1120px — proposed, 2026-10-14
+
+With the eyebrow and outcome line (D-029) the 400px text column made titles run to four lines. The Home card stack is now `max(912px, min(1120px, 100vw − 48px))` wide, centered on the 912px column (header, hero and footer unchanged). 1120 is a layout width, not a token, like the site's 960 and 600. Card titles use `heading-md` (24px) instead of Figma's `heading-lg` (32px). The "next study" row under case studies stays in the column. TODO(jax): update Figma, or revert this if the wider cards don't read better.

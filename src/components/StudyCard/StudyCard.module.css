@@ -86,10 +86,12 @@
 .title {
 	margin: 0;
 	color: var(--card-fg);
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-	line-height: var(--font-style-heading-lg-line-height);
+	/* heading-md (24px at desktop), not Figma's heading-lg: with the outcome line a 32px title is
+	   too heavy. See D-030. */
+	font-family: var(--font-style-heading-md-family);
+	font-size: var(--font-style-heading-md-size);
+	font-weight: var(--font-style-heading-md-weight);
+	line-height: var(--font-style-heading-md-line-height);
 	text-wrap: balance;
 }
 
@@ -247,14 +249,7 @@
 	}
 }
 
-/* Study (under a case study): smaller type, text and preview stay stacked. */
-.study .title {
-	font-family: var(--font-style-heading-md-family);
-	font-size: var(--font-style-heading-md-size);
-	font-weight: var(--font-style-heading-md-weight);
-	line-height: var(--font-style-heading-md-line-height);
-}
-
+/* Study (under a case study): smaller body type, text and preview stay stacked. */
 .study .outcome,
 .study .link,
 .study .placeholder {
