@@ -1,12 +1,17 @@
 import React from 'react';
 import Link from '@components/Link';
 import Header from '@components/Header';
+import Meta from '@components/Meta';
 import { content } from '@pages/NotFound/resources/content';
 import styles from './NotFound.module.scss';
 
 const NotFound: React.FC = () => (
   // The page keeps its own dark ground; the shared nav header sits on it, recolored via tokens.
   <div className={styles.page}>
+    <Meta
+      title="Page not found | Jax Engel"
+      metaDescription="This page doesn’t exist. Head back to Jax Engel’s portfolio."
+    />
     <Header hideModeToggle />
   <div className={styles.wrapper}>
     <div className={styles.main}>
