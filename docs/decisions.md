@@ -91,7 +91,7 @@ Also (dark): app surfaces move from slate to a new project primitive `night` (hu
 
 ## D-020: Footer shapes removed, Home meta, header everywhere — 2026-10-13
 
-- Footer: the decorative circles (dashed ring, dot, blurred circle) are removed; the footer is the card alone until its own pass. The hero "Jax" cursor tag stays hidden (`TEMP` rule in Header.module.css); it adds little next to the resizing box.
+- Footer: the decorative circles (dashed ring, dot, blurred circle) are removed; the footer is the card alone until its own pass. The hero "Jax" cursor tag is removed (markup and CSS); it added little next to the resizing box.
 - Home meta (provisional, TODO(jax)): title "Jax Engel | Staff Product Designer and Design Technologist" and a description naming accessible products, systems, enterprise/fintech and AI-assisted workflows. Set inline in `Work.tsx` and in `index.html` (the static Home tags). Other pages keep their old meta until their slices; `Work/resources/meta.ts` stays for Resume.
 - The nav header is in `Layout`, so Work, About, Resume and the case studies all use it. The 404 page now renders it too.
 

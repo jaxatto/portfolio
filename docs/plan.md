@@ -28,7 +28,6 @@ Header / hero:
 - Mobile and tablet are not checked yet. Nav wraps below 640px; the hero sentence is fluid. Propose and agree before building (D-008).
 - Dark mode review of the header and hero (selection box, pointer, chip, toggle, selection color).
 - The footer's circles and dashed ring vs the circle-free header: keep, or bring in line?
-- The "Jax" tag on the hero pointer is hidden for comparison (`.pointer-label { display: none }`, marked TEMP). Decide and remove or restore.
 - Pointer motion: the hero loop is 8s drag plus 4s pause; a mono token and a hover-offset token exist only as CSS variables (D-015, D-017).
 
 Other:
