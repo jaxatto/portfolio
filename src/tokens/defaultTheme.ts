@@ -25,6 +25,11 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.slate[900],
 				dark: primitives.colors.purple[50],
 			},
+			// Role label: same as default in light, one step dimmer in dark. See D-019.
+			secondary: {
+				light: primitives.colors.purple[950],
+				dark: primitives.colors.purple[200],
+			},
 			// Hero greeting and sentence: same as default in light, true white in dark. See D-019.
 			emphasis: {
 				light: primitives.colors.purple[950],
@@ -46,17 +51,17 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 		surface: {
 			default: {
 				light: primitives.colors.white,
-				dark: primitives.colors.slate[900],
+				dark: primitives.colors.stone[900],
 			},
 			sunken: {
 				light: primitives.colors.slate[200],
-				dark: primitives.colors.slate[800],
+				dark: primitives.colors.stone[800],
 			},
 		},
 		border: {
 			decorative: {
 				light: primitives.colors.slate[300],
-				dark: primitives.colors.slate[700],
+				dark: primitives.colors.stone[700],
 			},
 		},
 		brand: {

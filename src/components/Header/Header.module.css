@@ -223,7 +223,7 @@
    and dropped: violet text, muted text, an accent bar, a filled chip and a status dot. */
 .role {
 	margin: 0;
-	color: var(--color-content-default);
+	color: var(--color-content-secondary);
 	/* Same face and weight as the sentence below (Inter, regular): Manrope at the same weight read too
 	   light, and a bold label read as another nav item. */
 	font-family: var(--font-family-heading);
@@ -508,7 +508,7 @@
 	.byline {
 		display: block;
 		margin-bottom: var(--size-space-2xl);
-		color: var(--color-content-variant);
+		color: var(--color-content-secondary);
 		font-size: var(--font-style-body-md-size);
 		font-weight: var(--font-weight-default);
 		line-height: var(--font-style-body-md-line-height);
