@@ -31,7 +31,7 @@
 	color: var(--color-content-default);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-heading-md-size);
-	font-weight: var(--font-weight-strong);
+	font-weight: var(--font-weight-default);
 	line-height: var(--font-style-heading-md-line-height);
 	/* Same transparent-underline hover animation as .nav-link (see below). */
 	text-decoration: underline;
