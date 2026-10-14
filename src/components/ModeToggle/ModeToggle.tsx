@@ -3,35 +3,31 @@ import clsx from 'clsx';
 import Icon from '#components/Icon';
 import styles from './ModeToggle.module.css';
 
-// Light/dark switch from the Figma "Mode Toggle" (58x32 track, 24px thumbs).
-// Exposed to assistive tech as a labelled switch; the sun/moon icons are decorative.
+// Light/dark toggle as an icon button (D-017; Figma had a pill switch). The icon shows the mode you
+// will switch to, and the accessible name states that action ("Switch to dark mode"). Because the
+// name changes with the state, this is a plain button, not a switch or aria-pressed (which would
+// announce the state twice). The sun/moon icons are decorative.
 // Usage: <ModeToggle checked={isDark} onChange={setIsDark} />
 
 type ModeToggleProps = {
+	/** True when the dark theme is showing. */
 	checked: boolean;
 	onChange: (checked: boolean) => void;
 	className?: string;
-	'aria-label'?: string;
 };
 
-const ModeToggle: React.FC<ModeToggleProps> = ({
-	checked,
-	onChange,
-	className,
-	'aria-label': ariaLabel = 'Dark mode',
-}) => (
+const ModeToggle: React.FC<ModeToggleProps> = ({ checked, onChange, className }) => (
 	<button
 		type="button"
-		role="switch"
-		aria-checked={checked}
-		aria-label={ariaLabel}
-		className={clsx(styles.track, className)}
+		aria-label={checked ? 'Switch to light mode' : 'Switch to dark mode'}
+		data-mode={checked ? 'dark' : 'light'}
+		className={clsx(styles.button, className)}
 		onClick={() => onChange(!checked)}
 	>
-		<span className={clsx(styles.thumb, styles.sun)}>
+		<span className={clsx(styles.icon, styles.sun)}>
 			<Icon name="sun" aria-hidden="true" />
 		</span>
-		<span className={clsx(styles.thumb, styles.moon)}>
+		<span className={clsx(styles.icon, styles.moon)}>
 			<Icon name="moon" aria-hidden="true" />
 		</span>
 	</button>
