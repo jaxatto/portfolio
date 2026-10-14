@@ -24,6 +24,7 @@ const ModeToggle: React.FC<ModeToggleProps> = ({ checked, onChange, className })
 		type="button"
 		aria-label={label}
 		data-tooltip={label}
+		data-tooltip-align="end"
 		data-mode={checked ? 'dark' : 'light'}
 		className={clsx(styles.button, className)}
 		onClick={() => onChange(!checked)}

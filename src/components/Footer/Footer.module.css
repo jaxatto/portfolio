@@ -187,6 +187,9 @@
 	--color-primary-default-active: var(--color-content-on-accent-active);
 	--color-primary-on-container-active: var(--color-content-on-accent-active);
 	--color-state-focus-ring: var(--color-content-on-accent);
+	/* Tooltips: the primary tokens are pale here, so use the container pair. */
+	--tooltip-bg: var(--color-primary-container);
+	--tooltip-fg: var(--color-primary-on-container);
 }
 
 /* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
