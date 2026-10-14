@@ -266,3 +266,66 @@
 		transition: none;
 	}
 }
+
+/* Band (Home): the card's background runs the full width of the viewport while its content stays
+   in the 912px column and lines up with the header. The 100vmax shadow paints the band without
+   adding scroll width, and the clip-path keeps it from spilling above or below. The sample
+   bleeds off the right edge of the viewport and is cropped by the band's bottom edge. D-031 */
+.band {
+	border-radius: 0;
+	overflow: visible;
+	box-shadow: 0 0 0 100vmax var(--card-bg);
+	clip-path: inset(0 -100vmax);
+	transition:
+		background-color 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.band:not(.inert):hover {
+	box-shadow: 0 0 0 100vmax var(--card-bg-hover);
+}
+
+/* The band is clipped above and below, so the focus ring goes on the link text instead. */
+.band:has(.link:focus-visible) {
+	outline: none;
+}
+
+.band .link:focus-visible {
+	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
+	outline-offset: 3px;
+	border-radius: var(--size-radius-sm);
+}
+
+.band .content {
+	padding: var(--size-space-section-md) 0;
+}
+
+.band .preview {
+	padding: var(--size-space-2xl) 0 0;
+}
+
+@media (min-width: 900px) {
+	/* Half the viewport beyond the 912px (57rem) column. */
+	.band {
+		--bleed: max(0px, (100vw - 57rem) / 2);
+	}
+
+	.band .preview {
+		padding: var(--size-space-section-md) 0 0 var(--size-space-section-sm);
+	}
+
+	.band .sample {
+		margin-right: calc(-1 * var(--bleed));
+		margin-bottom: 0;
+		border-radius: var(--size-radius-sm) 0 0 0;
+	}
+}
+
+@media (max-width: 899px) {
+	/* Stacked: the sample starts at the text edge and bleeds off the right; it is cropped below. */
+	/* Bleed through the page's 24px side padding to the viewport edge. */
+	.band .sample {
+		margin-right: calc(-1 * var(--size-space-2xl));
+		border-top-left-radius: var(--size-radius-sm);
+	}
+}

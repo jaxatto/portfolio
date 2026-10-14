@@ -154,3 +154,7 @@ Cards read: title (the problem solved), one outcome sentence, company then quiet
 ## D-030: Cards stay in the 912px column; the sample pops out — proposed, 2026-10-14
 
 A 1120px breakout was tried and rejected by Jax. Instead, on desktop (≥900px) the horizontal cards' sample image overhangs the card by 24px at the right and bottom (`space-2xl`), with all four corners rounded, so it reads as a floating screenshot rather than a crop. The gap between cards is 32px, so the overhang never touches the next card. Stacked layouts (≤900px) still crop inside the card. Card titles use `heading-md` (24px) instead of Figma's `heading-lg` (32px) because the outcome line made 32px too heavy. TODO(jax): update Figma.
+
+## D-031: Home study cards as full-width bands — proposed (prototype), 2026-10-14
+
+Replaces the rounded-card pop-out of D-030. Each Home study is a band whose background spans the viewport (a `100vmax` box-shadow clipped above and below, so it adds no scroll width; `Layout`'s root has `overflow-x: clip` as a guard). Text and the sample stay in the 912px column and line up with the header and hero; the sample bleeds off the right edge of the viewport and is cropped by the band's bottom edge. Bands touch, with no gap or radius; the focus ring sits on the link text because the band is clipped. The "next study" row under case studies keeps the rounded card. TODO(jax): decide to keep or revert (one commit); update Figma if kept.

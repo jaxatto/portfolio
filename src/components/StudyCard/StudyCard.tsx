@@ -43,6 +43,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
 			styles[palette],
 			layout === 'horizontal' && styles.horizontal,
 			variant === 'study' && styles.study,
+			variant === 'work' && styles.band,
 			!linkUrl && styles.inert,
 		)}
 	>

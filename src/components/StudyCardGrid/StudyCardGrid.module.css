@@ -3,7 +3,7 @@
 .grid {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
-	gap: var(--size-space-3xl);
+	gap: 0; /* Home cards are full-width bands that touch (D-031). */
 }
 
 /* Under a case study: two cards side by side on desktop. */
@@ -13,10 +13,6 @@
 }
 
 @media (max-width: 900px) {
-	.grid {
-		gap: var(--size-space-2xl);
-	}
-
 	.study {
 		grid-template-columns: minmax(0, 1fr);
 	}
