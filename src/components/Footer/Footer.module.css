@@ -118,6 +118,8 @@
 	/* Beats the legacy global `a svg` fixed purple. */
 	color: inherit;
 	fill: none;
+	/* Lifts the glyph so it centers on the email text beside it; the line below stays put. */
+	transform: translateY(-8px);
 }
 
 /* Same legacy hover rule as in TextLink: the icon always follows the link color. */
