@@ -31,7 +31,7 @@
 	align-items: center;
 	height: 44px;
 	border-radius: var(--size-radius-sm);
-	color: var(--color-content-default);
+	color: var(--color-content-variant);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-heading-md-size);
 	font-weight: var(--font-weight-default);
@@ -136,7 +136,7 @@
 }
 
 .nav-link[aria-current='page'] {
-	color: var(--color-content-default);
+	color: var(--color-content-variant);
 }
 
 .nav-link[aria-current='page']::after {

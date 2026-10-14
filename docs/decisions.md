@@ -109,4 +109,4 @@ Also (D-022): hover/pressed on the 404 header use new `--color-content-on-accent
 
 ## D-023: Header brand — 2026-10-13
 
-On inner pages "Jax Engel" in the nav row is regular weight and stays a link to Home. It gets the nav links' hover: violet text and the 3px line growing in from the left at the same position. No visited or current state.
+On inner pages "Jax Engel" in the nav row is regular weight and stays a link to Home. It uses the nav links' text color (`content-variant`, near-black) and hover; the current nav link is the same color and differs only by its line. Hover: violet text and the 3px line growing in from the left at the same position. No visited or current state.
