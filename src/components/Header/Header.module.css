@@ -336,33 +336,6 @@
 	stroke-linejoin: round;
 }
 
-.pointer-label {
-	padding: 4px 8px;
-	border-radius: 0 8px 8px 8px;
-	background: var(--pointer-color);
-	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
-	color: var(--color-secondary-on-default);
-	font-family: var(--font-family-heading);
-	font-size: 12px;
-	font-weight: var(--font-weight-emphasis);
-	line-height: 1.2;
-	white-space: nowrap;
-	/* Sits just under the arrow, as Figma's name tags do. */
-	transform: translate(10px, -4px);
-}
-
-/* The name is generated content, not DOM text, so it never appears when the headline is copied,
-   selected or read as plain text. */
-.pointer-label::before {
-	content: 'Jax';
-}
-
-/* TEMP (comparison): tag hidden so the arrow-only version can be compared. Delete this rule to bring
-   the "Jax" tag back. */
-.pointer-label {
-	display: none;
-}
-
 /* 12s cycle = an 8s drag (first two thirds) then a 4s pause at rest before it repeats. */
 @keyframes resize-box {
 	0%,

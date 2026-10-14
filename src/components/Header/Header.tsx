@@ -88,7 +88,6 @@ const Header: React.FC = () => {
 									>
 										<path d="M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z" className={styles['pointer-fill']} />
 									</svg>
-									<span className={styles['pointer-label']} />
 								</span>
 							</span>
 							design
