@@ -95,18 +95,6 @@
 }
 
 /* Tags are quieter than the outcome. */
-.description {
-	margin: 0;
-	font-family: var(--font-style-body-sm-family);
-	font-size: var(--font-style-body-sm-size);
-	font-weight: var(--font-style-body-sm-weight);
-	line-height: var(--font-style-body-sm-line-height);
-}
-
-.dot {
-	white-space: pre;
-}
-
 /* Link: bold, underlined at rest like TextLink (D-015, D-026); grows its offset on hover. */
 .link {
 	display: inline-flex;
@@ -201,29 +189,25 @@
 
 /* Desktop: horizontal cards put the preview beside the text. */
 @media (min-width: 900px) {
-	/* The sample pops out of the card by 24px at the right and bottom instead of being cropped
-	   by it (D-030). The card's rounded background doesn't need overflow: hidden here. */
+	/* The sample stays inside the card window: cropped by its right and bottom edges (D-035).
+	   Layout in a 960px card: text box 580px, sample 372px wide starting at 588px. */
 	.horizontal {
 		flex-direction: row;
-		overflow: visible;
 	}
 
 	.horizontal .content {
-		flex: 1;
+		flex: 0 1 36.25rem; /* 580px */
 		min-width: 0;
 	}
 
 	.horizontal .preview {
-		flex: 0 0 21.25rem; /* 340px: the sample sits further right, the text gets the room (D-034) */
+		flex: 1;
 		height: auto;
-		padding: var(--size-space-section-md) 0 0 var(--size-space-section-sm);
+		padding: var(--size-space-section-md) 0 0 var(--size-space-sm);
 	}
 
 	.horizontal .sample {
 		min-width: 0;
-		margin-right: calc(-1 * var(--size-space-2xl));
-		margin-bottom: calc(-1 * var(--size-space-2xl));
-		border-radius: var(--size-radius-sm);
 	}
 
 	/* Fill the whole sample so no sunken-grey strip shows below a short screenshot. */

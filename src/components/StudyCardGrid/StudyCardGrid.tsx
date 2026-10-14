@@ -12,39 +12,35 @@ import styles from './StudyCardGrid.module.css';
 
 const cards: StudyCardProps[] = [
 	{
-		title: 'Turning thousands of survey responses into themes in minutes',
+		title: 'Turning survey responses into themes in minutes',
 		outcome:
 			'Reshaped an AI research tool that replaces 10+ hours of manual coding per 100 responses; demoed to senior leadership and now in user testing.',
-		description: ['ServiceNow', 'Product design', 'AI', 'Enterprise'],
 		image: themeweaverImage,
 		imageAlt: '',
 		linkUrl: studyLinks.servicenow,
-		linkText: 'Read the AI case study',
+		linkText: 'Read the ServiceNow case study',
 		palette: 'brand',
 	},
 	{
 		title: 'Self-serve setup and visible syncs for campaign admins',
 		outcome:
 			'Rebuilt the integration end to end so admins fix sync issues without support, saving an estimated $1.5M a year.',
-		description: ['ActBlue', 'Product design', 'Nonprofit', 'FinTech'],
 		image: actblueImage,
 		linkUrl: studyLinks.actblue,
-		linkText: 'Read the integration case study',
+		linkText: 'Read the ActBlue case study',
 		palette: 'primary',
 	},
 	{
 		title: 'Scaling a design system through a rebrand',
 		outcome:
 			'Made the component library more accessible and easier to contribute to, and mentored a junior designer into system work.',
-		description: ['Indeed', 'Design systems', 'Accessibility', 'PeopleTech'],
 		image: indeedImage,
 		linkUrl: studyLinks.indeed,
-		linkText: 'Read the design system case study',
+		linkText: 'Read the Indeed case study',
 		palette: 'secondary',
 	},
 	{
 		title: 'Building a multi-brand token system for cross-platform apps',
-		description: ['Design systems', 'Tokens', 'Logistics'],
 		image: themeweaverImage,
 		linkText: 'Read the tokens case study',
 		palette: 'tertiary',
