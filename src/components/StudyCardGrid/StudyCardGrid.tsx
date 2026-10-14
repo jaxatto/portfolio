@@ -20,7 +20,7 @@ const cards: StudyCardProps[] = [
 		imageAlt: '',
 		linkUrl: studyLinks.servicenow,
 		linkText: 'Read the AI case study',
-		palette: 'primary',
+		palette: 'brand',
 	},
 	{
 		title: 'Giving campaign admins self-serve setup and sync visibility for Salesforce',
@@ -30,7 +30,7 @@ const cards: StudyCardProps[] = [
 		image: actblueImage,
 		linkUrl: studyLinks.actblue,
 		linkText: 'Read the integration case study',
-		palette: 'tertiary',
+		palette: 'primary',
 	},
 	{
 		title: 'Scaling a design system through a rebrand',
@@ -47,7 +47,7 @@ const cards: StudyCardProps[] = [
 		description: ['Design systems', 'Tokens', 'Logistics'],
 		image: themeweaverImage,
 		linkText: 'Read the tokens case study',
-		palette: 'brand',
+		palette: 'tertiary',
 		// TODO(jax): no tokens case study yet, so the card is inert. Add the outcome with it.
 	},
 ];
