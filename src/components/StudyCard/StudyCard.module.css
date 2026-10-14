@@ -5,6 +5,7 @@
 .card {
 	/* Palette tokens are set by the modifier classes below. */
 	--card-bg: var(--color-brand-container);
+	--card-bg-hover: var(--color-brand-container-hover);
 	--card-fg: var(--color-brand-on-container);
 	--card-fg-hover: var(--color-brand-on-container-hover);
 	--card-fg-active: var(--color-brand-on-container-active);
@@ -26,6 +27,7 @@
 
 .primary {
 	--card-bg: var(--color-primary-container);
+	--card-bg-hover: var(--color-primary-container-hover);
 	--card-fg: var(--color-primary-on-container);
 	--card-fg-hover: var(--color-primary-on-container-hover);
 	--card-fg-active: var(--color-primary-on-container-active);
@@ -33,6 +35,7 @@
 
 .secondary {
 	--card-bg: var(--color-secondary-container);
+	--card-bg-hover: var(--color-secondary-container-hover);
 	--card-fg: var(--color-secondary-on-container);
 	--card-fg-hover: var(--color-secondary-on-container-hover);
 	--card-fg-active: var(--color-secondary-on-container-active);
@@ -40,9 +43,14 @@
 
 .tertiary {
 	--card-bg: var(--color-tertiary-container);
+	--card-bg-hover: var(--color-tertiary-container-hover);
 	--card-fg: var(--color-tertiary-on-container);
 	--card-fg-hover: var(--color-tertiary-on-container-hover);
 	--card-fg-active: var(--color-tertiary-on-container-active);
+}
+
+.card:not(.inert):hover {
+	background: var(--card-bg-hover);
 }
 
 /* The link is stretched over the card, so keyboard focus rings the whole card. */
@@ -70,7 +78,7 @@
 .title {
 	margin: 0;
 	color: var(--card-fg);
-	/* heading-lg (32px at desktop, Figma). Titles are written to wrap to two lines (D-033). */
+	/* heading-lg (32px at desktop, Figma). Titles are written to wrap to two lines (D-034). */
 	font-family: var(--font-style-heading-lg-family);
 	font-size: var(--font-style-heading-lg-size);
 	font-weight: var(--font-style-heading-lg-weight);
@@ -110,7 +118,6 @@
 	font-weight: var(--font-weight-extra-strong);
 	line-height: var(--font-line-height-default);
 	text-decoration: none;
-	min-height: 2.75rem; /* 44px tap target */
 }
 
 .linkText {
@@ -119,6 +126,13 @@
 	text-decoration-skip-ink: auto;
 	text-underline-offset: var(--font-text-underline-offset-md);
 	transition: text-underline-offset 0.2s ease;
+}
+
+/* Stretched link: the whole card is the click target. */
+.link::after {
+	content: '';
+	position: absolute;
+	inset: 0;
 }
 
 .icon {
@@ -130,22 +144,22 @@
 	transition: transform 0.2s ease;
 }
 
-.link:hover,
+.card:hover .link,
 .link:focus-visible {
 	color: var(--card-fg-hover);
 }
 
-.link:hover .linkText,
+.card:hover .linkText,
 .link:focus-visible .linkText {
 	text-underline-offset: var(--font-text-underline-offset-lg);
 }
 
-.link:hover .icon,
+.card:hover .icon,
 .link:focus-visible .icon {
 	transform: translateX(var(--size-space-xs));
 }
 
-.link:active {
+.card:active .link {
 	color: var(--card-fg-active);
 }
 
@@ -200,7 +214,7 @@
 	}
 
 	.horizontal .preview {
-		flex: 0 0 27.5rem; /* 440px: narrower preview, wider text (D-029) */
+		flex: 0 0 21.25rem; /* 340px: the sample sits further right, the text gets the room (D-034) */
 		height: auto;
 		padding: var(--size-space-section-md) 0 0 var(--size-space-section-sm);
 	}
@@ -249,68 +263,5 @@
 	.icon,
 	.sample {
 		transition: none;
-	}
-}
-
-/* Band (Home): the card's background runs the full width of the viewport while its content stays
-   in the 912px column and lines up with the header. The 100vmax shadow paints the band without
-   adding scroll width, and the clip-path keeps it from spilling above or below. The sample
-   bleeds off the right edge of the viewport and is cropped by the band's bottom edge. D-031 */
-.band {
-	border-radius: 0;
-	overflow: visible;
-	box-shadow: 0 0 0 100vmax var(--card-bg);
-	clip-path: inset(0 -100vmax);
-	transition:
-		background-color 0.2s ease,
-		box-shadow 0.2s ease;
-}
-
-/* The band is clipped above and below, so the focus ring goes on the link text instead. */
-.band:has(.link:focus-visible) {
-	outline: none;
-}
-
-.band .link:focus-visible {
-	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
-	outline-offset: 3px;
-	border-radius: var(--size-radius-sm);
-}
-
-.band .content {
-	padding: var(--size-space-4xl) 0;
-	gap: var(--size-space-2xl);
-}
-
-.band .preview {
-	padding: var(--size-space-2xl) 0 0;
-}
-
-@media (min-width: 900px) {
-	/* Half the viewport beyond the 912px (57rem) column. */
-	.band {
-		--bleed: max(0px, (100vw - 57rem) / 2);
-	}
-
-	/* Narrow preview column (340px): the text gets about 100px more (D-033). */
-	.band .preview {
-		flex: 0 0 21.25rem;
-		padding: var(--size-space-4xl) 0 0 var(--size-space-section-sm);
-	}
-
-	.band .sample {
-		max-width: 36rem;
-		margin-right: calc(-1 * var(--bleed));
-		margin-bottom: 0;
-		border-radius: var(--size-radius-sm) 0 0 0;
-	}
-}
-
-@media (max-width: 899px) {
-	/* Stacked: the sample starts at the text edge and bleeds off the right; it is cropped below. */
-	/* Bleed through the page's 24px side padding to the viewport edge. */
-	.band .sample {
-		margin-right: calc(-1 * var(--size-space-2xl));
-		border-top-left-radius: var(--size-radius-sm);
 	}
 }

@@ -25,7 +25,7 @@ const Layout: React.FC<LayoutProps> = ({
   footerVariant,
   className = '',
 }) => (
-  <div className={styles.root}>
+  <div>
     <Meta title={title} metaDescription={metaDescription} />
     <Header />
     <main id='main-content' className={clsx(styles.main, className)} tabIndex={-1}>

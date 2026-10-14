@@ -1,9 +1,5 @@
 @use '@styles/all' as *;
 
-// Full-bleed pieces (Home study bands) extend to the viewport edge; clip, don't scroll. D-031.
-.root {
-    overflow-x: clip;
-}
 
 .main {
     @include wrapper-max-width(site);

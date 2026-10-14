@@ -90,7 +90,7 @@ $radius: (
 // Wrappers for content
 $wrapper-widths: (
   content: 600,
-  site: 960
+  site: 1008 // 960 content + 24px padding each side (D-034)
 );
 
 // Breakpoints for responsive design
@@ -104,12 +104,12 @@ $breakpoints: (
 // Some math to keep track of for Divider
 // Site has padding of 24px on each side
 // Content has padding of 24px on each side
-// 960 - 48 = 912, removes padding
+// 1008 - 48 = 960, removes padding
 // 600 - 48 = 552, removes padding
-// 912 - 552 = 360, subtracts from eachother
-// 360 / 2 = 180, two sides
-// 180 - 24 = 156, subtracts both gaps
-$divider-left: 156;
+// 960 - 552 = 408, subtracts from eachother
+// 408 / 2 = 204, two sides
+// 204 - 24 = 180, subtracts both gaps
+$divider-left: 180;
 
 /* ---------------------------------- */
 /* ------ Typography variables ------ */

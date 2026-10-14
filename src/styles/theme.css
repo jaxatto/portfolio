@@ -447,7 +447,7 @@
   --size-breakpoint-2xl: var(--primitive-size-breakpoint-1536);
   --size-layout-gutter: var(--size-space-lg);
   --size-layout-content-max: var(--primitive-size-breakpoint-640);
-  --size-layout-popout-max: 912px;
+  --size-layout-popout-max: 960px;
   --size-border-width-none: var(--primitive-size-border-width-0);
   --size-border-width-thin: var(--primitive-size-border-width-1);
   --size-border-width-default: var(--primitive-size-border-width-2);

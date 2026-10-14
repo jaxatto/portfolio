@@ -204,7 +204,8 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 		layout: {
 			gutter: 'lg',
 			'content-max': '640px',
-			'popout-max': '912px',
+			// Site content column. 960 per Jax (Figma's 912 is superseded, D-034).
+			'popout-max': '960px',
 		},
 		'border-width': {
 			none: primitives.sizes['border-width'][0],
