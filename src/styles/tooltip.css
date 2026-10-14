@@ -1,6 +1,7 @@
 /* Tooltip for icon-only controls: [data-tooltip="Label"] on a positioned element. Styled like a
    Figma cursor name tag (rounded, one square corner, the brand color), anchored above the element
-   and centered on it (right-aligned for controls at the page edge, so it never leaves the viewport). Shown on hover and on
+   with its square corner (the tip) centered over it, so the body extends left and never leaves
+   the viewport at the right page edge. Shown on hover and on
    keyboard focus; hoverable (it is part of the element); dismissed with Escape (see index.tsx).
    The accessible name still comes from aria-label / sr-only text: this is visual only. D-025. */
 
@@ -15,8 +16,8 @@
 	position: absolute;
 	/* Controls have a few px of inner padding around the glyph, so this sits ~8px off the glyph. */
 	bottom: calc(100% - 1px);
-	left: 50%;
-	translate: -50% 0;
+	/* The tag's square corner (its tip) sits over the center of the control; the body extends left. */
+	right: 50%;
 	z-index: 20;
 	padding: var(--size-space-xs) var(--size-space-sm);
 	border-radius: var(--size-radius-md) var(--size-radius-md) 0 var(--size-radius-md);
@@ -38,19 +39,11 @@
 	pointer-events: none;
 }
 
-/* Controls at the right page edge (the mode toggle) align the tag's right edge to the control so it
-   never overflows the viewport, with the square corner at the bottom-right. */
-[data-tooltip][data-tooltip-align='end']::before {
-	right: 0;
-	left: auto;
-	translate: none;
-}
-
-/* A short delay on hover so a passing cursor doesn't flash it; focus shows it at once. */
+/* A brief delay on hover so a passing cursor doesn't flash it; focus shows it at once. */
 [data-tooltip]:hover::before {
 	opacity: 1;
 	transform: none;
-	transition-delay: 0.4s;
+	transition-delay: 0.12s;
 }
 
 [data-tooltip]:focus-visible::before {
