@@ -172,3 +172,7 @@ Revises D-036. On desktop (≥900px) card titles are 40px (`font-size-3xl`, head
 
 The Home intro (hero) top padding is 160px (two `section-xl` steps, was 120px). The outcome paragraph in desktop cards is 460px wide (`max-width`, 32px narrower than the 492px title measure); stacked cards keep full width.
 At 460px the ServiceNow outcome ran to four lines, so it now reads "Shaped an AI tool that replaces 10+ hours of manual coding per 100 responses; demoed to leadership, now in user testing." (TODO(jax): confirm).
+
+## D-039: Card title 36px — decided, 2026-10-14
+
+Desktop card titles are 36px (was 40px, D-037). The type scale has no 36 (32, 40), so the CSS is `calc(var(--font-size-3xl) - 4px)`, a deliberate exception to D-005. TODO(jax): add a 36px step to the scale (`primitives.ts`, e.g. between 2xl and 3xl) or return to 32/40.

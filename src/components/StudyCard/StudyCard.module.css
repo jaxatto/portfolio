@@ -208,9 +208,10 @@
 		padding: var(--size-space-3xl) 0 0 var(--size-space-lg);
 	}
 
-	/* Desktop title is 40px (heading-lg + 8px, per Jax; D-037). Below 900px it stays heading-lg. */
+	/* Desktop title is 36px: 40px less 4px, per Jax (D-039). 36 isn't on the type scale, so this is
+	   a calc off 3xl until Jax decides whether to add a step. Below 900px it stays heading-lg. */
 	.horizontal .title {
-		font-size: var(--font-size-3xl);
+		font-size: calc(var(--font-size-3xl) - 4px);
 	}
 
 	/* Paragraph is 32px narrower than the title: 460px (D-038). */
