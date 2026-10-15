@@ -134,10 +134,10 @@
 	line-height: var(--font-style-heading-sm-line-height);
 }
 
-/* Pets: rounded squares, the same corner as the cards. */
+/* Pets: rounded squares, the same corner as the cards. Two by two on phones, four across from tablet. */
 .photos {
 	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: var(--size-space-lg);
 	margin: 0;
 	padding: 0;
@@ -172,5 +172,11 @@
 @media (min-width: 900px) {
 	.title {
 		font-size: var(--font-size-56);
+	}
+}
+
+@media (min-width: 641px) {
+	.photos {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 }

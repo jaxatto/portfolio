@@ -1,6 +1,7 @@
 import primaryImage from '@assets/about/primary-image-min.jpg';
 import secondaryImage from '@assets/about/secondary-image-min.png';
 import tertiaryImage from '@assets/about/tertiary-image-min.png';
+import quaternaryImage from '@assets/about/quaternary-image-min.jpg';
 
 export const images = [
   {
@@ -20,5 +21,12 @@ export const images = [
     alt: 'A gray cat named Beauregard sits upright on a bed, wearing a pink bow collar with a fish-shaped name tag. The bow has little black skulls on it, because Beau is a little punk rock. Beau is also a rescue.',
     iconFallback: 'paw',
     altFallback: 'A paw icon as fallback for the image of Beauregard the cat.',
+  },
+  {
+    src: quaternaryImage,
+    // TODO(jax): add a one-line personality note for Zelda like the others have.
+    alt: 'A black cat named Zelda lies on a gray fleece blanket and looks at the camera with yellow-green eyes.',
+    iconFallback: 'cat',
+    altFallback: 'A cat icon as fallback for the image of Zelda the cat.',
   },
 ];

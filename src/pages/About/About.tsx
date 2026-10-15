@@ -83,7 +83,6 @@ const About: React.FC = () => (
               />
             </li>
           ))}
-          <span className="sr-only">{content.images.srOnly.outro}</span>
         </ul>
       </section>
     </div>

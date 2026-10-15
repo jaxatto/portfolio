@@ -38,8 +38,6 @@ export const content = {
     srOnly: {
       intro:
         "Meet my pets! Midna, Kirby, Beauregard, and Zelda. Because I work remote, they're always around and up to no good (but are very cute).",
-      outro:
-        "Zelda, the black cat, is not pictured because she was sleeping somewhere hidden.",
     },
   },
 };
