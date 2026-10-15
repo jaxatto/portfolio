@@ -213,6 +213,11 @@
 		font-size: var(--font-size-3xl);
 	}
 
+	/* Paragraph is 32px narrower than the title: 460px (D-038). */
+	.horizontal .outcome {
+		max-width: 28.75rem;
+	}
+
 	.horizontal .sample {
 		min-width: 0;
 	}

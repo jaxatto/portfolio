@@ -167,3 +167,8 @@ The tokens card title is now "A multi-brand token system for cross-platform apps
 ## D-037: 40px card titles — decided, 2026-10-14
 
 Revises D-036. On desktop (≥900px) card titles are 40px (`font-size-3xl`, heading-lg + 8px); below that they stay `heading-lg`. The text is 492px wide (box 532px). At 40px the titles had to be shortened to hold two lines: "Turning surveys into themes in minutes", "Self-serve setup and visible syncs" (the outcome line carries "campaign admins"), "Scaling a design system through a rebrand", "Multi-brand tokens for cross-platform apps" (placeholder). TODO(jax): confirm the wording.
+
+## D-038: Home intro padding and card paragraph measure — decided, 2026-10-14
+
+The Home intro (hero) top padding is 160px (two `section-xl` steps, was 120px). The outcome paragraph in desktop cards is 460px wide (`max-width`, 32px narrower than the 492px title measure); stacked cards keep full width.
+At 460px the ServiceNow outcome ran to four lines, so it now reads "Shaped an AI tool that replaces 10+ hours of manual coding per 100 responses; demoed to leadership, now in user testing." (TODO(jax): confirm).
