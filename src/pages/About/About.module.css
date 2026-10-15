@@ -181,12 +181,11 @@
 	position: relative;
 }
 
-/* Name tag: the same spot on every photo, hanging off the bottom-right corner by 4px (20px down and
-   right of where it sat, 16px in from the edges). */
+/* Name tag: the same spot on every photo, 4px in from the bottom-right corner. */
 .tag {
 	position: absolute;
-	right: calc(-1 * var(--size-space-xs));
-	bottom: calc(-1 * var(--size-space-xs));
+	right: var(--size-space-xs);
+	bottom: var(--size-space-xs);
 }
 
 .caption {
