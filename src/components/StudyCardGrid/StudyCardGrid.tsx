@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import StudyCard, { StudyCardProps } from '#components/StudyCard';
 import { studyLinks } from '@constants/studyLinks';
 import themeweaverImage from '@assets/samples/servicenow-sample-min.png';
+import themeweaverMobileImage from '@assets/samples/servicenow-mobile-sample-min.png';
 import indeedImage from '@assets/samples/indeed-sample-min.png';
 import actblueImage from '@assets/samples/actblue-sample-min.png';
 import toyotaImage from '@assets/samples/toyota-sample-min.png';
@@ -33,6 +34,7 @@ const cards: Card[] = [
 		outcome:
 			'Redesigned how researchers code open-ended survey responses with AI, replacing 10+ hours of manual work per 100 responses.',
 		image: themeweaverImage,
+		mobileImage: themeweaverMobileImage, // the upload step reads as empty in the phone crop
 		imageAlt: '',
 		linkUrl: studyLinks.servicenow,
 		linkText: 'Read the ServiceNow case study',
