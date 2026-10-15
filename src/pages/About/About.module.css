@@ -181,36 +181,11 @@
 	position: relative;
 }
 
-/* Tag position varies per photo and stays clear of the faces. Each class sets the corner it hangs
-   from; the default (bottom-left) is the base. */
+/* Name tag: the same spot on every photo, low on the right. */
 .tag {
 	position: absolute;
-	bottom: var(--size-space-lg);
-	left: var(--size-space-lg);
-}
-
-.bottom-left {
-	bottom: var(--size-space-lg);
-	left: var(--size-space-lg);
-}
-
-.bottom-right {
 	right: var(--size-space-lg);
 	bottom: var(--size-space-lg);
-	left: auto;
-}
-
-.bottom-mid {
-	bottom: var(--size-space-lg);
-	left: 36%;
-}
-
-/* Beside Zelda's right ear, on the blanket. */
-.ear-right {
-	top: 15%;
-	right: var(--size-space-md);
-	bottom: auto;
-	left: auto;
 }
 
 .caption {
