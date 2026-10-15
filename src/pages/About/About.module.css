@@ -149,9 +149,58 @@
 	min-width: 0;
 }
 
+.figure {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-md);
+}
+
+/* Name tag colors: the saturated pair of each palette, so the tag reads on any photo. */
+.figure.primary {
+	--tag-bg: var(--color-primary-default);
+	--tag-fg: var(--color-primary-on-default);
+}
+
+.figure.secondary {
+	--tag-bg: var(--color-secondary-default);
+	--tag-fg: var(--color-secondary-on-default);
+}
+
+.figure.tertiary {
+	--tag-bg: var(--color-tertiary-default);
+	--tag-fg: var(--color-tertiary-on-default);
+}
+
+.figure.quaternary {
+	--tag-bg: var(--color-quaternary-default);
+	--tag-fg: var(--color-quaternary-on-default);
+}
+
+.frame {
+	position: relative;
+}
+
+/* Tag sits low on the left, on top of the photo, clear of the faces. */
+.tag {
+	position: absolute;
+	bottom: var(--size-space-lg);
+	left: var(--size-space-lg);
+}
+
+.caption {
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-sm-family);
+	font-size: var(--font-style-body-sm-size);
+	line-height: var(--font-style-body-sm-line-height);
+	text-wrap: pretty;
+}
+
 .photoFrame {
 	aspect-ratio: 1;
 	width: 100%;
+	overflow: hidden;
+	border-radius: var(--size-radius-lg);
 }
 
 .photoImage {
@@ -161,6 +210,30 @@
 	aspect-ratio: 1;
 	border-radius: var(--size-radius-lg);
 	object-fit: cover;
+	transition: transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+/* Hover or keyboard focus inside the figure: the photo eases in a little and the tag nudges up and
+   left, like a cursor being dragged. Motion only; the name is always visible. */
+@media (hover: hover) {
+	.figure:hover .photoImage {
+		transform: scale(1.04);
+	}
+
+	.figure:hover .tag {
+		transform: translate(-4px, -4px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.photoImage {
+		transition: none;
+	}
+
+	.figure:hover .photoImage,
+	.figure:hover .tag {
+		transform: none;
+	}
 }
 
 /* The shared Image fallback is a circle; match the photos. Doubled class beats its rule. */

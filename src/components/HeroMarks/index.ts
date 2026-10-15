@@ -1,1 +1,1 @@
-export { DesignSelection, Caret } from './HeroMarks';
+export { DesignSelection, Caret, CursorTag } from './HeroMarks';

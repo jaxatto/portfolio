@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@components/Layout";
 import Image from "@components/Image";
-import { DesignSelection, Caret } from "#components/HeroMarks";
+import { DesignSelection, Caret, CursorTag } from "#components/HeroMarks";
 import { images } from "./resources/images";
 import { content } from "./resources/content";
 import { meta } from "./resources/meta";
@@ -73,15 +73,21 @@ const About: React.FC = () => (
         <span className="sr-only">{content.images.srOnly.intro}</span>
         {images.map((img, i) => (
           <li key={i} className={styles.photo}>
-            <Image
-              src={img.src}
-              alt={img.alt}
-              iconFallback={img.iconFallback}
-              altFallback={img.altFallback}
-              className={styles.photoFrame}
-              imgClassName={styles.photoImage}
-              fallbackClassName={styles.photoFallback}
-            />
+            <figure className={`${styles.figure} ${styles[img.palette]}`}>
+              <div className={styles.frame}>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  iconFallback={img.iconFallback}
+                  altFallback={img.altFallback}
+                  className={styles.photoFrame}
+                  imgClassName={styles.photoImage}
+                  fallbackClassName={styles.photoFallback}
+                />
+                <CursorTag name={img.name} className={styles.tag} />
+              </div>
+              <figcaption className={styles.caption}>{img.caption}</figcaption>
+            </figure>
           </li>
         ))}
       </ul>

@@ -35,5 +35,17 @@ export const DesignSelection: React.FC<{
 	</span>
 );
 
+// A Figma-style multiplayer cursor with a name label, for tagging a photo or a card (D-043). The
+// colors come from `--tag-bg` and `--tag-fg` set by the parent. Decorative: the name is also in the
+// photo's alt text, so it is aria-hidden here.
+export const CursorTag: React.FC<{ name: string; className?: string }> = ({ name, className }) => (
+	<span className={`${styles.tag} ${className ?? ''}`} aria-hidden="true">
+		<svg className={styles['tag-arrow']} width="14" height="19" viewBox="0 0 14 19" focusable="false">
+			<path d="M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z" />
+		</svg>
+		<span className={styles['tag-label']}>{name}</span>
+	</span>
+);
+
 // A blinking terminal caret, placed at the end of a code-style chip.
 export const Caret: React.FC = () => <span className={styles.caret} aria-hidden="true" />;
