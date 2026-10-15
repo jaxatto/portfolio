@@ -67,25 +67,25 @@ const About: React.FC = () => (
           <p key={i}>{desc}</p>
         ))}
       </section>
-      <section>
-        <ul className={styles.photos}>
-          <span className="sr-only">{content.images.srOnly.intro}</span>
-          {images.map((img, i) => (
-            <li key={i} className={styles.photo}>
-              <Image
-                src={img.src}
-                alt={img.alt}
-                iconFallback={img.iconFallback}
-                altFallback={img.altFallback}
-                className={styles.photoFrame}
-                imgClassName={styles.photoImage}
-                fallbackClassName={styles.photoFallback}
-              />
-            </li>
-          ))}
-        </ul>
-      </section>
     </div>
+    <section>
+      <ul className={styles.photos}>
+        <span className="sr-only">{content.images.srOnly.intro}</span>
+        {images.map((img, i) => (
+          <li key={i} className={styles.photo}>
+            <Image
+              src={img.src}
+              alt={img.alt}
+              iconFallback={img.iconFallback}
+              altFallback={img.altFallback}
+              className={styles.photoFrame}
+              imgClassName={styles.photoImage}
+              fallbackClassName={styles.photoFallback}
+            />
+          </li>
+        ))}
+      </ul>
+    </section>
   </Layout>
 );
 

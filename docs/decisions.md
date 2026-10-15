@@ -216,4 +216,4 @@ The hero is "About" plus "me" inside the Home header's design-tool selection box
 
 About photo 1 is a new portrait of Midna (900px JPG, square crop from the top, original background), replacing the desk photo. The cutout on a lavender ground was tried and dropped: the source had a lap and a hand in it, and the edges looked rough. Alt text rewritten for the new photo.
 
-About shows four pets: Zelda (the black cat) is added as the fourth photo (cropped to a square on her face, original background), so the screen-reader note that she was "not pictured" is removed. The row is 2 x 2 on phones and 4 across from 641px. TODO(jax): a one-line personality note for Zelda like the other three have.
+About shows four pets: Zelda (the black cat) is added as the fourth photo (cropped to a square on her face, original background), so the screen-reader note that she was "not pictured" is removed. The row is 2 x 2 on phones and 4 across from 641px, and sits outside the 40rem story column so it spans the full 960 grid. TODO(jax): a one-line personality note for Zelda like the other three have.
