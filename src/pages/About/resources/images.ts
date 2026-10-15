@@ -25,7 +25,7 @@ export const images = [
   {
     src: quaternaryImage,
     // TODO(jax): add a one-line personality note for Zelda like the others have.
-    alt: 'A black cat named Zelda sleeps belly-up on a blue and gray rug beside a torn cardboard shipping box.',
+    alt: 'A black cat named Zelda lies on a gray fleece blanket and looks at the camera with yellow-green eyes.',
     iconFallback: 'cat',
     altFallback: 'A cat icon as fallback for the image of Zelda the cat.',
   },
