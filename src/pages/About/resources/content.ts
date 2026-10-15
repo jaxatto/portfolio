@@ -37,7 +37,7 @@ export const content = {
   images: {
     srOnly: {
       intro:
-        "Meet my pets! Midna, Kirby, Beauregard, and Zelda. Because I work remote, they're always around and up to no good (but are very cute).",
+        "Meet my pets! Kirby, Midna, Beauregard, and Zelda. Because I work remote, they're always around and up to no good (but are very cute).",
     },
   },
 };
