@@ -11,16 +11,16 @@ export const images = [
     altFallback: 'A paw icon as fallback for the image of Kirby the dog.',
   },
   {
-    src: primaryImage,
-    alt: 'A tortoiseshell cat named Midna naps with her eyes closed on a couch, curled up next to a blue fleece blanket. Midna is the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
-    iconFallback: 'cat',
-    altFallback: 'A cat icon as fallback for the image of Midna the cat.',
-  },
-  {
     src: tertiaryImage,
     alt: 'A gray cat named Beauregard looks straight at the camera with wide golden eyes, sitting on a cream quilt and wearing a black collar with a tiny Christmas tree charm. Beau is a little punk rock. Beau is also a rescue.',
     iconFallback: 'paw',
     altFallback: 'A paw icon as fallback for the image of Beauregard the cat.',
+  },
+  {
+    src: primaryImage,
+    alt: 'A tortoiseshell cat named Midna naps with her eyes closed on a couch, curled up next to a blue fleece blanket. Midna is the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
+    iconFallback: 'cat',
+    altFallback: 'A cat icon as fallback for the image of Midna the cat.',
   },
   {
     src: quaternaryImage,
