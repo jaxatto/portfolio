@@ -181,7 +181,7 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 		state: {
 			'focus-ring': {
 				light: primitives.colors.purple[950],
-				dark: primitives.colors.white,
+				dark: primitives.colors['white-alpha-98'],
 			},
 			'overlay-tint': {
 				light: primitives.colors.indigo[900],

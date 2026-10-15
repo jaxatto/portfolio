@@ -707,7 +707,7 @@
   --color-quaternary-container-active: var(--primitive-color-teal-600);
   --color-quaternary-on-container-hover: var(--primitive-color-teal-50);
   --color-quaternary-on-container-active: var(--primitive-color-teal-50);
-  --color-state-focus-ring: var(--primitive-color-white);
+  --color-state-focus-ring: var(--primitive-color-white-alpha-98);
   --color-state-overlay-tint: var(--primitive-color-indigo-100);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-900);
   --shadow-color-default: oklch(27.9% 0.041 260.031deg / 10%);
@@ -797,7 +797,7 @@
   --color-quaternary-container-active: var(--primitive-color-teal-600);
   --color-quaternary-on-container-hover: var(--primitive-color-teal-50);
   --color-quaternary-on-container-active: var(--primitive-color-teal-50);
-  --color-state-focus-ring: var(--primitive-color-white);
+  --color-state-focus-ring: var(--primitive-color-white-alpha-98);
   --color-state-overlay-tint: var(--primitive-color-indigo-100);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-900);
   --shadow-color-default: oklch(27.9% 0.041 260.031deg / 10%);
