@@ -180,3 +180,7 @@ Desktop card titles are 36px (was 40px, D-037). The type scale has no 36 (32, 40
 ## D-040: Card link uses the nav hover style — decided, 2026-10-14
 
 The card's link text has no resting underline. On hover of the card (the whole card is the target) a 3px line grows in from the left under the text, like the nav and footer links (D-017, D-024). Text color and the arrow stay static (Jax: no violet, no nudge). Keyboard focus shows only the card's ring, like the nav. Resting color is the palette's on-container color.
+
+## D-041: Card padding +8px — decided, 2026-10-14
+
+Card content padding is 32px at the top and sides and 40px at the bottom (was 24 / 24 / 32), `space-3xl` and `space-4xl`. On desktop the text stays 492px wide and the sample stays at 548px (412px wide), so the text box grew to 548px (32px left, 24px right padding) and the gap between text and sample is 24px. The image top (32px) lines up with the text top. On phones the sample's left edge follows the text's 32px.

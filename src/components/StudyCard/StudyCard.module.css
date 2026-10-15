@@ -65,7 +65,8 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: var(--size-space-section-sm);
-	padding: var(--size-space-2xl) var(--size-space-2xl) var(--size-space-3xl);
+	/* 32px sides and top, 40px bottom (was 24 / 32, +8px per Jax; D-041). */
+	padding: var(--size-space-3xl) var(--size-space-3xl) var(--size-space-4xl);
 }
 
 .text {
@@ -206,22 +207,22 @@
 /* Desktop: horizontal cards put the preview beside the text. */
 @media (min-width: 900px) {
 	/* The sample stays inside the card window: cropped by its right and bottom edges (D-035).
-	   Layout in a 960px card: text 492px wide (box 532px incl. 24px left, 16px right padding),
-	   sample 412px wide starting at 548px, 32px below the card top (D-036, D-037). */
+	   Layout in a 960px card: text 492px wide (box 548px incl. 32px left, 24px right padding),
+	   sample 412px wide starting at 548px, 32px below the card top (D-036, D-037, D-041). */
 	.horizontal {
 		flex-direction: row;
 	}
 
 	.horizontal .content {
-		flex: 0 1 33.25rem; /* 532px */
+		flex: 0 1 34.25rem; /* 548px */
 		min-width: 0;
-		padding-right: var(--size-space-lg);
+		padding-right: var(--size-space-2xl);
 	}
 
 	.horizontal .preview {
 		flex: 1;
 		height: auto;
-		padding: var(--size-space-3xl) 0 0 var(--size-space-lg);
+		padding: var(--size-space-3xl) 0 0;
 	}
 
 	/* Desktop title is 36px: 40px less 4px, per Jax (D-039). 36 isn't on the type scale, so this is
@@ -266,7 +267,7 @@
 
 	.preview {
 		height: 12.5rem; /* 200px */
-		padding: var(--size-space-lg) 0 0 var(--size-space-2xl);
+		padding: var(--size-space-lg) 0 0 var(--size-space-3xl);
 	}
 }
 
