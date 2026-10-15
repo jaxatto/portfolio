@@ -22,7 +22,7 @@ const cards: StudyCardProps[] = [
 		palette: 'brand',
 	},
 	{
-		title: 'Turning support tickets into self-serve setup',
+		title: 'Replacing support tickets with self-serve setup',
 		outcome:
 			'Led design of the Salesforce integration end to end. Admins fix sync issues themselves, cutting support costs an estimated $1.5M a year.',
 		image: actblueImage,
