@@ -22,7 +22,7 @@ const cards: StudyCardProps[] = [
 		palette: 'brand',
 	},
 	{
-		title: 'Self-serve setup and visible syncs',
+		title: 'From support tickets to self-serve syncs',
 		outcome:
 			'Led design of the Salesforce integration end to end. Admins fix sync issues themselves, cutting support costs an estimated $1.5M a year.',
 		image: actblueImage,
