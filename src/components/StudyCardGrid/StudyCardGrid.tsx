@@ -24,7 +24,7 @@ const cards: StudyCardProps[] = [
 	{
 		title: 'Self-serve setup and visible syncs',
 		outcome:
-			'Rebuilt the integration end to end so admins fix sync issues without support, saving an estimated $1.5M a year.',
+			'Led design for the Salesforce integration end to end, so admins can fix sync issues without support, saving an estimated $1.5M a year.',
 		image: actblueImage,
 		linkUrl: studyLinks.actblue,
 		linkText: 'Read the ActBlue case study',
