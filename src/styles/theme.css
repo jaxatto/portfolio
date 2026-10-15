@@ -298,6 +298,8 @@
   --primitive-color-taupe-950: oklch(14.7% 0.004 49.3deg);
   --primitive-color-black: oklch(0% 0 0deg);
   --primitive-color-white: oklch(100% 0 0deg);
+  --primitive-color-white-alpha-98: oklch(100% 0 0deg / 98%);
+  --primitive-color-white-alpha-75: oklch(100% 0 0deg / 75%);
   --primitive-shadow-blur-0: 0px;
   --primitive-shadow-blur-8: 8px;
   --primitive-shadow-blur-16: 16px;
@@ -550,6 +552,7 @@
   --color-content-variant: var(--primitive-color-slate-900);
   --color-content-secondary: var(--primitive-color-slate-900);
   --color-content-emphasis: var(--primitive-color-purple-950);
+  --color-content-soft: var(--primitive-color-slate-900);
   --color-content-muted: var(--primitive-color-slate-600);
   --color-content-link: var(--primitive-color-violet-700);
   --color-content-inverse: var(--primitive-color-white);
@@ -640,11 +643,12 @@
   --color-content-default: var(--primitive-color-purple-50);
   --color-content-variant: var(--primitive-color-purple-50);
   --color-content-secondary: var(--primitive-color-purple-200);
-  --color-content-emphasis: var(--primitive-color-white);
+  --color-content-emphasis: var(--primitive-color-white-alpha-98);
+  --color-content-soft: var(--primitive-color-white-alpha-75);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
-  --color-content-on-accent: var(--primitive-color-white);
+  --color-content-on-accent: var(--primitive-color-white-alpha-98);
   --color-content-on-accent-hover: var(--primitive-color-indigo-200);
   --color-content-on-accent-active: var(--primitive-color-indigo-300);
   --color-content-default-hover: var(--primitive-color-purple-100);
@@ -729,11 +733,12 @@
   --color-content-default: var(--primitive-color-purple-50);
   --color-content-variant: var(--primitive-color-purple-50);
   --color-content-secondary: var(--primitive-color-purple-200);
-  --color-content-emphasis: var(--primitive-color-white);
+  --color-content-emphasis: var(--primitive-color-white-alpha-98);
+  --color-content-soft: var(--primitive-color-white-alpha-75);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
-  --color-content-on-accent: var(--primitive-color-white);
+  --color-content-on-accent: var(--primitive-color-white-alpha-98);
   --color-content-on-accent-hover: var(--primitive-color-indigo-200);
   --color-content-on-accent-active: var(--primitive-color-indigo-300);
   --color-content-default-hover: var(--primitive-color-purple-100);

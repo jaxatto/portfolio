@@ -370,6 +370,9 @@ const primitiveColors = {
 	},
 	black: 'oklch(0% 0 0deg)',
 	white: 'oklch(100% 0 0deg)',
+	// White with alpha, for text on dark grounds (D-035).
+	'white-alpha-98': 'oklch(100% 0 0deg / 98%)',
+	'white-alpha-75': 'oklch(100% 0 0deg / 75%)',
 } as const;
 
 /* ------------------------------------------------------------- */

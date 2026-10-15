@@ -150,7 +150,7 @@ Built from Figma Home `2839:21650`, then refined with Jax in review. The Figma f
 - **Measures (desktop, 960px card):** padding 32 / 32 / 40, title 36px (`--font-size-36`), 12px title-to-copy gap, paragraph 20px at weight 500 and 460px wide, text box 548px (text 492px), screenshot window 412 x 306 starting at 548px, 32px below the top and cropped by the card edges. ServiceNow, Indeed and ActBlue screenshots are 40px larger inside the same window, anchored top-left (`enlargeImage`); Toyota's is trimmed 2px at top and left. No glow behind the screenshot.
 - **Phones (no Figma, D-008):** padding unchanged, title 28px (`--font-size-28`), paragraph and link `body-lg` (matches the footer, about 19px at 375), 200px screenshot window, link shows a short label (D-031).
 - **Fill:** the palette container mixed 5% toward `surface-default` in light and 30% in dark (`--card-lift`), so dark cards are calmer than the raw tint.
-- **Dark text:** heading and link are white (`content-emphasis`), the paragraph is white at 75% opacity (`color-mix` on `content-emphasis`), so it isn't tinted by the palette.
+- **Dark text:** heading and link are white (`content-emphasis`), the paragraph is `content-soft` (white at 75%), so it isn't tinted by the palette (D-035).
 - **Accessibility:** one `article` per card with a real heading (h2 on Home, h3 under a case study); one stretched link covers the card, its accessible name is "Read the X case study: <title>" and keyboard focus rings the whole card (D-032). No `aria-label` count.
 - **Tried and dropped:** a 1120px breakout, full-width bands, a one-hue stepped ramp, a 2-up row, a tag line, a 22px paragraph, a glow, a pop-out screenshot.
 
@@ -177,3 +177,8 @@ The semantic font sizes are named by their pixel value (`--font-size-12`, 14, 16
 ## D-034: Pretty text wrapping site-wide — decided, 2026-10-14
 
 `text-wrap: pretty` is set on `body` and inherited; elements with `balance` (card titles, the footer description) keep it. It does not stop a break at a hyphen, so hyphenated words that must stay whole in headings use a non-breaking hyphen (U+2011): "multi‑brand", "self‑serve".
+
+## D-035: White text on dark — decided, 2026-10-14
+
+In dark mode `content.emphasis` and `content.on-accent` are white at 98% opacity (`white-alpha-98`, a new primitive), so large white type is a little less harsh. New `content.soft` (light slate-900, dark white at 75%, `white-alpha-75`) is the body copy on the card and footer grounds, replacing a purple tint; the accent footer remaps it to full `on-accent`. The footer and TextLink icons now keep `fill: currentcolor` on hover: the legacy global `a:hover svg` rule was setting a fixed dark purple fill, which showed on the dark ground (D-031 has the same override for the card link).
+

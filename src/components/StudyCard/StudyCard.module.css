@@ -22,7 +22,7 @@
 		var(--card-bg) calc(100% - var(--card-lift)),
 		var(--color-surface-default)
 	);
-	color: var(--color-content-variant);
+	color: var(--color-content-soft);
 	transition: background-color 0.2s ease;
 }
 
@@ -344,14 +344,11 @@
 :global([data-theme='dark']) .card {
 	--card-fg: var(--color-content-emphasis);
 	--card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
-	/* Paragraph: white at 75% opacity, not a purple tint (D-028). */
-	color: color-mix(in srgb, var(--color-content-emphasis) 75%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
 	:global(:root:not([data-theme='light'])) .card {
 		--card-fg: var(--color-content-emphasis);
 		--card-lift: 30%;
-		color: color-mix(in srgb, var(--color-content-emphasis) 75%, transparent);
 	}
 }

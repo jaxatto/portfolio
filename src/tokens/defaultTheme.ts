@@ -31,9 +31,15 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				dark: primitives.colors.purple[200],
 			},
 			// Hero greeting and sentence: same as default in light, true white in dark. See D-019.
+			// 98% white on dark so large white type isn't harsh (D-035).
 			emphasis: {
 				light: primitives.colors.purple[950],
-				dark: primitives.colors.white,
+				dark: primitives.colors['white-alpha-98'],
+			},
+			// Body copy on card and footer grounds: dark is white at 75% instead of a purple tint (D-035).
+			soft: {
+				light: primitives.colors.slate[900],
+				dark: primitives.colors['white-alpha-75'],
 			},
 			muted: {
 				light: primitives.colors.slate[600],
@@ -49,7 +55,7 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			},
 			'on-accent': {
 				light: primitives.colors.white,
-				dark: primitives.colors.white,
+				dark: primitives.colors['white-alpha-98'],
 			},
 			// Hover / pressed for interactive content on the accent ground: pale in both themes. D-022.
 			'on-accent-hover': {

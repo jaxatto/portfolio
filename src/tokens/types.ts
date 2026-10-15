@@ -55,6 +55,7 @@ export type BaseSemanticGeneralColor = {
 		'on-accent-active': ColorMode;
 		secondary: ColorMode;
 		emphasis: ColorMode;
+		soft: ColorMode;
 	};
 	surface: {
 		default: ColorMode;

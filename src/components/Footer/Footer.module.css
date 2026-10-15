@@ -43,7 +43,7 @@
 	margin: 0;
 	max-width: 40em;
 	text-wrap: balance;
-	color: var(--color-content-variant);
+	color: var(--color-content-soft);
 	font-family: var(--font-family-body);
 	font-size: var(--font-style-body-lg-size);
 	font-weight: var(--font-style-body-lg-weight);
@@ -149,6 +149,8 @@
 .icon-link:active svg,
 .icon-link:focus-visible svg {
 	color: inherit;
+	/* The legacy `a:hover svg` rule sets a fixed dark purple fill, wrong on the dark ground. */
+	fill: currentcolor;
 }
 
 .icon-link:hover {
@@ -192,6 +194,7 @@
 	color: var(--color-content-on-accent);
 	--color-content-default: var(--color-content-on-accent);
 	--color-content-variant: var(--color-content-on-accent);
+	--color-content-soft: var(--color-content-on-accent);
 	--color-content-emphasis: var(--color-content-on-accent);
 	--color-content-link: var(--color-content-on-accent);
 	--color-primary-default: var(--color-content-on-accent-hover);

@@ -58,4 +58,5 @@
 .link:active .icon,
 .link:focus-visible .icon {
 	color: inherit;
+	fill: currentcolor;
 }
