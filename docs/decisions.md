@@ -217,7 +217,7 @@ On phones the card link and the "coming soon" label use `body-lg`, the same as t
 
 ## D-049: Desktop card paragraph and link 22px — decided, 2026-10-14
 
-At 900px and up the card paragraph and its link are 22px (`calc(font-size-lg + 2px)`; 22 isn't on the type scale, same exception as D-039 and D-047). Phones keep `body-lg` (D-045). TODO(jax): add 22px to the scale, or return to 20/24.
+Tried 22px for the card paragraph and link on desktop; reverted to 20px (`body-md`) the same day because it pushed paragraphs past three lines. The paragraph keeps weight 500 (D-050). Phones keep `body-lg` (D-045).
 
 ## D-050: Card paragraph weight 500 — decided, 2026-10-14
 

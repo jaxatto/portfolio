@@ -248,12 +248,6 @@
 		max-width: 28.75rem;
 	}
 
-	/* Desktop paragraph and link are 22px (body-md + 2px, per Jax; 22 isn't on the scale, D-049). */
-	.horizontal .outcome,
-	.horizontal .link,
-	.horizontal .placeholder {
-		font-size: calc(var(--font-size-lg) + 2px);
-	}
 
 	.horizontal .sample {
 		min-width: 0;
