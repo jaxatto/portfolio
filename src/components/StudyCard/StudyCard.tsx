@@ -7,7 +7,6 @@ import styles from './StudyCard.module.css';
 // Figma "Study Card" (Home, node 2726:63413). Palette = container / on-container token pair.
 // The whole card is clickable through a stretched link (the link text's ::after covers the card),
 // so the heading stays a real heading and the link name is unique: "Read AI study: <title>".
-// Without `linkUrl` the card is inert (case study not written yet) and shows `placeholder`.
 // Anatomy: title, outcome, link naming the company (D-035). See also D-028.
 
 export type StudyCardProps = {
@@ -15,12 +14,11 @@ export type StudyCardProps = {
 	outcome?: string; // One sentence of proof: what changed and Jax's part
 	image: string;
 	imageAlt?: string; // Empty by default: the preview is decorative next to the title
-	linkUrl?: string;
+	linkUrl: string;
 	linkText: string;
 	palette?: 'brand' | 'primary' | 'secondary' | 'tertiary';
 	layout?: 'horizontal' | 'vertical'; // Horizontal: preview beside the text (desktop only)
 	variant?: 'work' | 'study'; // 'study' = smaller type, used under a case study
-	placeholder?: string; // Replaces the link while the study doesn't exist
 };
 
 const StudyCard: React.FC<StudyCardProps> = ({
@@ -33,7 +31,6 @@ const StudyCard: React.FC<StudyCardProps> = ({
 	palette = 'brand',
 	layout = 'vertical',
 	variant = 'work',
-	placeholder = 'Case study coming soon',
 }) => (
 	<article
 		className={clsx(
@@ -41,7 +38,6 @@ const StudyCard: React.FC<StudyCardProps> = ({
 			styles[palette],
 			layout === 'horizontal' && styles.horizontal,
 			variant === 'study' && styles.study,
-			!linkUrl && styles.inert,
 		)}
 	>
 		<div className={styles.content}>
@@ -49,17 +45,13 @@ const StudyCard: React.FC<StudyCardProps> = ({
 				<h3 className={styles.title}>{title}</h3>
 				{outcome && <p className={styles.outcome}>{outcome}</p>}
 			</div>
-			{linkUrl ? (
-				<RouterLink to={linkUrl} className={styles.link}>
-					<span className={styles.linkText}>
-						{linkText}
-						<span className="sr-only">: {title}</span>
-					</span>
-					<Icon name="arrow-right" className={styles.icon} aria-hidden="true" />
-				</RouterLink>
-			) : (
-				<p className={styles.placeholder}>{placeholder}</p>
-			)}
+			<RouterLink to={linkUrl} className={styles.link}>
+				<span className={styles.linkText}>
+					{linkText}
+					<span className="sr-only">: {title}</span>
+				</span>
+				<Icon name="arrow-right" className={styles.icon} aria-hidden="true" />
+			</RouterLink>
 		</div>
 		<div className={styles.preview}>
 			<div className={styles.sample}>

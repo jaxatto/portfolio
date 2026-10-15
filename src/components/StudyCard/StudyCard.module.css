@@ -55,7 +55,7 @@
 	--card-fg-active: var(--color-tertiary-on-container-active);
 }
 
-.card:not(.inert):hover {
+.card:hover {
 	background: color-mix(
 		in oklch,
 		var(--card-bg-hover) calc(100% - var(--card-lift)),
@@ -156,7 +156,7 @@
 	fill: currentcolor;
 }
 
-.card:not(.inert):hover .linkText::after {
+.card:hover .linkText::after {
 	transform: scaleX(1);
 	transform-origin: left center;
 }
@@ -182,15 +182,6 @@
 	color: inherit;
 	fill: currentcolor;
 	transition: none;
-}
-
-.placeholder {
-	margin: 0;
-	color: var(--card-fg);
-	font-family: var(--font-family-body);
-	font-size: var(--font-style-body-md-size);
-	font-weight: var(--font-weight-extra-strong);
-	line-height: var(--font-line-height-default);
 }
 
 /* Preview: the sample UI is cropped by the card's right and bottom edges, on purpose. */
@@ -267,8 +258,7 @@
 
 /* Study (under a case study): smaller body type, text and preview stay stacked. */
 .study .outcome,
-.study .link,
-.study .placeholder {
+.study .link {
 	font-size: var(--font-style-body-sm-size);
 }
 
@@ -285,8 +275,7 @@
 
 	/* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-045). */
 	.outcome,
-	.link,
-	.placeholder {
+	.link {
 		font-size: var(--font-style-body-lg-size);
 		line-height: var(--font-style-body-lg-line-height);
 	}

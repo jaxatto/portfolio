@@ -11,17 +11,22 @@ import styles from './StudyCardGrid.module.css';
 // Cards for the Home page and the "next study" row under each case study (D-028).
 // Copy is inline (D-003). Figma: Home 2839:21650. Outcome lines come from each study's own content (D-029).
 
-const cards: StudyCardProps[] = [
+// `ready: false` keeps a card on Home but out of the "next study" row until its page exists.
+type Card = StudyCardProps & { ready?: boolean };
+
+const cards: Card[] = [
 	{
 		title: 'Building a multi‑brand token system',
 		outcome:
 			'Led token architecture and Figma-to-code automation for Toyota’s PRIME design system, a single source of truth for design and code.',
 		image: toyotaImage,
 		imageAlt: '',
+		linkUrl: studyLinks.toyota,
 		linkText: 'Read the Toyota case study',
 		palette: 'brand',
-		// TODO(jax): no Toyota case study page exists yet (Figma node 2948:40398), so the card is inert
-		// and shows "Case study coming soon". Add `studyLinks.toyota` and the route with slice 4.
+		ready: false,
+		// TODO(jax): the Toyota case study page doesn't exist yet (Figma node 2948:40398), so the link
+		// shows the 404 until content is added before launch (slice 4). Then drop `ready: false`.
 	},
 	{
 		title: 'Turning surveys into themes in minutes',
@@ -62,11 +67,11 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({ variant = 'work', exclude
 	const visible =
 		variant === 'work'
 			? cards
-			: cards.filter((card) => card.linkUrl && card.linkUrl !== excludeUrl).slice(0, 2);
+			: cards.filter((card) => card.ready !== false && card.linkUrl !== excludeUrl).slice(0, 2);
 
 	return (
 		<div className={clsx(styles.grid, variant === 'study' && styles.study)}>
-			{visible.map((card) => (
+			{visible.map(({ ready: _ready, ...card }) => (
 				<StudyCard
 					key={card.title}
 					{...card}
