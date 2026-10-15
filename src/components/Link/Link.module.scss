@@ -52,6 +52,11 @@
 
 .button {
     display: flex;
+    // Self-contained: these came from the global legacy `a` rule, which is scoped to `.legacy` pages,
+    // so buttons outside them (the 404) lost the icon alignment. See D-037.
+    align-items: center;
+    gap: var(--size-space-sm);
+    font-family: var(--font-family-heading);
     align-self: flex-start;
     padding: spacing(200) spacing(400); // 16px 32px
     border-radius: radius(150); // 12px
