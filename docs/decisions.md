@@ -213,3 +213,5 @@ The hero is "About" plus "me" inside the Home header's design-tool selection box
 ## D-042: About refinements — decided, 2026-10-14
 
 (1) The "me" selection's pointer drags the top-right handle (`corner="top-right"` on `DesignSelection`; the box grows up and to the right), so it differs from Home's bottom-right. (2) Chips use the I-beam cursor, like the "build" chip on Home. (3) The chip caret takes the chip's text color (`--caret-color`, defaulting to primary). (4) New token `content.prose`: true black in light, the usual purple-50 in dark, for long-form reading text; used by the About body. (5) Heading steps on About: h2 are heading-lg (24 to 32px), and the "Label: sentence" groups are real h3s at heading-sm (16 to 20px), so the secondary headings clearly outrank the tertiary ones and the page has a proper h1, h2, h3 outline.
+
+About photo 1 is a new portrait of Midna with the lap and hand removed and the cat set on a flat lavender (purple-200) ground, so it matches the rounded-square row. Cut out locally (macOS Vision subject mask, then the ear and cheek edges traced by hand), saved as `primary-image-min.jpg` at 900px. Alt text rewritten for the new photo.
