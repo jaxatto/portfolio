@@ -20,7 +20,7 @@ export const images = [
     src: tertiaryImage,
     name: 'Beau',
     palette: 'secondary',
-    caption: 'Actual menace to society.',
+    caption: 'Menace to society.',
     alt: 'A gray cat named Beauregard looks straight at the camera with wide golden eyes, sitting on a cream quilt and wearing a black collar with a tiny Christmas tree charm.',
     iconFallback: 'paw',
     altFallback: 'A paw icon as fallback for the image of Beauregard the cat.',
