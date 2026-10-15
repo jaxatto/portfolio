@@ -1,0 +1,123 @@
+/* About page on tokens (D-040). The column and side padding come from Layout (960px, D-029). */
+
+.page {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-section-sm);
+	/* Room between the photos and the footer. */
+	padding-block-end: var(--size-space-section-lg);
+	color: var(--color-content-default);
+}
+
+.title {
+	margin: 0;
+	color: var(--color-content-emphasis);
+	font-family: var(--font-style-title-sm-family);
+	font-size: var(--font-style-title-sm-size);
+	font-weight: var(--font-style-title-sm-weight);
+	line-height: var(--font-style-title-sm-line-height);
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-2xl);
+}
+
+/* Four facts, one per line, quieter than the story. */
+.facts {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-sm);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-md-size);
+	line-height: var(--font-style-body-md-line-height);
+}
+
+.story {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-section-sm);
+	min-width: 0;
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-md-size);
+	line-height: var(--font-style-body-md-line-height);
+	text-wrap: pretty;
+}
+
+.story section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-2xl);
+}
+
+.story p {
+	margin: 0;
+}
+
+.story h2 {
+	margin: 0;
+	color: var(--color-content-emphasis);
+	font-family: var(--font-style-heading-md-family);
+	font-size: var(--font-style-heading-md-size);
+	font-weight: var(--font-style-heading-md-weight);
+	line-height: var(--font-style-heading-md-line-height);
+}
+
+/* "Strategic Product Design" etc.: the label sits on its own line above its sentence. */
+.label {
+	display: block;
+	margin-block-end: var(--size-space-xs);
+	color: var(--color-content-emphasis);
+	font-family: var(--font-family-heading);
+	font-weight: var(--font-weight-strong);
+}
+
+.photos {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--size-space-lg);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.photo {
+	min-width: 0;
+}
+
+.photoFrame {
+	aspect-ratio: 1;
+	width: 100%;
+}
+
+.photoImage {
+	display: block;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1;
+	border-radius: var(--size-radius-full);
+	object-fit: cover;
+}
+
+.photoFallback {
+	aspect-ratio: 1;
+}
+
+/* Tablet and up: title and facts on the left, the story at a reading measure on the right. */
+@media (min-width: 900px) {
+	.page {
+		display: grid;
+		grid-template-columns: minmax(0, 15rem) minmax(0, 40rem);
+		column-gap: var(--size-space-section-sm);
+		align-items: start;
+	}
+
+	.title {
+		font-size: var(--font-size-40);
+	}
+}

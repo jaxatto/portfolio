@@ -201,3 +201,7 @@ Below 900px the horizontal card used to fall back to the phone stack, which at 7
 
 Phone preview: the screenshot window starts at the top of the preview area (16px higher, 200px instead of 184px visible), card height unchanged.
 Phone card: the gap between link and screenshot is 32px (content bottom padding 3xl instead of 4xl), so the card is 8px shorter.
+
+## D-040: About page on tokens and the 960 column — decided, 2026-10-14
+
+About is a CSS module on tokens with `legacy={false}`. Layout: the title and the four facts sit in a 240px left column and the story in a 640px right column from 900px (one column below, text at full width); both start on the header's left edge, so the page lines up with the 960 grid. The old dotted divider is dropped. The "Label: sentence" paragraphs under Approach to Work get the label as its own bold line (the copy is unchanged, only split at the first colon in the component). The photo row is a 3-up grid that stays 3-up on phones, with 64px (section-lg) between it and the footer. Body copy has pretty wrapping. New token `radius.full` (9999px) for the circular photos. Copy edits (a possibly missing word in paragraph 1, adding an outcome) are held for a separate pass. The shared `Image` fallback styles are untouched until the case study slice.

@@ -431,6 +431,7 @@
   --size-radius-md: var(--primitive-size-radius-12);
   --size-radius-lg: var(--primitive-size-radius-16);
   --size-radius-xl: var(--primitive-size-radius-24);
+  --size-radius-full: var(--primitive-size-radius-full);
   --size-space-none: var(--primitive-size-space-0);
   --size-space-xs: var(--primitive-size-space-4);
   --size-space-sm: var(--primitive-size-space-8);
