@@ -254,3 +254,17 @@
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 }
+
+/* Tablet and phone: less room between the photos and the footer. */
+@media (max-width: 899px) {
+	.page {
+		padding-block-end: var(--size-space-section-sm);
+	}
+}
+
+/* Phone: the name tags are enough; the captions come back from 641px up. */
+@media (max-width: 640px) {
+	.caption {
+		display: none;
+	}
+}
