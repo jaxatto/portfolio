@@ -198,3 +198,5 @@ Revised (D-038, 2026-10-14): the 404 has its own ground token, `surface.error` (
 ## D-039: Cards stay side-by-side on tablet — decided, 2026-10-14
 
 Below 900px the horizontal card used to fall back to the phone stack, which at 768 gave 720 x 523 cards with a large empty band. Now everything above phones (641px) stays side-by-side: text takes 55% of the card and the preview the rest, the title stays at heading-lg (about 27px at 768), and the fixed 548px text column and 36px title return from 900px. Below 800px the short link label ("Read the case study") is used so the link never wraps in the narrower column. Phones (640px and below) keep the stack (D-028, D-031). Checked at 641, 700, 768, 801 and 1280, light and dark: no overflow, link on one line, cards 340 to 390px tall.
+
+Phone preview: the screenshot window starts at the top of the preview area (16px higher, 200px instead of 184px visible), card height unchanged.

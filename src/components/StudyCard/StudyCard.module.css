@@ -341,7 +341,8 @@
 
 	.preview {
 		height: 12.5rem; /* 200px */
-		padding: var(--size-space-lg) 0 0 var(--size-space-3xl);
+		/* Sample starts at the preview's top edge: 16px more of the screenshot, card height unchanged. */
+		padding: var(--size-space-none) 0 0 var(--size-space-3xl);
 	}
 }
 
