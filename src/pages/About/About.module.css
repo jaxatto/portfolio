@@ -200,15 +200,15 @@
 	left: auto;
 }
 
-.top-left {
-	top: var(--size-space-lg);
-	bottom: auto;
-	left: var(--size-space-lg);
+.bottom-mid {
+	bottom: var(--size-space-lg);
+	left: 36%;
 }
 
-.top-right {
-	top: var(--size-space-lg);
-	right: var(--size-space-lg);
+/* Beside Zelda's right ear, on the blanket. */
+.ear-right {
+	top: 15%;
+	right: var(--size-space-md);
 	bottom: auto;
 	left: auto;
 }
