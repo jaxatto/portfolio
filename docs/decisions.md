@@ -206,3 +206,7 @@ At 640px and below the card's outcome paragraph uses `body-lg` (the footer descr
 ## D-046: Pretty text wrapping site-wide — decided, 2026-10-14
 
 `text-wrap: pretty` is set on `body` and inherited, so paragraphs avoid orphaned last words. Elements that set their own (`balance` on card titles and the footer description) keep it. Browsers without support ignore it.
+
+## D-047: Card title on phones and intro padding — decided, 2026-10-14
+
+At 640px and below card titles are `heading-lg` + 4px (28px at 375, was 24px); `calc(... + 4px)` because 28 isn't on the type scale (same exception as D-039). The Home intro has 16px more top padding and none at the bottom: 176px top and 0 bottom on desktop (was 160 / 16), 64px top on phones (was 48; bottom also 0). The header's own 48px bottom padding still separates it from the first card.

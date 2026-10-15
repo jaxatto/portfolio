@@ -226,10 +226,10 @@
 	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
 	margin-inline: auto;
 	padding-inline: var(--size-space-2xl);
-	/* 160px under the nav row (two section-xl steps; was 120px, +40px per Jax, D-038), less before
-	   the first card (header's own bottom padding adds 48px). */
-	padding-top: calc(var(--size-space-section-xl) * 2);
-	padding-bottom: var(--size-space-lg);
+	/* 176px under the nav row (two section-xl steps plus lg; 120px originally, D-038, D-047), with
+	   no bottom padding of its own: the header's own bottom padding adds 48px before the first card. */
+	padding-top: calc(var(--size-space-section-xl) * 2 + var(--size-space-lg));
+	padding-bottom: var(--size-space-none);
 }
 
 /* Role label: plain text in the body color. Lives in the nav row's left slot on Home (D-017). Tried
@@ -480,7 +480,7 @@
 	}
 
 	.intro {
-		padding-top: var(--size-space-section-sm);
+		padding-top: var(--size-space-section-lg); /* 64px (was 48, D-047) */
 	}
 
 	.heading {
