@@ -209,3 +209,7 @@ About is a CSS module on tokens with `legacy={false}`, in one column on the 960 
 ## D-041: About hero carries over the Home marks — decided, 2026-10-14
 
 The hero is "About" plus "me" inside the Home header's design-tool selection box and pointer, with the four facts as code-style chips: Roboto Mono, one container palette each (the same four as the Home cards), and a blinking caret after the last one. The marks moved from the Header into a shared `HeroMarks` component (`DesignSelection`, `Caret`), so Home and About use one source. Title is the 56px step from 900px (title-md below). About uses the quiet footer like Home (D-024). The pet photos are rounded squares with the card corner (`radius-lg`), 3-up on all widths, including the fallback icon.
+
+## D-042: About refinements — decided, 2026-10-14
+
+(1) The "me" selection's pointer drags the top-right handle (`corner="top-right"` on `DesignSelection`; the box grows up and to the right), so it differs from Home's bottom-right. (2) Chips use the I-beam cursor, like the "build" chip on Home. (3) The chip caret takes the chip's text color (`--caret-color`, defaulting to primary). (4) New token `content.prose`: true black in light, the usual purple-50 in dark, for long-form reading text; used by the About body. (5) Heading steps on About: h2 are heading-lg (24 to 32px), and the "Label: sentence" groups are real h3s at heading-sm (16 to 20px), so the secondary headings clearly outrank the tertiary ones and the page has a proper h1, h2, h3 outline.

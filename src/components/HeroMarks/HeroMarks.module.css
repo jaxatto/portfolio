@@ -128,13 +128,46 @@
 	}
 }
 
-/* A blinking terminal caret. Sized in em so it follows the text it sits in. */
+/* Top-right variant: the pointer drags the top-right handle, so the box grows up and to the right.
+   The pointer sits on that corner, tag below-right of the tip like the bottom-right one. */
+.corner-tr {
+	animation-name: resize-box-tr;
+}
+
+.corner-tr .pointer {
+	top: 0;
+	left: 100%;
+	margin: -1px 0 0 1px;
+}
+
+@keyframes resize-box-tr {
+	0%,
+	13% {
+		top: 0;
+		right: 0;
+	}
+
+	30%,
+	40% {
+		top: -0.1em;
+		right: -0.3em;
+	}
+
+	57%,
+	100% {
+		top: 0;
+		right: 0;
+	}
+}
+
+/* A blinking terminal caret. Sized in em so it follows the text it sits in; `--caret-color` lets a
+   chip match it to its text. */
 .caret {
 	display: inline-block;
 	width: 0.12em;
 	height: 0.85em;
 	margin-left: 0.15em;
-	background: var(--color-primary-default);
+	background: var(--caret-color, var(--color-primary-default));
 	vertical-align: -0.1em;
 	animation: blink 1.4s ease-in-out infinite;
 }

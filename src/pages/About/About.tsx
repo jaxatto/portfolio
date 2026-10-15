@@ -13,15 +13,15 @@ import styles from "./About.module.css";
 // One palette per chip, the same four container pairs as the Home cards.
 const chipPalettes = ["primary", "secondary", "tertiary", "quaternary"] as const;
 
-// "Label: sentence" paragraphs get the label as its own line. Copy is unchanged, only split here.
+// "Label: sentence" paragraphs get the label as an h3 above the sentence. Copy is unchanged, only split here.
 const LabelledParagraph: React.FC<{ text: string }> = ({ text }) => {
   const split = text.indexOf(": ");
   if (split === -1) return <p>{text}</p>;
   return (
-    <p>
-      <strong className={styles.label}>{text.slice(0, split)}</strong>
-      {text.slice(split + 2)}
-    </p>
+    <div className={styles.item}>
+      <h3>{text.slice(0, split)}</h3>
+      <p>{text.slice(split + 2)}</p>
+    </div>
   );
 };
 
@@ -35,7 +35,7 @@ const About: React.FC = () => (
   >
     <div className={styles.hero}>
       <h1 className={styles.title}>
-        About <DesignSelection>me</DesignSelection>
+        About <DesignSelection corner="top-right">me</DesignSelection>
       </h1>
       <ul className={styles.chips}>
         {content.header.bullets.map((bullet, i) => (

@@ -56,6 +56,7 @@ export type BaseSemanticGeneralColor = {
 		secondary: ColorMode;
 		emphasis: ColorMode;
 		soft: ColorMode;
+		prose: ColorMode;
 	};
 	surface: {
 		default: ColorMode;

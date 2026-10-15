@@ -41,6 +41,11 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.slate[900],
 				dark: primitives.colors['white-alpha-80'],
 			},
+			// Long-form reading text (About): true black in light, the page's usual tint in dark (D-042).
+			prose: {
+				light: primitives.colors.black,
+				dark: primitives.colors.purple[50],
+			},
 			muted: {
 				light: primitives.colors.slate[600],
 				dark: primitives.colors.slate[400],

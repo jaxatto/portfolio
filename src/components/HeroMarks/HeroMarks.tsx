@@ -5,9 +5,16 @@ import styles from './HeroMarks.module.css';
 // Both are aria-hidden and empty, so they never change how the text reads.
 
 // A design-tool selection box with corner handles and a pointer, drawn around the children.
-export const DesignSelection: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+// `corner` is the handle the pointer drags: bottom-right on Home, top-right on About.
+export const DesignSelection: React.FC<{
+	children: React.ReactNode;
+	corner?: 'bottom-right' | 'top-right';
+}> = ({ children, corner = 'bottom-right' }) => (
 	<span className={styles.design}>
-		<span className={styles.selection} aria-hidden="true">
+		<span
+			className={`${styles.selection} ${corner === 'top-right' ? styles['corner-tr'] : ''}`}
+			aria-hidden="true"
+		>
 			<i className={styles['handle-tl']} />
 			<i className={styles['handle-tr']} />
 			<i className={styles['handle-bl']} />

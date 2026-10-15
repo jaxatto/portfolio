@@ -7,7 +7,7 @@
 	gap: var(--size-space-section-sm);
 	/* Quiet footer: a hairline above it, so the photos need room before it. */
 	padding-block: var(--size-space-section-lg);
-	color: var(--color-content-default);
+	color: var(--color-content-prose);
 }
 
 /* Hero: the Home header's marks carried over. "me" gets the selection box and pointer; the facts are
@@ -49,6 +49,10 @@
 	font-size: var(--font-style-body-sm-size);
 	font-weight: var(--font-weight-emphasis);
 	line-height: var(--font-line-height-default);
+	/* The I-beam, like the "build" chip on Home: these read as typed text. */
+	cursor: text;
+	/* The caret after the last chip takes the chip's text color. */
+	--caret-color: var(--chip-fg);
 }
 
 .primary {
@@ -107,19 +111,27 @@
 .story h2 {
 	margin: 0;
 	color: var(--color-content-emphasis);
-	font-family: var(--font-style-heading-md-family);
-	font-size: var(--font-style-heading-md-size);
-	font-weight: var(--font-style-heading-md-weight);
-	line-height: var(--font-style-heading-md-line-height);
+	font-family: var(--font-style-heading-lg-family);
+	font-size: var(--font-style-heading-lg-size);
+	font-weight: var(--font-style-heading-lg-weight);
+	line-height: var(--font-style-heading-lg-line-height);
 }
 
-/* "Strategic Product Design" etc.: the label sits on its own line above its sentence. */
-.label {
-	display: block;
-	margin-block-end: var(--size-space-xs);
+/* Group of label + sentence under Approach to Work. */
+.item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-xs);
+}
+
+/* "Strategic Product Design" etc.: h3s, one step above the sentence and well under the h2s. */
+.story h3 {
+	margin: 0;
 	color: var(--color-content-emphasis);
-	font-family: var(--font-family-heading);
-	font-weight: var(--font-weight-strong);
+	font-family: var(--font-style-heading-sm-family);
+	font-size: var(--font-style-heading-sm-size);
+	font-weight: var(--font-style-heading-sm-weight);
+	line-height: var(--font-style-heading-sm-line-height);
 }
 
 /* Pets: rounded squares, the same corner as the cards. */
