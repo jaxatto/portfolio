@@ -6,7 +6,7 @@ import quaternaryImage from '@assets/about/quaternary-image-min.jpg';
 export const images = [
   {
     src: primaryImage,
-    alt: 'A tortoiseshell cat named Midna with green eyes sits on a gray blanket and looks at the camera with the tip of her tongue sticking out. Midna is the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
+    alt: 'A tortoiseshell cat named Midna naps with her eyes closed on a couch, curled up next to a blue fleece blanket. Midna is the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
     iconFallback: 'cat',
     altFallback: 'A cat icon as fallback for the image of Midna the cat.',
   },
