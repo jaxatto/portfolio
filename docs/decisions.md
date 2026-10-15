@@ -194,3 +194,7 @@ Every UI icon is Phosphor bold now (D-026). The remaining hand-drawn icons that 
 
 Revised (D-038, 2026-10-14): the 404 has its own ground token, `surface.error` (indigo-900 in light, indigo-800 in dark), instead of sharing `surface.accent` with the footer, so it is a theme pair of its own and distinct from the page surface (white / night-900). The button is inverted (`content-on-accent` fill, `surface-error` text, pale hover and pressed steps from the on-accent tokens), because a container color can't read on it: secondary-container is indigo-800, the same as the dark ground.
 
+
+## D-039: Cards stay side-by-side on tablet — decided, 2026-10-14
+
+Below 900px the horizontal card used to fall back to the phone stack, which at 768 gave 720 x 523 cards with a large empty band. Now everything above phones (641px) stays side-by-side: text takes 55% of the card and the preview the rest, the title stays at heading-lg (about 27px at 768), and the fixed 548px text column and 36px title return from 900px. Below 800px the short link label ("Read the case study") is used so the link never wraps in the narrower column. Phones (640px and below) keep the stack (D-028, D-031). Checked at 641, 700, 768, 801 and 1280, light and dark: no overflow, link on one line, cards 340 to 390px tall.

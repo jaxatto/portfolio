@@ -223,8 +223,10 @@
 	height: auto;
 }
 
-/* Desktop: horizontal cards put the preview beside the text. */
-@media (min-width: 900px) {
+/* Tablet and up: horizontal cards put the preview beside the text. Above phones (641px) the text
+   takes 55% of the card and the preview the rest, so a 768 viewport gets a smaller desktop card
+   instead of a stretched phone stack. Fixed 548px text column from 900px. */
+@media (min-width: 641px) {
 	/* The sample stays inside the card window: cropped by its right and bottom edges (D-028).
 	   Layout in a 960px card: text 492px wide (box 548px incl. 32px left, 24px right padding),
 	   sample 412px wide starting at 548px, 32px below the card top (D-028). */
@@ -233,7 +235,7 @@
 	}
 
 	.horizontal .content {
-		flex: 0 1 34.25rem; /* 548px */
+		flex: 0 1 55%;
 		min-width: 0;
 		padding-right: var(--size-space-2xl);
 	}
@@ -244,17 +246,10 @@
 		padding: var(--size-space-3xl) 0 0;
 	}
 
-	/* Desktop title is 36px, a real step on the type scale now (D-033). Below 900px it stays
-	   heading-lg. */
-	.horizontal .title {
-		font-size: var(--font-size-36);
-	}
-
 	/* Paragraph is 32px narrower than the title: 460px (D-028). */
 	.horizontal .outcome {
 		max-width: 28.75rem;
 	}
-
 
 	.horizontal .sample {
 		min-width: 0;
@@ -288,6 +283,18 @@
 	}
 }
 
+@media (min-width: 900px) {
+	.horizontal .content {
+		flex-basis: 34.25rem; /* 548px */
+	}
+
+	/* Desktop title is 36px, a real step on the type scale now (D-033). Below 900px it stays
+	   heading-lg. */
+	.horizontal .title {
+		font-size: var(--font-size-36);
+	}
+}
+
 /* Study (under a case study): smaller body type, text and preview stay stacked. */
 .study .outcome,
 .study .link {
@@ -298,8 +305,8 @@
 	gap: var(--size-space-2xl);
 }
 
-/* Mobile (no Figma design, D-008; see D-028): tighter padding and a shorter preview. */
-@media (max-width: 640px) {
+/* The text column is narrow below 800px, so the short label keeps the link on one line (D-031). */
+@media (max-width: 800px) {
 	.linkFull {
 		display: none;
 	}
@@ -311,6 +318,10 @@
 	.link {
 		white-space: nowrap;
 	}
+}
+
+/* Mobile (no Figma design, D-008; see D-028): tighter padding and a shorter preview. */
+@media (max-width: 640px) {
 
 	/* Phone title is 28px, a real step on the type scale (D-033). */
 	.title {
