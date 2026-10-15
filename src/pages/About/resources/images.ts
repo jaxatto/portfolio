@@ -1,6 +1,6 @@
 import primaryImage from '@assets/about/primary-image-min.jpg';
 import secondaryImage from '@assets/about/secondary-image-min.jpg';
-import tertiaryImage from '@assets/about/tertiary-image-min.png';
+import tertiaryImage from '@assets/about/tertiary-image-min.jpg';
 import quaternaryImage from '@assets/about/quaternary-image-min.jpg';
 
 export const images = [
@@ -18,7 +18,7 @@ export const images = [
   },
   {
     src: tertiaryImage,
-    alt: 'A gray cat named Beauregard sits upright on a bed, wearing a pink bow collar with a fish-shaped name tag. The bow has little black skulls on it, because Beau is a little punk rock. Beau is also a rescue.',
+    alt: 'A gray cat named Beauregard looks straight at the camera with wide golden eyes, sitting on a cream quilt and wearing a black collar with a tiny Christmas tree charm. Beau is a little punk rock. Beau is also a rescue.',
     iconFallback: 'paw',
     altFallback: 'A paw icon as fallback for the image of Beauregard the cat.',
   },
