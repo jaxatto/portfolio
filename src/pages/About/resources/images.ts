@@ -5,7 +5,7 @@ import tertiaryImage from '@assets/about/tertiary-image-min.png';
 export const images = [
   {
     src: primaryImage,
-    alt: 'A tortoiseshell cat named Midna with green eyes looks at the camera with the tip of her tongue sticking out, against a soft lavender background. Midna is the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
+    alt: 'A tortoiseshell cat named Midna with green eyes sits on a gray blanket and looks at the camera with the tip of her tongue sticking out. Midna is the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
     iconFallback: 'cat',
     altFallback: 'A cat icon as fallback for the image of Midna the cat.',
   },
