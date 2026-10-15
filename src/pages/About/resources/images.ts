@@ -39,7 +39,7 @@ export const images = [
     name: 'Zelda',
     palette: 'quaternary',
     caption: 'Having zero thoughts at all.',
-    alt: 'A black cat named Zelda lies on a gray fleece blanket and looks at the camera with yellow-green eyes.',
+    alt: 'A black cat named Zelda sits on a gray-blue blanket, her paws stretched out in front of her, and glances off to the side with yellow-green eyes.',
     iconFallback: 'cat',
     altFallback: 'A cat icon as fallback for the image of Zelda the cat.',
   },
