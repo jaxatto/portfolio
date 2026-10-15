@@ -32,6 +32,10 @@ html[data-theme='dark'] {
 }
 
 body {
+    // Page defaults come from tokens, not the legacy palette (D-036).
+    color: var(--color-content-default);
+    font-family: var(--font-family-body);
+    line-height: var(--font-line-height-default);
     background: var(--color-surface-default); // token; was legacy --color-background (same white in light)
     margin: 0;
     // Pretty wrapping site-wide: avoids a single word on the last line. Inherited; elements that set
@@ -54,10 +58,7 @@ body {
     }
 }
 
-html,
-body {
-    overflow-x: hidden;
-}
+
 
 .sr-only {
     position: absolute !important;
@@ -76,8 +77,9 @@ body {
 // to tokens (its own slice), page text in dark mode is plain white. Text inside the pale
 // chips and pale cards (the palette classes _primary_ / _secondary_ / _tertiary_, the migrated StudyCard, and the
 // experience cards) keeps its own color.
+// Scoped to `.legacy` (Layout's `legacy` prop): migrated pages like Home are out of it (D-036).
 // Delete this block as pages are migrated. See docs/decisions.md D-027.
-html[data-theme='dark'] main :is(h1, h2, h3, h4, p, li, dt, dd, span, figcaption, strong, em):not(
+html[data-theme='dark'] .legacy main :is(h1, h2, h3, h4, p, li, dt, dd, span, figcaption, strong, em):not(
         :is(
             [class*='_primary_'],
             [class*='_secondary_'],
@@ -93,6 +95,6 @@ html[data-theme='dark'] main :is(h1, h2, h3, h4, p, li, dt, dd, span, figcaption
 
 // Resume's outlined skill cards reuse the palette classes that the pale chips use, but have no fill
 // (they contain a heading, chips don't): their text goes white too.
-html[data-theme='dark'] main :is([class*='_primary_'], [class*='_secondary_'], [class*='_tertiary_']):has(h3) :is(h3, p, span, li) {
+html[data-theme='dark'] .legacy main :is([class*='_primary_'], [class*='_secondary_'], [class*='_tertiary_']):has(h3) :is(h3, p, span, li) {
     color: var(--color-content-emphasis);
 }

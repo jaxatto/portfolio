@@ -1,0 +1,9 @@
+/* Page wrapper: the content column and its side padding come from the same tokens as the header
+   and footer (D-029), so there is one source for the width. */
+.main {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+	margin-inline: auto;
+	padding-inline: var(--size-space-2xl);
+}

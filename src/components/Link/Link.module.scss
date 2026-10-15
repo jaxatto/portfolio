@@ -11,7 +11,9 @@
     height: 1em;
 }
 
-a {
+// Legacy global link styles. Scoped to pages that still use the old styling (Layout `legacy`, the
+// default); migrated pages such as Home set `legacy={false}` and don't receive them. See D-036.
+:global(.legacy) a {
     @include group-palette();
     font-family: $font-heading;
     font-weight: var(--font-weight-extra-bold);

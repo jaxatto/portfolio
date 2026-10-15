@@ -13,6 +13,7 @@ const meta = {
 const Work: React.FC = () => (
     <Layout
         footerVariant="quiet"
+        legacy={false}
         title={meta.title}
         metaDescription={meta.description}
     >
