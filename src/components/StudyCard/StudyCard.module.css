@@ -15,7 +15,13 @@
 	flex-direction: column;
 	overflow: hidden;
 	border-radius: var(--size-radius-lg);
-	background: var(--card-bg);
+	/* 5% toward the page ground: lighter in light mode, a touch deeper in dark (D-043). */
+	--card-lift: 5%;
+	background: color-mix(
+		in oklch,
+		var(--card-bg) calc(100% - var(--card-lift)),
+		var(--color-surface-default)
+	);
 	color: var(--color-content-variant);
 	transition: background-color 0.2s ease;
 }
@@ -50,7 +56,11 @@
 }
 
 .card:not(.inert):hover {
-	background: var(--card-bg-hover);
+	background: color-mix(
+		in oklch,
+		var(--card-bg-hover) calc(100% - var(--card-lift)),
+		var(--color-surface-default)
+	);
 }
 
 /* The link is stretched over the card, so keyboard focus rings the whole card. */
