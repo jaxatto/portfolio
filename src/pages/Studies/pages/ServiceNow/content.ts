@@ -41,7 +41,6 @@ const content = {
         {
             order: 1,
             title: 'Context',
-            titleEmoji: '🧭',
             description: [
                 'The first version of the tool was already functional when I joined. I partnered with the original creator to shape the experience around real research workflows, explore the core flow, and identify ways to reduce friction.',
                 'Open-ended feedback needs to be coded into themes before it can be analyzed. This process is usually manual and time consuming, often taking 10 hours or more to process just 100 responses. With multiple projects and thousands of inputs, researchers were often overwhelmed.',
@@ -59,7 +58,6 @@ const content = {
         {
             order: 2,
             title: 'Contributions',
-            titleEmoji: '🛠️',
             description: [
                 'I helped bring structure to an early concept by framing how the experience should adapt to real research scenarios, where inputs are messy and processes aren\'t always linear.',
                 'From there, I simplified the interaction model and reworked how guidance showed up in the tool, making it more focused and less interruptive. I used low-fidelity layouts to shift the conversation toward content and flow, then moved into high-fidelity designs using the internal design system to bring it into the corporate design language.',
@@ -78,7 +76,6 @@ const content = {
         {
             order: 3,
             title: 'Outcomes',
-            titleEmoji: '📈',
             description: [
                 'The updated design helped shape how the team talks about the tool and how it\'s being built. Several of the interaction and flow changes have already made it into the working prototype.',
                 'Design fidelity is currently limited by the prototype platform. The long-term plan is to move to a more flexible system that can better reflect the intended experience.',
@@ -95,7 +92,6 @@ const content = {
         {
             order: 4,
             title: 'Deliverables',
-            titleEmoji: '📦',
             description: [],
             descriptionBullets: [
                 'Revised user journey covering key states and branching paths',

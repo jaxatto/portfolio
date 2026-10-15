@@ -39,7 +39,6 @@ export const content = {
         {
             order: 1,
             title: 'Context',
-            titleEmoji: '🧭',
             description: [
                 'Sample paragraph providing context for the project, including the problem it aimed to solve, the target audience, and any relevant background information.',
                 'Additional context can be provided here, such as the project\'s goals, challenges faced, and the overall environment in which it was developed.',
@@ -50,7 +49,6 @@ export const content = {
         {
             order: 2,
             title: 'Contrubitions',
-            titleEmoji: '🛠️',
             description: [
                 'Sample paragraph providing context for the project, including the problem it aimed to solve, the target audience, and any relevant background information.',
                 'Additional context can be provided here, such as the project\'s goals, challenges faced, and the overall environment in which it was developed.',
@@ -67,7 +65,6 @@ export const content = {
         {
             order: 3,
             title: 'Outcomes',
-            titleEmoji: '📈',
             description: [
                 'Sample paragraph providing context for the project, including the problem it aimed to solve, the target audience, and any relevant background information.',
                 'Additional context can be provided here, such as the project\'s goals, challenges faced, and the overall environment in which it was developed.',
@@ -84,7 +81,6 @@ export const content = {
         {
             order: 4,
             title: 'Deliverables',
-            titleEmoji: '📦',
             description: [],
             descriptionBullets: [
                 'Bullet point example of a deliverable, such as a design system component library.',

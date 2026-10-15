@@ -43,7 +43,6 @@ const content = {
         {
             order: 1,
             title: 'Context',
-            titleEmoji: '🧭',
             description: [
                 'I worked with product, support, and implementation teams to dig into the problem. We reviewed past tickets, spoke with support staff, walked through broken setups, and mapped out the full sync flow.',
                 'Even small mistakes could silently break things, and there was no way for users to recover on their own. Most didn\'t even know there was a problem until Salesforce was missing data.',
@@ -62,7 +61,6 @@ const content = {
         {
             order: 2,
             title: 'Contributions',
-            titleEmoji: '🛠️',
             description: [
                 'I led design for the full integration flow, from setup and configuration to sync visibility, error handling, and long-term management.',
                 'Early diagrams, flows, and edge case maps helped engineering plan backend systems in parallel with design. This grounded our decisions in real user behavior and gave us a shared foundation to work from.',
@@ -81,7 +79,6 @@ const content = {
         {
             order: 3,
             title: 'Outcomes',
-            titleEmoji: '📈',
             description: [
                 'The redesigned integration gave admins more control and visibility. People could set things up on their own, understand what was syncing, and fix issues without going through support.',
                 'As a result, support teams saw a sharp drop in setup issues and manual intervention. Based on internal estimates, the new experience is saving over $1.5 million per year in reduced support costs.',
@@ -100,7 +97,6 @@ const content = {
         {
             order: 4,
             title: 'Deliverables',
-            titleEmoji: '📦',
             description: [],
             descriptionBullets: [
                 'End-to-end Figma prototype covering setup, sync settings, and error states',

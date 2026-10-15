@@ -1,0 +1,142 @@
+/* 404: a full-bleed accent ground with the shared nav header on it. Every value is a semantic token
+   (surface-accent / content-on-accent / secondary-container, space, radius, type), so light and
+   dark both work. D-022, D-038. */
+
+/* The shared header reads its colors from tokens, so they are re-pointed to on-accent values inside
+   this page. */
+.page {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	/* New stacking context: the header's divider uses z-index -1 and would otherwise fall behind
+	   this background. */
+	isolation: isolate;
+	background: var(--color-surface-accent);
+	color: var(--color-content-on-accent);
+	--color-content-default: var(--color-content-on-accent);
+	--color-content-variant: var(--color-content-on-accent);
+	--color-content-emphasis: var(--color-content-on-accent);
+	--color-content-default-hover: var(--color-content-on-accent-hover);
+	--color-content-default-active: var(--color-content-on-accent-active);
+	--color-primary-default: var(--color-content-on-accent-hover);
+	--color-primary-default-active: var(--color-content-on-accent-active);
+	--color-state-focus-ring: var(--color-content-on-accent);
+	/* Tooltips: the primary tokens are pale here, so use the container pair. */
+	--tooltip-bg: var(--color-primary-container);
+	--tooltip-fg: var(--color-primary-on-container);
+	/* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
+	--color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
+}
+
+.wrapper {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: var(--size-space-section-sm) var(--size-space-2xl);
+}
+
+/* Phones: the message sits near the top, under the header, instead of floating mid-screen. */
+@media (width <= 640px) {
+	.wrapper {
+		justify-content: flex-start;
+		padding-top: var(--size-space-section-md);
+	}
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--size-space-section-md);
+}
+
+.copy {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--size-space-sm);
+}
+
+.title {
+	margin: 0;
+	font-family: var(--font-family-heading);
+	font-weight: var(--font-weight-strong);
+	/* No type token goes past 56px, so the display size is derived from it: 56px on small phones,
+	   up to 2.5x on desktop. D-022. */
+	font-size: clamp(var(--font-size-56), 18vw, calc(var(--font-size-56) * 2.5));
+	line-height: 1;
+}
+
+.description {
+	margin: 0;
+	font-family: var(--font-style-body-lg-family);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-style-body-lg-weight);
+	line-height: var(--font-style-body-lg-line-height);
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	align-self: center;
+	gap: var(--size-space-sm);
+	padding: var(--size-space-lg) var(--size-space-3xl);
+	border-radius: var(--size-radius-md);
+	background: var(--color-secondary-container);
+	color: var(--color-secondary-on-container);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-weight-emphasis);
+	line-height: var(--font-line-height-default);
+	text-decoration: none;
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.icon {
+	flex-shrink: 0;
+	width: 1.2em;
+	height: 1.2em;
+	color: inherit;
+	fill: currentcolor;
+}
+
+.button:hover {
+	background: var(--color-secondary-container-hover);
+	color: var(--color-secondary-on-container-hover);
+}
+
+.button:active {
+	background: var(--color-secondary-container-active);
+	color: var(--color-secondary-on-container-active);
+}
+
+.button:focus-visible {
+	outline: var(--size-focus-ring-width) solid var(--color-content-on-accent);
+	outline-offset: var(--size-focus-ring-offset);
+}
+
+/* Legacy global `a:hover svg` would recolor the arrow; it always follows the text. */
+.button:hover .icon,
+.button:active .icon,
+.button:focus-visible .icon {
+	color: inherit;
+	fill: currentcolor;
+}
+
+@media (width <= 340px) {
+	.button {
+		padding: var(--size-space-md) var(--size-space-xl);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.button {
+		transition: none;
+	}
+}

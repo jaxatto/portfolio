@@ -41,7 +41,6 @@ const content = {
         {
             order: 1,
             title: 'Context',
-            titleEmoji: '🧭',
             description: [
                 'The internal design system was in active development and supporting a wide range of consumer and business products. I stepped in to strengthen component quality, shape contribution processes, and help teams align on consistent patterns during a pivotal time in the system\'s maturity as a rebrand was underway.',
             ],
@@ -51,7 +50,6 @@ const content = {
         {
             order: 2,
             title: 'Contributions',
-            titleEmoji: '🛠️',
             description: [
                 'I led hands-on updates to the Figma library—refining components for consistency, accessibility, and themeability. I partnered with engineers to ensure parity between design and code, and created detailed documentation to support usage across teams.',
                 'To improve efficiency, I introduced a lightweight triage workflow for incoming component requests and contributions. This clarified ownership and reduced friction for designers contributing back to the system.',
@@ -69,7 +67,6 @@ const content = {
         {
             order: 3,
             title: 'Outcomes',
-            titleEmoji: '📈',
             description: [
                 'By the time I transitioned off the team, the system was more maintainable, better documented, and easier to adopt. System usage had expanded across different product areas, and the contribution process was more approachable for new designers and engineers. The team I supported was better positioned to scale the system going forward.',
             ],
@@ -85,7 +82,6 @@ const content = {
         {
             order: 4,
             title: 'Deliverables',
-            titleEmoji: '📦',
             description: [],
             descriptionBullets: [
                 'Updated and documented Figma component library',

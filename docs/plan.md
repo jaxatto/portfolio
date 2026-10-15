@@ -35,7 +35,7 @@ Design / tokens:
 4. Dark card backgrounds were tinted 30% toward the ground; check against the rest of the dark pages when they migrate (D-028).
 5. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. There is no tablet design for the footer (stacks at 640px).
 6. The link arrows are Phosphor bold, so their stroke scales with size (D-026). Revisit if it reads light.
-7. Icons: all UI icons are Phosphor bold (D-037). The emoji in case study section titles are the only non-set glyphs left (slice 3).
+7. Icons: all UI icons are Phosphor bold and the emoji are gone (D-037).
 8. ServiceNow's Outcomes section is thin after the demo and testing claims were cut (slice 4). The Toyota frame's footer says "Design Technologist" where the site says "Design Engineer".
 9. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
 

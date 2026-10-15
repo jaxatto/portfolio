@@ -7,11 +7,7 @@ const StudySection: React.FC<{ section: StudySectionProps; className?: string }>
   const image = section.image && section.image.length > 0 ? section.image[0] : undefined;
   return (
     <section className={className} data-order={section.order}>
-      <h2 className={styles['section-title']}>
-        {section.titleEmoji && <span aria-hidden='true'>{section.titleEmoji}</span>}
-        {' '}
-        {section.title}
-      </h2>
+      <h2 className={styles['section-title']}>{section.title}</h2>
       {section.description?.map((desc, i) => (
         <p key={i} className={styles['section-paragraph']}>{desc}</p>
       ))}

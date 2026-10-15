@@ -5,7 +5,7 @@ export const content = {
     heading: "Jax Engel",
     description1: "Bridging the gap between design, code,",
     description2: "and collaboration.",
-    byline: "Looking for a unicorn? 🦄",
+    byline: "Looking for a unicorn?",
     buttonLabel: "Get my resume",
     buttonIcon: "arrow-right",
     buttonHref: contactInfo.resume.src,

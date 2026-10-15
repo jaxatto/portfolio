@@ -4,19 +4,15 @@ export const content = {
     bullets: [
       {
         text: "11+ years product design",
-        emoji: "📆",
       },
       {
         text: "Accessibility advocacy",
-        emoji: "♿",
       },
       {
         text: "Design systems leadership",
-        emoji: "🎨",
       },
       {
         text: "Cross-functional collaboration",
-        emoji: "👥",
       },
     ],
     description: [

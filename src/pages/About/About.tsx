@@ -18,9 +18,7 @@ const About: React.FC = () => (
         <h1 className={styles.title}>{content.header.heading}</h1>
         <ul>
           {content.header.bullets.map((bullet, i) => (
-            <li key={i}>
-              <span aria-hidden="true">{bullet.emoji}</span> {bullet.text}
-            </li>
+            <li key={i}>{bullet.text}</li>
           ))}
         </ul>
       </div>
