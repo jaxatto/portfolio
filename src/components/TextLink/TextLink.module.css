@@ -23,7 +23,7 @@
 /* Large: the footer email link. 32px per Jax (Figma has 28px, which is off the type scale). */
 .large {
 	/* Fluid so the 24-character email plus arrow fits narrow cards; reaches 32px at about 550px wide (D-013). */
-	font-size: clamp(var(--font-size-md), 7.4vw - 9px, var(--font-size-2xl));
+	font-size: clamp(var(--font-size-16), 7.4vw - 9px, var(--font-size-32));
 	overflow-wrap: anywhere;
 	font-weight: var(--font-weight-extra-strong);
 }

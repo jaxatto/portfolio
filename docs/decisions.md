@@ -81,7 +81,7 @@ Type sizes may be fluid (`clamp()`), and need not match the token values at ever
 
 ## D-018: Home header on mobile (≤640px) — decided, 2026-10-13
 
-Approved by Jax (no mobile design exists, D-008). The nav row is a bar: links left, mode toggle at the right edge, hairline (`--color-border-decorative`) under it. The role moves from the bar to a byline under "Hi, I'm Jax!" (a second element inside the h1, shown only on mobile; the bar's copy is hidden there, so it is announced once). The sentence steps down to `--font-size-2xl` and the greeting takes its own line. Checked at 320, 375 and 768; tablet needs no change.
+Approved by Jax (no mobile design exists, D-008). The nav row is a bar: links left, mode toggle at the right edge, hairline (`--color-border-decorative`) under it. The role moves from the bar to a byline under "Hi, I'm Jax!" (a second element inside the h1, shown only on mobile; the bar's copy is hidden there, so it is announced once). The sentence steps down to `--font-size-32` and the greeting takes its own line. Checked at 320, 375 and 768; tablet needs no change.
 
 ## D-019: Dark-mode header text — 2026-10-13
 
@@ -147,10 +147,10 @@ Built from Figma Home `2839:21650`, then refined with Jax in review. The Figma f
 - **Layout:** a single stacked column of rounded cards in the 960px column (D-029), every card horizontal on desktop (900px and up): text left, a screenshot "window" right. At 900px and below they stack: text, then the screenshot cropped by the card's edges. One column means a fifth study needs no layout change.
 - **Anatomy:** title (verb-led, 2 lines), one outcome paragraph (3 lines at most), link naming the company. No tag line and no eyebrow: each added a text style. Copy is inline in `StudyCardGrid.tsx` (D-003) and uses only facts from each study's own content (ActBlue's $1.5M stays "estimated"; ServiceNow's tool accuracy is left in the study so it isn't read as Jax's impact). Outcome lines were written with Jax; the leadership demo and user testing were cut from ServiceNow's card and study.
 - **Order:** Toyota, ServiceNow, Indeed, ActBlue. The Toyota study page doesn't exist yet: its card links to `/case-studies/toyota` (the 404 until content is added before launch) and carries `ready: false` so it stays out of the "next study" row under case studies. TODO(jax).
-- **Measures (desktop, 960px card):** padding 32 / 32 / 40, title 36px (`2xl-plus`), 12px title-to-copy gap, paragraph 20px at weight 500 and 460px wide, text box 548px (text 492px), screenshot window 412 x 306 starting at 548px, 32px below the top and cropped by the card edges. ServiceNow, Indeed and ActBlue screenshots are 40px larger inside the same window, anchored top-left (`enlargeImage`); Toyota's is trimmed 2px at top and left. No glow behind the screenshot.
-- **Phones (no Figma, D-008):** padding unchanged, title 28px (`xl-plus`), paragraph and link `body-lg` (matches the footer, about 19px at 375), 200px screenshot window, link shows a short label (D-031).
+- **Measures (desktop, 960px card):** padding 32 / 32 / 40, title 36px (`--font-size-36`), 12px title-to-copy gap, paragraph 20px at weight 500 and 460px wide, text box 548px (text 492px), screenshot window 412 x 306 starting at 548px, 32px below the top and cropped by the card edges. ServiceNow, Indeed and ActBlue screenshots are 40px larger inside the same window, anchored top-left (`enlargeImage`); Toyota's is trimmed 2px at top and left. No glow behind the screenshot.
+- **Phones (no Figma, D-008):** padding unchanged, title 28px (`--font-size-28`), paragraph and link `body-lg` (matches the footer, about 19px at 375), 200px screenshot window, link shows a short label (D-031).
 - **Fill:** the palette container mixed 5% toward `surface-default` in light and 30% in dark (`--card-lift`), so dark cards are calmer than the raw tint.
-- **Dark text:** heading and link are white (`content-emphasis`), the paragraph one step dimmer (`content-secondary`).
+- **Dark text:** heading and link are white (`content-emphasis`), the paragraph is white at 75% opacity (`color-mix` on `content-emphasis`), so it isn't tinted by the palette.
 - **Accessibility:** one `article` per card with a real heading (h2 on Home, h3 under a case study); one stretched link covers the card, its accessible name is "Read the X case study: <title>" and keyboard focus rings the whole card (D-032). No `aria-label` count.
 - **Tried and dropped:** a 1120px breakout, full-width bands, a one-hue stepped ramp, a 2-up row, a tag line, a 22px paragraph, a glow, a pop-out screenshot.
 
@@ -160,7 +160,7 @@ Built from Figma Home `2839:21650`, then refined with Jax in review. The Figma f
 
 ## D-030: Card color ramp and a teal palette — decided, 2026-10-14
 
-Cards run a hue ramp, top to bottom: brand (reddish purple), secondary (indigo), tertiary (sky), quaternary (teal). `quaternary` is a new color group (teal 700 / 300 default, 200 / 800 container, with hover, active and shadow tokens generated like the others). Neighbours are at least 28 degrees apart, unlike purple next to violet (12). `primary` (violet) is no longer used on Home. A fifth study continues the ramp with green (not built yet). Teal 200 reads brighter than the other pastels; revisit if it is too loud.
+Cards run a hue ramp, top to bottom: brand (reddish purple), secondary (indigo), tertiary (sky), quaternary (teal). `quaternary` is a new color group (teal 700 / 300 default, 200 / 800 container, with hover, active and shadow tokens generated like the others). Neighbours are at least 28 degrees apart, unlike purple next to violet (12). `primary` (violet) is no longer used on Home. A fifth study continues the ramp with green (not built yet). The teal container is teal 100 (not 200, which read brighter than the other pastels), with hover on 200.
 
 ## D-031: Card link — decided, 2026-10-14
 
@@ -170,9 +170,9 @@ No resting underline and no color change on hover; a 3px line grows in from the 
 
 `--size-focus-ring-width` and `--size-focus-ring-offset` (both 3px, from a new `border-width` primitive 3) replace `calc(border-width-default + 1px)` and raw `3px` in the header, footer, mode toggle, TextLink, study card and the legacy palette mixin. Color stays `--color-state-focus-ring`. Figma draws 2px / 2px; the thicker ring is Jax's call (D-014). Change the ring in `defaultTheme.ts` only.
 
-## D-033: Type scale half steps and a medium weight — decided, 2026-10-14
+## D-033: Type scale named by pixel value; medium weight — decided, 2026-10-14
 
-The scale gains `xl-plus` (28px) and `2xl-plus` (36px) between xl / 2xl / 3xl, because the card titles are 28 on phones and 36 on desktop; both exist as primitives. Reviewed: the scale is 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64 and the card titles are the only users of the new steps, so the sizing itself was not reopened. `--font-weight-medium` (500, Manrope 500 was already loaded) is used for card paragraphs, since 400 read thin on a tinted ground.
+The semantic font sizes are named by their pixel value (`--font-size-12`, 14, 16, 20, 24, 28, 32, 36, 40, 48, 56) instead of t-shirt names. T-shirt names (xs to 5xl) had no room for the 28 and 36 steps the card titles need, and "xl-plus" was a hack; a numeric name stays true when a step is added, and the semantic meaning already lives in the type styles (heading-lg, body-md, ...). Primitives were already numeric; spacing and radius keep their t-shirt scales. About 7 direct uses were renamed. `--font-weight-medium` (500, Manrope 500 was already loaded) is used for card paragraphs, since 400 read thin on a tinted ground.
 
 ## D-034: Pretty text wrapping site-wide — decided, 2026-10-14
 

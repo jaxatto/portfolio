@@ -25,7 +25,7 @@
 	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
 	color: var(--tooltip-fg, var(--color-primary-on-default));
 	font-family: var(--font-family-heading);
-	font-size: var(--font-size-sm);
+	font-size: var(--font-size-14);
 	font-style: normal;
 	font-weight: var(--font-weight-emphasis);
 	line-height: 1.2;

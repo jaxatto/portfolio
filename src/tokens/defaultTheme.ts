@@ -164,7 +164,7 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				dark: primitives.colors.black,
 			},
 			'quaternary-container': {
-				light: primitives.colors.teal[200],
+				light: primitives.colors.teal[100],
 				dark: primitives.colors.teal[800],
 			},
 			'on-quaternary-container': {
@@ -266,19 +266,19 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			decorative: primitives.font.family.manrope,
 			mono: primitives.font.family['roboto-mono'],
 		},
+		// Named by pixel value so a new step slots in without renaming (D-033).
 		size: {
-			xs: primitives.font.size[12],
-			sm: primitives.font.size[14],
-			md: primitives.font.size[16],
-			lg: primitives.font.size[20],
-			xl: primitives.font.size[24],
-			// Half steps between xl/2xl/3xl: the card titles use 28 (phones) and 36 (desktop). D-033.
-			'xl-plus': primitives.font.size[28],
-			'2xl': primitives.font.size[32],
-			'2xl-plus': primitives.font.size[36],
-			'3xl': primitives.font.size[40],
-			'4xl': primitives.font.size[48],
-			'5xl': primitives.font.size[56],
+			'12': primitives.font.size[12],
+			'14': primitives.font.size[14],
+			'16': primitives.font.size[16],
+			'20': primitives.font.size[20],
+			'24': primitives.font.size[24],
+			'28': primitives.font.size[28],
+			'32': primitives.font.size[32],
+			'36': primitives.font.size[36],
+			'40': primitives.font.size[40],
+			'48': primitives.font.size[48],
+			'56': primitives.font.size[56],
 		},
 		weight: {
 			subtle: primitives.font.weight.light,
@@ -328,9 +328,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'title-md': {
 				family: 'heading',
 				size: {
-					min: '3xl',
+					min: '40',
 					preferred: '1rem + 1.4vw',
-					max: '5xl',
+					max: '56',
 				},
 				weight: 'strong',
 				'line-height': 'compact',
@@ -338,9 +338,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'title-sm': {
 				family: 'heading',
 				size: {
-					min: '2xl',
+					min: '32',
 					preferred: '1.25rem + 2vw',
-					max: '3xl',
+					max: '40',
 				},
 				weight: 'strong',
 				'line-height': 'compact',
@@ -348,9 +348,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'heading-lg': {
 				family: 'heading',
 				size: {
-					min: 'xl',
+					min: '24',
 					preferred: '1rem + 1.4vw',
-					max: '2xl',
+					max: '32',
 				},
 				weight: 'strong',
 				'line-height': 'compact',
@@ -358,9 +358,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'heading-md': {
 				family: 'heading',
 				size: {
-					min: 'lg',
+					min: '20',
 					preferred: '1.1rem + 0.7vw',
-					max: 'xl',
+					max: '24',
 				},
 				weight: 'strong',
 				'line-height': 'compact',
@@ -368,9 +368,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'heading-sm': {
 				family: 'heading',
 				size: {
-					min: 'md',
+					min: '16',
 					preferred: '1.1rem + 0.7vw',
-					max: 'lg',
+					max: '20',
 				},
 				weight: 'strong',
 				'line-height': 'compact',
@@ -378,9 +378,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'body-lg': {
 				family: 'body',
 				size: {
-					min: 'md',
+					min: '16',
 					preferred: '0.875rem + 1.4vw',
-					max: 'xl',
+					max: '24',
 				},
 				weight: 'default',
 				'line-height': 'default',
@@ -388,9 +388,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'body-md': {
 				family: 'body',
 				size: {
-					min: 'md',
+					min: '16',
 					preferred: '0.875rem + 0.7vw',
-					max: 'lg',
+					max: '20',
 				},
 				weight: 'default',
 				'line-height': 'default',
@@ -398,9 +398,9 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'body-sm': {
 				family: 'body',
 				size: {
-					min: 'sm',
+					min: '14',
 					preferred: '0.8rem + 0.35vw',
-					max: 'md',
+					max: '16',
 				},
 				weight: 'default',
 				'line-height': 'default',

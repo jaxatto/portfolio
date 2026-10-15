@@ -31,7 +31,7 @@ Copy (all marked `TODO(jax)`, provisional):
 Design / tokens:
 1. **Toyota case study page** doesn't exist: its Home card links to `/case-studies/toyota` (the 404 for now). Add the content before launch, then drop `ready: false` in `StudyCardGrid.tsx` (D-028).
 2. **Figma is out of date** for the Home frame (960 column, card anatomy, sample window, color ramp) and for the focus ring (3px / 3px in code).
-3. Teal 200 reads brighter than the other pastel card colors; revisit if it is too loud (D-030). A fifth study continues the ramp with green (not built).
+3. The card ramp ends at teal (container teal 100); a fifth study would continue with green (not built, D-030).
 4. Dark card backgrounds were tinted 30% toward the ground; check against the rest of the dark pages when they migrate (D-028).
 5. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. There is no tablet design for the footer (stacks at 640px).
 6. The link arrows are Phosphor bold, so their stroke scales with size (D-026). Revisit if it reads light.

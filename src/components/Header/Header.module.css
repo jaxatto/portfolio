@@ -215,7 +215,7 @@
 	white-space: normal;
 	background: var(--color-primary-default);
 	color: var(--color-primary-on-default);
-	font-size: var(--font-size-md);
+	font-size: var(--font-size-16);
 	border-radius: var(--size-radius-sm);
 }
 
@@ -484,7 +484,7 @@
 	}
 
 	.heading {
-		font-size: var(--font-size-2xl);
+		font-size: var(--font-size-32);
 	}
 
 	.greeting {

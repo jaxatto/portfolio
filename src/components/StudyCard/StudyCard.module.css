@@ -244,7 +244,7 @@
 	/* Desktop title is 36px, a real step on the type scale now (D-033). Below 900px it stays
 	   heading-lg. */
 	.horizontal .title {
-		font-size: var(--font-size-2xl-plus);
+		font-size: var(--font-size-36);
 	}
 
 	/* Paragraph is 32px narrower than the title: 460px (D-028). */
@@ -311,7 +311,7 @@
 
 	/* Phone title is 28px, a real step on the type scale (D-033). */
 	.title {
-		font-size: var(--font-size-xl-plus);
+		font-size: var(--font-size-28);
 	}
 
 	/* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). */
@@ -344,13 +344,14 @@
 :global([data-theme='dark']) .card {
 	--card-fg: var(--color-content-emphasis);
 	--card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
-	color: var(--color-content-secondary);
+	/* Paragraph: white at 75% opacity, not a purple tint (D-028). */
+	color: color-mix(in srgb, var(--color-content-emphasis) 75%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
 	:global(:root:not([data-theme='light'])) .card {
 		--card-fg: var(--color-content-emphasis);
 		--card-lift: 30%;
-		color: var(--color-content-secondary);
+		color: color-mix(in srgb, var(--color-content-emphasis) 75%, transparent);
 	}
 }
