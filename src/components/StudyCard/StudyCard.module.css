@@ -129,7 +129,9 @@
 	content: '';
 	position: absolute;
 	right: 0;
-	bottom: 2px;
+	/* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
+	   below the box, not 2px above its bottom (D-048). */
+	bottom: calc(-1 * var(--size-border-width-default));
 	left: 0;
 	height: 3px;
 	border-radius: 2px;
@@ -277,7 +279,9 @@
 	}
 
 	/* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-045). */
-	.outcome {
+	.outcome,
+	.link,
+	.placeholder {
 		font-size: var(--font-style-body-lg-size);
 		line-height: var(--font-style-body-lg-line-height);
 	}

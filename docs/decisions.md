@@ -210,3 +210,7 @@ At 640px and below the card's outcome paragraph uses `body-lg` (the footer descr
 ## D-047: Card title on phones and intro padding — decided, 2026-10-14
 
 At 640px and below card titles are `heading-lg` + 4px (28px at 375, was 24px); `calc(... + 4px)` because 28 isn't on the type scale (same exception as D-039). The Home intro has 16px more top padding and none at the bottom: 176px top and 0 bottom on desktop (was 160 / 16), 64px top on phones (was 48; bottom also 0). The header's own 48px bottom padding still separates it from the first card.
+
+## D-048: Card link size and hover line — decided, 2026-10-14
+
+On phones the card link and the "coming soon" label use `body-lg`, the same as the card paragraph (D-045); on desktop link and paragraph were already both 20px. The hover line under the link text is moved down 2px so its distance from the text matches the nav link's line (it overlapped the text box by 5px before, now 1px, like the nav).
