@@ -36,10 +36,10 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.purple[950],
 				dark: primitives.colors['white-alpha-98'],
 			},
-			// Body copy on card and footer grounds: dark is white at 75% instead of a purple tint (D-035).
+			// Body copy on card and footer grounds: dark is white at 80% instead of a purple tint (D-035).
 			soft: {
 				light: primitives.colors.slate[900],
-				dark: primitives.colors['white-alpha-75'],
+				dark: primitives.colors['white-alpha-80'],
 			},
 			muted: {
 				light: primitives.colors.slate[600],

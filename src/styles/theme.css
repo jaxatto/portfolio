@@ -299,7 +299,7 @@
   --primitive-color-black: oklch(0% 0 0deg);
   --primitive-color-white: oklch(100% 0 0deg);
   --primitive-color-white-alpha-98: oklch(100% 0 0deg / 98%);
-  --primitive-color-white-alpha-75: oklch(100% 0 0deg / 75%);
+  --primitive-color-white-alpha-80: oklch(100% 0 0deg / 80%);
   --primitive-shadow-blur-0: 0px;
   --primitive-shadow-blur-8: 8px;
   --primitive-shadow-blur-16: 16px;
@@ -644,7 +644,7 @@
   --color-content-variant: var(--primitive-color-purple-50);
   --color-content-secondary: var(--primitive-color-purple-200);
   --color-content-emphasis: var(--primitive-color-white-alpha-98);
-  --color-content-soft: var(--primitive-color-white-alpha-75);
+  --color-content-soft: var(--primitive-color-white-alpha-80);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
@@ -734,7 +734,7 @@
   --color-content-variant: var(--primitive-color-purple-50);
   --color-content-secondary: var(--primitive-color-purple-200);
   --color-content-emphasis: var(--primitive-color-white-alpha-98);
-  --color-content-soft: var(--primitive-color-white-alpha-75);
+  --color-content-soft: var(--primitive-color-white-alpha-80);
   --color-content-muted: var(--primitive-color-slate-400);
   --color-content-link: var(--primitive-color-violet-300);
   --color-content-inverse: var(--primitive-color-black);
