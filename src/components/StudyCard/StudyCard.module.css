@@ -255,7 +255,11 @@
 
 	/* Fill the whole sample so no sunken-grey strip shows below a short screenshot. */
 	.horizontal .image {
-		height: 100%;
+		/* The window stays the same size; the screenshot is 12% larger inside it (D-051). */
+		width: 112%;
+		max-width: none;
+		height: auto;
+		min-height: 100%;
 		object-fit: cover;
 		object-position: top left;
 	}
@@ -302,5 +306,19 @@
 	.linkText::after,
 	.sample {
 		transition: none;
+	}
+}
+
+/* Dark mode (D-051): heading and link are white, the paragraph one step dimmer. Selectors mirror
+   theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
+:global([data-theme='dark']) .card {
+	--card-fg: var(--color-content-emphasis);
+	color: var(--color-content-secondary);
+}
+
+@media (prefers-color-scheme: dark) {
+	:global(:root:not([data-theme='light'])) .card {
+		--card-fg: var(--color-content-emphasis);
+		color: var(--color-content-secondary);
 	}
 }

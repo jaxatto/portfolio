@@ -222,3 +222,7 @@ Tried 22px for the card paragraph and link on desktop; reverted to 20px (`body-m
 ## D-050: Card paragraph weight 500 — decided, 2026-10-14
 
 The card paragraph uses a new `--font-weight-medium` (500, Manrope 500 was already loaded) instead of `default` (400), because regular read thin on the tinted card at 22px. The link stays 800. Only the card paragraph uses it for now; the same question applies to other body text on tinted grounds.
+
+## D-051: Toyota card first, bigger sample, dark card text — decided, 2026-10-14
+
+(1) Card order is Toyota, ServiceNow, Indeed, ActBlue (brand, primary, secondary, tertiary). The tokens placeholder card is replaced by Toyota: title "Building a multi-brand token system", outcome from the Toyota study's own Outcomes and intro ("Led token architecture and Figma-to-code automation for Toyota's PRIME design system, giving design and engineering one source of truth."), sample cropped from the study's library-architecture diagram (Figma 2956:11841). The Toyota study page doesn't exist yet, so the card is inert ("Case study coming soon") and sits first until slice 4 builds it. (2) The sample window is unchanged; the screenshot inside it is 12% larger. (3) In dark mode the card heading and link are white (`content-emphasis`) and the paragraph is `content-secondary` (purple-200), one step dimmer than `content-variant`.
