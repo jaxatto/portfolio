@@ -82,7 +82,7 @@
 .text {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-lg); /* 16px between title and outcome (was 8, D-044) */
+	gap: var(--size-space-md); /* 12px between title and outcome (was 8, D-044) */
 	width: 100%;
 }
 

@@ -197,4 +197,4 @@ Card fill is the palette container mixed 5% toward `surface-default` (`color-mix
 
 ## D-044: Card title-to-copy gap 16px — decided, 2026-10-14
 
-The gap between a card's title and its outcome paragraph is `space-lg` (16px), was `space-sm` (8px).
+The gap between a card's title and its outcome paragraph is `space-md` (12px), was `space-sm` (8px); 16px was tried and trimmed by 4.
