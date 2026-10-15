@@ -81,6 +81,12 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.indigo[900],
 				dark: primitives.colors.indigo[900],
 			},
+			// The 404's own ground: distinct from the page surface in both themes and a theme pair of its
+			// own (indigo-900 light, one step lighter in dark so it separates from the night ground). D-038.
+			error: {
+				light: primitives.colors.indigo[900],
+				dark: primitives.colors.indigo[800],
+			},
 		},
 		border: {
 			decorative: {

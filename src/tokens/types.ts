@@ -61,6 +61,7 @@ export type BaseSemanticGeneralColor = {
 		default: ColorMode;
 		sunken: ColorMode;
 		accent: ColorMode;
+		error: ColorMode;
 	};
 	border: {
 		decorative: ColorMode;

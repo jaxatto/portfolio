@@ -1,6 +1,6 @@
-/* 404: a full-bleed accent ground with the shared nav header on it. Every value is a semantic token
-   (surface-accent / content-on-accent / secondary-container, space, radius, type), so light and
-   dark both work. D-022, D-038. */
+/* 404: a full-bleed ground of its own (surface-error) with the shared nav header on it. Every value
+   is a semantic token (surface-error / content-on-accent, space, radius,
+   type), so light and dark both work. D-022, D-038. */
 
 /* The shared header reads its colors from tokens, so they are re-pointed to on-accent values inside
    this page. */
@@ -11,7 +11,7 @@
 	/* New stacking context: the header's divider uses z-index -1 and would otherwise fall behind
 	   this background. */
 	isolation: isolate;
-	background: var(--color-surface-accent);
+	background: var(--color-surface-error);
 	color: var(--color-content-on-accent);
 	--color-content-default: var(--color-content-on-accent);
 	--color-content-variant: var(--color-content-on-accent);
@@ -86,8 +86,10 @@
 	gap: var(--size-space-sm);
 	padding: var(--size-space-lg) var(--size-space-3xl);
 	border-radius: var(--size-radius-md);
-	background: var(--color-secondary-container);
-	color: var(--color-secondary-on-container);
+	/* An inverted button: on-accent fill with the ground's color as text. It reads on the ground in
+	   both themes, which a container color can't (indigo-800 equals the dark ground). D-038. */
+	background: var(--color-content-on-accent);
+	color: var(--color-surface-error);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-body-md-size);
 	font-weight: var(--font-weight-emphasis);
@@ -107,13 +109,11 @@
 }
 
 .button:hover {
-	background: var(--color-secondary-container-hover);
-	color: var(--color-secondary-on-container-hover);
+	background: var(--color-content-on-accent-hover);
 }
 
 .button:active {
-	background: var(--color-secondary-container-active);
-	color: var(--color-secondary-on-container-active);
+	background: var(--color-content-on-accent-active);
 }
 
 .button:focus-visible {
