@@ -176,3 +176,7 @@ At 460px the ServiceNow outcome ran to four lines, so it now reads "Shaped an AI
 ## D-039: Card title 36px — decided, 2026-10-14
 
 Desktop card titles are 36px (was 40px, D-037). The type scale has no 36 (32, 40), so the CSS is `calc(var(--font-size-3xl) - 4px)`, a deliberate exception to D-005. TODO(jax): add a 36px step to the scale (`primitives.ts`, e.g. between 2xl and 3xl) or return to 32/40.
+
+## D-040: Card link uses the nav hover style — decided, 2026-10-14
+
+The card's link text has no resting underline. On hover of the card (the whole card is the target) it turns `primary-default` (violet, `primary-default-active` when pressed) and a 3px line grows in from the left under the text, the same treatment as the nav and footer links (D-017, D-024). The arrow still nudges right. Keyboard focus shows only the card's ring, like the nav. Resting color is the palette's on-container color.
