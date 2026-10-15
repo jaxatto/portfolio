@@ -152,6 +152,25 @@
 	outline: none;
 }
 
+/* The legacy global `a` rules (Link.module.scss) change color, fill and underline on hover and
+   press. The card link never changes color: keep every state at the palette color. */
+.link,
+.link:hover,
+.link:active,
+.link:focus-visible {
+	color: var(--card-fg);
+	text-decoration: none;
+	transition: none;
+}
+
+.link svg,
+.link:hover svg,
+.link:active svg {
+	color: inherit;
+	fill: currentcolor;
+	transition: none;
+}
+
 .placeholder {
 	margin: 0;
 	color: var(--card-fg);
