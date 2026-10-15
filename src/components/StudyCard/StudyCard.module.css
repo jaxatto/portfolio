@@ -247,12 +247,21 @@
 	/* Fill the whole sample so no sunken-grey strip shows below a short screenshot. */
 	.horizontal .image {
 		/* The window stays the same size; the screenshot is 12% larger inside it (D-051). */
+		/* Out of flow, so a larger screenshot never makes the card taller. */
+		position: absolute;
+		top: 0;
+		left: 0;
 		width: 112%;
 		max-width: none;
 		height: auto;
 		min-height: 100%;
 		object-fit: cover;
 		object-position: top left;
+	}
+
+	/* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-052). */
+	.horizontal.enlarge .image {
+		width: calc(112% + 40px);
 	}
 }
 

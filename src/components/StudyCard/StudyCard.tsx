@@ -16,6 +16,7 @@ export type StudyCardProps = {
 	imageAlt?: string; // Empty by default: the preview is decorative next to the title
 	linkUrl: string;
 	linkText: string;
+	enlargeImage?: boolean; // Screenshot 40px larger inside the same window (D-052)
 	palette?: 'brand' | 'primary' | 'secondary' | 'tertiary';
 	layout?: 'horizontal' | 'vertical'; // Horizontal: preview beside the text (desktop only)
 	variant?: 'work' | 'study'; // 'study' = smaller type, used under a case study
@@ -29,6 +30,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
 	linkUrl,
 	linkText,
 	palette = 'brand',
+	enlargeImage = false,
 	layout = 'vertical',
 	variant = 'work',
 }) => (
@@ -38,6 +40,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
 			styles[palette],
 			layout === 'horizontal' && styles.horizontal,
 			variant === 'study' && styles.study,
+			enlargeImage && styles.enlarge,
 		)}
 	>
 		<div className={styles.content}>

@@ -36,6 +36,7 @@ const cards: Card[] = [
 		imageAlt: '',
 		linkUrl: studyLinks.servicenow,
 		linkText: 'Read the ServiceNow case study',
+		enlargeImage: true,
 		palette: 'primary',
 	},
 	{
@@ -45,6 +46,7 @@ const cards: Card[] = [
 		image: indeedImage,
 		linkUrl: studyLinks.indeed,
 		linkText: 'Read the Indeed case study',
+		enlargeImage: true,
 		palette: 'secondary',
 	},
 	{
@@ -54,6 +56,7 @@ const cards: Card[] = [
 		image: actblueImage,
 		linkUrl: studyLinks.actblue,
 		linkText: 'Read the ActBlue case study',
+		enlargeImage: true,
 		palette: 'tertiary',
 	},
 ];
