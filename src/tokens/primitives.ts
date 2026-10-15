@@ -376,7 +376,7 @@ const primitiveColors = {
 /* -- Typography ------------------------------------------------ */
 /* ------------------------------------------------------------- */
 
-const fontSizeScale = [12, 14, 16, 18, 20, 24, 32, 40, 48, 56, 64] as const;
+const fontSizeScale = [12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64] as const;
 
 const primitiveTypography = {
 	size: createPxRecord(fontSizeScale),

@@ -62,7 +62,9 @@ export function buildSemanticColorVars(
 	processColors(colors as TokenTree);
 	for (const [group, states] of Object.entries(shadow)) {
 		if (
-			!['color', 'brand', 'primary', 'secondary', 'tertiary'].includes(group)
+			!['color', 'brand', 'primary', 'secondary', 'tertiary', 'quaternary'].includes(
+				group,
+			)
 		) {
 			continue;
 		}

@@ -6,6 +6,8 @@ export const colorGroups = [
 	'primary',
 	'secondary',
 	'tertiary',
+	// Teal. Added for the Home card ramp: purple, indigo, sky, teal (D-030).
+	'quaternary',
 ] as const;
 
 // single source of truth for light/dark mode keys (type + runtime value)

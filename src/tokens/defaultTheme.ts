@@ -154,6 +154,24 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				dark: primitives.colors.sky[100],
 			},
 		},
+		quaternary: {
+			default: {
+				light: primitives.colors.teal[700],
+				dark: primitives.colors.teal[300],
+			},
+			'on-quaternary': {
+				light: primitives.colors.white,
+				dark: primitives.colors.black,
+			},
+			'quaternary-container': {
+				light: primitives.colors.teal[200],
+				dark: primitives.colors.teal[800],
+			},
+			'on-quaternary-container': {
+				light: primitives.colors.teal[900],
+				dark: primitives.colors.teal[100],
+			},
+		},
 		state: {
 			'focus-ring': {
 				light: primitives.colors.purple[950],
@@ -204,10 +222,10 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 		layout: {
 			gutter: 'lg',
 			'content-max': '640px',
-			// Site content column. 960 per Jax (Figma's 912 is superseded, D-034).
+			// Site content column. 960 per Jax (Figma's 912 is superseded, D-029).
 			'popout-max': '960px',
 		},
-		// 3px ring, 3px offset: thicker than Figma's 2/2 per Jax's review (D-014, D-042).
+		// 3px ring, 3px offset: thicker than Figma's 2/2 per Jax's review (D-014, D-032).
 		'focus-ring': {
 			width: primitives.sizes['border-width'][3],
 			offset: primitives.sizes['border-width'][3],
@@ -254,7 +272,10 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			md: primitives.font.size[16],
 			lg: primitives.font.size[20],
 			xl: primitives.font.size[24],
+			// Half steps between xl/2xl/3xl: the card titles use 28 (phones) and 36 (desktop). D-033.
+			'xl-plus': primitives.font.size[28],
 			'2xl': primitives.font.size[32],
+			'2xl-plus': primitives.font.size[36],
 			'3xl': primitives.font.size[40],
 			'4xl': primitives.font.size[48],
 			'5xl': primitives.font.size[56],
@@ -262,7 +283,7 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 		weight: {
 			subtle: primitives.font.weight.light,
 			default: primitives.font.weight.regular,
-			// Body copy on tinted grounds (card paragraphs): 400 read thin there. Manrope 500 is loaded. D-050.
+			// Body copy on tinted grounds (card paragraphs): 400 read thin there. Manrope 500 is loaded. D-033.
 			medium: primitives.font.weight.medium,
 			emphasis: primitives.font.weight.bold,
 			// NOTE: Figma sets Manrope text to 900, but Manrope stops at 800 (D-010). Use this for Manrope

@@ -141,95 +141,39 @@ About, the case studies and Resume use hard-coded dark text from the old palette
 
 Also (D-017): keyboard focus on the mode toggle shows only the focus ring: no violet and no line, like the nav links. Hover keeps both. The tooltip still shows on focus.
 
-## D-028: Study cards and Home grid — decided, 2026-10-14
+## D-028: Home study cards — decided, 2026-10-14
 
-Built from Figma Home `2839:21650`. (1) **No new tokens**: Figma's `study-card/padding-left` 48, `padding-top` 56 and link gap 4 are the existing `space-section-sm`, `space-section-md` and `space-xs`; the 2px "border offset" was a drawn underline and is a real `text-decoration` now. Shadow is `shadow-blur-2xl` / `shadow-spread-xl` with the per-palette `shadow-color-*` tokens. Preview heights (272, 200 on mobile) and the 500px sample width are component layout constants, not tokens. (2) **Four cards** (brand, primary, secondary, tertiary containers): tokens study first, then AI, Indeed, ActBlue; first two span the row, last two sit side by side (32px gap). The tokens study doesn't exist yet, so that card is inert and reads "Case study coming soon" (TODO(jax): write it or drop the card). Copy is Figma's, inline in `StudyCardGrid.tsx` (D-003). (3) **Accessibility**: the card is an `<article>` with a real `h3`; one stretched link ("Read AI study: <title>") covers it, and keyboard focus rings the whole card (3px `state-focus-ring`). Count/total aria-labels removed. The image-scale-on-hover of the old card is dropped; arrow nudge and underline-offset growth stay. (4) **Responsive (proposed, D-008)**: at ≤900px one column and every card stacks (text over preview, preview bleeds off the right edge); at ≤640px tighter padding and 200px preview. The `study` variant (under case studies) lists only linked cards, two max, with heading-md type. (5) The D-027 TEMP rule now excludes `article[class*='_card_']` instead of the old `*-card` classes.
+Built from Figma Home `2839:21650`, then refined with Jax in review. The Figma frame is now out of date (TODO(jax): update it).
+- **Layout:** a single stacked column of rounded cards in the 960px column (D-029), every card horizontal on desktop (900px and up): text left, a screenshot "window" right. At 900px and below they stack: text, then the screenshot cropped by the card's edges. One column means a fifth study needs no layout change.
+- **Anatomy:** title (verb-led, 2 lines), one outcome paragraph (3 lines at most), link naming the company. No tag line and no eyebrow: each added a text style. Copy is inline in `StudyCardGrid.tsx` (D-003) and uses only facts from each study's own content (ActBlue's $1.5M stays "estimated"; ServiceNow's tool accuracy is left in the study so it isn't read as Jax's impact). Outcome lines were written with Jax; the leadership demo and user testing were cut from ServiceNow's card and study.
+- **Order:** Toyota, ServiceNow, Indeed, ActBlue. The Toyota study page doesn't exist yet: its card links to `/case-studies/toyota` (the 404 until content is added before launch) and carries `ready: false` so it stays out of the "next study" row under case studies. TODO(jax).
+- **Measures (desktop, 960px card):** padding 32 / 32 / 40, title 36px (`2xl-plus`), 12px title-to-copy gap, paragraph 20px at weight 500 and 460px wide, text box 548px (text 492px), screenshot window 412 x 306 starting at 548px, 32px below the top and cropped by the card edges. ServiceNow, Indeed and ActBlue screenshots are 40px larger inside the same window, anchored top-left (`enlargeImage`); Toyota's is trimmed 2px at top and left. No glow behind the screenshot.
+- **Phones (no Figma, D-008):** padding unchanged, title 28px (`xl-plus`), paragraph and link `body-lg` (matches the footer, about 19px at 375), 200px screenshot window, link shows a short label (D-031).
+- **Fill:** the palette container mixed 5% toward `surface-default` in light and 30% in dark (`--card-lift`), so dark cards are calmer than the raw tint.
+- **Dark text:** heading and link are white (`content-emphasis`), the paragraph one step dimmer (`content-secondary`).
+- **Accessibility:** one `article` per card with a real heading (h2 on Home, h3 under a case study); one stretched link covers the card, its accessible name is "Read the X case study: <title>" and keyboard focus rings the whole card (D-032). No `aria-label` count.
+- **Tried and dropped:** a 1120px breakout, full-width bands, a one-hue stepped ramp, a 2-up row, a tag line, a 22px paragraph, a glow, a pop-out screenshot.
 
-Revised (D-028, 2026-10-14): the Home cards are one stacked column of horizontal cards at every width, not a 2-up row, so adding a fifth (or sixth) study needs no layout change. This departs from the Figma Home frame; TODO(jax): update Figma to match. The inert tokens card stays first for now (fixed later).
+## D-029: Content column is 960px; Home intro padding — decided, 2026-10-14
 
-## D-029: Study card anatomy and copy — decided, 2026-10-14
+`--size-layout-popout-max` is 960px (was Figma's 912); the main wrapper is 1008px including its 24px side padding, and the legacy Divider offset is recomputed (180). Header, footer, hero and cards follow it. `CLAUDE.md` and the Figma frames still say 912. The Home intro has 176px top padding and none at the bottom on desktop (was 120 / 16), 64px top on phones (was 48); the header's own 48px bottom padding still separates it from the first card.
 
-Cards read: title (the problem solved), one outcome sentence, company then quiet tags, link. (Revised 2026-10-14: the company · role · years eyebrow and the glow behind the sample were removed, and the preview column went from 500 to 440px so the text is wider. Role and years live in the case studies.) Why: a skimming reviewer needs brand, seniority and proof on the card, not a category label. Outcome lines use only facts already in each study (ActBlue's "$1.5M a year" stays "estimated"; ServiceNow's 95% tool accuracy is left in the study so it isn't read as Jax's impact; Indeed has no metric, so it states scope and mentoring). Order: ServiceNow, ActBlue, Indeed, then the inert tokens card (D-028). This adds two text lines beyond the Figma frame; TODO(jax): update Figma. Link text is "Read the <topic> case study".
+## D-030: Card color ramp and a teal palette — decided, 2026-10-14
 
-## D-034: Cards on a 960px column; whole-card link — decided, 2026-10-14
+Cards run a hue ramp, top to bottom: brand (reddish purple), secondary (indigo), tertiary (sky), quaternary (teal). `quaternary` is a new color group (teal 700 / 300 default, 200 / 800 container, with hover, active and shadow tokens generated like the others). Neighbours are at least 28 degrees apart, unlike purple next to violet (12). `primary` (violet) is no longer used on Home. A fifth study continues the ramp with green (not built yet). Teal 200 reads brighter than the other pastels; revisit if it is too loud.
 
-Replaces the tried-and-reverted D-030 (breakout), D-031 (full-width bands), D-032 (stepped hue) and D-033. (1) **Site content column is 960px** (was Figma's 912): `--size-layout-popout-max: 960px`, the main wrapper is 1008px including its 24px side padding, and the Divider offset is recomputed (180). Header, footer, hero and cards all follow it. The Figma frames are 912; TODO(jax): update them, and `CLAUDE.md` still says 912. (2) **Home cards** stay rounded cards in that column, stacked, all horizontal (D-028). The sample pops out 24px at the right and bottom; the preview column is 340px (was 500), so the sample sits further right and the copy gets about 130px more. No glow. (3) **Copy:** titles are `heading-lg` (32px) and written to wrap to two lines: ServiceNow "Turning thousands of survey responses into themes in minutes", ActBlue "Self-serve setup and visible syncs for campaign admins" (TODO(jax): confirm). Outcome lines stay within three lines. The company leads the tag line (D-029). (4) **Colors** run brand, primary, secondary, tertiary, top to bottom. A fifth study needs a color decision. (5) **Whole card is the link** (stretched link, hover tint, whole-card focus ring). Jax prefers it to a link-only target; the link text keeps a unique accessible name.
+## D-031: Card link — decided, 2026-10-14
 
-## D-035: Cards: sample inside the window, no tag line — decided, 2026-10-14
+No resting underline and no color change on hover; a 3px line grows in from the left under the text, the nav and footer links' treatment (D-017, D-024), sitting like the nav's line (2px below the text box). The arrow does not move. Keyboard focus shows only the card's ring. The legacy global `a` hover rules (color, fill, underline) are overridden on this link. On phones the link shows a short label ("Read the case study", full name still in the accessible name) and never wraps; the arrow stays next to the text.
 
-Revises D-034. (1) The sample no longer pops out: it is cropped by the card's right and bottom edges again (Figma). In the 960px card the text box is 580px (40px narrower) and the sample starts at 588px (80px further left than before) and is 372px wide. (2) The tag line (company, then categories) is removed: it added a fourth text style (title, outcome, tags, link). The company moves into the link ("Read the ServiceNow case study"); the categories are already said by the title and outcome. Three styles remain. If the categories are missed, they can return as a chip row in the existing Chip component rather than as another text style. Link text for the tokens card has no company until its study exists. The narrower text box pushed the ServiceNow title to three lines, so it is now "Turning survey responses into themes in minutes" (TODO(jax): confirm).
+## D-032: Focus ring tokens — decided, 2026-10-14
 
-## D-036: Card measures, second pass — decided, 2026-10-14
+`--size-focus-ring-width` and `--size-focus-ring-offset` (both 3px, from a new `border-width` primitive 3) replace `calc(border-width-default + 1px)` and raw `3px` in the header, footer, mode toggle, TextLink, study card and the legacy palette mixin. Color stays `--color-state-focus-ring`. Figma draws 2px / 2px; the thicker ring is Jax's call (D-014). Change the ring in `defaultTheme.ts` only.
 
-Revises D-035 in the 960px card: the text is 508px wide (was 532; box 548px with 24px left and 16px right padding), the sample is 412px wide (was 372) and starts at 548px with no extra left padding, and its top is 32px (`space-3xl`, was 56) below the card top so it lines up with the text block's top padding rhythm. Titles still wrap to two lines.
-The tokens card title is now "A multi-brand token system for cross-platform apps" so it stays at two lines (TODO(jax): placeholder until its study exists).
+## D-033: Type scale half steps and a medium weight — decided, 2026-10-14
 
-## D-037: 40px card titles — decided, 2026-10-14
+The scale gains `xl-plus` (28px) and `2xl-plus` (36px) between xl / 2xl / 3xl, because the card titles are 28 on phones and 36 on desktop; both exist as primitives. Reviewed: the scale is 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64 and the card titles are the only users of the new steps, so the sizing itself was not reopened. `--font-weight-medium` (500, Manrope 500 was already loaded) is used for card paragraphs, since 400 read thin on a tinted ground.
 
-Revises D-036. On desktop (≥900px) card titles are 40px (`font-size-3xl`, heading-lg + 8px); below that they stay `heading-lg`. The text is 492px wide (box 532px). At 40px the titles had to be shortened to hold two lines: "Turning surveys into themes in minutes", "Self-serve setup and visible syncs" (the outcome line carries "campaign admins"), "Scaling a design system through a rebrand", "Multi-brand tokens for cross-platform apps" (placeholder). TODO(jax): confirm the wording.
+## D-034: Pretty text wrapping site-wide — decided, 2026-10-14
 
-## D-038: Home intro padding and card paragraph measure — decided, 2026-10-14
-
-The Home intro (hero) top padding is 160px (two `section-xl` steps, was 120px). The outcome paragraph in desktop cards is 460px wide (`max-width`, 32px narrower than the 492px title measure); stacked cards keep full width.
-At 460px the ServiceNow outcome ran to four lines, so it now reads "Shaped an AI tool that replaces 10+ hours of manual coding per 100 responses; demoed to leadership, now in user testing." (TODO(jax): confirm).
-
-## D-039: Card title 36px — decided, 2026-10-14
-
-Desktop card titles are 36px (was 40px, D-037). The type scale has no 36 (32, 40), so the CSS is `calc(var(--font-size-3xl) - 4px)`, a deliberate exception to D-005. TODO(jax): add a 36px step to the scale (`primitives.ts`, e.g. between 2xl and 3xl) or return to 32/40.
-
-## D-040: Card link uses the nav hover style — decided, 2026-10-14
-
-The card's link text has no resting underline. On hover of the card (the whole card is the target) a 3px line grows in from the left under the text, like the nav and footer links (D-017, D-024). Text color and the arrow stay static (Jax: no violet, no nudge). Keyboard focus shows only the card's ring, like the nav. Resting color is the palette's on-container color.
-
-## D-041: Card padding +8px — decided, 2026-10-14
-
-Card content padding is 32px at the top and sides and 40px at the bottom (was 24 / 24 / 32), `space-3xl` and `space-4xl`. On desktop the text stays 492px wide and the sample stays at 548px (412px wide), so the text box grew to 548px (32px left, 24px right padding) and the gap between text and sample is 24px. The image top (32px) lines up with the text top. On phones the sample's left edge follows the text's 32px.
-
-## D-042: Focus ring tokens — decided, 2026-10-14
-
-The keyboard focus ring is two tokens, `--size-focus-ring-width` and `--size-focus-ring-offset` (both 3px, from a new `border-width` primitive 3), replacing `calc(border-width-default + 1px)` and a raw `3px` that were copied into the header, footer, mode toggle, TextLink and study card, and `px-to-rem(3)` in the legacy palette mixin. Color stays `--color-state-focus-ring`. Figma draws 2px / 2px; the thicker ring is Jax's call (D-014). Change the ring in `defaultTheme.ts` only.
-
-Copy (2026-10-14): the ServiceNow card no longer mentions the leadership demo or user testing, and the case study drops the same claims (the demo sentence, the user-testing paragraph, the "prepped for user testing" clause, and the meta description's "prepare the product for testing"). Not relevant to the story, per Jax.
-
-## D-043: Card backgrounds 5% lighter — decided, 2026-10-14
-
-Card fill is the palette container mixed 5% toward `surface-default` (`color-mix`, `--card-lift`), so light mode reads lighter and dark mode a touch deeper. Hover uses the hover container with the same mix. One value (`--card-lift`) controls it; if it should become a real token, add it with the palette tokens.
-
-## D-044: Card title-to-copy gap 16px — decided, 2026-10-14
-
-The gap between a card's title and its outcome paragraph is `space-md` (12px), was `space-sm` (8px); 16px was tried and trimmed by 4.
-
-## D-045: Card copy size on phones — decided, 2026-10-14
-
-At 640px and below the card's outcome paragraph uses `body-lg` (the footer description's style, about 19px at 375px), up from `body-md` (about 17px). Wider screens are unchanged. Under a case study (`study` variant) cards keep the smaller size.
-
-## D-046: Pretty text wrapping site-wide — decided, 2026-10-14
-
-`text-wrap: pretty` is set on `body` and inherited, so paragraphs avoid orphaned last words. Elements that set their own (`balance` on card titles and the footer description) keep it. Browsers without support ignore it.
-
-## D-047: Card title on phones and intro padding — decided, 2026-10-14
-
-At 640px and below card titles are `heading-lg` + 4px (28px at 375, was 24px); `calc(... + 4px)` because 28 isn't on the type scale (same exception as D-039). The Home intro has 16px more top padding and none at the bottom: 176px top and 0 bottom on desktop (was 160 / 16), 64px top on phones (was 48; bottom also 0). The header's own 48px bottom padding still separates it from the first card.
-
-## D-048: Card link size and hover line — decided, 2026-10-14
-
-On phones the card link and the "coming soon" label use `body-lg`, the same as the card paragraph (D-045); on desktop link and paragraph were already both 20px. The hover line under the link text is moved down 2px so its distance from the text matches the nav link's line (it overlapped the text box by 5px before, now 1px, like the nav).
-
-## D-049: Desktop card paragraph and link 22px — decided, 2026-10-14
-
-Tried 22px for the card paragraph and link on desktop; reverted to 20px (`body-md`) the same day because it pushed paragraphs past three lines. The paragraph keeps weight 500 (D-050). Phones keep `body-lg` (D-045).
-
-## D-050: Card paragraph weight 500 — decided, 2026-10-14
-
-The card paragraph uses a new `--font-weight-medium` (500, Manrope 500 was already loaded) instead of `default` (400), because regular read thin on the tinted card at 22px. The link stays 800. Only the card paragraph uses it for now; the same question applies to other body text on tinted grounds.
-
-## D-051: Toyota card first, bigger sample, dark card text — decided, 2026-10-14
-
-(1) Card order is Toyota, ServiceNow, Indeed, ActBlue (brand, primary, secondary, tertiary). The tokens placeholder card is replaced by Toyota: title "Building a multi-brand token system", outcome from the Toyota study's own Outcomes and intro ("Led token architecture and Figma-to-code automation for Toyota's PRIME design system, giving design and engineering one source of truth."), sample cropped from the study's library-architecture diagram (Figma 2956:11841). The Toyota study page doesn't exist yet, so the card is inert ("Case study coming soon") and sits first until slice 4 builds it. (2) The sample window is unchanged; the screenshot inside it is 12% larger. (3) In dark mode the card heading and link are white (`content-emphasis`) and the paragraph is `content-secondary` (purple-200), one step dimmer than `content-variant`.
-
-Revised (D-051, 2026-10-14): the Toyota card's sample is the study's Figma Variables panel (token collections and light/dark values), not the architecture diagram. The "Case study coming soon" label is gone: the card links to `/case-studies/toyota` like the others, which shows the 404 until the study content is added before launch (TODO(jax)). `ready: false` on the card keeps it out of the "next study" row under case studies until then.
-
-## D-052: Larger screenshots on three cards — decided, 2026-10-14
-
-ServiceNow, Indeed and ActBlue screenshots are 40px larger inside the same window (`enlargeImage`, 112% + 40px wide, anchored top-left). The window (412px by card height) and the Toyota card's image are unchanged.
-The Toyota sample is trimmed 2px at its top and left edge (the Figma panel's own frame), inside the same window (D-052).
+`text-wrap: pretty` is set on `body` and inherited; elements with `balance` (card titles, the footer description) keep it. It does not stop a break at a hyphen, so hyphenated words that must stay whole in headings use a non-breaking hyphen (U+2011): "multi‑brand", "self‑serve".

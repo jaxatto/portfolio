@@ -9,7 +9,7 @@ import toyotaImage from '@assets/samples/toyota-sample-min.png';
 import styles from './StudyCardGrid.module.css';
 
 // Cards for the Home page and the "next study" row under each case study (D-028).
-// Copy is inline (D-003). Figma: Home 2839:21650. Outcome lines come from each study's own content (D-029).
+// Copy is inline (D-003). Figma: Home 2839:21650. Outcome lines come from each study's own content (D-028).
 
 // `ready: false` keeps a card on Home but out of the "next study" row until its page exists.
 type Card = StudyCardProps & { ready?: boolean };
@@ -37,7 +37,7 @@ const cards: Card[] = [
 		linkUrl: studyLinks.servicenow,
 		linkText: 'Read the ServiceNow case study',
 		enlargeImage: true,
-		palette: 'primary',
+		palette: 'secondary',
 	},
 	{
 		title: 'Scaling a design system through a rebrand',
@@ -47,17 +47,17 @@ const cards: Card[] = [
 		linkUrl: studyLinks.indeed,
 		linkText: 'Read the Indeed case study',
 		enlargeImage: true,
-		palette: 'secondary',
+		palette: 'tertiary',
 	},
 	{
-		title: 'Replacing support tickets with self-serve setup',
+		title: 'Replacing support tickets with self‑serve setup',
 		outcome:
 			'Led design of the Salesforce integration end to end. Admins fix sync issues themselves, cutting support costs an estimated $1.5M a year.',
 		image: actblueImage,
 		linkUrl: studyLinks.actblue,
 		linkText: 'Read the ActBlue case study',
 		enlargeImage: true,
-		palette: 'tertiary',
+		palette: 'quaternary',
 	},
 ];
 
@@ -79,6 +79,7 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({ variant = 'work', exclude
 					key={card.title}
 					{...card}
 					variant={variant}
+					headingLevel={variant === 'work' ? 'h2' : 'h3'}
 					// Work: every card is horizontal and stacked, so any number of studies works (D-028).
 					layout={variant === 'work' ? 'horizontal' : 'vertical'}
 				/>

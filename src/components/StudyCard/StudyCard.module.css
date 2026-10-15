@@ -15,7 +15,7 @@
 	flex-direction: column;
 	overflow: hidden;
 	border-radius: var(--size-radius-lg);
-	/* 5% toward the page ground: lighter in light mode, a touch deeper in dark (D-043). */
+	/* 5% toward the page ground: lighter in light mode, a touch deeper in dark (D-028). */
 	--card-lift: 5%;
 	background: color-mix(
 		in oklch,
@@ -47,6 +47,14 @@
 	--card-fg-active: var(--color-secondary-on-container-active);
 }
 
+.quaternary {
+	--card-bg: var(--color-quaternary-container);
+	--card-bg-hover: var(--color-quaternary-container-hover);
+	--card-fg: var(--color-quaternary-on-container);
+	--card-fg-hover: var(--color-quaternary-on-container-hover);
+	--card-fg-active: var(--color-quaternary-on-container-active);
+}
+
 .tertiary {
 	--card-bg: var(--color-tertiary-container);
 	--card-bg-hover: var(--color-tertiary-container-hover);
@@ -75,14 +83,14 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: var(--size-space-section-sm);
-	/* 32px sides and top, 40px bottom (was 24 / 32, +8px per Jax; D-041). */
+	/* 32px sides and top, 40px bottom (was 24 / 32, +8px per Jax; D-028). */
 	padding: var(--size-space-3xl) var(--size-space-3xl) var(--size-space-4xl);
 }
 
 .text {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-md); /* 12px between title and outcome (was 8, D-044) */
+	gap: var(--size-space-md); /* 12px between title and outcome (was 8, D-028) */
 	width: 100%;
 }
 
@@ -101,7 +109,7 @@
 	margin: 0;
 	font-family: var(--font-style-body-md-family);
 	font-size: var(--font-style-body-md-size);
-	font-weight: var(--font-weight-medium); /* 500: 400 read thin on the tinted card (D-050) */
+	font-weight: var(--font-weight-medium); /* 500: 400 read thin on the tinted card (D-033) */
 	line-height: var(--font-style-body-md-line-height);
 }
 
@@ -123,14 +131,19 @@
 	position: relative;
 }
 
-/* Hover style from the nav and footer links (D-017, D-040): no resting underline; on hover a 3px
+/* Phones swap in the short label so the link stays on one line (D-031). */
+.linkShort {
+	display: none;
+}
+
+/* Hover style from the nav and footer links (D-017, D-031): no resting underline; on hover a 3px
    line grows in from the left. Text color and arrow stay put. Focus shows only the card's ring. */
 .linkText::after {
 	content: '';
 	position: absolute;
 	right: 0;
 	/* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
-	   below the box, not 2px above its bottom (D-048). */
+	   below the box, not 2px above its bottom (D-031). */
 	bottom: calc(-1 * var(--size-border-width-default));
 	left: 0;
 	height: 3px;
@@ -209,9 +222,9 @@
 
 /* Desktop: horizontal cards put the preview beside the text. */
 @media (min-width: 900px) {
-	/* The sample stays inside the card window: cropped by its right and bottom edges (D-035).
+	/* The sample stays inside the card window: cropped by its right and bottom edges (D-028).
 	   Layout in a 960px card: text 492px wide (box 548px incl. 32px left, 24px right padding),
-	   sample 412px wide starting at 548px, 32px below the card top (D-036, D-037, D-041). */
+	   sample 412px wide starting at 548px, 32px below the card top (D-028). */
 	.horizontal {
 		flex-direction: row;
 	}
@@ -228,13 +241,13 @@
 		padding: var(--size-space-3xl) 0 0;
 	}
 
-	/* Desktop title is 36px: 40px less 4px, per Jax (D-039). 36 isn't on the type scale, so this is
-	   a calc off 3xl until Jax decides whether to add a step. Below 900px it stays heading-lg. */
+	/* Desktop title is 36px, a real step on the type scale now (D-033). Below 900px it stays
+	   heading-lg. */
 	.horizontal .title {
-		font-size: calc(var(--font-size-3xl) - 4px);
+		font-size: var(--font-size-2xl-plus);
 	}
 
-	/* Paragraph is 32px narrower than the title: 460px (D-038). */
+	/* Paragraph is 32px narrower than the title: 460px (D-028). */
 	.horizontal .outcome {
 		max-width: 28.75rem;
 	}
@@ -246,7 +259,7 @@
 
 	/* Fill the whole sample so no sunken-grey strip shows below a short screenshot. */
 	.horizontal .image {
-		/* The window stays the same size; the screenshot is 12% larger inside it (D-051). */
+		/* The window stays the same size; the screenshot is 12% larger inside it (D-028). */
 		/* Out of flow, so a larger screenshot never makes the card taller. */
 		position: absolute;
 		top: 0;
@@ -266,7 +279,7 @@
 		width: calc(112% + 2 * var(--size-border-width-default));
 	}
 
-	/* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-052). */
+	/* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-028). */
 	.horizontal.enlarge .image {
 		width: calc(112% + 40px);
 	}
@@ -284,12 +297,24 @@
 
 /* Mobile (no Figma design, D-008; see D-028): tighter padding and a shorter preview. */
 @media (max-width: 640px) {
-	/* Title is 4px larger on phones: 28px at 375 (heading-lg is 24px there; D-047). */
-	.title {
-		font-size: calc(var(--font-style-heading-lg-size) + 4px);
+	.linkFull {
+		display: none;
 	}
 
-	/* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-045). */
+	.linkShort {
+		display: inline;
+	}
+
+	.link {
+		white-space: nowrap;
+	}
+
+	/* Phone title is 28px, a real step on the type scale (D-033). */
+	.title {
+		font-size: var(--font-size-xl-plus);
+	}
+
+	/* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). */
 	.outcome,
 	.link {
 		font-size: var(--font-style-body-lg-size);
@@ -314,16 +339,18 @@
 	}
 }
 
-/* Dark mode (D-051): heading and link are white, the paragraph one step dimmer. Selectors mirror
+/* Dark mode (D-028): heading and link are white, the paragraph one step dimmer. Selectors mirror
    theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
 :global([data-theme='dark']) .card {
 	--card-fg: var(--color-content-emphasis);
+	--card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
 	color: var(--color-content-secondary);
 }
 
 @media (prefers-color-scheme: dark) {
 	:global(:root:not([data-theme='light'])) .card {
 		--card-fg: var(--color-content-emphasis);
+		--card-lift: 30%;
 		color: var(--color-content-secondary);
 	}
 }

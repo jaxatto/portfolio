@@ -50,7 +50,7 @@ Add comments where they help the next reader or session: *why* something is the 
 File `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/design/MqsYPIWOx9imJtSiXidiww/Portfolio-2026).
 
 - Use the Figma MCP: `get_design_context` (layout and values), `get_variable_defs` (tokens), `get_metadata` (structure). Load the `figma-design-to-code` skill before `get_design_context`. Its output is a reference to adapt to this codebase, not code to paste.
-- Current designs are on the **Screens** page (`0:1`). Ignore **Old Screens** and the Sandbox/Presi pages unless asked. Desktop frames are 1280px wide with a 912px content column.
+- Current designs are on the **Screens** page (`0:1`). Ignore **Old Screens** and the Sandbox/Presi pages unless asked. Desktop frames are 1280px wide with a 912px content column; the site itself uses a 960px content column (D-029), so Figma spacing is a reference, not a pixel spec.
 
 | Page | Node |
 | --- | --- |
@@ -97,7 +97,7 @@ No test runner or lint script exists yet. Verify with `npm run build` plus a vis
 
 ```
 src/components/        shared: Name/{Name.tsx, Name.module.css (migrated) or .scss (legacy), index.ts}
-                       migrated so far: Header, Footer, ModeToggle, TextLink (see D-014); Layout is full-width, only <main> is constrained
+                       migrated so far: Header, Footer, ModeToggle, TextLink (D-014), StudyCard and StudyCardGrid (D-028); Layout is full-width, only <main> is constrained
 src/pages/             Work, About, Resume, Studies, NotFound (+ pages/<Page>/components)
 src/pages/Studies/pages/<Study>/   content.ts, meta.ts, images/
 src/constants/         shared links and icon names
