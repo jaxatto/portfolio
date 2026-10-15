@@ -12,7 +12,7 @@ export const images = [
   },
   {
     src: primaryImage,
-    alt: 'A tortoiseshell cat named Midna naps with her eyes closed on a couch, curled up next to a blue fleece blanket. Midna is the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
+    alt: 'A tortoiseshell cat named Midna peers over the top edge of a sticker-covered laptop, watching the screen. Midna is the most chaotic rescue tortoiseshell cat. She secretly does all of my code, too.',
     iconFallback: 'cat',
     altFallback: 'A cat icon as fallback for the image of Midna the cat.',
   },
