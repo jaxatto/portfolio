@@ -218,3 +218,7 @@ On phones the card link and the "coming soon" label use `body-lg`, the same as t
 ## D-049: Desktop card paragraph and link 22px — decided, 2026-10-14
 
 At 900px and up the card paragraph and its link are 22px (`calc(font-size-lg + 2px)`; 22 isn't on the type scale, same exception as D-039 and D-047). Phones keep `body-lg` (D-045). TODO(jax): add 22px to the scale, or return to 20/24.
+
+## D-050: Card paragraph weight 500 — decided, 2026-10-14
+
+The card paragraph uses a new `--font-weight-medium` (500, Manrope 500 was already loaded) instead of `default` (400), because regular read thin on the tinted card at 22px. The link stays 800. Only the card paragraph uses it for now; the same question applies to other body text on tinted grounds.

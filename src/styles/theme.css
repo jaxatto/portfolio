@@ -482,6 +482,7 @@
   --font-size-5xl: var(--primitive-font-size-56);
   --font-weight-subtle: var(--primitive-font-weight-300);
   --font-weight-default: var(--primitive-font-weight-400);
+  --font-weight-medium: var(--primitive-font-weight-500);
   --font-weight-emphasis: var(--primitive-font-weight-700);
   --font-weight-extra-strong: var(--primitive-font-weight-800);
   --font-weight-strong: var(--primitive-font-weight-900);

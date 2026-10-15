@@ -262,6 +262,8 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 		weight: {
 			subtle: primitives.font.weight.light,
 			default: primitives.font.weight.regular,
+			// Body copy on tinted grounds (card paragraphs): 400 read thin there. Manrope 500 is loaded. D-050.
+			medium: primitives.font.weight.medium,
 			emphasis: primitives.font.weight.bold,
 			// NOTE: Figma sets Manrope text to 900, but Manrope stops at 800 (D-010). Use this for Manrope
 			// bold text such as nav items and links; `strong` (900) is for Inter headings.

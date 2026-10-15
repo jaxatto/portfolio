@@ -101,7 +101,7 @@
 	margin: 0;
 	font-family: var(--font-style-body-md-family);
 	font-size: var(--font-style-body-md-size);
-	font-weight: var(--font-style-body-md-weight);
+	font-weight: var(--font-weight-medium); /* 500: 400 read thin on the tinted card (D-050) */
 	line-height: var(--font-style-body-md-line-height);
 }
 
