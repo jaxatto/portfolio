@@ -271,6 +271,12 @@
 
 /* Mobile (no Figma design, D-008; see D-028): tighter padding and a shorter preview. */
 @media (max-width: 640px) {
+	/* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-045). */
+	.outcome {
+		font-size: var(--font-style-body-lg-size);
+		line-height: var(--font-style-body-lg-line-height);
+	}
+
 	.content {
 		gap: var(--size-space-4xl);
 	}

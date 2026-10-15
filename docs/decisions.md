@@ -198,3 +198,7 @@ Card fill is the palette container mixed 5% toward `surface-default` (`color-mix
 ## D-044: Card title-to-copy gap 16px — decided, 2026-10-14
 
 The gap between a card's title and its outcome paragraph is `space-md` (12px), was `space-sm` (8px); 16px was tried and trimmed by 4.
+
+## D-045: Card copy size on phones — decided, 2026-10-14
+
+At 640px and below the card's outcome paragraph uses `body-lg` (the footer description's style, about 19px at 375px), up from `body-md` (about 17px). Wider screens are unchanged. Under a case study (`study` variant) cards keep the smaller size.
