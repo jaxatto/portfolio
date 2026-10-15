@@ -184,3 +184,7 @@ The card's link text has no resting underline. On hover of the card (the whole c
 ## D-041: Card padding +8px — decided, 2026-10-14
 
 Card content padding is 32px at the top and sides and 40px at the bottom (was 24 / 24 / 32), `space-3xl` and `space-4xl`. On desktop the text stays 492px wide and the sample stays at 548px (412px wide), so the text box grew to 548px (32px left, 24px right padding) and the gap between text and sample is 24px. The image top (32px) lines up with the text top. On phones the sample's left edge follows the text's 32px.
+
+## D-042: Focus ring tokens — decided, 2026-10-14
+
+The keyboard focus ring is two tokens, `--size-focus-ring-width` and `--size-focus-ring-offset` (both 3px, from a new `border-width` primitive 3), replacing `calc(border-width-default + 1px)` and a raw `3px` that were copied into the header, footer, mode toggle, TextLink and study card, and `px-to-rem(3)` in the legacy palette mixin. Color stays `--color-state-focus-ring`. Figma draws 2px / 2px; the thicker ring is Jax's call (D-014). Change the ring in `defaultTheme.ts` only.

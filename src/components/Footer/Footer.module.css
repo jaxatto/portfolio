@@ -160,8 +160,8 @@
 }
 
 .icon-link:focus-visible {
-	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
-	outline-offset: 3px;
+	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+	outline-offset: var(--size-focus-ring-offset);
 }
 
 /* Quiet: the page ground with a hairline across the content column. */

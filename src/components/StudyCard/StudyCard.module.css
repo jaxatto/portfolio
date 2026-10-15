@@ -55,8 +55,8 @@
 
 /* The link is stretched over the card, so keyboard focus rings the whole card. */
 .card:has(.link:focus-visible) {
-	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
-	outline-offset: 3px;
+	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+	outline-offset: var(--size-focus-ring-offset);
 }
 
 /* Text */

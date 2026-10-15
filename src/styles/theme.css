@@ -390,6 +390,7 @@
   --primitive-size-border-width-0: 0px;
   --primitive-size-border-width-1: 1px;
   --primitive-size-border-width-2: 2px;
+  --primitive-size-border-width-3: 3px;
   --primitive-size-border-width-4: 4px;
   --primitive-size-breakpoint-320: 320px;
   --primitive-size-breakpoint-640: 640px;
@@ -448,6 +449,8 @@
   --size-layout-gutter: var(--size-space-lg);
   --size-layout-content-max: var(--primitive-size-breakpoint-640);
   --size-layout-popout-max: 960px;
+  --size-focus-ring-width: var(--primitive-size-border-width-3);
+  --size-focus-ring-offset: var(--primitive-size-border-width-3);
   --size-border-width-none: var(--primitive-size-border-width-0);
   --size-border-width-thin: var(--primitive-size-border-width-1);
   --size-border-width-default: var(--primitive-size-border-width-2);

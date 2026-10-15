@@ -176,8 +176,8 @@
 /* Focus ring uses the state-focus-ring token (purple-950 light, white dark). See D-014. */
 .nav-link:focus-visible,
 .brand:focus-visible {
-	outline: calc(var(--size-border-width-default) + 1px) solid var(--color-state-focus-ring);
-	outline-offset: 3px;
+	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+	outline-offset: var(--size-focus-ring-offset);
 }
 
 /* The legacy global `a { transition: all .3s }` (Link.module.scss) would animate the focus ring's

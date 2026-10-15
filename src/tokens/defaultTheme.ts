@@ -207,6 +207,11 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			// Site content column. 960 per Jax (Figma's 912 is superseded, D-034).
 			'popout-max': '960px',
 		},
+		// 3px ring, 3px offset: thicker than Figma's 2/2 per Jax's review (D-014, D-042).
+		'focus-ring': {
+			width: primitives.sizes['border-width'][3],
+			offset: primitives.sizes['border-width'][3],
+		},
 		'border-width': {
 			none: primitives.sizes['border-width'][0],
 			thin: primitives.sizes['border-width'][1],

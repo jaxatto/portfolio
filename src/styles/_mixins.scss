@@ -43,14 +43,14 @@
 @mixin focus($color, $inverse: false) {
   &:focus-visible {
     @if $inverse {
-      outline: px-to-rem(3) solid $color;
-      outline-offset: px-to-rem(3);
+      outline: var(--size-focus-ring-width) solid $color;
+      outline-offset: var(--size-focus-ring-offset);
       background-color: $color;
       color: var(--color-white);
       fill: var(--color-white);
     } @else {
-      outline: px-to-rem(3) solid $color;
-      outline-offset: px-to-rem(3);
+      outline: var(--size-focus-ring-width) solid $color;
+      outline-offset: var(--size-focus-ring-offset);
     }
   }
 }

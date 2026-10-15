@@ -158,6 +158,11 @@ export type SemanticThemeSizes = BaseSemanticThemeSizes & {
 		'content-max': string;
 		'popout-max': string;
 	};
+	// Keyboard focus ring: one definition for every component (D-042).
+	'focus-ring': {
+		width: keyof BaseSemanticThemeSizes['border-width'];
+		offset: keyof BaseSemanticThemeSizes['border-width'];
+	};
 	'border-width': {
 		none: keyof BaseSemanticThemeSizes['border-width'];
 		thin: keyof BaseSemanticThemeSizes['border-width'];
