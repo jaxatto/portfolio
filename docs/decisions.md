@@ -214,3 +214,7 @@ At 640px and below card titles are `heading-lg` + 4px (28px at 375, was 24px); `
 ## D-048: Card link size and hover line — decided, 2026-10-14
 
 On phones the card link and the "coming soon" label use `body-lg`, the same as the card paragraph (D-045); on desktop link and paragraph were already both 20px. The hover line under the link text is moved down 2px so its distance from the text matches the nav link's line (it overlapped the text box by 5px before, now 1px, like the nav).
+
+## D-049: Desktop card paragraph and link 22px — decided, 2026-10-14
+
+At 900px and up the card paragraph and its link are 22px (`calc(font-size-lg + 2px)`; 22 isn't on the type scale, same exception as D-039 and D-047). Phones keep `body-lg` (D-045). TODO(jax): add 22px to the scale, or return to 20/24.
