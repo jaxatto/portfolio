@@ -97,7 +97,7 @@ No test runner or lint script exists yet. Verify with `npm run build` plus a vis
 
 ```
 src/components/        shared: Name/{Name.tsx, Name.module.css (migrated) or .scss (legacy), index.ts}
-                       migrated so far: Header, Footer, ModeToggle, TextLink (D-014), StudyCard and StudyCardGrid (D-028), About page (D-040); Layout is full-width, only <main> is constrained
+                       migrated so far: Header, Footer, ModeToggle, TextLink (D-014), StudyCard and StudyCardGrid (D-028), About page (D-040), HeroMarks (D-041); Layout is full-width, only <main> is constrained
 src/pages/             Work, About, Resume, Studies, NotFound (+ pages/<Page>/components)
 src/pages/Studies/pages/<Study>/   content.ts, meta.ts, images/
 src/constants/         shared links and icon names

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ModeToggle from '#components/ModeToggle';
+import { DesignSelection, Caret } from '#components/HeroMarks';
 import { useTheme } from '#providers/Theme';
 import { mainLinks } from '#constants/mainLinks';
 import styles from './Header.module.css';
@@ -72,28 +73,12 @@ const Header: React.FC = () => {
 						{/* Mobile only: the role as a byline under the greeting (display:none above 640px, so
 						    assistive tech hears it once). See D-018. */}
 						<span className={styles.byline}>Staff Product Designer</span> I{' '}
-						<span className={styles.design}>
-							<span className={styles.selection} aria-hidden="true">
-								<i className={styles['handle-tl']} />
-								<i className={styles['handle-tr']} />
-								<i className={styles['handle-bl']} />
-								<i className={styles['handle-br']} />
-								<span className={styles.pointer}>
-									<svg
-										className={styles['pointer-arrow']}
-										width="14"
-										height="19"
-										viewBox="0 0 14 19"
-										focusable="false"
-									>
-										<path d="M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z" className={styles['pointer-fill']} />
-									</svg>
-								</span>
-							</span>
-							design
-						</span>{' '}
+						<DesignSelection>design</DesignSelection>{' '}
 						and{' '}
-						<span className={styles.build}>build</span> accessible products and the systems
+						<span className={styles.build}>
+							build
+							<Caret />
+						</span> accessible products and the systems
 						behind them.
 					</h1>
 				</div>

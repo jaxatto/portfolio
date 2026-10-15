@@ -207,7 +207,6 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			md: primitives.sizes.radius[12],
 			lg: primitives.sizes.radius[16],
 			xl: primitives.sizes.radius[24],
-			full: primitives.sizes.radius.full,
 		},
 		space: {
 			none: primitives.sizes.space[0],
