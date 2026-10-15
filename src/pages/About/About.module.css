@@ -206,9 +206,11 @@
 	left: var(--size-space-lg);
 }
 
-.low-center {
-	bottom: var(--size-space-md);
-	left: 22%;
+.top-right {
+	top: var(--size-space-lg);
+	right: var(--size-space-lg);
+	bottom: auto;
+	left: auto;
 }
 
 .caption {
