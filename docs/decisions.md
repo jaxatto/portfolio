@@ -194,3 +194,7 @@ Copy (2026-10-14): the ServiceNow card no longer mentions the leadership demo or
 ## D-043: Card backgrounds 5% lighter — decided, 2026-10-14
 
 Card fill is the palette container mixed 5% toward `surface-default` (`color-mix`, `--card-lift`), so light mode reads lighter and dark mode a touch deeper. Hover uses the hover container with the same mix. One value (`--card-lift`) controls it; if it should become a real token, add it with the palette tokens.
+
+## D-044: Card title-to-copy gap 16px — decided, 2026-10-14
+
+The gap between a card's title and its outcome paragraph is `space-lg` (16px), was `space-sm` (8px).
