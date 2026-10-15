@@ -14,7 +14,7 @@ const cards: StudyCardProps[] = [
 	{
 		title: 'Turning surveys into themes in minutes',
 		outcome:
-			'Simplified the flow and in-tool guidance of an AI tool that turns open-ended responses into themes, work that took 10+ hours per 100 by hand.',
+			'Redesigned how researchers code open-ended survey responses with AI, replacing 10+ hours of manual work per 100 responses.',
 		image: themeweaverImage,
 		imageAlt: '',
 		linkUrl: studyLinks.servicenow,
