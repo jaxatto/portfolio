@@ -22,6 +22,9 @@ html {
 body {
     background: var(--color-surface-default); // token; was legacy --color-background (same white in light)
     margin: 0;
+    // Pretty wrapping site-wide: avoids a single word on the last line. Inherited; elements that set
+    // `text-wrap: balance` (card titles, footer description) keep it. See D-046.
+    text-wrap: pretty;
 }
 
 // Slow color fade while switching modes (class set briefly by ThemeProvider).

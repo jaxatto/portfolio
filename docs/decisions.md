@@ -202,3 +202,7 @@ The gap between a card's title and its outcome paragraph is `space-md` (12px), w
 ## D-045: Card copy size on phones — decided, 2026-10-14
 
 At 640px and below the card's outcome paragraph uses `body-lg` (the footer description's style, about 19px at 375px), up from `body-md` (about 17px). Wider screens are unchanged. Under a case study (`study` variant) cards keep the smaller size.
+
+## D-046: Pretty text wrapping site-wide — decided, 2026-10-14
+
+`text-wrap: pretty` is set on `body` and inherited, so paragraphs avoid orphaned last words. Elements that set their own (`balance` on card titles and the footer description) keep it. Browsers without support ignore it.
