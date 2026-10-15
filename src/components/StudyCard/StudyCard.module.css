@@ -217,11 +217,6 @@
 	background: var(--color-surface-sunken);
 }
 
-/* The <picture> wrapper (phone-only crops) must not take part in layout. */
-.sample picture {
-	display: contents;
-}
-
 .image {
 	display: block;
 	width: 100%;

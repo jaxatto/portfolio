@@ -201,5 +201,3 @@ Below 900px the horizontal card used to fall back to the phone stack, which at 7
 
 Phone preview: the screenshot window starts at the top of the preview area (16px higher, 200px instead of 184px visible), card height unchanged.
 Phone card: the gap between link and screenshot is 32px (content bottom padding 3xl instead of 4xl), so the card is 8px shorter.
-
-ThemeWeaver card on phones (640px and below) uses its own crop, `servicenow-mobile-sample-min.png` (the "Choose a Theming Strategy" step from the study header image, top-left flush), via an optional `mobileImage` prop and a `<picture>` source. The desktop screenshot is unchanged.

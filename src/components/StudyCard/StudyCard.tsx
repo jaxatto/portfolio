@@ -13,7 +13,6 @@ export type StudyCardProps = {
 	title: string; // The problem solved
 	outcome?: string; // One sentence of proof: what changed and Jax's part
 	image: string;
-	mobileImage?: string; // Optional crop used on phones (640px and below) instead of `image`
 	imageAlt?: string; // Empty by default: the preview is decorative next to the title
 	linkUrl: string;
 	linkText: string; // Full label, e.g. "Read the Indeed case study"
@@ -29,7 +28,6 @@ const StudyCard: React.FC<StudyCardProps> = ({
 	title,
 	outcome,
 	image,
-	mobileImage,
 	imageAlt = '',
 	linkUrl,
 	linkText,
@@ -67,10 +65,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
 			</div>
 			<div className={styles.preview}>
 				<div className={styles.sample}>
-					<picture>
-						{mobileImage && <source media="(max-width: 640px)" srcSet={mobileImage} />}
-						<img src={image} alt={imageAlt} className={styles.image} />
-					</picture>
+					<img src={image} alt={imageAlt} className={styles.image} />
 				</div>
 			</div>
 		</article>
