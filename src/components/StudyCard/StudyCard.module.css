@@ -337,8 +337,8 @@
 
 	.content {
 		gap: var(--size-space-4xl);
-		/* 24px under the link, 16px less than desktop's 40px, so the image sits closer. */
-		padding-bottom: var(--size-space-2xl);
+		/* 32px under the link, 8px less than desktop's 40px, so the image sits closer. */
+		padding-bottom: var(--size-space-3xl);
 	}
 
 	.preview {
