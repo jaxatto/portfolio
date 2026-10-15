@@ -84,7 +84,7 @@ const About: React.FC = () => (
                   imgClassName={styles.photoImage}
                   fallbackClassName={styles.photoFallback}
                 />
-                <CursorTag name={img.name} className={styles.tag} />
+                <CursorTag name={img.name} className={`${styles.tag} ${styles[img.tag]}`} />
               </div>
               <figcaption className={styles.caption}>{img.caption}</figcaption>
             </figure>

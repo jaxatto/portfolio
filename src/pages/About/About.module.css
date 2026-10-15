@@ -181,11 +181,34 @@
 	position: relative;
 }
 
-/* Tag sits low on the left, on top of the photo, clear of the faces. */
+/* Tag position varies per photo and stays clear of the faces. Each class sets the corner it hangs
+   from; the default (bottom-left) is the base. */
 .tag {
 	position: absolute;
 	bottom: var(--size-space-lg);
 	left: var(--size-space-lg);
+}
+
+.bottom-left {
+	bottom: var(--size-space-lg);
+	left: var(--size-space-lg);
+}
+
+.bottom-right {
+	right: var(--size-space-lg);
+	bottom: var(--size-space-lg);
+	left: auto;
+}
+
+.top-left {
+	top: var(--size-space-lg);
+	bottom: auto;
+	left: var(--size-space-lg);
+}
+
+.low-center {
+	bottom: var(--size-space-md);
+	left: 22%;
 }
 
 .caption {
