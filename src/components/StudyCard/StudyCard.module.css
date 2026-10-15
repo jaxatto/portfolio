@@ -259,6 +259,13 @@
 		object-position: top left;
 	}
 
+	/* Toyota's sample: trimmed 2px at the top and left edge (the panel's own frame), window unchanged. */
+	.horizontal:not(.enlarge) .image {
+		top: calc(-1 * var(--size-border-width-default));
+		left: calc(-1 * var(--size-border-width-default));
+		width: calc(112% + 2 * var(--size-border-width-default));
+	}
+
 	/* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-052). */
 	.horizontal.enlarge .image {
 		width: calc(112% + 40px);

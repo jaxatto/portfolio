@@ -232,3 +232,4 @@ Revised (D-051, 2026-10-14): the Toyota card's sample is the study's Figma Varia
 ## D-052: Larger screenshots on three cards — decided, 2026-10-14
 
 ServiceNow, Indeed and ActBlue screenshots are 40px larger inside the same window (`enlargeImage`, 112% + 40px wide, anchored top-left). The window (412px by card height) and the Toyota card's image are unchanged.
+The Toyota sample is trimmed 2px at its top and left edge (the Figma panel's own frame), inside the same window (D-052).
