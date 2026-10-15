@@ -179,4 +179,4 @@ Desktop card titles are 36px (was 40px, D-037). The type scale has no 36 (32, 40
 
 ## D-040: Card link uses the nav hover style — decided, 2026-10-14
 
-The card's link text has no resting underline. On hover of the card (the whole card is the target) it turns `primary-default` (violet, `primary-default-active` when pressed) and a 3px line grows in from the left under the text, the same treatment as the nav and footer links (D-017, D-024). The arrow still nudges right. Keyboard focus shows only the card's ring, like the nav. Resting color is the palette's on-container color.
+The card's link text has no resting underline. On hover of the card (the whole card is the target) a 3px line grows in from the left under the text, like the nav and footer links (D-017, D-024). Text color and the arrow stay static (Jax: no violet, no nudge). Keyboard focus shows only the card's ring, like the nav. Resting color is the palette's on-container color.

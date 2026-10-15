@@ -112,8 +112,8 @@
 	position: relative;
 }
 
-/* Hover style from the nav and footer links (D-017, D-040): no resting underline; on hover the text
-   turns violet and a 3px line grows in from the left. Focus shows only the card's ring. */
+/* Hover style from the nav and footer links (D-017, D-040): no resting underline; on hover a 3px
+   line grows in from the left. Text color and arrow stay put. Focus shows only the card's ring. */
 .linkText::after {
 	content: '';
 	position: absolute;
@@ -141,29 +141,11 @@
 	flex-shrink: 0;
 	color: inherit;
 	fill: currentcolor;
-	transition: transform 0.2s ease;
-}
-
-.link {
-	transition: color 0.2s ease;
-}
-
-.card:not(.inert):hover .link {
-	color: var(--color-primary-default);
 }
 
 .card:not(.inert):hover .linkText::after {
 	transform: scaleX(1);
 	transform-origin: left center;
-}
-
-.card:hover .icon,
-.link:focus-visible .icon {
-	transform: translateX(var(--size-space-xs));
-}
-
-.card:active .link {
-	color: var(--color-primary-default-active);
 }
 
 .link:focus-visible {
@@ -271,9 +253,7 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.card,
-	.link,
 	.linkText::after,
-	.icon,
 	.sample {
 		transition: none;
 	}
