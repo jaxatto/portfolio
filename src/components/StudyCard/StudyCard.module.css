@@ -197,8 +197,11 @@
 	transition: none;
 }
 
-/* Preview: the sample UI is cropped by the card's right and bottom edges, on purpose. */
+/* Preview: the sample UI is cropped by the card's right and bottom edges, on purpose. It is
+   positioned, so it paints above the link's stretched ::after; pointer-events: none lets clicks and
+   the pointer cursor fall through to the link (D-031). */
 .preview {
+	pointer-events: none;
 	display: flex;
 	flex-direction: column;
 	height: 17rem; /* 272px, Figma sample height in vertical cards */
