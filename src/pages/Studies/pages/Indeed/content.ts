@@ -1,7 +1,8 @@
-import headerImage from './images/accessbility-annotations-min.png';
+import headerImage from './images/accessibility-annotations-min.jpg';
 // import contextImage from './images/name-min.png';
-import contributionsImage from './images/documentation-sample-min.png';
-import outcomesImage from './images/home-before-after-min.png';
+import contributionsImage from './images/documentation-sample-min.jpg';
+import beforeImage from './images/indeed-before-min.jpg';
+import afterImage from './images/indeed-after-min.jpg';
 // import deliverablesImage from './images/name-min.png';
 import type { ChipData } from '@components/ChipGroup';
 
@@ -30,6 +31,7 @@ const content = {
                 src: headerImage, 
                 caption: 'Collaborated on accessibility documentation for design handoff to engineering.',
                 alt: 'Sample of accessibility annotations in a Figma design file, showing how to annotate designs for developers.',
+                variant: 'banner' as const,
             },
         ],
     },
@@ -45,6 +47,7 @@ const content = {
                     src: contributionsImage,
                     caption: 'Example of component documentation with accessibility and localization guidance. Higher quality image unavailable.',
                     alt: 'A screenshot of a Figma component documentation page, showing detailed information about the component, including accessibility and localization guidance.',
+                    variant: 'frame' as const,
                 },
             ],
         },
@@ -72,13 +75,17 @@ const content = {
             description: [
                 'I helped streamline component handoffs, unify multi-brand token structures, and significantly reduce UI redundancy across production apps. The updated documentation and contribution models I built enabled our engineering and design teams to ship accessible features faster while keeping the system consistent.',
             ],
-            image: [
-                {
-                    src: outcomesImage,
-                    caption: 'Comparison before and after the design system implementation. Images obtained online.',
-                    alt: 'A before and after demonstration of the Indeed.com home page with the design system applied. The new home page uses the design system and looks more modern and organized. Accessibility is vastly improved.',
+            compare: {
+                before: {
+                    src: beforeImage,
+                    alt: 'The Indeed job search results page before the design system: dense text, a left filter column and an email alert box.',
                 },
-            ],
+                after: {
+                    src: afterImage,
+                    alt: 'The Indeed job search results page with the design system applied: rounded job cards with tags, a job detail panel and clear actions.',
+                },
+                caption: 'Comparison before and after the design system implementation. Images obtained online.',
+            },
         },
         {
             order: 4,

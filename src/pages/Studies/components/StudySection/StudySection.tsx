@@ -1,4 +1,5 @@
 import React from 'react';
+import StudyCompare from '@pages/Studies/components/StudyCompare';
 import StudyImage from '@pages/Studies/components/StudyImage';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
 import styles from './StudySection.module.css';
@@ -29,8 +30,9 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
           )}
         </div>
       )}
+      {section.compare && <StudyCompare {...section.compare} />}
       {image?.src && (
-        <StudyImage src={image.src} alt={image.alt || ''} caption={image.caption} corners={image.corners} />
+        <StudyImage src={image.src} alt={image.alt || ''} caption={image.caption} corners={image.corners} variant={image.variant} />
       )}
     </section>
   );

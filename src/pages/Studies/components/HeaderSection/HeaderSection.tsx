@@ -46,6 +46,7 @@ const HeaderSection: React.FC<StudyHeaderProps> = ({
         alt={image[0].alt}
         caption={image[0].caption}
         corners={image[0].corners}
+        variant={image[0].variant}
       />
     )}
   </header>

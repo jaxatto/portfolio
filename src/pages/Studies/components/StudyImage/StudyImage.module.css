@@ -27,3 +27,29 @@
 	text-align: left;
 	text-wrap: pretty;
 }
+
+/* Banner (D-050): a 3:1 crop of the top of the image from tablet up, the natural shape on phones. */
+.banner {
+	object-fit: cover;
+	object-position: top;
+}
+
+@media (min-width: 641px) {
+	.banner {
+		aspect-ratio: 3 / 1;
+	}
+}
+
+/* Frame (D-050): the sunken surface with 32px at the top and sides; the image runs off the bottom
+   edge, cropped at 300px tall on wide screens. */
+.frame {
+	overflow: hidden;
+	max-height: 18.75rem; /* 300px */
+	padding: var(--size-space-3xl) var(--size-space-3xl) 0;
+	border-radius: var(--size-radius-lg);
+	background: var(--color-surface-sunken);
+}
+
+.framed {
+	border-radius: var(--size-radius-xs) var(--size-radius-xs) 0 0;
+}
