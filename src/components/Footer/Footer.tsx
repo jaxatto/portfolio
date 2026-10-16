@@ -6,22 +6,19 @@ import { useSiteConfig } from '#providers/SiteConfig';
 import { contactInfo } from '#constants/contactInfo';
 import styles from './Footer.module.css';
 
-// Page footer: the call to action and links. Two variants (D-024):
-// - 'quiet': hairline above, page ground. Used on Home, which already ends in colorful cards.
-// - 'accent': full-bleed accent ground. Used on every other page.
+// Page footer: the call to action and links, the same on every page (D-049). In dark mode it sits on
+// a tinted band; Home passes `band={false}` to keep the plain page ground.
 // Copy is inline on purpose (D-003).
 
-export type FooterVariant = 'quiet' | 'accent';
-
 type FooterProps = {
-	variant?: FooterVariant;
+	band?: boolean;
 };
 
-const Footer: React.FC<FooterProps> = ({ variant = 'accent' }) => {
+const Footer: React.FC<FooterProps> = ({ band = true }) => {
 	const { isJobSeeking } = useSiteConfig();
 
 	return (
-		<footer className={clsx(styles.footer, styles[variant])}>
+		<footer className={clsx(styles.footer, band && styles.band)}>
 			<div className={styles.inner}>
 				<div className={styles.main}>
 					<div className={styles.top}>

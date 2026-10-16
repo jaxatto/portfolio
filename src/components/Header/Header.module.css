@@ -307,7 +307,7 @@
 		bottom: 2px;
 		left: 0;
 		z-index: -1;
-		height: 1px;
+		height: var(--size-border-width-default);
 		background: var(--color-border-decorative);
 	}
 

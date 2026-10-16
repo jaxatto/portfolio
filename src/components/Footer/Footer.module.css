@@ -1,5 +1,4 @@
-/* Footer: content aligned to the header's column; quiet (hairline) or accent (full-bleed ground).
-   D-024. */
+/* Footer: content aligned to the header's column. One footer on every page (D-024, D-049). */
 
 .footer {
 	box-sizing: border-box;
@@ -166,51 +165,33 @@
 	outline-offset: var(--size-focus-ring-offset);
 }
 
-/* Quiet: the page ground with a hairline across the content column. */
-.quiet {
-	padding-block: var(--size-space-section-sm) var(--size-space-section-lg);
+/* One footer on every page (D-049): the page ground, a 2px hairline across the content column, 40px more
+   room above the content than the section rhythm and 80px more below it. */
+.footer {
+	--footer-pad-top: calc(var(--size-space-section-lg) + var(--size-space-4xl));
+	padding-block: var(--footer-pad-top) calc(var(--size-space-section-lg) + var(--size-space-section-xl));
 }
 
-.quiet .inner {
-	padding-top: var(--size-space-section-sm);
+.footer .inner {
 	position: relative;
 }
 
-.quiet .inner::before {
+.footer .inner::before {
 	content: '';
 	position: absolute;
-	top: 0;
-	right: var(--size-space-2xl);
-	left: var(--size-space-2xl);
-	height: 1px;
-	background: var(--color-border-decorative);
-}
-
-/* Accent (D-049). Light: the page ground with the quiet footer's hairline and the normal text tokens.
-   80px more room under the content than above it. */
-.accent {
-	padding-block: var(--size-space-section-lg) calc(var(--size-space-section-lg) + var(--size-space-section-xl));
-}
-
-.accent .inner {
-	position: relative;
-}
-
-.accent .inner::before {
-	content: '';
-	position: absolute;
-	top: calc(-1 * var(--size-space-section-lg));
+	top: calc(-1 * var(--footer-pad-top));
 	right: var(--size-space-2xl);
 	left: var(--size-space-2xl);
 	height: var(--size-border-width-default);
 	background: var(--color-border-decorative);
 }
 
-/* Dark: the hairline goes and the ground is the page ground tinted 20% toward indigo, so it stays calm and never matches a card above it
-   (cards are about 0.34 lightness, this is about 0.25). The text and link tokens are re-pointed to
-   their on-accent values inside it, so the shared TextLink works unchanged. Selectors mirror
-   theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
-:global([data-theme='dark']) .accent {
+/* Dark band: the page ground tinted 20% toward indigo, so it stays calm and never matches a card above
+   it (cards are about 0.34 lightness, this is about 0.25). The hairline goes (the band is the
+   divider). Home turns the band off (`band={false}`) and keeps the plain ground and hairline. The text
+   and link tokens are re-pointed to their on-accent values inside it, so the shared TextLink works
+   unchanged. Selectors mirror theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
+:global([data-theme='dark']) .band {
 	background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
 	color: var(--color-content-on-accent);
 	--color-content-default: var(--color-content-on-accent);
@@ -227,12 +208,12 @@
 	--tooltip-fg: var(--color-primary-on-container);
 }
 
-:global([data-theme='dark']) .accent .inner::before {
+:global([data-theme='dark']) .band .inner::before {
 	display: none;
 }
 
 @media (prefers-color-scheme: dark) {
-	:global(:root:not([data-theme='light'])) .accent {
+	:global(:root:not([data-theme='light'])) .band {
 		background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
 		color: var(--color-content-on-accent);
 		--color-content-default: var(--color-content-on-accent);
@@ -249,7 +230,7 @@
 		--tooltip-fg: var(--color-primary-on-container);
 	}
 
-	:global(:root:not([data-theme='light'])) .accent .inner::before {
+	:global(:root:not([data-theme='light'])) .band .inner::before {
 		display: none;
 	}
 }
@@ -281,9 +262,5 @@
 		flex-direction: column;
 		align-items: flex-start;
 		gap: var(--size-space-2xl);
-	}
-
-	.quiet .inner {
-		padding-top: var(--size-space-section-sm);
 	}
 }

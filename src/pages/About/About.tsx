@@ -32,7 +32,6 @@ const About: React.FC = () => (
     title={meta.title}
     metaDescription={meta.description}
     legacy={false}
-    footerVariant="quiet"
     className={styles.page}
   >
     <div className={styles.hero}>
