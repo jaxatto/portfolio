@@ -250,3 +250,5 @@ The Indeed page now carries the copy from Figma `2853:27124` (intro with 100+ de
 ## D-048: Study card hover and bottom alignment — decided, 2026-10-16
 
 The link underline's transform origin no longer swaps between right (resting) and left (hover): the swap made the line jump when the pointer re-entered mid-transition. It now grows in from the left and retracts back to the left, and can be interrupted smoothly. Stacked cards (the "More of my work" row) are now flex columns whose text area fills the card and whose link sits at the bottom (`margin-top: auto`), above the preview, so the link and the image line up across cards whatever the title wraps to. Horizontal Home cards are unchanged. The "More of my work" row stacks at tablet (900px and below), side by side only above 900px. D-046's claims in Indeed's copy (100+ designers, WCAG, multi-brand tokens) are confirmed by Jax (2026-10-16).
+
+Revised (2026-10-16): the same fix applies to every grow-from-the-left underline: nav links, brand, footer email and icon links, the mode toggle and the card link all keep `transform-origin: left center` at rest and on hover, so repeated hovering no longer jumps.
