@@ -16,15 +16,16 @@ export const content = {
       },
     ],
     description: [
-      "I bridge the gap between product design and engineering to build scalable, production-ready product infrastructure. My background spans interface design, enterprise tokens, complex workflow automation, and WCAG accessibility standards across fintech, automotive, and SaaS environments.",
-      "In my current role at Toyota, I design and specialize in design token automation, token-to-code pipelines, and developer tooling across our multi-brand product ecosystem. Over my career at companies like ServiceNow, Indeed, and Visa, I have focused on bringing systematic clarity and UX quality to diverse platforms.",
+      "I bridge product design and engineering through design tokens and automation. I architect token systems for multi-brand products and build the Figma-to-code pipelines that carry them into production. My background spans interface design, complex workflow automation and WCAG accessibility across fintech, automotive and SaaS.",
+      "I recently joined Spectrum, where I work on the ecommerce design system. My most recent role was at Toyota, where I led design token architecture, token-to-code pipelines and developer tooling across a multi-brand product ecosystem.",
+      // TODO(jax): paragraph 3 on earlier roles (ServiceNow, Indeed, ActBlue, Visa) waits on your answers.
     ],
   },
   how: {
     heading: "Approach to Work",
     description: [
-      "Strategic Product Design: Working alongside business and product leadership, I define requirements and transform  organizational goals into frictionless user experiences.",
-      "Concept to Execution: Using my strong front-end foundation, I build designs, handoff materials, and use modern AI workflows to set engineering teams up for success.",
+      "Strategic Product Design: Alongside business and product leadership, I define requirements and turn organizational goals into clear, usable experiences.",
+      "Concept to Execution: I bring a front-end foundation to every design and handoff, and use modern AI workflows to set engineering teams up for success.",
       "Building Inclusive Design Culture: I foster team cohesion through a strong feedback culture, candid critiques, and collaborative practices that invite everyone to participate in design.",
     ],
   },

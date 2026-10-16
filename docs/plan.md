@@ -23,7 +23,7 @@ Visual review of Resume and the case study pages is deferred to their own slices
 ## Open questions for Jax
 
 Copy (all marked `TODO(jax)`, provisional):
-- About copy pass (held): paragraph 1 may be missing a word ("enterprise tokens"), there are no outcomes or metrics, and the pet captions are Jax's flavor text. Page meta title and description still say "Staff Product Designer – Scalable UX…".
+- About copy, round one applied (D-044). Still open: the earlier-roles paragraph (ServiceNow, Indeed, ActBlue, Visa), a scale number for the Toyota token work (brands, products or token count), and the fourth chip. Other pages' meta still says "Staff Product Designer – Scalable UX…".
 - Hero: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Revisit later if needed.
 - Footer line: "Open to remote Staff Product Designer and Design Engineer roles." (D-021, D-024).
 - 404 quips: seven phrases in `src/pages/NotFound/resources/content.ts`, picked at random (D-022).
