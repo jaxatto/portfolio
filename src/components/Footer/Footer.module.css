@@ -186,6 +186,19 @@
 	background: var(--color-border-decorative);
 }
 
+/* Ground variants (D-049): the default is indigo (surface-accent). */
+.accent.brand {
+	background: var(--color-surface-accent-brand);
+}
+
+.accent.tertiary {
+	background: var(--color-surface-accent-tertiary);
+}
+
+.accent.quaternary {
+	background: var(--color-surface-accent-quaternary);
+}
+
 /* Accent: full-bleed ground. The text and link tokens are re-pointed to their on-accent values
    inside it, so the shared TextLink works unchanged. */
 .accent {

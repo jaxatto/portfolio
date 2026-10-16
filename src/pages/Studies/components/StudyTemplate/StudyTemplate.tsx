@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@components/Layout';
 import HeaderSection from '@pages/Studies/components/HeaderSection';
 import StudySection from '@pages/Studies/components/StudySection';
+import { studyRowPalettes } from '@components/StudyCardGrid';
 import NextStudy from '@pages/Studies/components/NextStudy';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
@@ -17,6 +18,12 @@ export type StudyTemplateProps = {
   renderSection?: (section: StudySectionProps, idx: number) => React.ReactNode;
 };
 
+// Footer ground: the first palette the "next study" cards don't use (D-049).
+const footerGroundFor = (linkUrl: string) => {
+  const used = studyRowPalettes(linkUrl);
+  return (['secondary', 'brand', 'tertiary', 'quaternary'] as const).find((p) => !used.includes(p)) ?? 'secondary';
+};
+
 // legacy={false}: the page no longer takes the global legacy link and dark-mode rules (D-036, D-046).
 const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSection }) => (
   <Layout
@@ -24,6 +31,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
     metaDescription={meta.description}
     className={styles.page}
     legacy={false}
+    footerGround={footerGroundFor(meta.linkUrl)}
   >
     <HeaderSection
       title={content.header.title}

@@ -62,6 +62,9 @@ export type BaseSemanticGeneralColor = {
 		default: ColorMode;
 		sunken: ColorMode;
 		accent: ColorMode;
+		'accent-brand': ColorMode;
+		'accent-tertiary': ColorMode;
+		'accent-quaternary': ColorMode;
 		error: ColorMode;
 	};
 	border: {

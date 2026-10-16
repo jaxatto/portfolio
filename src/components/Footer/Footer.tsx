@@ -12,16 +12,20 @@ import styles from './Footer.module.css';
 // Copy is inline on purpose (D-003).
 
 export type FooterVariant = 'quiet' | 'accent';
+// Accent ground by palette (D-049): 'secondary' is the default indigo. Case studies pick one that
+// differs from the cards above the footer. Only dark mode shows a difference.
+export type FooterGround = 'secondary' | 'brand' | 'tertiary' | 'quaternary';
 
 type FooterProps = {
 	variant?: FooterVariant;
+	ground?: FooterGround;
 };
 
-const Footer: React.FC<FooterProps> = ({ variant = 'accent' }) => {
+const Footer: React.FC<FooterProps> = ({ variant = 'accent', ground = 'secondary' }) => {
 	const { isJobSeeking } = useSiteConfig();
 
 	return (
-		<footer className={clsx(styles.footer, styles[variant])}>
+		<footer className={clsx(styles.footer, styles[variant], variant === 'accent' && styles[ground])}>
 			<div className={styles.inner}>
 				<div className={styles.main}>
 					<div className={styles.top}>

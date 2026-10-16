@@ -86,6 +86,21 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 				light: primitives.colors.indigo[900],
 				dark: primitives.colors.indigo[900],
 			},
+			// Footer grounds that differ from the card palette above them on a case study (D-049): same as
+			// `accent` in light (the cards are pastel there), the other palettes' 900 steps in dark.
+			// `accent` itself is the secondary (indigo) ground.
+			'accent-brand': {
+				light: primitives.colors.indigo[900],
+				dark: primitives.colors.purple[900],
+			},
+			'accent-tertiary': {
+				light: primitives.colors.indigo[900],
+				dark: primitives.colors.sky[900],
+			},
+			'accent-quaternary': {
+				light: primitives.colors.indigo[900],
+				dark: primitives.colors.teal[900],
+			},
 			// The 404's own ground: distinct from the page surface in both themes and a theme pair of its
 			// own (indigo-900 light, one step lighter in dark so it separates from the night ground). D-038.
 			error: {
