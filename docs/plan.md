@@ -8,17 +8,17 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
-- [~] 2. Home / Work page and study cards (built, D-028 to D-034; PR #4 awaiting Jax's approval to merge)
+- [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
 - [ ] 3. Case study template
 - [ ] 4. Case study content: Indeed, ActBlue, ServiceNow, Toyota (copy + design review for each)
-- [~] 5. About (built on tokens with the 960 column, hero marks, chips and pet photos with name tags, D-040 to D-043; same branch and PR as slice 2; About copy pass held)
+- [x] 5. About (D-040 to D-045, merged with slice 2; only a scale number for the Toyota token work is open)
 - [ ] 6. Resume (do together with Jax, later)
 
 Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Visual review of Resume and the case study pages is deferred to their own slices (3, 4 and 6). Slice 2 and the About page are built on `claude/slice-2-home-study-cards` (PR #4 into `redesign`; the PR description is stale and still describes only the first version). About: one column on the 960 grid, hero with the Home selection box and caret chips, `HeroMarks` shared with the Home header, four pet photos with Figma-style name tags and captions (D-040 to D-043). Slice 2 proper: study cards and the Home grid (D-028), the 960px content column (D-029), the card color ramp with a teal palette (D-030), card link behavior (D-031), focus ring tokens (D-032), type scale half steps and a medium weight (D-033), pretty wrapping (D-034). Not yet merged. Checked in Chrome at 1280 (light and dark) and 375 (light); 768 and 375 in dark are not re-checked since the later passes, and the "next study" row under case studies is deliberately untouched until slice 3. Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`). Until each page is migrated to tokens, About, the case studies and Resume use a TEMP white-text rule in dark mode (D-027, `main.scss`) and the old global link styles; both are scoped to `Layout`'s `legacy` prop (D-036). Set `legacy={false}` on a page when its slice lands, and delete the rules with the last page.
+Slice 2 (Home study cards, token and legacy cleanup) and the About page are merged into `redesign` (PR #4, fast-forwarded 2026-10-16). Next: slice 3, the case study template, including the "next study" row under each study (same `StudyCard`, `variant="study"`) and the visual review of the Resume and case study pages, which still use the legacy styling (D-036: set `legacy={false}` per page, then delete the `.legacy` rules and the D-027 TEMP dark-mode rule with the last page). Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
 
 ## Open questions for Jax
 
