@@ -34,6 +34,11 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 - **Resume page is a later, joint effort.** Don't change `src/pages/Resume` or the resume PDF until Jax starts that work.
 - **Make skills for repeat tasks.** When a procedure comes up a second time (or is obviously going to), write it as a skill in `.claude/skills/<name>/SKILL.md`. Also look for good existing skills or plugins (SearchSkills, SearchPlugins) when a task would benefit, and propose them to Jax rather than installing silently.
 
+## Copy voice
+
+- **Never write "it's not this, it's that" comparisons** in any copy (page text, meta, captions, card outcomes, PR text): no "not X but Y", "X, not Y", "rather than", "instead of", "isn't X, it's Y". State what Jax does directly. Permanent rule from Jax (2026-10-15).
+- **Revise lightly.** Keep the original's specifics, fix only what is weak, and don't reuse phrasing that already appears elsewhere on the site. Ask for facts (outcomes, current employer) instead of inventing them.
+
 ## Code comments
 
 Add comments where they help the next reader or session: *why* something is the way it is, a design/accessibility reason, a non-obvious Figma-to-code mapping, a workaround, a known limitation, or a pointer to a decision (`// See docs/decisions.md D-004`). Use `// NOTE:` for context and `// TODO(jax):` for an open question that needs a design or copy decision. Don't narrate obvious code. Keep comments true; update or delete them when the code changes.
