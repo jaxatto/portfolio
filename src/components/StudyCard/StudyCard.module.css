@@ -150,7 +150,9 @@
 	border-radius: 2px;
 	background: currentcolor;
 	transform: scaleX(0);
-	transform-origin: right center;
+	/* Origin stays on the left for grow and retract: swapping it on hover made the line jump when the
+	   pointer re-entered mid-transition. */
+	transform-origin: left center;
 	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
@@ -171,7 +173,6 @@
 
 .card:hover .linkText::after {
 	transform: scaleX(1);
-	transform-origin: left center;
 }
 
 .link:focus-visible {
@@ -293,6 +294,16 @@
 	.horizontal .title {
 		font-size: var(--font-size-36);
 	}
+}
+
+/* Stacked cards in a row of unequal text lengths: the link and the preview sit at the bottom, so
+   they line up across cards whatever the title and outcome wrap to (D-048). */
+.card:not(.horizontal) .content {
+	flex: 1;
+}
+
+.card:not(.horizontal) .link {
+	margin-top: auto;
 }
 
 /* Study (under a case study): smaller body type, text and preview stay stacked. */
