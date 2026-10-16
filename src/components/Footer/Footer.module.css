@@ -166,10 +166,10 @@
 }
 
 /* One footer on every page (D-049): the page ground, a 2px hairline across the content column, 40px more
-   room above the content than the section rhythm and 56px more below it (120px). */
+   room above the content than the section rhythm and 80px below it. */
 .footer {
 	--footer-pad-top: calc(var(--size-space-section-lg) + var(--size-space-4xl));
-	padding-block: var(--footer-pad-top) calc(var(--size-space-section-lg) + var(--size-space-section-md));
+	padding-block: var(--footer-pad-top) var(--size-space-section-xl);
 }
 
 .footer .inner {
