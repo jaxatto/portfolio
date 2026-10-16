@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@components/Layout';
 import StudyCardGrid from '@components/StudyCardGrid';
+import styles from './Work.module.css';
 
 // Home page SEO copy, inline (D-003). TODO(jax): provisional, review with the hero copy (D-016).
 const meta = {
@@ -16,7 +17,7 @@ const Work: React.FC = () => (
         title={meta.title}
         metaDescription={meta.description}
     >
-        <section id="work">
+        <section id="work" className={styles.work}>
             <StudyCardGrid />
         </section>
     </Layout>
