@@ -186,11 +186,18 @@
 	background: var(--color-border-decorative);
 }
 
-/* Accent: full-bleed ground. The text and link tokens are re-pointed to their on-accent values
-   inside it, so the shared TextLink works unchanged. */
+/* Accent: full-bleed ground (D-049). Light: the sunken surface with the normal text tokens. */
 .accent {
 	padding-block: var(--size-space-section-lg);
-	background: var(--color-surface-accent);
+	background: var(--color-surface-sunken);
+}
+
+/* Dark: the page ground tinted 20% toward indigo, so it stays calm and never matches a card above it
+   (cards are about 0.34 lightness, this is about 0.25). The text and link tokens are re-pointed to
+   their on-accent values inside it, so the shared TextLink works unchanged. Selectors mirror
+   theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
+:global([data-theme='dark']) .accent {
+	background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
 	color: var(--color-content-on-accent);
 	--color-content-default: var(--color-content-on-accent);
 	--color-content-variant: var(--color-content-on-accent);
@@ -206,16 +213,22 @@
 	--tooltip-fg: var(--color-primary-on-container);
 }
 
-/* Dark (D-049): the accent footer sits on the page ground tinted 20% toward indigo, so it stays calm
-   and never matches a card above it (cards are about 0.34 lightness, this is about 0.25). Selectors
-   mirror theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
-:global([data-theme='dark']) .accent {
-	background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
-}
-
 @media (prefers-color-scheme: dark) {
 	:global(:root:not([data-theme='light'])) .accent {
 		background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
+		color: var(--color-content-on-accent);
+		--color-content-default: var(--color-content-on-accent);
+		--color-content-variant: var(--color-content-on-accent);
+		--color-content-soft: var(--color-content-on-accent);
+		--color-content-emphasis: var(--color-content-on-accent);
+		--color-content-link: var(--color-content-on-accent);
+		--color-primary-default: var(--color-content-on-accent-hover);
+		--color-primary-default-active: var(--color-content-on-accent-active);
+		--color-primary-on-container-active: var(--color-content-on-accent-active);
+		--color-state-focus-ring: var(--color-content-on-accent);
+		/* Tooltips: the primary tokens are pale here, so use the container pair. */
+		--tooltip-bg: var(--color-primary-container);
+		--tooltip-fg: var(--color-primary-on-container);
 	}
 }
 
