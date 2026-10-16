@@ -1,2 +1,2 @@
 export { default } from './Footer';
-export type { FooterVariant, FooterGround } from './Footer';
+export type { FooterVariant } from './Footer';

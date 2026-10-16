@@ -88,12 +88,4 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({ variant = 'work', exclude
 	);
 };
 
-// Palettes of the cards shown in the "next study" row under a study, so the footer can pick a ground
-// that none of them uses (D-049).
-export const studyRowPalettes = (excludeUrl: string) =>
-	cards
-		.filter((card) => card.ready !== false && card.linkUrl !== excludeUrl)
-		.slice(0, 2)
-		.map((card) => card.palette ?? 'brand');
-
 export default StudyCardGrid;

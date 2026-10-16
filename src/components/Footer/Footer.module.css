@@ -186,19 +186,6 @@
 	background: var(--color-border-decorative);
 }
 
-/* Ground variants (D-049): the default is indigo (surface-accent). */
-.accent.brand {
-	background: var(--color-surface-accent-brand);
-}
-
-.accent.tertiary {
-	background: var(--color-surface-accent-tertiary);
-}
-
-.accent.quaternary {
-	background: var(--color-surface-accent-quaternary);
-}
-
 /* Accent: full-bleed ground. The text and link tokens are re-pointed to their on-accent values
    inside it, so the shared TextLink works unchanged. */
 .accent {
@@ -217,6 +204,19 @@
 	/* Tooltips: the primary tokens are pale here, so use the container pair. */
 	--tooltip-bg: var(--color-primary-container);
 	--tooltip-fg: var(--color-primary-on-container);
+}
+
+/* Dark (D-049): the accent footer sits on the page ground tinted 20% toward indigo, so it stays calm
+   and never matches a card above it (cards are about 0.34 lightness, this is about 0.25). Selectors
+   mirror theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
+:global([data-theme='dark']) .accent {
+	background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
+}
+
+@media (prefers-color-scheme: dark) {
+	:global(:root:not([data-theme='light'])) .accent {
+		background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
+	}
 }
 
 /* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
