@@ -37,3 +37,19 @@
 	gap: var(--size-space-sm);
 	padding-left: var(--size-space-3xl);
 }
+
+/* "Label: sentence" groups: an h3 one step above the text, like About (D-042). */
+.item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-xs);
+}
+
+.label {
+	margin: 0;
+	color: var(--color-content-emphasis);
+	font-family: var(--font-style-heading-sm-family);
+	font-size: var(--font-style-heading-sm-size);
+	font-weight: var(--font-style-heading-sm-weight);
+	line-height: var(--font-style-heading-sm-line-height);
+}

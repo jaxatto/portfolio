@@ -11,12 +11,13 @@ const content = {
         roleDetails: [
             {
                 role: 'UX Designer',
+                location: 'Remote',
                 startDate: '2020',
                 endDate: '',
             },
         ],
         description: [
-            'I joined Indeed as a UX Designer to support the internal design system team during a period of rapid growth. Over the course of several months, I helped evolve the system\'s component library, improved adoption workflows, and guided cross-functional teams on scalable, accessible UI implementation.',
+            'I architected and documented production-ready component libraries and token workflows for Indeed\'s enterprise design system. My focus was unifying cross-functional adoption across 100+ designers. I also embedded WCAG accessibility standards directly into our design and code.',
         ],
         chips: [
             { label: 'B2C', theme: 'tertiary' },
@@ -37,25 +38,31 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'The internal design system was in active development and supporting a wide range of consumer and business products. I stepped in to strengthen component quality, shape contribution processes, and help teams align on consistent patterns while the system matured through a rebrand.',
+                'When I joined, Indeed\'s design system was growing rapidly but facing adoption bottlenecks. Engineering teams struggled with inconsistent UI components and outdated documentation, while designers lacked clear contribution pathways. I stepped in to bring systematic clarity, restructure our token system, and streamline documentation so we could scale effectively.',
             ],
-            descriptionBullets: [],
-            image: [],
+            image: [
+                {
+                    src: contributionsImage,
+                    caption: 'Example of component documentation with accessibility and localization guidance. Higher quality image unavailable.',
+                    alt: 'A screenshot of a Figma component documentation page, showing detailed information about the component, including accessibility and localization guidance.',
+                },
+            ],
         },
         {
             order: 2,
             title: 'Contributions',
-            description: [
-                'I led hands-on updates to the Figma library, refining components for consistency, accessibility, and themeability. I partnered with engineers to ensure parity between design and code, and created detailed documentation to support usage across teams.',
-                'To improve efficiency, I introduced a lightweight triage workflow for incoming component requests and contributions. This clarified ownership and reduced friction for designers contributing back to the system.',
-                'I also mentored a junior designer new to systems work, helping them develop review skills and take ownership of key parts of the library.',
-            ],
-            descriptionBullets: [],
-            image: [
-                { 
-                    src: contributionsImage, 
-                    caption: 'Example of component documentation with accessibility and localization guidance.',
-                    alt: 'A screenshot of a Figma component documentation page, showing detailed information about the component, including accessibility and localization guidance.',
+            items: [
+                {
+                    label: 'Evolving Component Architecture',
+                    text: 'I worked within the existing system to mature Figma components, align token structures with production code, and update accessibility documentation.',
+                },
+                {
+                    label: 'Improving Contribution Pathways',
+                    text: 'I contributed to the design system\'s governance by establishing clearer review loops and contribution guidelines for engineering and design teams.',
+                },
+                {
+                    label: 'Team Support & Enablement',
+                    text: 'I supported team adoption by mentoring junior designers, running onboarding sessions, and answering daily system triage questions.',
                 },
             ],
         },
@@ -63,13 +70,12 @@ const content = {
             order: 3,
             title: 'Outcomes',
             description: [
-                'The system became more maintainable, better documented, and easier to adopt. Usage expanded across different product areas, and the contribution process became more approachable for new designers and engineers. The team I supported was better positioned to scale the system going forward.',
+                'I helped streamline component handoffs, unify multi-brand token structures, and significantly reduce UI redundancy across production apps. The updated documentation and contribution models I built enabled our engineering and design teams to ship accessible features faster while keeping the system consistent.',
             ],
-            descriptionBullets: [],
             image: [
-                { 
-                    src: outcomesImage, 
-                    caption: 'System in use across Indeed.com\'s job seeker platform.',
+                {
+                    src: outcomesImage,
+                    caption: 'Comparison before and after the design system implementation. Images obtained online.',
                     alt: 'A before and after demonstration of the Indeed.com home page with the design system applied. The new home page uses the design system and looks more modern and organized. Accessibility is vastly improved.',
                 },
             ],
@@ -77,15 +83,30 @@ const content = {
         {
             order: 4,
             title: 'Deliverables',
-            description: [],
             descriptionBullets: [
-                'Updated and documented Figma component library',
-                'Contribution triage process and review workflows',
-                'Collaboration with engineering on implementation specs',
-                'Adoption support for internal product teams',
+                'System and documentation improvement library',
+                'Contribution models and review loops',
+                'Collaboration with cross-functional teams',
+                'Triage support for enterprise teams',
                 'Mentorship and onboarding for junior design team members',
             ],
-            image: [],
+        },
+        {
+            order: 5,
+            title: 'Opportunities',
+            description: [
+                'Looking back at this 2020 project through the lens of modern design systems architecture, my approach would evolve significantly today:',
+            ],
+            items: [
+                {
+                    label: 'Automated Token Pipelines',
+                    text: 'I would build automated pipelines using Style Dictionary and GitHub Actions to sync design decisions directly from Figma Variables into production code repositories in real time.',
+                },
+                {
+                    label: 'Production Analytics',
+                    text: 'I would instrument telemetry on production components to track usage metrics, identify deprecated UI instances, and measure true engineering efficiency.',
+                },
+            ],
         },
     ],
 };

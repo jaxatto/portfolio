@@ -9,10 +9,16 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
   return (
     <section className={styles.section} data-order={section.order}>
       <h2 className={styles.title}>{section.title}</h2>
-      {(section.description?.length || hasBullets) && (
+      {(section.description?.length || section.items?.length || hasBullets) && (
         <div className={styles.text}>
           {section.description?.map((desc, i) => (
             <p key={i}>{desc}</p>
+          ))}
+          {section.items?.map((item) => (
+            <div key={item.label} className={styles.item}>
+              <h3 className={styles.label}>{item.label}</h3>
+              <p>{item.text}</p>
+            </div>
           ))}
           {hasBullets && (
             <ul>

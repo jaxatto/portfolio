@@ -17,6 +17,12 @@ const HeaderSection: React.FC<StudyHeaderProps> = ({
       <h1 className={styles.title}>{title}</h1>
       <p className={styles.details}>
         <span>{roleDetails[0].role}</span>
+        {roleDetails[0].location && (
+          <>
+            <span className={styles.dot} aria-hidden="true" />
+            <span>{roleDetails[0].location}</span>
+          </>
+        )}
         <span className={styles.dot} aria-hidden="true" />
         <DateRange startDate={roleDetails[0].startDate} endDate={roleDetails[0].endDate} />
       </p>
