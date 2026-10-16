@@ -5,8 +5,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-section-lg);
-	/* Bottom padding is section-lg plus section-xl (80px more, Jax) above the footer. */
-	padding-block: var(--size-space-section-lg) calc(var(--size-space-section-lg) + var(--size-space-section-xl));
+	padding-block: var(--size-space-section-lg) var(--size-space-section-lg);
 	color: var(--color-content-prose);
 }
 
@@ -19,7 +18,7 @@
 @media (max-width: 640px) {
 	.page {
 		gap: var(--size-space-section-sm);
-		padding-block: var(--size-space-3xl) calc(var(--size-space-section-sm) + var(--size-space-section-xl));
+		padding-block: var(--size-space-3xl) var(--size-space-section-sm);
 	}
 
 	.body {

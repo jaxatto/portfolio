@@ -186,9 +186,10 @@
 	background: var(--color-border-decorative);
 }
 
-/* Accent (D-049). Light: the page ground with the quiet footer's hairline and the normal text tokens. */
+/* Accent (D-049). Light: the page ground with the quiet footer's hairline and the normal text tokens.
+   80px more room under the content than above it. */
 .accent {
-	padding-block: var(--size-space-section-lg);
+	padding-block: var(--size-space-section-lg) calc(var(--size-space-section-lg) + var(--size-space-section-xl));
 }
 
 .accent .inner {
