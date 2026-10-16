@@ -22,14 +22,8 @@ const content = {
         chips: [
             { label: 'B2B', theme: 'tertiary' },
             { label: 'Nonprofit', theme: 'tertiary' },
-            { label: 'FinTech', theme: 'tertiary' },
             { label: 'Product Design', theme: 'secondary' },
             { label: 'Systems Thinking', theme: 'secondary' },
-            { label: 'UX Architecture', theme: 'secondary' },
-            { label: 'Wireframing', theme: 'secondary' },
-            { label: 'Agile', theme: 'secondary' },
-            { label: 'Figma', theme: 'primary' },
-            { label: 'Notion', theme: 'primary' },
         ] as ChipData[],
         image: [
             { 

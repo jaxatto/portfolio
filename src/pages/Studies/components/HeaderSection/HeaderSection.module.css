@@ -41,7 +41,8 @@
 
 .chips {
 	display: flex;
-	flex-wrap: wrap;
+	/* One row on tablet and desktop; phones wrap. */
+	flex-wrap: nowrap;
 	gap: var(--size-space-md);
 	margin: 0;
 	padding: 0;
@@ -113,5 +114,9 @@
 @media (max-width: 640px) {
 	.header {
 		gap: var(--size-space-xl);
+	}
+
+	.chips {
+		flex-wrap: wrap;
 	}
 }

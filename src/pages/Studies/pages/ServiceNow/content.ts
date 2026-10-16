@@ -20,14 +20,10 @@ const content = {
             'This project is an internal tool that uses AI to group similar responses and suggest themes with an estimated 95% accuracy rate. I joined the project after the initial prototype was built to help shape the user experience, support implementation, and validate real research use cases.',
         ],
         chips: [
-            { label: 'Internal Tools', theme: 'tertiary' },
             { label: 'Enterprise', theme: 'tertiary' },
             { label: 'AI/ML', theme: 'tertiary' },
             { label: 'UX Architecture', theme: 'secondary' },
-            { label: 'Documentation', theme: 'secondary' },
             { label: 'User Research', theme: 'secondary' },
-            { label: 'Wireframing', theme: 'secondary' },
-            { label: 'Figma', theme: 'primary' },
         ] as ChipData[],
         image: [
             { 
@@ -59,8 +55,8 @@ const content = {
             order: 2,
             title: 'Contributions',
             description: [
-                'I helped bring structure to an early concept by framing how the experience should adapt to real research scenarios, where inputs are messy and processes aren\'t always linear.',
-                'From there, I simplified the interaction model and reworked how guidance showed up in the tool, making it more focused and less interruptive. I used low-fidelity layouts to shift the conversation toward content and flow, then moved into high-fidelity designs using the internal design system to bring it into the corporate design language.',
+                'I helped bring structure to an early concept. I framed how the experience should adapt to real research scenarios, where inputs are messy and processes aren\'t always linear.',
+                'From there, I simplified the interaction model and reworked how guidance showed up in the tool, making it more focused and less interruptive. I used low-fidelity layouts to shift the conversation toward content and flow. Then I moved into high-fidelity designs, using the internal design system to match the corporate design language.',
                 'This work helped the team realign the prototype around actual research behavior.',
             ],
             descriptionBullets: [],
