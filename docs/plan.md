@@ -23,7 +23,7 @@ Visual review of Resume and the case study pages is deferred to their own slices
 ## Open questions for Jax
 
 Copy (all marked `TODO(jax)`, provisional):
-- About copy, round one applied (D-044). Still open: the earlier-roles paragraph (ServiceNow, Indeed, ActBlue, Visa), a scale number for the Toyota token work (brands, products or token count), and the About copy pass is otherwise settled. Toyota's meta is drafted in D-045 and waits for its page.
+- About copy, round one applied (D-044). Still open: the earlier-roles paragraph (ServiceNow, Indeed, ActBlue, Visa), a scale number for the Toyota token work (brands, products or token count). The rest of the About copy is settled. Toyota's meta is drafted in D-045 and waits for its page.
 - Hero: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Revisit later if needed.
 - Footer line: "Open to remote Staff Product Designer and Design Engineer roles." (D-021, D-024).
 - 404 quips: seven phrases in `src/pages/NotFound/resources/content.ts`, picked at random (D-022).
