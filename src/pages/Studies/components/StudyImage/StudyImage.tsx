@@ -1,21 +1,13 @@
 import React from 'react';
-import Image from '@components/Image';
+import clsx from 'clsx';
 import type { StudyImageProps } from '@commonTypes/study/studyImage';
-import styles from './StudyImage.module.scss';
+import styles from './StudyImage.module.css';
 
 const StudyImage: React.FC<StudyImageProps> = ({ src, alt, caption, className, corners }) => (
-  <div className={[styles['study-image'], className].filter(Boolean).join(' ')}>
-    <Image
-      src={src}
-      alt={alt}
-      imgClassName={[
-        styles.image,
-        corners === 'square' ? styles.square : ''
-      ].filter(Boolean).join(' ')}
-      fallbackClassName={styles['image-fallback-wrapper']}
-    />
-    {caption && <p className={styles['image-caption']}>{caption}</p>}
-  </div>
+  <figure className={clsx(styles.figure, className)}>
+    <img src={src} alt={alt} className={clsx(styles.image, corners === 'square' && styles.square)} />
+    {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
+  </figure>
 );
 
 export default StudyImage;

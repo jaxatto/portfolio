@@ -1,47 +1,48 @@
 import React from 'react';
-import ChipGroup from '@components/ChipGroup';
-import Divider from '@components/Divider';
 import DateRange from '@components/DateRange';
 import StudyImage from '@pages/Studies/components/StudyImage';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
-import styles from './HeaderSection.module.scss';
+import styles from './HeaderSection.module.css';
 
-const Header: React.FC<StudyHeaderProps> = ({
+// The one h1 on a study page. Chips are a list of plain labels (no interaction).
+const HeaderSection: React.FC<StudyHeaderProps> = ({
   title,
   roleDetails,
   chips,
   description,
   image,
 }) => (
-  <section>
-    <div className={styles['top-section']}>
+  <header className={styles.header}>
+    <div className={styles.top}>
       <h1 className={styles.title}>{title}</h1>
-      <div className={styles.details}>
-        <span className={styles.role}>
-          {roleDetails[0].role}
-        </span>
-        <DateRange 
-          startDate={roleDetails[0].startDate}
-          endDate={roleDetails[0].endDate}
-          className={styles.date}
-        />
-      </div>
+      <p className={styles.details}>
+        <span>{roleDetails[0].role}</span>
+        <span className={styles.dot} aria-hidden="true" />
+        <DateRange startDate={roleDetails[0].startDate} endDate={roleDetails[0].endDate} />
+      </p>
     </div>
-    <ChipGroup chips={chips} className={styles['chip-row']} size='small' />
-    <Divider variant='section-divider' />
-    {description.map((desc, i) => (
-      <p key={i} className={styles.description}>{desc}</p>
-    ))}
+    <ul className={styles.chips}>
+      {chips.map((chip) => (
+        <li key={chip.label} className={`${styles.chip} ${styles[chip.theme ?? 'primary'] ?? ''}`}>
+          {chip.label}
+        </li>
+      ))}
+    </ul>
+    <hr className={styles.rule} />
+    <div className={styles.description}>
+      {description.map((desc, i) => (
+        <p key={i}>{desc}</p>
+      ))}
+    </div>
     {image && image[0] && (
       <StudyImage
         src={image[0].src}
         alt={image[0].alt}
         caption={image[0].caption}
         corners={image[0].corners}
-        className={styles['header-image']}
       />
     )}
-  </section>
+  </header>
 );
 
-export default Header;
+export default HeaderSection;

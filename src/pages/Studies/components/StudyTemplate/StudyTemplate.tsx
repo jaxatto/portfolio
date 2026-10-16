@@ -6,7 +6,7 @@ import NextStudy from '@pages/Studies/components/NextStudy';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
 import type { StudyMetaProps } from '@commonTypes/study/studyMeta';
-import styles from './StudyTemplate.module.scss';
+import styles from './StudyTemplate.module.css';
 
 export type StudyTemplateProps = {
   meta: StudyMetaProps;
@@ -17,11 +17,13 @@ export type StudyTemplateProps = {
   renderSection?: (section: StudySectionProps, idx: number) => React.ReactNode;
 };
 
+// legacy={false}: the page no longer takes the global legacy link and dark-mode rules (D-036, D-046).
 const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSection }) => (
   <Layout
     title={meta.title}
     metaDescription={meta.description}
-    className={styles.wrapper}
+    className={styles.page}
+    legacy={false}
   >
     <HeaderSection
       title={content.header.title}
@@ -30,13 +32,13 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
       description={content.header.description}
       image={content.header.image}
     />
-    {content.sections
-      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-      .map((section, idx) =>
-        renderSection
-          ? renderSection(section, idx)
-          : <StudySection key={idx} section={section} className={styles.section} />
-      )}
+    <div className={styles.body}>
+      {[...content.sections]
+        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+        .map((section, idx) =>
+          renderSection ? renderSection(section, idx) : <StudySection key={idx} section={section} />
+        )}
+    </div>
     <NextStudy meta={meta} />
   </Layout>
 );

@@ -9,7 +9,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
-- [ ] 3. Case study template
+- [~] 3. Case study template (D-046; built, awaiting Jax's review and merge)
 - [ ] 4. Case study content: Indeed, ActBlue, ServiceNow, Toyota (copy + design review for each)
 - [x] 5. About (D-040 to D-045, merged with slice 2; only a scale number for the Toyota token work is open)
 - [ ] 6. Resume (do together with Jax, later)

@@ -1,0 +1,29 @@
+/* Study figure (D-046): full column width, card corner, soft caption. `corners="square"` is for
+   screenshots that already carry their own frame. */
+
+.figure {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-md);
+	margin: 0;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: var(--size-radius-lg);
+}
+
+.square {
+	border-radius: 0;
+}
+
+.caption {
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-sm-family);
+	font-size: var(--font-style-body-sm-size);
+	line-height: var(--font-style-body-sm-line-height);
+	text-align: center;
+	text-wrap: pretty;
+}

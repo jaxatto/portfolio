@@ -16,7 +16,10 @@
 	.grid {
 		gap: var(--size-space-2xl);
 	}
+}
 
+/* Side by side from tablet (D-046); stacked on phones. */
+@media (max-width: 640px) {
 	.study {
 		grid-template-columns: minmax(0, 1fr);
 	}

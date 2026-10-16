@@ -1,0 +1,39 @@
+/* Study section (D-046): h2 at heading-lg like About, text at 40rem, image at full column width. */
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-2xl);
+}
+
+.title {
+	margin: 0;
+	color: var(--color-content-emphasis);
+	font-family: var(--font-style-heading-lg-family);
+	font-size: var(--font-style-heading-lg-size);
+	font-weight: var(--font-style-heading-lg-weight);
+	line-height: var(--font-style-heading-lg-line-height);
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-2xl);
+	max-width: 40rem;
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-md-size);
+	line-height: var(--font-style-body-md-line-height);
+	text-wrap: pretty;
+}
+
+.text p,
+.text ul {
+	margin: 0;
+}
+
+.text ul {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-sm);
+	padding-left: var(--size-space-3xl);
+}
