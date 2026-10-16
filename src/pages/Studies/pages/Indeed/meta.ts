@@ -1,8 +1,8 @@
 import { studyLinks } from '@constants/studyLinks';
 
 const meta = {
-  title: 'UX Design Systems Work at Indeed – Jax Engel',
-  description: 'Led design system updates at Indeed, improving component quality, documentation, and team workflows to support scalable, accessible UI across internal tools.',
+  title: 'Indeed Design System Case Study | Jax Engel',
+  description: 'How I scaled Indeed\'s design system through a rebrand: a more accessible component library, easier contribution, and a junior designer mentored into system work.',
   keywords: [],
   linkUrl: studyLinks.indeed,
 };

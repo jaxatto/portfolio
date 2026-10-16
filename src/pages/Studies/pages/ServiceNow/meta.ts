@@ -1,8 +1,8 @@
 import { studyLinks } from '@constants/studyLinks';
 
 const meta = {
-  title: 'Improving ServiceNow\'s AI Research Tool – Jax Engel',
-  description: 'Led UX design for an internal AI research tool at ServiceNow, improving flow, layout, and in-tool guidance to support real research workflows.',
+  title: 'ServiceNow AI Research Tool Case Study | Jax Engel',
+  description: 'Redesigned how ServiceNow researchers code open-ended survey responses with AI, replacing 10+ hours of manual work per 100 responses.',
   keywords: [],
   linkUrl: studyLinks.servicenow,
 };

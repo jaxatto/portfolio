@@ -12,7 +12,7 @@ export const content = {
         text: "Design systems leadership",
       },
       {
-        text: "Cross-functional collaboration",
+        text: "Design-to-code automation",
       },
     ],
     description: [
