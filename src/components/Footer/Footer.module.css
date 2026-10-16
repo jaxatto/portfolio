@@ -202,7 +202,7 @@
 	top: calc(-1 * var(--size-space-section-lg));
 	right: var(--size-space-2xl);
 	left: var(--size-space-2xl);
-	height: 1px;
+	height: var(--size-border-width-default);
 	background: var(--color-border-decorative);
 }
 
