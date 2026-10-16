@@ -2,6 +2,8 @@ import React from "react";
 import Layout from "@components/Layout";
 import Image from "@components/Image";
 import { DesignSelection, Caret, CursorTag } from "#components/HeroMarks";
+import TextLink from "#components/TextLink";
+import { studyLinks } from "@constants/studyLinks";
 import { images } from "./resources/images";
 import { content } from "./resources/content";
 import { meta } from "./resources/meta";
@@ -54,6 +56,22 @@ const About: React.FC = () => (
         {content.header.description.map((desc, i) => (
           <p key={i}>{desc}</p>
         ))}
+        {/* Earlier roles link to their case studies. Copy is inline because it contains links (D-003). */}
+        <p>
+          Earlier work includes AI-assisted survey analysis at{" "}
+          <TextLink to={studyLinks.servicenow}>
+            ServiceNow<span className="sr-only"> case study</span>
+          </TextLink>
+          , an accessible, rebranded design system at{" "}
+          <TextLink to={studyLinks.indeed}>
+            Indeed<span className="sr-only"> case study</span>
+          </TextLink>
+          , and a self-serve Salesforce integration at{" "}
+          <TextLink to={studyLinks.actblue}>
+            ActBlue<span className="sr-only"> case study</span>
+          </TextLink>
+          .
+        </p>
       </section>
       <section>
         <h2>{content.how.heading}</h2>

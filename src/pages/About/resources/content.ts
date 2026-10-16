@@ -18,7 +18,6 @@ export const content = {
     description: [
       "I bridge product design and engineering through design tokens and automation. I architect token systems for multi-brand products and build the Figma-to-code pipelines that carry them into production. My background spans interface design, complex workflow automation and WCAG accessibility across fintech, automotive and SaaS.",
       "I recently joined Spectrum, where I work on the ecommerce design system. My most recent role was at Toyota, where I led design token architecture, token-to-code pipelines and developer tooling across a multi-brand product ecosystem.",
-      // TODO(jax): paragraph 3 on earlier roles (ServiceNow, Indeed, ActBlue, Visa) waits on your answers.
     ],
   },
   how: {
