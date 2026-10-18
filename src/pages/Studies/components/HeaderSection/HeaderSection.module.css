@@ -76,6 +76,11 @@
 	line-height: var(--font-line-height-default);
 }
 
+.brand {
+	--chip-bg: var(--color-brand-container);
+	--chip-fg: var(--color-brand-on-container);
+}
+
 .primary {
 	--chip-bg: var(--color-primary-container);
 	--chip-fg: var(--color-primary-on-container);

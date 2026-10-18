@@ -267,4 +267,4 @@ The reading column (40rem) is centered in the 960 column on study pages: the h1,
 
 ## D-052: Study h1 takes its card's color — decided, 2026-10-17
 
-The h1 on a study page uses the color of that study's card title: the palette's `on-container` in light (Indeed sky, ServiceNow indigo, ActBlue teal, Toyota brand purple), white (`content-emphasis`) in dark, like the cards (D-028). `studyPalette(linkUrl)` in `StudyCardGrid` reads the palette from the card list, so a new study only needs its card.
+The h1 on a study page uses the color of that study's card title: the palette's `on-container` in light (Indeed sky, ServiceNow indigo, ActBlue teal, Toyota brand purple), white (`content-emphasis`) in dark, like the cards (D-028). The chips use the same palette (container fill, on-container text, white text in dark), ignoring each chip's own `theme`. `studyPalette(linkUrl)` in `StudyCardGrid` reads the palette from the card list, so a new study only needs its card.

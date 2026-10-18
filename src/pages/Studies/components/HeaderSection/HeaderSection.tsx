@@ -4,7 +4,8 @@ import StudyImage from '@pages/Studies/components/StudyImage';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import styles from './HeaderSection.module.css';
 
-// The one h1 on a study page. Chips are a list of plain labels (no interaction).
+// The one h1 on a study page. Chips are a list of plain labels (no interaction); all of them use the
+// study's card palette, like the h1 (D-052), so a chip's own `theme` is not used here.
 const HeaderSection: React.FC<StudyHeaderProps & { palette?: 'brand' | 'primary' | 'secondary' | 'tertiary' | 'quaternary' }> = ({
   title,
   roleDetails,
@@ -31,7 +32,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { palette?: 'brand' | 'primary'
       </div>
       <ul className={styles.chips}>
         {chips.map((chip) => (
-          <li key={chip.label} className={`${styles.chip} ${styles[chip.theme ?? 'primary'] ?? ''}`}>
+          <li key={chip.label} className={`${styles.chip} ${styles[palette]}`}>
             {chip.label}
           </li>
         ))}
