@@ -9,7 +9,6 @@ import type { ChipData } from '@components/ChipGroup';
 const content = {
     header: {
         title: 'Indeed Design System',
-        subtitle: 'Scaling a design system through a rebrand',
         roleDetails: [
             {
                 role: 'UX Designer',
@@ -44,7 +43,7 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'When I joined, Indeed\'s design system was growing rapidly but facing adoption bottlenecks. Engineering teams struggled with inconsistent UI components and outdated documentation, while designers lacked clear contribution pathways. I stepped in to restructure our token system and streamline documentation so we could scale effectively.',
+                'When I joined, Indeed was starting its rebrand and replacing the Indeed Component Library (ICL) with a new Indeed Design System (IDS). The ICL was strict, little used and often avoided by designers. Engineering teams struggled with inconsistent UI components and outdated documentation, while designers lacked clear contribution pathways. I stepped in to build and document components for the new library so we could scale effectively.',
             ],
             // The three documentation pages are slices of one 1600 x 1036 image (D-054).
             panels: {
@@ -64,12 +63,12 @@ const content = {
             title: 'Contributions',
             items: [
                 {
-                    label: 'Evolving Component Architecture',
-                    text: 'I worked within the existing system to mature Figma components, align token structures with production code, and update accessibility documentation.',
+                    label: 'Building the Component Library',
+                    text: 'I built Figma components for the new library, aligned token structures with production code, and documented accessibility guidance.',
                 },
                 {
-                    label: 'Improving Contribution Pathways',
-                    text: 'I contributed to the design system\'s governance by establishing clearer review loops and contribution guidelines for engineering and design teams.',
+                    label: 'Establishing Contribution Pathways',
+                    text: 'I contributed to the design system\'s governance by establishing review loops and contribution guidelines for engineering and design teams.',
                 },
                 {
                     label: 'Team Support & Enablement',
@@ -81,7 +80,7 @@ const content = {
             order: 3,
             title: 'Outcomes',
             description: [
-                'I helped streamline component handoffs, unify multi-brand token structures, and reduce UI redundancy across production apps. The updated documentation and contribution models I built helped engineering and design teams ship accessible features faster while keeping the system consistent.',
+                'I helped streamline component handoffs, unify multi-brand token structures, and reduce UI redundancy across production apps. The documentation and contribution models I built helped engineering and design teams ship accessible features faster while keeping the system consistent.',
             ],
             image: [
                 { 
