@@ -288,3 +288,7 @@ The "Label: sentence" h3s on About (the Approach to Work labels) and on case stu
 ## D-056: About and study h2s are black — decided, 2026-10-17
 
 The h2s on About ("Approach to Work", "Personal Life") and on case studies (section titles and "More of my work") use `content.prose`: true black in light, the usual purple-50 in dark (D-042), the same token as the body text. They were `content.emphasis` (dark purple). The h1s, the label h3s and the footer heading are unchanged.
+
+## D-057: 12px under h2s — decided, 2026-10-17
+
+The space between an h2 and what follows is 12px on case studies (section titles, "More of my work") and on About (it was 24px). On About it is the section's 24px gap with a -12px margin on the element after the h2; on studies the `copy` and "More of my work" containers use a 12px gap. The label h3s keep their 4px gap to their sentence.

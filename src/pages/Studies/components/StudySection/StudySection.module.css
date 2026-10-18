@@ -30,7 +30,7 @@
 .copy {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-2xl);
+	gap: var(--size-space-md); /* 12px under the h2 (D-057) */
 	width: 100%;
 	max-width: 40rem;
 	margin-inline: auto;

@@ -117,6 +117,11 @@
 	line-height: var(--font-style-heading-lg-line-height);
 }
 
+/* 12px between an h2 and what follows (D-057): the section's 24px gap minus 12. */
+.story section > h2 + * {
+	margin-top: calc(var(--size-space-md) - var(--size-space-2xl));
+}
+
 /* Group of label + sentence under Approach to Work. */
 .item {
 	display: flex;
