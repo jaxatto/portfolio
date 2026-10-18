@@ -37,6 +37,7 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 ## Copy voice
 
 - **Never write "it's not this, it's that" comparisons** in any copy (page text, meta, captions, card outcomes, PR text): no "not X but Y", "X, not Y", "rather than", "instead of", "isn't X, it's Y". State what Jax does directly. Permanent rule from Jax (2026-10-15).
+- **No interrupting clauses.** Don't split a subject from its verb with a comma-set clause ("The ICL, which was strict, was replaced by the IDS"). Put the subject and verb together and give the extra detail in its own short sentence. Also no em dashes or semicolons in sentences, and no run-ons. Rules from Jax (2026-10-17).
 - **Revise lightly.** Keep the original's specifics, fix only what is weak, and don't reuse phrasing that already appears elsewhere on the site. Ask for facts (outcomes, current employer) instead of inventing them.
 
 ## Code comments
