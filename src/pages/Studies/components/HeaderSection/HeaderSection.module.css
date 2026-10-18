@@ -42,6 +42,17 @@
 	text-wrap: balance;
 }
 
+/* One line under the h1 (D-059): what the study is about, in the body-lg step. */
+.subtitle {
+	margin: 0;
+	color: var(--color-content-prose);
+	font-family: var(--font-style-body-lg-family);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-weight-medium);
+	line-height: var(--font-style-body-lg-line-height);
+	text-wrap: balance;
+}
+
 .details {
 	display: flex;
 	flex-wrap: wrap;

@@ -34,6 +34,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
     <HeaderSection
       className={content.header.image?.[0] || content.header.compare ? undefined : styles.headerNoImage}
       title={content.header.title}
+      subtitle={content.header.subtitle}
       roleDetails={content.header.roleDetails}
       chips={content.header.chips}
       description={content.header.description}

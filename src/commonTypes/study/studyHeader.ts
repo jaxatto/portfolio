@@ -3,6 +3,7 @@ import type { StudyImageProps } from './studyImage';
 
 export type StudyHeaderProps = {
   title: string;
+  subtitle?: string; // One line under the h1: what the study is about
   roleDetails: { role: string; location?: string; startDate: string; endDate?: string }[];
   chips: ChipData[];
   description: string[];

@@ -9,6 +9,7 @@ import styles from './HeaderSection.module.css';
 // study's card palette, like the h1 (D-052), so a chip's own `theme` is not used here.
 const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?: 'brand' | 'primary' | 'secondary' | 'tertiary' | 'quaternary' }> = ({
   title,
+  subtitle,
   roleDetails,
   chips,
   description,
@@ -21,6 +22,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?:
     <div className={styles.intro}>
       <div className={styles.top}>
         <h1 className={`${styles.title} ${styles[`h1-${palette}`]}`}>{title}</h1>
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         <p className={styles.details}>
           <span>{roleDetails[0].role}</span>
           {roleDetails[0].location && (

@@ -9,6 +9,7 @@ import type { ChipData } from '@components/ChipGroup';
 const content = {
     header: {
         title: 'Indeed Design System',
+        subtitle: 'Scaling a design system through a rebrand',
         roleDetails: [
             {
                 role: 'UX Designer',
@@ -18,7 +19,7 @@ const content = {
             },
         ],
         description: [
-            'I architected and documented production-ready component libraries and token workflows for Indeed\'s enterprise design system. My focus was unifying cross-functional adoption across 100+ designers. I also embedded WCAG accessibility standards directly into our design and code.',
+            'I built and documented components and token workflows for Indeed\'s enterprise design system, used by 100+ designers. My focus was embedding WCAG accessibility standards directly into our design and code.',
         ],
         chips: [
             { label: 'B2C', theme: 'tertiary' },
@@ -35,7 +36,7 @@ const content = {
                 src: afterImage,
                 alt: 'The Indeed job search results page with the design system applied: rounded job cards with tags, a job detail panel and clear actions.',
             },
-            caption: 'Comparison before and after the design system implementation. Images obtained online.',
+            caption: 'Comparison before and after the design system implementation.',
         },
     },
     sections: [
@@ -43,7 +44,7 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'When I joined, Indeed\'s design system was growing rapidly but facing adoption bottlenecks. Engineering teams struggled with inconsistent UI components and outdated documentation, while designers lacked clear contribution pathways. I stepped in to bring systematic clarity, restructure our token system, and streamline documentation so we could scale effectively.',
+                'When I joined, Indeed\'s design system was growing rapidly but facing adoption bottlenecks. Engineering teams struggled with inconsistent UI components and outdated documentation, while designers lacked clear contribution pathways. I stepped in to restructure our token system and streamline documentation so we could scale effectively.',
             ],
             // The three documentation pages are slices of one 1600 x 1036 image (D-054).
             panels: {
@@ -55,7 +56,7 @@ const content = {
                     { x: 545, y: 4, width: 507, height: 1032, alt: 'Accessibility documentation page for the button, listing WCAG success criteria and the solutions applied.' },
                     { x: 1085, y: 4, width: 507, height: 1032, alt: 'Localization documentation page for the button, covering label length, fixed and content widths, and right-to-left layouts.' },
                 ],
-                caption: 'Example of component documentation with accessibility and localization guidance. Higher quality image unavailable.',
+                caption: 'Documentation pages for the Button component, with accessibility and localization guidance.',
             },
         },
         {
@@ -80,7 +81,7 @@ const content = {
             order: 3,
             title: 'Outcomes',
             description: [
-                'I helped streamline component handoffs, unify multi-brand token structures, and significantly reduce UI redundancy across production apps. The updated documentation and contribution models I built enabled our engineering and design teams to ship accessible features faster while keeping the system consistent.',
+                'I helped streamline component handoffs, unify multi-brand token structures, and reduce UI redundancy across production apps. The updated documentation and contribution models I built helped engineering and design teams ship accessible features faster while keeping the system consistent.',
             ],
             image: [
                 { 
@@ -94,19 +95,15 @@ const content = {
         {
             order: 4,
             title: 'Deliverables',
-            descriptionBullets: [
-                'System and documentation improvement library',
-                'Contribution models and review loops',
-                'Collaboration with cross-functional teams',
-                'Triage support for enterprise teams',
-                'Mentorship and onboarding for junior design team members',
+            description: [
+                'A documented Figma component library, contribution and review guidelines, a component triage workflow, and onboarding sessions for junior designers.',
             ],
         },
         {
             order: 5,
             title: 'Opportunities',
             description: [
-                'Looking back at this 2020 project through the lens of modern design systems architecture, my approach would evolve significantly today:',
+                'Looking back at this 2020 project, I would change two things:',
             ],
             items: [
                 {
@@ -115,7 +112,7 @@ const content = {
                 },
                 {
                     label: 'Production Analytics',
-                    text: 'I would instrument telemetry on production components to track usage metrics, identify deprecated UI instances, and measure true engineering efficiency.',
+                    text: 'I would instrument telemetry on production components to track usage metrics, identify deprecated UI instances, and measure engineering efficiency.',
                 },
             ],
         },
