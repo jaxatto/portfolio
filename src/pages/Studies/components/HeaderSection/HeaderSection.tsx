@@ -38,7 +38,6 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?:
           </li>
         ))}
       </ul>
-      <hr className={styles.rule} />
       <div className={styles.description}>
         {description.map((desc, i) => (
           <p key={i}>{desc}</p>

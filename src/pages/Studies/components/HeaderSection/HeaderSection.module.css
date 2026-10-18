@@ -1,5 +1,5 @@
 /* Study header (D-046): h1 in the About title step, role and date as a soft line, code-style chips
-   (the About chips without the caret), a hairline, then the intro at reading width and the hero image. */
+   (the About chips without the caret), then the intro at reading width and the hero image. */
 
 .header {
 	display: flex;
@@ -108,14 +108,6 @@
 /* Dark: chip text is white, like the card headings and the About chips (D-028). */
 :global([data-theme='dark']) .chip {
 	--chip-fg: var(--color-content-emphasis);
-}
-
-.rule {
-	width: 100%;
-	height: 0;
-	margin: 0;
-	border: 0;
-	border-top: var(--size-border-width-default) solid var(--color-border-decorative);
 }
 
 .description {
