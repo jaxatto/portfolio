@@ -284,3 +284,7 @@ Revised (2026-10-17): 40px between the study header (h1, role line, chips) and t
 ## D-055: Label h3s are bold — decided, 2026-10-17
 
 The "Label: sentence" h3s on About (the Approach to Work labels) and on case studies (Contributions, Opportunities items) use `--font-weight-emphasis` (bold, 700) instead of the heading-sm weight (Black, 900). Size and line height still come from heading-sm. The card titles (h2 on Home, h3 under a study) keep their own weights.
+
+## D-056: About and study h2s are black — decided, 2026-10-17
+
+The h2s on About ("Approach to Work", "Personal Life") and on case studies (section titles and "More of my work") use `content.prose`: true black in light, the usual purple-50 in dark (D-042), the same token as the body text. They were `content.emphasis` (dark purple). The h1s, the label h3s and the footer heading are unchanged.

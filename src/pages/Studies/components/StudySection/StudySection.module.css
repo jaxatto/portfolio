@@ -38,7 +38,7 @@
 
 .title {
 	margin: 0;
-	color: var(--color-content-emphasis);
+	color: var(--color-content-prose); /* true black in light (D-056) */
 	font-family: var(--font-style-heading-lg-family);
 	font-size: var(--font-style-heading-lg-size);
 	font-weight: var(--font-style-heading-lg-weight);
