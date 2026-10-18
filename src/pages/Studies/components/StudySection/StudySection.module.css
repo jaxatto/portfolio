@@ -16,7 +16,7 @@
 }
 
 .title {
-	margin: 0;
+	margin: 0 auto;
 	color: var(--color-content-emphasis);
 	font-family: var(--font-style-heading-lg-family);
 	font-size: var(--font-style-heading-lg-size);
