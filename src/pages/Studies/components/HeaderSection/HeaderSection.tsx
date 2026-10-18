@@ -6,15 +6,16 @@ import styles from './HeaderSection.module.css';
 
 // The one h1 on a study page. Chips are a list of plain labels (no interaction); all of them use the
 // study's card palette, like the h1 (D-052), so a chip's own `theme` is not used here.
-const HeaderSection: React.FC<StudyHeaderProps & { palette?: 'brand' | 'primary' | 'secondary' | 'tertiary' | 'quaternary' }> = ({
+const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?: 'brand' | 'primary' | 'secondary' | 'tertiary' | 'quaternary' }> = ({
   title,
   roleDetails,
   chips,
   description,
   image,
   palette = 'brand',
+  className,
 }) => (
-  <header className={styles.header}>
+  <header className={`${styles.header} ${className ?? ''}`}>
     <div className={styles.intro}>
       <div className={styles.top}>
         <h1 className={`${styles.title} ${styles[`h1-${palette}`]}`}>{title}</h1>
@@ -51,6 +52,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { palette?: 'brand' | 'primary'
         caption={image[0].caption}
         corners={image[0].corners}
         variant={image[0].variant}
+        className={styles.media}
       />
     )}
   </header>

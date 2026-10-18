@@ -4,7 +4,11 @@
 .header {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-2xl);
+}
+
+/* 40px above and below the hero image (D-053). */
+.media {
+	margin-block: var(--size-space-4xl);
 }
 
 /* Everything but the hero image sits in one centered 40rem reading column (`intro`); the image runs the
@@ -129,7 +133,6 @@
 }
 
 @media (max-width: 640px) {
-	.header,
 	.intro {
 		gap: var(--size-space-xl);
 	}

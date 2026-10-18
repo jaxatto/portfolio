@@ -1,6 +1,7 @@
 /* "More of my work" row (D-046): a hairline, an h2, then two cards (h3s) from StudyCardGrid. */
 
 .wrapper {
+	margin-top: var(--size-space-section-lg);
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-2xl);
@@ -18,4 +19,15 @@
 	font-size: var(--font-style-heading-lg-size);
 	font-weight: var(--font-style-heading-lg-weight);
 	line-height: var(--font-style-heading-lg-line-height);
+}
+
+/* After an image the image's own 40px margin is the gap above the line. */
+.afterMedia {
+	margin-top: 0;
+}
+
+@media (max-width: 640px) {
+	.wrapper:not(.afterMedia) {
+		margin-top: var(--size-space-section-sm);
+	}
 }

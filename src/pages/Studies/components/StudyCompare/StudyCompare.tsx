@@ -9,10 +9,11 @@ type StudyCompareProps = {
   before: StudyImageProps;
   after: StudyImageProps;
   caption?: string;
+  className?: string;
 };
 
-const StudyCompare: React.FC<StudyCompareProps> = ({ before, after, caption }) => (
-  <figure className={styles.figure}>
+const StudyCompare: React.FC<StudyCompareProps> = ({ before, after, caption, className }) => (
+  <figure className={`${styles.figure} ${className ?? ''}`}>
     <div className={styles.pair}>
       <div className={`${styles.col} ${styles.before}`}>
         <div className={styles.shot}>

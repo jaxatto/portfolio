@@ -1,27 +1,25 @@
 /* Case study template on tokens (D-046). One column on the 960 grid from Layout; text holds a 40rem
-   reading measure (D-040) and images run the full column. */
+   reading measure (D-040) and images run the full column. Every image has 40px above and below it
+   (D-053): the image's own margin, so the blocks around it add no extra gap. */
 
 .page {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-section-lg);
 	padding-block: var(--size-space-section-lg) var(--size-space-section-lg);
 	color: var(--color-content-prose);
 }
 
-.body {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-section-sm);
+/* Without a hero image, the header needs its own gap before the first section. */
+.page > .headerNoImage {
+	margin-bottom: var(--size-space-section-lg);
 }
 
 @media (max-width: 640px) {
 	.page {
-		gap: var(--size-space-section-sm);
 		padding-block: var(--size-space-3xl) var(--size-space-section-sm);
 	}
 
-	.body {
-		gap: var(--size-space-4xl);
+	.page > .headerNoImage {
+		margin-bottom: var(--size-space-section-sm);
 	}
 }

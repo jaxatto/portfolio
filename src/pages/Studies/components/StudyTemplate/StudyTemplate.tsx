@@ -18,8 +18,13 @@ export type StudyTemplateProps = {
   renderSection?: (section: StudySectionProps, idx: number) => React.ReactNode;
 };
 
+const endsWithMedia = (section?: StudySectionProps) =>
+  Boolean(section && (section.compare || section.image?.some((img) => img.src)));
+
 // legacy={false}: the page no longer takes the global legacy link and dark-mode rules (D-036, D-046).
-const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSection }) => (
+const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSection }) => {
+  const sections = [...content.sections].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+  return (
   <Layout
     title={meta.title}
     metaDescription={meta.description}
@@ -27,6 +32,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
     legacy={false}
   >
     <HeaderSection
+      className={content.header.image?.[0] ? undefined : styles.headerNoImage}
       title={content.header.title}
       roleDetails={content.header.roleDetails}
       chips={content.header.chips}
@@ -34,15 +40,12 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
       image={content.header.image}
       palette={studyPalette(meta.linkUrl)}
     />
-    <div className={styles.body}>
-      {[...content.sections]
-        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-        .map((section, idx) =>
-          renderSection ? renderSection(section, idx) : <StudySection key={idx} section={section} />
-        )}
-    </div>
-    <NextStudy meta={meta} />
+    {sections.map((section, idx) =>
+      renderSection ? renderSection(section, idx) : <StudySection key={idx} section={section} />
+    )}
+    <NextStudy meta={meta} afterMedia={endsWithMedia(sections[sections.length - 1])} />
   </Layout>
-);
+  );
+};
 
 export default StudyTemplate;

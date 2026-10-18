@@ -268,3 +268,7 @@ The reading column (40rem) is centered in the 960 column on study pages: the h1,
 ## D-052: Study h1 takes its card's color — decided, 2026-10-17
 
 The h1 on a study page uses the color of that study's card title: the palette's `on-container` in light (Indeed sky, ServiceNow indigo, ActBlue teal, Toyota brand purple), white (`content-emphasis`) in dark, like the cards (D-028). The chips use the same palette (container fill, on-container text, white text in dark), ignoring each chip's own `theme`. `studyPalette(linkUrl)` in `StudyCardGrid` reads the palette from the card list, so a new study only needs its card.
+
+## D-053: 40px above and below every study image — decided, 2026-10-17
+
+Every image on a study page (the hero, section images, the before / after pair) has 40px above and 40px below it, at every width. The spacing is the image's own `margin-block` (`--size-space-4xl`), so the gaps around it do not add to it: the header, the page and the sections no longer use a flex `gap`. Sections that do not end with an image are still 48px apart (40px on phones); a section that ends with an image adds nothing before the next one, and "More of my work" adds nothing after an image (it keeps 64px, 48px on phones, after text). A header without a hero image gets its own gap before the first section.
