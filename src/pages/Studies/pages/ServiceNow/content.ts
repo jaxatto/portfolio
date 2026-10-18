@@ -40,7 +40,7 @@ const content = {
             description: [
                 'The first version of the tool was already functional when I joined. I partnered with the original creator to shape the experience around real research workflows, explore the core flow, and identify ways to reduce friction.',
                 'Open-ended feedback needs to be coded into themes before it can be analyzed. This process is usually manual and time consuming, often taking 10 hours or more to process just 100 responses. With multiple projects and thousands of inputs, researchers were often overwhelmed.',
-                'This tool simplifies that process. Users upload responses, define a few themes, and get a fully coded dataset in return. The goal was to make the workflow faster, easier to navigate, and usable by non-experts, not just trained researchers.',
+                'This tool simplifies that process. Users upload responses, define a few themes, and get a fully coded dataset in return. The goal was to make the workflow faster, easier to navigate, and usable by non-experts as well as trained researchers.',
             ],
             descriptionBullets: [],
             image: [

@@ -132,4 +132,4 @@ An earlier, larger attempt at the redesign, committed under a different identity
 
 ## Skills
 
-Project skills live in `.claude/skills/`. Current: `ship-slice` (verify, commit, push, review links, merge to `redesign` on approval) and `portfolio-critique` (structured content/design review for hiring impact).
+Project skills live in `.claude/skills/`. Current: `copy-check` (lint and read copy against the Copy voice rules), `ship-slice` (verify, commit, push, review links, merge to `redesign` on approval) and `portfolio-critique` (structured content/design review for hiring impact).
