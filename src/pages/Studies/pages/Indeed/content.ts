@@ -120,11 +120,11 @@ const content = {
             items: [
                 {
                     label: 'Automated Token Pipelines',
-                    text: 'In 2020 our team had not adopted design tokens and used basic variables only. Today I would build automated pipelines with Style Dictionary and GitHub Actions. They would sync design decisions from Figma Variables into production code repositories.',
+                    text: 'Our team had not adopted design tokens and used basic variables only. Today I would build automated pipelines with Style Dictionary and GitHub Actions. They would sync design decisions from Figma Variables into production code repositories.',
                 },
                 {
                     label: 'Production Analytics',
-                    text: 'I would instrument telemetry on production components to track usage metrics, identify deprecated UI instances, and measure engineering efficiency.',
+                    text: 'I would track how teams use each component in production, find outdated UI that needs replacing, and measure how the system affects engineering efficiency.',
                 },
             ],
         },
