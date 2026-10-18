@@ -7,9 +7,12 @@
 	gap: var(--size-space-2xl);
 }
 
-/* Everything but the hero image sits in one centered 40rem reading column; the image runs the full
-   960 column (D-051). Text inside stays left-aligned. */
-.header > :not(figure) {
+/* Everything but the hero image sits in one centered 40rem reading column (`intro`); the image runs the
+   full 960 column (D-051). Text inside stays left-aligned. */
+.intro {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-2xl);
 	width: 100%;
 	max-width: 40rem;
 	margin-inline: auto;
@@ -119,7 +122,8 @@
 }
 
 @media (max-width: 640px) {
-	.header {
+	.header,
+	.intro {
 		gap: var(--size-space-xl);
 	}
 
