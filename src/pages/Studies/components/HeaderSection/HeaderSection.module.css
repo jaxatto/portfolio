@@ -26,7 +26,9 @@
 
 .title {
 	margin: 0;
-	color: var(--color-content-emphasis);
+	/* The h1 takes the color of the study's card title (D-052): the palette's on-container in light,
+	   white in dark like the cards (D-028). */
+	color: var(--h1-color, var(--color-content-emphasis));
 	font-family: var(--font-style-title-md-family);
 	font-size: var(--font-style-title-md-size);
 	font-weight: var(--font-style-title-md-weight);
@@ -129,5 +131,35 @@
 
 	.chips {
 		flex-wrap: wrap;
+	}
+}
+
+.h1-brand {
+	--h1-color: var(--color-brand-on-container);
+}
+
+.h1-primary {
+	--h1-color: var(--color-primary-on-container);
+}
+
+.h1-secondary {
+	--h1-color: var(--color-secondary-on-container);
+}
+
+.h1-tertiary {
+	--h1-color: var(--color-tertiary-on-container);
+}
+
+.h1-quaternary {
+	--h1-color: var(--color-quaternary-on-container);
+}
+
+:global([data-theme='dark']) .title {
+	--h1-color: var(--color-content-emphasis);
+}
+
+@media (prefers-color-scheme: dark) {
+	:global(:root:not([data-theme='light'])) .title {
+		--h1-color: var(--color-content-emphasis);
 	}
 }

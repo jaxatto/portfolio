@@ -264,3 +264,7 @@ The three Indeed images follow Figma `2853:27124`. (1) Header image: `variant: '
 ## D-051: Case study text column is centered — decided, 2026-10-17
 
 The reading column (40rem) is centered in the 960 column on study pages: the h1, role line, chips, hairline, intro, section titles and section text all share it, left-aligned inside. The hero image, section images, the before / after pair and the "More of my work" row keep the full 960. Centered text was rejected (ragged both sides is harder to read). This differs from About, which keeps its story left-aligned on the header's edge (D-040); TODO(jax): decide whether About should follow. The header hairline is now 40rem wide, matching the column.
+
+## D-052: Study h1 takes its card's color — decided, 2026-10-17
+
+The h1 on a study page uses the color of that study's card title: the palette's `on-container` in light (Indeed sky, ServiceNow indigo, ActBlue teal, Toyota brand purple), white (`content-emphasis`) in dark, like the cards (D-028). `studyPalette(linkUrl)` in `StudyCardGrid` reads the palette from the card list, so a new study only needs its card.

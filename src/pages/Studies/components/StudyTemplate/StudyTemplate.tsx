@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@components/Layout';
 import HeaderSection from '@pages/Studies/components/HeaderSection';
 import StudySection from '@pages/Studies/components/StudySection';
+import { studyPalette } from '@components/StudyCardGrid';
 import NextStudy from '@pages/Studies/components/NextStudy';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
@@ -31,6 +32,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
       chips={content.header.chips}
       description={content.header.description}
       image={content.header.image}
+      palette={studyPalette(meta.linkUrl)}
     />
     <div className={styles.body}>
       {[...content.sections]

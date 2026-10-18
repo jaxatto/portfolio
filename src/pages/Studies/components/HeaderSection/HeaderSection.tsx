@@ -5,17 +5,18 @@ import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import styles from './HeaderSection.module.css';
 
 // The one h1 on a study page. Chips are a list of plain labels (no interaction).
-const HeaderSection: React.FC<StudyHeaderProps> = ({
+const HeaderSection: React.FC<StudyHeaderProps & { palette?: 'brand' | 'primary' | 'secondary' | 'tertiary' | 'quaternary' }> = ({
   title,
   roleDetails,
   chips,
   description,
   image,
+  palette = 'brand',
 }) => (
   <header className={styles.header}>
     <div className={styles.intro}>
       <div className={styles.top}>
-        <h1 className={styles.title}>{title}</h1>
+        <h1 className={`${styles.title} ${styles[`h1-${palette}`]}`}>{title}</h1>
         <p className={styles.details}>
           <span>{roleDetails[0].role}</span>
           {roleDetails[0].location && (

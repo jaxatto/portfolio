@@ -88,4 +88,7 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({ variant = 'work', exclude
 	);
 };
 
+// The card palette of a study, so its page can color the h1 like the card's title (D-052).
+export const studyPalette = (linkUrl: string) => cards.find((card) => card.linkUrl === linkUrl)?.palette ?? 'brand';
+
 export default StudyCardGrid;

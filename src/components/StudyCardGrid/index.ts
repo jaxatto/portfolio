@@ -1,1 +1,1 @@
-export { default } from './StudyCardGrid';
+export { default, studyPalette } from './StudyCardGrid';
