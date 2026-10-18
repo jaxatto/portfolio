@@ -124,7 +124,7 @@ const content = {
                 },
                 {
                     label: 'Production Analytics',
-                    text: 'I would track how teams use each component in production and find outdated UI that needs replacing. That data would show which components to improve first, which to retire, and where teams need more support. I would also measure the system\'s effect on engineering efficiency and put a dollar value on it.',
+                    text: 'I would track how teams use each component in production and find outdated UI that needs replacing. That data would show which components to improve first, which to retire, and where teams need more support. I would also measure the system\'s effect on engineering efficiency and translate it into cost savings.',
                 },
             ],
         },
