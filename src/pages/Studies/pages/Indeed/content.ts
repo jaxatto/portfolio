@@ -119,8 +119,8 @@ const content = {
             ],
             items: [
                 {
-                    label: 'Automated Token Pipelines',
-                    text: 'Our team had not adopted design tokens and used basic variables only. Today I would build automated pipelines with Style Dictionary and GitHub Actions. They would sync design decisions from Figma Variables into production code repositories.',
+                    label: 'Token Architecture and Automation',
+                    text: 'Our team used basic variables and had not adopted design tokens. Today I would start by designing and implementing a token architecture. It would give design and code one shared set of named decisions for color, type and spacing. Then I would automate the sync from Figma Variables into production code with Style Dictionary and GitHub Actions.',
                 },
                 {
                     label: 'Production Analytics',
