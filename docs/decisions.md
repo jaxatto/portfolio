@@ -280,3 +280,7 @@ Every image on a study page (the hero, section images, the before / after pair) 
 Revised (2026-10-17): the hairline under the study chips was removed (the chips lead straight into the intro). D-046 and D-049's list of 2px hairlines no longer include it; the footer and the line above "More of my work" remain.
 
 Revised (2026-10-17): 40px between the study header (h1, role line, chips) and the intro paragraph, at every width (it was 24px, 20px on phones).
+
+## D-055: Label h3s are bold — decided, 2026-10-17
+
+The "Label: sentence" h3s on About (the Approach to Work labels) and on case studies (Contributions, Opportunities items) use `--font-weight-emphasis` (bold, 700) instead of the heading-sm weight (Black, 900). Size and line height still come from heading-sm. The card titles (h2 on Home, h3 under a study) keep their own weights.

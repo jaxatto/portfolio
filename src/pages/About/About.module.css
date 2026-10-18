@@ -130,7 +130,7 @@
 	color: var(--color-content-emphasis);
 	font-family: var(--font-style-heading-sm-family);
 	font-size: var(--font-style-heading-sm-size);
-	font-weight: var(--font-style-heading-sm-weight);
+	font-weight: var(--font-weight-emphasis); /* bold, 700 (D-055) */
 	line-height: var(--font-style-heading-sm-line-height);
 }
 
