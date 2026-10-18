@@ -18,7 +18,7 @@ const content = {
             },
         ],
         description: [
-            'I built and documented components and token workflows for Indeed\'s enterprise design system, used by 100+ designers. My focus was embedding WCAG accessibility standards directly into our design and code.',
+            'I built and documented components for Indeed\'s new enterprise design system, used by 100+ designers. My focus was embedding WCAG accessibility standards and localization guidance directly into our design and code.',
         ],
         chips: [
             { label: 'B2C', theme: 'tertiary' },
@@ -43,7 +43,8 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'When I joined, Indeed was starting its rebrand and replacing the Indeed Component Library (ICL) with a new Indeed Design System (IDS). The ICL was strict, little used and often avoided by designers. Engineering teams struggled with inconsistent UI components and outdated documentation, while designers lacked clear contribution pathways. I stepped in to build and document components for the new library so we could scale effectively.',
+                'Indeed.com was split across teams that each owned their own pages: Job Search, company landing pages, company search, the Employer side, Resume, Application, Messaging and more. The mobile app teams had their own splits too. No cohesive design system existed, and deliverables across the organization were very inconsistent.',
+                'When I joined, the rebrand was starting and the Indeed Component Library (ICL), which was strict and often avoided by designers, was being replaced by a new Indeed Design System (IDS). We aimed for a hybrid system that worked on desktop and mobile and responded to screen size.',
             ],
             // The three documentation pages are slices of one 1600 x 1036 image (D-054).
             panels: {
@@ -64,7 +65,7 @@ const content = {
             items: [
                 {
                     label: 'Building the Component Library',
-                    text: 'I built Figma components for the new library, aligned token structures with production code, and documented accessibility guidance.',
+                    text: 'I built Figma components for the new library and documented their accessibility guidance.',
                 },
                 {
                     label: 'Establishing Contribution Pathways',
@@ -78,9 +79,16 @@ const content = {
         },
         {
             order: 3,
+            title: 'Localization',
+            description: [
+                'Indeed is owned by a Japanese company and has major markets in Japan, Germany and the US, so every component had to work in all three languages. Arabic and Hebrew also had to work. For each component I wrote localization guidance and examples, covering label length, fixed and content-based widths, and right-to-left (RTL) layouts, including swapping the order of actions and mirroring icons.',
+            ],
+        },
+        {
+            order: 4,
             title: 'Outcomes',
             description: [
-                'I helped streamline component handoffs, unify multi-brand token structures, and reduce UI redundancy across production apps. The documentation and contribution models I built helped engineering and design teams ship accessible features faster while keeping the system consistent.',
+                'I helped streamline component handoffs and reduce UI redundancy across production apps. The documentation and contribution models I built helped engineering and design teams ship accessible features faster while keeping the system consistent.',
             ],
             image: [
                 { 
@@ -92,14 +100,14 @@ const content = {
             ],
         },
         {
-            order: 4,
+            order: 5,
             title: 'Deliverables',
             description: [
-                'A documented Figma component library, contribution and review guidelines, a component triage workflow, and onboarding sessions for junior designers.',
+                'A documented Figma component library with localization and RTL guidance, contribution and review guidelines, a component triage workflow, and onboarding sessions for junior designers.',
             ],
         },
         {
-            order: 5,
+            order: 6,
             title: 'Opportunities',
             description: [
                 'Looking back at this 2020 project, I would change two things:',
@@ -107,7 +115,7 @@ const content = {
             items: [
                 {
                     label: 'Automated Token Pipelines',
-                    text: 'I would build automated pipelines using Style Dictionary and GitHub Actions to sync design decisions directly from Figma Variables into production code repositories in real time.',
+                    text: 'Design tokens were a new idea in 2020. Today I would build automated pipelines using Style Dictionary and GitHub Actions to sync design decisions directly from Figma Variables into production code repositories in real time.',
                 },
                 {
                     label: 'Production Analytics',
