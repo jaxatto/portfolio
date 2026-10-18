@@ -26,14 +26,17 @@ const content = {
             { label: 'Design Systems', theme: 'secondary' },
             { label: 'Accessibility', theme: 'secondary' },
         ] as ChipData[],
-        image: [
-            { 
-                src: headerImage, 
-                caption: 'Collaborated on accessibility documentation for design handoff to engineering.',
-                alt: 'Sample of accessibility annotations in a Figma design file, showing how to annotate designs for developers.',
-                variant: 'banner' as const,
+        compare: {
+            before: {
+                src: beforeImage,
+                alt: 'The Indeed job search results page before the design system: dense text, a left filter column and an email alert box.',
             },
-        ],
+            after: {
+                src: afterImage,
+                alt: 'The Indeed job search results page with the design system applied: rounded job cards with tags, a job detail panel and clear actions.',
+            },
+            caption: 'Comparison before and after the design system implementation. Images obtained online.',
+        },
     },
     sections: [
         {
@@ -79,17 +82,14 @@ const content = {
             description: [
                 'I helped streamline component handoffs, unify multi-brand token structures, and significantly reduce UI redundancy across production apps. The updated documentation and contribution models I built enabled our engineering and design teams to ship accessible features faster while keeping the system consistent.',
             ],
-            compare: {
-                before: {
-                    src: beforeImage,
-                    alt: 'The Indeed job search results page before the design system: dense text, a left filter column and an email alert box.',
+            image: [
+                { 
+                    src: headerImage, 
+                    caption: 'Collaborated on accessibility documentation for design handoff to engineering.',
+                    alt: 'Sample of accessibility annotations in a Figma design file, showing how to annotate designs for developers.',
+                    variant: 'banner' as const,
                 },
-                after: {
-                    src: afterImage,
-                    alt: 'The Indeed job search results page with the design system applied: rounded job cards with tags, a job detail panel and clear actions.',
-                },
-                caption: 'Comparison before and after the design system implementation. Images obtained online.',
-            },
+            ],
         },
         {
             order: 4,

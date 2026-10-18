@@ -292,3 +292,7 @@ The h2s on About ("Approach to Work", "Personal Life") and on case studies (sect
 ## D-057: 12px under h2s — decided, 2026-10-17
 
 The space between an h2 and what follows is 12px on case studies (section titles, "More of my work") and on About (it was 24px). On About it is the section's 24px gap with a -12px margin on the element after the h2; on studies the `copy` and "More of my work" containers use a 12px gap. The label h3s keep their 4px gap to their sentence.
+
+## D-058: Indeed hero and last image swapped — decided, 2026-10-17
+
+On Indeed the before / after pair is now the hero image under the header and the accessibility annotations banner sits in Outcomes. The study header accepts `compare` (a before / after pair) in place of `image`, and `image` is optional. TODO(jax): the banner's caption ("Collaborated on accessibility documentation for design handoff to engineering") and the before / after caption may read better after the swap, and the Outcomes copy could refer to the screens above.

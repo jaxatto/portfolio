@@ -1,5 +1,6 @@
 import React from 'react';
 import DateRange from '@components/DateRange';
+import StudyCompare from '@pages/Studies/components/StudyCompare';
 import StudyImage from '@pages/Studies/components/StudyImage';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import styles from './HeaderSection.module.css';
@@ -12,6 +13,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?:
   chips,
   description,
   image,
+  compare,
   palette = 'brand',
   className,
 }) => (
@@ -44,6 +46,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?:
         ))}
       </div>
     </div>
+    {compare && <StudyCompare {...compare} className={styles.media} />}
     {image && image[0] && (
       <StudyImage
         src={image[0].src}

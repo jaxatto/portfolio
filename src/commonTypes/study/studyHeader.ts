@@ -6,5 +6,6 @@ export type StudyHeaderProps = {
   roleDetails: { role: string; location?: string; startDate: string; endDate?: string }[];
   chips: ChipData[];
   description: string[];
-  image: StudyImageProps[];
+  image?: StudyImageProps[];
+  compare?: { before: StudyImageProps; after: StudyImageProps; caption?: string }; // Before / after pair in place of the hero image
 };

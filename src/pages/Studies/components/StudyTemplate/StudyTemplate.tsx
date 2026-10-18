@@ -32,12 +32,13 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
     legacy={false}
   >
     <HeaderSection
-      className={content.header.image?.[0] ? undefined : styles.headerNoImage}
+      className={content.header.image?.[0] || content.header.compare ? undefined : styles.headerNoImage}
       title={content.header.title}
       roleDetails={content.header.roleDetails}
       chips={content.header.chips}
       description={content.header.description}
       image={content.header.image}
+      compare={content.header.compare}
       palette={studyPalette(meta.linkUrl)}
     />
     {sections.map((section, idx) =>
