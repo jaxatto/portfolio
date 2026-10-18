@@ -25,6 +25,10 @@
 	font-size: var(--font-style-body-sm-size);
 	line-height: var(--font-style-body-sm-line-height);
 	text-align: left;
+	/* Captions sit in the copy's 40rem column, whatever the image's width (D-054). */
+	width: 100%;
+	max-width: 40rem;
+	margin-inline: auto;
 	text-wrap: pretty;
 }
 
@@ -38,18 +42,4 @@
 	.banner {
 		aspect-ratio: 3 / 1;
 	}
-}
-
-/* Frame (D-050): the sunken surface with 32px at the top and sides; the image runs off the bottom
-   edge, cropped at 300px tall on wide screens. */
-.frame {
-	overflow: hidden;
-	max-height: 18.75rem; /* 300px */
-	padding: var(--size-space-3xl) var(--size-space-3xl) 0;
-	border-radius: var(--size-radius-lg);
-	background: var(--color-surface-sunken);
-}
-
-.framed {
-	border-radius: var(--size-radius-xs) var(--size-radius-xs) 0 0;
 }

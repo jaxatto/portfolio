@@ -31,7 +31,7 @@
 	position: relative;
 	aspect-ratio: 1200 / 740;
 	overflow: hidden;
-	border-radius: var(--size-radius-sm);
+	border-radius: var(--size-radius-lg);
 }
 
 .image {
@@ -62,7 +62,11 @@
 	color: var(--color-secondary-on-container);
 }
 
+/* Captions sit in the copy's 40rem column (D-054). */
 .caption {
+	width: 100%;
+	max-width: 40rem;
+	margin-inline: auto;
 	color: var(--color-content-muted);
 	font-family: var(--font-style-body-sm-family);
 	font-size: var(--font-style-body-sm-size);

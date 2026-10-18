@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import StudyPanels from '@pages/Studies/components/StudyPanels';
 import StudyCompare from '@pages/Studies/components/StudyCompare';
 import StudyImage from '@pages/Studies/components/StudyImage';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
@@ -7,7 +8,7 @@ import styles from './StudySection.module.css';
 
 const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => {
   const image = section.image && section.image.length > 0 ? section.image[0] : undefined;
-  const endsWithMedia = Boolean(section.compare || image?.src);
+  const endsWithMedia = Boolean(section.panels || section.compare || image?.src);
   const hasBullets = Boolean(section.descriptionBullets?.length);
   return (
     <section className={clsx(styles.section, endsWithMedia && styles.endsWithMedia)} data-order={section.order}>
@@ -34,6 +35,7 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
           </div>
         )}
       </div>
+      {section.panels && <StudyPanels {...section.panels} className={styles.media} />}
       {section.compare && <StudyCompare {...section.compare} className={styles.media} />}
       {image?.src && (
         <StudyImage src={image.src} alt={image.alt || ''} caption={image.caption} corners={image.corners} variant={image.variant} className={styles.media} />

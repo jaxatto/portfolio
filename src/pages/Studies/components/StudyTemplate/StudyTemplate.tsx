@@ -19,7 +19,7 @@ export type StudyTemplateProps = {
 };
 
 const endsWithMedia = (section?: StudySectionProps) =>
-  Boolean(section && (section.compare || section.image?.some((img) => img.src)));
+  Boolean(section && (section.panels || section.compare || section.image?.some((img) => img.src)));
 
 // legacy={false}: the page no longer takes the global legacy link and dark-mode rules (D-036, D-046).
 const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSection }) => {

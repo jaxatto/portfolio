@@ -42,14 +42,18 @@ const content = {
             description: [
                 'When I joined, Indeed\'s design system was growing rapidly but facing adoption bottlenecks. Engineering teams struggled with inconsistent UI components and outdated documentation, while designers lacked clear contribution pathways. I stepped in to bring systematic clarity, restructure our token system, and streamline documentation so we could scale effectively.',
             ],
-            image: [
-                {
-                    src: contributionsImage,
-                    caption: 'Example of component documentation with accessibility and localization guidance. Higher quality image unavailable.',
-                    alt: 'A screenshot of a Figma component documentation page, showing detailed information about the component, including accessibility and localization guidance.',
-                    variant: 'frame' as const,
-                },
-            ],
+            // The three documentation pages are slices of one 1600 x 1036 image (D-054).
+            panels: {
+                src: contributionsImage,
+                sourceWidth: 1600,
+                sourceHeight: 1036,
+                slices: [
+                    { x: 4, y: 4, width: 507, height: 1032, alt: 'Button component documentation page in Figma, with its description, when to use it and options.' },
+                    { x: 545, y: 4, width: 507, height: 1032, alt: 'Accessibility documentation page for the button, listing WCAG success criteria and the solutions applied.' },
+                    { x: 1085, y: 4, width: 507, height: 1032, alt: 'Localization documentation page for the button, covering label length, fixed and content widths, and right-to-left layouts.' },
+                ],
+                caption: 'Example of component documentation with accessibility and localization guidance. Higher quality image unavailable.',
+            },
         },
         {
             order: 2,

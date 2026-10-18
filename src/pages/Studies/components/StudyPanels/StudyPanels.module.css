@@ -1,0 +1,53 @@
+/* Panels box (D-054): the copy's width (40rem), 300px tall, sunken surface, 32px at the top and sides and
+   none at the bottom, so the pages run off the bottom edge. Panels are top aligned and clipped. */
+
+.figure {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-md);
+	width: 100%;
+	max-width: 40rem;
+	margin: 0;
+	margin-inline: auto;
+}
+
+.box {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--size-space-lg);
+	height: 18.75rem; /* 300px */
+	padding: var(--size-space-3xl) var(--size-space-3xl) 0;
+	overflow: hidden;
+	border-radius: var(--size-radius-lg);
+	background: var(--color-surface-sunken);
+}
+
+.panel {
+	position: relative;
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	border-radius: var(--size-radius-xs) var(--size-radius-xs) 0 0;
+}
+
+.image {
+	position: absolute;
+	display: block;
+	max-width: none;
+}
+
+.caption {
+	color: var(--color-content-muted);
+	font-family: var(--font-style-body-sm-family);
+	font-size: var(--font-style-body-sm-size);
+	line-height: var(--font-style-body-sm-line-height);
+	text-wrap: pretty;
+}
+
+@media (max-width: 640px) {
+	.box {
+		height: 13.75rem; /* 220px */
+		padding: var(--size-space-lg) var(--size-space-lg) 0;
+		gap: var(--size-space-md);
+	}
+}
