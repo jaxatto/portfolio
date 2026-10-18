@@ -40,9 +40,9 @@ const cards: Card[] = [
 		palette: 'secondary',
 	},
 	{
-		title: 'Scaling a design system through a rebrand',
+		title: 'Documenting a global design system',
 		outcome:
-			'Made the component library more accessible and easier to contribute to, and mentored a junior designer into system work.',
+			'Built and documented accessible, localized components for a design system used by 100+ designers across Indeed.',
 		image: indeedImage,
 		linkUrl: studyLinks.indeed,
 		linkText: 'Read the Indeed case study',

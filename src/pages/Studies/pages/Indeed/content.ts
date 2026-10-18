@@ -18,7 +18,7 @@ const content = {
             },
         ],
         description: [
-            'I built and documented components for Indeed\'s new enterprise design system, used by 100+ designers. My focus was embedding WCAG accessibility standards and localization guidance directly into our design and code.',
+            'I built and documented components for Indeed\'s new enterprise design system, used by 100+ designers. My focus was applying WCAG accessibility standards to our components and embedding localization guidance directly into our design and code.',
         ],
         chips: [
             { label: 'B2C', theme: 'tertiary' },
@@ -43,8 +43,8 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'Indeed.com was split across teams that each owned their own pages: Job Search, company landing pages, company search, the Employer side, Resume, Application, Messaging and more. The mobile app teams had their own splits too. No cohesive design system existed, and deliverables across the organization were very inconsistent.',
-                'When I joined, Indeed was refreshing its brand, moving its main color from light blue to dark blue and away from orange. The prior Sketch-based Indeed Component Library (ICL) was strict, inconsistent, and avoided by designers. A new Indeed Design System (IDS) was replacing it. We built it fully in Figma. The goal was one hybrid, responsive system for desktop and mobile, in the new look.',
+                'Different teams owned different parts of Indeed. The consumer-facing side covered job search, company search, resumes, applications, messaging and more. The employer side was where hiring managers connected with candidates and set up job posts. The mobile app was separate again, with its own teams. No cohesive design system existed, and deliverables across the organization were inconsistent.',
+                'When I joined, Indeed was refreshing its brand, moving its main color from light blue to dark blue and away from orange. The prior Sketch-based Indeed Component Library (ICL) was strict, inconsistent and avoided by designers. A new Indeed Design System (IDS) was replacing it, built fully in Figma. The goal was one hybrid, responsive system for desktop and mobile, in the new look.',
             ],
             // The three documentation pages are slices of one 1600 x 1036 image (D-054).
             panels: {
@@ -65,15 +65,15 @@ const content = {
             items: [
                 {
                     label: 'Building the Component Library',
-                    text: 'I built Figma components for the new library and documented their accessibility guidance.',
+                    text: 'I built general-purpose components for the new library in Figma, aimed at that hybrid, responsive goal.',
                 },
                 {
-                    label: 'Establishing Contribution Pathways',
-                    text: 'I contributed to the design system\'s governance by establishing review loops and contribution guidelines for engineering and design teams.',
+                    label: 'Documenting Components',
+                    text: 'Each component came with documentation for usage, accessibility and localization. A page such as Button covers a description, when to use it, its options, WCAG success criteria with the solutions applied, and localization guidance.',
                 },
                 {
                     label: 'Team Support & Enablement',
-                    text: 'I supported team adoption by mentoring junior designers, running onboarding sessions, and answering daily system triage questions.',
+                    text: 'I supported team adoption by sharing my Figma, design systems and accessibility expertise with other designers. I mentored them, contributed to onboarding sessions and answered daily system triage questions.',
                 },
             ],
         },
@@ -81,14 +81,15 @@ const content = {
             order: 3,
             title: 'Localization',
             description: [
-                'Indeed is owned by a Japanese company and has major markets in Japan, Germany and the US, so every component had to work in all three languages. Arabic and Hebrew also had to work. For each component I wrote localization guidance and examples, covering label length, fixed and content-based widths, and right-to-left (RTL) layouts, including swapping the order of actions and mirroring icons.',
+                'Indeed is owned by a Japanese company. Its major markets are Japan, Germany and the US, so every component had to work in Japanese, German and English. My component docs also covered right-to-left (RTL) languages, including Arabic and Hebrew.',
+                'For each component I wrote localization guidance and examples, covering label length and fixed and content-based widths. I also developed guidelines for designing around RTL, including swapped action order and mirrored icons.',
             ],
         },
         {
             order: 4,
             title: 'Outcomes',
             description: [
-                'I helped streamline component handoffs and reduce UI redundancy across production apps. The documentation and contribution models I built helped engineering and design teams ship accessible features faster while keeping the system consistent.',
+                'I collaborated with engineering and design teams to streamline component handoffs and reduce UI redundancy across production apps. The components and documentation I built gave those teams a shared reference for usage, accessibility and localization. That helped them ship accessible features faster while keeping the system consistent.',
             ],
             image: [
                 { 
@@ -102,8 +103,12 @@ const content = {
         {
             order: 5,
             title: 'Deliverables',
-            description: [
-                'A documented Figma component library with localization and RTL guidance, contribution and review guidelines, a component triage workflow, and onboarding sessions for junior designers.',
+            descriptionBullets: [
+                'A documented Figma component library',
+                'Detailed documentation for each component, covering usage and when to use it',
+                'WCAG accessibility standards, applied to each component in collaboration with other teams and documented with the solutions',
+                'Localization and RTL design guidelines',
+                'Onboarding and mentoring support for other designers',
             ],
         },
         {
@@ -115,7 +120,7 @@ const content = {
             items: [
                 {
                     label: 'Automated Token Pipelines',
-                    text: 'Design tokens were a new idea in 2020. Today I would build automated pipelines using Style Dictionary and GitHub Actions to sync design decisions directly from Figma Variables into production code repositories in real time.',
+                    text: 'In 2020 our team had not adopted design tokens and used basic variables only. Today I would build automated pipelines with Style Dictionary and GitHub Actions. They would sync design decisions from Figma Variables into production code repositories.',
                 },
                 {
                     label: 'Production Analytics',
