@@ -6,6 +6,15 @@
 	gap: var(--size-space-2xl);
 }
 
+/* The title and text share one centered 40rem reading column; images and the before / after pair run
+   the full 960 column (D-051). Text inside stays left-aligned. */
+.title,
+.text {
+	width: 100%;
+	max-width: 40rem;
+	margin-inline: auto;
+}
+
 .title {
 	margin: 0;
 	color: var(--color-content-emphasis);
@@ -19,7 +28,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-2xl);
-	max-width: 40rem;
 	font-family: var(--font-style-body-md-family);
 	font-size: var(--font-style-body-md-size);
 	line-height: var(--font-style-body-md-line-height);
