@@ -3,9 +3,8 @@
    (D-053): the image's own margin, so the blocks around it add no extra gap. */
 
 /* The study's card palette (D-052, D-069): --study-container is the tint, --study-on-container the text on
-   it, --study-heading the h1 and h3 color (the palette's on-container in light, white in dark like the
-   cards, D-028). Chips, the "After" side of a before / after pair, the spread box and the text
-   selection all read these. */
+   it, --study-heading the h1 and h3 color (the palette's on-container in light and dark, D-070).
+   Chips, the "After" side of a before / after pair, the spread box and the text selection read these. */
 .pal-brand {
 	--study-container: var(--color-brand-container);
 	--study-on-container: var(--color-brand-on-container);
@@ -33,16 +32,6 @@
 
 .page {
 	--study-heading: var(--study-on-container);
-}
-
-:global([data-theme='dark']) .page {
-	--study-heading: var(--color-content-emphasis);
-}
-
-@media (prefers-color-scheme: dark) {
-	:global(:root:not([data-theme='light'])) .page {
-		--study-heading: var(--color-content-emphasis);
-	}
 }
 
 .page ::selection {
