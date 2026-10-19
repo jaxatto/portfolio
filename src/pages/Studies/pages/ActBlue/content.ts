@@ -126,7 +126,7 @@ const content = {
                 },
                 {
                     label: 'Design Iteration',
-                    text: 'The Connected status chip is too understated for the most important state on the page. The Salesforce logo beside the description also needs another pass. I would iterate on both.',
+                    text: 'The Connected status is visually subtle. I would make it more prominent.',
                 },
                 {
                     label: 'Notification History',
