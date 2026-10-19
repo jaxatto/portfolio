@@ -70,7 +70,7 @@ const content = {
                 },
                 {
                     label: 'Collaborating with Product & Engineering',
-                    text: 'I worked closely with the product manager and the engineering manager. We ran workshops and built the FigJam board together. Mine was the first design work on the team, so collaborating with a designer was new to them. I validated ideas and edge cases with engineers throughout. I handed off Figma prototypes and CSS samples, plus a fully annotated flow that supported QA.',
+                    text: 'I worked closely with the product manager and the engineering manager. We ran workshops and built the FigJam board together. I validated ideas and edge cases with engineers throughout. I handed off Figma prototypes and CSS samples, plus a fully annotated flow that supported QA.',
                 },
             ],
             image: [

@@ -358,3 +358,7 @@ After comparing the two studies: Contributions labels are gerund phrases on both
 ## D-073: Team structure stated on ActBlue and Indeed — decided, 2026-10-19
 
 From Jax: on ActBlue he was the sole designer, embedded with product and engineering (second intro paragraph). Indeed's design system was central and owned by the design org (a Context sentence). No team sizes, per D-059.
+
+## D-074: Indeed team size stated, ActBlue "first design work" cut — decided, 2026-10-19
+
+Jax gave the Indeed team shape himself: one of three designers on the design system team, with a lead and a junior designer. This revises D-059's choice to leave team size out (now stated, no engagement length). On ActBlue the sentence "Mine was the first design work on the team…" is cut (Jax: it read oddly). The sole-designer line in the intro carries the point.
