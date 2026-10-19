@@ -10,7 +10,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
 - [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
-- [~] 4. Case study content: Indeed done (copy, images, D-047 to D-066). Next ActBlue, then ServiceNow (both still use the old image and copy treatment and the centered layout), then Toyota (page does not exist yet)
+- [~] 4. Case study content: Indeed done (copy, images, D-047 to D-066). ActBlue done (D-067, D-068, awaiting Jax's review). Next ServiceNow (still on the old image and copy treatment), then Toyota (page does not exist yet)
 - [x] 5. About (D-040 to D-045, merged with slice 2; only a scale number for the Toyota token work is open)
 - [ ] 6. Resume (do together with Jax, later)
 

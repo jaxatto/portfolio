@@ -330,3 +330,11 @@ The gap under this h2 is 20px (8px more than the 12px in D-057), because the car
 ## D-066: Study text column left-aligned — decided, 2026-10-19
 
 The 40rem reading column (h1, role, chips, intro, h2s, h3s, text, captions, the panels box) sits on the left edge of the 960 column instead of centered, so it shares one left edge with the header logo, the cards and the footer. Images keep their widths. Supersedes the centering in D-051.
+
+## D-067: ActBlue copy, reviewed with Jax — decided, 2026-10-19
+
+Sections: Context, Contributions, Outcomes, Deliverables, new Opportunities. The Figma frame's invented claims were left out (80% fewer dropdowns, "thousands of campaigns", WCAG-compliant, Slack and AI-mapping Opportunities). Added from Jax: role is Remote, a short ActBlue and users introduction (teams of one to presidential campaigns), the existing Blueprint design system (used and contributed to), Figma prototypes and CSS samples, close work with the product and engineering managers, FigJam workshops built together, and Jax's was the first design work on the team. Contributions are five labeled items. Opportunities are Jax's four: per-integration analytics, design iteration (Connected chip, image), notification history (moved to a future state), a clear path to help. The $1.5M estimate and the "sharp drop" in setup issues stay as before (confirmed). TODO(jax): the Design Iteration item says the Salesforce image is "a little off", reword if needed.
+
+## D-068: ActBlue images from Figma — decided, 2026-10-19
+
+Figma `2860:33875` order: the hero is a before / after pair (old staff-only notifications screen, redesigned Salesforce page), then the FigJam board (Context), the annotated full flow (Contributions) and three final screens (Outcomes, one composite image). Exported from the frame's image fills as JPEG (`*-min.jpg`, quality 80, at most 1600px wide, the tall "before" cropped to 1600 x 1895). The five old PNGs are removed, including `responsive-specs`, which the Figma frame hides. The three final screens are one image, not `StudyPanels`: the source crops are landscape and the panels box is a fixed 300px, which left empty space.
