@@ -366,3 +366,7 @@ Jax gave the Indeed team shape himself: one of three designers on the design sys
 ## D-075: Indeed opens with the problem, 20 components — decided, 2026-10-19
 
 The Indeed intro is now two paragraphs like ActBlue's: the problem (no cohesive design system, inconsistent deliverables), then Jax's role. Context starts with a one-line description of Indeed (a job search platform connecting job seekers and employers), then the split teams, then the brand refresh, ICL to IDS, central ownership and the team. The problem sentence left Context. Outcomes opens with "I shipped 20 components, each designed, documented and handed off to engineering" (from Jax). The Home card outcome and page meta carry the 20. No other concrete data exists for Indeed, so the card title stays activity-led ("Documenting a global design system").
+
+## D-076: Final pass on ActBlue and Indeed — decided, 2026-10-19
+
+ActBlue Outcomes is two paragraphs (access and setup time, then support impact, savings and reuse), matching Indeed. Indeed's second Deliverables bullet covers usage, accessibility and localization (it repeated "usage and when to use it"). Open facts: an Indeed outcome beyond the 20 components, and the ActBlue Design Iteration item (Connected chip, Salesforce logo), both marked TODO(jax).

@@ -108,7 +108,7 @@ const content = {
             title: 'Deliverables',
             descriptionBullets: [
                 'A documented Figma component library',
-                'Detailed documentation for each component, covering usage and when to use it',
+                'Detailed documentation for each component, covering usage, accessibility and localization',
                 'WCAG accessibility standards, applied to each component in collaboration with other teams and documented with the solutions',
                 'Localization and RTL design guidelines',
                 'Onboarding and mentoring support for other designers',
