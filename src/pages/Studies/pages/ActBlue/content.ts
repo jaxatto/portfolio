@@ -61,24 +61,16 @@ const content = {
             title: 'Contributions',
             items: [
                 {
-                    label: 'Integration Flows & Architecture',
+                    label: 'Designing Integration Flows',
                     text: 'I led design for the full flow, from setup and configuration to sync visibility, error handling and long-term management. Early diagrams, flows and edge case maps let engineering plan the backend in parallel with design.',
                 },
                 {
-                    label: 'Setup & Feedback Patterns',
-                    text: 'I designed step-by-step setup, clear feedback states and flexible UI patterns that work for teams of one and for presidential campaigns.',
+                    label: 'Building Setup & Feedback Patterns',
+                    text: 'I designed step-by-step setup, clear feedback states and flexible UI patterns that work for teams of one and for presidential campaigns. I built them with ActBlue\'s existing design system, Blueprint, and contributed new patterns back to it.',
                 },
                 {
-                    label: 'Design System',
-                    text: 'I built with ActBlue\'s existing design system, Blueprint, and contributed new patterns back to it.',
-                },
-                {
-                    label: 'Close Collaboration',
-                    text: 'I worked closely with the product manager and the engineering manager. We ran workshops and built the FigJam board together. Mine was the first design work on the team, so collaborating with a designer was new to them.',
-                },
-                {
-                    label: 'Handoff',
-                    text: 'I validated ideas and edge cases with engineers throughout the project. I handed off Figma prototypes and CSS samples, plus a fully annotated flow that supported QA.',
+                    label: 'Collaborating with Product & Engineering',
+                    text: 'I worked closely with the product manager and the engineering manager. We ran workshops and built the FigJam board together. Mine was the first design work on the team, so collaborating with a designer was new to them. I validated ideas and edge cases with engineers throughout. I handed off Figma prototypes and CSS samples, plus a fully annotated flow that supported QA.',
                 },
             ],
             image: [
@@ -141,7 +133,7 @@ const content = {
                     text: 'The full notification list from the earlier design moved to a future release. It gives admins a detailed record of every sync, and I would bring it back.',
                 },
                 {
-                    label: 'A Clear Path to Help',
+                    label: 'Clear Path to Help',
                     text: 'I would add a clear call to action for getting help. Some syncs will still fail and some admins will still need a person, so support should be easy to reach from the integration page.',
                 },
             ],

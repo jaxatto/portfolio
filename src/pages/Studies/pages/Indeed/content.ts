@@ -35,7 +35,7 @@ const content = {
                 src: afterImage,
                 alt: 'The Indeed job search results page with the design system applied: rounded job cards with tags, a job detail panel and clear actions.',
             },
-            caption: 'Comparison before and after the design system implementation.',
+            caption: 'The job search results page before and after the design system.',
         },
     },
     sections: [
@@ -72,7 +72,7 @@ const content = {
                     text: 'Each component came with documentation for usage, accessibility and localization. A page such as Button covers a description, when to use it, its options, WCAG success criteria with the solutions applied, and localization guidance.',
                 },
                 {
-                    label: 'Team Support & Enablement',
+                    label: 'Supporting Team Adoption',
                     text: 'I supported team adoption by sharing my Figma, design systems and accessibility expertise with other designers. I mentored them, contributed to onboarding sessions and answered daily system triage questions.',
                 },
             ],
@@ -94,7 +94,7 @@ const content = {
             image: [
                 { 
                     src: headerImage, 
-                    caption: 'Collaborated on accessibility documentation for design handoff to engineering.',
+                    caption: 'Accessibility annotations for design handoff, documented in collaboration with engineering.',
                     alt: 'Sample of accessibility annotations in a Figma design file, showing how to annotate designs for developers.',
                     variant: 'banner' as const,
                 },
@@ -119,7 +119,7 @@ const content = {
             ],
             items: [
                 {
-                    label: 'Token Architecture and Automation',
+                    label: 'Token Architecture & Automation',
                     text: 'Our team used basic variables and had not adopted design tokens. Today I would start by designing and implementing a token architecture. It would give design and code one shared set of named decisions for color, type and spacing. Then I would automate the sync from Figma Variables into production code with Style Dictionary and GitHub Actions.',
                 },
                 {

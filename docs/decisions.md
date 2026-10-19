@@ -350,3 +350,7 @@ The h1, label h3s and chip text on a study page use the palette's `on-container`
 ## D-071: Captions are as wide as their image — decided, 2026-10-19
 
 Study captions (banner and full images, the before / after pair, the spread) run the width of their image instead of the 40rem column. The 40rem panels box already had a matching caption. Supersedes the caption width in D-054. The FigJam image on ActBlue stays as the full board (Jax's call).
+
+## D-072: ActBlue and Indeed labels and captions aligned — decided, 2026-10-19
+
+After comparing the two studies: Contributions labels are gerund phrases on both ("Designing Integration Flows", "Building Setup & Feedback Patterns", "Collaborating with Product & Engineering"; Indeed's "Team Support & Enablement" became "Supporting Team Adoption"). ActBlue's five contributions are three (design system folds into the patterns item, handoff into collaboration). Opportunities labels are plain noun phrases with "&" like the rest ("Token Architecture & Automation", "Clear Path to Help"). Indeed's two captions describe the image instead of starting with "Comparison" and "Collaborated".
