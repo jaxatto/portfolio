@@ -354,3 +354,7 @@ Study captions (banner and full images, the before / after pair, the spread) run
 ## D-072: ActBlue and Indeed labels and captions aligned — decided, 2026-10-19
 
 After comparing the two studies: Contributions labels are gerund phrases on both ("Designing Integration Flows", "Building Setup & Feedback Patterns", "Collaborating with Product & Engineering"; Indeed's "Team Support & Enablement" became "Supporting Team Adoption"). ActBlue's five contributions are three (design system folds into the patterns item, handoff into collaboration). Opportunities labels are plain noun phrases with "&" like the rest ("Token Architecture & Automation", "Clear Path to Help"). Indeed's two captions describe the image instead of starting with "Comparison" and "Collaborated".
+
+## D-073: Team structure stated on ActBlue and Indeed — decided, 2026-10-19
+
+From Jax: on ActBlue he was the sole designer, embedded with product and engineering (second intro paragraph). Indeed's design system was central and owned by the design org (a Context sentence). No team sizes, per D-059.

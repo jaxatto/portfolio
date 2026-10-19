@@ -18,7 +18,7 @@ const content = {
         ],
         description: [
             'Campaign admins needed to sync donor data from ActBlue into Salesforce, but setup ran entirely through support tickets and admins could not see what was syncing or why it failed.',
-            'I led design on a complete rebuild of the integration, from setup and configuration to sync visibility and error recovery.',
+            'I was the sole designer, embedded with product and engineering. I led a complete rebuild of the integration, from setup and configuration to sync visibility and error recovery.',
         ],
         chips: [
             { label: 'B2B', theme: 'tertiary' },

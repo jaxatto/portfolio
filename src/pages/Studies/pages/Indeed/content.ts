@@ -44,7 +44,7 @@ const content = {
             title: 'Context',
             description: [
                 'Different teams owned different parts of Indeed. The consumer-facing side covered job search, company search, resumes, applications, messaging and more. The employer side was where hiring managers connected with candidates and set up job posts. The mobile app was separate again, with its own teams. No cohesive design system existed, and deliverables across the organization were inconsistent.',
-                'When I joined, Indeed was refreshing its brand, moving its main color from light blue to dark blue and away from orange. The prior Sketch-based Indeed Component Library (ICL) was strict, inconsistent and avoided by designers. A new Indeed Design System (IDS) was replacing it, built fully in Figma. The goal was one hybrid, responsive system for desktop and mobile, in the new look.',
+                'When I joined, Indeed was refreshing its brand, moving its main color from light blue to dark blue and away from orange. The prior Sketch-based Indeed Component Library (ICL) was strict, inconsistent and avoided by designers. A new Indeed Design System (IDS) was replacing it, built fully in Figma. The design org owned IDS as a central system. The goal was one hybrid, responsive system for desktop and mobile, in the new look.',
             ],
             // The three documentation pages are slices of one 1600 x 1036 image (D-054).
             panels: {
