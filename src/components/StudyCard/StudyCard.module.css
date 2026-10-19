@@ -314,6 +314,14 @@
 
 .study .content {
 	gap: var(--size-space-2xl);
+	/* 24px under the link, 16px less than the Home cards (D-063). */
+	padding-bottom: var(--size-space-2xl);
+}
+
+@media (max-width: 640px) {
+	.study .content {
+		padding-bottom: var(--size-space-lg); /* 16px, was 32 */
+	}
 }
 
 /* The text column is narrow below 800px, so the short label keeps the link on one line (D-031). */

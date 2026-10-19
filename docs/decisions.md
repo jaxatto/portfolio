@@ -314,3 +314,7 @@ Revised one section at a time with Jax, using the copy-check skill and the copyw
 ## D-062: "More of my work" heading left-aligned, 40px card gap — decided, 2026-10-19
 
 The h2 sits on the left edge of the cards instead of the centered 40rem column, and the two study cards are 40px apart (was 16px) on desktop. Stacked layout at 900px and below is unchanged. Supersedes the heading alignment in D-051 for this row.
+
+## D-063: Study cards: 16px less under the link — decided, 2026-10-19
+
+Cards under a case study (`variant="study"`) have 24px under the link (16px on phones), down from 40 (32). Home cards keep 40 (32).
