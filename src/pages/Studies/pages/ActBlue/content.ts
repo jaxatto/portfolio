@@ -124,19 +124,19 @@ const content = {
             items: [
                 {
                     label: 'Per-Integration Analytics',
-                    text: 'I would add a dashboard for each integration showing successes and failures. Admins could then troubleshoot more on their own.',
+                    text: 'I would add a dashboard for each integration that shows sync successes and failures. Admins could then diagnose problems and fix them without contacting support.',
                 },
                 {
                     label: 'Design Iteration',
-                    text: 'The Connected chip is subtle and the image next to the description is a little off. I would give both another pass.',
+                    text: 'The Connected status chip is too understated for the most important state on the page. The Salesforce illustration beside the description also needs refining. I would iterate on both.',
                 },
                 {
                     label: 'Notification History',
-                    text: 'The full list of notifications from the prior design moved to a future state. I still think it has value and would bring it back.',
+                    text: 'The full notification list from the earlier design moved to a future release. It gives admins a detailed record of every sync, and I would bring it back.',
                 },
                 {
                     label: 'A Clear Path to Help',
-                    text: 'I would add a clear call to action for getting help. Even with these improvements, things do not always work as expected and users may still need assistance.',
+                    text: 'I would add a clear call to action for getting help. Some syncs will still fail and some admins will still need a person, so support should be easy to reach from the integration page.',
                 },
             ],
         },
