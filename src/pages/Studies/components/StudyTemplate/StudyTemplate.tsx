@@ -33,7 +33,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
     legacy={false}
   >
     <HeaderSection
-      className={content.header.image?.[0] || content.header.compare ? undefined : styles.headerNoImage}
+      className={content.header.image?.[0] || content.header.compare || content.header.panels ? undefined : styles.headerNoImage}
       title={content.header.title}
       subtitle={content.header.subtitle}
       roleDetails={content.header.roleDetails}
@@ -41,6 +41,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
       description={content.header.description}
       image={content.header.image}
       compare={content.header.compare}
+      panels={content.header.panels}
     />
     {sections.map((section, idx) =>
       renderSection ? renderSection(section, idx) : <StudySection key={idx} section={section} />
