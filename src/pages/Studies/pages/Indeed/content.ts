@@ -91,7 +91,8 @@ const content = {
             order: 4,
             title: 'Outcomes',
             description: [
-                'I shipped 20 components, each designed, documented and handed off to engineering. I collaborated with engineering and design teams to streamline component handoffs and reduce UI redundancy across production apps. The components and documentation I built gave those teams a shared reference for usage, accessibility and localization. That helped them ship accessible features faster while keeping the system consistent.',
+                'I shipped 20 components, each designed, documented and handed off to engineering. I collaborated with engineering and design teams to streamline component handoffs and reduce UI redundancy across production apps.',
+                'The components and documentation I built gave those teams a shared reference for usage, accessibility and localization. That helped them ship accessible features faster while keeping the system consistent.',
             ],
             image: [
                 { 
