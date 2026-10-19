@@ -369,4 +369,4 @@ The Indeed intro is now two paragraphs like ActBlue's: the problem (no cohesive 
 
 ## D-076: Final pass on ActBlue and Indeed — decided, 2026-10-19
 
-ActBlue Outcomes is two paragraphs (access and setup time, then support impact, savings and reuse), matching Indeed. Indeed's second Deliverables bullet covers usage, accessibility and localization (it repeated "usage and when to use it"). Open facts: an Indeed outcome beyond the 20 components, marked TODO(jax). The ActBlue Design Iteration item is settled.
+ActBlue Outcomes is two paragraphs (access and setup time, then support impact, savings and reuse), matching Indeed. Indeed's second Deliverables bullet covers usage, accessibility and localization (it repeated "usage and when to use it"). No open facts remain: the 20 components are Indeed's outcome (Jax has nothing further to add), and the ActBlue Design Iteration item is settled.
