@@ -10,10 +10,8 @@
 }
 
 .title {
-	/* Aligned with the centered reading column above (D-051); the cards below run the full 960. */
-	width: 100%;
-	max-width: 40rem;
-	margin: 0 auto;
+	/* Left edge matches the cards below (D-062). */
+	margin: 0;
 	color: var(--color-content-prose); /* true black in light (D-056) */
 	font-family: var(--font-style-heading-lg-family);
 	font-size: var(--font-style-heading-lg-size);

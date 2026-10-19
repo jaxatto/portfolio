@@ -9,7 +9,7 @@
 /* Under a case study: two cards side by side on desktop. */
 .study {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: var(--size-space-lg);
+	gap: var(--size-space-4xl); /* 40px (D-062) */
 }
 
 @media (max-width: 900px) {
