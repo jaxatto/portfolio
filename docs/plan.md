@@ -9,8 +9,8 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
-- [~] 3. Case study template (D-046; built, awaiting Jax's review and merge)
-- [ ] 4. Case study content: Indeed, ActBlue, ServiceNow, Toyota (copy + design review for each)
+- [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
+- [~] 4. Case study content: Indeed done (copy, images, D-047 to D-066). Next ActBlue, then ServiceNow (both still use the old image and copy treatment and the centered layout), then Toyota (page does not exist yet)
 - [x] 5. About (D-040 to D-045, merged with slice 2; only a scale number for the Toyota token work is open)
 - [ ] 6. Resume (do together with Jax, later)
 
@@ -18,7 +18,7 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slice 2 (Home study cards, token and legacy cleanup) and the About page are merged into `redesign` (PR #4, fast-forwarded 2026-10-16). Next: slice 3, the case study template, including the "next study" row under each study (same `StudyCard`, `variant="study"`) and the visual review of the Resume and case study pages, which still use the legacy styling (D-036: set `legacy={false}` per page, then delete the `.legacy` rules and the D-027 TEMP dark-mode rule with the last page). Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
+Slice 3 (case study template) is merged into `redesign`. Next: slice 4 content, starting with the ActBlue study, then ServiceNow, then Toyota. Bring each page to the Indeed pattern: left-aligned 40rem reading column (D-066), images with 40px around them (D-053), the template's hero and image components, `legacy={false}` already set by the template, and copy per the Copy voice rules (use the `copy-check` skill). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where that is relevant. The global `.legacy` rules (Link.module.scss) and the D-027 TEMP dark-mode rule stay until Resume is migrated (slice 6), since only Resume still uses them. Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
 
 ## Open questions for Jax
 
