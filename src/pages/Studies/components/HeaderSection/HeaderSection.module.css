@@ -11,7 +11,7 @@
 	margin-block: var(--size-space-4xl);
 }
 
-/* Everything but the hero image sits in one centered 40rem reading column (`intro`); the image runs the
+/* Everything but the hero image sits in one left-aligned 40rem reading column (`intro`); the image runs the
    full 960 column (D-051). Text inside stays left-aligned. */
 .intro {
 	--intro-gap: var(--size-space-2xl);
@@ -21,7 +21,7 @@
 	gap: var(--intro-gap);
 	width: 100%;
 	max-width: 40rem;
-	margin-inline: auto;
+	margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
 }
 
 .top {

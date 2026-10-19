@@ -326,3 +326,7 @@ The gap under this h2 is 20px (8px more than the 12px in D-057), because the car
 ## D-065: "More of my work" spacing — decided, 2026-10-19
 
 56px between the hairline and the heading (was 48), 32px between the two cards (was 40, revises D-062).
+
+## D-066: Study text column left-aligned — decided, 2026-10-19
+
+The 40rem reading column (h1, role, chips, intro, h2s, h3s, text, captions, the panels box) sits on the left edge of the 960 column instead of centered, so it shares one left edge with the header logo, the cards and the footer. Images keep their widths. Supersedes the centering in D-051.

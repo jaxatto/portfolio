@@ -28,7 +28,7 @@
 	/* Captions sit in the copy's 40rem column, whatever the image's width (D-054). */
 	width: 100%;
 	max-width: 40rem;
-	margin-inline: auto;
+	margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
 	text-wrap: pretty;
 }
 
