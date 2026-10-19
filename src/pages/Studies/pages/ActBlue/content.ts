@@ -93,7 +93,7 @@ const content = {
             order: 3,
             title: 'Outcomes',
             description: [
-                'Admins could set up the integration on their own, see what was syncing and fix issues without going through support. Support teams saw a sharp drop in setup issues and manual intervention. Internal estimates put the savings at over $1.5 million per year in reduced support costs.',
+                'Admins could set up the integration on their own, see what was syncing and fix issues without going through support. Setup that once took days or weeks of back and forth with support, or never finished, now takes minutes. The only wait is the data sync, which depends on the volume of data. Support teams saw a sharp drop in setup issues and manual intervention. Internal estimates put the savings at over $1.5 million per year in reduced support costs.',
                 'The patterns, flows and documentation from this work have since been reused for other integrations and internal tools.',
             ],
             // The three final screens are slices of one 2180 x 559 image, in the spread box (D-069).
