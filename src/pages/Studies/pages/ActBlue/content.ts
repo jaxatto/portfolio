@@ -94,15 +94,21 @@ const content = {
             title: 'Outcomes',
             description: [
                 'Admins could set up the integration on their own, see what was syncing and fix issues without going through support. Support teams saw a sharp drop in setup issues and manual intervention. Internal estimates put the savings at over $1.5 million per year in reduced support costs.',
-                'The patterns, flows and docs from this work have since been reused for other integrations and internal tools.',
+                'The patterns, flows and documentation from this work have since been reused for other integrations and internal tools.',
             ],
-            image: [
-                {
-                    src: finalScreensImage,
-                    caption: 'Selection of final screens from the workflow.',
-                    alt: 'Three final screens: the four-step Connect to Salesforce setup, the Integrations page with cards for Webhooks, Google Sheets, Salesforce and other services, and the Salesforce integration settings with staff-only cards.',
-                },
-            ],
+            // The three final screens are slices of one 2180 x 559 image, in the spread box (D-069).
+            panels: {
+                src: finalScreensImage,
+                sourceWidth: 2180,
+                sourceHeight: 559,
+                framed: true,
+                slices: [
+                    { x: 0, y: 0, width: 700, height: 559, alt: 'The Connect to Salesforce setup in four steps, with authorization complete and the package installation step open.' },
+                    { x: 740, y: 0, width: 700, height: 559, alt: 'The Integrations page with cards for Webhooks, Google Sheets, Salesforce and other services, each with its connection status.' },
+                    { x: 1480, y: 0, width: 700, height: 559, alt: 'The Salesforce integration settings, with cards for event types, historical data and disconnecting, and staff-only cards for notifications.' },
+                ],
+                caption: 'Final screens from the integration flow.',
+            },
         },
         {
             order: 4,
@@ -110,7 +116,7 @@ const content = {
             descriptionBullets: [
                 'Figma prototypes covering setup, sync settings and error states',
                 'CSS samples for developers',
-                'System diagrams and flow maps for planning and engineering alignment',
+                'System diagrams, flows and edge case maps for planning and engineering alignment',
                 'Documentation for edge cases, failure scenarios and recovery paths',
                 'Reusable UI patterns now used by other integrations and internal tools',
             ],
@@ -119,7 +125,7 @@ const content = {
             order: 5,
             title: 'Opportunities',
             description: [
-                'Looking back at this project, I would change four things:',
+                'Time and a focus on a targeted MVP were the main constraints. Looking back, I would change four things:',
             ],
             items: [
                 {
@@ -128,7 +134,7 @@ const content = {
                 },
                 {
                     label: 'Design Iteration',
-                    text: 'The Connected status chip is too understated for the most important state on the page. The Salesforce illustration beside the description also needs refining. I would iterate on both.',
+                    text: 'The Connected status chip is too understated for the most important state on the page. The Salesforce logo beside the description also needs another pass. I would iterate on both.',
                 },
                 {
                     label: 'Notification History',

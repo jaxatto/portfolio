@@ -12,6 +12,7 @@ export type StudySectionProps = {
     sourceHeight: number;
     slices: { x: number; y: number; width: number; height: number; alt: string }[];
     caption?: string;
+    framed?: boolean; // The spread: full column, the study's tint, even 32px padding (D-069)
   };
   compare?: { before: StudyImageProps; after: StudyImageProps; caption?: string }; // Before / after pair (D-050)
   items?: { label: string; text: string }[]; // Labeled paragraphs: the label is an h3 above the text

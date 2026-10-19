@@ -6,8 +6,8 @@ import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import styles from './HeaderSection.module.css';
 
 // The one h1 on a study page. Chips are a list of plain labels (no interaction); all of them use the
-// study's card palette, like the h1 (D-052), so a chip's own `theme` is not used here.
-const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?: 'brand' | 'primary' | 'secondary' | 'tertiary' | 'quaternary' }> = ({
+// study's card palette from the page, like the h1 (D-052), so a chip's own `theme` is not used here.
+const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
   title,
   subtitle,
   roleDetails,
@@ -15,13 +15,12 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?:
   description,
   image,
   compare,
-  palette = 'brand',
   className,
 }) => (
   <header className={`${styles.header} ${className ?? ''}`}>
     <div className={styles.intro}>
       <div className={styles.top}>
-        <h1 className={`${styles.title} ${styles[`h1-${palette}`]}`}>{title}</h1>
+        <h1 className={`${styles.title}`}>{title}</h1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         <p className={styles.details}>
           <span>{roleDetails[0].role}</span>
@@ -37,7 +36,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string; palette?:
       </div>
       <ul className={styles.chips}>
         {chips.map((chip) => (
-          <li key={chip.label} className={`${styles.chip} ${styles[palette]}`}>
+          <li key={chip.label} className={`${styles.chip}`}>
             {chip.label}
           </li>
         ))}

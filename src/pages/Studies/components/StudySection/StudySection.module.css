@@ -76,7 +76,7 @@
 
 .label {
 	margin: 0;
-	color: var(--color-content-emphasis);
+	color: var(--study-heading, var(--color-content-emphasis)); /* the study's tint (D-069) */
 	font-family: var(--font-style-heading-sm-family);
 	font-size: var(--font-style-heading-sm-size);
 	font-weight: var(--font-weight-emphasis); /* bold, 700 (D-055) */
