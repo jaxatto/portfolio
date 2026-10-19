@@ -318,3 +318,7 @@ The h2 sits on the left edge of the cards instead of the centered 40rem column, 
 ## D-063: Study cards: 16px less under the link — decided, 2026-10-19
 
 Cards under a case study (`variant="study"`) have 24px under the link (16px on phones), down from 40 (32). Home cards keep 40 (32).
+
+## D-064: "More of my work" heading: 20px above the cards — decided, 2026-10-19
+
+The gap under this h2 is 20px (8px more than the 12px in D-057), because the cards are large blocks and need more air than body text.

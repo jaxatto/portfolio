@@ -4,7 +4,7 @@
 	margin-top: var(--size-space-section-lg);
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-md); /* 12px under the h2 (D-057) */
+	gap: var(--size-space-xl); /* 20px under the h2, 8px more than other h2s (D-064) */
 	padding-top: var(--size-space-section-sm);
 	border-top: var(--size-border-width-default) solid var(--color-border-decorative);
 }
