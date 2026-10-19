@@ -44,10 +44,32 @@
 	text-wrap: pretty;
 }
 
+/* Spread (D-069, Figma ActBlue 2858:28022): the full 960 column, the study's tint, 32px all round and
+   24px between panels, every panel fully inside the box with the card corner. */
+.framed {
+	max-width: none;
+}
+
+.framed .box {
+	height: auto;
+	padding: var(--size-space-3xl);
+	gap: var(--size-space-2xl);
+	background: var(--study-container, var(--color-surface-sunken));
+}
+
+.framed .panel {
+	border-radius: var(--size-radius-xs);
+}
+
 @media (max-width: 640px) {
 	.box {
 		height: 13.75rem; /* 220px */
 		padding: var(--size-space-lg) var(--size-space-lg) 0;
+		gap: var(--size-space-md);
+	}
+
+	.framed .box {
+		padding: var(--size-space-lg);
 		gap: var(--size-space-md);
 	}
 }

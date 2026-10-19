@@ -13,9 +13,10 @@ const StudyPanels: React.FC<StudyPanelsProps> = ({
   sourceHeight,
   slices,
   caption,
+  framed,
   className,
 }) => (
-  <figure className={`${styles.figure} ${className ?? ''}`}>
+  <figure className={`${styles.figure} ${framed ? styles.framed : ''} ${className ?? ''}`}>
     <div className={styles.box}>
       {slices.map((slice) => (
         <div key={slice.alt} className={styles.panel} style={{ aspectRatio: `${slice.width} / ${slice.height}` }}>

@@ -18,6 +18,7 @@ const content = {
             },
         ],
         description: [
+            'Indeed had no cohesive design system, and deliverables across the organization were inconsistent.',
             'I built and documented components for Indeed\'s new enterprise design system, used by 100+ designers. My focus was applying WCAG accessibility standards to our components and embedding localization guidance directly into our design and code.',
         ],
         chips: [
@@ -35,7 +36,7 @@ const content = {
                 src: afterImage,
                 alt: 'The Indeed job search results page with the design system applied: rounded job cards with tags, a job detail panel and clear actions.',
             },
-            caption: 'Comparison before and after the design system implementation.',
+            caption: 'The job search results page before and after the design system.',
         },
     },
     sections: [
@@ -43,8 +44,9 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'Different teams owned different parts of Indeed. The consumer-facing side covered job search, company search, resumes, applications, messaging and more. The employer side was where hiring managers connected with candidates and set up job posts. The mobile app was separate again, with its own teams. No cohesive design system existed, and deliverables across the organization were inconsistent.',
-                'When I joined, Indeed was refreshing its brand, moving its main color from light blue to dark blue and away from orange. The prior Sketch-based Indeed Component Library (ICL) was strict, inconsistent and avoided by designers. A new Indeed Design System (IDS) was replacing it, built fully in Figma. The goal was one hybrid, responsive system for desktop and mobile, in the new look.',
+                'Indeed is a job search platform that connects job seekers and employers. Different teams owned different parts of it. The consumer-facing side covered job search, company search, resumes, applications, messaging and more. The employer side was where hiring managers connected with candidates and set up job posts. The mobile app was separate again, with its own teams.',
+                'When I joined, Indeed was refreshing its brand, moving its main color from light blue to dark blue and away from orange. The prior Sketch-based Indeed Component Library (ICL) was strict, inconsistent and avoided by designers.',
+                'A new Indeed Design System (IDS) was replacing it, built fully in Figma. The design org owned IDS as a central system. I was one of three designers on that team, with a lead and a junior designer. The goal was one hybrid, responsive system for desktop and mobile, in the new look.',
             ],
             // The three documentation pages are slices of one 1600 x 1036 image (D-054).
             panels: {
@@ -72,7 +74,7 @@ const content = {
                     text: 'Each component came with documentation for usage, accessibility and localization. A page such as Button covers a description, when to use it, its options, WCAG success criteria with the solutions applied, and localization guidance.',
                 },
                 {
-                    label: 'Team Support & Enablement',
+                    label: 'Supporting Team Adoption',
                     text: 'I supported team adoption by sharing my Figma, design systems and accessibility expertise with other designers. I mentored them, contributed to onboarding sessions and answered daily system triage questions.',
                 },
             ],
@@ -89,12 +91,13 @@ const content = {
             order: 4,
             title: 'Outcomes',
             description: [
-                'I collaborated with engineering and design teams to streamline component handoffs and reduce UI redundancy across production apps. The components and documentation I built gave those teams a shared reference for usage, accessibility and localization. That helped them ship accessible features faster while keeping the system consistent.',
+                'I shipped 20 components, each designed, documented and handed off to engineering. I collaborated with engineering and design teams to streamline component handoffs and reduce UI redundancy across production apps.',
+                'The components and documentation I built gave those teams a shared reference for usage, accessibility and localization. That helped them ship accessible features faster while keeping the system consistent.',
             ],
             image: [
                 { 
                     src: headerImage, 
-                    caption: 'Collaborated on accessibility documentation for design handoff to engineering.',
+                    caption: 'Accessibility annotations for design handoff, documented in collaboration with engineering.',
                     alt: 'Sample of accessibility annotations in a Figma design file, showing how to annotate designs for developers.',
                     variant: 'banner' as const,
                 },
@@ -105,7 +108,7 @@ const content = {
             title: 'Deliverables',
             descriptionBullets: [
                 'A documented Figma component library',
-                'Detailed documentation for each component, covering usage and when to use it',
+                'Detailed documentation for each component, covering usage, accessibility and localization',
                 'WCAG accessibility standards, applied to each component in collaboration with other teams and documented with the solutions',
                 'Localization and RTL design guidelines',
                 'Onboarding and mentoring support for other designers',
@@ -119,7 +122,7 @@ const content = {
             ],
             items: [
                 {
-                    label: 'Token Architecture and Automation',
+                    label: 'Token Architecture & Automation',
                     text: 'Our team used basic variables and had not adopted design tokens. Today I would start by designing and implementing a token architecture. It would give design and code one shared set of named decisions for color, type and spacing. Then I would automate the sync from Figma Variables into production code with Style Dictionary and GitHub Actions.',
                 },
                 {

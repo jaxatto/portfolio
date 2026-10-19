@@ -25,10 +25,8 @@
 	font-size: var(--font-style-body-sm-size);
 	line-height: var(--font-style-body-sm-line-height);
 	text-align: left;
-	/* Captions sit in the copy's 40rem column, whatever the image's width (D-054). */
+	/* The caption is as wide as its image (D-071), left-aligned to the 960 edge (D-066). */
 	width: 100%;
-	max-width: 40rem;
-	margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
 	text-wrap: pretty;
 }
 

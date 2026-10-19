@@ -24,7 +24,7 @@
 }
 
 .after {
-	background: var(--color-secondary-container);
+	background: var(--study-container, var(--color-secondary-container));
 }
 
 .shot {
@@ -58,15 +58,13 @@
 }
 
 .after .chip {
-	background: var(--color-secondary-container);
-	color: var(--color-secondary-on-container);
+	background: var(--study-container, var(--color-secondary-container));
+	color: var(--study-on-container, var(--color-secondary-on-container));
 }
 
-/* Captions sit in the copy's 40rem column (D-054). */
+/* The caption is as wide as the pair (D-071). */
 .caption {
 	width: 100%;
-	max-width: 40rem;
-	margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
 	color: var(--color-content-muted);
 	font-family: var(--font-style-body-sm-family);
 	font-size: var(--font-style-body-sm-size);

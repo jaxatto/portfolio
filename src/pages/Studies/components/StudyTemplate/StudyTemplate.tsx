@@ -23,12 +23,13 @@ const endsWithMedia = (section?: StudySectionProps) =>
 
 // legacy={false}: the page no longer takes the global legacy link and dark-mode rules (D-036, D-046).
 const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSection }) => {
+  const palette = studyPalette(meta.linkUrl);
   const sections = [...content.sections].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
   return (
   <Layout
     title={meta.title}
     metaDescription={meta.description}
-    className={styles.page}
+    className={`${styles.page} ${styles[`pal-${palette}`]}`}
     legacy={false}
   >
     <HeaderSection
@@ -40,7 +41,6 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
       description={content.header.description}
       image={content.header.image}
       compare={content.header.compare}
-      palette={studyPalette(meta.linkUrl)}
     />
     {sections.map((section, idx) =>
       renderSection ? renderSection(section, idx) : <StudySection key={idx} section={section} />
