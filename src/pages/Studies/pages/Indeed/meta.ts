@@ -2,7 +2,7 @@ import { studyLinks } from '@constants/studyLinks';
 
 const meta = {
   title: 'Indeed Design System Case Study | Jax Engel',
-  description: 'How I documented and helped build Indeed\'s design system: accessible, localized components used by 100+ designers across Indeed.',
+  description: 'How I designed, documented and shipped 20 accessible, localized components for Indeed\'s design system, used by 100+ designers.',
   keywords: [],
   linkUrl: studyLinks.indeed,
 };

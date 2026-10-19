@@ -42,7 +42,7 @@ const cards: Card[] = [
 	{
 		title: 'Documenting a global design system',
 		outcome:
-			'Built and documented accessible, localized components for a design system used by 100+ designers across Indeed.',
+			'Designed, documented and shipped 20 accessible, localized components for a design system used by 100+ designers across Indeed.',
 		image: indeedImage,
 		linkUrl: studyLinks.indeed,
 		linkText: 'Read the Indeed case study',

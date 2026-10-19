@@ -362,3 +362,7 @@ From Jax: on ActBlue he was the sole designer, embedded with product and enginee
 ## D-074: Indeed team size stated, ActBlue "first design work" cut — decided, 2026-10-19
 
 Jax gave the Indeed team shape himself: one of three designers on the design system team, with a lead and a junior designer. This revises D-059's choice to leave team size out (now stated, no engagement length). On ActBlue the sentence "Mine was the first design work on the team…" is cut (Jax: it read oddly). The sole-designer line in the intro carries the point.
+
+## D-075: Indeed opens with the problem, 20 components — decided, 2026-10-19
+
+The Indeed intro is now two paragraphs like ActBlue's: the problem (no cohesive design system, inconsistent deliverables), then Jax's role. Context starts with a one-line description of Indeed (a job search platform connecting job seekers and employers), then the split teams, then the brand refresh, ICL to IDS, central ownership and the team. The problem sentence left Context. Outcomes opens with "I shipped 20 components, each designed, documented and handed off to engineering" (from Jax). The Home card outcome and page meta carry the 20. No other concrete data exists for Indeed, so the card title stays activity-led ("Documenting a global design system").

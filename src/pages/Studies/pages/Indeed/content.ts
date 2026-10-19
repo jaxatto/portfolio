@@ -18,6 +18,7 @@ const content = {
             },
         ],
         description: [
+            'Indeed had no cohesive design system, and deliverables across the organization were inconsistent.',
             'I built and documented components for Indeed\'s new enterprise design system, used by 100+ designers. My focus was applying WCAG accessibility standards to our components and embedding localization guidance directly into our design and code.',
         ],
         chips: [
@@ -43,7 +44,7 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'Different teams owned different parts of Indeed. The consumer-facing side covered job search, company search, resumes, applications, messaging and more. The employer side was where hiring managers connected with candidates and set up job posts. The mobile app was separate again, with its own teams. No cohesive design system existed, and deliverables across the organization were inconsistent.',
+                'Indeed is a job search platform that connects job seekers and employers. Different teams owned different parts of it. The consumer-facing side covered job search, company search, resumes, applications, messaging and more. The employer side was where hiring managers connected with candidates and set up job posts. The mobile app was separate again, with its own teams.',
                 'When I joined, Indeed was refreshing its brand, moving its main color from light blue to dark blue and away from orange. The prior Sketch-based Indeed Component Library (ICL) was strict, inconsistent and avoided by designers. A new Indeed Design System (IDS) was replacing it, built fully in Figma. The design org owned IDS as a central system. I was one of three designers on that team, with a lead and a junior designer. The goal was one hybrid, responsive system for desktop and mobile, in the new look.',
             ],
             // The three documentation pages are slices of one 1600 x 1036 image (D-054).
@@ -89,7 +90,7 @@ const content = {
             order: 4,
             title: 'Outcomes',
             description: [
-                'I collaborated with engineering and design teams to streamline component handoffs and reduce UI redundancy across production apps. The components and documentation I built gave those teams a shared reference for usage, accessibility and localization. That helped them ship accessible features faster while keeping the system consistent.',
+                'I shipped 20 components, each designed, documented and handed off to engineering. I collaborated with engineering and design teams to streamline component handoffs and reduce UI redundancy across production apps. The components and documentation I built gave those teams a shared reference for usage, accessibility and localization. That helped them ship accessible features faster while keeping the system consistent.',
             ],
             image: [
                 { 
