@@ -346,3 +346,7 @@ Figma `2860:33875` order: the hero is a before / after pair (old staff-only noti
 ## D-070: Study headings keep the palette tint in dark — decided, 2026-10-19
 
 The h1, label h3s and chip text on a study page use the palette's `on-container` in dark too (a pale tint such as teal-100), not white. Supersedes the white h1 and chip text for studies in D-052 and D-069. Home cards keep their white titles (D-028).
+
+## D-071: Captions are as wide as their image — decided, 2026-10-19
+
+Study captions (banner and full images, the before / after pair, the spread) run the width of their image instead of the 40rem column. The 40rem panels box already had a matching caption. Supersedes the caption width in D-054. The FigJam image on ActBlue stays as the full board (Jax's call).

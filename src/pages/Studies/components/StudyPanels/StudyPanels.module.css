@@ -61,10 +61,6 @@
 	border-radius: var(--size-radius-xs);
 }
 
-.framed .caption {
-	max-width: 40rem;
-}
-
 @media (max-width: 640px) {
 	.box {
 		height: 13.75rem; /* 220px */
