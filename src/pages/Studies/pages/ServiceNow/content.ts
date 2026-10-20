@@ -1,4 +1,4 @@
-import heroImage from './images/screens-hero-min.jpg';
+import spreadImage from './images/screens-hero-min.jpg';
 import contextImage from './images/journey-map-min.jpg';
 import contributionsImage from './images/screen-evolution-min.jpg';
 import beforeImage from './images/themeweaver-before-min.jpg';
@@ -27,18 +27,17 @@ const content = {
             { label: 'UX Architecture', theme: 'secondary' },
             { label: 'User Research', theme: 'secondary' },
         ] as ChipData[],
-        // Three screen widths from one 1600 x 1225 sheet, each cropped to the same height (D-077).
-        panels: {
-            src: heroImage,
-            sourceWidth: 1600,
-            sourceHeight: 1225,
-            framed: true,
-            slices: [
-                { x: 0, y: 0, width: 801, height: 661, weight: 4, alt: 'The desktop screen for selecting columns to analyze: a progress bar with five steps, a form for open-ended, quantitative and segment columns, and a preview of the column data.' },
-                { x: 801, y: 0, width: 427, height: 705, weight: 2, alt: 'The same screen at tablet width, with the column form above the data preview.' },
-                { x: 1229, y: 0, width: 371, height: 1225, weight: 1, alt: 'The same screen at phone width, with links that jump between the column selection and the data preview.' },
-            ],
-            caption: 'Responsive screens for selecting columns from research data to analyze.',
+        compare: {
+            before: {
+                src: beforeImage,
+                alt: 'The prototype\'s strategy screen: a dark header, a short paragraph describing two workflows, and a dropdown for choosing between Hybrid and AI Only.',
+            },
+            after: {
+                src: afterImage,
+                alt: 'The redesigned strategy screen: a five-step progress bar and two side-by-side cards, AI-only and Hybrid, each with a list of what it does. Hybrid is marked as recommended and most accurate.',
+            },
+            aspectRatio: '1440 / 1230',
+            caption: 'The prototype\'s strategy selection screen and the redesign.',
         },
     },
     sections: [
@@ -87,20 +86,21 @@ const content = {
             order: 3,
             title: 'Outcomes',
             description: [
-                'Leadership reviewed the designs and defined the roadmap, with more enhancements planned for the tool. Several of my interaction and flow changes were built into the working prototype, and I designed draft features for the next enhancements.',
-                'We already knew the Hybrid option was the most accurate. It uses themes the user confirms. The challenge was helping users understand its benefits and what they needed to do. The redesigned strategy screen explains what each option involves and marks Hybrid as recommended. We tested before and after the redesign.',
+                'Users had to pick a strategy, and Hybrid was not the default. The redesigned strategy screen sets the two options side by side, explains what each involves and recommends Hybrid, the most accurate. Testing showed that users understood the tool and liked it.',
+                'Leadership reviewed the designs, approved future work and assigned more resources to the tool. I designed draft features for those enhancements before my engagement ended.',
             ],
-            compare: {
-                before: {
-                    src: beforeImage,
-                    alt: 'The prototype\'s strategy screen: a dark header, a short paragraph describing two workflows, and a dropdown for choosing between Hybrid and AI Only.',
-                },
-                after: {
-                    src: afterImage,
-                    alt: 'The redesigned strategy screen: a five-step progress bar and two side-by-side cards, AI-only and Hybrid, each with a list of what it does. Hybrid is marked as recommended and most accurate.',
-                },
-                aspectRatio: '1440 / 1230',
-                caption: 'The prototype\'s strategy selection screen and the redesign.',
+            // Three screen widths from one 1600 x 1225 sheet, each cropped to the same height (D-077).
+            panels: {
+                src: spreadImage,
+                sourceWidth: 1600,
+                sourceHeight: 1225,
+                framed: true,
+                slices: [
+                    { x: 0, y: 0, width: 801, height: 661, weight: 4, alt: 'The desktop screen for selecting columns to analyze: a progress bar with five steps, a form for open-ended, quantitative and segment columns, and a preview of the column data.' },
+                    { x: 801, y: 0, width: 427, height: 705, weight: 2, alt: 'The same screen at tablet width, with the column form above the data preview.' },
+                    { x: 1229, y: 0, width: 371, height: 1225, weight: 1, alt: 'The same screen at phone width, with links that jump between the column selection and the data preview.' },
+                ],
+                caption: 'Responsive screens for selecting columns from research data to analyze.',
             },
         },
         {
