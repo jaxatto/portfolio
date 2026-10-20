@@ -72,7 +72,7 @@ const content = {
                 },
                 {
                     label: 'Partnering on Implementation',
-                    text: 'I worked with the tool\'s creator to get my designs implemented in the prototype. We tested the results and fed the feedback into the next round of design.',
+                    text: 'I worked with research to implement my designs and gather feedback. Testing led us to challenge assumptions and prioritize responsiveness.',
                 },
             ],
             image: [
