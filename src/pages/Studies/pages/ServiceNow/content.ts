@@ -63,12 +63,12 @@ const content = {
             title: 'Contributions',
             items: [
                 {
-                    label: 'Structuring the Core Flow',
-                    text: 'I framed how the experience adapts to real research, where inputs are messy and the process is rarely linear. The journey map captures the branching paths, repeated states and decision points.',
+                    label: 'Simplifying the Core Flow',
+                    text: 'I mapped the flow for real research, where inputs are messy and the process is rarely linear. From the journey map I simplified the interaction model and reworked how guidance appears, so the tool is more focused and less interruptive.',
                 },
                 {
-                    label: 'Simplifying Interaction & Guidance',
-                    text: 'I simplified the interaction model and reworked how guidance appears, so the tool is more focused and less interruptive. I used low-fidelity layouts to move the conversation to content and flow, then built high-fidelity designs with Oolong components to match the corporate design language.',
+                    label: 'Designing Responsive Screens',
+                    text: 'I used low-fidelity layouts to move the conversation to content and flow, then built high-fidelity designs with Oolong components to match the corporate design language. I annotated responsive layouts in Figma so engineering could build them.',
                 },
                 {
                     label: 'Collaborating with Research & Leadership',
