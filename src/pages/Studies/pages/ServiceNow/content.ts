@@ -1,6 +1,5 @@
 import spreadImage from './images/screens-hero-min.jpg';
 import contextImage from './images/journey-map-min.jpg';
-import contributionsImage from './images/screen-evolution-min.jpg';
 import beforeImage from './images/themeweaver-before-min.jpg';
 import afterImage from './images/themeweaver-after-min.jpg';
 import deliverablesImage from './images/figma-board-min.jpg';
@@ -75,19 +74,12 @@ const content = {
                     text: 'I worked with the research team to get my designs implemented and to gather feedback on them. That feedback led us to question our assumptions and to prioritize the responsive layouts that users asked for.',
                 },
             ],
-            image: [
-                {
-                    src: contributionsImage,
-                    caption: 'Four steps of the flow, from the first prototype (left) to wireframes (middle) and the final designs (right).',
-                    alt: 'A grid of screens in four rows and three columns. The rows are upload, preview, column selection and strategy selection. The left column is the first prototype, the middle column is wireframes and the right column is the final design.',
-                },
-            ],
         },
         {
             order: 3,
             title: 'Outcomes',
             description: [
-                'The prototype had no clear path or end point. The redesign adds a five-step progress bar, so users can see where they are and what comes next. It gives the main action more weight than the rest and shows question names in full. The strategy screen sets AI-only against Hybrid and recommends Hybrid as the most accurate. Testing showed that users understood the tool and liked it. They also saw how it differs from general chat tools, which are not trained for research coding.',
+                'The prototype had no clear path or end point. The redesign adds a five-step progress bar, so users can see where they are and what comes next. The strategy screen sets AI-only against Hybrid and recommends Hybrid as the most accurate. Testing showed that users understood the tool and liked it. They also saw how it differs from general chat tools, which are not trained for research coding.',
                 'Leadership reviewed the designs, approved future work and assigned more resources to the tool. I designed draft features for those enhancements before my engagement ended.',
             ],
             // Three screen widths from one 1600 x 1225 sheet, each cropped to the same height (D-077).
