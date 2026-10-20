@@ -46,7 +46,7 @@ const content = {
             description: [
                 'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. Its 22,000+ employees rely on internal tools such as the employee intranet. All of them use Oolong, the design system I worked on in my primary role.',
                 'This project began as an effort by the Digital Technology group to quickly improve the insights gained from user research. A researcher built the first prototype with AI. The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers.',
-                'Researchers define a set of themes, and the AI assigns them to responses. This is called coding, and a fully coded dataset has a theme on every response. With the Hybrid strategy, researchers are recommended to code about 10% of their responses. For 1,000 responses that means coding 100. The AI codes the rest with an estimated 95% accuracy, against an estimated 70% for AI-only. That still saves researchers a lot of time and gives them more accurate results.',
+                'Researchers define a set of themes, and the AI assigns them to responses. This is called coding, and a fully coded dataset has a theme on every response. With the Hybrid strategy, the tool recommends that researchers code about 10% of their responses. For 1,000 responses, that means coding 100, which saves a lot of time. The AI codes the rest with an estimated 95% accuracy, against an estimated 70% for AI-only.',
                 'Early testing of the prototype showed that users were unsure how best to use the tool and how it differed from the company\'s internal ChatGPT.',
             ],
             image: [
@@ -63,7 +63,7 @@ const content = {
             items: [
                 {
                     label: 'Simplifying the Core Flow',
-                    text: 'I mapped the journey from upload to coded dataset to bring clarity to how the tool is used. From the map I simplified the interaction model and reworked how guidance appears.',
+                    text: 'I mapped the journey from upload to coded dataset to make each step clear. From the map I simplified the interaction model and reworked how guidance appears.',
                 },
                 {
                     label: 'Designing Responsive Screens',
@@ -127,7 +127,7 @@ const content = {
                 },
                 {
                     label: 'Live Feedback on Results',
-                    text: 'I would let researchers correct AI-coded responses as they review. Those corrections would teach the AI and improve its accuracy over time.',
+                    text: 'I would let researchers correct AI-coded responses as they review. Those corrections would add to the training the AI gets from the responses researchers code up front, and improve its accuracy over time.',
                 },
             ],
         },
