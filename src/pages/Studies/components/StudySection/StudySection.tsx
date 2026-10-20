@@ -6,6 +6,18 @@ import StudyImage from '@pages/Studies/components/StudyImage';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
 import styles from './StudySection.module.css';
 
+// `**text**` in a paragraph is a highlighted phrase: bold in the study's tint (D-081).
+const renderEmphasis = (text: string) =>
+  text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className={styles.emphasis}>
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+
 const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => {
   const image = section.image && section.image.length > 0 ? section.image[0] : undefined;
   const endsWithMedia = Boolean(section.panels || section.compare || image?.src);
@@ -17,7 +29,7 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
         {(section.description?.length || section.items?.length || hasBullets) && (
           <div className={styles.text}>
             {section.description?.map((desc, i) => (
-              <p key={i}>{desc}</p>
+              <p key={i}>{renderEmphasis(desc)}</p>
             ))}
             {section.items?.map((item) => (
               <div key={item.label} className={styles.item}>

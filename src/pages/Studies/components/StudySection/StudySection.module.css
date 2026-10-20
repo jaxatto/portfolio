@@ -67,6 +67,12 @@
 	padding-left: var(--size-space-3xl);
 }
 
+/* A highlighted phrase inside a paragraph (D-081): bold, in the study's tint like the label h3s. */
+.emphasis {
+	color: var(--study-heading, var(--color-content-emphasis));
+	font-weight: var(--font-weight-emphasis);
+}
+
 /* "Label: sentence" groups: an h3 one step above the text, like About (D-042). */
 .item {
 	display: flex;

@@ -399,3 +399,7 @@ The chips on a study header are no longer held to the 40rem reading column. The 
 ## D-080: Text selection in a card takes the card's palette — decided, 2026-10-19
 
 Selecting text inside a study card (Home, and the "More of my work" row on a study page) uses that card's own palette: the hover background and hover text pair, so the highlight shows against the plain card face (the plain container would vanish into it). Before, Home cards used the site's violet selection and cards under a study took that study's tint. `.card.card ::selection` in `StudyCard.module.css` outweighs the study page's `.page ::selection` (D-069). A study page's own text (h1, copy, captions) still uses its palette. The footer on a study page still uses the site's violet selection.
+
+## D-081: Highlighted phrase in study copy — decided, 2026-10-19
+
+A phrase wrapped in `**double asterisks**` in a study section paragraph renders as bold text in the study's tint (the same `--study-heading` as the label h3s, so the palette's on-container color in light and dark). `StudySection` splits the text and wraps the phrase in a `strong`. First use: ServiceNow's Hybrid vs AI-only accuracy sentence. Use it sparingly, once or twice per study. Study header paragraphs do not parse it yet. Checked in the same pass (D-080): the footer keeps the site's violet selection on every study page.
