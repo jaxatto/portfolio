@@ -411,3 +411,5 @@ A phrase wrapped in `**double asterisks**` in a study section paragraph renders 
 Highlight phrases (D-081): ActBlue's "Internal estimates put the savings at over $1.5 million per year in reduced support costs." and ServiceNow's "approved future work and assigned more resources to the tool" and the Hybrid versus AI-only accuracy sentence are the three in use.
 
 Revised (2026-10-19, D-067): ActBlue's intro first sentence is split in two, "fully" is cut from the annotated flow, the flow caption reads "annotated for developers and used to support QA", the Opportunities lead-in says "add or change four things", and the three long alt texts are split into shorter sentences.
+
+Revised (2026-10-19, D-067): the $1.5M saving is an estimate everywhere. The page no longer says "over" and now matches the Home card and meta ("an estimated $1.5M a year"). Jax confirmed the days or weeks to minutes setup claim and the reuse by other integrations and internal tools. The highlighted sentence in D-082's list reads "Internal estimates put the savings at $1.5 million per year in reduced support costs."
