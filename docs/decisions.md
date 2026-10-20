@@ -403,3 +403,9 @@ Selecting text inside a study card (Home, and the "More of my work" row on a stu
 ## D-081: Highlighted phrase in study copy — decided, 2026-10-19
 
 A phrase wrapped in `**double asterisks**` in a study section paragraph renders as bold text in the study's tint (the same `--study-heading` as the label h3s, so the palette's on-container color in light and dark). `StudySection` splits the text and wraps the phrase in a `strong`. First use: ServiceNow's Hybrid vs AI-only accuracy sentence. Use it sparingly, once or twice per study. Study header paragraphs do not parse it yet. Checked in the same pass (D-080): the footer keeps the site's violet selection on every study page.
+
+## D-082: No focus ring on <main> — decided, 2026-10-19
+
+`<main id="main-content" tabindex="-1">` is the skip link's target and takes focus when a reader clicks blank space, but it is not a control. Keyboard activation of the skip link makes it `:focus-visible`, which drew the browser's ring around the whole page. `Layout.module.css` now sets `outline: none` on `.main:focus` and `.main:focus-visible`. There is deliberately no global `*:focus, *:focus-visible { outline: none }`: every control draws its own ring through its component's `:focus-visible` rule (nav, brand, TextLink, mode toggle, footer icons, card, 404 button, skip link), and a global reset would risk removing them for keyboard users. Any other element that shows an unwanted ring should get its own rule here.
+
+Highlight phrases (D-081): ActBlue's "Internal estimates put the savings at over $1.5 million per year in reduced support costs." and ServiceNow's "approved future work and assigned more resources to the tool" and the Hybrid versus AI-only accuracy sentence are the three in use.

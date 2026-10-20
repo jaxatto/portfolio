@@ -45,7 +45,7 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. Its 22,000+ employees rely on internal tools such as the employee intranet. All of them use Oolong, the design system I worked on in my primary role.',
+                'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. Its 22,000+ employees rely on internal tools such as the employee intranet. Every internal tool uses Oolong, the design system I worked on in my primary role.',
                 'This project began as an effort to quickly improve the insights gained from user research. A researcher built the first prototype with AI. The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers.',
                 'Researchers define a set of themes, and the AI assigns them to responses. This is called coding, and a fully coded dataset has a theme on every response. With the Hybrid strategy, the tool recommends that researchers code about 10% of their responses. For 1,000 responses, that means coding 100, which saves a lot of time. **The AI codes the rest with an estimated 95% accuracy, against an estimated 70% for AI-only.**',
                 'Early testing of the prototype showed that users were unsure how best to use the tool and how it differed from the company\'s internal ChatGPT.',
@@ -81,7 +81,7 @@ const content = {
             title: 'Outcomes',
             description: [
                 'The prototype had no clear path or end point. The redesign adds a five-step progress bar, so users can see where they are and what comes next. The strategy screen sets AI-only against Hybrid and recommends Hybrid as the most accurate. Testing showed that users understood the tool and liked it. They also saw how it differs from general chat tools, which are not trained for research coding.',
-                'Leadership reviewed the designs, approved future work and assigned more resources to the tool. I designed draft features for those enhancements before my engagement ended.',
+                'Leadership reviewed the designs, **approved future work and assigned more resources to the tool**. I designed draft features for those enhancements before my engagement ended.',
             ],
             // Three screen widths from one 1600 x 1225 sheet, each cropped to the same height (D-077).
             panels: {
