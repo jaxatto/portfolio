@@ -19,7 +19,7 @@ const content = {
         ],
         description: [
             'Researchers across the organization collect thousands of open-ended responses from surveys, workshops and interviews. Coding them into themes by hand takes 10 hours or more per 100 responses, so the work often gets deprioritized.',
-            'I was the sole designer on an internal research tool that uses AI to group open-ended responses into themes. My role was short and targeted. I joined after the first prototype was built to shape the experience, support implementation and validate real research use cases.',
+            'I was the sole designer on short project to improve an internal research tool that uses AI to extract insights from qualitative data. I joined after the first prototype was built to shape the experience, support implementation and validate real research use cases.',
         ],
         chips: [
             { label: 'Enterprise', theme: 'tertiary' },
@@ -46,9 +46,9 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. My primary role there was on Oolong, the internal design system for the employee intranet, which draws from Horizon, the company design system. I was one of two designers on that team.',
-                'This tool is a separate internal research asset. A researcher without a development background built the first prototype with AI, and it already worked when I joined. Users upload responses, define a few themes and get a fully coded dataset back. The AI suggests themes with an estimated 95% accuracy rate.',
-                'The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers. I worked with the creator to shape the experience around real research workflows and to reduce friction in the core flow.',
+                'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. The company also used its own products, such as the employee intranet, to serve its 22,000+ employees. My primary role at ServiceNow was working on the design system for this employee hub. ',
+                'This project came about as Digital Technology (DT) group effort to rapidly improve insights gained from user research. The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers. A researcher built the first prototype with AI and had gone through a round of testing on the feature when I joined the project.',
+                'In the tool, users upload responses, define a few themes and get a fully coded dataset back. The AI suggests themes with an estimated 95% accuracy rate. While the results were great, users were confused on how to best use the tool and how it differed from just uploading a CSV to the internal ChatGPT variant.',
             ],
             image: [
                 {
