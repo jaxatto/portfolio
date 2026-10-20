@@ -17,7 +17,7 @@ const content = {
             },
         ],
         description: [
-            'Campaign admins needed to sync donor data from ActBlue into Salesforce, but setup ran entirely through support tickets and admins could not see what was syncing or why it failed.',
+            'Campaign admins needed to sync donor data from ActBlue into Salesforce. Setup ran entirely through support tickets, and admins could not see what was syncing or why it failed.',
             'I was the sole designer, embedded with product and engineering. I led a complete rebuild of the integration, from setup and configuration to sync visibility and error recovery.',
         ],
         chips: [
@@ -29,11 +29,11 @@ const content = {
         compare: {
             before: {
                 src: beforeImage,
-                alt: 'The original ActBlue notifications screen, only visible to staff: a dense table of event notifications with timestamps, results, order numbers and donor names, and a retry button.',
+                alt: 'The original ActBlue notifications screen, only visible to staff. It shows a dense table of event notifications with timestamps, results, order numbers and donor names, and a retry button.',
             },
             after: {
                 src: afterImage,
-                alt: 'The redesigned Salesforce integration page in ActBlue: a banner confirming the connection, a Connected status, and connection details for event types, historical data progress and advanced configuration.',
+                alt: 'The redesigned Salesforce integration page in ActBlue. It has a banner confirming the connection, a Connected status, and connection details for event types, historical data progress and advanced configuration.',
             },
             caption: 'The original screen for checking that a notification sent, and the redesigned integration page.',
         },
@@ -70,14 +70,14 @@ const content = {
                 },
                 {
                     label: 'Collaborating with Product & Engineering',
-                    text: 'I worked closely with the product manager and the engineering manager. We ran workshops and built the FigJam board together. I validated ideas and edge cases with engineers throughout. I handed off Figma prototypes and CSS samples, plus a fully annotated flow that supported QA.',
+                    text: 'I worked closely with the product manager and the engineering manager. We ran workshops and built the FigJam board together. I validated ideas and edge cases with engineers throughout. I handed off Figma prototypes and CSS samples, plus an annotated flow that supported QA.',
                 },
             ],
             image: [
                 {
                     src: flowImage,
-                    caption: 'The full flow with annotations for developers. It was instrumental for QA.',
-                    alt: 'A Figma overview of the full Salesforce integration flow: groups of screens for connecting to production and sandbox, setup pending, connected, settings, historical data, disconnect and staff settings.',
+                    caption: 'The full flow, annotated for developers and used to support QA.',
+                    alt: 'A Figma overview of the full Salesforce integration flow. It has groups of screens for connecting to production and sandbox, setup pending, connected, settings, historical data, disconnect and staff settings.',
                 },
             ],
         },
@@ -86,7 +86,7 @@ const content = {
             title: 'Outcomes',
             description: [
                 'Admins could set up the integration on their own, see what was syncing and fix issues without going through support. Setup that once took days or weeks of back and forth with support, or never finished, now takes minutes. The only wait is the data sync, which depends on the volume of data.',
-                'Support teams saw a sharp drop in setup issues and manual intervention. Internal estimates put the savings at over $1.5 million per year in reduced support costs. The patterns, flows and documentation from this work have since been reused for other integrations and internal tools.',
+                'Support teams saw a sharp drop in setup issues and manual intervention. **Internal estimates put the savings at $1.5 million per year in reduced support costs.** The patterns, flows and documentation from this work have since been reused for other integrations and internal tools.',
             ],
             // The three final screens are slices of one 2180 x 559 image, in the spread box (D-069).
             panels: {
@@ -117,7 +117,7 @@ const content = {
             order: 5,
             title: 'Opportunities',
             description: [
-                'Time and a focus on a targeted MVP were the main constraints. Looking back, I would change four things:',
+                'Time and a focus on a targeted MVP were the main constraints. Looking back, I would add or change four things:',
             ],
             items: [
                 {

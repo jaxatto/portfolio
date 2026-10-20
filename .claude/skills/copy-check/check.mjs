@@ -69,7 +69,8 @@ const rules = [
   },
 ];
 
-const sentences = (text) => text.split(/(?<=[.!?])\s+(?=[A-Z"“‘'])/);
+// `**phrase**` marks a highlighted phrase in study copy (D-081): ignore the markers so they never hide a sentence break.
+const sentences = (text) => text.replace(/\*\*/g, '').split(/(?<=[.!?])\s+(?=[A-Z"“‘'])/);
 const wordCount = (s) => s.trim().split(/\s+/).length;
 
 let errors = 0;

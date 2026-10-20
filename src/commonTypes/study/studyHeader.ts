@@ -1,5 +1,6 @@
 import type { ChipData } from '@components/ChipGroup';
 import type { StudyImageProps } from './studyImage';
+import type { StudyCompareData, StudyPanelsData } from './studySection';
 
 export type StudyHeaderProps = {
   title: string;
@@ -8,5 +9,6 @@ export type StudyHeaderProps = {
   chips: ChipData[];
   description: string[];
   image?: StudyImageProps[];
-  compare?: { before: StudyImageProps; after: StudyImageProps; caption?: string }; // Before / after pair in place of the hero image
+  compare?: StudyCompareData; // Before / after pair in place of the hero image
+  panels?: StudyPanelsData; // A spread of screens in place of the hero image (D-077)
 };

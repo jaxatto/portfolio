@@ -7,3 +7,10 @@
 	margin-inline: auto;
 	padding-inline: var(--size-space-2xl);
 }
+
+/* <main> is only a programmatic focus target (tabindex -1: the skip link and clicks land on it), not a
+   control, so it never draws a focus ring around the whole page (D-082). Controls keep their own rings. */
+.main:focus,
+.main:focus-visible {
+	outline: none;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import DateRange from '@components/DateRange';
+import StudyPanels from '@pages/Studies/components/StudyPanels';
 import StudyCompare from '@pages/Studies/components/StudyCompare';
 import StudyImage from '@pages/Studies/components/StudyImage';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
@@ -15,6 +16,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
   description,
   image,
   compare,
+  panels,
   className,
 }) => (
   <header className={`${styles.header} ${className ?? ''}`}>
@@ -47,6 +49,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
         ))}
       </div>
     </div>
+    {panels && <StudyPanels {...panels} className={styles.media} />}
     {compare && <StudyCompare {...compare} className={styles.media} />}
     {image && image[0] && (
       <StudyImage

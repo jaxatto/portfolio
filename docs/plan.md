@@ -10,7 +10,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
 - [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
-- [~] 4. Case study content: Indeed done (copy, images, D-047 to D-066). ActBlue done (D-067 to D-075, final pass 2026-10-19, ready for Jax to merge) and Indeed updated alongside it. Next ServiceNow (still on the old image and copy treatment), then Toyota (page does not exist yet)
+- [~] 4. Case study content: Indeed done (copy, images, D-047 to D-066). ActBlue done (D-067 to D-075, final pass 2026-10-19, ready for Jax to merge) and Indeed updated alongside it. ServiceNow done (D-077, D-078, waiting for Jax's review). Next Toyota (page does not exist yet)
 - [x] 5. About (D-040 to D-045, merged with slice 2; only a scale number for the Toyota token work is open)
 - [ ] 6. Resume (do together with Jax, later)
 
@@ -18,7 +18,7 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slice 3 (case study template) is merged into `redesign`. Next: ServiceNow, then Toyota (ActBlue and Indeed are done). Bring each page to the Indeed pattern: left-aligned 40rem reading column (D-066), images with 40px around them (D-053), the template's hero and image components, `legacy={false}` already set by the template, and copy per the Copy voice rules (use the `copy-check` skill). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where that is relevant. The global `.legacy` rules (Link.module.scss) and the D-027 TEMP dark-mode rule stay until Resume is migrated (slice 6), since only Resume still uses them. Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
+Slice 3 (case study template) is merged into `redesign`. Next: Toyota (ActBlue, Indeed and ServiceNow are done). Bring each page to the Indeed pattern: left-aligned 40rem reading column (D-066), images with 40px around them (D-053), the template's hero and image components, `legacy={false}` already set by the template, and copy per the Copy voice rules (use the `copy-check` skill). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where that is relevant. The global `.legacy` rules (Link.module.scss) and the D-027 TEMP dark-mode rule stay until Resume is migrated (slice 6), since only Resume still uses them. Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
 
 ## Open questions for Jax
 
@@ -37,8 +37,12 @@ Design / tokens:
 5. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. There is no tablet design for the footer (stacks at 640px).
 6. The link arrows are Phosphor bold, so their stroke scales with size (D-026). Revisit if it reads light.
 7. Icons: all UI icons are Phosphor bold and the emoji are gone (D-037).
-8. ServiceNow's Outcomes section is thin after the demo and testing claims were cut (slice 4). The Toyota frame's footer says "Design Technologist" where the site says "Design Engineer".
+8. ServiceNow's Outcomes rest on what Jax recalls (no metrics exist for the tool). The Toyota frame's footer says "Design Technologist" where the site says "Design Engineer".
 9. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
+
+## Parked: study image component (raised 2026-10-19, return after ServiceNow copy is done)
+
+Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner, `corners` as a free string), `StudyCompare` (1200 / 740 default box, `aspectRatio` override added in D-078) and `StudyPanels` (300px / 220px box, `sourceWidth`, `sourceHeight`, pixel slice coordinates and hand-computed `weight` in the content files). ServiceNow's hero needed a composite sheet and slices computed by hand. Proposal to discuss: one `StudyMedia` component with a `layout` of `single` (natural or a named ratio, optional surface or clipped inset), `pair` (before / after) and `spread` (several screens in a row with their own `src`, `alt` and fractional `crop`, equal height from their own aspect ratios). Shared: caption as wide as the image, surfaces and padding from tokens only, the 40px spacing, a fixed 16px corner (drop the free-string `corners`). Open: image aspect ratios (declare per item, or have the export script write each size to a generated `images.json`), then migrate Indeed, ActBlue and ServiceNow and compare screenshots, and delete the three old components. Its own slice, not part of the ServiceNow PR. Also decided not to move study copy to Markdown (inline `content.ts` stays, D-003); CLAUDE.md's "will use Markdown/JSON" line should be removed when this is picked up.
 
 ## Setup still needed
 
