@@ -88,7 +88,7 @@ const content = {
             title: 'Outcomes',
             description: [
                 'My role was short and targeted. Leadership reviewed the designs and defined the roadmap, and the future looked good for the tool, with more enhancements planned. Several of my interaction and flow changes were built into the working prototype, and I designed draft features for the next enhancements.',
-                'Testing before and after the redesign showed that the Hybrid option, which uses themes the user confirms, was the most accurate. The redesigned strategy screen explains the two options and marks Hybrid as recommended.',
+                'Testing before and after the redesign showed that the Hybrid option was the most accurate. It uses themes the user confirms. The redesigned strategy screen explains the two options and marks Hybrid as recommended.',
             ],
             compare: {
                 before: {
