@@ -89,7 +89,7 @@ const content = {
                 sourceHeight: 1225,
                 framed: true,
                 slices: [
-                    { x: 0, y: 0, width: 801, height: 661, weight: 4, alt: 'The desktop screen for selecting columns to analyze: a progress bar with five steps, a form for open-ended, quantitative and segment columns, and a preview of the column data.' },
+                    { x: 0, y: 0, width: 801, height: 661, weight: 4, alt: 'The desktop screen for selecting columns to analyze. It has a five-step progress bar, a form for open-ended, quantitative and segment columns, and a preview of the column data.' },
                     { x: 801, y: 0, width: 427, height: 705, weight: 2, alt: 'The same screen at tablet width, with the column form above the data preview.' },
                     { x: 1229, y: 0, width: 371, height: 1225, weight: 1, alt: 'The same screen at phone width, with links that jump between the column selection and the data preview.' },
                 ],
@@ -110,7 +110,7 @@ const content = {
                 {
                     src: deliverablesImage,
                     caption: 'Figma board with annotated mocks for the upload and interaction states.',
-                    alt: 'A dark Figma board with annotated screens for the upload step and the post-upload data check, including mocks of the upload loading states and a collapsed table.',
+                    alt: 'A dark Figma board with annotated screens for the upload step and the post-upload data check. It includes mocks of the upload loading states and a collapsed table.',
                 },
             ],
         },

@@ -389,3 +389,5 @@ Revised (2026-10-19, D-077): Jax's facts on coding. A theme is a predefined cate
 Revised (2026-10-19, D-078): the four-step screen grid is removed from Contributions (and its file), and the Outcomes line about the main action and full question names is cut.
 
 Revised (2026-10-19, D-077): cut "question our assumptions" (no assumption could be named) and "the Digital Technology group" (unexplained) after the judge and proof checks.
+
+Revised (2026-10-19, D-077): the Home card outcome and the page meta now say the tool "codes" open-ended responses into themes and that coding by hand took 10+ hours per 100 responses (the earlier wording said "groups" them). The two long alt texts are split into shorter sentences.
