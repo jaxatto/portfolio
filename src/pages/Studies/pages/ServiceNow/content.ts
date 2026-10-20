@@ -21,6 +21,7 @@ const content = {
             'I was the sole designer on a short project to improve an internal research tool that uses AI to extract insights from qualitative data. I joined after the first prototype was built to shape the experience, support implementation and validate real research use cases.',
         ],
         chips: [
+            { label: 'Internal Tools', theme: 'tertiary' },
             { label: 'Enterprise', theme: 'tertiary' },
             { label: 'AI/ML', theme: 'tertiary' },
             { label: 'UX Architecture', theme: 'secondary' },
