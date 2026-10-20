@@ -26,6 +26,14 @@
 	transition: background-color 0.2s ease;
 }
 
+/* Text selection inside a card takes the card's own palette (D-080). The hover pair is used because the
+   card face is the plain palette container, which a selection of the same color would vanish into.
+   `.card.card` outweighs the study page's own selection rule, so cards under a study keep their own color. */
+.card.card ::selection {
+	background: var(--card-bg-hover);
+	color: var(--card-fg-hover);
+}
+
 .brand {
 	/* defaults above */
 	--card-bg: var(--color-brand-container);

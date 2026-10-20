@@ -395,3 +395,7 @@ Revised (2026-10-19, D-077): the Home card outcome and the page meta now say the
 ## D-079: Study chips use the full column — decided, 2026-10-19
 
 The chips on a study header are no longer held to the 40rem reading column. The text (title block and intro paragraphs) keeps 40rem, left-aligned (D-066), and the chip row runs the 960 column and wraps only when the screen is too narrow (about 755px of chips on ServiceNow's five, so it wraps below roughly 800px). Before, the row was `nowrap` inside 40rem, so a fifth chip overflowed the column. Supersedes the chip width in D-051 and D-066. ServiceNow also gained an Internal Tools chip.
+
+## D-080: Text selection in a card takes the card's palette — decided, 2026-10-19
+
+Selecting text inside a study card (Home, and the "More of my work" row on a study page) uses that card's own palette: the hover background and hover text pair, so the highlight shows against the plain card face (the plain container would vanish into it). Before, Home cards used the site's violet selection and cards under a study took that study's tint. `.card.card ::selection` in `StudyCard.module.css` outweighs the study page's `.page ::selection` (D-069). A study page's own text (h1, copy, captions) still uses its palette. The footer on a study page still uses the site's violet selection.
