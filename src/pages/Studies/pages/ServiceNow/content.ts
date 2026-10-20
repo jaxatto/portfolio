@@ -64,7 +64,7 @@ const content = {
             items: [
                 {
                     label: 'Simplifying the Core Flow',
-                    text: 'I mapped the journey from upload to coded dataset to bring clarity to how the tool is used. From the map I simplified the interaction model and reworked how guidance appears, so the tool is more focused and less interruptive.',
+                    text: 'I mapped the journey from upload to coded dataset to bring clarity to how the tool is used. From the map I simplified the interaction model and reworked how guidance appears.',
                 },
                 {
                     label: 'Designing Responsive Screens',
