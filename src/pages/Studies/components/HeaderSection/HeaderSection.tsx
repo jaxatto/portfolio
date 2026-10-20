@@ -25,15 +25,21 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
         <h1 className={`${styles.title}`}>{title}</h1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         <p className={styles.details}>
-          <span>{roleDetails[0].role}</span>
-          {roleDetails[0].location && (
-            <>
-              <span className={styles.dot} aria-hidden="true" />
-              <span>{roleDetails[0].location}</span>
-            </>
-          )}
-          <span className={styles.dot} aria-hidden="true" />
-          <DateRange startDate={roleDetails[0].startDate} endDate={roleDetails[0].endDate} />
+          <span className={styles.where}>
+            <span>{roleDetails[0].role}</span>
+            {roleDetails[0].location && (
+              <>
+                <span className={styles.dot} aria-hidden="true" />
+                <span>{roleDetails[0].location}</span>
+              </>
+            )}
+          </span>
+          <span className={`${styles.dot} ${styles.dateDot}`} aria-hidden="true" />
+          <DateRange
+            className={styles.date}
+            startDate={roleDetails[0].startDate}
+            endDate={roleDetails[0].endDate}
+          />
         </p>
       </div>
       <ul className={styles.chips}>

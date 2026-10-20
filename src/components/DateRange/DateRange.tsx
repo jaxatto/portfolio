@@ -15,7 +15,7 @@ const DateRange: React.FC<DateRangeProps> = ({ startDate, endDate, className }) 
     {startDate}
     {endDate && (
       <>
-        <span aria-hidden="true">{' — '}</span>
+        <span aria-hidden="true">{' – '}</span>
         <span className="sr-only">{' to '}</span>
         {endDate}
       </>

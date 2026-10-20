@@ -67,6 +67,31 @@
 	content: '\00b7';
 }
 
+/* Role and place travel together, with the same gap as the details line. */
+.where {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: var(--size-space-sm);
+}
+
+/* The date never splits across lines. On phones the role and place stay together and the date drops
+   to its own line, without the dot, so a wrapped line never starts or ends with one (D-067). */
+.date {
+	white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+	.details {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--size-space-xs);
+	}
+
+	.dateDot {
+		display: none;
+	}
+}
+
 .chips {
 	display: flex;
 	/* One row while it fits in the 960 column, wrapping when the screen is narrower. */

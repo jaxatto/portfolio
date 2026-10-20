@@ -413,3 +413,7 @@ Highlight phrases (D-081): ActBlue's "Internal estimates put the savings at over
 Revised (2026-10-19, D-067): ActBlue's intro first sentence is split in two, "fully" is cut from the annotated flow, the flow caption reads "annotated for developers and used to support QA", the Opportunities lead-in says "add or change four things", and the three long alt texts are split into shorter sentences.
 
 Revised (2026-10-19, D-067): the $1.5M saving is an estimate everywhere. The page no longer says "over" and now matches the Home card and meta ("an estimated $1.5M a year"). Jax confirmed the days or weeks to minutes setup claim and the reuse by other integrations and internal tools. The highlighted sentence in D-082's list reads "Internal estimates put the savings at $1.5 million per year in reduced support costs."
+
+## D-067: Study header role line on phones, en dash in dates — decided, 2026-10-20
+
+At 640px and below the role and place stay on one line and the date drops to its own line without the dot, so a wrapped line never ends or starts with a dot (it did on ActBlue at 375). The date never breaks across lines. DateRange uses an en dash (was an em dash), per Jax: dates take an en dash. The change also reaches Resume through the shared component.
