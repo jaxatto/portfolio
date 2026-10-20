@@ -391,3 +391,7 @@ Revised (2026-10-19, D-078): the four-step screen grid is removed from Contribut
 Revised (2026-10-19, D-077): cut "question our assumptions" (no assumption could be named) and "the Digital Technology group" (unexplained) after the judge and proof checks.
 
 Revised (2026-10-19, D-077): the Home card outcome and the page meta now say the tool "codes" open-ended responses into themes and that coding by hand took 10+ hours per 100 responses (the earlier wording said "groups" them). The two long alt texts are split into shorter sentences.
+
+## D-079: Study chips use the full column — decided, 2026-10-19
+
+The chips on a study header are no longer held to the 40rem reading column. The text (title block and intro paragraphs) keeps 40rem, left-aligned (D-066), and the chip row runs the 960 column and wraps only when the screen is too narrow (about 755px of chips on ServiceNow's five, so it wraps below roughly 800px). Before, the row was `nowrap` inside 40rem, so a fifth chip overflowed the column. Supersedes the chip width in D-051 and D-066. ServiceNow also gained an Internal Tools chip.

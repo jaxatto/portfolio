@@ -11,8 +11,8 @@
 	margin-block: var(--size-space-4xl);
 }
 
-/* Everything but the hero image sits in one left-aligned 40rem reading column (`intro`); the image runs the
-   full 960 column (D-051). Text inside stays left-aligned. */
+/* The text (title block and intro paragraphs) holds a left-aligned 40rem reading column; the chips and the
+   hero image run the full 960 column so five chips fit on one row (D-051, D-079). */
 .intro {
 	--intro-gap: var(--size-space-2xl);
 
@@ -20,11 +20,10 @@
 	flex-direction: column;
 	gap: var(--intro-gap);
 	width: 100%;
-	max-width: 40rem;
-	margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
 }
 
 .top {
+	max-width: 40rem; /* left-aligned to the 960 edge (D-066) */
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-sm);
@@ -70,8 +69,8 @@
 
 .chips {
 	display: flex;
-	/* One row on tablet and desktop; phones wrap. */
-	flex-wrap: nowrap;
+	/* One row while it fits in the 960 column, wrapping when the screen is narrower. */
+	flex-wrap: wrap;
 	gap: var(--size-space-md);
 	margin: 0;
 	padding: 0;
@@ -93,6 +92,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-2xl);
+	max-width: 40rem;
 	/* 40px under the title, role and chips (the gap above is --intro-gap). */
 	margin-top: calc(var(--size-space-4xl) - var(--intro-gap));
 }
@@ -108,9 +108,5 @@
 @media (max-width: 640px) {
 	.intro {
 		--intro-gap: var(--size-space-xl);
-	}
-
-	.chips {
-		flex-wrap: wrap;
 	}
 }
