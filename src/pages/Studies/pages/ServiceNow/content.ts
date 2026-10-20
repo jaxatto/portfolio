@@ -18,7 +18,7 @@ const content = {
             },
         ],
         description: [
-            'Researchers across the organization collect thousands of open-ended responses from surveys, workshops and interviews. Coding them into themes by hand takes 10 hours or more per 100 responses, so the work often gets deprioritized.',
+            'Researchers across the organization collect thousands of open-ended responses from surveys, workshops and interviews. Assigning each response a theme by hand, known as coding, takes 10 hours or more per 100 responses, so the work often gets deprioritized.',
             'I was the sole designer on a short project to improve an internal research tool that uses AI to extract insights from qualitative data. I joined after the first prototype was built to shape the experience, support implementation and validate real research use cases.',
         ],
         chips: [
@@ -45,9 +45,10 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. It also runs its own products internally, such as the employee intranet for its 22,000+ employees. My primary role was on Oolong, the design system for that intranet.',
-                'This project began as an effort by the Digital Technology group to quickly improve the insights gained from user research. A researcher built the first prototype with AI, and it had been through a round of testing when I joined. The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers.',
-                'Users upload responses, define a few themes and get a fully coded dataset back. The AI suggests themes with an estimated 95% accuracy rate. The results were promising. Users were unsure how best to use the tool and how it differed from uploading a CSV to the company\'s internal ChatGPT.',
+                'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. Its 22,000+ employees rely on internal tools such as the employee intranet. All of them use Oolong, the design system I worked on in my primary role.',
+                'This project began as an effort by the Digital Technology group to quickly improve the insights gained from user research. A researcher built the first prototype with AI. The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers.',
+                'Researchers define a set of themes, and the AI assigns them to responses. This is called coding, and a fully coded dataset has a theme on every response. With the Hybrid strategy, researchers are recommended to code about 10% of their responses. For 1,000 responses that means coding 100. The AI codes the rest with an estimated 95% accuracy, against an estimated 70% for AI-only. That still saves researchers a lot of time and gives them more accurate results.',
+                'Early testing of the prototype showed that users were unsure how best to use the tool and how it differed from the company\'s internal ChatGPT.',
             ],
             image: [
                 {
@@ -71,7 +72,7 @@ const content = {
                 },
                 {
                     label: 'Partnering on Implementation',
-                    text: 'I worked with the research team to get my designs implemented and to gather feedback on them. Testing led us to question our assumptions and to prioritize the responsive layouts that users asked for.',
+                    text: 'I worked with the research team to get my designs implemented and to gather feedback on them. That feedback led us to question our assumptions and to prioritize the responsive layouts that users asked for.',
                 },
             ],
             image: [
@@ -86,7 +87,7 @@ const content = {
             order: 3,
             title: 'Outcomes',
             description: [
-                'The prototype had no clear path or end point. The redesign adds a five-step progress bar, so users can see where they are and what comes next. It gives the main action more weight than the rest and explains each strategy, with Hybrid recommended. Question names that were truncated now show in full. Testing showed that users understood the tool and liked it.',
+                'The prototype had no clear path or end point. The redesign adds a five-step progress bar, so users can see where they are and what comes next. It gives the main action more weight than the rest and shows question names in full. The strategy screen sets AI-only against Hybrid and recommends Hybrid as the most accurate. Testing showed that users understood the tool and liked it. They also saw how it differs from general chat tools, which are not trained for research coding.',
                 'Leadership reviewed the designs, approved future work and assigned more resources to the tool. I designed draft features for those enhancements before my engagement ended.',
             ],
             // Three screen widths from one 1600 x 1225 sheet, each cropped to the same height (D-077).
@@ -130,11 +131,11 @@ const content = {
             items: [
                 {
                     label: 'AI Suggestions Upfront',
-                    text: 'Researchers define their themes before the AI does any work. I would have the AI suggest a starting set from the responses, and let researchers accept, edit or replace them.',
+                    text: 'Researchers write their own themes before the AI does any work. I would have the AI suggest a starting set from the responses and let researchers accept, edit or replace them. That would speed up setup.',
                 },
                 {
                     label: 'Live Feedback on Results',
-                    text: 'I would let researchers correct AI-coded responses as they review, so those corrections can improve accuracy over time.',
+                    text: 'I would let researchers correct AI-coded responses as they review. Those corrections would teach the AI and improve its accuracy over time.',
                 },
             ],
         },
