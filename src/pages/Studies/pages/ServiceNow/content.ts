@@ -19,7 +19,7 @@ const content = {
         ],
         description: [
             'Researchers across the organization collect thousands of open-ended responses from surveys, workshops and interviews. Coding them into themes by hand takes 10 hours or more per 100 responses, so the work often gets deprioritized.',
-            'I was the sole designer on short project to improve an internal research tool that uses AI to extract insights from qualitative data. I joined after the first prototype was built to shape the experience, support implementation and validate real research use cases.',
+            'I was the sole designer on a short project to improve an internal research tool that uses AI to extract insights from qualitative data. I joined after the first prototype was built to shape the experience, support implementation and validate real research use cases.',
         ],
         chips: [
             { label: 'Enterprise', theme: 'tertiary' },
@@ -46,9 +46,9 @@ const content = {
             order: 1,
             title: 'Context',
             description: [
-                'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. The company also used its own products, such as the employee intranet, to serve its 22,000+ employees. My primary role at ServiceNow was working on the design system for this employee hub. ',
-                'This project came about as Digital Technology (DT) group effort to rapidly improve insights gained from user research. The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers. A researcher built the first prototype with AI and had gone through a round of testing on the feature when I joined the project.',
-                'In the tool, users upload responses, define a few themes and get a fully coded dataset back. The AI suggests themes with an estimated 95% accuracy rate. While the results were great, users were confused on how to best use the tool and how it differed from just uploading a CSV to the internal ChatGPT variant.',
+                'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. It also runs its own products internally, such as the employee intranet for its 22,000+ employees. My primary role was on Oolong, the design system for that intranet.',
+                'This project began as an effort by the Digital Technology group to quickly improve the insights gained from user research. A researcher built the first prototype with AI, and it had been through a round of testing when I joined. The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers.',
+                'Users upload responses, define a few themes and get a fully coded dataset back. The AI suggests themes with an estimated 95% accuracy rate. The results were promising. Users were unsure how best to use the tool and how it differed from uploading a CSV to the company\'s internal ChatGPT.',
             ],
             image: [
                 {
@@ -88,7 +88,7 @@ const content = {
             title: 'Outcomes',
             description: [
                 'My role was short and targeted. Leadership reviewed the designs and defined the roadmap, and the future looked good for the tool, with more enhancements planned. Several of my interaction and flow changes were built into the working prototype, and I designed draft features for the next enhancements.',
-                'Early testing of the prototype showed that users did not understand what the tool did. It also showed that the Hybrid option was the most accurate, because it uses themes the user confirms. The redesigned strategy screen puts the two options side by side and marks Hybrid as recommended. We tested before and after the redesign.',
+                'Testing before and after the redesign showed that the Hybrid option, which uses themes the user confirms, was the most accurate. The redesigned strategy screen explains the two options and marks Hybrid as recommended.',
             ],
             compare: {
                 before: {
