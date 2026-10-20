@@ -71,8 +71,8 @@ const content = {
                     text: 'I used low-fidelity layouts to move the conversation to content and flow, then built high-fidelity designs with Oolong components to match the corporate design language. I annotated responsive layouts in Figma so engineering could build them.',
                 },
                 {
-                    label: 'Collaborating with Research & Leadership',
-                    text: 'I worked with the tool\'s creator throughout and kept leadership involved as the direction took shape. Several of my interaction and flow changes were built into the working prototype.',
+                    label: 'Partnering on Implementation',
+                    text: 'I worked with the tool\'s creator to get my designs implemented in the prototype. We tested the results and fed the feedback into the next round of design.',
                 },
             ],
             image: [
