@@ -75,7 +75,7 @@
 }
 
 /* The date never splits across lines. On phones the role and place stay together and the date drops
-   to its own line, without the dot, so a wrapped line never starts or ends with one (D-067). */
+   to its own line, without the dot, so a wrapped line never starts or ends with one (D-085). */
 .date {
 	white-space: nowrap;
 }

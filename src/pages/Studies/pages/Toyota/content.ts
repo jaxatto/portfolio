@@ -1,6 +1,7 @@
 import proposalImage from './images/token-proposal-min.jpg';
 import variablesImage from './images/figma-variables-min.jpg';
 import ecosystemImage from './images/ecosystem-diagram-min.jpg';
+import sprintImage from './images/sprint-board-min.jpg';
 import type { ChipData } from '@components/ChipGroup';
 
 // TODO(jax): still missing (Figma 2948:40398): the header banner and an optional Deliverables image.
@@ -92,6 +93,12 @@ const content = {
                     variant: 'column' as const,
                     caption: 'The Figma variable collections: a theme collection with light and dark values, and primitives for the shared core, SCaFT and Toyota.',
                     alt: 'The Figma variables panel in dark mode. The collections are theme, _primitives, _primitives-scaft and _primitives-toyota. The theme collection lists color variables for content, surface and border, each with a light and a dark value that points to a primitive.',
+                },
+                {
+                    src: sprintImage,
+                    variant: 'column' as const,
+                    caption: 'A sprint planning board for the contributing designers, with the sprint goal and each person\'s tickets.',
+                    alt: 'A FigJam board for Sprint 75, 07/29 to 08/11. A sprint goal panel on the left reads Align with dev on expectation of dev hand-off documentation. Five colored columns hold one designer\'s tickets each, with story points per person. Sticky notes below cover token work and assignments.',
                 },
             ],
         },

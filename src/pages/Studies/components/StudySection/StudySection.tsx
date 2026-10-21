@@ -19,8 +19,8 @@ const renderEmphasis = (text: string) =>
   );
 
 const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => {
-  const image = section.image && section.image.length > 0 ? section.image[0] : undefined;
-  const endsWithMedia = Boolean(section.panels || section.compare || image?.src);
+  const images = section.image?.filter((img) => img.src) ?? [];
+  const endsWithMedia = Boolean(section.panels || section.compare || images.length);
   const hasBullets = Boolean(section.descriptionBullets?.length);
   return (
     <section className={clsx(styles.section, endsWithMedia && styles.endsWithMedia)} data-order={section.order}>
@@ -49,9 +49,9 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
       </div>
       {section.panels && <StudyPanels {...section.panels} className={styles.media} />}
       {section.compare && <StudyCompare {...section.compare} className={styles.media} />}
-      {image?.src && (
-        <StudyImage src={image.src} alt={image.alt || ''} caption={image.caption} corners={image.corners} variant={image.variant} className={styles.media} />
-      )}
+      {images.map((image) => (
+        <StudyImage key={image.src} src={image.src} alt={image.alt || ''} caption={image.caption} corners={image.corners} variant={image.variant} className={styles.media} />
+      ))}
     </section>
   );
 };

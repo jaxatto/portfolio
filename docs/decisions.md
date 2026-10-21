@@ -414,7 +414,7 @@ Revised (2026-10-19, D-067): ActBlue's intro first sentence is split in two, "fu
 
 Revised (2026-10-19, D-067): the $1.5M saving is an estimate everywhere. The page no longer says "over" and now matches the Home card and meta ("an estimated $1.5M a year"). Jax confirmed the days or weeks to minutes setup claim and the reuse by other integrations and internal tools. The highlighted sentence in D-082's list reads "Internal estimates put the savings at $1.5 million per year in reduced support costs."
 
-## D-067: Study header role line on phones, en dash in dates — decided, 2026-10-20
+## D-085: Study header role line on phones, en dash in dates — decided, 2026-10-20
 
 At 640px and below the role and place stay on one line and the date drops to its own line without the dot, so a wrapped line never ends or starts with a dot (it did on ActBlue at 375). The date never breaks across lines. DateRange uses an en dash (was an em dash), per Jax: dates take an en dash. The change also reaches Resume through the shared component.
 
@@ -426,3 +426,7 @@ The page is `/case-studies/toyota` (`Studies/pages/Toyota`), wired in `Studies.t
 ## D-084: Study image variant `column` — decided, 2026-10-21
 
 `StudyImage` gets a third variant, `column`: the image and its caption are 40rem wide (the reading column) and left-aligned to the 960 edge. It is for a tall UI crop that would stretch and blur at 960px. First use: Toyota's Figma variables panel in Outcomes. Part of the parked `StudyMedia` rethink in docs/plan.md.
+
+## D-086: Several images in one study section — decided, 2026-10-21
+
+A section renders every image in its `image` array, in order (it rendered only the first). Images that follow each other are 40px apart. Toyota Outcomes shows the Figma variables image first and the sprint board second, both at the 640 column width. TODO(jax): the sprint board is the 800px pasted image, so it is soft on retina screens. Export it from Figma at 1280px or wider to replace it.

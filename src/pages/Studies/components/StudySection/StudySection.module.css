@@ -19,6 +19,11 @@
 	margin-block: var(--size-space-4xl);
 }
 
+/* Two images in a row are 40px apart, not 80 (D-086). */
+.media + .media {
+	margin-top: 0;
+}
+
 @media (max-width: 640px) {
 	.section + .section {
 		margin-top: var(--size-space-4xl);
