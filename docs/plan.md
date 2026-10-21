@@ -10,7 +10,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
 - [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
-- [~] 4. Case study content: Indeed done (copy, images, D-047 to D-066). ActBlue done (D-067 to D-075, final pass 2026-10-19, ready for Jax to merge) and Indeed updated alongside it. ServiceNow done (D-077, D-078, waiting for Jax's review). Next Toyota (page does not exist yet)
+- [~] 4. Case study content: Indeed done (copy, images, D-047 to D-066). ActBlue done (D-067 to D-075, final pass 2026-10-19, ready for Jax to merge) and Indeed updated alongside it. ServiceNow done (D-077, D-078, waiting for Jax's review). Toyota copy and page built (D-083), waiting on Jax's images
 - [x] 5. About (D-040 to D-045, merged with slice 2; only a scale number for the Toyota token work is open)
 - [ ] 6. Resume (do together with Jax, later)
 
@@ -23,14 +23,14 @@ Slice 3 (case study template) is merged into `redesign`. Next: Toyota (ActBlue, 
 ## Open questions for Jax
 
 Copy (all marked `TODO(jax)`, provisional):
-- About copy, round one applied (D-044). Earlier-roles paragraph added with links to the three case studies (Visa left out). Still open: a scale number for the Toyota token work (brands, products or token count). Toyota's meta is drafted in D-045 and waits for its page.
+- About copy, round one applied (D-044). Earlier-roles paragraph added with links to the three case studies (Visa left out). Still open: a scale number for the Toyota token work (brands, products or token count). Toyota's scale is now answered in D-083 (680 + 120 tokens, 40 teams, one brand today).
 - Hero: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Revisit later if needed.
 - Footer line: "Open to remote Staff Product Designer and Design Engineer roles." (D-021, D-024).
 - 404 quips: seven phrases in `src/pages/NotFound/resources/content.ts`, picked at random (D-022).
 - Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Other pages' titles and meta still say "Staff Product Designer – Scalable UX…" and "at ServiceNow" (the About design says Toyota); each page's slice updates its own.
 
 Design / tokens:
-1. **Toyota case study page** doesn't exist: its Home card links to `/case-studies/toyota` (the 404 for now). Add the content before launch, then drop `ready: false` in `StudyCardGrid.tsx` (D-028).
+1. **Toyota case study images** are not in yet (D-083). Slots are marked in `Toyota/content.ts`.
 2. **Figma is a reference only.** It is out of date for Home, About and the focus ring, and Jax won't update it; code and `docs/decisions.md` are the source of truth (2026-10-15).
 3. The card ramp ends at teal (container teal 100); a fifth study would continue with green (not built, D-030).
 4. Dark card backgrounds were tinted 30% toward the ground; check against the rest of the dark pages when they migrate (D-028).
