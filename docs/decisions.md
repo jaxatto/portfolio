@@ -429,4 +429,4 @@ The page is `/case-studies/toyota` (`Studies/pages/Toyota`), wired in `Studies.t
 
 ## D-086: Several images in one study section — decided, 2026-10-21
 
-A section renders every image in its `image` array, in order (it rendered only the first). Images that follow each other are 40px apart. Toyota Outcomes shows the Figma variables image first and the sprint board second, both at the 640 column width. TODO(jax): the sprint board is the 800px pasted image, so it is soft on retina screens. Export it from Figma at 1280px or wider to replace it.
+A section renders every image in its `image` array, in order (it rendered only the first). Images that follow each other are 40px apart. Toyota Outcomes shows the sprint board at the 640 column width and the Figma variables image is the hero (banner crop, Jax: text does not need to be readable). The sprint board stays the 800px image (Jax does not need it sharp).

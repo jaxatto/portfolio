@@ -4,7 +4,7 @@ import ecosystemImage from './images/ecosystem-diagram-min.jpg';
 import sprintImage from './images/sprint-board-min.jpg';
 import type { ChipData } from '@components/ChipGroup';
 
-// TODO(jax): still missing (Figma 2948:40398): the header banner and an optional Deliverables image.
+// TODO(jax): still missing (Figma 2948:40398): an optional Deliverables image.
 const content = {
     header: {
         title: 'Toyota PRIME Token System',
@@ -19,6 +19,14 @@ const content = {
         description: [
             'I led token architecture, the Figma component library and technical planning for PRIME, Toyota Motor North America\'s design system. I built a multi-brand token framework in TypeScript and an automated pipeline that syncs it with Figma variables.',
             'The framework defines 680 primitive and theme tokens and 120 component tokens. It supports SCaFT and Toyota today and is set up to add Lexus and more.',
+        ],
+        image: [
+            {
+                src: variablesImage,
+                variant: 'banner' as const,
+                caption: 'The Figma variable collections: a theme collection with light and dark values, and primitives for the shared core, SCaFT and Toyota.',
+                alt: 'The Figma variables panel in dark mode. The collections are theme, _primitives, _primitives-scaft and _primitives-toyota. The theme collection lists color variables for content, surface and border, each with a light and a dark value that points to a primitive.',
+            },
         ],
         chips: [
             { label: 'Design Systems', theme: 'tertiary' },
@@ -88,12 +96,6 @@ const content = {
                 'In the short term, 40 SCaFT product teams were expected to adopt the tokens across 10 web apps, with more as themes expand. The framework gives design and engineering one source of truth, and new brands and themes can be added to it. Once the tokens are fully applied, they are expected to reduce the manual upkeep between design and code.',
             ],
             image: [
-                {
-                    src: variablesImage,
-                    variant: 'column' as const,
-                    caption: 'The Figma variable collections: a theme collection with light and dark values, and primitives for the shared core, SCaFT and Toyota.',
-                    alt: 'The Figma variables panel in dark mode. The collections are theme, _primitives, _primitives-scaft and _primitives-toyota. The theme collection lists color variables for content, surface and border, each with a light and a dark value that points to a primitive.',
-                },
                 {
                     src: sprintImage,
                     variant: 'column' as const,
