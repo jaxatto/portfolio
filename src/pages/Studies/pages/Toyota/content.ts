@@ -1,7 +1,9 @@
+import proposalImage from './images/token-proposal-min.jpg';
+import ecosystemImage from './images/ecosystem-diagram-min.jpg';
 import type { ChipData } from '@components/ChipGroup';
 
-// TODO(jax): the images are not in yet. Each section marks where its image goes (Figma 2948:40398):
-// header banner, Context (proposal slide), Contributions (ecosystem diagram), Outcomes (Figma and code pair).
+// TODO(jax): still missing (Figma 2948:40398): the header banner, the Figma and code pair in Outcomes
+// (no code screenshot exists) and an optional Deliverables image.
 const content = {
     header: {
         title: 'Toyota PRIME Token System',
@@ -34,7 +36,13 @@ const content = {
                 'Two things complicated the plan. Design introduced tokens as a best practice before the business had set its scaling goals. Engineering then dropped a planned migration from MUI v5 to shadcn/ui partway through the project, which changed the implementation plans.',
                 'With codebases shifting and budgets unsettled, I took technical ownership of the token framework and the automation between Figma and code.',
             ],
-            // Image: proposal slide strip. Caption: 'Part of my proposal to leadership on investing in tokens, what they do for the team, and how they support Toyota\'s business goals.'
+            image: [
+                {
+                    src: proposalImage,
+                    caption: 'Part of my proposal to leadership on investing in tokens, what they do for the team, and how they support Toyota\'s business goals.',
+                    alt: 'Five Figma boards comparing the token systems of GitHub Primer, IBM Carbon, Google Material 3, Salesforce Lightning 2 and the Atlassian Design System. Beside them are four proposal pages: Design Tokens, Value Proposal, Lift and Level of Effort, and a color token proof of concept.',
+                },
+            ],
         },
         {
             order: 2,
@@ -61,7 +69,13 @@ const content = {
                     text: 'I ran sprint planning for five contributing designers and held alignment meetings with engineering throughout the year, until I handed the work off. I wrote 12 epics and 200+ stories, creating and importing the stories in bulk with Python and AI.',
                 },
             ],
-            // Image: ecosystem diagram. Caption: 'Tokens would fit into the existing multi-library ecosystem and carry across React, Angular and Swift applications.'
+            image: [
+                {
+                    src: ecosystemImage,
+                    caption: 'Tokens would fit into the existing multi-library ecosystem and carry across React, Angular and Swift applications.',
+                    alt: 'A diagram of the PRIME ecosystem. Figma and code libraries for tokens, components, assets, data visualization, data tables and SCaFT sit in one group. Arrows lead to SCaFT tools such as GPS and Pipeline. They also reach Angular apps such as Toyota.com and Dealer Daily, and React apps such as Smart Path and PCO.',
+                },
+            ],
         },
         {
             order: 3,
