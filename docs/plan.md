@@ -30,7 +30,7 @@ Copy (all marked `TODO(jax)`, provisional):
 - Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Other pages' titles and meta still say "Staff Product Designer – Scalable UX…" and "at ServiceNow" (the About design says Toyota); each page's slice updates its own.
 
 Design / tokens:
-1. **Toyota case study page** doesn't exist: its Home card links to `/case-studies/toyota` (the 404 for now). Add the content before launch, then drop `ready: false` in `StudyCardGrid.tsx` (D-028).
+1. **Toyota case study images** are not in yet (D-083). Slots are marked in `Toyota/content.ts`.
 2. **Figma is a reference only.** It is out of date for Home, About and the focus ring, and Jax won't update it; code and `docs/decisions.md` are the source of truth (2026-10-15).
 3. The card ramp ends at teal (container teal 100); a fifth study would continue with green (not built, D-030).
 4. Dark card backgrounds were tinted 30% toward the ground; check against the rest of the dark pages when they migrate (D-028).
