@@ -4,7 +4,7 @@ import type { StudyImageProps } from '@commonTypes/study/studyImage';
 import styles from './StudyImage.module.css';
 
 const StudyImage: React.FC<StudyImageProps> = ({ src, alt, caption, className, corners, variant = 'default' }) => (
-  <figure className={clsx(styles.figure, className)}>
+  <figure className={clsx(styles.figure, variant === 'column' && styles.column, className)}>
     <img
       src={src}
       alt={alt}
