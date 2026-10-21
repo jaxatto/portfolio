@@ -72,6 +72,7 @@ const content = {
             image: [
                 {
                     src: ecosystemImage,
+                    variant: 'column' as const,
                     caption: 'Tokens would fit into the existing multi-library ecosystem and carry across React, Angular and Swift applications.',
                     alt: 'A diagram of the PRIME ecosystem. Figma and code libraries for tokens, components, assets, data visualization, data tables and SCaFT sit in one group. Arrows lead to SCaFT tools such as GPS and Pipeline. They also reach Angular apps such as Toyota.com and Dealer Daily, and React apps such as Smart Path and PCO.',
                 },
