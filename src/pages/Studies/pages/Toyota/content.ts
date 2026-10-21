@@ -4,7 +4,6 @@ import ecosystemImage from './images/ecosystem-diagram-min.jpg';
 import sprintImage from './images/sprint-board-min.jpg';
 import type { ChipData } from '@components/ChipGroup';
 
-// TODO(jax): still missing (Figma 2948:40398): an optional Deliverables image.
 const content = {
     header: {
         title: 'Toyota PRIME Token System',

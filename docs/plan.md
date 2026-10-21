@@ -10,35 +10,40 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
 - [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
-- [~] 4. Case study content: Indeed done (copy, images, D-047 to D-066). ActBlue done (D-067 to D-075, final pass 2026-10-19, ready for Jax to merge) and Indeed updated alongside it. ServiceNow done (D-077, D-078, waiting for Jax's review). Toyota copy and page built (D-083), waiting on Jax's images
-- [x] 5. About (D-040 to D-045, merged with slice 2; only a scale number for the Toyota token work is open)
+- [x] 4. Case study content: Indeed, ActBlue, ServiceNow and Toyota (D-047 to D-086), all merged to `redesign` or ready on the slice 3 branch; verified end to end 2026-10-21 (375, 768, 1280, light and dark: no overflow, one h1, heading order, alt text, links, meta)
+- [x] 5. About (D-040 to D-045, merged with slice 2). The Toyota scale number is answered (D-083)
 - [ ] 6. Resume (do together with Jax, later)
 
 Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slice 3 (case study template) is merged into `redesign`. Next: Toyota (ActBlue, Indeed and ServiceNow are done). Bring each page to the Indeed pattern: left-aligned 40rem reading column (D-066), images with 40px around them (D-053), the template's hero and image components, `legacy={false}` already set by the template, and copy per the Copy voice rules (use the `copy-check` skill). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where that is relevant. The global `.legacy` rules (Link.module.scss) and the D-027 TEMP dark-mode rule stay until Resume is migrated (slice 6), since only Resume still uses them. Dark mode is still gated for production (D-011) but shows in the dev server (`.env.development`).
+Slices 3 and 4 are done: the case study template and all four studies (Indeed, ActBlue, ServiceNow, Toyota). Next is slice 6, Resume, a joint effort with Jax. It is the last page on the legacy styling. When it moves to tokens and `legacy={false}`, delete the global `.legacy` rules (Link.module.scss) and the D-027 TEMP dark-mode rule in main.scss, then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
 
 ## Open questions for Jax
 
 Copy (all marked `TODO(jax)`, provisional):
-- About copy, round one applied (D-044). Earlier-roles paragraph added with links to the three case studies (Visa left out). Still open: a scale number for the Toyota token work (brands, products or token count). Toyota's scale is now answered in D-083 (680 + 120 tokens, 40 teams, one brand today).
+- About copy, round one applied (D-044). Earlier-roles paragraph added with links to the three case studies (Visa left out). The Toyota scale is answered in D-083 (680 + 120 tokens, 40 teams, one brand today).
 - Hero: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Revisit later if needed.
 - Footer line: "Open to remote Staff Product Designer and Design Engineer roles." (D-021, D-024).
 - 404 quips: seven phrases in `src/pages/NotFound/resources/content.ts`, picked at random (D-022).
 - Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Other pages' titles and meta still say "Staff Product Designer – Scalable UX…" and "at ServiceNow" (the About design says Toyota); each page's slice updates its own.
 
 Design / tokens:
-1. **Toyota case study images** are not in yet (D-083). Slots are marked in `Toyota/content.ts`.
-2. **Figma is a reference only.** It is out of date for Home, About and the focus ring, and Jax won't update it; code and `docs/decisions.md` are the source of truth (2026-10-15).
-3. The card ramp ends at teal (container teal 100); a fifth study would continue with green (not built, D-030).
-4. Dark card backgrounds were tinted 30% toward the ground; check against the rest of the dark pages when they migrate (D-028).
-5. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. There is no tablet design for the footer (stacks at 640px).
-6. The link arrows are Phosphor bold, so their stroke scales with size (D-026). Revisit if it reads light.
-7. Icons: all UI icons are Phosphor bold and the emoji are gone (D-037).
-8. ServiceNow's Outcomes rest on what Jax recalls (no metrics exist for the tool). The Toyota frame's footer says "Design Technologist" where the site says "Design Engineer".
-9. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
+1. **Figma is a reference only.** It is out of date for Home, About and the focus ring, and Jax won't update it; code and `docs/decisions.md` are the source of truth (2026-10-15).
+2. The card ramp ends at teal (container teal 100); a fifth study would continue with green (not built, D-030).
+3. Dark card backgrounds were tinted 30% toward the ground; check against the rest of the dark pages when they migrate (D-028).
+4. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. There is no tablet design for the footer (stacks at 640px).
+5. The link arrows are Phosphor bold, so their stroke scales with size (D-026). Revisit if it reads light.
+6. Icons: all UI icons are Phosphor bold and the emoji are gone (D-037).
+7. ServiceNow's Outcomes rest on what Jax recalls (no metrics exist for the tool). The Toyota frame's footer says "Design Technologist" where the site says "Design Engineer".
+8. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
+
+Remaining `TODO(jax)` in the code (2026-10-21, all provisional copy or design, none block the studies):
+- Footer line copy (`Footer.tsx`, D-021) and no tablet design for the footer (`Footer.module.css`, D-008, D-024).
+- Header role line and H1 treatment are provisional (`Header.tsx`, content pass).
+- 404 quips (`NotFound/resources/content.ts`) and the Home SEO copy (`Work.tsx`, D-003, D-016).
+- Toyota page: no Deliverables image (decided 2026-10-21: none wanted). The sprint board image is 800px and soft on retina (Jax is fine with that).
 
 ## Parked: study image component (raised 2026-10-19, return after ServiceNow copy is done)
 
