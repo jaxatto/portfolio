@@ -15,7 +15,7 @@ const cards: StudyCardProps[] = [
 	{
 		title: 'Building a multi‑brand token system',
 		outcome:
-			'Led token architecture and Figma-to-code automation for Toyota’s PRIME design system, a single source of truth for design and code.',
+			'Led token architecture and Figma-to-code automation for Toyota’s PRIME design system, defining 680 primitive and theme tokens and 120 component tokens.',
 		image: toyotaImage,
 		imageAlt: '',
 		linkUrl: studyLinks.toyota,

@@ -17,7 +17,7 @@ const content = {
         ],
         description: [
             'I led token architecture, the Figma component library and technical planning for PRIME, Toyota Motor North America\'s design system. I built a multi-brand token framework in TypeScript and an automated pipeline that syncs it with Figma variables.',
-            'The framework defines 680 primitive and theme tokens and 120 component tokens. It supports one brand today, SCaFT, and is set up to add Toyota, Lexus and more.',
+            'The framework defines 680 primitive and theme tokens and 120 component tokens. It supports SCaFT and Toyota today and is set up to add Lexus and more.',
         ],
         chips: [
             { label: 'Design Systems', theme: 'tertiary' },
