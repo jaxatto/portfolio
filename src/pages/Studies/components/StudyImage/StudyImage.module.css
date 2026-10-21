@@ -30,6 +30,11 @@
 	text-wrap: pretty;
 }
 
+/* Column (D-084): a tall UI crop at the reading column width, left-aligned to the 960 edge like the text (D-066). */
+.column {
+	max-width: 40rem;
+}
+
 /* Banner (D-050): a 3:1 crop of the top of the image from tablet up, the natural shape on phones. */
 .banner {
 	object-fit: cover;

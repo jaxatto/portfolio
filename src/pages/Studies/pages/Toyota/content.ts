@@ -1,9 +1,9 @@
 import proposalImage from './images/token-proposal-min.jpg';
+import variablesImage from './images/figma-variables-min.jpg';
 import ecosystemImage from './images/ecosystem-diagram-min.jpg';
 import type { ChipData } from '@components/ChipGroup';
 
-// TODO(jax): still missing (Figma 2948:40398): the header banner, the Figma and code pair in Outcomes
-// (no code screenshot exists) and an optional Deliverables image.
+// TODO(jax): still missing (Figma 2948:40398): the header banner and an optional Deliverables image.
 const content = {
     header: {
         title: 'Toyota PRIME Token System',
@@ -85,7 +85,14 @@ const content = {
                 'I architected the multi-brand token framework and the automation that syncs it with Figma. I applied the tokens to Figma components manually and through automation where possible. When I left, 15 components were mapped and 3 more were in development. The coded components were in progress.',
                 'In the short term, 40 SCaFT product teams were expected to adopt the tokens across 10 web apps, with more as themes expand. The framework gives design and engineering one source of truth, and new brands and themes can be added to it. Once the tokens are fully applied, they are expected to reduce the manual upkeep between design and code.',
             ],
-            // Image: Figma and code pair (StudyCompare). Caption: waiting on Jax.
+            image: [
+                {
+                    src: variablesImage,
+                    variant: 'column' as const,
+                    caption: 'The Figma variable collections: a theme collection with light and dark values, and primitives for the shared core, SCaFT and Toyota.',
+                    alt: 'The Figma variables panel in dark mode. The collections are theme, _primitives, _primitives-scaft and _primitives-toyota. The theme collection lists color variables for content, surface and border, each with a light and a dark value that points to a primitive.',
+                },
+            ],
         },
         {
             order: 4,
