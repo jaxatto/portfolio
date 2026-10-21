@@ -9,6 +9,7 @@ Jax Engel's portfolio (https://jaxengeldesign.com): React 19 + TypeScript SPA, V
 1. If a skill named `i-have-adhd` is available, load it and follow it for the whole session. (Jax wants it in every Claude session. See `docs/plan.md` → Setup.)
 2. Read `docs/plan.md` (where we are, what's next) and skim `docs/decisions.md` (what's already decided). Don't re-ask settled questions.
 3. Check `git status` and the current branch. Confirm the git identity (below).
+4. **Check GitHub auth is `jaxatto`.** Run `gh auth status`. If the active account is not `jaxatto` (the machine also has `rhya-games`, which is not a collaborator and cannot open PRs here), run `gh auth switch -u jaxatto` and check again before any `gh` or PR step.
 
 ## Shared memory across sessions
 
