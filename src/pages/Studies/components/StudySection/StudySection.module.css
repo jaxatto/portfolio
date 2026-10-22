@@ -1,4 +1,4 @@
-/* Study section (D-046): h2 at heading-lg like About, text at 40rem, image at full column width. */
+/* Study section (D-046): h2 at heading-lg like About, text at 640px, image at full column width. */
 
 /* Each image has 40px above and below it (D-053), its own margin. A section that ends with an image
    adds no gap before the next section. */
@@ -30,24 +30,20 @@
 	}
 }
 
-/* The title and text share one left-aligned 40rem reading column (`copy`); images and the before / after
+/* The title and text share one left-aligned 640px reading column (`copy`); images and the before / after
    pair run the full 960 column (D-051). Text inside stays left-aligned. */
 .copy {
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-md); /* 12px under the h2 (D-057) */
 	width: 100%;
-	max-width: 40rem;
+	max-width: var(--size-layout-content-max);
 	margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
 }
 
 .title {
-	margin: 0;
+	composes: headingLg from '#styles/type.module.css';
 	color: var(--color-content-prose); /* true black in light (D-056) */
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-	line-height: var(--font-style-heading-lg-line-height);
 }
 
 .text {
@@ -86,10 +82,6 @@
 }
 
 .label {
-	margin: 0;
+	composes: headingSm from '#styles/type.module.css';
 	color: var(--study-heading, var(--color-content-emphasis)); /* the study's tint (D-069) */
-	font-family: var(--font-style-heading-sm-family);
-	font-size: var(--font-style-heading-sm-size);
-	font-weight: var(--font-weight-emphasis); /* bold, 700 (D-055) */
-	line-height: var(--font-style-heading-sm-line-height);
 }

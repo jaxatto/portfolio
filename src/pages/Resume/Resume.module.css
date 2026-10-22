@@ -1,4 +1,4 @@
-/* Resume page (slice 6, D-087). Tokens only. One column on the 960 grid, text held to 40rem. */
+/* Resume page (slice 6, D-087). Tokens only. One column on the 960 grid, text held to 640px. */
 
 .page {
 	display: flex;
@@ -12,16 +12,12 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-2xl);
-	max-width: 40rem;
+	max-width: var(--size-layout-content-max);
 }
 
 .title {
-	margin: 0;
+	composes: titleMd from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
-	font-family: var(--font-style-title-md-family);
-	font-size: var(--font-style-title-md-size);
-	font-weight: var(--font-style-title-md-weight);
-	line-height: var(--font-style-title-md-line-height);
 }
 
 .role {
@@ -99,12 +95,8 @@
 }
 
 .heading {
-	margin: 0;
+	composes: headingLg from '#styles/type.module.css';
 	color: var(--color-content-prose);
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-	line-height: var(--font-style-heading-lg-line-height);
 }
 
 /* The roles carry their own top hairlines and 32px padding, so the list starts 32px under the h2 minus the first row's padding. */

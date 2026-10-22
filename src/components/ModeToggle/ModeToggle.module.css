@@ -4,6 +4,8 @@
    like the nav links: no color change, no line. See D-017. */
 
 .button {
+	composes: line from '#styles/line.module.css';
+	--line-inset: 9px;
 	position: relative;
 	display: inline-flex;
 	align-items: center;
@@ -31,25 +33,6 @@
 /* The accent line under the icon: same size, easing and duration as the nav links' line, aligned to the
    nav line's baseline (the button is 40px in a 44px row, so bottom: 0 lands on the same y). It grows
    in from the left on hover and shrinks out to the right, like the nav. */
-.button::after {
-	content: '';
-	position: absolute;
-	right: 9px;
-	bottom: 0;
-	left: 9px;
-	height: 3px;
-	border-radius: 2px;
-	background: var(--color-primary-default);
-	transform: scaleX(0);
-	transform-origin: left center;
-	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-.button:hover::after {
-	transform: scaleX(1);
-	transform-origin: left center;
-}
-
 .button:active::after {
 	background: var(--color-primary-default-active);
 }

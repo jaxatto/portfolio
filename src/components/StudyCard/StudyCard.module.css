@@ -103,13 +103,9 @@
 }
 
 .title {
-	margin: 0;
+	composes: headingLg from '#styles/type.module.css';
 	color: var(--card-fg);
 	/* heading-lg (32px at desktop, Figma). Titles are written to wrap to two lines (D-034). */
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-	line-height: var(--font-style-heading-lg-line-height);
 	text-wrap: balance;
 }
 
@@ -136,6 +132,11 @@
 }
 
 .linkText {
+	composes: line from '#styles/line.module.css';
+	/* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
+	   below the box, not 2px above its bottom (D-031). */
+	--line-bottom: calc(-1 * var(--size-border-width-default));
+	--line-color: currentcolor;
 	position: relative;
 }
 
@@ -146,24 +147,6 @@
 
 /* Hover style from the nav and footer links (D-017, D-031): no resting underline; on hover a 3px
    line grows in from the left. Text color and arrow stay put. Focus shows only the card's ring. */
-.linkText::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	/* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
-	   below the box, not 2px above its bottom (D-031). */
-	bottom: calc(-1 * var(--size-border-width-default));
-	left: 0;
-	height: 3px;
-	border-radius: 2px;
-	background: currentcolor;
-	transform: scaleX(0);
-	/* Origin stays on the left for grow and retract: swapping it on hover made the line jump when the
-	   pointer re-entered mid-transition. */
-	transform-origin: left center;
-	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
 /* Stretched link: the whole card is the click target. */
 .link::after {
 	content: '';

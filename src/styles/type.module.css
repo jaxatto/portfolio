@@ -1,0 +1,24 @@
+/* Shared type steps. Pages compose these (`composes: headingLg from '#styles/type.module.css'`) and set
+   their own color, so a size, family or weight is defined once. Color and spacing stay with the component. */
+
+.titleMd {
+	margin: 0;
+	font-family: var(--font-style-title-md-family);
+	font-size: var(--font-style-title-md-size);
+	font-weight: var(--font-style-title-md-weight);
+}
+
+.headingLg {
+	margin: 0;
+	font-family: var(--font-style-heading-lg-family);
+	font-size: var(--font-style-heading-lg-size);
+	font-weight: var(--font-style-heading-lg-weight);
+}
+
+/* Bold (700) label step: "Label: sentence" headings, role titles, skill groups (D-055). */
+.headingSm {
+	margin: 0;
+	font-family: var(--font-style-heading-sm-family);
+	font-size: var(--font-style-heading-sm-size);
+	font-weight: var(--font-weight-emphasis);
+}

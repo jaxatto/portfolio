@@ -53,33 +53,10 @@
 }
 
 /* Line style (D-090): the nav links' treatment for links in page content. No resting underline. On hover
-   the text turns violet and a 3px line grows in from the left, drawn below the box so the focus ring
-   stays centered. Keyboard focus shows only the ring (D-017). */
+   the text turns violet and a 3px line grows in from the left (shared, src/styles/line.module.css), drawn
+   below the box so the focus ring stays centered. Keyboard focus shows only the ring (D-017). */
 .line {
+	composes: line from '#styles/line.module.css';
 	position: relative;
 	text-decoration: none;
-}
-
-.line::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	height: 3px;
-	border-radius: 2px;
-	background: var(--color-primary-default);
-	transform: scaleX(0);
-	transform-origin: left center;
-	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-.line:hover::after {
-	transform: scaleX(1);
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.line::after {
-		transition: none;
-	}
 }

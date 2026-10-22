@@ -5,10 +5,6 @@
 }
 
 .heading {
-	margin: 0;
+	composes: headingSm from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
-	font-family: var(--font-style-heading-sm-family);
-	font-size: var(--font-style-heading-sm-size);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-style-heading-sm-line-height);
 }

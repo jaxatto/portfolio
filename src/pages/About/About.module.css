@@ -19,12 +19,8 @@
 }
 
 .title {
-	margin: 0;
+	composes: titleMd from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
-	font-family: var(--font-style-title-md-family);
-	font-size: var(--font-style-title-md-size);
-	font-weight: var(--font-style-title-md-weight);
-	line-height: var(--font-style-title-md-line-height);
 }
 
 /* The I-beam, like the "build" chip on Home: these chips read as typed text. */
@@ -32,12 +28,12 @@
 	cursor: text;
 }
 
-/* Story: left-aligned on the grid, held to about 40rem so lines stay readable. */
+/* Story: left-aligned on the grid, held to about 640px so lines stay readable. */
 .story {
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-section-sm);
-	max-width: 40rem;
+	max-width: var(--size-layout-content-max);
 	font-family: var(--font-style-body-md-family);
 	font-size: var(--font-style-body-md-size);
 	line-height: var(--font-style-body-md-line-height);
@@ -54,13 +50,9 @@
 	margin: 0;
 }
 
-.story h2 {
-	margin: 0;
+.heading {
+	composes: headingLg from '#styles/type.module.css';
 	color: var(--color-content-prose); /* true black in light (D-056) */
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-	line-height: var(--font-style-heading-lg-line-height);
 }
 
 /* 12px between an h2 and what follows (D-057): the section's 24px gap minus 12. */
@@ -76,16 +68,12 @@
 }
 
 /* "Strategic Product Design" etc.: h3s, one step above the sentence and well under the h2s. */
-.story h3 {
-	margin: 0;
+.subheading {
+	composes: headingSm from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
-	font-family: var(--font-style-heading-sm-family);
-	font-size: var(--font-style-heading-sm-size);
-	font-weight: var(--font-weight-emphasis); /* bold, 700 (D-055) */
-	line-height: var(--font-style-heading-sm-line-height);
 }
 
-/* Pets: rounded squares, the same corner as the cards. They sit outside the 40rem story column, so the
+/* Pets: rounded squares, the same corner as the cards. They sit outside the 640px story column, so the
    row spans the full 960 grid. Two by two on phones, four across from tablet. */
 .photos {
 	display: grid;

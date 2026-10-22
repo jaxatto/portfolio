@@ -19,7 +19,7 @@ const LabelledParagraph: React.FC<{ text: string }> = ({ text }) => {
   if (split === -1) return <p>{text}</p>;
   return (
     <div className={styles.item}>
-      <h3>{text.slice(0, split)}</h3>
+      <h3 className={styles.subheading}>{text.slice(0, split)}</h3>
       <p>{text.slice(split + 2)}</p>
     </div>
   );
@@ -71,13 +71,13 @@ const About: React.FC = () => (
         </p>
       </section>
       <section>
-        <h2>{content.how.heading}</h2>
+        <h2 className={styles.heading}>{content.how.heading}</h2>
         {content.how.description.map((desc, i) => (
           <LabelledParagraph key={i} text={desc} />
         ))}
       </section>
       <section>
-        <h2>{content.more.heading}</h2>
+        <h2 className={styles.heading}>{content.more.heading}</h2>
         {content.more.description.map((desc, i) => (
           <p key={i}>{desc}</p>
         ))}

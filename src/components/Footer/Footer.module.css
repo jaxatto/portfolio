@@ -68,6 +68,10 @@
 /* Email and icon links use the nav links' treatment (D-017): no resting underline, violet on hover
    and a 3px line growing in from the left, at the same position. In-content links keep their
    always-on underline. */
+.email {
+	composes: line from '#styles/line.module.css';
+}
+
 .main .email {
 	position: relative;
 	/* Hug the text so the hover line spans the email, not the column. */
@@ -88,34 +92,13 @@
 	bottom: min(0px, calc((100% - 44px) / 2));
 }
 
-.email::after,
-.icon-link::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	/* Drawn below the box (not by padding) so focus rings stay centered; same offset on both: the line's bottom edge is flush with the box. */
-	bottom: 0;
-	left: 0;
-	height: 3px;
-	border-radius: 2px;
-	background: var(--color-primary-default);
-	transform: scaleX(0);
-	transform-origin: left center;
-	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
 .main .email:hover {
 	color: var(--color-primary-default);
 	text-underline-offset: 0;
 }
 
-.email:hover::after,
-.icon-link:hover::after {
-	transform: scaleX(1);
-	transform-origin: left center;
-}
-
 .icon-link {
+	composes: line from '#styles/line.module.css';
 	position: relative;
 	display: flex;
 	align-items: center;
