@@ -3,6 +3,7 @@ import Layout from "@components/Layout";
 import Image from "@components/Image";
 import { DesignSelection, Caret, CursorTag } from "#components/HeroMarks";
 import TextLink from "#components/TextLink";
+import { Chip, ChipList, chipPalettes } from "#components/Chip";
 import { studyLinks } from "@constants/studyLinks";
 import { images } from "./resources/images";
 import { content } from "./resources/content";
@@ -11,9 +12,6 @@ import styles from "./About.module.css";
 
 // About page on tokens and the 960px column (D-040, D-041). One column: a hero with the Home
 // header's Figma and code marks, the facts as chips, then the story at a readable measure.
-
-// One palette per chip, the same four container pairs as the Home cards.
-const chipPalettes = ["primary", "secondary", "tertiary", "quaternary"] as const;
 
 // "Label: sentence" paragraphs get the label as an h3 above the sentence. Copy is unchanged, only split here.
 const LabelledParagraph: React.FC<{ text: string }> = ({ text }) => {
@@ -37,17 +35,18 @@ const About: React.FC = () => (
       <h1 className={styles.title}>
         About <DesignSelection corner="top-right">me</DesignSelection>
       </h1>
-      <ul className={styles.chips}>
+      <ChipList>
         {content.header.bullets.map((bullet, i) => (
-          <li
+          <Chip
             key={i}
-            className={`${styles.chip} ${styles[chipPalettes[i % chipPalettes.length]]}`}
+            palette={chipPalettes[i % chipPalettes.length]}
+            className={styles.chip}
           >
             {bullet.text}
             {i === content.header.bullets.length - 1 && <Caret />}
-          </li>
+          </Chip>
         ))}
-      </ul>
+      </ChipList>
     </div>
     <div className={styles.story}>
       <section>

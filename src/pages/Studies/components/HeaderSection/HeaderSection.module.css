@@ -92,25 +92,10 @@
 	}
 }
 
-.chips {
-	display: flex;
-	/* One row while it fits in the 960 column, wrapping when the screen is narrower. */
-	flex-wrap: wrap;
-	gap: var(--size-space-md);
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.chip {
-	padding: var(--size-space-sm) var(--size-space-lg);
-	border-radius: var(--size-radius-md);
-	background: var(--study-container, var(--color-primary-container));
-	color: var(--study-heading, var(--color-primary-on-container));
-	font-family: var(--font-family-mono);
-	font-size: var(--font-style-body-sm-size);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-line-height-default);
+/* The study's card palette colors the chips, like the h1 (D-052). The parent class keeps this above the shared Chip's own colors whatever the CSS order. */
+.header .chip {
+	--chip-bg: var(--study-container, var(--color-primary-container));
+	--chip-fg: var(--study-heading, var(--color-primary-on-container));
 }
 
 .description {

@@ -3,6 +3,7 @@ import DateRange from '@components/DateRange';
 import StudyPanels from '@pages/Studies/components/StudyPanels';
 import StudyCompare from '@pages/Studies/components/StudyCompare';
 import StudyImage from '@pages/Studies/components/StudyImage';
+import { Chip, ChipList } from '#components/Chip';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import styles from './HeaderSection.module.css';
 
@@ -42,13 +43,13 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
           />
         </p>
       </div>
-      <ul className={styles.chips}>
+      <ChipList>
         {chips.map((chip) => (
-          <li key={chip.label} className={`${styles.chip}`}>
+          <Chip key={chip.label} className={styles.chip}>
             {chip.label}
-          </li>
+          </Chip>
         ))}
-      </ul>
+      </ChipList>
       <div className={styles.description}>
         {description.map((desc, i) => (
           <p key={i}>{desc}</p>
