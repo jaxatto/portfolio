@@ -180,8 +180,7 @@
 	outline-offset: var(--size-focus-ring-offset);
 }
 
-/* The legacy global `a { transition: all .3s }` (Link.module.scss) would animate the focus ring's
-   size and position between items. Keep the ring static; only color eases. */
+/* Keep the focus ring static between items; only color and the underline ease. */
 .brand,
 .nav-link {
 	transition:

@@ -121,14 +121,6 @@
 	outline-offset: var(--size-focus-ring-offset);
 }
 
-/* Legacy global `a:hover svg` would recolor the arrow; it always follows the text. */
-.button:hover .icon,
-.button:active .icon,
-.button:focus-visible .icon {
-	color: inherit;
-	fill: currentcolor;
-}
-
 @media (width <= 340px) {
 	.button {
 		padding: var(--size-space-md) var(--size-space-xl);
