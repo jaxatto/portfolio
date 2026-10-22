@@ -15,7 +15,6 @@ type LayoutProps = {
   showFooter?: boolean; // Flag to show or hide the footer
   footerBand?: boolean; // Dark-mode band behind the footer (default on); Home turns it off (D-049)
   className?: string; // Applies styles to main content
-  legacy?: boolean; // Old SCSS pages: opts in to the global legacy link and dark-mode rules (default). Home sets false.
 } & MetaProps; // Extends MetaProps to include title and metaDescription for SEO
 
 const Layout: React.FC<LayoutProps> = ({
@@ -25,9 +24,8 @@ const Layout: React.FC<LayoutProps> = ({
   showFooter = true,
   footerBand,
   className = '',
-  legacy = true,
 }) => (
-  <div className={legacy ? 'legacy' : undefined}>
+  <div>
     <Meta title={title} metaDescription={metaDescription} />
     <Header />
     <main id='main-content' className={clsx(styles.main, className)} tabIndex={-1}>

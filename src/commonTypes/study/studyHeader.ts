@@ -1,6 +1,11 @@
-import type { ChipData } from '@components/ChipGroup';
 import type { StudyImageProps } from './studyImage';
 import type { StudyCompareData, StudyPanelsData } from './studySection';
+
+// One chip on a study header (rendered as a code-style chip).
+export type ChipData = {
+  label: string;
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
+};
 
 export type StudyHeaderProps = {
   title: string;

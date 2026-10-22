@@ -12,7 +12,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
 - [x] 4. Case study content: Indeed, ActBlue, ServiceNow and Toyota (D-047 to D-086), all merged to `redesign` or ready on the slice 3 branch; verified end to end 2026-10-21 (375, 768, 1280, light and dark: no overflow, one h1, heading order, alt text, links, meta)
 - [x] 5. About (D-040 to D-045, merged with slice 2). The Toyota scale number is answered (D-083)
-- [ ] 6. Resume (do together with Jax, later)
+- [~] 6. Resume (D-087 to D-089): page, roles and skills built on tokens, legacy global rules deleted; on branch `claude/resume-slice-a173ac`, awaiting Jax's review (skills layout to revisit)
 
 Order is a proposal; confirm before starting slice 0.
 

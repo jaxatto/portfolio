@@ -31,7 +31,6 @@ const About: React.FC = () => (
   <Layout
     title={meta.title}
     metaDescription={meta.description}
-    legacy={false}
     className={styles.page}
   >
     <div className={styles.hero}>

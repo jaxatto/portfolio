@@ -87,7 +87,7 @@ export const roles: ResumeRole[] = [
     endDate: 'May 2023',
     bullets: [
       'Redesigned core admin and integration flows to simplify reporting and setup. Helped cut support costs by an estimated $1.5M a year.',
-      'Partnered with engineers to scope complex integration logic, with robust error handling and sync visibility across third-party systems.',
+      'Partnered with engineers to scope complex integration logic, with error handling and sync visibility across third-party systems.',
       'Led accessibility efforts and documented inclusive patterns that several product teams adopted.',
     ],
     studyHref: studyLinks.actblue,

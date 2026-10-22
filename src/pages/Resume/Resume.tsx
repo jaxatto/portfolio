@@ -20,7 +20,6 @@ const Resume: React.FC = () => (
   <Layout
     title={meta.title}
     metaDescription={meta.description}
-    legacy={false}
     className={styles.page}
   >
     <header className={styles.header}>
