@@ -1,0 +1,106 @@
+/* Resume role (slice 6). Tokens only. Logo circle uses the primary container pair so the brand marks
+   read as one family in light and dark. */
+
+.role {
+	display: flex;
+	gap: var(--size-space-lg);
+	padding-block: var(--size-space-3xl);
+	border-top: var(--size-border-width-default) solid var(--color-border-decorative);
+}
+
+.logo {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: var(--color-primary-container);
+	color: var(--color-primary-on-container);
+}
+
+.logo svg {
+	width: 100%;
+	height: 100%;
+	padding: var(--size-space-sm);
+	fill: currentcolor;
+}
+
+.body {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-sm);
+	min-width: 0;
+	max-width: 40rem;
+}
+
+.title {
+	margin: 0;
+	color: var(--color-content-emphasis);
+	font-family: var(--font-style-heading-sm-family);
+	font-size: var(--font-style-heading-sm-size);
+	font-weight: var(--font-weight-emphasis);
+	line-height: var(--font-style-heading-sm-line-height);
+}
+
+.details {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--size-space-sm);
+	margin: 0;
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-sm-size);
+	line-height: var(--font-style-body-md-line-height);
+}
+
+.where {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: var(--size-space-sm);
+}
+
+.dot::before {
+	content: '\00b7';
+}
+
+.date {
+	white-space: nowrap;
+}
+
+.bullets {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-sm);
+	margin: var(--size-space-sm) 0 0;
+	padding-left: var(--size-space-2xl);
+	color: var(--color-content-prose);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-md-size);
+	line-height: var(--font-style-body-md-line-height);
+	text-wrap: pretty;
+}
+
+.study {
+	align-self: flex-start;
+	margin-top: var(--size-space-sm);
+}
+
+/* Phones: the logo sits above the text, and the date drops to its own line without the dot (D-085). */
+@media (max-width: 640px) {
+	.role {
+		flex-direction: column;
+	}
+
+	.details {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--size-space-xs);
+	}
+
+	.dateDot {
+		display: none;
+	}
+}
