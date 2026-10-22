@@ -33,8 +33,8 @@ const Resume: React.FC = () => (
       </p>
       <p className={styles.contact}>
         <span>Remote · Central Time</span>
-        <TextLink href={contactInfo.email.src}>{contactInfo.email.label}</TextLink>
-        <TextLink href={contactInfo.linkedin.src} newTab>
+        <TextLink line href={contactInfo.email.src}>{contactInfo.email.label}</TextLink>
+        <TextLink line href={contactInfo.linkedin.src} newTab>
           LinkedIn
         </TextLink>
       </p>

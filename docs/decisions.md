@@ -439,3 +439,6 @@ Rows, not cards: a 48px logo circle (primary container pair), the title as an h3
 
 ## D-089: Legacy global rules deleted — decided, 2026-10-21
 With Resume on tokens no page needs the old rules, so these are deleted: the D-027 TEMP dark-mode rules in `main.scss`, the `:global(.legacy) a` block and the whole legacy `Link` component, the `legacy` prop and class on `Layout`, and the legacy `Divider`, `Chip` and `ChipGroup` (the study `ChipData` type moved to `commonTypes/study/studyHeader.ts`), plus every Resume SCSS module and the dead Resume footer. The defensive overrides that fought the deleted `a` rules are gone too (Footer icon links, TextLink arrow, StudyCard link states, NotFound button arrow, Header transition comment); icons still follow the link color through `fill: currentcolor`. Resume skills layout (chips by group, stacked) is a first pass, to revisit with Jax on the running page.
+
+## D-090: TextLink line style on Resume — decided, 2026-10-22
+`TextLink` takes `line`: the nav links' animated treatment (no resting underline, violet text and a 3px line growing from the left on hover, ring only on keyboard focus, D-017) for links in page content. Resume's email, LinkedIn and case study links use it. Supersedes D-024's "in-content links keep the always-on underline" for Resume. Whether About and the study pages should follow is open.

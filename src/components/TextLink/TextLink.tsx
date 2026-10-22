@@ -14,6 +14,8 @@ type TextLinkProps = {
 	newTab?: boolean;
 	icon?: string;
 	size?: 'md' | 'lg';
+	// Animated line style (D-090): no resting underline, a 3px line grows in from the left on hover.
+	line?: boolean;
 	className?: string;
 	children: React.ReactNode;
 };
@@ -24,10 +26,11 @@ const TextLink: React.FC<TextLinkProps> = ({
 	newTab,
 	icon,
 	size = 'md',
+	line,
 	className,
 	children,
 }) => {
-	const classes = clsx(styles.link, size === 'lg' && styles.large, className);
+	const classes = clsx(styles.link, size === 'lg' && styles.large, line && styles.line, className);
 	const content = (
 		<>
 			{children}
