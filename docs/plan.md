@@ -18,7 +18,7 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slices 3 and 4 are done: the case study template and all four studies (Indeed, ActBlue, ServiceNow, Toyota). Next is slice 6, Resume, a joint effort with Jax. It is the last page on the legacy styling. When it moves to tokens and `legacy={false}`, delete the global `.legacy` rules (Link.module.scss) and the D-027 TEMP dark-mode rule in main.scss, then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
+Slices 3 and 4 are done: the case study template and all four studies (Indeed, ActBlue, ServiceNow, Toyota). Slice 6, Resume, is built (D-087 to D-091) and all legacy styling and SCSS is deleted. Remaining: Jax's review of Resume (skills layout), then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
 
 ## Open questions for Jax
 

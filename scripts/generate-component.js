@@ -32,11 +32,11 @@ if (subDir) {
 }
 
 const tsxFile = path.join(componentDir, `${componentName}.tsx`);
-const scssFile = path.join(componentDir, `${componentName}.module.scss`);
+const cssFile = path.join(componentDir, `${componentName}.module.css`);
 const indexFile = path.join(componentDir, `index.ts`);
 
 const tsxContent = `import React from 'react';
-import styles from './${componentName}.module.scss';
+import styles from './${componentName}.module.css';
 
 const ${componentName}: React.FC = () => (
   <div className={styles.wrapper}>
@@ -47,7 +47,7 @@ const ${componentName}: React.FC = () => (
 export default ${componentName};
 `;
 
-const scssContent = `.wrapper {
+const cssContent = `.wrapper {
   /* Styles for ${componentName} */
 }
 `;
@@ -58,7 +58,7 @@ const indexContent = `export { default } from './${componentName}';
 if (!fs.existsSync(componentDir)) {
   fs.mkdirSync(componentDir, { recursive: true });
   fs.writeFileSync(tsxFile, tsxContent);
-  fs.writeFileSync(scssFile, scssContent);
+  fs.writeFileSync(cssFile, cssContent);
   fs.writeFileSync(indexFile, indexContent);
   console.log(`Component "${componentName}" created at ${componentDir.replace(baseDir + '/', '')}`);
 } else {
@@ -68,9 +68,9 @@ if (!fs.existsSync(componentDir)) {
     console.log(`Added missing file: ${tsxFile.replace(baseDir + '/', '')}`);
     created = true;
   }
-  if (!fs.existsSync(scssFile)) {
-    fs.writeFileSync(scssFile, scssContent);
-    console.log(`Added missing file: ${scssFile.replace(baseDir + '/', '')}`);
+  if (!fs.existsSync(cssFile)) {
+    fs.writeFileSync(cssFile, cssContent);
+    console.log(`Added missing file: ${cssFile.replace(baseDir + '/', '')}`);
     created = true;
   }
   if (!fs.existsSync(indexFile)) {

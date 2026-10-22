@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Jax Engel's portfolio (https://jaxengeldesign.com): React 19 + TypeScript SPA, Vite, SCSS modules, React Router, deployed to GitHub Pages. This file describes `main`.
+Jax Engel's portfolio (https://jaxengeldesign.com): React 19 + TypeScript SPA, Vite, CSS modules, React Router, deployed to GitHub Pages. This file describes `main`.
 
 **Goal: get Jax hired.** Every change should make the portfolio stronger to a hiring manager or design leader reviewing a staff-level product designer. Polish, clarity, accessibility and craft matter more than feature count.
 
@@ -79,7 +79,7 @@ Token system (D-002, ported in slice 0): `src/tokens/` (`primitives.ts` raw valu
 
 - `src/providers/Theme` sets `data-theme`, persists the choice, follows the OS when nothing is stored. Switching is **gated** by `VITE_THEME_SWITCHING` in `.env` (currently `false`, site pinned to light) until components are migrated to tokens. Preview with `?themePreview=1` (`=0` clears). Flip the flag when the dark designs are built (D-006, D-011). The inline script in `index.html` must mirror the provider's logic.
 - Colors, spacing, radius, border width and the type scale were verified against Figma (light and dark) in slice 0. Type sizes are fluid `clamp()`s that reach the Figma desktop sizes at about 1280px; only the desktop size must match Figma, smaller sizes are tuned per slice (D-013). Manrope has no 900 weight; use 800 where Figma says 900 (D-010).
-- New and migrated components are plain CSS modules using tokens (`Name.module.css`). Keep SCSS only where it earns its place (e.g. `respond()` breakpoints). Legacy SCSS components still use the old `src/styles/_variables.scss` until their slice.
+- Components are plain CSS modules using tokens (`Name.module.css`). There is no SCSS left (D-091). Breakpoints are literal `@media` widths (640, 900).
 - Import aliases: legacy `@components/*` etc. and new `#components/*`, `#tokens/*` etc. both work (`vite.config.ts`, `tsconfig.json` and `package.json` `imports` must stay in sync). Prefer `#` in new code.
 - Not ported from `update-content`: the Figma plugin sync (`watcher.ts`, `export-figma-tokens.ts`, `tokens.json`), `stylelint`, and `theme-bridge.css` (D-012). Revisit when needed.
 
@@ -98,12 +98,12 @@ npm run sync-icons                       # regenerate icon list from src/assets/
 npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
-No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). Known baseline: `npx tsc --noEmit` reports one existing error in `src/index.tsx` (unused `@ts-expect-error` on the SCSS import); don't treat it as yours. TypeScript is 5.x.
+No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
 
 ## Structure and conventions
 
 ```
-src/components/        shared: Name/{Name.tsx, Name.module.css (migrated) or .scss (legacy), index.ts}
+src/components/        shared: Name/{Name.tsx, Name.module.css, index.ts}
                        migrated so far: Header, Footer, ModeToggle, TextLink (D-014), StudyCard and StudyCardGrid (D-028), About page (D-040), HeroMarks (D-041); Layout is full-width, only <main> is constrained
 src/pages/             Work, About, Resume, Studies, NotFound (+ pages/<Page>/components)
 src/pages/Studies/pages/<Study>/   content.ts, meta.ts, images/
@@ -114,13 +114,12 @@ src/styles/            _variables, _typography, _mixins, _functions, _utilities
 
 - Routes: `src/App.tsx`. A new case study needs a slug in `src/constants/studyLinks.ts` and a card in `StudyCardGrid/resources/content.ts`.
 - Import aliases (keep `vite.config.ts` and `tsconfig.json` in sync): `@components`, `@pages`, `@styles`, `@assets`, `@constants`, `@commonTypes`, `@providers`.
-- `src/styles/_all.scss` is injected into every SCSS module; don't `@use` it manually.
 - Scaffold with `generate:component` instead of hand-making folders.
 - **Copy lives inline** in components for short page copy (D-003); case studies will use Markdown/JSON. Don't add new `resources/*.ts` copy files. Older components still have them until migrated.
 - **Accessibility is part of the pitch.** Semantic HTML, one `h1` per page, sensible heading order, visible focus, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, enough contrast, keyboard operable. Treat regressions as bugs.
 - Match the surrounding file's quotes and semicolons (the codebase mixes them) and don't reformat files you aren't otherwise changing. TypeScript strict, function components with `React.FC`.
 - Images are `*-min.png`, already compressed. Every rendered image gets meaningful `alt` text.
-- Fonts: Inter (headings) and Manrope (body) from Google Fonts in `_variables.scss`; the requested weights must cover the weights the design uses.
+- Fonts: Inter (headings) and Manrope (body) from Google Fonts in `index.html`; the requested weights must cover the weights the design uses.
 - Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`.
 
 ## Reference branch: `update-content`
