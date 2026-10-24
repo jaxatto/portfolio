@@ -28,18 +28,23 @@ const Resume: React.FC = () => (
     metaDescription={meta.description}
     className={styles.page}
     backToTop
+    headerLabel="Staff Product Designer and Design Engineer"
   >
     <header className={styles.header}>
       <div className={styles.intro}>
       <div className={styles.identity}>
-        <h1 className={styles.title}>Jax Engel</h1>
-        <p className={styles.role}>Staff Product Designer and Design Engineer</p>
+        {/* The visible heading is the name. "Resume:" is read by assistive tech only, so the h1 names the page. */}
+        <h1 className={styles.title}>
+          <span className="sr-only">Resume: </span>
+          Jax Engel
+        </h1>
+        {/* Phones only: the nav's left slot is hidden there (like Home), so the role shows under the name. */}
+        <p className={styles.byline}>Staff Product Designer and Design Engineer</p>
       </div>
       <p className={styles.summary}>
-        Staff product designer and design engineer with 11 years of experience in scalable design
-        systems, enterprise tools and AI-assisted workflows. I work across product design and
-        front-end engineering to reduce UX friction, unify multi-team ecosystems and build in
-        accessibility at scale.
+        11 years of experience in scalable design systems, enterprise tools and AI-assisted
+        workflows. I work across product design and front-end engineering to reduce UX friction,
+        unify multi-team ecosystems and build in accessibility at scale.
       </p>
       <div className={styles.actions}>
         <a className={styles.button} href={contactInfo.resume.src} target="_blank" rel="noopener noreferrer">

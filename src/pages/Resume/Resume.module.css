@@ -88,7 +88,8 @@
 	color: var(--color-content-emphasis);
 }
 
-.role {
+.byline {
+	display: none;
 	margin: 0;
 	color: var(--color-content-soft);
 	font-family: var(--font-style-body-lg-family);
@@ -96,6 +97,12 @@
 	font-weight: var(--font-weight-medium);
 	line-height: var(--font-style-body-lg-line-height);
 	text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+	.byline {
+		display: block;
+	}
 }
 
 .summary,

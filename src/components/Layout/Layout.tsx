@@ -16,7 +16,8 @@ type LayoutProps = {
   showFooter?: boolean; // Flag to show or hide the footer
   footerBand?: boolean; // Dark-mode band behind the footer (default on); Home turns it off (D-049)
   className?: string; // Applies styles to main content
-  backToTop?: boolean; // "Back to top" link before the footer, for long pages (D-096)
+  backToTop?: boolean; // Floating "Back to top" button for long pages (D-096)
+  headerLabel?: string; // Text in the nav's left slot instead of the brand link (D-097)
 } & MetaProps; // Extends MetaProps to include title and metaDescription for SEO
 
 const Layout: React.FC<LayoutProps> = ({
@@ -27,18 +28,22 @@ const Layout: React.FC<LayoutProps> = ({
   footerBand,
   className = '',
   backToTop = false,
+  headerLabel,
 }) => (
   <div id='top' tabIndex={-1} className={styles.root}>
     <Meta title={title} metaDescription={metaDescription} />
-    <Header />
-    <main id='main-content' className={clsx(styles.main, className)} tabIndex={-1}>
-      {children}
-    </main>
-    {backToTop && (
-      <div className={styles.backToTop}>
-        <BackToTop />
-      </div>
-    )}
+    <Header label={headerLabel} />
+    {/* The wrapper ends where the footer starts, so the floating button (sticky) stops above it. */}
+    <div>
+      <main id='main-content' className={clsx(styles.main, className)} tabIndex={-1}>
+        {children}
+      </main>
+      {backToTop && (
+        <div className={styles.backToTop}>
+          <BackToTop />
+        </div>
+      )}
+    </div>
     {showFooter && <Footer band={footerBand} />}
   </div>
 );

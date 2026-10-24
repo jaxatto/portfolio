@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Icon from '#components/Icon';
 import styles from './BackToTop.module.css';
 
-// General-purpose "Back to top" control for long pages. Layout renders it before the footer when a page
-// opts in (`backToTop`). It is a button, not a hash link, so it works without changing the URL.
-// It scrolls to the top (instantly with reduced motion) and moves focus to the page root (`#top`, set on
-// Layout) so keyboard users continue from the skip link and nav instead of staying at the footer.
-// Look: the line-link style (D-090) with an up arrow. See docs/decisions.md D-096.
+// General-purpose floating "Back to top" button for long pages. Layout renders it when a page passes
+// `backToTop`: a round button at the content column's right edge that appears after about one screen of
+// scrolling. Layout's sticky strip keeps it above the footer. It is a button, not a hash link, so the URL
+// doesn't change. Click scrolls to the top (instantly with reduced motion) and moves focus to the page
+// root (`#top`, set on Layout) so Tab continues at the skip link. While hidden it is also out of the tab
+// order and the accessibility tree. See docs/decisions.md D-096.
 
-const BackToTop: React.FC<{ className?: string }> = ({ className }) => {
+const BackToTop: React.FC = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      setVisible(window.scrollY > window.innerHeight);
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
   const handleClick = () => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
@@ -16,8 +38,15 @@ const BackToTop: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   return (
-    <button type="button" className={[styles.button, className].filter(Boolean).join(' ')} onClick={handleClick}>
-      Back to top
+    <button
+      type="button"
+      className={styles.button}
+      data-visible={visible}
+      aria-label="Back to top"
+      title="Back to top"
+      hidden={!visible}
+      onClick={handleClick}
+    >
       <Icon name="arrow-up" className={styles.icon} aria-hidden="true" />
     </button>
   );

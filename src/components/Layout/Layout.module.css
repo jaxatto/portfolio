@@ -22,8 +22,15 @@
 	outline: none;
 }
 
-/* Same column as <main>, so the link sits on the content's left edge. */
+/* Same column as <main>, so the floating button lines up with the content's right edge. It is a zero-height
+   sticky strip: the button rides the bottom of the viewport while the page scrolls and stops where the
+   wrapper (and so the page content) ends, above the footer. Clicks pass through the strip. */
 .backToTop {
 	composes: main;
-	padding-bottom: var(--size-space-section-sm);
+	position: sticky;
+	bottom: var(--size-space-2xl);
+	height: 0;
+	/* Keeps the button 24px clear of the footer's hairline at the end of the page. */
+	margin-bottom: var(--size-space-2xl);
+	pointer-events: none;
 }
