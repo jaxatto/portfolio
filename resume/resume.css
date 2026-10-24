@@ -1,7 +1,7 @@
 /* ATS-safe resume: single column, system sans, black on white, real text only. See docs/decisions.md. */
 @page {
   size: Letter;
-  margin: 0.55in 0.65in;
+  margin: 0.5in 0.65in;
 }
 
 * { box-sizing: border-box; }
@@ -28,7 +28,7 @@ h1 { font-size: 22pt; line-height: 1.1; margin: 0; }
 
 h2 {
   font-size: 11pt;
-  margin: 14pt 0 5pt;
+  margin: 12pt 0 4pt;
   padding-bottom: 2pt;
   border-bottom: 1px solid #000;
   break-after: avoid;
@@ -52,3 +52,12 @@ li { margin-top: 2pt; break-inside: avoid; }
 .skills { padding-left: 0; list-style: none; }
 
 a { color: #000; text-decoration: underline; }
+
+/* Polish: dates sit on the same line as company details, accent rule under the name. */
+header { border-bottom: 2px solid #000; padding-bottom: 6pt; }
+h1 { font-size: 26pt; letter-spacing: -0.01em; }
+.title { font-size: 12.5pt; font-weight: 600; }
+h2 { border-bottom-width: 1px; font-size: 10.5pt; letter-spacing: 0.08em; }
+.meta { color: #222; }
+.dates { white-space: nowrap; }
+.links { list-style: none; padding-left: 0; }
