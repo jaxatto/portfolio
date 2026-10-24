@@ -472,3 +472,5 @@ The big visible heading on Resume is the name. The h1 reads "Resume: Jax Engel" 
 
 ## D-098: Stacked role label and Home spacing — decided, 2026-10-24
 The role in the nav's left slot is two stacked lines, "Staff Product Designer" and "& Design Engineer", on Home and Resume (`src/constants/roleLines.ts`; two spans so assistive tech reads one phrase). It replaces the Home label and the one-line Resume label (D-097 option A, then the Product Designer · Design Engineer trial). On phones the slot is hidden and Resume shows the same two lines as a byline under the name; Home keeps its one-line byline. Home also gets 40px more space under the intro sentence (88px to the first card, 48px before).
+
+D-098 follow-up (2026-10-24): the nav row top-aligns when the role label is stacked, so the nav links stay level with the label's first line (the label's top margin centers that line on the 44px row at any font size). The "&" is toned down to the muted content color through the shared `RoleLines` component (Header and the Resume phone byline).

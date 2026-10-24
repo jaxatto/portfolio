@@ -23,6 +23,12 @@
 	justify-content: space-between;
 }
 
+/* The stacked role label is taller than the nav row, so the row top-aligns: the nav links stay level with
+   the label's first line (D-098). */
+.bar:has(.role) {
+	align-items: flex-start;
+}
+
 /* Brand (inner pages): the name, regular weight, with the same hover treatment as the nav links:
    violet text and a line that grows in from the left at the same position (see .nav-link). */
 .brand {
@@ -199,7 +205,8 @@
 .role {
 	display: flex;
 	flex-direction: column;
-	margin: 0;
+	/* Centers the first line on the 44px nav row: half of (44px minus one line), at any font size. */
+	margin: calc((44px - 1em * var(--font-line-height-default)) / 2) 0 0;
 	color: var(--color-content-secondary);
 	/* Same face and weight as the sentence below (Inter, regular): Manrope at the same weight read too
 	   light, and a bold label read as another nav item. */

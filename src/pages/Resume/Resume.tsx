@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@components/Layout';
 import Icon from '#components/Icon';
+import RoleLines from '#components/RoleLines';
 import { contactInfo } from '@constants/contactInfo';
 import { roleLines } from '@constants/roleLines';
 import Role from '@pages/Resume/components/Role';
@@ -41,9 +42,7 @@ const Resume: React.FC = () => (
         </h1>
         {/* Phones only: the nav's left slot is hidden there (like Home), so the role shows under the name. */}
         <p className={styles.byline}>
-          {roleLines.map((line) => (
-            <span key={line}>{line}</span>
-          ))}
+          <RoleLines lines={roleLines} />
         </p>
       </div>
       <p className={styles.summary}>

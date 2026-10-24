@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ModeToggle from '#components/ModeToggle';
+import RoleLines from '#components/RoleLines';
 import { DesignSelection, Caret } from '#components/HeroMarks';
 import { useTheme } from '#providers/Theme';
 import { mainLinks } from '#constants/mainLinks';
@@ -43,9 +44,7 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 				    holds the role instead. A page can pass `label` to do the same (Resume, D-097). TODO(jax): role line is provisional (content pass). */}
 				{slotLabel ? (
 					<p className={styles.role}>
-						{slotLabel.map((line) => (
-							<span key={line}>{line}</span>
-						))}
+						<RoleLines lines={slotLabel} />
 					</p>
 				) : (
 					<Link to={mainLinks.home} className={styles.brand}>

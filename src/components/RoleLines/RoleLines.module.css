@@ -1,0 +1,4 @@
+/* The ampersand takes the muted content color, one step down from the role text. */
+.amp {
+	color: var(--color-content-muted);
+}
