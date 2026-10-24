@@ -12,7 +12,13 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-2xl);
-	max-width: var(--size-layout-content-max);
+}
+
+/* Name, role and place sit close (8px, 4px). The summary is 24px below, the actions 32px below that. */
+.identity {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-sm);
 }
 
 .title {
@@ -21,7 +27,7 @@
 }
 
 .role {
-	margin: calc(var(--size-space-sm) - var(--size-space-2xl)) 0 0;
+	margin: 0;
 	color: var(--color-content-soft);
 	font-family: var(--font-style-body-lg-family);
 	font-size: var(--font-style-body-lg-size);
@@ -32,6 +38,7 @@
 
 .summary,
 .education {
+	max-width: var(--size-layout-content-max);
 	margin: 0;
 	font-family: var(--font-style-body-md-family);
 	font-size: var(--font-style-body-md-size);
@@ -39,22 +46,26 @@
 	text-wrap: pretty;
 }
 
-.contact {
+.location {
+	margin: calc(var(--size-space-xs) - var(--size-space-sm)) 0 0;
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-sm-size);
+	line-height: var(--font-style-body-md-line-height);
+}
+
+/* The button and the two contact links share one row on the same baseline. */
+.actions {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: var(--size-space-sm) var(--size-space-2xl);
-	margin: 0;
-	color: var(--color-content-soft);
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-md-size);
-	line-height: var(--font-style-body-md-line-height);
+	gap: var(--size-space-lg) var(--size-space-2xl);
+	margin-top: calc(var(--size-space-3xl) - var(--size-space-2xl));
 }
 
 .button {
 	display: inline-flex;
 	align-items: center;
-	align-self: flex-start;
 	gap: var(--size-space-sm);
 	padding: var(--size-space-lg) var(--size-space-3xl);
 	border-radius: var(--size-radius-md);
