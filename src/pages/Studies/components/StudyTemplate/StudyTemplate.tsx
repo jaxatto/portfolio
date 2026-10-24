@@ -29,6 +29,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
     title={meta.title}
     metaDescription={meta.description}
     className={`${styles.page} ${styles[`pal-${palette}`]}`}
+    backToTop
   >
     <HeaderSection
       className={content.header.image?.[0] || content.header.compare || content.header.panels ? undefined : styles.headerNoImage}

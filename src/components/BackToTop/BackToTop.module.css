@@ -1,0 +1,36 @@
+/* Back to top: the TextLink line style as a button (no resting underline, a 3px line grows in from the
+   left on hover, ring only on keyboard focus; D-017, D-090). */
+
+.button {
+	composes: line from '#styles/line.module.css';
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-space-sm);
+	padding: 0;
+	border: 0;
+	border-radius: var(--size-radius-sm);
+	background: none;
+	color: var(--color-content-link);
+	cursor: pointer;
+	font-family: var(--font-family-body);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-weight-emphasis);
+	line-height: var(--font-line-height-default);
+}
+
+.button:active {
+	color: var(--color-primary-default-active);
+}
+
+.button:focus-visible {
+	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+	outline-offset: var(--size-focus-ring-offset);
+}
+
+.icon {
+	width: 1em;
+	height: 1em;
+	flex-shrink: 0;
+	fill: currentcolor;
+}

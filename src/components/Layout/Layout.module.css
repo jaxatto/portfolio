@@ -14,3 +14,16 @@
 .main:focus-visible {
 	outline: none;
 }
+
+/* The page root is the focus target for "Back to top" (focus lands at the top, then Tab reaches the skip
+   link). Like <main>, it never draws a ring around the whole page. */
+.root:focus,
+.root:focus-visible {
+	outline: none;
+}
+
+/* Same column as <main>, so the link sits on the content's left edge. */
+.backToTop {
+	composes: main;
+	padding-bottom: var(--size-space-section-sm);
+}

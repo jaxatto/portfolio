@@ -30,6 +30,7 @@ const About: React.FC = () => (
     title={meta.title}
     metaDescription={meta.description}
     className={styles.page}
+    backToTop
   >
     <div className={styles.hero}>
       <h1 className={styles.title}>
