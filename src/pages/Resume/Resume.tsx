@@ -13,11 +13,11 @@ import styles from './Resume.module.css';
 // can be read and searched in the browser, with the PDF as the download. Short copy is inline (D-003);
 // the role and skill lists live in resources/ because they are data.
 
-// TODO(jax): proof points are numbers from the resume PDF. Confirm which three to lead with.
+// TODO(jax): proof point labels are provisional. The 8 counts Visa, Indeed, FireHydrant, ActBlue, Albertsons, ServiceNow, Toyota and Spectrum.
 const facts = [
   { value: '11 years', label: 'Designing and building products' },
-  { value: 'Remote', label: 'Central Time (US)' },
-  // TODO(jax): third proof point is the number of design systems worked on. Needs the count.
+  { value: '8 systems', label: 'Design systems contributed to in production' },
+  { value: 'Remote-first', label: 'Based in Texas, on Central Time' },
 ];
 
 const chipPalettes = ['primary', 'secondary', 'tertiary', 'quaternary'] as const;

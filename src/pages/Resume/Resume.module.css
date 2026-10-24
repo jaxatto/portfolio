@@ -41,7 +41,9 @@
 
 .fact {
 	display: flex;
+	/* The label comes first in the markup (dt before dd) and shows below the value. flex-end packs the pair at the top in a reversed column, so values line up across a row. */
 	flex-direction: column-reverse;
+	justify-content: flex-end;
 	gap: var(--size-space-xs);
 }
 
@@ -53,7 +55,7 @@
 }
 
 .factValue {
-	composes: titleMd from '#styles/type.module.css';
+	composes: headingLg from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
 }
 
@@ -70,12 +72,6 @@
 
 	.fact {
 		flex: 1 1 140px;
-	}
-
-	/* One step down so "11 years" holds one line in a phone's half column. */
-	.factValue {
-		font-size: var(--font-style-heading-lg-size);
-		white-space: nowrap;
 	}
 }
 
