@@ -47,13 +47,15 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 						<RoleLines lines={slotLabel} />
 					</p>
 				) : (
-					<Link to={mainLinks.home} className={styles.brand}>
-						Jax Engel
-						{/* Soft tagline after a dot (D-099). Part of the link, so the hover line spans both. */}
+					<div className={styles.identity}>
+						<Link to={mainLinks.home} className={styles.brand}>
+							Jax Engel
+						</Link>
+						{/* Soft tagline after a dot (D-099). Outside the link: only the name goes home. */}
 						<span className={styles.brandRole}>
 							<RoleLines lines={['Designer & Engineer']} />
 						</span>
-					</Link>
+					</div>
 				)}
 				<div className={styles.controls}>
 					<nav aria-label="Main">

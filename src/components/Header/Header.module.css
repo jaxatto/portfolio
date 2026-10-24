@@ -18,7 +18,7 @@
 }
 
 /* Brand (inner pages) or role line (Home) on the left, nav and toggle on the right. */
-.bar:has(.brand),
+.bar:has(.identity),
 .bar:has(.role) {
 	justify-content: space-between;
 }
@@ -29,9 +29,20 @@
 	align-items: flex-start;
 }
 
-/* The tagline after the name on inner pages, soft, behind a decorative dot (D-099). */
+/* Name link plus tagline on inner pages (D-099). Only the name is a link. */
+.identity {
+	display: flex;
+	align-items: center;
+	gap: var(--size-space-sm);
+	height: 44px;
+	/* Same face and size as the brand, so the two read as one line. */
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-heading-md-size);
+	line-height: var(--font-style-heading-md-line-height);
+}
+
+/* The tagline, soft, behind a decorative dot. */
 .brandRole {
-	margin-left: var(--size-space-sm);
 	color: var(--color-content-secondary);
 }
 
