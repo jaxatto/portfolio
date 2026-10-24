@@ -60,3 +60,13 @@
 	position: relative;
 	text-decoration: none;
 }
+
+/* The base link darkens its text on hover (D-015). The line style matches the nav and footer instead:
+   the text stays on the link color and the line carries the hover. Pressed darkens, like the nav. */
+.line:hover {
+	color: var(--color-content-link);
+}
+
+.line:active {
+	color: var(--color-primary-default-active);
+}
