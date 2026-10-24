@@ -3,8 +3,11 @@
   "private": true,
   "type": "module",
   "description": "HTML source and PDF export for the resume. Run: cd resume && npm install && npm run build",
-  "scripts": { "build": "node build.mjs" },
+  "scripts": {
+    "build": "node build.mjs"
+  },
   "dependencies": {
+    "@fontsource/inter": "^5.1.0",
     "pdf-lib": "1.17.1",
     "puppeteer-core": "24.2.0"
   }

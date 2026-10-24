@@ -1,4 +1,17 @@
-/* ATS-safe resume: single column, system sans, black on white, real text only. See docs/decisions.md. */
+/* ATS-safe resume: single column, real text only, one embedded font (Inter), no images or icons.
+   Color is decoration only: ink #1d0d3a and purple #6f42c1 (the site brand), both above 7:1 and 5:1 on white.
+   The extracted text is identical with or without it. See docs/decisions.md D-087. */
+@font-face { font-family: 'Inter'; font-weight: 400; src: url('node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 700; src: url('node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 800; src: url('node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2') format('woff2'); }
+
+:root {
+  --ink: #1d0d3a;
+  --muted: #5b4d73;
+  --accent: #6f42c1;
+}
+
 @page {
   size: Letter;
   margin: 0.5in 0.65in;
@@ -7,10 +20,10 @@
 * { box-sizing: border-box; }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 10pt;
-  line-height: 1.35;
-  color: #000;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 9.5pt;
+  line-height: 1.4;
+  color: var(--ink);
   background: #fff;
 }
 
@@ -24,40 +37,35 @@ body {
   body { max-width: none; padding: 0; }
 }
 
-h1 { font-size: 22pt; line-height: 1.1; margin: 0; }
+h1 { font-size: 27pt; font-weight: 800; line-height: 1.1; margin: 0; color: var(--accent); }
 
 h2 {
-  font-size: 11pt;
-  margin: 12pt 0 4pt;
-  padding-bottom: 2pt;
-  border-bottom: 1px solid #000;
+  font-size: 14pt;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 13pt 0 5pt;
   break-after: avoid;
 }
 
-h3 { font-size: 10.5pt; margin: 0; break-after: avoid; }
+h3 { font-size: 10.5pt; font-weight: 700; margin: 0; break-after: avoid; }
 
 p { margin: 0; }
 
-.title { font-size: 12pt; margin-top: 2pt; }
-.contact { margin-top: 4pt; }
+.title { font-size: 15pt; font-weight: 700; margin-top: 1pt; }
+.contact { margin-top: 5pt; color: var(--muted); }
+.sep { color: #a090c0; }
 
-.meta { margin: 1pt 0 3pt; }
+.meta { margin: 1pt 0 3pt; color: var(--muted); }
+.dates { white-space: nowrap; }
 
 article { margin-top: 9pt; break-inside: avoid; }
 article:first-of-type { margin-top: 0; }
 
 ul { margin: 0; padding-left: 14pt; }
 li { margin-top: 2pt; break-inside: avoid; }
+li::marker { color: var(--accent); }
 
-.skills { padding-left: 0; list-style: none; }
+.skills, .links { padding-left: 0; list-style: none; }
+.skills li { margin-top: 4pt; }
 
-a { color: #000; text-decoration: underline; }
-
-/* Polish: dates sit on the same line as company details, accent rule under the name. */
-header { border-bottom: 2px solid #000; padding-bottom: 6pt; }
-h1 { font-size: 26pt; letter-spacing: -0.01em; }
-.title { font-size: 12.5pt; font-weight: 600; }
-h2 { border-bottom-width: 1px; font-size: 10.5pt; letter-spacing: 0.08em; }
-.meta { color: #222; }
-.dates { white-space: nowrap; }
-.links { list-style: none; padding-left: 0; }
+a { color: var(--accent); text-decoration: underline; }
