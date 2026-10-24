@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 						Jax Engel
 						{/* Soft tagline after a dot (D-099). Part of the link, so the hover line spans both. */}
 						<span className={styles.brandRole}>
-							<RoleLines lines={['Design & Engineer']} />
+							<RoleLines lines={['Designer & Engineer']} />
 						</span>
 					</Link>
 				)}
