@@ -456,3 +456,6 @@ D-090 follow-up (2026-10-22): the `line` style keeps the text on the link color 
 
 ## D-094: Resume header actions in one row — decided, 2026-10-24
 Name, role line and a small soft "Remote · Central Time" line sit together (8px apart). The summary is 24px below, then one actions row 32px below it: the Download button, then email and LinkedIn as line links, wrapping on phones. The name stays as the h1 (the brand in the nav repeats it on purpose, a resume page leads with the name).
+
+## D-095: Resume proof points beside the intro — decided (provisional), 2026-10-24
+A column of three proof points (value over a soft label) fills the right of the 960 grid beside the intro on desktop (900px and up), behind a 2px hairline. Below 900px they become a row under the actions, then a stack on phones, behind a top hairline. Values are title-md (heading-lg on phones). The three are numbers from the resume PDF: 11 years, 40 teams (Toyota), an estimated $1.5M a year in support savings (ActBlue). TODO(jax): confirm which three to lead with and the labels.

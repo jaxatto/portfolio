@@ -14,6 +14,13 @@ import styles from './Resume.module.css';
 // can be read and searched in the browser, with the PDF as the download. Short copy is inline (D-003);
 // the role and skill lists live in resources/ because they are data.
 
+// TODO(jax): proof points are numbers from the resume PDF. Confirm which three to lead with.
+const facts = [
+  { value: '11 years', label: 'Designing and building products' },
+  { value: '40 teams', label: 'Supported on Toyota\'s design system' },
+  { value: '$1.5M', label: 'Estimated yearly support savings at ActBlue' },
+];
+
 const chipPalettes = ['primary', 'secondary', 'tertiary', 'quaternary'] as const;
 
 const Resume: React.FC = () => (
@@ -23,6 +30,7 @@ const Resume: React.FC = () => (
     className={styles.page}
   >
     <header className={styles.header}>
+      <div className={styles.intro}>
       <div className={styles.identity}>
         <h1 className={styles.title}>Jax Engel</h1>
         <p className={styles.role}>Staff Product Designer and Design Engineer</p>
@@ -44,6 +52,15 @@ const Resume: React.FC = () => (
           LinkedIn
         </TextLink>
       </div>
+      </div>
+      <dl className={styles.facts}>
+        {facts.map((fact) => (
+          <div key={fact.label} className={styles.fact}>
+            <dt className={styles.factLabel}>{fact.label}</dt>
+            <dd className={styles.factValue}>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
     </header>
 
     <section className={styles.section} aria-labelledby="experience">

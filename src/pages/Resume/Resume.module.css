@@ -9,10 +9,76 @@
 }
 
 .header {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--size-space-4xl);
+}
+
+/* Desktop: the intro holds the reading column and the proof points sit to its right, so the right half of
+   the 960 grid is used. Below 900px they stack under the actions (D-095). */
+@media (min-width: 900px) {
+	.header {
+		grid-template-columns: minmax(0, var(--size-layout-content-max)) minmax(0, 1fr);
+		gap: var(--size-space-section-sm);
+	}
+}
+
+.intro {
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-2xl);
 }
+
+.facts {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-3xl);
+	align-self: start;
+	margin: 0;
+	padding-left: var(--size-space-3xl);
+	border-left: var(--size-border-width-default) solid var(--color-border-decorative);
+}
+
+.fact {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: var(--size-space-xs);
+}
+
+.factLabel {
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-sm-size);
+	line-height: var(--font-style-body-md-line-height);
+}
+
+.factValue {
+	composes: titleMd from '#styles/type.module.css';
+	color: var(--color-content-emphasis);
+}
+
+/* Phones and tablets: a row of facts with the hairline on top instead of the side. */
+@media (max-width: 899px) {
+	.facts {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--size-space-2xl) var(--size-space-3xl);
+		padding: var(--size-space-2xl) 0 0;
+		border-left: 0;
+		border-top: var(--size-border-width-default) solid var(--color-border-decorative);
+	}
+
+	.fact {
+		flex: 1 1 140px;
+	}
+
+	/* One step down so "11 years" holds one line in a phone's half column. */
+	.factValue {
+		font-size: var(--font-style-heading-lg-size);
+		white-space: nowrap;
+	}
+}
+
 
 /* Name, role and place sit close (8px, 4px). The summary is 24px below, the actions 32px below that. */
 .identity {
