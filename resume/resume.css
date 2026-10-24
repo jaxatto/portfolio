@@ -1,10 +1,6 @@
-/* ATS-safe resume: single column, real text only, one embedded font (Inter), no images or icons.
+/* ATS-safe resume: single column, real text only, system Helvetica (Arial fallback), no images or icons.
    Color is decoration only: ink #1d0d3a and purple #6f42c1 (the site brand), both above 7:1 and 5:1 on white.
    The extracted text is identical with or without it. See docs/decisions.md D-087. */
-@font-face { font-family: 'Inter'; font-weight: 400; src: url('node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Inter'; font-weight: 600; src: url('node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Inter'; font-weight: 700; src: url('node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2') format('woff2'); }
-@font-face { font-family: 'Inter'; font-weight: 800; src: url('node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2') format('woff2'); }
 
 :root {
   --ink: #1d0d3a;
@@ -20,8 +16,8 @@
 * { box-sizing: border-box; }
 
 html {
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  font-size: 9.5pt;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10pt;
   line-height: 1.4;
   color: var(--ink);
   background: #fff;
