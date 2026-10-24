@@ -4,6 +4,7 @@ import ModeToggle from '#components/ModeToggle';
 import { DesignSelection, Caret } from '#components/HeroMarks';
 import { useTheme } from '#providers/Theme';
 import { mainLinks } from '#constants/mainLinks';
+import { roleLines } from '#constants/roleLines';
 import styles from './Header.module.css';
 
 // Page header: skip link, nav row (brand on inner pages, main links, mode toggle) and, on Home only,
@@ -22,14 +23,14 @@ const isActive = (pathname: string, url: string) =>
 		: pathname === url;
 
 type HeaderProps = {
-	label?: string; // Text for the left slot instead of the brand link (Home always shows the role)
+	label?: string[]; // Lines for the left slot instead of the brand link (Home always shows the role)
 };
 
 const Header: React.FC<HeaderProps> = ({ label }) => {
 	const { theme, enabled, toggleTheme } = useTheme();
 	const { pathname } = useLocation();
 	const isHome = pathname === mainLinks.home;
-	const slotLabel = label ?? (isHome ? 'Staff Product Designer' : undefined);
+	const slotLabel = label ?? (isHome ? roleLines : undefined);
 
 	return (
 		<header className={styles.header}>
@@ -41,7 +42,11 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 				{/* Left slot: the brand on inner pages; on Home the greeting carries the name, so the slot
 				    holds the role instead. A page can pass `label` to do the same (Resume, D-097). TODO(jax): role line is provisional (content pass). */}
 				{slotLabel ? (
-					<p className={styles.role}>{slotLabel}</p>
+					<p className={styles.role}>
+						{slotLabel.map((line) => (
+							<span key={line}>{line}</span>
+						))}
+					</p>
 				) : (
 					<Link to={mainLinks.home} className={styles.brand}>
 						Jax Engel

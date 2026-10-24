@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@components/Layout';
 import Icon from '#components/Icon';
 import { contactInfo } from '@constants/contactInfo';
+import { roleLines } from '@constants/roleLines';
 import Role from '@pages/Resume/components/Role';
 import SkillGroup from '@pages/Resume/components/SkillGroup';
 import { roles } from '@pages/Resume/resources/roles';
@@ -28,7 +29,7 @@ const Resume: React.FC = () => (
     metaDescription={meta.description}
     className={styles.page}
     backToTop
-    headerLabel="Product Designer · Design Engineer"
+    headerLabel={roleLines}
   >
     <header className={styles.header}>
       <div className={styles.intro}>
@@ -39,7 +40,11 @@ const Resume: React.FC = () => (
           Jax Engel
         </h1>
         {/* Phones only: the nav's left slot is hidden there (like Home), so the role shows under the name. */}
-        <p className={styles.byline}>Product Designer · Design Engineer</p>
+        <p className={styles.byline}>
+          {roleLines.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
+        </p>
       </div>
       <p className={styles.summary}>
         11 years of experience in scalable design systems, enterprise tools and AI-assisted

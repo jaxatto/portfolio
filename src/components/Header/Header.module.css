@@ -187,15 +187,18 @@
 	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
 	margin-inline: auto;
 	padding-inline: var(--size-space-2xl);
-	/* 176px under the nav row (two section-xl steps plus lg; 120px originally, D-029), with
-	   no bottom padding of its own: the header's own bottom padding adds 48px before the first card. */
+	/* 176px under the nav row (two section-xl steps plus lg; 120px originally, D-029). 40px of its own
+	   below the sentence, and the header's own bottom padding adds 48px before the first card (88px
+	   in all, D-098). */
 	padding-top: calc(var(--size-space-section-xl) * 2 + var(--size-space-lg));
-	padding-bottom: var(--size-space-none);
+	padding-bottom: var(--size-space-4xl);
 }
 
 /* Role label: plain text in the body color. Lives in the nav row's left slot on Home (D-017). Tried
    and dropped: violet text, muted text, an accent bar, a filled chip and a status dot. */
 .role {
+	display: flex;
+	flex-direction: column;
 	margin: 0;
 	color: var(--color-content-secondary);
 	/* Same face and weight as the sentence below (Inter, regular): Manrope at the same weight read too

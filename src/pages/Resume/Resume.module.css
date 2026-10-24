@@ -101,7 +101,8 @@
 
 @media (max-width: 640px) {
 	.byline {
-		display: block;
+		display: flex;
+		flex-direction: column;
 	}
 }
 
