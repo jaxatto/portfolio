@@ -28,7 +28,7 @@ const Resume: React.FC = () => (
     metaDescription={meta.description}
     className={styles.page}
     backToTop
-    headerLabel="Staff Product Designer and Design Engineer"
+    headerLabel="Product Designer · Design Engineer"
   >
     <header className={styles.header}>
       <div className={styles.intro}>
@@ -39,7 +39,7 @@ const Resume: React.FC = () => (
           Jax Engel
         </h1>
         {/* Phones only: the nav's left slot is hidden there (like Home), so the role shows under the name. */}
-        <p className={styles.byline}>Staff Product Designer and Design Engineer</p>
+        <p className={styles.byline}>Product Designer · Design Engineer</p>
       </div>
       <p className={styles.summary}>
         11 years of experience in scalable design systems, enterprise tools and AI-assisted
