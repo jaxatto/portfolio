@@ -29,6 +29,17 @@
 	align-items: flex-start;
 }
 
+/* The tagline after the name on inner pages, soft, behind a decorative dot (D-099). */
+.brandRole {
+	margin-left: var(--size-space-sm);
+	color: var(--color-content-secondary);
+}
+
+.brandRole::before {
+	content: '\00b7';
+	margin-right: var(--size-space-sm);
+}
+
 /* Brand (inner pages): the name, regular weight, with the same hover treatment as the nav links:
    violet text and a line that grows in from the left at the same position (see .nav-link). */
 .brand {
@@ -299,7 +310,8 @@
 	}
 
 	.byline {
-		display: block;
+		display: flex;
+		flex-direction: column;
 		margin-bottom: var(--size-space-2xl);
 		color: var(--color-content-secondary);
 		font-size: var(--font-style-body-md-size);

@@ -49,6 +49,10 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 				) : (
 					<Link to={mainLinks.home} className={styles.brand}>
 						Jax Engel
+						{/* Soft tagline after a dot (D-099). Part of the link, so the hover line spans both. */}
+						<span className={styles.brandRole}>
+							<RoleLines lines={['Design & Engineer']} />
+						</span>
 					</Link>
 				)}
 				<div className={styles.controls}>
@@ -81,7 +85,10 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 						<strong className={styles.greeting}>Hi, I’m Jax!</strong>{' '}
 						{/* Mobile only: the role as a byline under the greeting (display:none above 640px, so
 						    assistive tech hears it once). See D-018. */}
-						<span className={styles.byline}>Staff Product Designer</span> I{' '}
+						<span className={styles.byline}>
+							<RoleLines lines={roleLines} />
+						</span>{' '}
+						I{' '}
 						<DesignSelection>design</DesignSelection>{' '}
 						and{' '}
 						<span className={styles.build}>

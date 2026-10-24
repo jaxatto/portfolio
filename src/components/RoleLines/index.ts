@@ -1,1 +1,1 @@
-export { default } from './RoleLines';
+export { default, Amp } from './RoleLines';
