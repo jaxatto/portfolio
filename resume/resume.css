@@ -48,7 +48,7 @@ h3 { font-size: 10.5pt; font-weight: 700; margin: 0; break-after: avoid; }
 p { margin: 0; }
 
 .title { font-size: 15pt; font-weight: 700; margin-top: 1pt; }
-.contact { margin-top: 5pt; color: var(--muted); }
+.contact { margin-top: 5pt; color: var(--muted); font-size: 9.2pt; }
 .sep { color: #a090c0; }
 
 .meta { margin: 1pt 0 3pt; color: var(--muted); }

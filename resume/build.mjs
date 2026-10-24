@@ -9,7 +9,9 @@ import puppeteer from 'puppeteer-core';
 import { PDFDocument } from 'pdf-lib';
 
 const dir = dirname(fileURLToPath(import.meta.url));
-const out = join(dir, 'Jax-Engel_Staff-Product-Designer_Resume_2026.pdf');
+// Optional first argument names another source, e.g. `node build.mjs resume-v2` builds resume-v2.html to ..._v2.pdf.
+const name = process.argv[2] ?? 'resume';
+const out = join(dir, `Jax-Engel_Staff-Product-Designer_Resume_2026${name === 'resume' ? '' : name.replace(/^resume/, '')}.pdf`);
 
 const chrome = [
   process.env.CHROME_PATH,
@@ -22,7 +24,7 @@ if (!chrome) throw new Error('Chrome not found. Set CHROME_PATH.');
 
 const browser = await puppeteer.launch({ executablePath: chrome, headless: true });
 const page = await browser.newPage();
-await page.goto(pathToFileURL(join(dir, 'resume.html')).href, { waitUntil: 'networkidle0' });
+await page.goto(pathToFileURL(join(dir, `${name}.html`)).href, { waitUntil: 'networkidle0' });
 await page.emulateMediaType('print');
 // tagged: true writes the structure tree (headings, lists) so reading order survives.
 const bytes = await page.pdf({ preferCSSPageSize: true, printBackground: false, tagged: true, outline: false });
