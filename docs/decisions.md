@@ -430,3 +430,7 @@ The page is `/case-studies/toyota` (`Studies/pages/Toyota`), wired in `Studies.t
 ## D-086: Several images in one study section — decided, 2026-10-21
 
 A section renders every image in its `image` array, in order (it rendered only the first). Images that follow each other are 40px apart. Toyota Outcomes shows the sprint board at the 640 column width and the Figma variables image is the hero (banner crop, Jax: text does not need to be readable). The sprint board stays the 800px image (Jax does not need it sharp).
+
+## D-087: Resume PDF is built from HTML in `resume/` — decided, 2026-10-24
+
+`resume/resume.html` and `resume.css` are the source, `resume/build.mjs` (puppeteer-core with the local Chrome, pdf-lib for author and title) writes a tagged, text-only, single-column Letter PDF in Arial. It has its own `package.json` so the site's dependencies stay untouched. Content is the current public PDF word for word, with separators changed to pipes and "Skills & Tools" shortened to "Skills" (standard ATS section name). The public PDF is not replaced until Jax says so. Proposed content changes are open questions, not applied.
