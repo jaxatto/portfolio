@@ -459,3 +459,5 @@ Name, role line and a small soft "Remote · Central Time" line sit together (8px
 
 ## D-095: Resume proof points beside the intro — decided (provisional), 2026-10-24
 A column of three proof points (value over a soft label) fills the right of the 960 grid beside the intro on desktop (900px and up), behind a 2px hairline. Below 900px they become a row under the actions, then a stack on phones, behind a top hairline. Values are title-md (heading-lg on phones). The three are numbers from the resume PDF: 11 years, 40 teams (Toyota), an estimated $1.5M a year in support savings (ActBlue). TODO(jax): confirm which three to lead with and the labels.
+
+D-095 revision (2026-10-24): LinkedIn leaves the header and the email becomes an outline "Contact" button (mailto) beside the filled Download button. The role line loses its location line. The proof points are 11 years and Remote (Central Time (US)), and the third is the number of design systems worked on, waiting for the count. The Toyota and ActBlue numbers are out.

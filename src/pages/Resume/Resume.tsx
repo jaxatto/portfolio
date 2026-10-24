@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '@components/Layout';
 import Icon from '#components/Icon';
-import TextLink from '#components/TextLink';
 import { contactInfo } from '@constants/contactInfo';
 import Role from '@pages/Resume/components/Role';
 import SkillGroup from '@pages/Resume/components/SkillGroup';
@@ -17,8 +16,8 @@ import styles from './Resume.module.css';
 // TODO(jax): proof points are numbers from the resume PDF. Confirm which three to lead with.
 const facts = [
   { value: '11 years', label: 'Designing and building products' },
-  { value: '40 teams', label: 'Supported on Toyota\'s design system' },
-  { value: '$1.5M', label: 'Estimated yearly support savings at ActBlue' },
+  { value: 'Remote', label: 'Central Time (US)' },
+  // TODO(jax): third proof point is the number of design systems worked on. Needs the count.
 ];
 
 const chipPalettes = ['primary', 'secondary', 'tertiary', 'quaternary'] as const;
@@ -34,7 +33,6 @@ const Resume: React.FC = () => (
       <div className={styles.identity}>
         <h1 className={styles.title}>Jax Engel</h1>
         <p className={styles.role}>Staff Product Designer and Design Engineer</p>
-        <p className={styles.location}>Remote · Central Time</p>
       </div>
       <p className={styles.summary}>
         Staff product designer and design engineer with 11 years of experience in scalable design
@@ -47,10 +45,9 @@ const Resume: React.FC = () => (
           <Icon name="download" className={styles.buttonIcon} aria-hidden="true" />
           Download resume (PDF)
         </a>
-        <TextLink line href={contactInfo.email.src}>{contactInfo.email.label}</TextLink>
-        <TextLink line href={contactInfo.linkedin.src} newTab>
-          LinkedIn
-        </TextLink>
+        <a className={`${styles.button} ${styles.outline}`} href={contactInfo.email.src}>
+          Contact
+        </a>
       </div>
       </div>
       <dl className={styles.facts}>
