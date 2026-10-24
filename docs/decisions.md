@@ -477,3 +477,6 @@ D-098 follow-up (2026-10-24): the nav row top-aligns when the role label is stac
 
 ## D-099: Tagline after the name, ampersand matches the text in dark — decided, 2026-10-24
 Inner pages that show the brand link now read "Jax Engel · Designer & Engineer": the tagline is soft (secondary content color) behind a decorative dot and outside the link, so only the name links home and the hover line sits under the name. Every "&" in the role text (this tagline, the stacked role label, the phone bylines) is muted in light and the same color as the surrounding text in dark, through the shared `RoleLines` component (`Amp`). Home's phone byline is now the same two lines as Resume's. Revised the same day: "Designer & Engineer" (it read "Design & Engineer" first), and the dark ampersand takes the text color (white, then link violet, were tried).
+
+## D-100: Name and tagline wrap at tablet widths — decided, 2026-10-24
+Between 641px and 760px the name and "Designer & Engineer" no longer fit beside the nav (the tagline squeezed onto two lines at 720px), so the tagline drops under the name and the dot is hidden, with the nav row top-aligned. At 761px and wider they share one line, and phones (640px and below) keep one line because the nav sits on its own row. The 760px edge was measured against the nav's width and moves if the nav gains an item.

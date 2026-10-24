@@ -51,6 +51,31 @@
 	margin-right: var(--size-space-sm);
 }
 
+/* Tablet widths (641px to 760px): the name and tagline no longer fit beside the nav, so the tagline drops
+   under the name and the dot goes (D-100). Phones put the nav on its own row, so they fit on one line. The
+   row top-aligns so the nav stays level with the name. */
+@media (min-width: 641px) and (max-width: 760px) {
+	.bar:has(.identity) {
+		align-items: flex-start;
+	}
+
+	.identity {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+		height: auto;
+	}
+
+	.brandRole {
+		/* Tucks the tagline up under the 44px name row. */
+		margin-top: calc(-1 * var(--size-space-sm));
+	}
+
+	.brandRole::before {
+		display: none;
+	}
+}
+
 /* Brand (inner pages): the name, regular weight, with the same hover treatment as the nav links:
    violet text and a line that grows in from the left at the same position (see .nav-link). */
 .brand {
