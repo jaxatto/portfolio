@@ -142,8 +142,10 @@
 	transition: background-color 0.2s ease;
 }
 
-.button:hover {
-	background: var(--color-primary-default-hover);
+@media (hover: hover) {
+	.button:hover {
+		background: var(--color-primary-default-hover);
+	}
 }
 
 .button:active {
@@ -167,12 +169,14 @@
 	color: var(--color-content-link);
 }
 
-.outline:hover {
-	/* Same hover color as the filled button (violet-200 in dark, violet-800 in light), used as a faint wash
-	   with the text and border on it. The container fill was a saturated violet block in dark. */
-	border-color: var(--color-primary-default-hover);
-	background: color-mix(in srgb, var(--color-primary-default-hover) 12%, transparent);
-	color: var(--color-primary-default-hover);
+@media (hover: hover) {
+	.outline:hover {
+		/* Same hover color as the filled button (violet-200 in dark, violet-800 in light), used as a faint wash
+		   with the text and border on it. The container fill was a saturated violet block in dark. */
+		border-color: var(--color-primary-default-hover);
+		background: color-mix(in srgb, var(--color-primary-default-hover) 12%, transparent);
+		color: var(--color-primary-default-hover);
+	}
 }
 
 .outline:active {

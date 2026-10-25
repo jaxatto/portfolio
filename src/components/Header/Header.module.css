@@ -94,8 +94,10 @@
 	text-decoration: none;
 }
 
-.brand:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.brand:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .brand:active {
@@ -146,8 +148,10 @@
 	text-decoration: none;
 }
 
-.nav-link:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.nav-link:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .nav-link:active {
@@ -164,8 +168,10 @@
 	animation: grow-line 0.45s cubic-bezier(0.4, 0.2, 0.2, 1) both;
 }
 
-.nav-link[aria-current='page']:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.nav-link[aria-current='page']:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .nav-link[aria-current='page']:active {

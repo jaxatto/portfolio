@@ -98,8 +98,10 @@
 	bottom: min(0px, calc((100% - 44px) / 2));
 }
 
-.main .email:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.main .email:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .icon-link {
@@ -130,8 +132,10 @@
 	fill: currentcolor;
 }
 
-.icon-link:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.icon-link:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .icon-link:active {

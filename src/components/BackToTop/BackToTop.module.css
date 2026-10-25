@@ -39,8 +39,10 @@
 	transform: translate(-50%, 0);
 }
 
-.button:hover {
-	background: color-mix(in srgb, var(--color-primary-default-hover) 12%, var(--color-surface-default));
+@media (hover: hover) {
+	.button:hover {
+		background: color-mix(in srgb, var(--color-primary-default-hover) 12%, var(--color-surface-default));
+	}
 }
 
 .button:active {

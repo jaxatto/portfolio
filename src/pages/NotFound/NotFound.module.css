@@ -106,8 +106,10 @@
 	fill: currentcolor;
 }
 
-.button:hover {
-	background: var(--color-content-on-accent-hover);
+@media (hover: hover) {
+	.button:hover {
+		background: var(--color-content-on-accent-hover);
+	}
 }
 
 .button:active {

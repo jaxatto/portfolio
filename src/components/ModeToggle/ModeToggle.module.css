@@ -22,8 +22,10 @@
 	transition: color 0.2s ease;
 }
 
-.button:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.button:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .button:active {

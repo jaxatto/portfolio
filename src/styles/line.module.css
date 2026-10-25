@@ -23,8 +23,11 @@
 	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-.line:hover::after {
-	transform: scaleX(1);
+/* Hover only on devices that hover, so a tap on a phone doesn't leave the line stuck on. */
+@media (hover: hover) {
+	.line:hover::after {
+		transform: scaleX(1);
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
