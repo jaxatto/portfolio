@@ -614,3 +614,7 @@ Jax settled the footer line ("Open to remote Staff Product Designer and Design E
 ## D-128: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
 
 Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUDE.md` now has a No-nos section: never raise the Toyota token count as a proof point, never style h1 to h6 directly (classes carry the look, tags carry the structure), and do not bring up the audit. The Resume strengths proof line for Toyota no longer cites the token count. Known direct heading styling to fix: the tag reset in `main.css` and the `.story section > h2 + *` selector in `About.module.css`.
+
+## D-129: Headings are never styled by their tag — decided, 2026-10-25
+
+The heading reset in `main.css` (margin and padding on h1 to h6) is gone, so no rule targets a heading element. Every heading takes margin 0 from its type step in `type.module.css`. The About `section > h2 + *` selector became `margin-bottom` on the `.heading` class (still 12px under the heading, D-057). Checked on every route at 1280: all headings compute to zero margin and padding except the two About h2s, which carry the intended -12px bottom margin.

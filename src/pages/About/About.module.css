@@ -53,11 +53,8 @@
 .heading {
   composes: headingLg from '#styles/type.module.css';
   color: var(--color-content-prose); /* true black in light (D-056) */
-}
-
-/* 12px between an h2 and what follows (D-057): the section's 24px gap minus 12. */
-.story section > h2 + * {
-  margin-top: calc(var(--size-space-md) - var(--size-space-2xl));
+  /* 12px between the heading and what follows (D-057): the section's 24px gap minus 12. */
+  margin-bottom: calc(var(--size-space-md) - var(--size-space-2xl));
 }
 
 /* Group of label + sentence under Approach to Work. */
