@@ -488,3 +488,5 @@ D-101 follow-up (2026-10-24): the outline button's hover and pressed fills are a
 
 ## D-102: Outline button is 3px — decided, 2026-10-24
 The Resume outline button (Contact) has a 3px border, the same width as the focus ring and the hover line, and its padding gives back the width so it matches the filled button's size. There is no semantic border token at 3px (the scale has 2px default and 4px thick), so it is a local `--outline-width`. TODO(jax): if outline buttons spread, add a semantic 3px border token.
+
+D-096 revision (2026-10-24): the back to top button is fixed 80px from the viewport's bottom-right corner (24px on phones), black in light and the inverse (near white) in dark, with the shared name-tag tooltip ("Back to top", D-025). It rides up as the footer comes into view so it never covers the footer. `Layout` renders it directly; the sticky strip is gone.

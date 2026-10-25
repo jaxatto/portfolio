@@ -33,17 +33,10 @@ const Layout: React.FC<LayoutProps> = ({
   <div id='top' tabIndex={-1} className={styles.root}>
     <Meta title={title} metaDescription={metaDescription} />
     <Header label={headerLabel} />
-    {/* The wrapper ends where the footer starts, so the floating button (sticky) stops above it. */}
-    <div>
-      <main id='main-content' className={clsx(styles.main, className)} tabIndex={-1}>
-        {children}
-      </main>
-      {backToTop && (
-        <div className={styles.backToTop}>
-          <BackToTop />
-        </div>
-      )}
-    </div>
+    <main id='main-content' className={clsx(styles.main, className)} tabIndex={-1}>
+      {children}
+    </main>
+    {backToTop && <BackToTop />}
     {showFooter && <Footer band={footerBand} />}
   </div>
 );

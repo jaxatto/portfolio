@@ -1,11 +1,14 @@
-/* Floating back to top: a round primary button, bottom-right of the content column. Same fill, hover and
-   focus ring as the page's primary button. The strip around it (Layout) has pointer-events: none, so only
-   the button takes clicks. */
+/* Floating back to top: a round black button fixed 80px from the bottom-right corner of the viewport
+   (24px on phones, where 80px would cover too much of the page). Black in light and the inverse (near
+   white) in dark, so it reads on either ground. `--lift` (set from script) raises it as the footer comes
+   into view, so it never sits on top of the footer. The tooltip is the shared name tag (data-tooltip,
+   src/styles/tooltip.css, D-025). */
 
 .button {
-	position: absolute;
-	right: var(--size-space-2xl);
-	bottom: 0;
+	position: fixed;
+	right: 80px;
+	bottom: calc(80px + var(--lift, 0px));
+	z-index: 10;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -14,13 +17,11 @@
 	padding: 0;
 	border: 0;
 	border-radius: 50%;
-	background: var(--color-primary-default);
-	color: var(--color-primary-on-default);
+	background: var(--color-content-prose);
+	color: var(--color-content-inverse);
 	cursor: pointer;
-	pointer-events: auto;
 	transition:
 		opacity 0.2s ease,
-		transform 0.2s ease,
 		background-color 0.2s ease;
 }
 
@@ -29,11 +30,11 @@
 }
 
 .button:hover {
-	background: var(--color-primary-default-hover);
+	background: var(--color-content-soft);
 }
 
 .button:active {
-	background: var(--color-primary-default-active);
+	background: var(--color-content-muted);
 }
 
 .button:focus-visible {
@@ -45,6 +46,13 @@
 	width: 20px;
 	height: 20px;
 	fill: currentcolor;
+}
+
+@media (max-width: 640px) {
+	.button {
+		right: var(--size-space-2xl);
+		bottom: calc(var(--size-space-2xl) + var(--lift, 0px));
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
