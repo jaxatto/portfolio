@@ -5,7 +5,6 @@ export const primitiveDomains = [
 	'color',
 	'font',
 	'size',
-	'shadow',
 	'utils',
 ] as const;
 export type PrimitiveDomain = (typeof primitiveDomains)[number];

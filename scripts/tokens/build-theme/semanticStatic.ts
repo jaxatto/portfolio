@@ -53,25 +53,6 @@ export function buildStaticSemanticVars(
 		}
 	}
 
-	for (const [category, values] of Object.entries(theme.shadow)) {
-		if (
-			['color', 'brand', 'primary', 'secondary', 'tertiary', 'quaternary'].includes(
-				category,
-			)
-		) {
-			continue;
-		}
-		if (typeof values !== 'object' || values === null) {
-			continue;
-		}
-
-		for (const [key, val] of Object.entries(values)) {
-			staticSemanticVars.push(
-				`  ${cssVarName('shadow', category, key)}: ${resolveValue(val, 'shadow')};`,
-			);
-		}
-	}
-
 	for (const [category, values] of Object.entries(theme.font)) {
 		if (category === 'styles') {
 			continue;

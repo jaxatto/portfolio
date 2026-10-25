@@ -2,16 +2,10 @@
 
 import { primitives } from './primitives';
 import { withInteractionStates } from './colorSteps';
-import {
-	type BaseSemanticThemeColors,
-	type SemanticTheme,
-	type SemanticThemeShadow,
-} from './types';
-import { colorGroups } from './constants';
+import { type BaseSemanticThemeColors, type SemanticTheme } from './types';
 
-const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
+const theme: Omit<SemanticTheme, 'colors'> & {
 	colors: BaseSemanticThemeColors;
-	shadow: Pick<SemanticThemeShadow, 'blur' | 'spread' | 'x' | 'y'>;
 } = {
 	name: 'Default Theme',
 	colors: {
@@ -212,6 +206,7 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			md: primitives.sizes.radius[12],
 			lg: primitives.sizes.radius[16],
 			xl: primitives.sizes.radius[24],
+			full: primitives.sizes.radius.full,
 		},
 		space: {
 			none: primitives.sizes.space[0],
@@ -228,14 +223,6 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			'section-lg': primitives.sizes.space[64],
 			'section-xl': primitives.sizes.space[80],
 		},
-		breakpoint: {
-			xs: primitives.sizes.breakpoint[320],
-			sm: primitives.sizes.breakpoint[640],
-			md: primitives.sizes.breakpoint[768],
-			lg: primitives.sizes.breakpoint[1024],
-			xl: primitives.sizes.breakpoint[1280],
-			'2xl': primitives.sizes.breakpoint[1536],
-		},
 		layout: {
 			gutter: 'lg',
 			'content-max': '640px',
@@ -247,33 +234,17 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 			width: primitives.sizes['border-width'][3],
 			offset: primitives.sizes['border-width'][3],
 		},
+		// Smallest comfortable hit area for an icon-only control (md), and the height of the nav row (lg).
+		target: {
+			md: '40px',
+			lg: '44px',
+		},
 		'border-width': {
 			none: primitives.sizes['border-width'][0],
 			thin: primitives.sizes['border-width'][1],
 			default: primitives.sizes['border-width'][2],
-			thick: primitives.sizes['border-width'][4],
-		},
-	},
-	shadow: {
-		blur: {
-			none: primitives.shadow.blur[0],
-			sm: primitives.shadow.blur[8],
-			md: primitives.shadow.blur[16],
-			xl: primitives.shadow.blur[40],
-			'2xl': primitives.shadow.blur[56],
-			'3xl': primitives.shadow.blur[64],
-		},
-		spread: {
-			none: primitives.shadow.spread[0],
-			lg: primitives.shadow.spread[8],
-			xl: primitives.shadow.spread[16],
-			'2xl': primitives.shadow.spread[20],
-		},
-		x: {
-			none: primitives.shadow.x[0],
-		},
-		y: {
-			none: primitives.shadow.y[0],
+			// The accent line, the outline button and the focus ring are all 3px.
+			thick: primitives.sizes['border-width'][3],
 		},
 	},
 	font: {
@@ -427,40 +398,8 @@ const theme: Omit<SemanticTheme, 'colors' | 'shadow'> & {
 };
 
 const colors = withInteractionStates(theme.colors);
-const shadowColors = Object.fromEntries(
-	colorGroups.map((group) => [
-		group,
-		{
-			default: {
-				color: colors[group].default,
-				opacity: primitives.utils.opacity[40],
-			},
-			hover: {
-				color: colors[group]['default-hover'],
-				opacity: primitives.utils.opacity[48],
-			},
-			active: {
-				color: colors[group]['default-active'],
-				opacity: primitives.utils.opacity[48],
-			},
-		},
-	]),
-) as Pick<SemanticThemeShadow, (typeof colorGroups)[number]>;
 
 export const defaultTheme: SemanticTheme = {
 	...theme,
 	colors,
-	shadow: {
-		...theme.shadow,
-		color: {
-			default: {
-				color: {
-					light: primitives.colors.slate[800],
-					dark: primitives.colors.slate[800],
-				},
-				opacity: primitives.utils.opacity[10],
-			},
-		},
-		...shadowColors,
-	},
 };
