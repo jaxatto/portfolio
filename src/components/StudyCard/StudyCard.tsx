@@ -24,6 +24,7 @@ export type StudyCardProps = {
   palette?: ColorGroup;
   layout?: 'horizontal' | 'vertical'; // Horizontal: preview beside the text (desktop only)
   variant?: 'work' | 'study'; // 'study' = smaller type, used under a case study
+  priority?: boolean; // Above the fold: load the preview now, not when it nears the viewport
 };
 
 const StudyCard: React.FC<StudyCardProps> = ({
@@ -38,6 +39,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
   palette = 'brand',
   enlargeImage = false,
   layout = 'vertical',
+  priority = false,
   variant = 'work',
 }) => {
   const Heading = headingLevel;
@@ -67,7 +69,13 @@ const StudyCard: React.FC<StudyCardProps> = ({
       </div>
       <div className={styles.preview}>
         <div className={styles.sample}>
-          <img src={image} alt={imageAlt} className={styles.image} />
+          <img
+            src={image}
+            alt={imageAlt}
+            className={styles.image}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+          />
         </div>
       </div>
     </article>

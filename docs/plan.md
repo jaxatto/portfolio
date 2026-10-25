@@ -18,14 +18,14 @@ Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slices 0 to 6 are merged into `redesign`. Resume redesign (D-123) is on branch `resume-roles-v2`: strengths cards, gradient split role cards, no skills list. Remaining: Jax's review and role summaries, the Design Engineer PDF download, the `TODO(jax)` copy below, then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
+Slices 0 to 6 are merged into `redesign`. Resume redesign (D-124) is merged: strengths cards, gradient split role cards, no skills list. Remaining: Jax's review and role summaries, the Design Engineer PDF download, the `TODO(jax)` copy below, then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
 
 ## Audit follow-ups (2026-10-25)
 
 Batches 1 to 4 are done (regressions, dead code, tokens, shared components). Not handled yet, in the order proposed:
 
 - **Batch 5, consistency:** move every `@` import to `#` and delete the `@` aliases in vite, tsconfig and `package.json`. `moduleResolution` Node to Bundler. Colocate `commonTypes/study` with Studies. Fix indentation drift in Resume.tsx, NotFound.tsx, StudyTemplate.tsx. Tooltip reads `refs.domReference.current` during render.
-- **Batch 6, performance and SEO:** `loading="lazy"`, `decoding` and width/height on the 7 `<img>` sites. Recompress `toyota-sample-min.png` (294 kB) and the four Home PNG samples. Per-route HTML with the right title, canonical and og tags at postbuild, so shared case study links preview correctly. Drop the unused Roboto Mono 500 and consider self-hosting fonts.
+- **Batch 6, performance and SEO:** done except two items. Image width/height attributes are not set (the images are imported URLs with no known size, so lazy images below the fold can shift the page as they load). Self-hosting the fonts is not done (two third-party connections, not measured). Home PNG samples with alpha were left as they are.
 - **Batch 7, docs and comments:** stale CLAUDE.md lines, the plan.md Setup section and dated TODOs, decisions.md ordering (D-082 holds text from D-081 and D-067, D-085 before D-083, D-038 has no heading), README. Remove change-log comments ("was 24 / 32, +8px per Jax" and similar). Write the comment convention into CLAUDE.md.
 - **Jax's call:** Floating UI cost (+51 kB raw, +18 gz for 4 tooltips, D-103), keep or remove the `Image` fallback component and its cat, controller and paw icons, item 11 (dark overrides written twice at about 13 sites, `light-dark()`).
 - **Token worklist:** [untokenized-styles.md](untokenized-styles.md), 101 declarations. First candidates are icon sizes, state washes, layer order and the `theme-color` pair.

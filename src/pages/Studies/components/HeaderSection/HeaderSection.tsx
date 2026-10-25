@@ -46,8 +46,8 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
         ))}
       </div>
     </div>
-    {panels && <StudyPanels {...panels} className={styles.media} />}
-    {compare && <StudyCompare {...compare} className={styles.media} />}
+    {panels && <StudyPanels {...panels} priority className={styles.media} />}
+    {compare && <StudyCompare {...compare} priority className={styles.media} />}
     {image && image[0] && (
       <StudyImage
         src={image[0].src}
@@ -55,6 +55,7 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
         caption={image[0].caption}
         corners={image[0].corners}
         variant={image[0].variant}
+        priority
         className={styles.media}
       />
     )}

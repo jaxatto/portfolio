@@ -16,7 +16,7 @@ import styles from './Resume.module.css';
 // can be read and searched in the browser, with the PDF as the download. Short copy is inline (D-003);
 // the role list lives in resources/ because it is data.
 
-// Strengths with their proof. Each proof line uses a fact already on the study page it links to (D-123).
+// Strengths with their proof. Each proof line uses a fact already on the study page it links to (D-124).
 const strengths = [
   {
     title: 'Design tokens at enterprise scale',

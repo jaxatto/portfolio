@@ -5,7 +5,7 @@ import styles from './StudyPanels.module.css';
 // Page crops side by side in a sunken box (D-054, Figma Indeed 2853:27124). Each panel is a pixel
 // rectangle of one source image, positioned with percentages, so one file serves all of them and
 // stays sharp. The box clips whatever runs past its bottom edge.
-type StudyPanelsProps = StudyPanelsData & { className?: string };
+type StudyPanelsProps = StudyPanelsData & { className?: string; priority?: boolean };
 
 const StudyPanels: React.FC<StudyPanelsProps> = ({
   src,
@@ -15,6 +15,7 @@ const StudyPanels: React.FC<StudyPanelsProps> = ({
   caption,
   framed,
   className,
+  priority = false,
 }) => (
   <figure className={`${styles.figure} ${framed ? styles.framed : ''} ${className ?? ''}`}>
     <div className={styles.box}>
@@ -27,6 +28,8 @@ const StudyPanels: React.FC<StudyPanelsProps> = ({
           <img
             src={src}
             alt={slice.alt}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
             className={styles.image}
             style={{
               width: `${(sourceWidth / slice.width) * 100}%`,

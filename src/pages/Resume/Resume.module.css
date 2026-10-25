@@ -81,7 +81,7 @@
 	color: var(--color-content-prose);
 }
 
-/* Major heading style on this page (D-123): the heading, then a short accent bar. */
+/* Major heading style on this page (D-124): the heading, then a short accent bar. */
 .heading::after {
 	content: '';
 	display: block;

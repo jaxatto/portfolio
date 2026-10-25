@@ -1,6 +1,6 @@
 import { studyLinks } from '#constants/studyLinks';
 
-// Resume roles, newest first. The PDF carries the full bullets. The site shows one short summary per role (D-123).
+// Resume roles, newest first. The PDF carries the full bullets. The site shows one short summary per role (D-124).
 // Dates keep the month (the PDF does). Visa is one entry with the promotion on a second line.
 
 export type ResumeRole = {
@@ -11,7 +11,7 @@ export type ResumeRole = {
   startDate: string;
   endDate?: string;
   promotion?: string; // second soft line under the dates (Visa)
-  summary: string; // TODO(jax): drafts condensed from the PDF bullets (D-123). Edit freely.
+  summary: string; // TODO(jax): drafts condensed from the PDF bullets (D-124). Edit freely.
   studyHref?: string; // case study for this role
   studyName?: string; // visually hidden part of the link name
 };

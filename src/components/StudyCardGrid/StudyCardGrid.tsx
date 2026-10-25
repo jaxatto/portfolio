@@ -66,11 +66,12 @@ const StudyCardGrid: React.FC<StudyCardGridProps> = ({ variant = 'work', exclude
 
   return (
     <div className={clsx(styles.grid, variant === 'study' && styles.study)}>
-      {visible.map((card) => (
+      {visible.map((card, index) => (
         <StudyCard
           key={card.title}
           {...card}
           variant={variant}
+          priority={variant === 'work' && index === 0}
           headingLevel={variant === 'work' ? 'h2' : 'h3'}
           // Work: every card is horizontal and stacked, so any number of studies works (D-028).
           layout={variant === 'work' ? 'horizontal' : 'vertical'}

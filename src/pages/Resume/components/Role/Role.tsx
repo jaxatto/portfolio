@@ -6,7 +6,7 @@ import logos from '../../resources/logos';
 import type { ResumeRole } from '../../resources/roles';
 import styles from './Role.module.css';
 
-// One job on the resume (D-123): a split card. The colored side holds the logo, company, dates and place.
+// One job on the resume (D-124): a split card. The colored side holds the logo, company, dates and place.
 // The white side holds the title, a short summary and the case study link. The side colors run one gradient
 // down the list: purple, violet, indigo, teal, green. Each side fades from its own point on that path to
 // the next role's point, so the left column reads as one continuous gradient.
