@@ -5,7 +5,7 @@ import styles from './StudyCompare.module.css';
 // Before / after pair (D-050, Figma Indeed 2853:27124): two columns, the "Before" on the sunken
 // surface and the "After" on the secondary container, each with a text label over its image.
 // Each image has its own alt text.
-type StudyCompareProps = StudyCompareData & { className?: string };
+type StudyCompareProps = StudyCompareData & { className?: string; priority?: boolean };
 
 const StudyCompare: React.FC<StudyCompareProps> = ({
   before,
@@ -13,18 +13,31 @@ const StudyCompare: React.FC<StudyCompareProps> = ({
   caption,
   aspectRatio,
   className,
+  priority = false,
 }) => (
   <figure className={`${styles.figure} ${className ?? ''}`}>
     <div className={styles.pair}>
       <div className={`${styles.col} ${styles.before}`}>
         <div className={styles.shot} style={aspectRatio ? { aspectRatio } : undefined}>
-          <img src={before.src} alt={before.alt} className={styles.image} />
+          <img
+            src={before.src}
+            alt={before.alt}
+            className={styles.image}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+          />
           <span className={styles.chip}>Before</span>
         </div>
       </div>
       <div className={`${styles.col} ${styles.after}`}>
         <div className={styles.shot} style={aspectRatio ? { aspectRatio } : undefined}>
-          <img src={after.src} alt={after.alt} className={styles.image} />
+          <img
+            src={after.src}
+            alt={after.alt}
+            className={styles.image}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+          />
           <span className={styles.chip}>After</span>
         </div>
       </div>
