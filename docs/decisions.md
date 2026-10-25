@@ -194,7 +194,6 @@ Every UI icon is Phosphor bold now (D-026). The remaining hand-drawn icons that 
 
 Revised (D-038, 2026-10-14): the 404 has its own ground token, `surface.error` (indigo-900 in light, indigo-800 in dark), instead of sharing `surface.accent` with the footer, so it is a theme pair of its own and distinct from the page surface (white / night-900). The button is inverted (`content-on-accent` fill, `surface-error` text, pale hover and pressed steps from the on-accent tokens), because a container color can't read on it: secondary-container is indigo-800, the same as the dark ground.
 
-
 ## D-039: Cards stay side-by-side on tablet — decided, 2026-10-14
 
 Below 900px the horizontal card used to fall back to the phone stack, which at 768 gave 720 x 523 cards with a large empty band. Now everything above phones (641px) stays side-by-side: text takes 55% of the card and the preview the rest, the title stays at heading-lg (about 27px at 768), and the fixed 548px text column and 36px title return from 900px. Below 800px the short link label ("Read the case study") is used so the link never wraps in the narrower column. Phones (640px and below) keep the stack (D-028, D-031). Checked at 641, 700, 768, 801 and 1280, light and dark: no overflow, link on one line, cards 340 to 390px tall.
@@ -235,7 +234,6 @@ Applied: intro paragraph 1 (the how: design tokens and automation, token systems
 Titles are "topic | Jax Engel" everywhere (Home and About add the role). Descriptions reuse each case study card's claim in new words; ActBlue says "an estimated $1.5M a year" to match the card. Resume's title and description were still coming from the old `Work/resources/meta.ts` ("remote staff product designer at ServiceNow"); Resume now imports its own `Resume/resources/meta.ts` (11+ years, design systems, token automation, accessibility, enterprise UX) and the Work file is deleted. "Open to remote roles." is removed from the Home and `index.html` descriptions (it stays in the footer). The About fourth chip is "Design-to-code automation". Toyota's meta waits for its page: "Toyota Design Token System Case Study | Jax Engel" and "Led token architecture and Figma-to-code automation for Toyota's PRIME design system across a multi-brand product ecosystem."
 
 About intro paragraph 3 (D-044 follow-up): "Earlier work includes AI-assisted survey analysis at ServiceNow, an accessible, rebranded design system at Indeed, and a self-serve Salesforce integration at ActBlue." Each company name links to its case study (TextLink, with a visually hidden "case study" so the link names are unambiguous). Visa is left out on purpose (old, no case study, still on the resume); Spectrum is named in paragraph 2.
-
 
 ## D-046: Case study template on tokens — decided, 2026-10-16
 
@@ -424,7 +422,6 @@ The page is `/case-studies/toyota` (`Studies/pages/Toyota`), wired in `Studies.t
 
 Resolved (2026-10-24, Jax): the resume line "Supported 40+ product teams building on the React design system" is Jax's own claim and stays. Do not flag the 40 teams as "expected adopters" against the resume again. The case study wording above stays as written.
 
-
 ## D-084: Study image variant `column` — decided, 2026-10-21
 
 `StudyImage` gets a third variant, `column`: the image and its caption are 40rem wide (the reading column) and left-aligned to the 960 edge. It is for a tall UI crop that would stretch and blur at 960px. First use: Toyota's Figma variables panel in Outcomes. Part of the parked `StudyMedia` rethink in docs/plan.md.
@@ -574,10 +571,34 @@ The codebase mixed tabs and spaces, and single and double quotes, file by file. 
 
 D-118 fix (2026-10-25): `--shadow-lift` held `var(--shadow-lift-color, …)` and a custom property resolves where it is defined, so every card read the :root fallback (black 50%). The token is now the geometry only and the card writes `box-shadow: var(--shadow-lift) var(--shadow-lift-color)`. Measured on a hovered Home card: light is the palette color at 55%, dark is black at 50%. Any component that needs a themed shadow color composes it the same way.
 
+## D-117: Code audit batches 1 and 2 — decided, 2026-10-25
+
+Regressions fixed: the shared type steps (`type.module.css`) now carry `line-height` and sit in `@layer type`, so a page's own unlayered media-query size always beats the composed step. This restores the study h1 (48px from 641px, 56px from 900px, D-112), the About h1 (48 / 56, D-108), the phone card title (28px, D-028) and the 1.2 heading line height. Hover styles sit behind `(hover: hover)` so a tap leaves nothing stuck. `Icon` takes an `IconName`. The 404 renders a `<main id="main-content">` for the skip link and re-points the header tagline colors, which were dark slate on its indigo ground in light mode. The social image points at `social-preview-min.png`, with a `twitter:image`. Dead code removed: the three source-rewriting scripts (`generate-index-files`, `sync-icons`, `fix-svg-attributes`) and their npm hooks (`npm run dev` is plain `vite`, barrels and the icon map are hand-written), the unused study `subtitle` and `renderSection`, the ignored chip `theme` field, the template example, `Work/resources`, two unused images, `@types/react-helmet`, a stale `allowScripts` entry and Roboto Mono 500. `license` is MIT like the LICENSE file.
+
+## D-118: Motion, shadow and size tokens; leaner theme.css — decided, 2026-10-25
+
+New tokens, compiled from `src/tokens/effects.ts` (motion and shadows, no primitives behind them) and `defaultTheme.ts`: `--motion-duration-{fast .15s, base .2s, moderate .3s, slow .4s, slower .5s, slowest .8s}`, `--motion-ease-{standard, emphasized, out}`, `--shadow-raised` (tooltip and back to top, deeper with a faint edge in dark), `--shadow-lift` (card hover, colored by `--shadow-lift-color`), `--shadow-cursor` (drop shadow under the hero pointer and name tag arrows), `--size-target-{md 40px, lg 44px}`, `--size-radius-full`. `--size-border-width-thick` is now 3px (the accent line, the outline button and the focus ring width). Components use these and no raw durations, easings or shadows. The hero loops (resize, drag, blink) are ambient animation and keep their own timing. Timings moved by at most 50ms to land on the scale (0.25 and 0.35 to 0.3, 0.45 to 0.4), the back to top shadow is the tooltip's (4px down, was 2px), and the hero arrow shadows are both 25 percent.
+
+Removed because nothing used them: the Figma shadow recipe (blur, spread, x, y and the per-palette shadow colors, 45 variables) and the six `size-breakpoint-*` tokens (CSS cannot read a custom property in a media query). The generator now emits only the primitives a semantic token reads, so `theme.css` fell from 48.6 kB (7.0 gz) to 28.9 kB (3.7 gz) and 797 variables to 459.
+
+Breakpoints are literal and written one way, `@media (max-width: …)` and `(min-width: …)`. Two are the system: 640px (phone, with 641px as its complement) and 900px (desktop). A component breakpoint such as 800px or 340px carries a comment saying why.
+
+## D-119: One palette scope, one Button, the 404 as a tone — decided, 2026-10-25
+
+`src/styles/palette.module.css` holds the five container pairs once (`brand`, `primary`, `secondary`, `tertiary`, `quaternary`) as `--palette-container`, `-container-hover`, `-on-container`, `-on-container-hover` and `-on-container-active`. The study cards, the study page and the chips read them, replacing the 5 x 5 card block, the study page's `pal-*` classes and the chip's four classes. A chip with no `palette` prop follows the palette of the section around it, so the study chips need no override. `Button` (`#components/Button`) replaces the Resume buttons and the 404 button: `filled`, `outline` (3px, D-102) and `inverted` (D-038), as a link (`to`, `href`, `newTab`) with an optional decorative icon. The back to top pill stays its own control. The 404's token re-pointing moved from `NotFound.module.css` to `[data-tone='error']` in `tone.css`, next to `blue` (D-109). At 340px and below every button tightens its padding (it was the 404 button only). Computed styles on Home, About, Resume, two studies and the 404 match the previous build at 375 and 1280, light and dark (the only differences are an invisible 0px border color on the filled button and the 404's random quip width).
+
 ## D-122: Lazy images and per-route meta at build time — decided, 2026-10-25
 
 Images below the fold use `loading="lazy"` and `decoding="async"`. The first Home card, the study header image, compare and panels set `priority` and load at once. The Toyota sample is resized from 1664 to 1000px wide (294 kB to 127 kB, same ratio, still twice its 460px display width). `scripts/prerender-meta.ts` runs in `postbuild` and writes `dist/<route>/index.html` for About, Resume and the four studies, with that page's title, description, canonical and og tags. Crawlers do not run JavaScript, so a shared case study link now previews as itself and not as Home. A new route needs an entry in that script. Home and the 404 keep the `index.html` defaults.
 
-## D-123: Images carry their pixel size — decided, 2026-10-25
+## D-123: Fifth color group, quinary (green) — decided, 2026-10-25
+
+A green group (`quinary`: default green 700 / 300, container green 100 / 800, with on-colors and the generated hover, active and shadow tokens) continues the ramp past teal that D-030 planned: purple, indigo, sky, teal, green. First used by the Resume role gradient (D-124). Generated by `npm run build:theme`, so `theme.css` only gained quinary variables.
+
+## D-124: Resume page: strengths cards, split role cards, no skills list — decided, 2026-10-25
+
+The Resume page drops the Skills and tools chips (the PDF carries the full list). It gains "Core strengths": three cards in study colors with the work cards' hover (tint, lift, link line; no pointer tilt), each with one proof line from its case study (Toyota tokens, Indeed components, ActBlue workflows). Experience is a list of split cards: a colored side (logo, company, dates, place such as "Remote (contract)") and a white side (title, one short summary, case study link). The sides follow one gradient down the list in the order purple, violet, indigo, teal, green (the quinary group, D-123), each fading into the next role. Roles carry a `summary` in place of bullets (drafts condensed from the PDF bullets, TODO(jax)). Major headings share one style: the heading plus a 56px, 4px violet bar. The lift runs only on devices that hover and never with reduced motion. Not in this slice: the Design Engineer PDF download (the resume folder builds four PDFs, public has one).
+
+## D-125: Images carry their pixel size — decided, 2026-10-25
 
 `import photo from './photo.jpg?size'` returns `{ src, width, height }`. The Vite plugin `scripts/vite-image-size.ts` reads the PNG or JPEG header at build time (no dependency), and the size goes onto `<img width height>` so the browser reserves the space before a lazy image loads. CSS keeps setting the rendered size, so nothing changes visually. Study panels now take their source size from the file and no longer repeat it by hand. Study content, the About photos and the Home card samples use `?size`. New images should too. Measured in the browser on Home, About and the four studies: no image has a distorted ratio, and the only cropped ones are the object-fit crops that were already cropped.

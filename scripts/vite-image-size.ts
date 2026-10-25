@@ -1,6 +1,6 @@
 // Vite plugin: `import photo from './photo.jpg?size'` gives `{ src, width, height }` instead of a bare URL.
 // The size goes onto <img width height> so the browser reserves the space before a lazy image loads
-// (no layout shift). Reads the PNG or JPEG header at build time, no dependency. D-123.
+// (no layout shift). Reads the PNG or JPEG header at build time, no dependency. D-125.
 import { readFileSync } from 'node:fs';
 import type { Plugin } from 'vite';
 

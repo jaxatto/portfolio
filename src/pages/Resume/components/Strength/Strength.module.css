@@ -1,0 +1,127 @@
+/* Resume strength card (D-124). Tokens and the shared palette scope only. The look and hover follow the
+   work cards in StudyCard.module.css (D-028, D-111): the same tint, lift, shadow and link line. */
+
+.card {
+	--card-fg: var(--palette-on-container);
+	--card-lift: 5%;
+	--shadow-lift-color: color-mix(in oklch, var(--card-fg) 55%, transparent);
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-md);
+	padding: var(--size-space-2xl);
+	border-radius: var(--size-radius-lg);
+	background: color-mix(
+		in oklch,
+		var(--palette-container) calc(100% - var(--card-lift)),
+		var(--color-surface-default)
+	);
+	color: var(--color-content-soft);
+	transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
+}
+
+.card:hover {
+	background: color-mix(
+		in oklch,
+		var(--palette-container-hover) calc(100% - var(--card-lift)),
+		var(--color-surface-default)
+	);
+}
+
+.title {
+	composes: headingSm from '#styles/type.module.css';
+	margin: 0;
+	color: var(--card-fg);
+}
+
+.proof {
+	margin: 0;
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-weight-medium);
+	line-height: var(--font-style-body-md-line-height);
+	color: var(--color-content-prose);
+}
+
+.link {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-space-xs);
+	margin-top: auto;
+	padding-top: var(--size-space-md);
+	color: var(--card-fg);
+	font-weight: var(--font-weight-extra-strong);
+	text-decoration: none;
+}
+
+.linkText {
+	composes: line from '#styles/line.module.css';
+	--line-bottom: calc(-1 * var(--size-border-width-default));
+	--line-color: currentcolor;
+	position: relative;
+}
+
+/* The link covers the card, so keyboard focus rings the whole card. */
+.link::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+}
+
+.link:focus-visible {
+	outline: none;
+}
+
+.card:has(.link:focus-visible) {
+	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+	outline-offset: var(--size-focus-ring-offset);
+}
+
+.card:hover .linkText::after {
+	transform: scaleX(1);
+}
+
+.icon {
+	width: 1.2em;
+	height: 1.2em;
+	flex-shrink: 0;
+	fill: currentcolor;
+}
+
+/* Hover lift, as on the work cards: hover devices only, never with reduced motion. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+	.card {
+		transition:
+			background-color var(--motion-duration-base) var(--motion-ease-standard),
+			transform var(--motion-duration-slow) var(--motion-ease-out),
+			box-shadow var(--motion-duration-slow) var(--motion-ease-out);
+	}
+
+	.card:hover {
+		transform: translateY(calc(-1 * var(--size-space-sm)));
+		box-shadow: var(--shadow-lift) var(--shadow-lift-color);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.card,
+	.linkText::after {
+		transition: none;
+	}
+}
+
+:global([data-theme='dark']) .card {
+	--card-fg: var(--color-content-emphasis);
+	--card-lift: 30%;
+	--shadow-lift-color: oklch(0 0 0 / 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+	:global(:root:not([data-theme='light'])) .card {
+		--card-fg: var(--color-content-emphasis);
+		--card-lift: 30%;
+		--shadow-lift-color: oklch(0 0 0 / 0.5);
+	}
+}
