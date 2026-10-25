@@ -2,41 +2,16 @@
    reading measure (D-040) and images run the full column. Every image has 40px above and below it
    (D-053): the image's own margin, so the blocks around it add no extra gap. */
 
-/* The study's card palette (D-052, D-069): --study-container is the tint, --study-on-container the text on
-   it, --study-heading the h1 and h3 color (the palette's on-container in light and dark, D-070).
-   Chips, the "After" side of a before / after pair, the spread box and the text selection read these. */
-.pal-brand {
-	--study-container: var(--color-brand-container);
-	--study-on-container: var(--color-brand-on-container);
-}
-
-.pal-primary {
-	--study-container: var(--color-primary-container);
-	--study-on-container: var(--color-primary-on-container);
-}
-
-.pal-secondary {
-	--study-container: var(--color-secondary-container);
-	--study-on-container: var(--color-secondary-on-container);
-}
-
-.pal-tertiary {
-	--study-container: var(--color-tertiary-container);
-	--study-on-container: var(--color-tertiary-on-container);
-}
-
-.pal-quaternary {
-	--study-container: var(--color-quaternary-container);
-	--study-on-container: var(--color-quaternary-on-container);
-}
-
+/* The study's card palette (D-052, D-069) comes from the class on the page (src/styles/palette.module.css,
+   D-119). --study-heading is the h1 and h3 color: the palette's on-container in light and dark (D-070).
+   Chips, the "After" side of a before / after pair, the spread box and the text selection read the palette. */
 .page {
-	--study-heading: var(--study-on-container);
+	--study-heading: var(--palette-on-container);
 }
 
 .page ::selection {
-	background: var(--study-container);
-	color: var(--study-on-container);
+	background: var(--palette-container);
+	color: var(--palette-on-container);
 }
 
 .page {

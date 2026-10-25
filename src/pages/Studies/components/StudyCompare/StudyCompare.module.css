@@ -24,7 +24,7 @@
 }
 
 .after {
-	background: var(--study-container, var(--color-secondary-container));
+	background: var(--palette-container, var(--color-secondary-container));
 }
 
 .shot {
@@ -58,8 +58,8 @@
 }
 
 .after .chip {
-	background: var(--study-container, var(--color-secondary-container));
-	color: var(--study-on-container, var(--color-secondary-on-container));
+	background: var(--palette-container, var(--color-secondary-container));
+	color: var(--palette-on-container, var(--color-secondary-on-container));
 }
 
 /* The caption is as wide as the pair (D-071). */

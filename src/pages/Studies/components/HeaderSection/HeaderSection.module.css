@@ -94,12 +94,6 @@
 	margin: var(--size-space-lg) 0 0;
 }
 
-/* The study's card palette colors the chips, like the h1 (D-052). The parent class keeps this above the shared Chip's own colors whatever the CSS order. */
-.header .chip {
-	--chip-bg: var(--study-container, var(--color-primary-container));
-	--chip-fg: var(--study-heading, var(--color-primary-on-container));
-}
-
 .description {
 	display: flex;
 	flex-direction: column;

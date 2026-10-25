@@ -2,8 +2,6 @@
    is a semantic token (surface-error / content-on-accent, space, radius,
    type), so light and dark both work. D-022, D-038. */
 
-/* The shared header reads its colors from tokens, so they are re-pointed to on-accent values inside
-   this page. */
 .page {
 	display: flex;
 	flex-direction: column;
@@ -13,19 +11,6 @@
 	isolation: isolate;
 	background: var(--color-surface-error);
 	color: var(--color-content-on-accent);
-	--color-content-default: var(--color-content-on-accent);
-	--color-content-variant: var(--color-content-on-accent);
-	--color-content-emphasis: var(--color-content-on-accent);
-	/* The header's tagline and ampersand (secondary, muted) are dark slate by default: unreadable on this ground. */
-	--color-content-secondary: var(--color-content-on-accent-hover);
-	--color-content-muted: var(--color-content-on-accent-hover);
-	--color-content-default-hover: var(--color-content-on-accent-hover);
-	--color-content-default-active: var(--color-content-on-accent-active);
-	--color-primary-default: var(--color-content-on-accent-hover);
-	--color-primary-default-active: var(--color-content-on-accent-active);
-	--color-state-focus-ring: var(--color-content-on-accent);
-	/* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
-	--color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
 }
 
 .wrapper {
@@ -86,58 +71,5 @@
 }
 
 .button {
-	display: inline-flex;
-	align-items: center;
 	align-self: center;
-	gap: var(--size-space-sm);
-	padding: var(--size-space-lg) var(--size-space-3xl);
-	border-radius: var(--size-radius-md);
-	/* An inverted button: on-accent fill with the ground's color as text. It reads on the ground in
-	   both themes, which a container color can't (indigo-800 equals the dark ground). D-038. */
-	background: var(--color-content-on-accent);
-	color: var(--color-surface-error);
-	font-family: var(--font-family-heading);
-	font-size: var(--font-style-body-md-size);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-line-height-default);
-	text-decoration: none;
-	transition:
-		background-color var(--motion-duration-base) var(--motion-ease-standard),
-		color var(--motion-duration-base) var(--motion-ease-standard);
-}
-
-.icon {
-	flex-shrink: 0;
-	width: 1.2em;
-	height: 1.2em;
-	color: inherit;
-	fill: currentcolor;
-}
-
-@media (hover: hover) {
-	.button:hover {
-		background: var(--color-content-on-accent-hover);
-	}
-}
-
-.button:active {
-	background: var(--color-content-on-accent-active);
-}
-
-.button:focus-visible {
-	outline: var(--size-focus-ring-width) solid var(--color-content-on-accent);
-	outline-offset: var(--size-focus-ring-offset);
-}
-
-/* Very small phones: the button padding tightens so the label never wraps. */
-@media (max-width: 340px) {
-	.button {
-		padding: var(--size-space-md) var(--size-space-xl);
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.button {
-		transition: none;
-	}
 }

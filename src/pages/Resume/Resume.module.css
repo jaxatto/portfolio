@@ -126,71 +126,6 @@
 	margin-top: calc(var(--size-space-3xl) - var(--size-space-2xl));
 }
 
-.button {
-	display: inline-flex;
-	align-items: center;
-	gap: var(--size-space-sm);
-	padding: var(--size-space-lg) var(--size-space-3xl);
-	border-radius: var(--size-radius-md);
-	background: var(--color-primary-default);
-	color: var(--color-primary-on-default);
-	font-family: var(--font-family-heading);
-	font-size: var(--font-style-body-md-size);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-line-height-default);
-	text-decoration: none;
-	transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
-}
-
-@media (hover: hover) {
-	.button:hover {
-		background: var(--color-primary-default-hover);
-	}
-}
-
-.button:active {
-	background: var(--color-primary-default-active);
-}
-
-.button:focus-visible {
-	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
-	outline-offset: var(--size-focus-ring-offset);
-}
-
-.outline {
-	/* 3px outline (D-102): `border-width-thick`. The padding gives back the same width so the button stays the size of the filled one. */
-	--outline-width: var(--size-border-width-thick);
-
-	padding: calc(var(--size-space-lg) - var(--outline-width)) calc(var(--size-space-3xl) - var(--outline-width));
-	/* The link color keeps contrast on the dark ground (violet-300 there). */
-	border: var(--outline-width) solid var(--color-content-link);
-	background: transparent;
-	color: var(--color-content-link);
-}
-
-@media (hover: hover) {
-	.outline:hover {
-		/* Same hover color as the filled button (violet-200 in dark, violet-800 in light), used as a faint wash
-		   with the text and border on it. The container fill was a saturated violet block in dark. */
-		border-color: var(--color-primary-default-hover);
-		background: color-mix(in srgb, var(--color-primary-default-hover) 12%, transparent);
-		color: var(--color-primary-default-hover);
-	}
-}
-
-.outline:active {
-	border-color: var(--color-primary-default-active);
-	background: color-mix(in srgb, var(--color-primary-default-active) 20%, transparent);
-	color: var(--color-primary-default-active);
-}
-
-.buttonIcon {
-	flex-shrink: 0;
-	width: 1.2em;
-	height: 1.2em;
-	fill: currentcolor;
-}
-
 .section {
 	display: flex;
 	flex-direction: column;
@@ -222,13 +157,7 @@
 		align-items: stretch;
 	}
 
-	.button {
+	.actions .action {
 		justify-content: center;
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.button {
-		transition: none;
 	}
 }

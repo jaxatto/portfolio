@@ -7,6 +7,7 @@ import NextStudy from '@pages/Studies/components/NextStudy';
 import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
 import type { StudySectionProps } from '@commonTypes/study/studySection';
 import type { StudyMetaProps } from '@commonTypes/study/studyMeta';
+import palettes from '#styles/palette.module.css';
 import styles from './StudyTemplate.module.css';
 
 export type StudyTemplateProps = {
@@ -27,7 +28,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content }) => {
   <Layout
     title={meta.title}
     metaDescription={meta.description}
-    className={`${styles.page} ${styles[`pal-${palette}`]}`}
+    className={`${styles.page} ${palettes[palette]}`}
     backToTop
   >
     <HeaderSection

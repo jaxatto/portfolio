@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Icon from '#components/Icon';
+import Button from '#components/Button';
 import Header from '@components/Header';
 import Meta from '@components/Meta';
 import { content } from '@pages/NotFound/resources/content';
@@ -14,7 +13,7 @@ const NotFound: React.FC = () => {
 
   return (
     // The page keeps its own dark ground; the shared nav header sits on it, recolored via tokens.
-    <div className={styles.page}>
+    <div className={styles.page} data-tone="error">
       <Meta
         title="Page not found | Jax Engel"
         metaDescription="This page doesn’t exist. Head back to Jax Engel’s portfolio."
@@ -27,10 +26,9 @@ const NotFound: React.FC = () => {
             <h1 className={styles.title}>{content.title}</h1>
             <p className={styles.description}>{description}</p>
           </div>
-          <Link to={content.button.src} className={styles.button}>
+          <Button variant="inverted" to={content.button.src} icon="arrow-right" className={styles.button}>
             {content.button.label}
-            <Icon name="arrow-right" className={styles.icon} aria-hidden="true" />
-          </Link>
+          </Button>
         </div>
       </main>
     </div>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import Icon from '#components/Icon';
+import palettes from '#styles/palette.module.css';
+import type { ColorGroup } from '#tokens/types';
 import styles from './StudyCard.module.css';
 
 // Figma "Study Card" (Home, node 2726:63413). Palette = container / on-container token pair.
@@ -19,7 +21,7 @@ export type StudyCardProps = {
 	linkTextShort?: string; // Shown on phones so the link never wraps (D-031)
 	headingLevel?: 'h2' | 'h3'; // h2 on Home, h3 under a case study (heading order)
 	enlargeImage?: boolean; // Screenshot 40px larger inside the same window (D-028)
-	palette?: 'brand' | 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+	palette?: ColorGroup;
 	layout?: 'horizontal' | 'vertical'; // Horizontal: preview beside the text (desktop only)
 	variant?: 'work' | 'study'; // 'study' = smaller type, used under a case study
 };
@@ -43,7 +45,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
 		<article
 			className={clsx(
 				styles.card,
-				styles[palette],
+				palettes[palette],
 				layout === 'horizontal' && styles.horizontal,
 				variant === 'study' && styles.study,
 				enlargeImage && styles.enlarge,
