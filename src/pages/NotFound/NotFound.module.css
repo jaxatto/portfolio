@@ -16,6 +16,9 @@
 	--color-content-default: var(--color-content-on-accent);
 	--color-content-variant: var(--color-content-on-accent);
 	--color-content-emphasis: var(--color-content-on-accent);
+	/* The header's tagline and ampersand (secondary, muted) are dark slate by default: unreadable on this ground. */
+	--color-content-secondary: var(--color-content-on-accent-hover);
+	--color-content-muted: var(--color-content-on-accent-hover);
 	--color-content-default-hover: var(--color-content-on-accent-hover);
 	--color-content-default-active: var(--color-content-on-accent-active);
 	--color-primary-default: var(--color-content-on-accent-hover);
