@@ -70,6 +70,22 @@
 	color: var(--color-content-emphasis);
 }
 
+.heading {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-xs);
+}
+
+/* The promotion belongs to the title, so it sits under it and not in the dates column. */
+.promotion {
+	margin: 0;
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-sm-size);
+	font-weight: var(--font-weight-medium);
+	line-height: var(--font-style-body-md-line-height);
+}
+
 .summary {
 	max-width: 38rem;
 	margin: 0;

@@ -20,6 +20,14 @@
     line-height: var(--font-style-heading-lg-line-height);
   }
 
+  .headingMd {
+    margin: 0;
+    font-family: var(--font-style-heading-md-family);
+    font-size: var(--font-style-heading-md-size);
+    font-weight: var(--font-style-heading-md-weight);
+    line-height: var(--font-style-heading-md-line-height);
+  }
+
   /* Bold (700) label step: "Label: sentence" headings, role titles, skill groups (D-055). */
   .headingSm {
     margin: 0;

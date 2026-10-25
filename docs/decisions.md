@@ -608,3 +608,7 @@ Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUD
 ## D-130: Headings are never styled by their tag — decided, 2026-10-25
 
 The heading reset in `main.css` (margin and padding on h1 to h6) is gone, so no rule targets a heading element. Every heading takes margin 0 from its type step in `type.module.css`. The About `section > h2 + *` selector became `margin-bottom` on the `.heading` class (still 12px under the heading, D-057). Checked on every route at 1280: all headings compute to zero margin and padding except the two About h2s, which carry the intended -12px bottom margin.
+
+## D-132: Resume header portrait with a cursor tag — decided, 2026-10-25
+
+The Resume header carries a square portrait on the right (14rem tablet, 18rem desktop) with the violet "Jax" cursor tag at the bottom-right, the same tag as the About photos. It fills the empty right half of the header and puts a face on the page. Below 900px it stacks above the name (14rem wide). The tag is violet and the photo takes the About photo hover (4% zoom, tag nudges up and left). The name uses the About h1 size (48px, 56px from 900px). The photo is Jax's own (not AI-generated), cropped 5% in from each edge to remove a glow around the edges, and exported as `src/assets/resume/portrait-min.jpg` at 960px. The Core strengths card titles use a new `headingMd` step in `type.module.css`, and the header has 40px more space below it and 16px more above the buttons.
