@@ -1,0 +1,41 @@
+/* The 40px icon-only control shared by the mode toggle and the footer icon links: same target, radius,
+   violet hover and press, accent line and focus ring, so their edges line up in the header and footer.
+   Compose it on a button or link and set `--icon-control-color` for the resting color. */
+
+.iconControl {
+  composes: line from '#styles/line.module.css';
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-target-md);
+  height: var(--size-target-md);
+  border-radius: var(--size-radius-md);
+  color: var(--icon-control-color, var(--color-content-variant));
+  transition: color var(--motion-duration-base) var(--motion-ease-standard);
+}
+
+@media (hover: hover) {
+  .iconControl:hover {
+    color: var(--color-primary-default);
+  }
+}
+
+.iconControl:active {
+  color: var(--color-primary-default-active);
+}
+
+.iconControl:active::after {
+  background: var(--color-primary-default-active);
+}
+
+.iconControl:focus-visible {
+  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+  outline-offset: var(--size-focus-ring-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iconControl {
+    transition: none;
+  }
+}
