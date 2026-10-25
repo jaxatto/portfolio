@@ -75,7 +75,8 @@
    the two edges line up. Below that it stacks above the name. */
 @media (min-width: 900px) {
 	.header {
-		grid-template-columns: minmax(0, 1fr) 22rem;
+		/* The portrait grows from 14rem at 900px to 22rem at 968px, so the two buttons keep one row. */
+		grid-template-columns: minmax(0, 1fr) clamp(14rem, calc(14rem + (100vw - 900px) * 1.9), 22rem);
 		align-items: stretch;
 	}
 
