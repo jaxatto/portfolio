@@ -1,15 +1,15 @@
 import React from 'react';
-import Layout from '@components/Layout';
+import Layout from '#components/Layout';
 import Button from '#components/Button';
 import { chipPalettes } from '#components/Chip';
 import RoleLines from '#components/RoleLines';
-import { contactInfo } from '@constants/contactInfo';
-import { roleLines } from '@constants/roleLines';
-import Role from '@pages/Resume/components/Role';
-import SkillGroup from '@pages/Resume/components/SkillGroup';
-import { roles } from '@pages/Resume/resources/roles';
-import { skillGroups } from '@pages/Resume/resources/skills';
-import { meta } from '@pages/Resume/resources/meta';
+import { contactInfo } from '#constants/contactInfo';
+import { roleLines } from '#constants/roleLines';
+import Role from '#pages/Resume/components/Role';
+import SkillGroup from '#pages/Resume/components/SkillGroup';
+import { roles } from '#pages/Resume/resources/roles';
+import { skillGroups } from '#pages/Resume/resources/skills';
+import { meta } from '#pages/Resume/resources/meta';
 import styles from './Resume.module.css';
 
 // Resume page on tokens and the 960 column (slice 6, D-087). The page carries the resume's content so it

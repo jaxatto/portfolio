@@ -1,3 +1,3 @@
 export const content = {
-    title: "More of my work",
-} 
+  title: 'More of my work',
+};

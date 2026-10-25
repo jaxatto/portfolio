@@ -8,30 +8,30 @@
    itself with a more specific selector. */
 
 .line::after {
-	content: '';
-	position: absolute;
-	right: var(--line-inset, 0);
-	bottom: var(--line-bottom, 0);
-	left: var(--line-inset, 0);
-	height: var(--size-border-width-thick);
-	border-radius: var(--size-radius-full);
-	background: var(--line-color, var(--color-primary-default));
-	transform: scaleX(0);
-	/* The origin stays on the left for grow and retract: swapping it on hover made the line jump when
+  content: '';
+  position: absolute;
+  right: var(--line-inset, 0);
+  bottom: var(--line-bottom, 0);
+  left: var(--line-inset, 0);
+  height: var(--size-border-width-thick);
+  border-radius: var(--size-radius-full);
+  background: var(--line-color, var(--color-primary-default));
+  transform: scaleX(0);
+  /* The origin stays on the left for grow and retract: swapping it on hover made the line jump when
 	   the pointer re-entered mid-transition. */
-	transform-origin: left center;
-	transition: transform var(--motion-duration-moderate) var(--motion-ease-emphasized);
+  transform-origin: left center;
+  transition: transform var(--motion-duration-moderate) var(--motion-ease-emphasized);
 }
 
 /* Hover only on devices that hover, so a tap on a phone doesn't leave the line stuck on. */
 @media (hover: hover) {
-	.line:hover::after {
-		transform: scaleX(1);
-	}
+  .line:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.line::after {
-		transition: none;
-	}
+  .line::after {
+    transition: none;
+  }
 }

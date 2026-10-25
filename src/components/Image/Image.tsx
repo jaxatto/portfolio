@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import Icon from '@components/Icon';
-import type { IconName } from '@constants/iconNames';
+import Icon from '#components/Icon';
+import type { IconName } from '#constants/iconNames';
 import styles from './Image.module.css';
 
-// Image component that displays an image with a fallback icon if the image fails to load 
+// Image component that displays an image with a fallback icon if the image fails to load
 // It allows for custom styling of the image, fallback icon, and container
 // Usage: <Image src="image-url.jpg" alt="Description" iconFallback="image
 
 type ImageProps = {
-  src: string; 
+  src: string;
   alt: string;
   imgClassName?: string; // Allows custom styling for the image element itself
   className?: string; // Allows custom styling for the image component container
@@ -23,7 +23,7 @@ const Image: React.FC<ImageProps> = ({
   alt,
   altFallback,
   className,
-  iconFallback = "image",
+  iconFallback = 'image',
   imgClassName,
   iconClassName,
   fallbackClassName,
@@ -33,12 +33,7 @@ const Image: React.FC<ImageProps> = ({
   return (
     <div className={[styles['component-wrapper'], className].filter(Boolean).join(' ')}>
       {!error ? (
-        <img
-          src={src}
-          alt={alt}
-          onError={() => setError(true)}
-          className={imgClassName}
-        />
+        <img src={src} alt={alt} onError={() => setError(true)} className={imgClassName} />
       ) : (
         <div className={[styles['fallback-wrapper'], fallbackClassName].filter(Boolean).join(' ')}>
           <Icon

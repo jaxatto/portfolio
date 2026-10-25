@@ -24,11 +24,7 @@ export const SiteConfigProvider: React.FC<SiteConfigProviderProps> = ({
 }) => {
   const value: SiteConfig = { ...defaultConfig, ...config };
 
-  return (
-    <SiteConfigContext.Provider value={value}>
-      {children}
-    </SiteConfigContext.Provider>
-  );
+  return <SiteConfigContext.Provider value={value}>{children}</SiteConfigContext.Provider>;
 };
 
 export const useSiteConfig = (): SiteConfig => useContext(SiteConfigContext);

@@ -1,4 +1,4 @@
-import { studyLinks } from '@constants/studyLinks';
+import { studyLinks } from '#constants/studyLinks';
 
 // Resume roles, newest first. Copy follows the resume PDF, revised for the site's copy rules.
 // Dates keep the month (the PDF does). Visa is one entry with the promotion on a second line.

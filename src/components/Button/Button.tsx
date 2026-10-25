@@ -9,54 +9,54 @@ import styles from './Button.module.css';
 // Internal routes use `to`, files and mail use `href` (`newTab` adds the safe rel). The icon is decorative.
 
 type ButtonProps = {
-	variant?: 'filled' | 'outline' | 'inverted';
-	to?: string;
-	href?: string;
-	newTab?: boolean;
-	icon?: IconName;
-	iconPosition?: 'start' | 'end';
-	className?: string;
-	children: React.ReactNode;
+  variant?: 'filled' | 'outline' | 'inverted';
+  to?: string;
+  href?: string;
+  newTab?: boolean;
+  icon?: IconName;
+  iconPosition?: 'start' | 'end';
+  className?: string;
+  children: React.ReactNode;
 };
 
 const Button: React.FC<ButtonProps> = ({
-	variant = 'filled',
-	to,
-	href,
-	newTab,
-	icon,
-	iconPosition = 'end',
-	className,
-	children,
+  variant = 'filled',
+  to,
+  href,
+  newTab,
+  icon,
+  iconPosition = 'end',
+  className,
+  children,
 }) => {
-	const classes = clsx(styles.button, styles[variant], className);
-	const glyph = icon && <Icon name={icon} className={styles.icon} aria-hidden="true" />;
-	const content = (
-		<>
-			{iconPosition === 'start' && glyph}
-			{children}
-			{iconPosition === 'end' && glyph}
-		</>
-	);
+  const classes = clsx(styles.button, styles[variant], className);
+  const glyph = icon && <Icon name={icon} className={styles.icon} aria-hidden="true" />;
+  const content = (
+    <>
+      {iconPosition === 'start' && glyph}
+      {children}
+      {iconPosition === 'end' && glyph}
+    </>
+  );
 
-	if (to) {
-		return (
-			<RouterLink to={to} className={classes}>
-				{content}
-			</RouterLink>
-		);
-	}
+  if (to) {
+    return (
+      <RouterLink to={to} className={classes}>
+        {content}
+      </RouterLink>
+    );
+  }
 
-	return (
-		<a
-			href={href}
-			className={classes}
-			target={newTab ? '_blank' : undefined}
-			rel={newTab ? 'noopener noreferrer' : undefined}
-		>
-			{content}
-		</a>
-	);
+  return (
+    <a
+      href={href}
+      className={classes}
+      target={newTab ? '_blank' : undefined}
+      rel={newTab ? 'noopener noreferrer' : undefined}
+    >
+      {content}
+    </a>
+  );
 };
 
 export default Button;

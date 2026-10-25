@@ -6,32 +6,32 @@
    D-119). --study-heading is the h1 and h3 color: the palette's on-container in light and dark (D-070).
    Chips, the "After" side of a before / after pair, the spread box and the text selection read the palette. */
 .page {
-	--study-heading: var(--palette-on-container);
+  --study-heading: var(--palette-on-container);
 }
 
 .page ::selection {
-	background: var(--palette-container);
-	color: var(--palette-on-container);
+  background: var(--palette-container);
+  color: var(--palette-on-container);
 }
 
 .page {
-	display: flex;
-	flex-direction: column;
-	padding-block: var(--size-space-section-lg) var(--size-space-section-lg);
-	color: var(--color-content-prose);
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--size-space-section-lg) var(--size-space-section-lg);
+  color: var(--color-content-prose);
 }
 
 /* Without a hero image, the header needs its own gap before the first section. */
 .page > .headerNoImage {
-	margin-bottom: var(--size-space-section-lg);
+  margin-bottom: var(--size-space-section-lg);
 }
 
 @media (max-width: 640px) {
-	.page {
-		padding-block: var(--size-space-3xl) var(--size-space-section-sm);
-	}
+  .page {
+    padding-block: var(--size-space-3xl) var(--size-space-section-sm);
+  }
 
-	.page > .headerNoImage {
-		margin-bottom: var(--size-space-section-sm);
-	}
+  .page > .headerNoImage {
+    margin-bottom: var(--size-space-section-sm);
+  }
 }

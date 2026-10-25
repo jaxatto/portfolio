@@ -2,214 +2,214 @@
    One column: hero, then the story at a reading measure. */
 
 .page {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-section-sm);
-	/* Quiet footer: a hairline above it, so the photos need room before it. */
-	padding-block: var(--size-space-section-lg);
-	color: var(--color-content-prose);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-section-sm);
+  /* Quiet footer: a hairline above it, so the photos need room before it. */
+  padding-block: var(--size-space-section-lg);
+  color: var(--color-content-prose);
 }
 
 /* Hero: the Home header's marks carried over. "me" gets the selection box and pointer; the facts are
    code-style chips with a caret after the last one. */
 .hero {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-3xl);
 }
 
 .title {
-	composes: titleMd from '#styles/type.module.css';
-	color: var(--color-content-emphasis);
+  composes: titleMd from '#styles/type.module.css';
+  color: var(--color-content-emphasis);
 }
 
 /* The I-beam, like the "build" chip on Home: these chips read as typed text. */
 .chip {
-	cursor: text;
+  cursor: text;
 }
 
 /* Story: left-aligned on the grid, held to about 640px so lines stay readable. */
 .story {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-section-sm);
-	max-width: var(--size-layout-content-max);
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-md-size);
-	line-height: var(--font-style-body-md-line-height);
-	text-wrap: pretty;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-section-sm);
+  max-width: var(--size-layout-content-max);
+  font-family: var(--font-style-body-md-family);
+  font-size: var(--font-style-body-md-size);
+  line-height: var(--font-style-body-md-line-height);
+  text-wrap: pretty;
 }
 
 .story section {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-2xl);
 }
 
 .story p {
-	margin: 0;
+  margin: 0;
 }
 
 .heading {
-	composes: headingLg from '#styles/type.module.css';
-	color: var(--color-content-prose); /* true black in light (D-056) */
+  composes: headingLg from '#styles/type.module.css';
+  color: var(--color-content-prose); /* true black in light (D-056) */
 }
 
 /* 12px between an h2 and what follows (D-057): the section's 24px gap minus 12. */
 .story section > h2 + * {
-	margin-top: calc(var(--size-space-md) - var(--size-space-2xl));
+  margin-top: calc(var(--size-space-md) - var(--size-space-2xl));
 }
 
 /* Group of label + sentence under Approach to Work. */
 .item {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-xs);
 }
 
 /* "Strategic Product Design" etc.: h3s, one step above the sentence and well under the h2s. */
 .subheading {
-	composes: headingSm from '#styles/type.module.css';
-	color: var(--color-content-emphasis);
+  composes: headingSm from '#styles/type.module.css';
+  color: var(--color-content-emphasis);
 }
 
 /* Pets: rounded squares, the same corner as the cards. They sit outside the 640px story column, so the
    row spans the full 960 grid. Two by two on phones, four across from tablet. */
 .photos {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: var(--size-space-lg);
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--size-space-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .photo {
-	min-width: 0;
+  min-width: 0;
 }
 
 .figure {
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-md);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-md);
 }
 
 /* Name tag colors: the saturated pair of each palette, so the tag reads on any photo. */
 .figure.primary {
-	--tag-bg: var(--color-primary-default);
-	--tag-fg: var(--color-primary-on-default);
+  --tag-bg: var(--color-primary-default);
+  --tag-fg: var(--color-primary-on-default);
 }
 
 .figure.secondary {
-	--tag-bg: var(--color-secondary-default);
-	--tag-fg: var(--color-secondary-on-default);
+  --tag-bg: var(--color-secondary-default);
+  --tag-fg: var(--color-secondary-on-default);
 }
 
 .figure.tertiary {
-	--tag-bg: var(--color-tertiary-default);
-	--tag-fg: var(--color-tertiary-on-default);
+  --tag-bg: var(--color-tertiary-default);
+  --tag-fg: var(--color-tertiary-on-default);
 }
 
 .figure.quaternary {
-	--tag-bg: var(--color-quaternary-default);
-	--tag-fg: var(--color-quaternary-on-default);
+  --tag-bg: var(--color-quaternary-default);
+  --tag-fg: var(--color-quaternary-on-default);
 }
 
 .frame {
-	position: relative;
+  position: relative;
 }
 
 /* Name tag: the same spot on every photo, 4px in from the bottom-right corner. */
 .tag {
-	position: absolute;
-	right: var(--size-space-xs);
-	bottom: var(--size-space-xs);
+  position: absolute;
+  right: var(--size-space-xs);
+  bottom: var(--size-space-xs);
 }
 
 .caption {
-	color: var(--color-content-soft);
-	font-family: var(--font-style-body-sm-family);
-	font-size: var(--font-style-body-sm-size);
-	line-height: var(--font-style-body-sm-line-height);
-	text-wrap: pretty;
+  color: var(--color-content-soft);
+  font-family: var(--font-style-body-sm-family);
+  font-size: var(--font-style-body-sm-size);
+  line-height: var(--font-style-body-sm-line-height);
+  text-wrap: pretty;
 }
 
 .photoFrame {
-	aspect-ratio: 1;
-	width: 100%;
-	overflow: hidden;
-	border-radius: var(--size-radius-lg);
+  aspect-ratio: 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--size-radius-lg);
 }
 
 .photoImage {
-	display: block;
-	width: 100%;
-	height: 100%;
-	aspect-ratio: 1;
-	border-radius: var(--size-radius-lg);
-	object-fit: cover;
-	transition: transform var(--motion-duration-slow) var(--motion-ease-emphasized);
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--size-radius-lg);
+  object-fit: cover;
+  transition: transform var(--motion-duration-slow) var(--motion-ease-emphasized);
 }
 
 /* Hover or keyboard focus inside the figure: the photo eases in a little and the tag nudges up and
    left, like a cursor being dragged. Motion only; the name is always visible. */
 @media (hover: hover) {
-	.figure:hover .photoImage {
-		transform: scale(1.04);
-	}
+  .figure:hover .photoImage {
+    transform: scale(1.04);
+  }
 
-	.figure:hover .tag {
-		transform: translate(-4px, -4px);
-	}
+  .figure:hover .tag {
+    transform: translate(-4px, -4px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.photoImage {
-		transition: none;
-	}
+  .photoImage {
+    transition: none;
+  }
 
-	.figure:hover .photoImage,
-	.figure:hover .tag {
-		transform: none;
-	}
+  .figure:hover .photoImage,
+  .figure:hover .tag {
+    transform: none;
+  }
 }
 
 /* The shared Image fallback is a circle; match the photos. Doubled class beats its rule. */
 .photoFallback.photoFallback {
-	aspect-ratio: 1;
-	border-radius: var(--size-radius-lg);
+  aspect-ratio: 1;
+  border-radius: var(--size-radius-lg);
 }
 
 /* The hero title is 48px below 900px (it was the fluid 40px floor) and 56px from 900px, the top of the type
    scale, matching Home's sentence (D-108). */
 .title {
-	font-size: var(--font-size-48);
+  font-size: var(--font-size-48);
 }
 
 @media (min-width: 900px) {
-	.title {
-		font-size: var(--font-size-56);
-		letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
-	}
+  .title {
+    font-size: var(--font-size-56);
+    letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
+  }
 }
 
 @media (min-width: 641px) {
-	.photos {
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-	}
+  .photos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 /* Tablet and phone: less room between the photos and the footer. */
 @media (max-width: 899px) {
-	.page {
-		padding-block-end: var(--size-space-section-sm);
-	}
+  .page {
+    padding-block-end: var(--size-space-section-sm);
+  }
 }
 
 /* Phone: the name tags are enough; the captions come back from 641px up. */
 @media (max-width: 640px) {
-	.caption {
-		display: none;
-	}
+  .caption {
+    display: none;
+  }
 }

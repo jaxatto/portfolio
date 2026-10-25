@@ -1,40 +1,40 @@
 .list {
-	display: flex;
-	/* One row while it fits, wrapping when the screen is narrower. */
-	flex-wrap: wrap;
-	align-items: center;
-	gap: var(--size-space-md);
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  display: flex;
+  /* One row while it fits, wrapping when the screen is narrower. */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .chip {
-	/* The palette is set by a class from src/styles/palette.module.css (D-119): on the chip (`palette`), or on
+  /* The palette is set by a class from src/styles/palette.module.css (D-119): on the chip (`palette`), or on
 	   a section around it. Neither: the primary pair. */
-	--chip-bg: var(--palette-container, var(--color-primary-container));
-	--chip-fg: var(--palette-on-container, var(--color-primary-on-container));
+  --chip-bg: var(--palette-container, var(--color-primary-container));
+  --chip-fg: var(--palette-on-container, var(--color-primary-on-container));
 
-	padding: var(--size-space-sm) var(--size-space-lg);
-	border-radius: var(--size-radius-md);
-	background: var(--chip-bg);
-	color: var(--chip-fg);
-	font-family: var(--font-family-mono);
-	font-size: var(--font-style-body-sm-size);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-line-height-default);
-	/* A caret after the last chip (About) takes the chip's text color. */
-	--caret-color: var(--chip-fg);
+  padding: var(--size-space-sm) var(--size-space-lg);
+  border-radius: var(--size-radius-md);
+  background: var(--chip-bg);
+  color: var(--chip-fg);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-style-body-sm-size);
+  font-weight: var(--font-weight-emphasis);
+  line-height: var(--font-line-height-default);
+  /* A caret after the last chip (About) takes the chip's text color. */
+  --caret-color: var(--chip-fg);
 }
 
 /* A chip with a `palette` prop takes the palette's text color, which is white in dark like the card
    headings (D-028). Without one it follows the palette of the section it sits in, the study page's. */
 :global([data-theme='dark']) .tinted {
-	--chip-fg: var(--color-content-emphasis);
+  --chip-fg: var(--color-content-emphasis);
 }
 
 @media (prefers-color-scheme: dark) {
-	:global(:root:not([data-theme='light'])) .tinted {
-		--chip-fg: var(--color-content-emphasis);
-	}
+  :global(:root:not([data-theme='light'])) .tinted {
+    --chip-fg: var(--color-content-emphasis);
+  }
 }

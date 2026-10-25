@@ -4,66 +4,74 @@
    `visibility: hidden`, so it is not focusable and not announced. */
 
 .button {
-	position: fixed;
-	top: var(--size-space-lg);
-	left: 50%;
-	z-index: 10;
-	display: inline-flex;
-	align-items: center;
-	gap: var(--size-space-sm);
-	padding: var(--size-space-md) var(--size-space-2xl);
-	border: 0;
-	border-radius: var(--size-radius-full);
-	background: var(--color-surface-default);
-	box-shadow: var(--shadow-raised);
-	color: var(--color-content-prose);
-	cursor: pointer;
-	font-family: var(--font-family-heading);
-	font-size: var(--font-size-14);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-line-height-default);
-	text-decoration: none;
-	opacity: 0;
-	visibility: hidden;
-	transform: translate(-50%, calc(-1 * var(--size-space-md)));
-	transition:
-		opacity var(--motion-duration-base) var(--motion-ease-standard),
-		transform var(--motion-duration-base) var(--motion-ease-standard),
-		visibility var(--motion-duration-base),
-		background-color var(--motion-duration-base) var(--motion-ease-standard);
+  position: fixed;
+  top: var(--size-space-lg);
+  left: 50%;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-space-sm);
+  padding: var(--size-space-md) var(--size-space-2xl);
+  border: 0;
+  border-radius: var(--size-radius-full);
+  background: var(--color-surface-default);
+  box-shadow: var(--shadow-raised);
+  color: var(--color-content-prose);
+  cursor: pointer;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-emphasis);
+  line-height: var(--font-line-height-default);
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, calc(-1 * var(--size-space-md)));
+  transition:
+    opacity var(--motion-duration-base) var(--motion-ease-standard),
+    transform var(--motion-duration-base) var(--motion-ease-standard),
+    visibility var(--motion-duration-base),
+    background-color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .button[data-visible='true'] {
-	opacity: 1;
-	visibility: visible;
-	transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
 }
 
 @media (hover: hover) {
-	.button:hover {
-		background: color-mix(in srgb, var(--color-primary-default-hover) 12%, var(--color-surface-default));
-	}
+  .button:hover {
+    background: color-mix(
+      in srgb,
+      var(--color-primary-default-hover) 12%,
+      var(--color-surface-default)
+    );
+  }
 }
 
 .button:active {
-	background: color-mix(in srgb, var(--color-primary-default-active) 20%, var(--color-surface-default));
+  background: color-mix(
+    in srgb,
+    var(--color-primary-default-active) 20%,
+    var(--color-surface-default)
+  );
 }
 
 /* Keyboard focus keeps the site's focus ring: the only outline, shown for the keyboard alone. */
 .button:focus-visible {
-	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
-	outline-offset: var(--size-focus-ring-offset);
+  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+  outline-offset: var(--size-focus-ring-offset);
 }
 
 .icon {
-	width: 16px;
-	height: 16px;
-	flex-shrink: 0;
-	fill: currentcolor;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: currentcolor;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.button {
-		transition: none;
-	}
+  .button {
+    transition: none;
+  }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StudyPanelsData } from '@commonTypes/study/studySection';
+import type { StudyPanelsData } from '#pages/Studies/types/studySection';
 import styles from './StudyPanels.module.css';
 
 // Page crops side by side in a sunken box (D-054, Figma Indeed 2853:27124). Each panel is a pixel
@@ -19,7 +19,11 @@ const StudyPanels: React.FC<StudyPanelsProps> = ({
   <figure className={`${styles.figure} ${framed ? styles.framed : ''} ${className ?? ''}`}>
     <div className={styles.box}>
       {slices.map((slice) => (
-        <div key={slice.alt} className={styles.panel} style={{ aspectRatio: `${slice.width} / ${slice.height}`, flexGrow: slice.weight }}>
+        <div
+          key={slice.alt}
+          className={styles.panel}
+          style={{ aspectRatio: `${slice.width} / ${slice.height}`, flexGrow: slice.weight }}
+        >
           <img
             src={src}
             alt={slice.alt}

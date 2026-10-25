@@ -12,7 +12,7 @@ export const iconNames = [
   'linkedin',
   'moon',
   'paw',
-  'sun'
+  'sun',
 ] as const;
 
-export type IconName = typeof iconNames[number];
+export type IconName = (typeof iconNames)[number];

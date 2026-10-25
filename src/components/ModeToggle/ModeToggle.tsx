@@ -11,33 +11,33 @@ import styles from './ModeToggle.module.css';
 // Usage: <ModeToggle checked={isDark} onChange={setIsDark} />
 
 type ModeToggleProps = {
-	/** True when the dark theme is showing. */
-	checked: boolean;
-	onChange: (checked: boolean) => void;
-	className?: string;
+  /** True when the dark theme is showing. */
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  className?: string;
 };
 
 const ModeToggle: React.FC<ModeToggleProps> = ({ checked, onChange, className }) => {
-	const label = checked ? 'Switch to light mode' : 'Switch to dark mode';
+  const label = checked ? 'Switch to light mode' : 'Switch to dark mode';
 
-	return (
-	<Tooltip label={label}>
-		<button
-			type="button"
-			aria-label={label}
-			data-mode={checked ? 'dark' : 'light'}
-			className={clsx(styles.button, className)}
-			onClick={() => onChange(!checked)}
-		>
-			<span className={clsx(styles.icon, styles.sun)}>
-				<Icon name="sun" aria-hidden="true" />
-			</span>
-			<span className={clsx(styles.icon, styles.moon)}>
-				<Icon name="moon" aria-hidden="true" />
-			</span>
-		</button>
-	</Tooltip>
-	);
+  return (
+    <Tooltip label={label}>
+      <button
+        type="button"
+        aria-label={label}
+        data-mode={checked ? 'dark' : 'light'}
+        className={clsx(styles.button, className)}
+        onClick={() => onChange(!checked)}
+      >
+        <span className={clsx(styles.icon, styles.sun)}>
+          <Icon name="sun" aria-hidden="true" />
+        </span>
+        <span className={clsx(styles.icon, styles.moon)}>
+          <Icon name="moon" aria-hidden="true" />
+        </span>
+      </button>
+    </Tooltip>
+  );
 };
 
 export default ModeToggle;

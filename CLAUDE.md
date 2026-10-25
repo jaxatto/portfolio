@@ -80,7 +80,7 @@ Token system (D-002, ported in slice 0): `src/tokens/` (`primitives.ts` raw valu
 - `src/providers/Theme` sets `data-theme`, persists the choice, follows the OS when nothing is stored. Switching is **gated** by `VITE_THEME_SWITCHING` in `.env` (currently `false`, site pinned to light) until components are migrated to tokens. Preview with `?themePreview=1` (`=0` clears). Flip the flag when the dark designs are built (D-006, D-011). The inline script in `index.html` must mirror the provider's logic.
 - Colors, spacing, radius, border width and the type scale were verified against Figma (light and dark) in slice 0. Type sizes are fluid `clamp()`s that reach the Figma desktop sizes at about 1280px; only the desktop size must match Figma, smaller sizes are tuned per slice (D-013). Manrope has no 900 weight; use 800 where Figma says 900 (D-010).
 - Components are plain CSS modules using tokens (`Name.module.css`). There is no SCSS left (D-091). Breakpoints are literal `@media (max-width: …)` / `(min-width: …)` widths: 640 (phone, 641 up) and 900 (desktop). A component-specific breakpoint carries a comment (D-118). Motion (`--motion-duration-*`, `--motion-ease-*`), shadows (`--shadow-*`), tap targets (`--size-target-*`) and the 3px line (`--size-border-width-thick`) are tokens: no raw durations, easings, shadows or 40/44px targets in component CSS. Motion and shadows live in `src/tokens/effects.ts`. Colored surfaces take a palette from one class in `src/styles/palette.module.css` and read `--palette-*` (cards, chips, the study page); a section that re-colors the semantic tokens is a tone in `src/styles/tone.css` (`data-tone`: `blue` footer band, `error` 404). Every button is `#components/Button` (`filled`, `outline`, `inverted`) and every link `TextLink` (D-119).
-- Import aliases: legacy `@components/*` etc. and new `#components/*`, `#tokens/*` etc. both work (`vite.config.ts`, `tsconfig.json` and `package.json` `imports` must stay in sync). Prefer `#` in new code.
+- Import aliases are `#src`, `#tokens`, `#styles`, `#pages`, `#components`, `#assets`, `#constants` and `#providers` (`vite.config.ts`, `tsconfig.json` and `package.json` `imports` must stay in sync).
 - Not ported from `update-content`: the Figma plugin sync (`watcher.ts`, `export-figma-tokens.ts`, `tokens.json`), `stylelint`, and `theme-bridge.css` (D-012). Revisit when needed.
 
 ## Commands
@@ -91,12 +91,13 @@ npm run dev                              # vite
 npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
 npm run build                            # vite build; postbuild copies index.html to 404.html
 npm run preview                          # serve dist/
+npm run format                           # prettier on src, scripts and config (.prettierrc.json)
 npm run generate:component -- Name       # scaffold src/components/Name
 npm run generate:component -- Page/Name  # scaffold src/pages/Page/components/Name
 npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
-No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
+No test runner or linter exists yet. Prettier decides formatting. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
 
 ## Structure and conventions
 
@@ -111,12 +112,11 @@ src/styles/            _variables, _typography, _mixins, _functions, _utilities
 ```
 
 - Routes: `src/App.tsx`. A new case study needs a slug in `src/constants/studyLinks.ts` and a card in `StudyCardGrid/resources/content.ts`.
-- Import aliases (keep `vite.config.ts` and `tsconfig.json` in sync): `@components`, `@pages`, `@styles`, `@assets`, `@constants`, `@commonTypes`, `@providers`.
 - Index barrels and the icon list are written by hand. To add an icon, put the SVG in `src/assets/icons` and add its name to `src/constants/iconNames.ts` and the map in `Icon.tsx` (the types enforce both).
 - Scaffold with `generate:component` instead of hand-making folders.
 - **Copy lives inline** in components for short page copy (D-003); case studies will use Markdown/JSON. Don't add new `resources/*.ts` copy files. Older components still have them until migrated.
 - **Accessibility is part of the pitch.** Semantic HTML, one `h1` per page, sensible heading order, visible focus, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, enough contrast, keyboard operable. Treat regressions as bugs.
-- Match the surrounding file's quotes and semicolons (the codebase mixes them) and don't reformat files you aren't otherwise changing. TypeScript strict, function components with `React.FC`.
+- Run `npm run format` before committing (single quotes, semicolons, 2 spaces, 100 columns). TypeScript strict, function components with `React.FC`.
 - Images are `*-min.png`, already compressed. Every rendered image gets meaningful `alt` text.
 - Fonts: Inter (headings) and Manrope (body) from Google Fonts in `index.html`; the requested weights must cover the weights the design uses.
 - Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`.

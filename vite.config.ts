@@ -1,9 +1,9 @@
-import { defineConfig } from "vite";
-import * as path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import react from "@vitejs/plugin-react";
-import svgr from "vite-plugin-svgr";
+import { defineConfig } from 'vite';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,35 +12,27 @@ export default defineConfig({
   plugins: [
     react(),
     svgr({
-      include: "**/*.svg",
+      include: '**/*.svg',
     }),
   ],
-  base: "/",
+  base: '/',
   server: {
     open: true,
   },
   build: {
-    outDir: "dist",
+    outDir: 'dist',
   },
   resolve: {
     alias: {
-      "@styles": path.resolve(__dirname, "src/styles"),
-      "@components": path.resolve(__dirname, "src/components/"),
-      "@assets": path.resolve(__dirname, "src/assets/"),
-      "@pages": path.resolve(__dirname, "src/pages/"),
-      "@constants": path.resolve(__dirname, "src/constants/"),
-      "@commonTypes": path.resolve(__dirname, "src/commonTypes/"),
-      "@providers": path.resolve(__dirname, "src/providers/"),
-      // "#" aliases mirror package.json "imports" and tsconfig paths. Token code and the
-      // theme build script use them (D-002). Legacy "@" aliases stay until migrated.
-      "#src": path.resolve(__dirname, "src"),
-      "#tokens": path.resolve(__dirname, "src/tokens"),
-      "#styles": path.resolve(__dirname, "src/styles"),
-      "#pages": path.resolve(__dirname, "src/pages"),
-      "#components": path.resolve(__dirname, "src/components"),
-      "#assets": path.resolve(__dirname, "src/assets"),
-      "#constants": path.resolve(__dirname, "src/constants"),
-      "#providers": path.resolve(__dirname, "src/providers"),
+      // These mirror package.json "imports" and the tsconfig paths. Keep all three in sync.
+      '#src': path.resolve(__dirname, 'src'),
+      '#tokens': path.resolve(__dirname, 'src/tokens'),
+      '#styles': path.resolve(__dirname, 'src/styles'),
+      '#pages': path.resolve(__dirname, 'src/pages'),
+      '#components': path.resolve(__dirname, 'src/components'),
+      '#assets': path.resolve(__dirname, 'src/assets'),
+      '#constants': path.resolve(__dirname, 'src/constants'),
+      '#providers': path.resolve(__dirname, 'src/providers'),
     },
   },
 });

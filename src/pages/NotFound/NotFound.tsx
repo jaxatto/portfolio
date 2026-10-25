@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Button from '#components/Button';
-import Header from '@components/Header';
-import Meta from '@components/Meta';
-import { content } from '@pages/NotFound/resources/content';
+import Header from '#components/Header';
+import Meta from '#components/Meta';
+import { content } from '#pages/NotFound/resources/content';
 import styles from './NotFound.module.css';
 
 const NotFound: React.FC = () => {
@@ -26,7 +26,12 @@ const NotFound: React.FC = () => {
             <h1 className={styles.title}>{content.title}</h1>
             <p className={styles.description}>{description}</p>
           </div>
-          <Button variant="inverted" to={content.button.src} icon="arrow-right" className={styles.button}>
+          <Button
+            variant="inverted"
+            to={content.button.src}
+            icon="arrow-right"
+            className={styles.button}
+          >
             {content.button.label}
           </Button>
         </div>
