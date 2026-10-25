@@ -89,7 +89,7 @@ Token system (D-002, ported in slice 0): `src/tokens/` (`primitives.ts` raw valu
 npm ci                                   # install
 npm run dev                              # vite
 npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
-npm run build                            # vite build; postbuild copies index.html to 404.html
+npm run build                            # vite build; postbuild copies index.html to 404.html and writes per-route HTML (scripts/prerender-meta.ts)
 npm run preview                          # serve dist/
 npm run format                           # prettier on src, scripts and config (.prettierrc.json)
 npm run generate:component -- Name       # scaffold src/components/Name
@@ -119,7 +119,7 @@ src/styles/            _variables, _typography, _mixins, _functions, _utilities
 - Run `npm run format` before committing (single quotes, semicolons, 2 spaces, 100 columns). TypeScript strict, function components with `React.FC`.
 - Images are `*-min.png`, already compressed. Every rendered image gets meaningful `alt` text.
 - Fonts: Inter (headings) and Manrope (body) from Google Fonts in `index.html`; the requested weights must cover the weights the design uses.
-- Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`.
+- Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`. A new About-style page or study must also be listed in `scripts/prerender-meta.ts`, which writes each route's title, description, canonical and og tags into `dist/` for crawlers and link previews (D-122).
 
 ## Reference branch: `update-content`
 
