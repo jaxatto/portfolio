@@ -7,7 +7,6 @@ export type ResumeRole = {
   title: string;
   company: string;
   logo: string; // key into resources/logos.ts
-  type?: string; // "Contract" where the PDF says so
   location: string;
   startDate: string;
   endDate?: string;
@@ -22,7 +21,6 @@ export const roles: ResumeRole[] = [
     title: 'Senior Design Engineer',
     company: 'Spectrum',
     logo: 'spectrum',
-    type: 'Contract',
     location: 'Remote',
     startDate: 'Sep 2026',
     endDate: 'Present',
@@ -33,7 +31,6 @@ export const roles: ResumeRole[] = [
     title: 'Senior UX Engineer',
     company: 'Toyota',
     logo: 'toyota',
-    type: 'Contract',
     location: 'Plano, TX (hybrid)',
     startDate: 'Oct 2025',
     endDate: 'Sep 2026',
@@ -46,7 +43,6 @@ export const roles: ResumeRole[] = [
     title: 'Staff UI/UX Designer',
     company: 'ServiceNow',
     logo: 'servicenow',
-    type: 'Contract',
     location: 'Remote',
     startDate: 'Feb 2024',
     endDate: 'Oct 2025',
@@ -59,7 +55,6 @@ export const roles: ResumeRole[] = [
     title: 'Senior Product Designer',
     company: 'Albertsons',
     logo: 'albertsons',
-    type: 'Contract',
     location: 'Remote',
     startDate: 'Jun 2023',
     endDate: 'Sep 2023',

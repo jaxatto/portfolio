@@ -16,13 +16,6 @@ import styles from './Resume.module.css';
 // can be read and searched in the browser, with the PDF as the download. Short copy is inline (D-003);
 // the role list lives in resources/ because it is data.
 
-// TODO(jax): proof point labels are provisional. The 8 counts Visa, Indeed, FireHydrant, ActBlue, Albertsons, ServiceNow, Toyota and Spectrum.
-const facts = [
-  { value: '11 years', label: 'Designing and building products' },
-  { value: '8 systems', label: 'Design systems contributed to in production' },
-  { value: 'Remote-first', label: 'Based in Texas, on Central Time' },
-];
-
 // Strengths with their proof. Each proof line uses a fact already on the study page it links to (D-123).
 const strengths = [
   {
@@ -83,14 +76,6 @@ const Resume: React.FC = () => (
         </Button>
       </div>
       </div>
-      <dl className={styles.facts}>
-        {facts.map((fact) => (
-          <div key={fact.label} className={styles.fact}>
-            <dt className={styles.factLabel}>{fact.label}</dt>
-            <dd className={styles.factValue}>{fact.value}</dd>
-          </div>
-        ))}
-      </dl>
     </header>
 
     <section className={styles.section} aria-labelledby="strengths">

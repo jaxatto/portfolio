@@ -101,7 +101,7 @@
 
 	.card:hover {
 		transform: translateY(calc(-1 * var(--size-space-sm)));
-		box-shadow: var(--shadow-lift);
+		box-shadow: var(--shadow-lift) var(--shadow-lift-color);
 	}
 }
 

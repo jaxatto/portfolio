@@ -32,13 +32,6 @@ const toneFor = (index: number, total: number): CSSProperties => {
   } as CSSProperties;
 };
 
-// "Remote (contract)", and "Plano, TX (hybrid, contract)" where the place already has a note.
-const placeLine = (role: ResumeRole): string => {
-  if (!role.type) return role.location;
-  const type = role.type.toLowerCase();
-  return role.location.includes('(') ? role.location.replace(')', `, ${type})`) : `${role.location} (${type})`;
-};
-
 const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ role, index, total }) => {
   const Logo = logos[role.logo];
   return (
@@ -51,7 +44,7 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
         <p className={styles.meta}>
           <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
         </p>
-        <p className={styles.meta}>{placeLine(role)}</p>
+        <p className={styles.meta}>{role.location}</p>
         {role.promotion && <p className={styles.meta}>{role.promotion}</p>}
       </div>
       <div className={styles.main}>
