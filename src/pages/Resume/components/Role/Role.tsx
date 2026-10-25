@@ -39,7 +39,7 @@ const Role: React.FC<{ role: ResumeRole }> = ({ role }) => {
           ))}
         </ul>
         {role.studyHref && (
-          <TextLink line to={role.studyHref} icon="arrow-right" className={styles.study}>
+          <TextLink to={role.studyHref} icon="arrow-right" className={styles.study}>
             Read the {role.studyName} case study
           </TextLink>
         )}

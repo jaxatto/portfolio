@@ -1,6 +1,11 @@
-/* Link: default, hover, pressed and focus states from Figma. */
+/* Link (D-090, D-104): the one link style, the nav's treatment for every link in content. No resting
+   underline. On hover a 3px line grows in from the left (shared, src/styles/line.module.css), drawn below
+   the box so the focus ring stays centered. The text stays on the link color on hover and darkens when
+   pressed. Keyboard focus shows only the ring (D-017). */
 
 .link {
+	composes: line from '#styles/line.module.css';
+	position: relative;
 	display: inline-flex;
 	align-items: center;
 	gap: var(--size-space-sm);
@@ -10,14 +15,8 @@
 	font-size: var(--font-style-body-md-size);
 	font-weight: var(--font-weight-emphasis);
 	line-height: var(--font-line-height-default);
-	text-decoration: underline;
-	text-decoration-thickness: var(--font-text-decoration-thickness-md);
-	/* Skip descenders (g, y, p) so the underline doesn't cut through them. Figma had `none`; see decisions. */
-	text-decoration-skip-ink: auto;
-	text-underline-offset: var(--font-text-underline-offset-md);
-	transition:
-		color 0.2s ease,
-		text-underline-offset 0.2s ease;
+	text-decoration: none;
+	transition: color 0.2s ease;
 }
 
 /* Large: the footer email link. 32px per Jax (Figma has 28px, which is off the type scale). */
@@ -28,14 +27,8 @@
 	font-weight: var(--font-weight-extra-strong);
 }
 
-.link:hover {
-	color: var(--color-primary-default-active);
-	text-underline-offset: var(--font-text-underline-offset-lg);
-}
-
 .link:active {
-	color: var(--color-primary-on-container-active);
-	text-underline-offset: var(--font-text-underline-offset-md);
+	color: var(--color-primary-default-active);
 }
 
 /* Focus ring uses the state-focus-ring token (purple-950 light, white dark). See D-014. */
@@ -50,23 +43,4 @@
 	flex-shrink: 0;
 	/* The arrow follows the link text. */
 	fill: currentcolor;
-}
-
-/* Line style (D-090): the nav links' treatment for links in page content. No resting underline. On hover
-   the text turns violet and a 3px line grows in from the left (shared, src/styles/line.module.css), drawn
-   below the box so the focus ring stays centered. Keyboard focus shows only the ring (D-017). */
-.line {
-	composes: line from '#styles/line.module.css';
-	position: relative;
-	text-decoration: none;
-}
-
-/* The base link darkens its text on hover (D-015). The line style matches the nav and footer instead:
-   the text stays on the link color and the line carries the hover. Pressed darkens, like the nav. */
-.line:hover {
-	color: var(--color-content-link);
-}
-
-.line:active {
-	color: var(--color-primary-default-active);
 }

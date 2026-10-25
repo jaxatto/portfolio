@@ -1,13 +1,12 @@
 /* Floating back to top: a round black button fixed 64px from the bottom-right corner of the viewport
    (24px on phones, where 64px would cover too much of the page). Black in light and the inverse (near
-   white) in dark, so it reads on either ground. `--lift` (set from script) raises it as the footer comes
-   into view, so it never sits on top of the footer. The tooltip is the shared Tooltip component
+   white) in dark, so it reads on either ground. The tooltip is the shared Tooltip component
    (D-103). */
 
 .button {
 	position: fixed;
 	right: 64px;
-	bottom: calc(64px + var(--lift, 0px));
+	bottom: 64px;
 	z-index: 10;
 	display: flex;
 	align-items: center;
@@ -52,7 +51,7 @@
 @media (max-width: 640px) {
 	.button {
 		right: var(--size-space-2xl);
-		bottom: calc(var(--size-space-2xl) + var(--lift, 0px));
+		bottom: var(--size-space-2xl);
 	}
 }
 
