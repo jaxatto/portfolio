@@ -257,9 +257,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       md: '40px',
       lg: '44px',
     },
-    // Icon glyphs drawn at a fixed size (the em-sized ones in Button, TextLink and StudyCard follow their text).
+    // Icon glyphs drawn at a fixed size. A link's font size is its icon size (TextLink, card links).
     icon: {
-      sm: '16px',
+      sm: '20px',
       md: '24px',
       lg: '28px',
     },

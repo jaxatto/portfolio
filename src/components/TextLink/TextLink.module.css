@@ -19,12 +19,24 @@
   transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
-/* Large: the footer email link. 32px, since Figma's 28px is off the type scale. */
+/* A link with an icon sets its text to the icon's size: both come from --link-icon (20px, D-132). */
+.withIcon {
+  --link-icon: var(--size-icon-sm);
+  font-size: var(--link-icon);
+}
+
+/* Large: the footer email link, 28px text and arrow. The 24-character email plus arrow needs about 410px,
+   so phones step down to 20px (D-132). */
 .large {
-  /* Fluid so the 24-character email plus arrow fits narrow cards; reaches 32px at about 550px wide (D-013). */
-  font-size: clamp(var(--font-size-16), 7.4vw - 9px, var(--font-size-32));
+  --link-icon: var(--size-icon-lg);
   overflow-wrap: anywhere;
   font-weight: var(--font-weight-extra-strong);
+}
+
+@media (max-width: 640px) {
+  .large {
+    --link-icon: var(--size-icon-sm);
+  }
 }
 
 .link:active {
@@ -38,9 +50,8 @@
 }
 
 .icon {
-  width: 1em;
-  height: 1em;
+  width: var(--link-icon, var(--size-icon-sm));
+  height: var(--link-icon, var(--size-icon-sm));
   flex-shrink: 0;
-  /* The arrow follows the link text. */
   fill: currentcolor;
 }

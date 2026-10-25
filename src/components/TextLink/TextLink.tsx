@@ -27,7 +27,12 @@ const TextLink: React.FC<TextLinkProps> = ({
   className,
   children,
 }) => {
-  const classes = clsx(styles.link, size === 'lg' && styles.large, className);
+  const classes = clsx(
+    styles.link,
+    icon && styles.withIcon,
+    size === 'lg' && styles.large,
+    className,
+  );
   const content = (
     <>
       {children}

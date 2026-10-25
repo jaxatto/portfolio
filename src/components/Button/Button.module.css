@@ -32,8 +32,8 @@
 
 .icon {
   flex-shrink: 0;
-  width: 1.2em;
-  height: 1.2em;
+  width: var(--size-icon-md);
+  height: var(--size-icon-md);
   fill: currentcolor;
 }
 

@@ -172,7 +172,7 @@
   --size-focus-ring-offset: var(--primitive-size-border-width-3);
   --size-target-md: var(--primitive-size-space-40);
   --size-target-lg: 44px;
-  --size-icon-sm: var(--primitive-size-space-16);
+  --size-icon-sm: var(--primitive-size-space-20);
   --size-icon-md: var(--primitive-size-space-24);
   --size-icon-lg: 28px;
   --size-border-width-none: var(--primitive-size-border-width-0);
