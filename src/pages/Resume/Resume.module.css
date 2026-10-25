@@ -156,11 +156,13 @@
 }
 
 .outline {
-	/* Outline variant: the same size as the filled button so the pair lines up. The border takes the
-	   2px default width and is inside the padding box, so the heights match. */
-	padding: calc(var(--size-space-lg) - var(--size-border-width-default)) calc(var(--size-space-3xl) - var(--size-border-width-default));
+	/* 3px outline per Jax (D-102). No semantic border token sits at 3px, so it is set here. The padding
+	   gives back the same width so the button stays the size of the filled one. */
+	--outline-width: 3px;
+
+	padding: calc(var(--size-space-lg) - var(--outline-width)) calc(var(--size-space-3xl) - var(--outline-width));
 	/* The link color keeps contrast on the dark ground (violet-300 there). */
-	border: var(--size-border-width-default) solid var(--color-content-link);
+	border: var(--outline-width) solid var(--color-content-link);
 	background: transparent;
 	color: var(--color-content-link);
 }
