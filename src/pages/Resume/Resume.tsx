@@ -1,6 +1,9 @@
 import React from 'react';
 import Layout from '#components/Layout';
 import Button from '#components/Button';
+import Image from '#components/Image';
+import { CursorTag } from '#components/HeroMarks';
+import portrait from '#assets/resume/portrait-min.jpg?size';
 import { chipPalettes } from '#components/Chip';
 import RoleLines from '#components/RoleLines';
 import { contactInfo } from '#constants/contactInfo';
@@ -76,6 +79,18 @@ const Resume: React.FC = () => (
         </Button>
       </div>
       </div>
+      {/* Stacks above the name below 900px, beside the intro from 900px (D-135). */}
+      <figure className={styles.portrait}>
+        <Image
+          src={portrait.src}
+          width={portrait.width}
+          height={portrait.height}
+          alt="Jax smiling at the camera outdoors, in a maroon hoodie with a white checkerboard print."
+          className={styles.portraitFrame}
+          imgClassName={styles.portraitImage}
+        />
+        <CursorTag name="Jax" className={styles.tag} />
+      </figure>
     </header>
 
     <section className={styles.section} aria-labelledby="strengths">
