@@ -13,6 +13,7 @@
   --color-content-emphasis: var(--color-content-on-accent);
   --color-content-link: var(--color-content-on-accent);
   --color-primary-default: var(--color-content-on-accent-hover);
+  --color-primary-default-hover: var(--color-content-on-accent-hover);
   --color-primary-default-active: var(--color-content-on-accent-active);
   --color-primary-on-container-active: var(--color-content-on-accent-active);
   --color-state-focus-ring: var(--color-content-on-accent);
@@ -32,6 +33,7 @@
   --color-content-default-hover: var(--color-content-on-accent-hover);
   --color-content-default-active: var(--color-content-on-accent-active);
   --color-primary-default: var(--color-content-on-accent-hover);
+  --color-primary-default-hover: var(--color-content-on-accent-hover);
   --color-primary-default-active: var(--color-content-on-accent-active);
   --color-state-focus-ring: var(--color-content-on-accent);
   /* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */

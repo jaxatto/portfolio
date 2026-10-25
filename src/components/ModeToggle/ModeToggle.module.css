@@ -5,6 +5,7 @@
 
 .button {
   composes: line from '#styles/line.module.css';
+  composes: tint from '#styles/tint.module.css';
   /* Glyph inset in the target plus 1px, the same rule as the footer icons. */
   --line-inset: calc((var(--size-target-md) - var(--size-icon-lg)) / 2 + 1px);
   position: relative;
@@ -20,7 +21,9 @@
   /* Same near-black as the nav labels. */
   color: var(--color-content-variant);
   cursor: pointer;
-  transition: color var(--motion-duration-base) var(--motion-ease-standard);
+  transition:
+    color var(--motion-duration-base) var(--motion-ease-standard),
+    background-color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 @media (hover: hover) {

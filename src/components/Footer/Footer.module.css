@@ -110,6 +110,7 @@
 
 .icon-link {
   composes: line from '#styles/line.module.css';
+  composes: tint from '#styles/tint.module.css';
   --line-inset: var(--icon-line-inset);
   position: relative;
   display: flex;
@@ -122,7 +123,9 @@
   border-radius: var(--size-radius-md);
   /* Violet at rest like the email link (D-107). */
   color: var(--color-content-link);
-  transition: color var(--motion-duration-base) var(--motion-ease-standard);
+  transition:
+    color var(--motion-duration-base) var(--motion-ease-standard),
+    background-color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .icon-link svg {

@@ -59,7 +59,7 @@ const Footer: React.FC<FooterProps> = ({ band = true }) => {
         {/* Icon-only links: each keeps a real accessible name (sr-only text) plus a tooltip (D-103), in a 40px target like the nav's mode toggle. */}
         <ul className={styles.row}>
           <li>
-            <Tooltip label="Resume">
+            <Tooltip label="Resume" offset={2}>
               <a
                 href={contactInfo.resume.src}
                 className={styles['icon-link']}
@@ -73,7 +73,7 @@ const Footer: React.FC<FooterProps> = ({ band = true }) => {
           </li>
           {isJobSeeking && (
             <li>
-              <Tooltip label="LinkedIn">
+              <Tooltip label="LinkedIn" offset={2}>
                 <a
                   href={contactInfo.linkedin.src}
                   className={styles['icon-link']}
@@ -87,7 +87,7 @@ const Footer: React.FC<FooterProps> = ({ band = true }) => {
             </li>
           )}
           <li>
-            <Tooltip label="GitHub">
+            <Tooltip label="GitHub" offset={2}>
               <a
                 href={contactInfo.github.src}
                 className={styles['icon-link']}
