@@ -539,7 +539,7 @@ The study role line is body-lg (it was body-md) so it holds beside the 56px titl
 
 ## D-115: New pages open at the top — decided, 2026-10-24
 
-`ScrollToTop` (mounted in App) scrolls to the top when the path changes, so a "More of my work" card opens the next study at its title and not at the footer. Back and forward keep the browser scroll position and a #hash link keeps its anchor. TODO(jax): move keyboard focus to the h1 on navigation if we want screen readers to announce the new page.
+`ScrollToTop` (mounted in App) scrolls to the top when the path changes, so a "More of my work" card opens the next study at its title and not at the footer. Back and forward keep the browser scroll position and a #hash link keeps its anchor. Focus on navigation is D-126.
 
 ## D-116: Study role line wraps item by item; phone study cards 8px more under the link — decided, 2026-10-24
 
@@ -602,3 +602,7 @@ The Resume page drops the Skills and tools chips (the PDF carries the full list)
 ## D-125: Images carry their pixel size — decided, 2026-10-25
 
 `import photo from './photo.jpg?size'` returns `{ src, width, height }`. The Vite plugin `scripts/vite-image-size.ts` reads the PNG or JPEG header at build time (no dependency), and the size goes onto `<img width height>` so the browser reserves the space before a lazy image loads. CSS keeps setting the rendered size, so nothing changes visually. Study panels now take their source size from the file and no longer repeat it by hand. Study content, the About photos and the Home card samples use `?size`. New images should too. Measured in the browser on Home, About and the four studies: no image has a distorted ratio, and the only cropped ones are the object-fit crops that were already cropped.
+
+## D-126: Focus moves to the h1 after a route change — decided, 2026-10-25
+
+`FocusOnRouteChange` (mounted in App next to `ScrollToTop`) focuses the new page's `main h1` after a client-side navigation, so a screen reader announces the page and keyboard focus no longer sits on a link that has gone. It skips the first load (the skip link stays the first Tab stop) and #hash links. The heading gets `tabindex="-1"` and draws no ring because it is not a control. Checked in the browser: Home to About, About to a study and Back each land on the page's h1 with scroll position unchanged. Not tested with a screen reader.
