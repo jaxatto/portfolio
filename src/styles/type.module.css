@@ -1,24 +1,31 @@
 /* Shared type steps. Pages compose these (`composes: headingLg from '#styles/type.module.css'`) and set
-   their own color, so a size, family or weight is defined once. Color and spacing stay with the component. */
+   their own color, so a size, family, weight or line height is defined once. Color and spacing stay with the component.
+   The layer keeps these below every unlayered component rule, so a page's own media-query size always wins
+   whatever the bundle order. */
 
-.titleMd {
-	margin: 0;
-	font-family: var(--font-style-title-md-family);
-	font-size: var(--font-style-title-md-size);
-	font-weight: var(--font-style-title-md-weight);
-}
+@layer type {
+	.titleMd {
+		margin: 0;
+		font-family: var(--font-style-title-md-family);
+		font-size: var(--font-style-title-md-size);
+		font-weight: var(--font-style-title-md-weight);
+		line-height: var(--font-style-title-md-line-height);
+	}
 
-.headingLg {
-	margin: 0;
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-}
+	.headingLg {
+		margin: 0;
+		font-family: var(--font-style-heading-lg-family);
+		font-size: var(--font-style-heading-lg-size);
+		font-weight: var(--font-style-heading-lg-weight);
+		line-height: var(--font-style-heading-lg-line-height);
+	}
 
-/* Bold (700) label step: "Label: sentence" headings, role titles, skill groups (D-055). */
-.headingSm {
-	margin: 0;
-	font-family: var(--font-style-heading-sm-family);
-	font-size: var(--font-style-heading-sm-size);
-	font-weight: var(--font-weight-emphasis);
+	/* Bold (700) label step: "Label: sentence" headings, role titles, skill groups (D-055). */
+	.headingSm {
+		margin: 0;
+		font-family: var(--font-style-heading-sm-family);
+		font-size: var(--font-style-heading-sm-size);
+		font-weight: var(--font-weight-emphasis);
+		line-height: var(--font-style-heading-sm-line-height);
+	}
 }
