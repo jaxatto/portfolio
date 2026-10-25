@@ -67,7 +67,7 @@
 .title {
 	composes: headingSm from '#styles/type.module.css';
 	margin: 0;
-	color: var(--color-content-emphasis);
+	color: var(--role-fg);
 }
 
 .heading {
@@ -96,8 +96,11 @@
 	text-wrap: pretty;
 }
 
-.study {
+/* Adds to the column gap so the link sits clear of the summary. Takes the side's text color. */
+.main .study {
 	align-self: flex-start;
+	margin-top: var(--size-space-lg);
+	color: var(--role-fg);
 }
 
 /* Phones: the colored side sits on top, as a row of logo and company with the details under it. */

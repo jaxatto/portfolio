@@ -19,11 +19,11 @@ import styles from './Resume.module.css';
 // can be read and searched in the browser, with the PDF as the download. Short copy is inline (D-003);
 // the role list lives in resources/ because it is data.
 
-// Strengths with their proof. Each proof line uses a fact already on the study page it links to (D-124).
+// Case study cards with their proof. Each proof line uses a fact already on the study page it links to (D-124).
 const strengths = [
   {
     title: 'Design tokens at enterprise scale',
-    proof: 'Architected the enterprise token framework and the Figma-to-code pipeline for Toyota\u2019s PRIME design system.',
+    proof: 'Led token architecture and Figma-to-code automation for Toyota\u2019s PRIME design system. 40 product teams are set to adopt it across 10 web apps.',
     to: studyLinks.toyota,
     linkText: 'Toyota case study',
     palette: 'brand',
@@ -93,15 +93,6 @@ const Resume: React.FC = () => (
       </figure>
     </header>
 
-    <section className={styles.section} aria-labelledby="strengths">
-      <h2 id="strengths" className={styles.heading}>Core strengths</h2>
-      <ul className={styles.strengths}>
-        {strengths.map((strength) => (
-          <Strength key={strength.title} {...strength} />
-        ))}
-      </ul>
-    </section>
-
     <section className={styles.section} aria-labelledby="experience">
       <h2 id="experience" className={styles.heading}>Experience</h2>
       <ul className={styles.roles}>
@@ -116,6 +107,15 @@ const Resume: React.FC = () => (
       <p className={styles.education}>
         The Art Institute of Austin, Bachelor of Fine Arts, Web Design and Interactive Media
       </p>
+    </section>
+
+    <section className={styles.section} aria-labelledby="case-studies">
+      <h2 id="case-studies" className={styles.heading}>Case studies</h2>
+      <ul className={styles.strengths}>
+        {strengths.map((strength) => (
+          <Strength key={strength.title} {...strength} />
+        ))}
+      </ul>
     </section>
   </Layout>
 );
