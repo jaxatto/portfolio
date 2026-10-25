@@ -1,23 +1,32 @@
-/* Resume role (slice 6). Tokens only. Logo circle uses the primary container pair so the brand marks
-   read as one family in light and dark. */
+/* Resume role (D-123): a split card. Tokens only. The side colors come from Role.tsx as --role-from,
+   --role-to and --role-fg (a gradient along the palette ramp). */
 
 .role {
+	display: grid;
+	grid-template-columns: 14rem minmax(0, 1fr);
+	overflow: hidden;
+	border: var(--size-border-width-default) solid var(--color-border-decorative);
+	border-radius: var(--size-radius-lg);
+}
+
+.side {
 	display: flex;
-	gap: var(--size-space-lg);
-	padding-block: var(--size-space-3xl);
-	border-top: var(--size-border-width-default) solid var(--color-border-decorative);
+	flex-direction: column;
+	gap: 2px;
+	padding: var(--size-space-3xl) var(--size-space-2xl);
+	background: linear-gradient(180deg, var(--role-from), var(--role-to));
+	color: var(--role-fg);
 }
 
 .logo {
-	flex: 0 0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 48px;
 	height: 48px;
+	margin-bottom: var(--size-space-md);
 	border-radius: 50%;
-	background: var(--color-primary-container);
-	color: var(--color-primary-on-container);
+	background: color-mix(in oklab, var(--role-fg) 14%, transparent);
 }
 
 .logo svg {
@@ -27,51 +36,43 @@
 	fill: currentcolor;
 }
 
-.body {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-sm);
-	min-width: 0;
-	max-width: var(--size-layout-content-max);
-}
-
-.title {
+.company {
 	composes: headingSm from '#styles/type.module.css';
-	color: var(--color-content-emphasis);
+	margin: 0;
+	color: var(--role-fg);
 }
 
-.details {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: var(--size-space-sm);
+.meta {
 	margin: 0;
-	color: var(--color-content-soft);
+	color: color-mix(in oklab, var(--role-fg) 80%, transparent);
 	font-family: var(--font-style-body-md-family);
 	font-size: var(--font-style-body-sm-size);
+	font-weight: var(--font-weight-medium);
 	line-height: var(--font-style-body-md-line-height);
 }
 
-.where {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: var(--size-space-sm);
-}
-
-.dot::before {
-	content: '\00b7';
-}
-
+/* The date never splits across lines. */
 .date {
 	white-space: nowrap;
 }
 
-.bullets {
+.main {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-sm);
-	margin: var(--size-space-sm) 0 0;
-	padding-left: var(--size-space-2xl);
+	gap: var(--size-space-md);
+	min-width: 0;
+	padding: var(--size-space-3xl);
+}
+
+.title {
+	composes: headingSm from '#styles/type.module.css';
+	margin: 0;
+	color: var(--color-content-emphasis);
+}
+
+.summary {
+	max-width: 38rem;
+	margin: 0;
 	color: var(--color-content-prose);
 	font-family: var(--font-style-body-md-family);
 	font-size: var(--font-style-body-md-size);
@@ -81,22 +82,15 @@
 
 .study {
 	align-self: flex-start;
-	margin-top: var(--size-space-sm);
 }
 
-/* Phones: the logo sits above the text, and the date drops to its own line without the dot (D-085). */
-@media (max-width: 640px) {
+/* Phones: the colored side sits on top, as a row of logo and company with the details under it. */
+@media (max-width: 700px) {
 	.role {
-		flex-direction: column;
+		grid-template-columns: minmax(0, 1fr);
 	}
 
-	.details {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--size-space-xs);
-	}
-
-	.dateDot {
-		display: none;
+	.main {
+		padding: var(--size-space-2xl);
 	}
 }

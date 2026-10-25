@@ -183,6 +183,24 @@ const theme: Omit<SemanticTheme, 'colors'> & {
         dark: primitives.colors.teal[100],
       },
     },
+    quinary: {
+      default: {
+        light: primitives.colors.green[700],
+        dark: primitives.colors.green[300],
+      },
+      'on-quinary': {
+        light: primitives.colors.white,
+        dark: primitives.colors.black,
+      },
+      'quinary-container': {
+        light: primitives.colors.green[100],
+        dark: primitives.colors.green[800],
+      },
+      'on-quinary-container': {
+        light: primitives.colors.green[900],
+        dark: primitives.colors.green[100],
+      },
+    },
     state: {
       'focus-ring': {
         light: primitives.colors.purple[950],

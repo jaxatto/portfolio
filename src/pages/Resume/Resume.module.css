@@ -137,17 +137,39 @@
 	color: var(--color-content-prose);
 }
 
-/* The roles carry their own top hairlines and 32px padding, so the list starts 32px under the h2 minus the first row's padding. */
-.roles {
-	margin: calc(-1 * var(--size-space-3xl)) 0 0;
+/* Major heading style on this page (D-123): the heading, then a short accent bar. */
+.heading::after {
+	content: '';
+	display: block;
+	width: 56px;
+	height: 4px;
+	margin-top: var(--size-space-md);
+	border-radius: 2px;
+	background: var(--color-brand-default);
+}
+
+.strengths {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--size-space-2xl);
+	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.skills {
+.roles {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-3xl);
+	gap: var(--size-space-2xl);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+@media (max-width: 900px) {
+	.strengths {
+		grid-template-columns: minmax(0, 1fr);
+	}
 }
 
 /* Phones: the buttons fill the width, one above the other. */

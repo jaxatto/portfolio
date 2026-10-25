@@ -1,6 +1,6 @@
 import { studyLinks } from '#constants/studyLinks';
 
-// Resume roles, newest first. Copy follows the resume PDF, revised for the site's copy rules.
+// Resume roles, newest first. The PDF carries the full bullets. The site shows one short summary per role (D-123).
 // Dates keep the month (the PDF does). Visa is one entry with the promotion on a second line.
 
 export type ResumeRole = {
@@ -12,7 +12,7 @@ export type ResumeRole = {
   startDate: string;
   endDate?: string;
   promotion?: string; // second soft line under the dates (Visa)
-  bullets: string[];
+  summary: string; // TODO(jax): drafts condensed from the PDF bullets (D-123). Edit freely.
   studyHref?: string; // case study for this role
   studyName?: string; // visually hidden part of the link name
 };
@@ -26,11 +26,8 @@ export const roles: ResumeRole[] = [
     location: 'Remote',
     startDate: 'Sep 2026',
     endDate: 'Present',
-    bullets: [
-      'Migrate and refactor components in Nova, the eCommerce design system, in Figma and in code to apply design tokens.',
-      'Support product designers as they move their work onto the tokenized components.',
-      'Ship token-based components to production while product teams adopt them.',
-    ],
+    summary:
+      'Applying design tokens to the Nova eCommerce design system, in Figma and in code, and helping product designers move onto the new components.',
   },
   {
     title: 'Senior UX Engineer',
@@ -40,12 +37,8 @@ export const roles: ResumeRole[] = [
     location: 'Plano, TX (hybrid)',
     startDate: 'Oct 2025',
     endDate: 'Sep 2026',
-    bullets: [
-      'Architected an enterprise design token framework and an automated pipeline from Figma to multi-platform production code.',
-      'Designed the token taxonomy, rollout strategy and adoption roadmap. The system can now grow from supply-chain products into other enterprise applications.',
-      'Supported 40 product teams on the React design system with component adoption, integration fixes and release coordination.',
-      'Authored technical specifications and maintained Zeroheight documentation. Contributed to accessible component design and code.',
-    ],
+    summary:
+      'Architected the enterprise token framework and the Figma-to-code pipeline for PRIME, and supported the product teams adopting it.',
     studyHref: studyLinks.toyota,
     studyName: 'Toyota',
   },
@@ -57,11 +50,8 @@ export const roles: ResumeRole[] = [
     location: 'Remote',
     startDate: 'Feb 2024',
     endDate: 'Oct 2025',
-    bullets: [
-      'Led the design of an AI-driven insights platform that centralizes qualitative research, so teams share knowledge and skip redundant studies.',
-      'Built accessibility into reusable patterns and design documentation for designers across the org.',
-      'Launched a shared component library that cut repetitive UI design by 60%.',
-    ],
+    summary:
+      'Led design of an AI insights platform for qualitative research and launched a shared component library with accessibility built in.',
     studyHref: studyLinks.servicenow,
     studyName: 'ServiceNow',
   },
@@ -73,10 +63,8 @@ export const roles: ResumeRole[] = [
     location: 'Remote',
     startDate: 'Jun 2023',
     endDate: 'Sep 2023',
-    bullets: [
-      'Shaped reusable components and documentation for a merchandising platform serving 5,000 stores.',
-      'Drove adoption across 20 teams by aligning on shared patterns and guiding implementation in enterprise tools.',
-    ],
+    summary:
+      'Shaped reusable components and documentation for a merchandising platform, and drove adoption across teams.',
   },
   {
     title: 'Senior Product Designer',
@@ -85,11 +73,8 @@ export const roles: ResumeRole[] = [
     location: 'Remote',
     startDate: 'Mar 2022',
     endDate: 'May 2023',
-    bullets: [
-      'Redesigned core admin and integration flows to simplify reporting and setup. Helped cut support costs by an estimated $1.5M a year.',
-      'Partnered with engineers to scope complex integration logic, with error handling and sync visibility across third-party systems.',
-      'Led accessibility efforts and documented inclusive patterns that several product teams adopted.',
-    ],
+    summary:
+      'Redesigned admin and integration flows, partnered with engineers on sync logic, and led accessibility work that other teams adopted.',
     studyHref: studyLinks.actblue,
     studyName: 'ActBlue',
   },
@@ -100,10 +85,8 @@ export const roles: ResumeRole[] = [
     location: 'Remote',
     startDate: 'Nov 2021',
     endDate: 'Mar 2022',
-    bullets: [
-      'Streamlined bulk invoicing for financial power users with batch actions and grouping that reduced task time.',
-      'Reduced support volume by improving key invoicing flows based on interviews with small business clients.',
-    ],
+    summary:
+      'Streamlined bulk invoicing for financial power users and reduced support volume by improving the key invoicing flows.',
   },
   {
     title: 'Senior Product Designer',
@@ -112,10 +95,8 @@ export const roles: ResumeRole[] = [
     location: 'Remote',
     startDate: 'Nov 2020',
     endDate: 'Nov 2021',
-    bullets: [
-      'Architected incident management workflows for enterprise engineering teams (Spotify, Peloton, Snapchat) that reduce cognitive load during high-severity outages.',
-      'Designed workflows for role assignment, communication handoff and postmortem documentation.',
-    ],
+    summary:
+      'Architected incident management workflows for enterprise engineering teams, from role assignment to postmortem documentation.',
   },
   {
     title: 'UX Designer',
@@ -124,10 +105,8 @@ export const roles: ResumeRole[] = [
     location: 'Remote',
     startDate: 'Feb 2020',
     endDate: 'Oct 2020',
-    bullets: [
-      'Designed shared UI patterns that teams adopted across B2B and B2C products on web and mobile.',
-      'Wrote component documentation with accessibility, localization and responsiveness built in, for assets used by over 100 designers.',
-    ],
+    summary:
+      'Designed shared UI patterns and wrote component documentation with accessibility, localization and responsiveness built in, for assets used by over 100 designers.',
     studyHref: studyLinks.indeed,
     studyName: 'Indeed',
   },
@@ -139,10 +118,7 @@ export const roles: ResumeRole[] = [
     startDate: 'Nov 2017',
     endDate: 'Feb 2020',
     promotion: 'Promoted from UX Engineer, Nov 2015 – Nov 2017',
-    bullets: [
-      'Helped build the front-end framework library that hundreds of developers across Visa used globally.',
-      'Redesigned fraud investigation tools for enterprise clients. Led usability testing and alignment workshops that contributed to a 20% reduction in case resolution SLAs.',
-      'Designed transaction reporting and tokenization workflows for e-commerce and omni-channel merchants, balancing regulatory needs with a streamlined experience.',
-    ],
+    summary:
+      'Helped build the front-end framework library hundreds of developers used globally, and redesigned fraud investigation and transaction reporting tools for enterprise clients.',
   },
 ];
