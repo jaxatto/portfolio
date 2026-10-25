@@ -3,9 +3,8 @@ import Icon from '#components/Icon';
 import type { IconName } from '#constants/iconNames';
 import styles from './Image.module.css';
 
-// Image component that displays an image with a fallback icon if the image fails to load
-// It allows for custom styling of the image, fallback icon, and container
-// Usage: <Image src="image-url.jpg" alt="Description" iconFallback="image
+// An <img> that swaps to a decorative icon when the file fails to load, so a broken photo leaves a
+// tidy frame. Each part (container, image, fallback) takes its own class.
 
 type ImageProps = {
   src: string;

@@ -52,14 +52,14 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--size-space-section-sm);
-  /* 32px sides and top, 40px bottom (was 24 / 32, +8px per Jax; D-028). */
+  /* 32px sides and top, 40px bottom (D-028). */
   padding: var(--size-space-3xl) var(--size-space-3xl) var(--size-space-4xl);
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-md); /* 12px between title and outcome (was 8, D-028) */
+  gap: var(--size-space-md); /* 12px between title and outcome (D-028) */
   width: 100%;
 }
 
@@ -255,7 +255,7 @@
 
 @media (max-width: 640px) {
   .study .content {
-    padding-bottom: var(--size-space-2xl); /* 24px: 8px more (D-116), was 16 */
+    padding-bottom: var(--size-space-2xl); /* 24px (D-116) */
   }
 }
 

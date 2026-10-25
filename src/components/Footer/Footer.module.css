@@ -82,7 +82,7 @@
   white-space: nowrap;
   /* Hug the text so the hover line spans the email, not the column. */
   align-self: flex-start;
-  /* +16px above (on top of the column gap). */
+  /* 16px extra above, on top of the column gap. */
   margin-top: var(--size-space-lg);
   text-decoration: none;
   color: var(--color-content-link);

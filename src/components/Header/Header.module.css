@@ -346,7 +346,7 @@
   }
 
   .intro {
-    padding-top: var(--size-space-section-lg); /* 64px (was 48, D-029) */
+    padding-top: var(--size-space-section-lg); /* 64px (D-029) */
   }
 
   .heading {

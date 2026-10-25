@@ -1,18 +1,19 @@
-# Jax Engel – Portfolio
+# Jax Engel portfolio
 
-I'm a staff-level product designer with a focus on accessibility, systems thinking, and product strategy. This portfolio highlights selected case studies from my experience designing tools, platforms, and real-world interfaces that scale.
+Source for [jaxengeldesign.com](https://jaxengeldesign.com): a staff product designer's portfolio with case studies, an About page and a resume. React 19, TypeScript, Vite, CSS modules and React Router, deployed to GitHub Pages.
 
-## Live Site
+## Run it
 
-🔗 [jaxengeldesign.com](http://jaxengeldesign.com/)  
-📍 Built with [GitHub Pages](https://pages.github.com/)
+```bash
+npm ci
+npm run dev
+```
 
-## What's Here
+Other commands: `npm run build` (production build plus per-route meta), `npm run preview`, `npm run format`, `npm run build:theme` (regenerates `src/styles/theme.css` from `src/tokens`).
 
-- Fully responsive layout
-- Accessible, semantic HTML
-- React and TypeScript
-- Developed with help from Copilot
+## How it is built
+
+Design tokens in `src/tokens` compile to CSS custom properties, and components are CSS modules that read only those tokens. `CLAUDE.md` holds the working rules and conventions, `docs/decisions.md` the reasons behind them and `docs/plan.md` where the project stands.
 
 ## License
 
