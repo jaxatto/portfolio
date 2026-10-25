@@ -5,7 +5,8 @@
 
 .button {
   composes: line from '#styles/line.module.css';
-  --line-inset: 9px;
+  /* Glyph inset in the target plus 1px, the same rule as the footer icons. */
+  --line-inset: calc((var(--size-target-md) - var(--size-icon-md)) / 2 + 1px);
   position: relative;
   display: inline-flex;
   align-items: center;

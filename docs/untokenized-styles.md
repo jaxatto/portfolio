@@ -221,9 +221,10 @@ A scan of the length literals that are left (px and rem, 42 values) against the 
 
 - `1px` visually-hidden pattern (`.sr-only`, skip link): fixed by the technique.
 - `2px` in `Role` gap and `NameTag` padding (`space-xs + 2px`): spacing, not a border, so `--size-border-width-default` would say the wrong thing. Left.
-- `7px` footer icon underline inset and `-7px` margin, `9px` ModeToggle `--line-inset`, HeroMarks `1px` and `2px` nudges and the `10px` pointer margin: optical alignment of drawn glyphs.
+- `7px` footer icon underline inset and `-7px` margin, and `9px` ModeToggle `--line-inset`: now `(target - icon) / 2 + 1px` from the tokens (D-131).
+- HeroMarks `1px` and `2px` nudges and the `10px` tag margin: decided to stay as written (D-131).
 - `9px` in the TextLink fluid clamp: part of a tuned formula.
 
-**Far from any token (layout measures, keep as they are):** `17rem` and `12.5rem` card preview heights, `31.25rem`, `28.75rem` and `34.25rem` card geometry (D-028), `18.75rem` and `13.75rem` panel boxes, `14rem` and `38rem` Resume role columns, `900px` on the Header measure.
+**Far from any token (layout measures, keep as they are):** `17rem` and `12.5rem` card preview heights, `31.25rem`, `28.75rem` and `34.25rem` card geometry (D-028), `18.75rem` and `13.75rem` panel boxes, `14rem` and `38rem` Resume role columns, `900px` on the Home hero sentence (decided to stay, D-131).
 
 **Em-based sizes** (`1em`, `1.2em` glyphs in Button, StudyCard, TextLink, ModeToggle) follow their text on purpose and are not icon tokens.
