@@ -87,14 +87,12 @@ Token system (D-002, ported in slice 0): `src/tokens/` (`primitives.ts` raw valu
 
 ```
 npm ci                                   # install
-npm run dev                              # build-scripts (generate-index, sync-icons) then vite
+npm run dev                              # vite
 npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
 npm run build                            # vite build; postbuild copies index.html to 404.html
 npm run preview                          # serve dist/
 npm run generate:component -- Name       # scaffold src/components/Name
 npm run generate:component -- Page/Name  # scaffold src/pages/Page/components/Name
-npm run generate-index                   # regenerate index.ts barrels
-npm run sync-icons                       # regenerate icon list from src/assets/icons
 npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
@@ -114,6 +112,7 @@ src/styles/            _variables, _typography, _mixins, _functions, _utilities
 
 - Routes: `src/App.tsx`. A new case study needs a slug in `src/constants/studyLinks.ts` and a card in `StudyCardGrid/resources/content.ts`.
 - Import aliases (keep `vite.config.ts` and `tsconfig.json` in sync): `@components`, `@pages`, `@styles`, `@assets`, `@constants`, `@commonTypes`, `@providers`.
+- Index barrels and the icon list are written by hand. To add an icon, put the SVG in `src/assets/icons` and add its name to `src/constants/iconNames.ts` and the map in `Icon.tsx` (the types enforce both).
 - Scaffold with `generate:component` instead of hand-making folders.
 - **Copy lives inline** in components for short page copy (D-003); case studies will use Markdown/JSON. Don't add new `resources/*.ts` copy files. Older components still have them until migrated.
 - **Accessibility is part of the pitch.** Semantic HTML, one `h1` per page, sensible heading order, visible focus, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, enough contrast, keyboard operable. Treat regressions as bugs.
