@@ -41,7 +41,7 @@ h2 {
   color: var(--accent);
   margin: 13pt 0 5pt;
   padding-bottom: 3pt;
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
   break-after: avoid;
 }
 
