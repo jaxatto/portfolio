@@ -266,7 +266,7 @@
   --motion-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
   --state-wash-hover: 12%;
   --state-wash-active: 20%;
-  --state-deepen: 20%;
+  --state-deepen: 10%;
   --layer-behind: -1;
   --layer-raised: 10;
   --layer-tooltip: 30;

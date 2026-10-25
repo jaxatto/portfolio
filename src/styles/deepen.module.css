@@ -1,0 +1,17 @@
+/* The hover and pressed colors of every interactive control (D-142): the primary hover and pressed colors,
+   deepened by --state-deepen toward --state-deepen-target (black on a light ground, white on a dark one;
+   tone sections on a dark ground set white). Compose it (`composes: deepen from '#styles/deepen.module.css'`)
+   and read --state-color-hover and --state-color-active. The line style composes it for every link. */
+
+.deepen {
+  --state-color-hover: color-mix(
+    in oklch,
+    var(--color-primary-default-hover),
+    var(--state-deepen-target) var(--state-deepen)
+  );
+  --state-color-active: color-mix(
+    in oklch,
+    var(--color-primary-default-active),
+    var(--state-deepen-target) var(--state-deepen)
+  );
+}

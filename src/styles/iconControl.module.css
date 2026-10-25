@@ -17,16 +17,16 @@
 
 @media (hover: hover) {
   .iconControl:hover {
-    color: var(--link-hover);
+    color: var(--state-color-hover);
   }
 }
 
 .iconControl:active {
-  color: var(--link-active);
+  color: var(--state-color-active);
 }
 
 .iconControl:active::after {
-  background: var(--link-active);
+  background: var(--state-color-active);
 }
 
 .iconControl:focus-visible {

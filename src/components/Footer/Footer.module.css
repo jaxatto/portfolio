@@ -100,12 +100,12 @@
 
 @media (hover: hover) {
   .main .email:hover {
-    color: var(--link-hover);
+    color: var(--state-color-hover);
   }
 }
 
 .main .email:active {
-  color: var(--link-active);
+  color: var(--state-color-active);
 }
 
 /* One footer on every page (D-049): the page ground, a 2px hairline across the content column, 40px more

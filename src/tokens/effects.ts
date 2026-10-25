@@ -33,7 +33,7 @@ export const effects = {
   // (black on a light ground, white on a dark one, so "deeper" is always more contrast). Sections on a dark
   // ground (the tones in tone.css) set the target to white.
   deepen: {
-    amount: '20%',
+    amount: '10%',
     target: { light: 'oklch(0 0 none)', dark: 'oklch(1 0 none)' },
   },
   // Stacking order, lowest to highest. Components name a layer, they never pick a number.
