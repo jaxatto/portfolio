@@ -207,9 +207,32 @@ ModeToggle sun and moon turn (rotate 60deg, scale 0.6) and About photo hover (sc
 - `src/pages/Studies/components/*` and the study `content.ts` files: panel `weight`, `sourceWidth`, `sourceHeight` and slice pixels are per-image numbers (the parked `StudyMedia` rework in `docs/plan.md`).
 - Keyframes in `Header.module.css`, `HeroMarks.module.css` and `Tooltip.module.css` carry literal percentages and transforms.
 
-## Where a token would pay off first
+## Done (D-130, 2026-10-25)
 
-1. Icon sizes (`--size-icon-sm/md/lg`): 11 declarations in 6 components.
-2. State washes (`12%` hover, `20%` pressed): 4 declarations in 2 components, and any future outline control.
-3. Layer order (`--layer-*`): 4 declarations, and it prevents the next stacking bug.
-4. The `theme-color` hex pair: generate it from the surface tokens so they cannot drift.
+Icon sizes (`--size-icon-sm/md/lg`, 16, 24 and 28px), the state washes (`--state-wash-hover` 12% and `--state-wash-active` 20%), the layer order (`--layer-behind`, `raised`, `tooltip`, `skip-link`) and the `theme-color` pair (generated from `surface.default` into `src/tokens/themeColor.ts`) are tokens now. The rows above that point at them are kept for the record.
+
+## One-off lengths and their nearest token
+
+A scan of the length literals that are left (px and rem, 42 values) against the space, radius, type and target scales.
+
+**Exactly a token already (use the token, no visual change):**
+
+| Where | Value | Token |
+| --- | --- | --- |
+| `Image.module.css:19` | `top: -0.25rem` | `-space-xs` |
+| `StudyCard.module.css:217` | `calc(112% + 40px)` | `space-4xl` |
+| `About.module.css:160` | `translate(-4px, -4px)` | `-space-xs` |
+| `Resume.module.css:88-89` | `56px` by `4px` bar | `space-section-md` by `space-xs` |
+| `Role.module.css:25-26` | `48px` logo | `space-section-sm` |
+
+**One or two pixels off (a rounding or optical value, leave unless the design changes):**
+
+- `1px` visually-hidden pattern (`.sr-only`, skip link): fixed by the technique.
+- `2px` in `Header` (`--line-bottom`, `bottom`), `Role` gap and `NameTag` padding (`space-xs + 2px`): `--size-border-width-default` is 2px, so the two `--line-bottom` values could read it.
+- `Resume.module.css:91` `border-radius: 2px` on the 4px bar: `--size-radius-full` gives the identical look.
+- `7px` footer icon underline inset and `-7px` margin, `9px` ModeToggle `--line-inset`, HeroMarks `1px` and `2px` nudges and the `10px` pointer margin: optical alignment of drawn glyphs.
+- `9px` in the TextLink fluid clamp: part of a tuned formula.
+
+**Far from any token (layout measures, keep as they are):** `17rem` and `12.5rem` card preview heights, `31.25rem`, `28.75rem` and `34.25rem` card geometry (D-028), `18.75rem` and `13.75rem` panel boxes, `14rem` and `38rem` Resume role columns, `900px` on the Header measure.
+
+**Em-based sizes** (`1em`, `1.2em` glyphs in Button, StudyCard, TextLink, ModeToggle) follow their text on purpose and are not icon tokens.

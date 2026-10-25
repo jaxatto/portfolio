@@ -72,7 +72,11 @@
 
 .outline:active {
   border-color: var(--color-primary-default-active);
-  background: color-mix(in srgb, var(--color-primary-default-active) 20%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--color-primary-default-active) var(--state-wash-active),
+    transparent
+  );
   color: var(--color-primary-default-active);
 }
 
@@ -80,7 +84,11 @@
   .outline:hover {
     /* The filled button's hover color as a faint wash, with the text and border on it. */
     border-color: var(--color-primary-default-hover);
-    background: color-mix(in srgb, var(--color-primary-default-hover) 12%, transparent);
+    background: color-mix(
+      in srgb,
+      var(--color-primary-default-hover) var(--state-wash-hover),
+      transparent
+    );
     color: var(--color-primary-default-hover);
   }
 }

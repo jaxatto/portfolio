@@ -1,5 +1,6 @@
 /* scripts/build-theme.ts */
 
+import { writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defaultTheme } from '#src/tokens/defaultTheme';
@@ -9,6 +10,7 @@ import { buildEffectVars } from './build-theme/effects';
 import { buildSemanticColorVars } from './build-theme/semanticColors';
 import { buildStaticSemanticVars } from './build-theme/semanticStatic';
 import { createValueResolver } from './build-theme/valueResolver';
+import { renderThemeColorModule } from './build-theme/themeColor';
 import { writeThemeCss } from './build-theme/writeThemeCss';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -69,7 +71,14 @@ function buildTheme() {
 
   const distDir = path.resolve(__dirname, '../../src/styles');
   writeThemeCss(cssContent, distDir);
-  console.log('✅ Theme compiled successfully to ./src/styles/theme.css');
+  const { light, dark } = defaultTheme.colors.surface.default;
+  writeFileSync(
+    path.resolve(__dirname, '../../src/tokens/themeColor.ts'),
+    renderThemeColorModule(light, dark),
+  );
+  console.log(
+    '✅ Theme compiled successfully to ./src/styles/theme.css and src/tokens/themeColor.ts',
+  );
 }
 
 buildTheme();

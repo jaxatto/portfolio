@@ -60,5 +60,5 @@ Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner, `corner
 ## Backlog
 
 - **Screen reader test (Jax).** VoiceOver on a Mac: Cmd+F5, then Tab through the nav. Check that each page change announces the h1 (D-126), the photo list on About reads as a list with its intro, the card links name their study, the mode toggle states its mode and the tooltips do not double-announce.
-- **Token worklist.** [untokenized-styles.md](untokenized-styles.md), 101 declarations. First picks: icon sizes, state washes, layer order, the `theme-color` pair.
+- **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md): the four first picks are done (D-130). Left are the exact-match literals (use `space-*` tokens), the 2px values and the single-use layout measures. See its last section.
 - **`Image` fallback.** Explore how it looks when an About photo fails to load (TODO(jax)).
