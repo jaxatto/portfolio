@@ -16,7 +16,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
 ## Now
 
-Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-128, D-129). Remaining for Jax: review of the Resume role summaries and strength lines (drafts, `TODO(jax)` in `roles.ts`), the Home SEO copy, then flip `VITE_THEME_SWITCHING` when ready to ship dark mode (D-006, D-011). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
+Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-128, D-129). Remaining for Jax: review of the Resume role summaries and strength lines (on hold, drafts, `TODO(jax)` in `roles.ts`). SEO copy is settled and dark mode switching is on (D-131). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant.
 
 ## Audit follow-ups (2026-10-25)
 

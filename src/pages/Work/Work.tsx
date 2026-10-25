@@ -3,11 +3,11 @@ import Layout from '#components/Layout';
 import StudyCardGrid from '#components/StudyCardGrid';
 import styles from './Work.module.css';
 
-// Home page SEO copy, inline (D-003). TODO(jax): provisional, review with the hero copy (D-016).
+// Home page SEO copy, inline (D-003).
 const meta = {
   title: 'Jax Engel | Staff Product Designer and Design Engineer',
   description:
-    'Jax Engel is a staff product designer who designs and builds accessible products and the systems behind them: enterprise tools, fintech, design systems and AI-assisted workflows.',
+    'Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX.',
 };
 
 const Work: React.FC = () => (

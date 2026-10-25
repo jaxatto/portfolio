@@ -616,3 +616,7 @@ The inline script in `index.html` and `ThemeProvider` now set `data-theme` to th
 ## D-129: Forced colors keeps the shape of cards, chips and buttons — decided, 2026-10-25
 
 With `forced-colors: active` the browser drops backgrounds, so study cards, chips, Resume strength cards and the filled and inverted buttons lost their shape. Each now draws a 2px `CanvasText` outline inside a `@media (forced-colors: active)` block. An outline takes no space and the rule exists only in that mode, so the normal look and the layout are unchanged. Checked in emulated forced colors on Home, Resume, Indeed and the 404: the shapes show and nothing overflows.
+
+## D-131: SEO copy settled; dark mode switching on — decided, 2026-10-25
+
+Home takes the About description ("Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX."), in `Work.tsx` and the static tags in `index.html`. About gets its own line about the path from front-end engineering. Resume, ActBlue, ServiceNow and Toyota descriptions lead with what Jax did and stay under about 155 characters. Every `meta.ts` has `keywords` filled in. Nothing reads them and search engines ignore them, so they are plain data. `VITE_THEME_SWITCHING` is `true` in `.env`: the toggle ships and the site follows the OS until a visitor picks a theme (D-006, D-011).
