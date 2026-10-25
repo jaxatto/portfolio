@@ -20,14 +20,11 @@
 }
 
 .caption {
+  composes: caption from '#styles/type.module.css';
   color: var(--color-content-muted);
-  font-family: var(--font-style-body-sm-family);
-  font-size: var(--font-style-body-sm-size);
-  line-height: var(--font-style-body-sm-line-height);
   text-align: left;
   /* The caption is as wide as its image (D-071), left-aligned to the 960 edge (D-066). */
   width: 100%;
-  text-wrap: pretty;
 }
 
 /* Column (D-084): a tall UI crop at the reading column width, left-aligned to the 960 edge like the text (D-066). */

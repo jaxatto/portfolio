@@ -1,8 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import TextLink from '#components/TextLink';
-import Icon from '#components/Icon';
-import Tooltip from '#components/Tooltip';
+import IconLink from '#components/IconLink';
 import { useSiteConfig } from '#providers/SiteConfig';
 import { contactInfo } from '#constants/contactInfo';
 import styles from './Footer.module.css';
@@ -56,48 +55,22 @@ const Footer: React.FC<FooterProps> = ({ band = true }) => {
             </TextLink>
           )}
         </div>
-        {/* Icon-only links: each keeps a real accessible name (sr-only text) plus a tooltip (D-103), in a 40px target like the nav's mode toggle. */}
         <ul className={styles.row}>
           <li>
-            <Tooltip label="Resume">
-              <a
-                href={contactInfo.resume.src}
-                className={styles['icon-link']}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name="file-arrow-down" aria-hidden="true" />
-                <span className="sr-only">Resume (PDF, opens in a new tab)</span>
-              </a>
-            </Tooltip>
+            <IconLink
+              href={contactInfo.resume.src}
+              icon="file-arrow-down"
+              label="Resume"
+              detail="PDF"
+            />
           </li>
           {isJobSeeking && (
             <li>
-              <Tooltip label="LinkedIn">
-                <a
-                  href={contactInfo.linkedin.src}
-                  className={styles['icon-link']}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon name="linkedin" aria-hidden="true" />
-                  <span className="sr-only">LinkedIn (opens in a new tab)</span>
-                </a>
-              </Tooltip>
+              <IconLink href={contactInfo.linkedin.src} icon="linkedin" label="LinkedIn" />
             </li>
           )}
           <li>
-            <Tooltip label="GitHub">
-              <a
-                href={contactInfo.github.src}
-                className={styles['icon-link']}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name="github" aria-hidden="true" />
-                <span className="sr-only">GitHub (opens in a new tab)</span>
-              </a>
-            </Tooltip>
+            <IconLink href={contactInfo.github.src} icon="github" label="GitHub" />
           </li>
         </ul>
       </div>

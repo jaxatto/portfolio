@@ -28,4 +28,11 @@
     font-weight: var(--font-weight-emphasis);
     line-height: var(--font-style-heading-sm-line-height);
   }
+
+  .caption {
+    font-family: var(--font-style-body-sm-family);
+    font-size: var(--font-style-body-sm-size);
+    line-height: var(--font-style-body-sm-line-height);
+    text-wrap: pretty;
+  }
 }

@@ -1,0 +1,42 @@
+.link {
+  composes: line from '#styles/line.module.css';
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Same target, radius, line inset and focus ring as the nav's mode toggle, so the right edge of
+	   the icon row lines up with it. */
+  width: var(--size-target-md);
+  height: var(--size-target-md);
+  border-radius: var(--size-radius-md);
+  /* Violet at rest like the email link (D-107). */
+  color: var(--color-content-link);
+  transition: color var(--motion-duration-base) var(--motion-ease-standard);
+}
+
+.link::after {
+  right: 7px;
+  left: 7px;
+}
+
+.link svg {
+  width: 28px;
+  height: 28px;
+  /* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
+  fill: currentcolor;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--color-primary-default);
+  }
+}
+
+.link:active {
+  color: var(--color-primary-default-active);
+}
+
+.link:focus-visible {
+  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+  outline-offset: var(--size-focus-ring-offset);
+}

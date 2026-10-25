@@ -37,11 +37,8 @@
 }
 
 .caption {
+  composes: caption from '#styles/type.module.css';
   color: var(--color-content-muted);
-  font-family: var(--font-style-body-sm-family);
-  font-size: var(--font-style-body-sm-size);
-  line-height: var(--font-style-body-sm-line-height);
-  text-wrap: pretty;
 }
 
 /* Spread (D-069, Figma ActBlue 2858:28022): the full 960 column, the study's tint, 32px all round and
