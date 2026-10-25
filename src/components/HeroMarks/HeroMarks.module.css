@@ -183,15 +183,8 @@
 }
 
 .tag-label {
+	/* Hangs 2px under the arrow's tip and 10px in (the NameTag supplies the look, D-107). */
 	margin: -2px 0 0 10px;
-	padding: var(--size-space-xs) var(--size-space-md);
-	border-radius: var(--size-radius-md);
-	background: var(--tag-bg, var(--color-primary-default));
-	color: var(--tag-fg, var(--color-primary-on-default));
-	font-family: var(--font-family-heading);
-	font-size: var(--font-size-14);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-line-height-default);
 }
 
 /* A blinking terminal caret. Sized in em so it follows the text it sits in; `--caret-color` lets a

@@ -10,13 +10,9 @@
 }
 
 .title {
+	composes: headingLg from '#styles/type.module.css';
 	/* Left edge matches the cards below (D-062). */
-	margin: 0;
 	color: var(--color-content-prose); /* true black in light (D-056) */
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-	line-height: var(--font-style-heading-lg-line-height);
 }
 
 /* After an image the image's own 40px margin is the gap above the line. */

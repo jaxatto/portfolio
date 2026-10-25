@@ -1,4 +1,4 @@
-/* Panels box (D-054): the copy's width (40rem), 300px tall, sunken surface, 32px at the top and sides and
+/* Panels box (D-054): the copy's width (640px), 300px tall, sunken surface, 32px at the top and sides and
    none at the bottom, so the pages run off the bottom edge. Panels are top aligned and clipped. */
 
 .figure {
@@ -6,7 +6,7 @@
 	flex-direction: column;
 	gap: var(--size-space-md);
 	width: 100%;
-	max-width: 40rem;
+	max-width: var(--size-layout-content-max);
 	margin: 0;
 	margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
 }

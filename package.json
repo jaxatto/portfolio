@@ -5,7 +5,6 @@
   "main": "src/index.tsx",
   "scripts": {
     "generate-index": "node scripts/generate-index-files.js",
-    "generate-scss": "node scripts/generate-scss-files.js",
     "fix-svgs": "node scripts/fix-svg-attributes.js",
     "sync-icons": "node scripts/sync-icons.js",
     "build-scripts": "npm run generate-index && npm run sync-icons",
@@ -19,6 +18,7 @@
     "build:theme": "tsx scripts/tokens/build-theme.ts"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.20",
     "clsx": "^2.1.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -31,7 +31,6 @@
     "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^4.5.1",
     "gh-pages": "^6.3.0",
-    "sass": "^1.89.1",
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
     "vite": "^6.3.5",

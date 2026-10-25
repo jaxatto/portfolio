@@ -1,9 +1,11 @@
 export const iconNames = [
   'arrow-right',
   'arrow-top-right',
+  'arrow-up',
   'cat',
   'controller',
   'download',
+  'envelope-simple',
   'file-arrow-down',
   'github',
   'image',

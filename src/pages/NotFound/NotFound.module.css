@@ -21,9 +21,6 @@
 	--color-primary-default: var(--color-content-on-accent-hover);
 	--color-primary-default-active: var(--color-content-on-accent-active);
 	--color-state-focus-ring: var(--color-content-on-accent);
-	/* Tooltips: the primary tokens are pale here, so use the container pair. */
-	--tooltip-bg: var(--color-primary-container);
-	--tooltip-fg: var(--color-primary-on-container);
 	/* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
 	--color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
 }
@@ -68,7 +65,7 @@
 	/* No type token goes past 56px, so the display size is derived from it: 56px on small phones,
 	   up to 2.5x on desktop. D-022. */
 	font-size: clamp(var(--font-size-56), 18vw, calc(var(--font-size-56) * 2.5));
-	letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-091) */
+	letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
 	line-height: 1;
 }
 
@@ -120,14 +117,6 @@
 .button:focus-visible {
 	outline: var(--size-focus-ring-width) solid var(--color-content-on-accent);
 	outline-offset: var(--size-focus-ring-offset);
-}
-
-/* Legacy global `a:hover svg` would recolor the arrow; it always follows the text. */
-.button:hover .icon,
-.button:active .icon,
-.button:focus-visible .icon {
-	color: inherit;
-	fill: currentcolor;
 }
 
 @media (width <= 340px) {

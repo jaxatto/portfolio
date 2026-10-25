@@ -1,0 +1,34 @@
+/* The accent line that grows in from the left on hover (nav, footer, mode toggle, card links, TextLink
+   line style; D-017). Compose it (`composes: line from '#styles/line.module.css'`) on a positioned
+   element. Per-element tweaks go through custom properties:
+     --line-bottom  distance of the line's bottom edge from the box (default 0)
+     --line-inset   left and right inset (default 0)
+     --line-color   fill (default the primary color)
+   A component that shows the line in another state (current page, card hover) sets the transform
+   itself with a more specific selector. */
+
+.line::after {
+	content: '';
+	position: absolute;
+	right: var(--line-inset, 0);
+	bottom: var(--line-bottom, 0);
+	left: var(--line-inset, 0);
+	height: 3px;
+	border-radius: 2px;
+	background: var(--line-color, var(--color-primary-default));
+	transform: scaleX(0);
+	/* The origin stays on the left for grow and retract: swapping it on hover made the line jump when
+	   the pointer re-entered mid-transition. */
+	transform-origin: left center;
+	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.line:hover::after {
+	transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.line::after {
+		transition: none;
+	}
+}

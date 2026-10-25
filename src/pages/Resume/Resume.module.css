@@ -1,0 +1,231 @@
+/* Resume page (slice 6, D-087). Tokens only. One column on the 960 grid, text held to 640px. */
+
+.page {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-section-lg);
+	padding-block: var(--size-space-section-lg);
+	color: var(--color-content-prose);
+}
+
+.header {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--size-space-4xl);
+}
+
+/* Desktop: the intro holds the reading column and the proof points sit to its right, so the right half of
+   the 960 grid is used. Below 900px they stack under the actions (D-095). */
+@media (min-width: 900px) {
+	.header {
+		grid-template-columns: minmax(0, var(--size-layout-content-max)) minmax(0, 1fr);
+		gap: var(--size-space-section-sm);
+	}
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-2xl);
+}
+
+.facts {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-3xl);
+	align-self: start;
+	margin: 0;
+	padding-left: var(--size-space-3xl);
+	border-left: var(--size-border-width-default) solid var(--color-border-decorative);
+}
+
+.fact {
+	display: flex;
+	/* The label comes first in the markup (dt before dd) and shows below the value. flex-end packs the pair at the top in a reversed column, so values line up across a row. */
+	flex-direction: column-reverse;
+	justify-content: flex-end;
+	gap: var(--size-space-xs);
+}
+
+.factLabel {
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-sm-size);
+	line-height: var(--font-style-body-md-line-height);
+}
+
+.factValue {
+	composes: headingLg from '#styles/type.module.css';
+	color: var(--color-content-emphasis);
+}
+
+/* Phones and tablets: a row of facts with the hairline on top instead of the side. */
+@media (max-width: 899px) {
+	.facts {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: var(--size-space-2xl) var(--size-space-3xl);
+		padding: var(--size-space-2xl) 0 0;
+		border-left: 0;
+		border-top: var(--size-border-width-default) solid var(--color-border-decorative);
+	}
+
+	.fact {
+		flex: 1 1 140px;
+	}
+}
+
+
+/* Name, role and place sit close (8px, 4px). The summary is 24px below, the actions 32px below that. */
+.identity {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-sm);
+}
+
+.title {
+	composes: titleMd from '#styles/type.module.css';
+	color: var(--color-content-emphasis);
+}
+
+.byline {
+	display: none;
+	margin: 0;
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-lg-family);
+	font-size: var(--font-style-body-lg-size);
+	font-weight: var(--font-weight-medium);
+	line-height: var(--font-style-body-lg-line-height);
+	text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+	.byline {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 0.3em;
+	}
+}
+
+.summary,
+.education {
+	max-width: var(--size-layout-content-max);
+	margin: 0;
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-md-size);
+	line-height: var(--font-style-body-md-line-height);
+	text-wrap: pretty;
+}
+
+/* The two buttons share one row. */
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--size-space-lg) var(--size-space-2xl);
+	margin-top: calc(var(--size-space-3xl) - var(--size-space-2xl));
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-space-sm);
+	padding: var(--size-space-lg) var(--size-space-3xl);
+	border-radius: var(--size-radius-md);
+	background: var(--color-primary-default);
+	color: var(--color-primary-on-default);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-body-md-size);
+	font-weight: var(--font-weight-emphasis);
+	line-height: var(--font-line-height-default);
+	text-decoration: none;
+	transition: background-color 0.2s ease;
+}
+
+.button:hover {
+	background: var(--color-primary-default-hover);
+}
+
+.button:active {
+	background: var(--color-primary-default-active);
+}
+
+.button:focus-visible {
+	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+	outline-offset: var(--size-focus-ring-offset);
+}
+
+.outline {
+	/* 3px outline per Jax (D-102). No semantic border token sits at 3px, so it is set here. The padding
+	   gives back the same width so the button stays the size of the filled one. */
+	--outline-width: 3px;
+
+	padding: calc(var(--size-space-lg) - var(--outline-width)) calc(var(--size-space-3xl) - var(--outline-width));
+	/* The link color keeps contrast on the dark ground (violet-300 there). */
+	border: var(--outline-width) solid var(--color-content-link);
+	background: transparent;
+	color: var(--color-content-link);
+}
+
+.outline:hover {
+	/* Same hover color as the filled button (violet-200 in dark, violet-800 in light), used as a faint wash
+	   with the text and border on it. The container fill was a saturated violet block in dark. */
+	border-color: var(--color-primary-default-hover);
+	background: color-mix(in srgb, var(--color-primary-default-hover) 12%, transparent);
+	color: var(--color-primary-default-hover);
+}
+
+.outline:active {
+	border-color: var(--color-primary-default-active);
+	background: color-mix(in srgb, var(--color-primary-default-active) 20%, transparent);
+	color: var(--color-primary-default-active);
+}
+
+.buttonIcon {
+	flex-shrink: 0;
+	width: 1.2em;
+	height: 1.2em;
+	fill: currentcolor;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-3xl);
+}
+
+.heading {
+	composes: headingLg from '#styles/type.module.css';
+	color: var(--color-content-prose);
+}
+
+/* The roles carry their own top hairlines and 32px padding, so the list starts 32px under the h2 minus the first row's padding. */
+.roles {
+	margin: calc(-1 * var(--size-space-3xl)) 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.skills {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-3xl);
+}
+
+/* Phones: the buttons fill the width, one above the other. */
+@media (max-width: 640px) {
+	.actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.button {
+		justify-content: center;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.button {
+		transition: none;
+	}
+}

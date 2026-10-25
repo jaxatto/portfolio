@@ -7,9 +7,12 @@
 
 .inner {
 	display: flex;
+	/* The icon row drops under the email when the two no longer fit side by side, before the phone
+	   breakpoint (D-107). */
+	flex-wrap: wrap;
 	align-items: flex-end;
 	justify-content: space-between;
-	gap: var(--size-space-4xl);
+	gap: var(--size-space-2xl) var(--size-space-4xl);
 	box-sizing: border-box;
 	width: 100%;
 	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
@@ -60,16 +63,23 @@
 	flex-wrap: wrap;
 	/* 16px: 40px targets plus focus rings (3px outline, 3px offset) would overlap at 8px. */
 	gap: var(--size-space-lg);
+	/* Wrapped under the email, the first glyph sits flush with the text edge: pull the row left by the
+	   glyph's inset in its 40px target. Side by side the row is flush right, so this has no effect. */
 	margin: 0;
+	margin-inline-start: -7px;
 	padding: 0;
 	list-style: none;
 }
 
 /* Email and icon links use the nav links' treatment (D-017): no resting underline, violet on hover
-   and a 3px line growing in from the left, at the same position. In-content links keep their
-   always-on underline. */
+   and a 3px line growing in from the left, at the same position. In-content links (TextLink) use the
+   same treatment now (D-104). */
 .main .email {
 	position: relative;
+	/* Never breaks inside the address: it keeps its width and the row wraps instead (D-107). */
+	flex-shrink: 0;
+	overflow-wrap: normal;
+	white-space: nowrap;
 	/* Hug the text so the hover line spans the email, not the column. */
 	align-self: flex-start;
 	/* +16px above (on top of the column gap). */
@@ -88,34 +98,12 @@
 	bottom: min(0px, calc((100% - 44px) / 2));
 }
 
-.email::after,
-.icon-link::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	/* Drawn below the box (not by padding) so focus rings stay centered; same offset on both: the line's bottom edge is flush with the box. */
-	bottom: 0;
-	left: 0;
-	height: 3px;
-	border-radius: 2px;
-	background: var(--color-primary-default);
-	transform: scaleX(0);
-	transform-origin: left center;
-	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
 .main .email:hover {
 	color: var(--color-primary-default);
-	text-underline-offset: 0;
-}
-
-.email:hover::after,
-.icon-link:hover::after {
-	transform: scaleX(1);
-	transform-origin: left center;
 }
 
 .icon-link {
+	composes: line from '#styles/line.module.css';
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -125,30 +113,20 @@
 	width: 40px;
 	height: 40px;
 	border-radius: var(--size-radius-md);
-	color: var(--color-content-variant);
+	/* Violet at rest like the email link (D-107). */
+	color: var(--color-content-link);
 	transition: color 0.2s ease;
 }
 
 .icon-link::after {
-	right: 9px;
-	left: 9px;
+	right: 7px;
+	left: 7px;
 }
 
 .icon-link svg {
-	width: 24px;
-	height: 24px;
-	/* Beats the legacy global `a svg` fixed purple. */
-	color: inherit;
+	width: 28px;
+	height: 28px;
 	/* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
-	fill: currentcolor;
-}
-
-/* Same legacy hover rule as in TextLink: the icon always follows the link color. */
-.icon-link:hover svg,
-.icon-link:active svg,
-.icon-link:focus-visible svg {
-	color: inherit;
-	/* The legacy `a:hover svg` rule sets a fixed dark purple fill, wrong on the dark ground. */
 	fill: currentcolor;
 }
 
@@ -188,24 +166,13 @@
 
 /* Dark band: the page ground tinted 20% toward indigo, so it stays calm and never matches a card above
    it (cards are about 0.34 lightness, this is about 0.25). The hairline goes (the band is the
-   divider). Home turns the band off (`band={false}`) and keeps the plain ground and hairline. The text
-   and link tokens are re-pointed to their on-accent values inside it, so the shared TextLink works
-   unchanged. Selectors mirror theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
+   divider). Home turns the band off (`band={false}`) and keeps the plain ground and hairline. The text,
+   link and tag tokens are re-pointed to their on-accent values by the footer's data-tone="blue"
+   (src/styles/tone.css, D-109), so the shared TextLink and Tooltip work unchanged. Selectors mirror
+   theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
 :global([data-theme='dark']) .band {
 	background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
 	color: var(--color-content-on-accent);
-	--color-content-default: var(--color-content-on-accent);
-	--color-content-variant: var(--color-content-on-accent);
-	--color-content-soft: var(--color-content-on-accent);
-	--color-content-emphasis: var(--color-content-on-accent);
-	--color-content-link: var(--color-content-on-accent);
-	--color-primary-default: var(--color-content-on-accent-hover);
-	--color-primary-default-active: var(--color-content-on-accent-active);
-	--color-primary-on-container-active: var(--color-content-on-accent-active);
-	--color-state-focus-ring: var(--color-content-on-accent);
-	/* Tooltips: the primary tokens are pale here, so use the container pair. */
-	--tooltip-bg: var(--color-primary-container);
-	--tooltip-fg: var(--color-primary-on-container);
 }
 
 :global([data-theme='dark']) .band .inner::before {
@@ -216,18 +183,6 @@
 	:global(:root:not([data-theme='light'])) .band {
 		background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
 		color: var(--color-content-on-accent);
-		--color-content-default: var(--color-content-on-accent);
-		--color-content-variant: var(--color-content-on-accent);
-		--color-content-soft: var(--color-content-on-accent);
-		--color-content-emphasis: var(--color-content-on-accent);
-		--color-content-link: var(--color-content-on-accent);
-		--color-primary-default: var(--color-content-on-accent-hover);
-		--color-primary-default-active: var(--color-content-on-accent-active);
-		--color-primary-on-container-active: var(--color-content-on-accent-active);
-		--color-state-focus-ring: var(--color-content-on-accent);
-		/* Tooltips: the primary tokens are pale here, so use the container pair. */
-		--tooltip-bg: var(--color-primary-container);
-		--tooltip-fg: var(--color-primary-on-container);
 	}
 
 	:global(:root:not([data-theme='light'])) .band .inner::before {
@@ -237,20 +192,8 @@
 
 /* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
 @media (width <= 640px) {
-	/* The icon row is at the left edge here, so tooltips extend to the right of the icon's center
-	   (the default, extending left, would clip off-screen). Square corner moves to the bottom-left. */
-	.row .icon-link::before {
-		right: auto;
-		left: 50%;
-		border-radius: var(--size-radius-md) var(--size-radius-md) var(--size-radius-md) 0;
-	}
-
 	.row {
 		flex: initial;
-		/* Stacked under the email: pull the row left by the glyph's inset in its 40px target (9px) so
-		   the first glyph is flush with the text edge. On desktop the row's box is flush right,
-		   like the nav's mode toggle. */
-		margin-inline-start: -9px;
 	}
 
 	.description {

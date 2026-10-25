@@ -4,10 +4,8 @@ import clsx from 'clsx';
 import Icon from '#components/Icon';
 import styles from './TextLink.module.css';
 
-// Figma "Link": bold underlined text with optional trailing icon.
+// Figma "Link": bold text with optional trailing icon and the animated hover line (D-104).
 // Internal routes use `to`; everything else uses `href`. `newTab` adds the safe rel attributes.
-// NOTE: this replaces the legacy `Link` component, which stays until its last consumers
-// (study cards, NotFound, Resume) are migrated to tokens. See D-014.
 
 type TextLinkProps = {
 	to?: string;

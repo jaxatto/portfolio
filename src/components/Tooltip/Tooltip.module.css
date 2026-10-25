@@ -1,0 +1,27 @@
+/* Tooltip (D-103, D-105, D-107): the NameTag, placed above the control by Floating UI. This wrapper only
+   positions and fades it in. */
+
+.tooltip {
+	z-index: 30;
+	animation: tooltip-in 0.15s ease both;
+}
+
+.tag {
+	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+}
+
+@keyframes tooltip-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tooltip {
+		animation: none;
+	}
+}

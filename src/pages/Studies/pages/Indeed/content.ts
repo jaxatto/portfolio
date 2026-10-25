@@ -4,7 +4,7 @@ import contributionsImage from './images/documentation-sample-min.jpg';
 import beforeImage from './images/indeed-before-min.jpg';
 import afterImage from './images/indeed-after-min.jpg';
 // import deliverablesImage from './images/name-min.png';
-import type { ChipData } from '@components/ChipGroup';
+import type { ChipData } from '@commonTypes/study/studyHeader';
 
 const content = {
     header: {

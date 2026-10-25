@@ -93,7 +93,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 	useEffect(() => {
 		const root = document.documentElement;
 		// Fade colors on later switches only (not first paint). The `theme-fading` rule lives in
-		// styles/main.scss and is skipped for prefers-reduced-motion.
+		// styles/main.css and is skipped for prefers-reduced-motion.
 		let timer: number | undefined;
 		if (hasAppliedTheme.current) {
 			root.classList.add('theme-fading');

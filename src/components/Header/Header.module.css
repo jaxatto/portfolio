@@ -18,14 +18,69 @@
 }
 
 /* Brand (inner pages) or role line (Home) on the left, nav and toggle on the right. */
-.bar:has(.brand),
+.bar:has(.identity),
 .bar:has(.role) {
 	justify-content: space-between;
+}
+
+/* The stacked role label is taller than the nav row, so the row top-aligns: the nav links stay level with
+   the label's first line (D-098). */
+.bar:has(.role) {
+	align-items: flex-start;
+}
+
+/* Name link plus tagline on inner pages (D-099). Only the name is a link. */
+.identity {
+	display: flex;
+	align-items: center;
+	gap: var(--size-space-sm);
+	height: 44px;
+	/* Same face and size as the brand, so the two read as one line. */
+	font-family: var(--font-family-heading);
+	font-size: var(--font-style-heading-md-size);
+	line-height: var(--font-style-heading-md-line-height);
+}
+
+/* The tagline, soft, behind a decorative dot. */
+.brandRole {
+	color: var(--color-content-secondary);
+}
+
+.brandRole::before {
+	content: '\00b7';
+	margin-right: var(--size-space-sm);
+}
+
+/* Tablet widths (641px to 760px): the name and tagline no longer fit beside the nav, so the tagline drops
+   under the name and the dot goes (D-100). Phones put the nav on its own row, so they fit on one line. The
+   row top-aligns so the nav stays level with the name. */
+@media (min-width: 641px) and (max-width: 760px) {
+	.bar:has(.identity) {
+		align-items: flex-start;
+	}
+
+	.identity {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+		height: auto;
+	}
+
+	.brandRole {
+		/* Tucks the tagline up under the 44px name row. */
+		margin-top: calc(-1 * var(--size-space-sm));
+	}
+
+	.brandRole::before {
+		display: none;
+	}
 }
 
 /* Brand (inner pages): the name, regular weight, with the same hover treatment as the nav links:
    violet text and a line that grows in from the left at the same position (see .nav-link). */
 .brand {
+	composes: line from '#styles/line.module.css';
+	--line-bottom: 2px;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -34,32 +89,13 @@
 	color: var(--color-content-variant);
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-heading-md-size);
-	font-weight: var(--font-weight-default);
+	font-weight: var(--font-weight-emphasis);
 	line-height: var(--font-style-heading-md-line-height);
 	text-decoration: none;
 }
 
-.brand::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	bottom: 2px;
-	left: 0;
-	height: 3px;
-	border-radius: 2px;
-	background: var(--color-primary-default);
-	transform: scaleX(0);
-	transform-origin: left center;
-	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
 .brand:hover {
 	color: var(--color-primary-default);
-}
-
-.brand:hover::after {
-	transform: scaleX(1);
-	transform-origin: left center;
 }
 
 .brand:active {
@@ -94,6 +130,8 @@
    current); other links grow it in on hover. Hover color is violet on all of them. No native
    underline here. See D-017. */
 .nav-link {
+	composes: line from '#styles/line.module.css';
+	--line-bottom: 2px;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -108,27 +146,8 @@
 	text-decoration: none;
 }
 
-.nav-link::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	bottom: 2px;
-	left: 0;
-	height: 3px;
-	border-radius: 2px;
-	background: var(--color-primary-default);
-	transform: scaleX(0);
-	transform-origin: left center;
-	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
 .nav-link:hover {
 	color: var(--color-primary-default);
-}
-
-.nav-link:hover::after {
-	transform: scaleX(1);
-	transform-origin: left center;
 }
 
 .nav-link:active {
@@ -164,10 +183,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.nav-link::after {
-		transition: none;
-	}
-
 	.nav-link[aria-current='page']::after {
 		animation: none;
 	}
@@ -180,8 +195,7 @@
 	outline-offset: var(--size-focus-ring-offset);
 }
 
-/* The legacy global `a { transition: all .3s }` (Link.module.scss) would animate the focus ring's
-   size and position between items. Keep the ring static; only color eases. */
+/* Keep the focus ring static between items; only color and the underline ease. */
 .brand,
 .nav-link {
 	transition:
@@ -216,7 +230,12 @@
 	background: var(--color-primary-default);
 	color: var(--color-primary-on-default);
 	font-size: var(--font-size-16);
+	font-weight: var(--font-weight-emphasis);
+	text-decoration: none;
 	border-radius: var(--size-radius-sm);
+	/* The site focus ring (D-014). Without it the browser's own ring shows, blue at the center. */
+	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+	outline-offset: var(--size-focus-ring-offset);
 }
 
 /* Intro (Home only): role, then one sentence. No photo; type, color and two small marks carry it. */
@@ -226,16 +245,21 @@
 	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
 	margin-inline: auto;
 	padding-inline: var(--size-space-2xl);
-	/* 176px under the nav row (two section-xl steps plus lg; 120px originally, D-029), with
-	   no bottom padding of its own: the header's own bottom padding adds 48px before the first card. */
+	/* 176px under the nav row (two section-xl steps plus lg; 120px originally, D-029). 40px of its own
+	   below the sentence, and the header's own bottom padding adds 48px before the first card (88px
+	   in all, D-098). */
 	padding-top: calc(var(--size-space-section-xl) * 2 + var(--size-space-lg));
-	padding-bottom: var(--size-space-none);
+	padding-bottom: var(--size-space-4xl);
 }
 
 /* Role label: plain text in the body color. Lives in the nav row's left slot on Home (D-017). Tried
    and dropped: violet text, muted text, an accent bar, a filled chip and a status dot. */
 .role {
-	margin: 0;
+	display: flex;
+	/* Always stacked in the nav's left slot, one line per span (D-098, D-106). */
+	flex-direction: column;
+	/* Centers the first line on the 44px nav row: half of (44px minus one line), at any font size. */
+	margin: calc((44px - 1em * var(--font-line-height-default)) / 2) 0 0;
 	color: var(--color-content-secondary);
 	/* Same face and weight as the sentence below (Inter, regular): Manrope at the same weight read too
 	   light, and a bold label read as another nav item. */
@@ -263,7 +287,7 @@
 }
 
 /* "build": a code chip with a blinking terminal cursor. Mono token = Roboto Mono, loaded in
-   _variables.scss (D-017). */
+   index.html (D-017). */
 .build {
 	display: inline-block;
 	padding-inline: 0.3em;
@@ -328,7 +352,9 @@
 	}
 
 	.byline {
-		display: block;
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 0.3em;
 		margin-bottom: var(--size-space-2xl);
 		color: var(--color-content-secondary);
 		font-size: var(--font-style-body-md-size);

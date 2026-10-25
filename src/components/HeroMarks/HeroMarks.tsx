@@ -1,4 +1,5 @@
 import React from 'react';
+import NameTag from '#components/NameTag';
 import styles from './HeroMarks.module.css';
 
 // Decorative marks from the Home hero (D-017), shared with other page headers (D-041).
@@ -43,7 +44,9 @@ export const CursorTag: React.FC<{ name: string; className?: string }> = ({ name
 		<svg className={styles['tag-arrow']} width="14" height="19" viewBox="0 0 14 19" focusable="false">
 			<path d="M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z" />
 		</svg>
-		<span className={styles['tag-label']}>{name}</span>
+		<NameTag corner="top-left" className={styles['tag-label']}>
+			{name}
+		</NameTag>
 	</span>
 );
 

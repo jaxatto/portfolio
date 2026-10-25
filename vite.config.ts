@@ -43,11 +43,4 @@ export default defineConfig({
       "#providers": path.resolve(__dirname, "src/providers"),
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "@styles/all" as *;`,
-      },
-    },
-  },
 });

@@ -23,7 +23,7 @@
 		var(--color-surface-default)
 	);
 	color: var(--color-content-soft);
-	/* Shadow under a lifted card (D-088): the palette's own color. Dark mode swaps it for black below. */
+	/* Shadow under a lifted card (D-111): the palette's own color. Dark mode swaps it for black below. */
 	--card-shadow: color-mix(in oklch, var(--card-fg) 55%, transparent);
 	transition: background-color 0.2s ease;
 }
@@ -105,13 +105,9 @@
 }
 
 .title {
-	margin: 0;
+	composes: headingLg from '#styles/type.module.css';
 	color: var(--card-fg);
 	/* heading-lg (32px at desktop, Figma). Titles are written to wrap to two lines (D-034). */
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-	line-height: var(--font-style-heading-lg-line-height);
 	text-wrap: balance;
 }
 
@@ -138,6 +134,11 @@
 }
 
 .linkText {
+	composes: line from '#styles/line.module.css';
+	/* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
+	   below the box, not 2px above its bottom (D-031). */
+	--line-bottom: calc(-1 * var(--size-border-width-default));
+	--line-color: currentcolor;
 	position: relative;
 }
 
@@ -148,24 +149,6 @@
 
 /* Hover style from the nav and footer links (D-017, D-031): no resting underline; on hover a 3px
    line grows in from the left. Text color and arrow stay put. Focus shows only the card's ring. */
-.linkText::after {
-	content: '';
-	position: absolute;
-	right: 0;
-	/* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
-	   below the box, not 2px above its bottom (D-031). */
-	bottom: calc(-1 * var(--size-border-width-default));
-	left: 0;
-	height: 3px;
-	border-radius: 2px;
-	background: currentcolor;
-	transform: scaleX(0);
-	/* Origin stays on the left for grow and retract: swapping it on hover made the line jump when the
-	   pointer re-entered mid-transition. */
-	transform-origin: left center;
-	transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
 /* Stretched link: the whole card is the click target. */
 .link::after {
 	content: '';
@@ -189,23 +172,14 @@
 	outline: none;
 }
 
-/* The legacy global `a` rules (Link.module.scss) change color, fill and underline on hover and
-   press. The card link never changes color: keep every state at the palette color. */
-.link,
-.link:hover,
-.link:active,
-.link:focus-visible {
+/* The card link never changes color or underline: every state stays at the palette color. */
+.link {
 	color: var(--card-fg);
 	text-decoration: none;
-	transition: none;
 }
 
-.link svg,
-.link:hover svg,
-.link:active svg {
-	color: inherit;
+.link svg {
 	fill: currentcolor;
-	transition: none;
 }
 
 /* Preview: the sample UI is cropped by the card's right and bottom edges, on purpose. It is
@@ -229,7 +203,7 @@
 }
 
 .image {
-	/* The screenshot's width is a variable so the hover can grow it by 4 points (D-088). */
+	/* The screenshot's width is a variable so the hover can grow it by 4 points (D-111). */
 	--image-w: 100%;
 	display: block;
 	width: var(--image-w);
@@ -335,7 +309,7 @@
 
 @media (max-width: 640px) {
 	.study .content {
-		padding-bottom: var(--size-space-2xl); /* 24px: 8px more (D-093), was 16 */
+		padding-bottom: var(--size-space-2xl); /* 24px: 8px more (D-116), was 16 */
 	}
 }
 
@@ -382,7 +356,7 @@
 	}
 }
 
-/* Hover lift (D-088): on devices that hover, the card rises 8px with a soft shadow and its screenshot
+/* Hover lift (D-111): on devices that hover, the card rises 8px with a soft shadow and its screenshot
    grows 4 points wider inside the window, anchored top left. The arrow and link stay where they are. Skipped for
    reduced motion, which keeps only the tint change. */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {

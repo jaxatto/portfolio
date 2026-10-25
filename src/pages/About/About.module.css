@@ -19,79 +19,21 @@
 }
 
 .title {
-	margin: 0;
+	composes: titleMd from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
-	font-family: var(--font-style-title-md-family);
-	font-size: var(--font-style-title-md-size);
-	font-weight: var(--font-style-title-md-weight);
-	line-height: var(--font-style-title-md-line-height);
 }
 
-.chips {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: var(--size-space-md);
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
+/* The I-beam, like the "build" chip on Home: these chips read as typed text. */
 .chip {
-	--chip-bg: var(--color-primary-container);
-	--chip-fg: var(--color-primary-on-container);
-
-	padding: var(--size-space-sm) var(--size-space-lg);
-	border-radius: var(--size-radius-md);
-	background: var(--chip-bg);
-	color: var(--chip-fg);
-	font-family: var(--font-family-mono);
-	font-size: var(--font-style-body-sm-size);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-line-height-default);
-	/* The I-beam, like the "build" chip on Home: these read as typed text. */
 	cursor: text;
-	/* The caret after the last chip takes the chip's text color. */
-	--caret-color: var(--chip-fg);
 }
 
-.primary {
-	--chip-bg: var(--color-primary-container);
-	--chip-fg: var(--color-primary-on-container);
-}
-
-.secondary {
-	--chip-bg: var(--color-secondary-container);
-	--chip-fg: var(--color-secondary-on-container);
-}
-
-.tertiary {
-	--chip-bg: var(--color-tertiary-container);
-	--chip-fg: var(--color-tertiary-on-container);
-}
-
-.quaternary {
-	--chip-bg: var(--color-quaternary-container);
-	--chip-fg: var(--color-quaternary-on-container);
-}
-
-/* Dark: chip text is white, like the card headings (D-028). */
-:global([data-theme='dark']) .chip {
-	--chip-fg: var(--color-content-emphasis);
-}
-
-@media (prefers-color-scheme: dark) {
-	:global(:root:not([data-theme='light'])) .chip {
-		--chip-fg: var(--color-content-emphasis);
-	}
-}
-
-/* Story: left-aligned on the grid, held to about 40rem so lines stay readable. */
+/* Story: left-aligned on the grid, held to about 640px so lines stay readable. */
 .story {
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-section-sm);
-	max-width: 40rem;
+	max-width: var(--size-layout-content-max);
 	font-family: var(--font-style-body-md-family);
 	font-size: var(--font-style-body-md-size);
 	line-height: var(--font-style-body-md-line-height);
@@ -108,13 +50,9 @@
 	margin: 0;
 }
 
-.story h2 {
-	margin: 0;
+.heading {
+	composes: headingLg from '#styles/type.module.css';
 	color: var(--color-content-prose); /* true black in light (D-056) */
-	font-family: var(--font-style-heading-lg-family);
-	font-size: var(--font-style-heading-lg-size);
-	font-weight: var(--font-style-heading-lg-weight);
-	line-height: var(--font-style-heading-lg-line-height);
 }
 
 /* 12px between an h2 and what follows (D-057): the section's 24px gap minus 12. */
@@ -130,16 +68,12 @@
 }
 
 /* "Strategic Product Design" etc.: h3s, one step above the sentence and well under the h2s. */
-.story h3 {
-	margin: 0;
+.subheading {
+	composes: headingSm from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
-	font-family: var(--font-style-heading-sm-family);
-	font-size: var(--font-style-heading-sm-size);
-	font-weight: var(--font-weight-emphasis); /* bold, 700 (D-055) */
-	line-height: var(--font-style-heading-sm-line-height);
 }
 
-/* Pets: rounded squares, the same corner as the cards. They sit outside the 40rem story column, so the
+/* Pets: rounded squares, the same corner as the cards. They sit outside the 640px story column, so the
    row spans the full 960 grid. Two by two on phones, four across from tablet. */
 .photos {
 	display: grid;
@@ -247,11 +181,16 @@
 	border-radius: var(--size-radius-lg);
 }
 
-/* Desktop: the hero title is 56px, the top of the type scale, matching Home's sentence. */
+/* The hero title is 48px below 900px (it was the fluid 40px floor) and 56px from 900px, the top of the type
+   scale, matching Home's sentence (D-108). */
+.title {
+	font-size: var(--font-size-48);
+}
+
 @media (min-width: 900px) {
 	.title {
 		font-size: var(--font-size-56);
-		letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-091) */
+		letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
 	}
 }
 
