@@ -29,7 +29,9 @@ export default defineConfig({
   ],
   base: '/',
   server: {
-    open: true,
+    // Reachable from a phone on the same network, and no auto-opened tab (sessions have no browser).
+    host: true,
+    open: false,
   },
   build: {
     outDir: 'dist',

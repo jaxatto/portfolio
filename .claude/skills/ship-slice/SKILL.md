@@ -13,5 +13,5 @@ description: Wrap up a unit of portfolio work: verify the build, check consisten
 5. **Docs.** Update `docs/plan.md` (status, what's next, open questions) and add or revise `docs/decisions.md` entries. Keep them short and current; remove what's stale. Update `CLAUDE.md` only if a rule or command changed.
 6. **Commit.** Small, one logical change per commit, short imperative subject. Include the attribution trailers the session specifies.
 7. **Push** to the session's designated branch. Never push to `main`, and never deploy.
-8. **Review package.** Make sure the dev server is up (`npm run dev -- --no-open --host 0.0.0.0`). Give Jax the exact routes/sections to review (for example `http://localhost:5173/about`, "hero section, light and dark"), a screenshot of each sent with `SendUserFile`, and real markdown links to any files changed or added.
+8. **Review package.** Make sure the dev server is up (`npm run dev`). Give Jax the exact routes/sections to review (for example `http://localhost:5173/about`, "hero section, light and dark"), a screenshot of each sent with `SendUserFile`, and real markdown links to any files changed or added.
 9. **Ask for approval.** Summarize what changed and what was and wasn't verified. On Jax's approval, open a PR from the working branch into **`redesign`** (not `main`) and merge it. Don't merge without approval.
