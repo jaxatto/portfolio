@@ -634,6 +634,6 @@ The project ignores Figma entirely. Code and this file are the only source of tr
 
 D-130 follow-up (2026-10-25): the literals that already equal a token now use it (Image, StudyCard, About, Resume bar, Role logo), Header's line offsets read `--size-border-width-default`, and the Resume bar radius reads `--size-radius-full`. The computed radius string changes from 2px to 9999px and the pixels do not: the Resume full-page screenshot is byte-identical. Computed styles, element sizes and pseudo-elements matched on 5 of 6 routes at 1280 and 375 in light and dark, and on Resume apart from that radius string.
 
-## D-136: Link line follows the link text color; Resume role links use the vibrant step — decided, 2026-10-25
+## D-136: Link line follows the link text color; Resume role links keep the purple link color — decided, 2026-10-25
 
-`TextLink` sets `--line-color: currentcolor`, so the hover line always matches the text, including under a tone or a palette. On a Resume role card the job title takes the side's text color (`--role-fg`) and the case study link takes the vibrant step of the same palette (`--role-accent`, the `-default` token along the ramp).
+`TextLink` sets `--line-color: currentcolor`, so the hover line always matches the text, including under a tone or a palette. On a Resume role card the job title takes the side's text color (`--role-fg`). The case study link keeps the shared purple link color on every role so it is easy to spot.

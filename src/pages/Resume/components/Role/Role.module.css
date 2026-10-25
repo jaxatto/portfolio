@@ -96,11 +96,10 @@
 	text-wrap: pretty;
 }
 
-/* Adds to the column gap so the link sits clear of the summary. The vibrant step of the side's color. */
+/* Adds to the column gap so the link sits clear of the summary. The link keeps the shared link color. */
 .main .study {
 	align-self: flex-start;
 	margin-top: var(--size-space-lg);
-	color: var(--role-accent);
 }
 
 /* Phones: the colored side sits on top, as a row of logo and company with the details under it. */
