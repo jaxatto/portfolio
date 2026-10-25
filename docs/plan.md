@@ -25,9 +25,9 @@ All seven audit batches are done and merged (D-117 to D-127): regressions, dead 
 - **Decided (2026-10-25):** keep Floating UI (D-103). Keep the `Image` fallback component and its cat, controller and paw icons.
 - **TODO(jax):** explore what the `Image` fallback looks like when a photo fails to load, and whether the About page should use it differently.
 - **Held:** the token worklist.
-- **Follow-up (not done):** `color-scheme` follows the OS through the meta tag, so a stored dark theme on a light OS still gets light scrollbars and default form colors. Set `color-scheme` per `data-theme` in CSS if wanted.
 - **Token worklist:** [untokenized-styles.md](untokenized-styles.md), 101 declarations. First candidates are icon sizes, state washes, layer order and the `theme-color` pair.
-- **Not tested:** screen readers, 200% and 400% zoom, forced colors, Safari and Firefox. Route changes now move focus to the h1 (D-126), checked without a screen reader.
+- **Tested 2026-10-25 (Chromium, emulated):** live OS light/dark switch with no stored theme, `color-scheme` per theme, 320 and 640px reflow on 8 routes in light and dark (no horizontal scroll, 32 of 32), reduced motion (infinite animations stop, card lift off), forced colors (text and links readable). Forced colors drops the card and chip backgrounds, so they lose their shape. A transparent border on `Chip` and `StudyCard` would keep an outline there (not done, would shift layout by the border width).
+- **Not tested:** screen readers (including the h1 focus on route change), Firefox, Safari (neither Playwright browser is installed here, and installing downloads about 300 MB), real 200% and 400% browser zoom (width reflow was tested, not zoom itself).
 
 ## Resume PDF (side task, 2026-10-24)
 
