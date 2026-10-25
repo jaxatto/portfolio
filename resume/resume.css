@@ -10,7 +10,7 @@
 
 @page {
   size: Letter;
-  margin: 0.5in 0.65in;
+  margin: 0.45in 0.65in;
 }
 
 * { box-sizing: border-box; }
