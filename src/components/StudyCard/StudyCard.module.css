@@ -335,7 +335,7 @@
 
 @media (max-width: 640px) {
 	.study .content {
-		padding-bottom: var(--size-space-lg); /* 16px, was 32 */
+		padding-bottom: var(--size-space-2xl); /* 24px: 8px more (D-093), was 16 */
 	}
 }
 

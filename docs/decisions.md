@@ -440,3 +440,23 @@ A section renders every image in its `image` array, in order (it rendered only t
 ## D-088: Study card hover lift — decided, 2026-10-24
 
 On devices that hover and without reduced motion, a study card rises 8px with a soft shadow and its screenshot grows 4 points wider inside its window, anchored top left (no shift, no transform scale, so the crop does not move). The arrow and link stay where they are (Jax: the arrow moving as well was too much at once). The tint change and the link underline stay. The shadow is a card-scoped custom property, `--card-shadow` (the palette color at 55 percent, black at 50 percent in dark), because the token system has no semantic shadow token yet. TODO(jax): add one if more components lift.
+
+## D-089: Study h1 size and width — decided, 2026-10-24
+
+The study h1 is 56px from 900px, 48px from 641px and 40px on phones (it was `title-md`, which stayed at 40px until about 2,800px). It matches the About hero and is 1.75 times the 32px h2s. The h1 may use the full 960 column. Role line, chips and the 40px gap under them are unchanged.
+
+## D-090: Study chips: 16px more above — decided, 2026-10-24
+
+The chips sit 40px under the role line (the 24px intro gap plus 16px). The 40px between the chips and the intro paragraph is unchanged.
+
+## D-091: Study role line one step up, tight tracking on large headings — decided, 2026-10-24
+
+The study role line is body-lg (it was body-md) so it holds beside the 56px title. Headings over 44px get `letter-spacing: var(--font-letter-spacing-compact)` (-0.02em, an existing token): the study h1 from 641px, the About hero from 900px and the 404 numeral. Home hero sentence uses `title-md`, which stays at 40px until very wide screens, so it is not included yet. Any new heading over 44px should use the same token.
+
+## D-092: New pages open at the top — decided, 2026-10-24
+
+`ScrollToTop` (mounted in App) scrolls to the top when the path changes, so a "More of my work" card opens the next study at its title and not at the footer. Back and forward keep the browser scroll position and a #hash link keeps its anchor. TODO(jax): move keyboard focus to the h1 on navigation if we want screen readers to announce the new page.
+
+## D-093: Study role line wraps item by item; phone study cards 8px more under the link — decided, 2026-10-24
+
+The role, place and date stay on one line whenever they fit and wrap one by one when they do not (replaces the always-stacked date on phones, D-085). Each item after the first carries its own dot, and the row is pulled left by the dot padding inside a clipped box, so a wrapped line never starts with a dot. Study cards under a case study have 24px under the link on phones (was 16, D-063). Home cards are unchanged.
