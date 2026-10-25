@@ -620,3 +620,7 @@ With `forced-colors: active` the browser drops backgrounds, so study cards, chip
 ## D-131: SEO copy settled; dark mode switching on — decided, 2026-10-25
 
 Home takes the About description ("Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX."), in `Work.tsx` and the static tags in `index.html`. About gets its own line about the path from front-end engineering. Resume, ActBlue, ServiceNow and Toyota descriptions lead with what Jax did and stay under about 155 characters. The unused `keywords` fields are deleted from every `meta.ts` (search engines ignore them). `VITE_THEME_SWITCHING` is `true` in `.env`: the toggle ships and the site follows the OS until a visitor picks a theme (D-006, D-011).
+
+## D-132: Figma retired; footer tablet settled — decided, 2026-10-25
+
+The project ignores Figma entirely. Code and this file are the only source of truth, for built pages and new ones. The footer keeps the desktop row from 641px and stacks at 640px and under, with no tablet-specific layout.

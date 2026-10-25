@@ -185,7 +185,7 @@
 :global([data-theme='dark']) .band .inner::before {
   display: none;
 }
-/* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
+/* NOTE: phones stack the footer. Tablet keeps the desktop row (settled, D-132). */
 @media (max-width: 640px) {
   .row {
     flex: initial;

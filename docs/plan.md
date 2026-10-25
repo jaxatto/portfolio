@@ -39,17 +39,16 @@ Copy:
 - Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Page titles and meta follow it.
 
 Design / tokens:
-1. **Figma is a reference only.** It is out of date for Home, About and the focus ring, and Jax won't update it; code and `docs/decisions.md` are the source of truth (2026-10-15).
+1. **Figma is retired.** Ignore it; code and `docs/decisions.md` are the only source of truth (2026-10-25).
 2. The card ramp is purple, indigo, sky, teal, and the green group `quinary` now exists (D-123). A fifth study card would take it.
 3. Dark card backgrounds were tinted 30% toward the ground; all pages are migrated, so judge them in the dark pass (D-028).
-4. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. There is no tablet design for the footer (stacks at 640px).
+4. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. The footer tablet layout is settled (2026-10-25).
 5. The link arrows are Phosphor bold, so their stroke scales with size (D-026). Revisit if it reads light.
 6. Icons: all UI icons are Phosphor bold and the emoji are gone (D-037).
-7. ServiceNow's Outcomes rest on what Jax recalls (no metrics exist for the tool). The Toyota frame's footer says "Design Technologist" where the site says "Design Engineer".
+7. ServiceNow's Outcomes rest on what Jax recalls (no metrics exist for the tool).
 8. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
 
 Remaining `TODO(jax)` in the code (2026-10-25):
-- No tablet design for the footer (`Footer.module.css`, D-008, D-024).
 - The Home SEO copy (`Work.tsx`, D-003, D-016).
 - Resume role summaries and strength proof lines are drafts condensed from the PDF bullets and the case studies (`roles.ts`, `Resume.tsx`, D-124).
 - Toyota page: no Deliverables image (decided 2026-10-21: none wanted). The sprint board image is 800px and soft on retina (Jax is fine with that).
