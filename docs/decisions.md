@@ -575,7 +575,7 @@ The codebase mixed tabs and spaces, and single and double quotes, file by file. 
 
 ## D-122: Lazy images and per-route meta at build time — decided, 2026-10-25
 
-Images below the fold use `loading="lazy"` and `decoding="async"`. The first Home card, the study header image, compare and panels set `priority` and load at once. The Toyota sample is resized from 1664 to 1000px wide (294 kB to 127 kB, same ratio, still twice its 460px display width). `scripts/prerender-meta.ts` runs in `postbuild` and writes `dist/<route>/index.html` for About, Resume and the four studies, with that page's title, description, canonical and og tags. Crawlers do not run JavaScript, so a shared case study link now previews as itself and not as Home. A new route needs an entry in that script. Home and the 404 keep the `index.html` defaults.
+Images below the fold use `loading="lazy"` and `decoding="async"`. The first Home card, the study header image, compare and panels set `priority` and load at once. The Toyota sample is resized from 1664 to 1000px wide (294 kB to 127 kB, same ratio, still twice its 460px display width). `scripts/prerender-meta.ts` runs in `postbuild` and writes `dist/<route>/index.html` for About, Resume and the four studies, with that page's title, description, canonical and og tags. Crawlers do not run JavaScript, so a shared case study link now previews as itself and not as Home. A new route needs an entry in that script. Home and the 404 keep the `index.html` defaults. The canonical and `og:url` of each route end in a slash (`/about/`) because GitHub Pages serves the directory file there and redirects the slash-less path to it.
 
 ## D-123: Fifth color group, quinary (green) — decided, 2026-10-25
 
