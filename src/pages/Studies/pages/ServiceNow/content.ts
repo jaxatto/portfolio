@@ -1,8 +1,8 @@
-import spreadImage from './images/screens-hero-min.jpg';
-import contextImage from './images/journey-map-min.jpg';
-import beforeImage from './images/themeweaver-before-min.jpg';
-import afterImage from './images/themeweaver-after-min.jpg';
-import deliverablesImage from './images/figma-board-min.jpg';
+import spreadImage from './images/screens-hero-min.jpg?size';
+import contextImage from './images/journey-map-min.jpg?size';
+import beforeImage from './images/themeweaver-before-min.jpg?size';
+import afterImage from './images/themeweaver-after-min.jpg?size';
+import deliverablesImage from './images/figma-board-min.jpg?size';
 import type { ChipData } from '#pages/Studies/types/studyHeader';
 
 const content = {
@@ -29,11 +29,11 @@ const content = {
     ] as ChipData[],
     compare: {
       before: {
-        src: beforeImage,
+        ...beforeImage,
         alt: "The prototype's strategy screen: a dark header, a short paragraph describing two workflows, and a dropdown for choosing between Hybrid and AI Only.",
       },
       after: {
-        src: afterImage,
+        ...afterImage,
         alt: 'The redesigned strategy screen: a five-step progress bar and two side-by-side cards, AI-only and Hybrid, each with a list of what it does. Hybrid is marked as recommended and most accurate.',
       },
       aspectRatio: '1440 / 1230',
@@ -52,7 +52,7 @@ const content = {
       ],
       image: [
         {
-          src: contextImage,
+          ...contextImage,
           caption:
             'User journey map showing branching paths, repeated states and decision points across the flow.',
           alt: 'A flowchart of the research analysis flow, with yellow steps, orange groups of options, diamond decision points, and loops back to earlier steps.',
@@ -86,9 +86,9 @@ const content = {
       ],
       // Three screen widths from one 1600 x 1225 sheet, each cropped to the same height (D-077).
       panels: {
-        src: spreadImage,
-        sourceWidth: 1600,
-        sourceHeight: 1225,
+        src: spreadImage.src,
+        sourceWidth: spreadImage.width,
+        sourceHeight: spreadImage.height,
         framed: true,
         slices: [
           {
@@ -131,7 +131,7 @@ const content = {
       ],
       image: [
         {
-          src: deliverablesImage,
+          ...deliverablesImage,
           caption: 'Figma board with annotated mocks for the upload and interaction states.',
           alt: 'A dark Figma board with annotated screens for the upload step and the post-upload data check. It includes mocks of the upload loading states and a collapsed table.',
         },

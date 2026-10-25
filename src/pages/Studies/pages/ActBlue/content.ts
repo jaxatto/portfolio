@@ -1,8 +1,8 @@
-import beforeImage from './images/actblue-before-min.jpg';
-import afterImage from './images/actblue-after-min.jpg';
-import contextImage from './images/figjam-min.jpg';
-import flowImage from './images/flow-min.jpg';
-import finalScreensImage from './images/final-screens-min.jpg';
+import beforeImage from './images/actblue-before-min.jpg?size';
+import afterImage from './images/actblue-after-min.jpg?size';
+import contextImage from './images/figjam-min.jpg?size';
+import flowImage from './images/flow-min.jpg?size';
+import finalScreensImage from './images/final-screens-min.jpg?size';
 import type { ChipData } from '#pages/Studies/types/studyHeader';
 
 const content = {
@@ -28,11 +28,11 @@ const content = {
     ] as ChipData[],
     compare: {
       before: {
-        src: beforeImage,
+        ...beforeImage,
         alt: 'The original ActBlue notifications screen, only visible to staff. It shows a dense table of event notifications with timestamps, results, order numbers and donor names, and a retry button.',
       },
       after: {
-        src: afterImage,
+        ...afterImage,
         alt: 'The redesigned Salesforce integration page in ActBlue. It has a banner confirming the connection, a Connected status, and connection details for event types, historical data progress and advanced configuration.',
       },
       caption:
@@ -51,7 +51,7 @@ const content = {
       ],
       image: [
         {
-          src: contextImage,
+          ...contextImage,
           caption:
             'FigJam board from our workshops, with wireframes and discovery exercises. Developers used it to organize the backend.',
           alt: 'A FigJam board of wireframes and discovery exercises for the integration, with user flows, component sketches and notes on user needs.',
@@ -77,7 +77,7 @@ const content = {
       ],
       image: [
         {
-          src: flowImage,
+          ...flowImage,
           caption: 'The full flow, annotated for developers and used to support QA.',
           alt: 'A Figma overview of the full Salesforce integration flow. It has groups of screens for connecting to production and sandbox, setup pending, connected, settings, historical data, disconnect and staff settings.',
         },
@@ -92,9 +92,9 @@ const content = {
       ],
       // The three final screens are slices of one 2180 x 559 image, in the spread box (D-069).
       panels: {
-        src: finalScreensImage,
-        sourceWidth: 2180,
-        sourceHeight: 559,
+        src: finalScreensImage.src,
+        sourceWidth: finalScreensImage.width,
+        sourceHeight: finalScreensImage.height,
         framed: true,
         slices: [
           {

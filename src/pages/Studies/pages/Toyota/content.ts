@@ -1,7 +1,7 @@
-import proposalImage from './images/token-proposal-min.jpg';
-import variablesImage from './images/figma-variables-min.jpg';
-import ecosystemImage from './images/ecosystem-diagram-min.jpg';
-import sprintImage from './images/sprint-board-min.jpg';
+import proposalImage from './images/token-proposal-min.jpg?size';
+import variablesImage from './images/figma-variables-min.jpg?size';
+import ecosystemImage from './images/ecosystem-diagram-min.jpg?size';
+import sprintImage from './images/sprint-board-min.jpg?size';
 import type { ChipData } from '#pages/Studies/types/studyHeader';
 
 const content = {
@@ -21,7 +21,7 @@ const content = {
     ],
     image: [
       {
-        src: variablesImage,
+        ...variablesImage,
         variant: 'banner' as const,
         caption:
           'The Figma variable collections: a theme collection with light and dark values, and primitives for the shared core, SCaFT and Toyota.',
@@ -47,7 +47,7 @@ const content = {
       ],
       image: [
         {
-          src: proposalImage,
+          ...proposalImage,
           caption:
             "Part of my proposal to leadership on investing in tokens, what they do for the team, and how they support Toyota's business goals.",
           alt: 'Five Figma boards comparing the token systems of GitHub Primer, IBM Carbon, Google Material 3, Salesforce Lightning 2 and the Atlassian Design System. Beside them are four proposal pages: Design Tokens, Value Proposal, Lift and Level of Effort, and a color token proof of concept.',
@@ -81,7 +81,7 @@ const content = {
       ],
       image: [
         {
-          src: ecosystemImage,
+          ...ecosystemImage,
           variant: 'column' as const,
           caption:
             'Tokens would fit into the existing multi-library ecosystem and carry across React, Angular and Swift applications.',
@@ -99,7 +99,7 @@ const content = {
       ],
       image: [
         {
-          src: sprintImage,
+          ...sprintImage,
           variant: 'column' as const,
           caption:
             "A sprint planning board for the contributing designers, with the sprint goal and each person's tickets.",

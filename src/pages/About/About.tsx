@@ -85,6 +85,8 @@ const About: React.FC = () => (
                 <Image
                   src={img.src}
                   alt={img.alt}
+                  width={img.width}
+                  height={img.height}
                   iconFallback={img.iconFallback}
                   altFallback={img.altFallback}
                   className={styles.photoFrame}

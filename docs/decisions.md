@@ -490,8 +490,10 @@ The Resume outline button (Contact) has a 3px border, the same width as the focu
 
 D-096 revision (2026-10-24): the back to top button is fixed 80px from the viewport's bottom-right corner (24px on phones), black in light and the inverse (near white) in dark, with the shared name-tag tooltip ("Back to top", D-025). It rides up as the footer comes into view so it never covers the footer. `Layout` renders it directly; the sticky strip is gone.
 
-## D-103: One Tooltip component, the Figma tooltip, placed by Floating UI — decided, 2026-10-24
+## D-103: One Tooltip component, the Figma tooltip, placed by Floating UI — decided, 2026-10-24 (kept, 2026-10-25)
 `src/components/Tooltip` replaces the CSS-only `data-tooltip` name tag (`tooltip.css` and the Escape handler in `index.tsx` are deleted, along with the footer and 404 color overrides and the footer's phone placement hack). It wraps a control (`<Tooltip label="...">`) and uses `@floating-ui/react` to place the tag above by default, 8px off the control, flipping and shifting when there is no room, so it stays on screen at any edge. Hover opens it after 120ms and keyboard focus opens it at once, it stays open while the pointer moves onto it, and Escape closes it (WCAG 1.4.13). It is portaled to `<body>` so the footer band cannot recolor it, and visual only (`aria-hidden`), because every control keeps its real accessible name. The look follows the Figma tooltip: a dark rounded tag (8px radius), white medium text, soft shadow. It is black with white text in light and near white with black text in dark. The pet name tags on About are cursor tags (`CursorTag`, Figma's multiplayer cursor), a different element, and stay as they are. Users today: footer icons, mode toggle and back to top. Back to top is now 64px from the corner (24px on phones) and its hover lightens the text black by 20%.
+
+The code audit weighed the cost (+51 kB raw, +18 kB gzipped for four tooltips, 2026-10-25) and Jax decided to keep Floating UI. The positioning, hoverable and dismissible behavior is worth it.
 
 ## D-104: One link style, the animated line; back to top stays put — decided, 2026-10-24
 Every `TextLink` now has the animated line (no resting underline, a 3px line grows in from the left on hover, text stays on the link color, pressed darkens): the `line` option and the old underline style (the underline offset that moved up and down on hover) are deleted, so About's in-text links, Resume and the footer all match. This supersedes D-024's "in-content links keep the always-on underline" and folds D-090 into the default. Bold link text and the violet color carry recognition at rest. Back to top no longer rides up with the footer (D-096 revision): it stays fixed in the corner at all times.
@@ -537,7 +539,7 @@ The study role line is body-lg (it was body-md) so it holds beside the 56px titl
 
 ## D-115: New pages open at the top — decided, 2026-10-24
 
-`ScrollToTop` (mounted in App) scrolls to the top when the path changes, so a "More of my work" card opens the next study at its title and not at the footer. Back and forward keep the browser scroll position and a #hash link keeps its anchor. TODO(jax): move keyboard focus to the h1 on navigation if we want screen readers to announce the new page.
+`ScrollToTop` (mounted in App) scrolls to the top when the path changes, so a "More of my work" card opens the next study at its title and not at the footer. Back and forward keep the browser scroll position and a #hash link keeps its anchor. Focus on navigation is D-126.
 
 ## D-116: Study role line wraps item by item; phone study cards 8px more under the link — decided, 2026-10-24
 
@@ -597,10 +599,18 @@ A green group (`quinary`: default green 700 / 300, container green 100 / 800, wi
 
 The Resume page drops the Skills and tools chips (the PDF carries the full list). It gains "Core strengths": three cards in study colors with the work cards' hover (tint, lift, link line; no pointer tilt), each with one proof line from its case study (Toyota tokens, Indeed components, ActBlue workflows). Experience is a list of split cards: a colored side (logo, company, dates, place such as "Remote (contract)") and a white side (title, one short summary, case study link). The sides follow one gradient down the list in the order purple, violet, indigo, teal, green (the quinary group, D-123), each fading into the next role. Roles carry a `summary` in place of bullets (drafts condensed from the PDF bullets, TODO(jax)). Major headings share one style: the heading plus a 56px, 4px violet bar. The lift runs only on devices that hover and never with reduced motion. Not in this slice: the Design Engineer PDF download (the resume folder builds four PDFs, public has one).
 
-## D-125: Footer line and 404 quips settled — decided, 2026-10-25
+## D-125: Images carry their pixel size — decided, 2026-10-25
+
+`import photo from './photo.jpg?size'` returns `{ src, width, height }`. The Vite plugin `scripts/vite-image-size.ts` reads the PNG or JPEG header at build time (no dependency), and the size goes onto `<img width height>` so the browser reserves the space before a lazy image loads. CSS keeps setting the rendered size, so nothing changes visually. Study panels now take their source size from the file and no longer repeat it by hand. Study content, the About photos and the Home card samples use `?size`. New images should too. Measured in the browser on Home, About and the four studies: no image has a distorted ratio, and the only cropped ones are the object-fit crops that were already cropped.
+
+## D-126: Focus moves to the h1 after a route change — decided, 2026-10-25
+
+`FocusOnRouteChange` (mounted in App next to `ScrollToTop`) focuses the new page's `main h1` after a client-side navigation, so a screen reader announces the page and keyboard focus no longer sits on a link that has gone. It skips the first load (the skip link stays the first Tab stop) and #hash links. The heading gets `tabindex="-1"` and draws no ring because it is not a control. Checked in the browser: Home to About, About to a study and Back each land on the page's h1 with scroll position unchanged. Not tested with a screen reader.
+
+## D-127: Footer line and 404 quips settled — decided, 2026-10-25
 
 Jax settled the footer line ("Open to remote Staff Product Designer and Design Engineer roles.", D-021, D-024) and the seven 404 quips (D-022). The provisional markers are removed.
 
-## D-126: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
+## D-128: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
 
 Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUDE.md` now has a No-nos section: never raise the Toyota token count as a proof point, never style h1 to h6 directly (classes carry the look, tags carry the structure), and do not bring up the audit. The Resume strengths proof line for Toyota no longer cites the token count. Known direct heading styling to fix: the tag reset in `main.css` and the `.story section > h2 + *` selector in `About.module.css`.

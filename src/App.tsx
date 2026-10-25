@@ -6,10 +6,12 @@ import Resume from '#pages/Resume';
 import StudyPage from '#pages/Studies';
 import NotFound from '#pages/NotFound';
 import ScrollToTop from '#components/ScrollToTop';
+import FocusOnRouteChange from '#components/FocusOnRouteChange';
 
 const App: React.FC = () => (
   <Router>
     <ScrollToTop />
+    <FocusOnRouteChange />
     <Routes>
       <Route path="/" element={<Work />} />
       <Route path="/about" element={<About />} />
