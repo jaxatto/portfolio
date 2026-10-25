@@ -22,8 +22,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 48px;
-	height: 48px;
+	width: var(--size-space-section-sm);
+	height: var(--size-space-section-sm);
 	margin-bottom: var(--size-space-md);
 	border-radius: 50%;
 	background: color-mix(in oklab, var(--role-fg) 14%, transparent);

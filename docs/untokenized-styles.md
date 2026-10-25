@@ -215,21 +215,12 @@ Icon sizes (`--size-icon-sm/md/lg`, 16, 24 and 28px), the state washes (`--state
 
 A scan of the length literals that are left (px and rem, 42 values) against the space, radius, type and target scales.
 
-**Exactly a token already (use the token, no visual change):**
-
-| Where | Value | Token |
-| --- | --- | --- |
-| `Image.module.css:19` | `top: -0.25rem` | `-space-xs` |
-| `StudyCard.module.css:217` | `calc(112% + 40px)` | `space-4xl` |
-| `About.module.css:160` | `translate(-4px, -4px)` | `-space-xs` |
-| `Resume.module.css:88-89` | `56px` by `4px` bar | `space-section-md` by `space-xs` |
-| `Role.module.css:25-26` | `48px` logo | `space-section-sm` |
+**Exactly a token already: swapped (2026-10-25).** Image `top`, StudyCard `+ 40px`, About `translate(-4px, -4px)`, the Resume bar (56px by 4px), the Role logo (48px) now read `space-*` tokens. Header's two `--line-bottom: 2px` and the phone divider's `bottom: 2px` read `--size-border-width-default`, and the Resume bar radius reads `--size-radius-full`. The Resume page screenshot is byte-identical to before.
 
 **One or two pixels off (a rounding or optical value, leave unless the design changes):**
 
 - `1px` visually-hidden pattern (`.sr-only`, skip link): fixed by the technique.
-- `2px` in `Header` (`--line-bottom`, `bottom`), `Role` gap and `NameTag` padding (`space-xs + 2px`): `--size-border-width-default` is 2px, so the two `--line-bottom` values could read it.
-- `Resume.module.css:91` `border-radius: 2px` on the 4px bar: `--size-radius-full` gives the identical look.
+- `2px` in `Role` gap and `NameTag` padding (`space-xs + 2px`): spacing, not a border, so `--size-border-width-default` would say the wrong thing. Left.
 - `7px` footer icon underline inset and `-7px` margin, `9px` ModeToggle `--line-inset`, HeroMarks `1px` and `2px` nudges and the `10px` pointer margin: optical alignment of drawn glyphs.
 - `9px` in the TextLink fluid clamp: part of a tuned formula.
 

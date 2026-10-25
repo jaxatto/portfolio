@@ -178,10 +178,10 @@
 .heading::after {
 	content: '';
 	display: block;
-	width: 56px;
-	height: 4px;
+	width: var(--size-space-section-md);
+	height: var(--size-space-xs);
 	margin-top: var(--size-space-md);
-	border-radius: 2px;
+	border-radius: var(--size-radius-full);
 	background: var(--color-brand-default);
 }
 
