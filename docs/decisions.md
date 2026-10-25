@@ -440,3 +440,7 @@ A section renders every image in its `image` array, in order (it rendered only t
 ## D-089: Study h1 size and width — decided, 2026-10-24
 
 The study h1 is 56px from 900px, 48px from 641px and 40px on phones (it was `title-md`, which stayed at 40px until about 2,800px). It matches the About hero and is 1.75 times the 32px h2s. The h1 may use the full 960 column. Role line, chips and the 40px gap under them are unchanged.
+
+## D-090: Study chips: 16px more above — decided, 2026-10-24
+
+The chips sit 40px under the role line (the 24px intro gap plus 16px). The 40px between the chips and the intro paragraph is unchanged.

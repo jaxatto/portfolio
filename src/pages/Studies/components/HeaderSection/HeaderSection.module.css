@@ -111,7 +111,8 @@
 	/* One row while it fits in the 960 column, wrapping when the screen is narrower. */
 	flex-wrap: wrap;
 	gap: var(--size-space-md);
-	margin: 0;
+	/* 16px more above the chips than the usual intro gap (D-090). */
+	margin: var(--size-space-lg) 0 0;
 	padding: 0;
 	list-style: none;
 }
