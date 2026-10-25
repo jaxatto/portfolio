@@ -10,27 +10,27 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
 - [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
-- [x] 4. Case study content: Indeed, ActBlue, ServiceNow and Toyota (D-047 to D-086), all merged to `redesign` or ready on the slice 3 branch; verified end to end 2026-10-21 (375, 768, 1280, light and dark: no overflow, one h1, heading order, alt text, links, meta)
+- [x] 4. Case study content: Indeed, ActBlue, ServiceNow and Toyota (D-047 to D-086), all merged to `redesign`; verified end to end 2026-10-21 (375, 768, 1280, light and dark: no overflow, one h1, heading order, alt text, links, meta)
 - [x] 5. About (D-040 to D-045, merged with slice 2). The Toyota scale number is answered (D-083)
-- [x] 6. Resume (D-087 to D-091, merged to `redesign` in PR #11, 2026-10-25): page, roles and skills on tokens, legacy global rules and SCSS deleted. Skills layout still to revisit with Jax
+- [x] 6. Resume (D-087 to D-091 and D-123, D-124, merged to `redesign` in PRs #11 and #16, 2026-10-25): page on tokens, legacy global rules and SCSS deleted, then redesigned with strengths cards, gradient split role cards and no skills list
 
 Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slices 0 to 6 are merged into `redesign`. Resume redesign (D-124) is merged: strengths cards, gradient split role cards, no skills list. Remaining: Jax's review and role summaries, the Design Engineer PDF download, the `TODO(jax)` copy below, then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
+Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-128, D-129). Remaining for Jax: review of the Resume role summaries and strength lines (drafts, `TODO(jax)` in `roles.ts`), the Design Engineer PDF download on the Resume page, the Home SEO copy, then flip `VITE_THEME_SWITCHING` when ready to ship dark mode (D-006, D-011). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
 
 ## Audit follow-ups (2026-10-25)
 
 Batches 1 to 4 are done (regressions, dead code, tokens, shared components). Not handled yet, in the order proposed:
 
 - **Batch 5, consistency:** move every `@` import to `#` and delete the `@` aliases in vite, tsconfig and `package.json`. `moduleResolution` Node to Bundler. Colocate `commonTypes/study` with Studies. Fix indentation drift in Resume.tsx, NotFound.tsx, StudyTemplate.tsx. Tooltip reads `refs.domReference.current` during render.
-- **Batch 6, performance and SEO:** done except two items. Image width and height are set from the file (D-125). Self-hosting the fonts is not done (two third-party connections, not measured). Home PNG samples with alpha were left as they are.
+- **Batch 6, performance and SEO:** done except two items. Image width and height are set from the file (D-125). Fonts are self-hosted (D-127). Home PNG samples with alpha were left as they are.
 - **Batch 7, docs and comments:** stale CLAUDE.md lines, the plan.md Setup section and dated TODOs, decisions.md ordering (D-082 holds text from D-081 and D-067, D-085 before D-083, D-038 has no heading), README. Remove change-log comments ("was 24 / 32, +8px per Jax" and similar). Write the comment convention into CLAUDE.md.
 - **Decided (2026-10-25):** keep Floating UI (D-103). Keep the `Image` fallback component and its cat, controller and paw icons.
 - **TODO(jax):** explore what the `Image` fallback looks like when a photo fails to load, and whether the About page should use it differently.
 - **Held:** the dark-mode override dedupe (item 11) and the token worklist. The cheaper route is to have the inline script and ThemeProvider always set `data-theme` to the resolved theme (the OS setting when nothing is stored), which makes the `prefers-color-scheme` blocks in `theme.css` and about 13 component sites redundant.
-- **Fonts, measured:** Google's stylesheet is 21 kB (58 `@font-face` rules, 3 used in latin) and blocks first paint. A visit then downloads 3 variable latin files, 86 kB (Inter 48 kB, Manrope 25 kB, Roboto Mono 13 kB). Self-hosting keeps the 86 kB, drops the 21 kB stylesheet and both third-party connections (about 100 to 180 ms of handshakes and a stylesheet-then-font chain in the render path, measured from one fast connection). Not done, awaiting Jax.
+- **Fonts:** self-hosted (D-127). Measured before: a 21 kB Google stylesheet and two third-party connections on the render path (about 100 to 180 ms from one fast connection). The 86 kB of font files is unchanged.
 - **Token worklist:** [untokenized-styles.md](untokenized-styles.md), 101 declarations. First candidates are icon sizes, state washes, layer order and the `theme-color` pair.
 - **Not tested:** screen readers, 200% and 400% zoom, forced colors, Safari and Firefox. Route changes now move focus to the h1 (D-126), checked without a screen reader.
 
@@ -40,23 +40,25 @@ Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Desi
 
 ## Open questions for Jax
 
-Copy (all marked `TODO(jax)`, provisional):
+Copy:
 - About copy, round one applied (D-044). Earlier-roles paragraph added with links to the three case studies (Visa left out). The Toyota scale is answered in D-083 (680 + 120 tokens, 40 teams, one brand today).
-- Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Other pages' titles and meta still say "Staff Product Designer – Scalable UX…" and "at ServiceNow" (the About design says Toyota); each page's slice updates its own.
+- Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Page titles and meta follow it.
 
 Design / tokens:
 1. **Figma is a reference only.** It is out of date for Home, About and the focus ring, and Jax won't update it; code and `docs/decisions.md` are the source of truth (2026-10-15).
-2. The card ramp ends at teal (container teal 100); a fifth study would continue with green (not built, D-030).
-3. Dark card backgrounds were tinted 30% toward the ground; check against the rest of the dark pages when they migrate (D-028).
+2. The card ramp is purple, indigo, sky, teal, and the green group `quinary` now exists (D-123). A fifth study card would take it.
+3. Dark card backgrounds were tinted 30% toward the ground; all pages are migrated, so judge them in the dark pass (D-028).
 4. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. There is no tablet design for the footer (stacks at 640px).
 5. The link arrows are Phosphor bold, so their stroke scales with size (D-026). Revisit if it reads light.
 6. Icons: all UI icons are Phosphor bold and the emoji are gone (D-037).
 7. ServiceNow's Outcomes rest on what Jax recalls (no metrics exist for the tool). The Toyota frame's footer says "Design Technologist" where the site says "Design Engineer".
 8. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
 
-Remaining `TODO(jax)` in the code (2026-10-21, all provisional copy or design, none block the studies):
+Remaining `TODO(jax)` in the code (2026-10-25):
 - No tablet design for the footer (`Footer.module.css`, D-008, D-024).
 - The Home SEO copy (`Work.tsx`, D-003, D-016).
+- Resume role summaries and strength proof lines are drafts condensed from the PDF bullets and the case studies (`roles.ts`, `Resume.tsx`, D-124).
+- Design Engineer PDF: the `resume/` folder builds it, but `public/` and the Resume page link only the main PDF.
 - Toyota page: no Deliverables image (decided 2026-10-21: none wanted). The sprint board image is 800px and soft on retina (Jax is fine with that).
 
 ## Parked: study image component (raised 2026-10-19, return after ServiceNow copy is done)
