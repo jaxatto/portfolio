@@ -76,8 +76,8 @@ const About: React.FC = () => (
       </section>
     </div>
     <section>
+      <p className="sr-only">{content.images.srOnly.intro}</p>
       <ul className={styles.photos}>
-        <span className="sr-only">{content.images.srOnly.intro}</span>
         {images.map((img, i) => (
           <li key={i} className={styles.photo}>
             <figure className={`${styles.figure} ${styles[img.palette]}`}>

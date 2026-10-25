@@ -349,3 +349,11 @@
   --card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
   --shadow-lift-color: oklch(0 0 0 / 0.5);
 }
+
+/* Forced colors drops the background, so the shape is drawn by an outline in the system text color. An outline
+   takes no space, so the layout is the same as without it (D-129). */
+@media (forced-colors: active) {
+  .card {
+    outline: var(--size-border-width-default) solid CanvasText;
+  }
+}
