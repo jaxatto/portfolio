@@ -43,7 +43,9 @@ function setContent(html: string, marker: string, value: string) {
 const template = readFileSync(join(dist, 'index.html'), 'utf8');
 
 for (const page of pages) {
-  const url = `${origin}${page.path}`;
+  // GitHub Pages serves dist/<route>/index.html at /<route>/ and redirects /<route> there, so the
+  // canonical URL is the one it ends on.
+  const url = `${origin}${page.path}/`;
   let html = template.replace(
     /<title>[^<]*<\/title>/,
     () => `<title>${escape(page.title)}</title>`,
