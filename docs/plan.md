@@ -16,7 +16,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
 ## Now
 
-Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-133, D-134). Remaining for Jax: review of the Resume role summaries and strength lines (on hold, drafts, `TODO(jax)` in `roles.ts`). SEO copy is settled and dark mode switching is on (D-131). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant.
+Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-133, D-134). Remaining for Jax: review of the Resume role summaries and strength lines (on hold, drafts, `TODO(jax)` in `roles.ts`). SEO copy is settled and dark mode switching is on (D-131). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Page folders share one shape (D-140, merged 2026-10-25): every page's SEO text is in `resources/meta.ts`. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant.
 
 ## Audit follow-ups (2026-10-25)
 
@@ -53,7 +53,7 @@ Design / tokens:
 8. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
 
 Remaining `TODO(jax)` in the code (2026-10-25):
-- The Home SEO copy (`Work.tsx`, D-003, D-016).
+- The Home SEO copy (`src/pages/Work/resources/meta.ts`, D-016).
 - Resume role summaries and strength proof lines are drafts condensed from the PDF bullets and the case studies (`roles.ts`, `Resume.tsx`, D-124).
 - Toyota page: no Deliverables image (decided 2026-10-21: none wanted). The sprint board image is 800px and soft on retina (Jax is fine with that).
 
