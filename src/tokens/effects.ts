@@ -24,6 +24,18 @@ export const effects = {
     // Lift and settle, fast start and soft landing.
     out: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
   },
+  // Strength of the tint a hover or pressed state mixes into an outline control (color-mix percentage).
+  wash: {
+    hover: '12%',
+    active: '20%',
+  },
+  // Stacking order, lowest to highest. Components name a layer, they never pick a number.
+  layer: {
+    behind: '-1',
+    raised: '10',
+    tooltip: '30',
+    'skip-link': '1000',
+  },
   // Full box-shadow or drop-shadow values. Dark mode needs a deeper shadow and a faint edge, since black
   // vanishes on the dark ground.
   shadow: {
@@ -41,5 +53,7 @@ export const effects = {
 } as const satisfies {
   duration: Record<string, string>;
   easing: Record<string, string>;
+  wash: Record<string, string>;
+  layer: Record<string, string>;
   shadow: Record<string, string | EffectMode>;
 };

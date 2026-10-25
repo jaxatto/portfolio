@@ -2,7 +2,7 @@
    positions and fades it in. */
 
 .tooltip {
-  z-index: 30;
+  z-index: var(--layer-tooltip);
   animation: tooltip-in var(--motion-duration-fast) var(--motion-ease-standard) both;
 }
 

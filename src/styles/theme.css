@@ -172,6 +172,9 @@
   --size-focus-ring-offset: var(--primitive-size-border-width-3);
   --size-target-md: var(--primitive-size-space-40);
   --size-target-lg: 44px;
+  --size-icon-sm: var(--primitive-size-space-16);
+  --size-icon-md: var(--primitive-size-space-24);
+  --size-icon-lg: 28px;
   --size-border-width-none: var(--primitive-size-border-width-0);
   --size-border-width-thin: var(--primitive-size-border-width-1);
   --size-border-width-default: var(--primitive-size-border-width-2);
@@ -258,6 +261,12 @@
   --motion-ease-standard: ease;
   --motion-ease-emphasized: cubic-bezier(0.4, 0.2, 0.2, 1);
   --motion-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --state-wash-hover: 12%;
+  --state-wash-active: 20%;
+  --layer-behind: -1;
+  --layer-raised: 10;
+  --layer-tooltip: 30;
+  --layer-skip-link: 1000;
   --shadow-lift: 0 24px 48px -20px;
   --shadow-cursor: 0 2px 3px rgb(0 0 0 / 25%);
 
