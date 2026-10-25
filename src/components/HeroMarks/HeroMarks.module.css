@@ -183,10 +183,8 @@
 }
 
 .tag-label {
-	composes: label from '#styles/name-tag.module.css';
+	/* Hangs 2px under the arrow's tip and 10px in (the NameTag supplies the look, D-107). */
 	margin: -2px 0 0 10px;
-	/* The square corner is the one the cursor arrow points from, top left (D-105). */
-	border-top-left-radius: 0;
 }
 
 /* A blinking terminal caret. Sized in em so it follows the text it sits in; `--caret-color` lets a

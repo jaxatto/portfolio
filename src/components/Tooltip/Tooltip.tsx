@@ -14,6 +14,7 @@ import {
   useMergeRefs,
   type Placement,
 } from '@floating-ui/react';
+import NameTag, { type NameTagCorner } from '#components/NameTag';
 import styles from './Tooltip.module.css';
 
 // The one tooltip for the site (D-103). Wrap an icon-only control:
@@ -24,13 +25,21 @@ import styles from './Tooltip.module.css';
 // It is portaled to <body>, so a themed ancestor (the footer band) cannot recolor it.
 // The tooltip is visual only: the control keeps its real accessible name (aria-label or sr-only text),
 // so the tooltip is `aria-hidden` and nothing is announced twice. Look: the violet name tag shared with
-// the pet photo tags (src/styles/name-tag.module.css, D-105).
+// the pet photo tags (the NameTag component, D-105, D-107).
 
 type TooltipProps = {
   label: string;
   placement?: Placement;
   offset?: number; // px between the control and the tag (default 0, the tag hugs the control's padding)
   children: React.ReactElement<React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }>;
+};
+
+// The square corner is the one nearest the control, so it follows the side the tag ends up on.
+const cornerFor: Record<string, NameTagCorner> = {
+  top: 'bottom-right',
+  bottom: 'top-right',
+  left: 'top-right',
+  right: 'top-left',
 };
 
 const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset: gap = 0, children }) => {
@@ -57,6 +66,8 @@ const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset:
 
   const ref = useMergeRefs([refs.setReference, children.props.ref]);
 
+  const side = finalPlacement.split('-')[0];
+
   return (
     <>
       {cloneElement(children, getReferenceProps({ ...children.props, ref }))}
@@ -66,11 +77,12 @@ const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset:
             ref={refs.setFloating}
             className={styles.tooltip}
             style={floatingStyles}
-            data-side={finalPlacement.split('-')[0]}
             aria-hidden="true"
             {...getFloatingProps()}
           >
-            {label}
+            <NameTag corner={cornerFor[side]} className={styles.tag}>
+              {label}
+            </NameTag>
           </div>
         </FloatingPortal>
       )}

@@ -1,28 +1,13 @@
-/* Tooltip (D-103, D-105): the name tag look from src/styles/name-tag.module.css, placed above the
-   control by Floating UI. The square corner is the one nearest the control, so it follows the side the
-   tag ends up on (it flips to below when there is no room above). */
+/* Tooltip (D-103, D-105, D-107): the NameTag, placed above the control by Floating UI. This wrapper only
+   positions and fades it in. */
 
 .tooltip {
-	composes: label from '#styles/name-tag.module.css';
 	z-index: 30;
-	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
 	animation: tooltip-in 0.15s ease both;
 }
 
-.tooltip[data-side='top'] {
-	border-bottom-right-radius: 0;
-}
-
-.tooltip[data-side='bottom'] {
-	border-top-right-radius: 0;
-}
-
-.tooltip[data-side='left'] {
-	border-top-right-radius: 0;
-}
-
-.tooltip[data-side='right'] {
-	border-top-left-radius: 0;
+.tag {
+	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
 }
 
 @keyframes tooltip-in {
