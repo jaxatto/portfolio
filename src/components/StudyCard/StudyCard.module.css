@@ -3,359 +3,358 @@
    section-sm / section-md / xs, so no component tokens were added. */
 
 .card {
-	/* The palette (--palette-*) comes from the class on the card, src/styles/palette.module.css (D-119). */
-	--card-fg: var(--palette-on-container);
+  /* The palette (--palette-*) comes from the class on the card, src/styles/palette.module.css (D-119). */
+  --card-fg: var(--palette-on-container);
 
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	border-radius: var(--size-radius-lg);
-	/* 5% toward the page ground: lighter in light mode, a touch deeper in dark (D-028). */
-	--card-lift: 5%;
-	background: color-mix(
-		in oklch,
-		var(--palette-container) calc(100% - var(--card-lift)),
-		var(--color-surface-default)
-	);
-	color: var(--color-content-soft);
-	/* Shadow under a lifted card (D-111): the palette's own color. Dark mode swaps it for black below. */
-	--shadow-lift-color: color-mix(in oklch, var(--card-fg) 55%, transparent);
-	transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--size-radius-lg);
+  /* 5% toward the page ground: lighter in light mode, a touch deeper in dark (D-028). */
+  --card-lift: 5%;
+  background: color-mix(
+    in oklch,
+    var(--palette-container) calc(100% - var(--card-lift)),
+    var(--color-surface-default)
+  );
+  color: var(--color-content-soft);
+  /* Shadow under a lifted card (D-111): the palette's own color. Dark mode swaps it for black below. */
+  --shadow-lift-color: color-mix(in oklch, var(--card-fg) 55%, transparent);
+  transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 /* Text selection inside a card takes the card's own palette (D-080). The hover pair is used because the
    card face is the plain palette container, which a selection of the same color would vanish into.
    `.card.card` outweighs the study page's own selection rule, so cards under a study keep their own color. */
 .card.card ::selection {
-	background: var(--palette-container-hover);
-	color: var(--palette-on-container-hover);
+  background: var(--palette-container-hover);
+  color: var(--palette-on-container-hover);
 }
 
 .card:hover {
-	background: color-mix(
-		in oklch,
-		var(--palette-container-hover) calc(100% - var(--card-lift)),
-		var(--color-surface-default)
-	);
+  background: color-mix(
+    in oklch,
+    var(--palette-container-hover) calc(100% - var(--card-lift)),
+    var(--color-surface-default)
+  );
 }
 
 /* The link is stretched over the card, so keyboard focus rings the whole card. */
 .card:has(.link:focus-visible) {
-	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
-	outline-offset: var(--size-focus-ring-offset);
+  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+  outline-offset: var(--size-focus-ring-offset);
 }
 
 /* Text */
 .content {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: var(--size-space-section-sm);
-	/* 32px sides and top, 40px bottom (was 24 / 32, +8px per Jax; D-028). */
-	padding: var(--size-space-3xl) var(--size-space-3xl) var(--size-space-4xl);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-space-section-sm);
+  /* 32px sides and top, 40px bottom (was 24 / 32, +8px per Jax; D-028). */
+  padding: var(--size-space-3xl) var(--size-space-3xl) var(--size-space-4xl);
 }
 
 .text {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-md); /* 12px between title and outcome (was 8, D-028) */
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-md); /* 12px between title and outcome (was 8, D-028) */
+  width: 100%;
 }
 
 .title {
-	composes: headingLg from '#styles/type.module.css';
-	color: var(--card-fg);
-	/* heading-lg (32px at desktop, Figma). Titles are written to wrap to two lines (D-034). */
-	text-wrap: balance;
+  composes: headingLg from '#styles/type.module.css';
+  color: var(--card-fg);
+  /* heading-lg (32px at desktop, Figma). Titles are written to wrap to two lines (D-034). */
+  text-wrap: balance;
 }
 
 .outcome {
-	margin: 0;
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-md-size);
-	font-weight: var(--font-weight-medium); /* 500: 400 read thin on the tinted card (D-033) */
-	line-height: var(--font-style-body-md-line-height);
+  margin: 0;
+  font-family: var(--font-style-body-md-family);
+  font-size: var(--font-style-body-md-size);
+  font-weight: var(--font-weight-medium); /* 500: 400 read thin on the tinted card (D-033) */
+  line-height: var(--font-style-body-md-line-height);
 }
 
 /* Link: bold, no resting underline; the shared line grows in on hover (D-031). */
 .link {
-	display: inline-flex;
-	align-items: center;
-	gap: var(--size-space-xs);
-	color: var(--card-fg);
-	font-family: var(--font-family-body);
-	font-size: var(--font-style-body-md-size);
-	font-weight: var(--font-weight-extra-strong);
-	line-height: var(--font-line-height-default);
-	text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-space-xs);
+  color: var(--card-fg);
+  font-family: var(--font-family-body);
+  font-size: var(--font-style-body-md-size);
+  font-weight: var(--font-weight-extra-strong);
+  line-height: var(--font-line-height-default);
+  text-decoration: none;
 }
 
 .linkText {
-	composes: line from '#styles/line.module.css';
-	/* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
+  composes: line from '#styles/line.module.css';
+  /* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
 	   below the box, not 2px above its bottom (D-031). */
-	--line-bottom: calc(-1 * var(--size-border-width-default));
-	--line-color: currentcolor;
-	position: relative;
+  --line-bottom: calc(-1 * var(--size-border-width-default));
+  --line-color: currentcolor;
+  position: relative;
 }
 
 /* Phones swap in the short label so the link stays on one line (D-031). */
 .linkShort {
-	display: none;
+  display: none;
 }
 
 /* Stretched link: the whole card is the click target. */
 .link::after {
-	content: '';
-	position: absolute;
-	inset: 0;
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 
 .icon {
-	width: 1.2em;
-	height: 1.2em;
-	flex-shrink: 0;
-	color: inherit;
-	fill: currentcolor;
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  color: inherit;
+  fill: currentcolor;
 }
 
 .card:hover .linkText::after {
-	transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .link:focus-visible {
-	outline: none;
+  outline: none;
 }
 
 /* Preview: the sample UI is cropped by the card's right and bottom edges, on purpose. It is
    positioned, so it paints above the link's stretched ::after; pointer-events: none lets clicks and
    the pointer cursor fall through to the link (D-031). */
 .preview {
-	pointer-events: none;
-	display: flex;
-	flex-direction: column;
-	height: 17rem; /* 272px, Figma sample height in vertical cards */
-	padding: var(--size-space-2xl) 0 0 var(--size-space-section-lg);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  height: 17rem; /* 272px, Figma sample height in vertical cards */
+  padding: var(--size-space-2xl) 0 0 var(--size-space-section-lg);
 }
 
 .sample {
-	position: relative;
-	flex: 1;
-	min-width: 31.25rem; /* 500px: the sample bleeds past the card on narrow widths */
-	overflow: hidden;
-	border-top-left-radius: var(--size-radius-sm);
-	background: var(--color-surface-sunken);
+  position: relative;
+  flex: 1;
+  min-width: 31.25rem; /* 500px: the sample bleeds past the card on narrow widths */
+  overflow: hidden;
+  border-top-left-radius: var(--size-radius-sm);
+  background: var(--color-surface-sunken);
 }
 
 .image {
-	/* The screenshot's width is a variable so the hover can grow it by 4 points (D-111). */
-	--image-w: 100%;
-	display: block;
-	width: var(--image-w);
-	height: auto;
+  /* The screenshot's width is a variable so the hover can grow it by 4 points (D-111). */
+  --image-w: 100%;
+  display: block;
+  width: var(--image-w);
+  height: auto;
 }
 
 /* Tablet and up: horizontal cards put the preview beside the text. Above phones (641px) the text
    takes 55% of the card and the preview the rest, so a 768 viewport gets a smaller desktop card
    instead of a stretched phone stack. Fixed 548px text column from 900px. */
 @media (min-width: 641px) {
-	/* The sample stays inside the card window: cropped by its right and bottom edges (D-028).
+  /* The sample stays inside the card window: cropped by its right and bottom edges (D-028).
 	   Layout in a 960px card: text 492px wide (box 548px incl. 32px left, 24px right padding),
 	   sample 412px wide starting at 548px, 32px below the card top (D-028). */
-	.horizontal {
-		flex-direction: row;
-	}
+  .horizontal {
+    flex-direction: row;
+  }
 
-	.horizontal .content {
-		flex: 0 1 55%;
-		min-width: 0;
-		padding-right: var(--size-space-2xl);
-	}
+  .horizontal .content {
+    flex: 0 1 55%;
+    min-width: 0;
+    padding-right: var(--size-space-2xl);
+  }
 
-	.horizontal .preview {
-		flex: 1;
-		height: auto;
-		padding: var(--size-space-3xl) 0 0;
-	}
+  .horizontal .preview {
+    flex: 1;
+    height: auto;
+    padding: var(--size-space-3xl) 0 0;
+  }
 
-	/* Paragraph is 32px narrower than the title: 460px (D-028). */
-	.horizontal .outcome {
-		max-width: 28.75rem;
-	}
+  /* Paragraph is 32px narrower than the title: 460px (D-028). */
+  .horizontal .outcome {
+    max-width: 28.75rem;
+  }
 
-	.horizontal .sample {
-		min-width: 0;
-	}
+  .horizontal .sample {
+    min-width: 0;
+  }
 
-	/* Fill the whole sample so no sunken-grey strip shows below a short screenshot. */
-	.horizontal .image {
-		/* The window stays the same size; the screenshot is 12% larger inside it (D-028). */
-		/* Out of flow, so a larger screenshot never makes the card taller. */
-		position: absolute;
-		top: 0;
-		left: 0;
-		--image-w: 112%;
-		width: var(--image-w);
-		max-width: none;
-		height: auto;
-		min-height: 100%;
-		object-fit: cover;
-		object-position: top left;
-	}
+  /* Fill the whole sample so no sunken-grey strip shows below a short screenshot. */
+  .horizontal .image {
+    /* The window stays the same size; the screenshot is 12% larger inside it (D-028). */
+    /* Out of flow, so a larger screenshot never makes the card taller. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    --image-w: 112%;
+    width: var(--image-w);
+    max-width: none;
+    height: auto;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: top left;
+  }
 
-	/* Toyota's sample: trimmed 2px at the top and left edge (the panel's own frame), window unchanged. */
-	.horizontal:not(.enlarge) .image {
-		top: calc(-1 * var(--size-border-width-default));
-		left: calc(-1 * var(--size-border-width-default));
-		--image-w: calc(112% + 2 * var(--size-border-width-default));
-		width: var(--image-w);
-	}
+  /* Toyota's sample: trimmed 2px at the top and left edge (the panel's own frame), window unchanged. */
+  .horizontal:not(.enlarge) .image {
+    top: calc(-1 * var(--size-border-width-default));
+    left: calc(-1 * var(--size-border-width-default));
+    --image-w: calc(112% + 2 * var(--size-border-width-default));
+    width: var(--image-w);
+  }
 
-	/* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-028). */
-	.horizontal.enlarge .image {
-		--image-w: calc(112% + 40px);
-		width: var(--image-w);
-	}
+  /* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-028). */
+  .horizontal.enlarge .image {
+    --image-w: calc(112% + 40px);
+    width: var(--image-w);
+  }
 }
 
 @media (min-width: 900px) {
-	.horizontal .content {
-		flex-basis: 34.25rem; /* 548px */
-	}
+  .horizontal .content {
+    flex-basis: 34.25rem; /* 548px */
+  }
 
-	/* Desktop title is 36px, a real step on the type scale now (D-033). Below 900px it stays
+  /* Desktop title is 36px, a real step on the type scale now (D-033). Below 900px it stays
 	   heading-lg. */
-	.horizontal .title {
-		font-size: var(--font-size-36);
-	}
+  .horizontal .title {
+    font-size: var(--font-size-36);
+  }
 }
 
 /* Stacked cards in a row of unequal text lengths: the link and the preview sit at the bottom, so
    they line up across cards whatever the title and outcome wrap to (D-048). */
 .card:not(.horizontal) .content {
-	flex: 1;
+  flex: 1;
 }
 
 .card:not(.horizontal) .link {
-	margin-top: auto;
+  margin-top: auto;
 }
 
 /* Study (under a case study): smaller body type, text and preview stay stacked. */
 .study .outcome,
 .study .link {
-	font-size: var(--font-style-body-sm-size);
+  font-size: var(--font-style-body-sm-size);
 }
 
 .study .content {
-	gap: var(--size-space-2xl);
-	/* 24px under the link, 16px less than the Home cards (D-063). */
-	padding-bottom: var(--size-space-2xl);
+  gap: var(--size-space-2xl);
+  /* 24px under the link, 16px less than the Home cards (D-063). */
+  padding-bottom: var(--size-space-2xl);
 }
 
 @media (max-width: 640px) {
-	.study .content {
-		padding-bottom: var(--size-space-2xl); /* 24px: 8px more (D-116), was 16 */
-	}
+  .study .content {
+    padding-bottom: var(--size-space-2xl); /* 24px: 8px more (D-116), was 16 */
+  }
 }
 
 /* The text column is narrow below 800px, so the short label keeps the link on one line (D-031). */
 @media (max-width: 800px) {
-	.linkFull {
-		display: none;
-	}
+  .linkFull {
+    display: none;
+  }
 
-	.linkShort {
-		display: inline;
-	}
+  .linkShort {
+    display: inline;
+  }
 
-	.link {
-		white-space: nowrap;
-	}
+  .link {
+    white-space: nowrap;
+  }
 }
 
 /* Mobile (no Figma design, D-008; see D-028): tighter padding and a shorter preview. */
 @media (max-width: 640px) {
+  /* Phone title is 28px, a real step on the type scale (D-033). */
+  .title {
+    font-size: var(--font-size-28);
+  }
 
-	/* Phone title is 28px, a real step on the type scale (D-033). */
-	.title {
-		font-size: var(--font-size-28);
-	}
+  /* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). */
+  .outcome,
+  .link {
+    font-size: var(--font-style-body-lg-size);
+    line-height: var(--font-style-body-lg-line-height);
+  }
 
-	/* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). */
-	.outcome,
-	.link {
-		font-size: var(--font-style-body-lg-size);
-		line-height: var(--font-style-body-lg-line-height);
-	}
+  .content {
+    gap: var(--size-space-4xl);
+    /* 32px under the link, 8px less than desktop's 40px, so the image sits closer. */
+    padding-bottom: var(--size-space-3xl);
+  }
 
-	.content {
-		gap: var(--size-space-4xl);
-		/* 32px under the link, 8px less than desktop's 40px, so the image sits closer. */
-		padding-bottom: var(--size-space-3xl);
-	}
-
-	.preview {
-		height: 12.5rem; /* 200px */
-		/* Sample starts at the preview's top edge: 16px more of the screenshot, card height unchanged. */
-		padding: var(--size-space-none) 0 0 var(--size-space-3xl);
-	}
+  .preview {
+    height: 12.5rem; /* 200px */
+    /* Sample starts at the preview's top edge: 16px more of the screenshot, card height unchanged. */
+    padding: var(--size-space-none) 0 0 var(--size-space-3xl);
+  }
 }
 
 /* Hover lift (D-111): on devices that hover, the card rises 8px with a soft shadow and its screenshot
    grows 4 points wider inside the window, anchored top left. The arrow and link stay where they are. Skipped for
    reduced motion, which keeps only the tint change. */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-	.card {
-		transition:
-			background-color var(--motion-duration-base) var(--motion-ease-standard),
-			transform var(--motion-duration-slow) var(--motion-ease-out),
-			box-shadow var(--motion-duration-slow) var(--motion-ease-out);
-	}
+  .card {
+    transition:
+      background-color var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-slow) var(--motion-ease-out),
+      box-shadow var(--motion-duration-slow) var(--motion-ease-out);
+  }
 
-	.card:hover {
-		transform: translateY(calc(-1 * var(--size-space-sm)));
-		box-shadow: var(--shadow-lift);
-	}
+  .card:hover {
+    transform: translateY(calc(-1 * var(--size-space-sm)));
+    box-shadow: var(--shadow-lift);
+  }
 
-	.image {
-		transition:
-			width var(--motion-duration-slower) var(--motion-ease-out),
-			min-height var(--motion-duration-slower) var(--motion-ease-out);
-	}
+  .image {
+    transition:
+      width var(--motion-duration-slower) var(--motion-ease-out),
+      min-height var(--motion-duration-slower) var(--motion-ease-out);
+  }
 
-	/* Wider, not scaled or shifted: the top-left corner stays put so the crop does not move. A short
+  /* Wider, not scaled or shifted: the top-left corner stays put so the crop does not move. A short
 	   screenshot (Toyota) is held by the window's height, so the height grows with the width, or
 	   the cover crop would show more of the sides and not a larger picture. */
-	.card:hover .image {
-		width: calc(var(--image-w) + 4%);
-	}
+  .card:hover .image {
+    width: calc(var(--image-w) + 4%);
+  }
 
-	.horizontal:hover .image {
-		min-height: 104%;
-	}
+  .horizontal:hover .image {
+    min-height: 104%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.card,
-	.linkText::after,
-	.sample {
-		transition: none;
-	}
+  .card,
+  .linkText::after,
+  .sample {
+    transition: none;
+  }
 }
 
 /* Dark mode (D-028): heading and link are white, the paragraph one step dimmer. Selectors mirror
    theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
 :global([data-theme='dark']) .card {
-	--card-fg: var(--color-content-emphasis);
-	--card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
-	--shadow-lift-color: oklch(0 0 0 / 0.5);
+  --card-fg: var(--color-content-emphasis);
+  --card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
+  --shadow-lift-color: oklch(0 0 0 / 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
-	:global(:root:not([data-theme='light'])) .card {
-		--card-fg: var(--color-content-emphasis);
-		--card-lift: 30%;
-		--shadow-lift-color: oklch(0 0 0 / 0.5);
-	}
+  :global(:root:not([data-theme='light'])) .card {
+    --card-fg: var(--color-content-emphasis);
+    --card-lift: 30%;
+    --shadow-lift-color: oklch(0 0 0 / 0.5);
+  }
 }

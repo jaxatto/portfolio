@@ -4,28 +4,28 @@
    whatever the bundle order. */
 
 @layer type {
-	.titleMd {
-		margin: 0;
-		font-family: var(--font-style-title-md-family);
-		font-size: var(--font-style-title-md-size);
-		font-weight: var(--font-style-title-md-weight);
-		line-height: var(--font-style-title-md-line-height);
-	}
+  .titleMd {
+    margin: 0;
+    font-family: var(--font-style-title-md-family);
+    font-size: var(--font-style-title-md-size);
+    font-weight: var(--font-style-title-md-weight);
+    line-height: var(--font-style-title-md-line-height);
+  }
 
-	.headingLg {
-		margin: 0;
-		font-family: var(--font-style-heading-lg-family);
-		font-size: var(--font-style-heading-lg-size);
-		font-weight: var(--font-style-heading-lg-weight);
-		line-height: var(--font-style-heading-lg-line-height);
-	}
+  .headingLg {
+    margin: 0;
+    font-family: var(--font-style-heading-lg-family);
+    font-size: var(--font-style-heading-lg-size);
+    font-weight: var(--font-style-heading-lg-weight);
+    line-height: var(--font-style-heading-lg-line-height);
+  }
 
-	/* Bold (700) label step: "Label: sentence" headings, role titles, skill groups (D-055). */
-	.headingSm {
-		margin: 0;
-		font-family: var(--font-style-heading-sm-family);
-		font-size: var(--font-style-heading-sm-size);
-		font-weight: var(--font-weight-emphasis);
-		line-height: var(--font-style-heading-sm-line-height);
-	}
+  /* Bold (700) label step: "Label: sentence" headings, role titles, skill groups (D-055). */
+  .headingSm {
+    margin: 0;
+    font-family: var(--font-style-heading-sm-family);
+    font-size: var(--font-style-heading-sm-size);
+    font-weight: var(--font-weight-emphasis);
+    line-height: var(--font-style-heading-sm-line-height);
+  }
 }

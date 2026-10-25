@@ -6,7 +6,7 @@ import React from 'react';
 
 type DateRangeProps = {
   startDate: string; // Start date of the role
-  endDate?: string;  // Optional end date of the role
+  endDate?: string; // Optional end date of the role
   className?: string; // Optional className for custom styling on the wrapper
 };
 

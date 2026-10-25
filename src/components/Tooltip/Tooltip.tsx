@@ -31,7 +31,9 @@ type TooltipProps = {
   label: string;
   placement?: Placement;
   offset?: number; // px between the control and the tag (default 0, the tag hugs the control's padding)
-  children: React.ReactElement<React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }>;
+  children: React.ReactElement<
+    React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }
+  >;
 };
 
 // The square corner is the one nearest the control, so it follows the side the tag ends up on.
@@ -42,13 +44,23 @@ const cornerFor: Record<string, NameTagCorner> = {
   right: 'top-left',
 };
 
-const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset: gap = 0, children }) => {
+const Tooltip: React.FC<TooltipProps> = ({
+  label,
+  placement = 'top-end',
+  offset: gap = 0,
+  children,
+}) => {
   const [open, setOpen] = useState(false);
   // The tooltip is portaled out of its section, so it copies the control's tone (data-tone, src/styles/tone.css,
   // D-109) and wears the section's colors, for example the footer's blue. Read when it opens, not during render.
   const [tone, setTone] = useState<string | undefined>();
 
-  const { refs, floatingStyles, context, placement: finalPlacement } = useFloating({
+  const {
+    refs,
+    floatingStyles,
+    context,
+    placement: finalPlacement,
+  } = useFloating({
     open,
     onOpenChange: (next) => {
       if (next) {
@@ -68,7 +80,11 @@ const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset:
     ],
   });
 
-  const hover = useHover(context, { move: false, delay: { open: 120, close: 0 }, handleClose: safePolygon() });
+  const hover = useHover(context, {
+    move: false,
+    delay: { open: 120, close: 0 },
+    handleClose: safePolygon(),
+  });
   const focus = useFocus(context, { visibleOnly: true });
   const dismiss = useDismiss(context);
   const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss]);

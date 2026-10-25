@@ -7,50 +7,50 @@
    data-theme, or the OS setting when nothing is stored. */
 
 :root[data-theme='dark'] [data-tone='blue'] {
-	--color-content-default: var(--color-content-on-accent);
-	--color-content-variant: var(--color-content-on-accent);
-	--color-content-soft: var(--color-content-on-accent);
-	--color-content-emphasis: var(--color-content-on-accent);
-	--color-content-link: var(--color-content-on-accent);
-	--color-primary-default: var(--color-content-on-accent-hover);
-	--color-primary-default-active: var(--color-content-on-accent-active);
-	--color-primary-on-container-active: var(--color-content-on-accent-active);
-	--color-state-focus-ring: var(--color-content-on-accent);
-	/* Name tags and tooltips: the same soft indigo as the hovers, with the page ground (the dark navy) as text. */
-	--tag-bg: var(--color-content-on-accent-hover);
-	--tag-fg: var(--color-surface-default);
+  --color-content-default: var(--color-content-on-accent);
+  --color-content-variant: var(--color-content-on-accent);
+  --color-content-soft: var(--color-content-on-accent);
+  --color-content-emphasis: var(--color-content-on-accent);
+  --color-content-link: var(--color-content-on-accent);
+  --color-primary-default: var(--color-content-on-accent-hover);
+  --color-primary-default-active: var(--color-content-on-accent-active);
+  --color-primary-on-container-active: var(--color-content-on-accent-active);
+  --color-state-focus-ring: var(--color-content-on-accent);
+  /* Name tags and tooltips: the same soft indigo as the hovers, with the page ground (the dark navy) as text. */
+  --tag-bg: var(--color-content-on-accent-hover);
+  --tag-fg: var(--color-surface-default);
 }
 
 @media (prefers-color-scheme: dark) {
-	:root:not([data-theme='light']) [data-tone='blue'] {
-		--color-content-default: var(--color-content-on-accent);
-		--color-content-variant: var(--color-content-on-accent);
-		--color-content-soft: var(--color-content-on-accent);
-		--color-content-emphasis: var(--color-content-on-accent);
-		--color-content-link: var(--color-content-on-accent);
-		--color-primary-default: var(--color-content-on-accent-hover);
-		--color-primary-default-active: var(--color-content-on-accent-active);
-		--color-primary-on-container-active: var(--color-content-on-accent-active);
-		--color-state-focus-ring: var(--color-content-on-accent);
-		--tag-bg: var(--color-content-on-accent-hover);
-		--tag-fg: var(--color-surface-default);
-	}
+  :root:not([data-theme='light']) [data-tone='blue'] {
+    --color-content-default: var(--color-content-on-accent);
+    --color-content-variant: var(--color-content-on-accent);
+    --color-content-soft: var(--color-content-on-accent);
+    --color-content-emphasis: var(--color-content-on-accent);
+    --color-content-link: var(--color-content-on-accent);
+    --color-primary-default: var(--color-content-on-accent-hover);
+    --color-primary-default-active: var(--color-content-on-accent-active);
+    --color-primary-on-container-active: var(--color-content-on-accent-active);
+    --color-state-focus-ring: var(--color-content-on-accent);
+    --tag-bg: var(--color-content-on-accent-hover);
+    --tag-fg: var(--color-surface-default);
+  }
 }
 
 /* The 404 (D-038): the page sets its own indigo ground, and every token the shared header and links read is
    re-pointed to an on-accent value. The same in both themes, since the ground is indigo in both. */
 [data-tone='error'] {
-	--color-content-default: var(--color-content-on-accent);
-	--color-content-variant: var(--color-content-on-accent);
-	--color-content-emphasis: var(--color-content-on-accent);
-	/* The header's tagline and ampersand (secondary, muted) are dark slate by default: unreadable here. */
-	--color-content-secondary: var(--color-content-on-accent-hover);
-	--color-content-muted: var(--color-content-on-accent-hover);
-	--color-content-default-hover: var(--color-content-on-accent-hover);
-	--color-content-default-active: var(--color-content-on-accent-active);
-	--color-primary-default: var(--color-content-on-accent-hover);
-	--color-primary-default-active: var(--color-content-on-accent-active);
-	--color-state-focus-ring: var(--color-content-on-accent);
-	/* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
-	--color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
+  --color-content-default: var(--color-content-on-accent);
+  --color-content-variant: var(--color-content-on-accent);
+  --color-content-emphasis: var(--color-content-on-accent);
+  /* The header's tagline and ampersand (secondary, muted) are dark slate by default: unreadable here. */
+  --color-content-secondary: var(--color-content-on-accent-hover);
+  --color-content-muted: var(--color-content-on-accent-hover);
+  --color-content-default-hover: var(--color-content-on-accent-hover);
+  --color-content-default-active: var(--color-content-on-accent-active);
+  --color-primary-default: var(--color-content-on-accent-hover);
+  --color-primary-default-active: var(--color-content-on-accent-active);
+  --color-state-focus-ring: var(--color-content-on-accent);
+  /* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
+  --color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
 }

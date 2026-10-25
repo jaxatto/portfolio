@@ -12,7 +12,12 @@ import styles from './Chip.module.css';
 
 type ChipPalette = Exclude<ColorGroup, 'brand'>;
 
-export const chipPalettes: readonly ChipPalette[] = ['primary', 'secondary', 'tertiary', 'quaternary'];
+export const chipPalettes: readonly ChipPalette[] = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'quaternary',
+];
 
 type ChipProps = {
   palette?: ChipPalette;
@@ -21,7 +26,9 @@ type ChipProps = {
 };
 
 export const Chip: React.FC<ChipProps> = ({ palette, className, children }) => (
-  <li className={clsx(styles.chip, palette && [palettes[palette], styles.tinted], className)}>{children}</li>
+  <li className={clsx(styles.chip, palette && [palettes[palette], styles.tinted], className)}>
+    {children}
+  </li>
 );
 
 export const ChipList: React.FC<{ className?: string; children: React.ReactNode }> = ({

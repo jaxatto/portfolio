@@ -7,7 +7,13 @@ import styles from './StudyCompare.module.css';
 // Each image has its own alt text.
 type StudyCompareProps = StudyCompareData & { className?: string };
 
-const StudyCompare: React.FC<StudyCompareProps> = ({ before, after, caption, aspectRatio, className }) => (
+const StudyCompare: React.FC<StudyCompareProps> = ({
+  before,
+  after,
+  caption,
+  aspectRatio,
+  className,
+}) => (
   <figure className={`${styles.figure} ${className ?? ''}`}>
     <div className={styles.pair}>
       <div className={`${styles.col} ${styles.before}`}>

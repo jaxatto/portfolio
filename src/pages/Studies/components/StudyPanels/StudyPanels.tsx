@@ -19,7 +19,11 @@ const StudyPanels: React.FC<StudyPanelsProps> = ({
   <figure className={`${styles.figure} ${framed ? styles.framed : ''} ${className ?? ''}`}>
     <div className={styles.box}>
       {slices.map((slice) => (
-        <div key={slice.alt} className={styles.panel} style={{ aspectRatio: `${slice.width} / ${slice.height}`, flexGrow: slice.weight }}>
+        <div
+          key={slice.alt}
+          className={styles.panel}
+          style={{ aspectRatio: `${slice.width} / ${slice.height}`, flexGrow: slice.weight }}
+        >
           <img
             src={src}
             alt={slice.alt}

@@ -1,17 +1,17 @@
 type RenderThemeCssOptions = {
-	primitiveVars: string[];
-	staticSemanticVars: string[];
-	lightSemanticVars: string[];
-	darkSemanticVars: string[];
+  primitiveVars: string[];
+  staticSemanticVars: string[];
+  lightSemanticVars: string[];
+  darkSemanticVars: string[];
 };
 
 export function renderThemeCss({
-	primitiveVars,
-	staticSemanticVars,
-	lightSemanticVars,
-	darkSemanticVars,
+  primitiveVars,
+  staticSemanticVars,
+  lightSemanticVars,
+  darkSemanticVars,
 }: RenderThemeCssOptions) {
-	return `/**
+  return `/**
  * Do not edit directly.
  * Generated automatically from primitives.ts and defaultTheme.ts
  */

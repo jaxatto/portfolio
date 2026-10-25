@@ -15,7 +15,7 @@ const renderEmphasis = (text: string) =>
       </strong>
     ) : (
       part
-    )
+    ),
   );
 
 const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => {
@@ -23,7 +23,10 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
   const endsWithMedia = Boolean(section.panels || section.compare || images.length);
   const hasBullets = Boolean(section.descriptionBullets?.length);
   return (
-    <section className={clsx(styles.section, endsWithMedia && styles.endsWithMedia)} data-order={section.order}>
+    <section
+      className={clsx(styles.section, endsWithMedia && styles.endsWithMedia)}
+      data-order={section.order}
+    >
       <div className={styles.copy}>
         <h2 className={styles.title}>{section.title}</h2>
         {(section.description?.length || section.items?.length || hasBullets) && (
@@ -50,7 +53,15 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
       {section.panels && <StudyPanels {...section.panels} className={styles.media} />}
       {section.compare && <StudyCompare {...section.compare} className={styles.media} />}
       {images.map((image) => (
-        <StudyImage key={image.src} src={image.src} alt={image.alt || ''} caption={image.caption} corners={image.corners} variant={image.variant} className={styles.media} />
+        <StudyImage
+          key={image.src}
+          src={image.src}
+          alt={image.alt || ''}
+          caption={image.caption}
+          corners={image.corners}
+          variant={image.variant}
+          className={styles.media}
+        />
       ))}
     </section>
   );

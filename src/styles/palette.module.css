@@ -8,41 +8,41 @@
      --palette-on-container-active  pressed text */
 
 .brand {
-	--palette-container: var(--color-brand-container);
-	--palette-container-hover: var(--color-brand-container-hover);
-	--palette-on-container: var(--color-brand-on-container);
-	--palette-on-container-hover: var(--color-brand-on-container-hover);
-	--palette-on-container-active: var(--color-brand-on-container-active);
+  --palette-container: var(--color-brand-container);
+  --palette-container-hover: var(--color-brand-container-hover);
+  --palette-on-container: var(--color-brand-on-container);
+  --palette-on-container-hover: var(--color-brand-on-container-hover);
+  --palette-on-container-active: var(--color-brand-on-container-active);
 }
 
 .primary {
-	--palette-container: var(--color-primary-container);
-	--palette-container-hover: var(--color-primary-container-hover);
-	--palette-on-container: var(--color-primary-on-container);
-	--palette-on-container-hover: var(--color-primary-on-container-hover);
-	--palette-on-container-active: var(--color-primary-on-container-active);
+  --palette-container: var(--color-primary-container);
+  --palette-container-hover: var(--color-primary-container-hover);
+  --palette-on-container: var(--color-primary-on-container);
+  --palette-on-container-hover: var(--color-primary-on-container-hover);
+  --palette-on-container-active: var(--color-primary-on-container-active);
 }
 
 .secondary {
-	--palette-container: var(--color-secondary-container);
-	--palette-container-hover: var(--color-secondary-container-hover);
-	--palette-on-container: var(--color-secondary-on-container);
-	--palette-on-container-hover: var(--color-secondary-on-container-hover);
-	--palette-on-container-active: var(--color-secondary-on-container-active);
+  --palette-container: var(--color-secondary-container);
+  --palette-container-hover: var(--color-secondary-container-hover);
+  --palette-on-container: var(--color-secondary-on-container);
+  --palette-on-container-hover: var(--color-secondary-on-container-hover);
+  --palette-on-container-active: var(--color-secondary-on-container-active);
 }
 
 .tertiary {
-	--palette-container: var(--color-tertiary-container);
-	--palette-container-hover: var(--color-tertiary-container-hover);
-	--palette-on-container: var(--color-tertiary-on-container);
-	--palette-on-container-hover: var(--color-tertiary-on-container-hover);
-	--palette-on-container-active: var(--color-tertiary-on-container-active);
+  --palette-container: var(--color-tertiary-container);
+  --palette-container-hover: var(--color-tertiary-container-hover);
+  --palette-on-container: var(--color-tertiary-on-container);
+  --palette-on-container-hover: var(--color-tertiary-on-container-hover);
+  --palette-on-container-active: var(--color-tertiary-on-container-active);
 }
 
 .quaternary {
-	--palette-container: var(--color-quaternary-container);
-	--palette-container-hover: var(--color-quaternary-container-hover);
-	--palette-on-container: var(--color-quaternary-on-container);
-	--palette-on-container-hover: var(--color-quaternary-on-container-hover);
-	--palette-on-container-active: var(--color-quaternary-on-container-active);
+  --palette-container: var(--color-quaternary-container);
+  --palette-container-hover: var(--color-quaternary-container-hover);
+  --palette-on-container: var(--color-quaternary-on-container);
+  --palette-on-container-hover: var(--color-quaternary-on-container-hover);
+  --palette-on-container-active: var(--color-quaternary-on-container-active);
 }

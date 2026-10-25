@@ -11,11 +11,11 @@ const App: React.FC = () => (
   <Router>
     <ScrollToTop />
     <Routes>
-      <Route path='/' element={<Work />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/resume' element={<Resume />} />
-      <Route path="/case-studies/:slug" element={<StudyPage />} />  
-      <Route path="*" element={<NotFound />} />  
+      <Route path="/" element={<Work />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/resume" element={<Resume />} />
+      <Route path="/case-studies/:slug" element={<StudyPage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Router>
 );

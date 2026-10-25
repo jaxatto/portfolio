@@ -565,3 +565,7 @@ Breakpoints are literal and written one way, `@media (max-width: …)` and `(min
 ## D-120: One import alias set, study types with Studies — decided, 2026-10-25
 
 Every import uses the `#` aliases (`#src`, `#tokens`, `#styles`, `#pages`, `#components`, `#assets`, `#constants`, `#providers`). The legacy `@` set and its three config copies are gone, and `moduleResolution` is `Bundler`. The study types moved from `src/commonTypes/study` to `src/pages/Studies/types`, next to the only code that uses them, so `#commonTypes` no longer exists. The Tooltip reads its control's tone when it opens, not during render. Indentation stays as it is: each file is consistent within itself (tabs in some, two spaces in others), and the rule is to match the surrounding file.
+
+## D-121: Prettier decides formatting — decided, 2026-10-25
+
+The codebase mixed tabs and spaces, and single and double quotes, file by file. Prettier now formats `src`, `scripts` and the config files (`.prettierrc.json`: single quotes, 100 columns, its defaults otherwise, so semicolons and 2 spaces). `npm run format` runs it. The generated `theme.css` and the docs are not formatted. The formatting pass is its own commit, with bundle sizes unchanged (JS 372.3 kB, CSS 82.1 kB).

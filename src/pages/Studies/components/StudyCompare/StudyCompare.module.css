@@ -2,82 +2,82 @@
    width. Colors are surface and palette tokens, so both columns follow dark mode. */
 
 .figure {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-md);
-	margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-md);
+  margin: 0;
 }
 
 .pair {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	overflow: hidden;
-	border-radius: var(--size-radius-lg);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border-radius: var(--size-radius-lg);
 }
 
 .col {
-	padding: var(--size-space-3xl);
+  padding: var(--size-space-3xl);
 }
 
 .before {
-	background: var(--color-surface-sunken);
+  background: var(--color-surface-sunken);
 }
 
 .after {
-	background: var(--palette-container, var(--color-secondary-container));
+  background: var(--palette-container, var(--color-secondary-container));
 }
 
 .shot {
-	position: relative;
-	aspect-ratio: 1200 / 740;
-	overflow: hidden;
-	border-radius: var(--size-radius-lg);
+  position: relative;
+  aspect-ratio: 1200 / 740;
+  overflow: hidden;
+  border-radius: var(--size-radius-lg);
 }
 
 .image {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: top;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 /* The label sits on the image's bottom-right corner. */
 .chip {
-	position: absolute;
-	right: var(--size-space-lg);
-	bottom: var(--size-space-lg);
-	padding: var(--size-space-sm) var(--size-space-md);
-	border-radius: var(--size-radius-sm);
-	background: var(--color-surface-sunken);
-	color: var(--color-content-variant);
-	font-family: var(--font-style-body-sm-family);
-	font-size: var(--font-style-body-sm-size);
-	font-weight: var(--font-weight-emphasis);
-	line-height: var(--font-style-body-sm-line-height);
+  position: absolute;
+  right: var(--size-space-lg);
+  bottom: var(--size-space-lg);
+  padding: var(--size-space-sm) var(--size-space-md);
+  border-radius: var(--size-radius-sm);
+  background: var(--color-surface-sunken);
+  color: var(--color-content-variant);
+  font-family: var(--font-style-body-sm-family);
+  font-size: var(--font-style-body-sm-size);
+  font-weight: var(--font-weight-emphasis);
+  line-height: var(--font-style-body-sm-line-height);
 }
 
 .after .chip {
-	background: var(--palette-container, var(--color-secondary-container));
-	color: var(--palette-on-container, var(--color-secondary-on-container));
+  background: var(--palette-container, var(--color-secondary-container));
+  color: var(--palette-on-container, var(--color-secondary-on-container));
 }
 
 /* The caption is as wide as the pair (D-071). */
 .caption {
-	width: 100%;
-	color: var(--color-content-muted);
-	font-family: var(--font-style-body-sm-family);
-	font-size: var(--font-style-body-sm-size);
-	line-height: var(--font-style-body-sm-line-height);
-	text-wrap: pretty;
+  width: 100%;
+  color: var(--color-content-muted);
+  font-family: var(--font-style-body-sm-family);
+  font-size: var(--font-style-body-sm-size);
+  line-height: var(--font-style-body-sm-line-height);
+  text-wrap: pretty;
 }
 
 @media (max-width: 640px) {
-	.pair {
-		grid-template-columns: minmax(0, 1fr);
-	}
+  .pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-	.col {
-		padding: var(--size-space-2xl);
-	}
+  .col {
+    padding: var(--size-space-2xl);
+  }
 }

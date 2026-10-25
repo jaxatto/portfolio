@@ -1,171 +1,171 @@
 /* Footer: content aligned to the header's column. One footer on every page (D-024, D-049). */
 
 .footer {
-	box-sizing: border-box;
-	width: 100%;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .inner {
-	display: flex;
-	/* The icon row drops under the email when the two no longer fit side by side, before the phone
+  display: flex;
+  /* The icon row drops under the email when the two no longer fit side by side, before the phone
 	   breakpoint (D-107). */
-	flex-wrap: wrap;
-	align-items: flex-end;
-	justify-content: space-between;
-	gap: var(--size-space-2xl) var(--size-space-4xl);
-	box-sizing: border-box;
-	width: 100%;
-	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
-	margin-inline: auto;
-	padding-inline: var(--size-space-2xl);
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--size-space-2xl) var(--size-space-4xl);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+  margin-inline: auto;
+  padding-inline: var(--size-space-2xl);
 }
 
 .main {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-2xl);
 }
 
 .top {
-	display: flex;
-	flex-direction: column;
-	gap: var(--size-space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-md);
 }
 
 .title {
-	margin: 0;
-	color: var(--color-content-emphasis);
-	font-family: var(--font-family-heading);
-	font-size: var(--font-style-title-sm-size);
-	font-weight: var(--font-style-title-sm-weight);
-	line-height: var(--font-style-title-sm-line-height);
+  margin: 0;
+  color: var(--color-content-emphasis);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-style-title-sm-size);
+  font-weight: var(--font-style-title-sm-weight);
+  line-height: var(--font-style-title-sm-line-height);
 }
 
 .description {
-	margin: 0;
-	max-width: 40em;
-	text-wrap: balance;
-	color: var(--color-content-soft);
-	font-family: var(--font-family-body);
-	font-size: var(--font-style-body-lg-size);
-	font-weight: var(--font-style-body-lg-weight);
-	line-height: var(--font-style-body-lg-line-height);
+  margin: 0;
+  max-width: 40em;
+  text-wrap: balance;
+  color: var(--color-content-soft);
+  font-family: var(--font-family-body);
+  font-size: var(--font-style-body-lg-size);
+  font-weight: var(--font-style-body-lg-weight);
+  line-height: var(--font-style-body-lg-line-height);
 }
 
 .nowrap {
-	/* Job titles stay whole: a line break goes before or after them, never inside. */
-	white-space: nowrap;
+  /* Job titles stay whole: a line break goes before or after them, never inside. */
+  white-space: nowrap;
 }
 
 .row {
-	display: flex;
-	flex: none;
-	flex-wrap: wrap;
-	/* 16px: 40px targets plus focus rings (3px outline, 3px offset) would overlap at 8px. */
-	gap: var(--size-space-lg);
-	/* Wrapped under the email, the first glyph sits flush with the text edge: pull the row left by the
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  /* 16px: 40px targets plus focus rings (3px outline, 3px offset) would overlap at 8px. */
+  gap: var(--size-space-lg);
+  /* Wrapped under the email, the first glyph sits flush with the text edge: pull the row left by the
 	   glyph's inset in its 40px target. Side by side the row is flush right, so this has no effect. */
-	margin: 0;
-	margin-inline-start: -7px;
-	padding: 0;
-	list-style: none;
+  margin: 0;
+  margin-inline-start: -7px;
+  padding: 0;
+  list-style: none;
 }
 
 /* Email and icon links use the nav links' treatment (D-017): no resting underline, violet on hover
    and a 3px line growing in from the left, at the same position. In-content links (TextLink) use the
    same treatment now (D-104). */
 .main .email {
-	position: relative;
-	/* Never breaks inside the address: it keeps its width and the row wraps instead (D-107). */
-	flex-shrink: 0;
-	overflow-wrap: normal;
-	white-space: nowrap;
-	/* Hug the text so the hover line spans the email, not the column. */
-	align-self: flex-start;
-	/* +16px above (on top of the column gap). */
-	margin-top: var(--size-space-lg);
-	text-decoration: none;
-	color: var(--color-content-link);
+  position: relative;
+  /* Never breaks inside the address: it keeps its width and the row wraps instead (D-107). */
+  flex-shrink: 0;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  /* Hug the text so the hover line spans the email, not the column. */
+  align-self: flex-start;
+  /* +16px above (on top of the column gap). */
+  margin-top: var(--size-space-lg);
+  text-decoration: none;
+  color: var(--color-content-link);
 }
 
 .email::before {
-	/* Invisible hit area: grows the tap target to 44px tall when the text line is shorter (phones),
+  /* Invisible hit area: grows the tap target to 44px tall when the text line is shorter (phones),
 	   without moving the text, the hover line or the focus ring. */
-	content: '';
-	position: absolute;
-	inset-inline: 0;
-	top: min(0px, calc((100% - var(--size-target-lg)) / 2));
-	bottom: min(0px, calc((100% - var(--size-target-lg)) / 2));
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: min(0px, calc((100% - var(--size-target-lg)) / 2));
+  bottom: min(0px, calc((100% - var(--size-target-lg)) / 2));
 }
 
 @media (hover: hover) {
-	.main .email:hover {
-		color: var(--color-primary-default);
-	}
+  .main .email:hover {
+    color: var(--color-primary-default);
+  }
 }
 
 .icon-link {
-	composes: line from '#styles/line.module.css';
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	/* Same target, radius, line inset and focus ring as the nav's mode toggle, so the right edge of
+  composes: line from '#styles/line.module.css';
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Same target, radius, line inset and focus ring as the nav's mode toggle, so the right edge of
 	   the icon row lines up with it. */
-	width: var(--size-target-md);
-	height: var(--size-target-md);
-	border-radius: var(--size-radius-md);
-	/* Violet at rest like the email link (D-107). */
-	color: var(--color-content-link);
-	transition: color var(--motion-duration-base) var(--motion-ease-standard);
+  width: var(--size-target-md);
+  height: var(--size-target-md);
+  border-radius: var(--size-radius-md);
+  /* Violet at rest like the email link (D-107). */
+  color: var(--color-content-link);
+  transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .icon-link::after {
-	right: 7px;
-	left: 7px;
+  right: 7px;
+  left: 7px;
 }
 
 .icon-link svg {
-	width: 28px;
-	height: 28px;
-	/* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
-	fill: currentcolor;
+  width: 28px;
+  height: 28px;
+  /* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
+  fill: currentcolor;
 }
 
 @media (hover: hover) {
-	.icon-link:hover {
-		color: var(--color-primary-default);
-	}
+  .icon-link:hover {
+    color: var(--color-primary-default);
+  }
 }
 
 .icon-link:active {
-	color: var(--color-primary-default-active);
+  color: var(--color-primary-default-active);
 }
 
 .icon-link:focus-visible {
-	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
-	outline-offset: var(--size-focus-ring-offset);
+  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+  outline-offset: var(--size-focus-ring-offset);
 }
 
 /* One footer on every page (D-049): the page ground, a 2px hairline across the content column, 40px more
    room above the content than the section rhythm and 80px below it. */
 .footer {
-	--footer-pad-top: calc(var(--size-space-section-lg) + var(--size-space-4xl));
-	padding-block: var(--footer-pad-top) var(--size-space-section-xl);
+  --footer-pad-top: calc(var(--size-space-section-lg) + var(--size-space-4xl));
+  padding-block: var(--footer-pad-top) var(--size-space-section-xl);
 }
 
 .footer .inner {
-	position: relative;
+  position: relative;
 }
 
 .footer .inner::before {
-	content: '';
-	position: absolute;
-	top: calc(-1 * var(--footer-pad-top));
-	right: var(--size-space-2xl);
-	left: var(--size-space-2xl);
-	height: var(--size-border-width-default);
-	background: var(--color-border-decorative);
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--footer-pad-top));
+  right: var(--size-space-2xl);
+  left: var(--size-space-2xl);
+  height: var(--size-border-width-default);
+  background: var(--color-border-decorative);
 }
 
 /* Dark band: the page ground tinted 20% toward indigo, so it stays calm and never matches a card above
@@ -175,39 +175,47 @@
    (src/styles/tone.css, D-109), so the shared TextLink and Tooltip work unchanged. Selectors mirror
    theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
 :global([data-theme='dark']) .band {
-	background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
-	color: var(--color-content-on-accent);
+  background: color-mix(
+    in oklch,
+    var(--color-surface-default) 80%,
+    var(--color-secondary-container)
+  );
+  color: var(--color-content-on-accent);
 }
 
 :global([data-theme='dark']) .band .inner::before {
-	display: none;
+  display: none;
 }
 
 @media (prefers-color-scheme: dark) {
-	:global(:root:not([data-theme='light'])) .band {
-		background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
-		color: var(--color-content-on-accent);
-	}
+  :global(:root:not([data-theme='light'])) .band {
+    background: color-mix(
+      in oklch,
+      var(--color-surface-default) 80%,
+      var(--color-secondary-container)
+    );
+    color: var(--color-content-on-accent);
+  }
 
-	:global(:root:not([data-theme='light'])) .band .inner::before {
-		display: none;
-	}
+  :global(:root:not([data-theme='light'])) .band .inner::before {
+    display: none;
+  }
 }
 
 /* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
 @media (max-width: 640px) {
-	.row {
-		flex: initial;
-	}
+  .row {
+    flex: initial;
+  }
 
-	.description {
-		max-width: none;
-		text-wrap: wrap;
-	}
+  .description {
+    max-width: none;
+    text-wrap: wrap;
+  }
 
-	.inner {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--size-space-2xl);
-	}
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--size-space-2xl);
+  }
 }

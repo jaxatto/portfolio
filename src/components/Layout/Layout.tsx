@@ -30,10 +30,10 @@ const Layout: React.FC<LayoutProps> = ({
   backToTop = false,
   headerLabel,
 }) => (
-  <div id='top' tabIndex={-1} className={styles.root}>
+  <div id="top" tabIndex={-1} className={styles.root}>
     <Meta title={title} metaDescription={metaDescription} />
     <Header label={headerLabel} />
-    <main id='main-content' className={clsx(styles.main, className)} tabIndex={-1}>
+    <main id="main-content" className={clsx(styles.main, className)} tabIndex={-1}>
       {children}
     </main>
     {backToTop && <BackToTop />}

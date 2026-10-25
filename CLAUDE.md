@@ -91,12 +91,13 @@ npm run dev                              # vite
 npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
 npm run build                            # vite build; postbuild copies index.html to 404.html
 npm run preview                          # serve dist/
+npm run format                           # prettier on src, scripts and config (.prettierrc.json)
 npm run generate:component -- Name       # scaffold src/components/Name
 npm run generate:component -- Page/Name  # scaffold src/pages/Page/components/Name
 npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
-No test runner or lint script exists yet. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
+No test runner or linter exists yet. Prettier decides formatting. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
 
 ## Structure and conventions
 
@@ -115,7 +116,7 @@ src/styles/            _variables, _typography, _mixins, _functions, _utilities
 - Scaffold with `generate:component` instead of hand-making folders.
 - **Copy lives inline** in components for short page copy (D-003); case studies will use Markdown/JSON. Don't add new `resources/*.ts` copy files. Older components still have them until migrated.
 - **Accessibility is part of the pitch.** Semantic HTML, one `h1` per page, sensible heading order, visible focus, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, enough contrast, keyboard operable. Treat regressions as bugs.
-- Match the surrounding file's quotes and semicolons (the codebase mixes them) and don't reformat files you aren't otherwise changing. TypeScript strict, function components with `React.FC`.
+- Run `npm run format` before committing (single quotes, semicolons, 2 spaces, 100 columns). TypeScript strict, function components with `React.FC`.
 - Images are `*-min.png`, already compressed. Every rendered image gets meaningful `alt` text.
 - Fonts: Inter (headings) and Manrope (body) from Google Fonts in `index.html`; the requested weights must cover the weights the design uses.
 - Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`.
