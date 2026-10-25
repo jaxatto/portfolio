@@ -12,13 +12,13 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
 - [x] 4. Case study content: Indeed, ActBlue, ServiceNow and Toyota (D-047 to D-086), all merged to `redesign` or ready on the slice 3 branch; verified end to end 2026-10-21 (375, 768, 1280, light and dark: no overflow, one h1, heading order, alt text, links, meta)
 - [x] 5. About (D-040 to D-045, merged with slice 2). The Toyota scale number is answered (D-083)
-- [~] 6. Resume (D-087 to D-089): page, roles and skills built on tokens, legacy global rules deleted; on branch `claude/resume-slice-a173ac`, awaiting Jax's review (skills layout to revisit)
+- [x] 6. Resume (D-087 to D-091, merged to `redesign` in PR #11, 2026-10-25): page, roles and skills on tokens, legacy global rules and SCSS deleted. Skills layout still to revisit with Jax
 
 Order is a proposal; confirm before starting slice 0.
 
 ## Now
 
-Slices 3 and 4 are done: the case study template and all four studies (Indeed, ActBlue, ServiceNow, Toyota). Slice 6, Resume, is built (D-087 to D-091) and all legacy styling and SCSS is deleted. Remaining: Jax's review of Resume (skills layout), then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
+Slices 0 to 6 are merged into `redesign`. Remaining: Jax's Resume refinements (skills layout), the `TODO(jax)` copy below, then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). A full-site code audit is running (session `code-audit`): it reports first, and nothing changes until Jax approves. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
 
 ## Resume PDF (side task, 2026-10-24)
 
