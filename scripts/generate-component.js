@@ -4,7 +4,9 @@ const path = require('path');
 const input = process.argv[2];
 
 if (!input) {
-  console.error('Please provide a component path: node generate-component.js [ComponentName] or [Page/ComponentName]');
+  console.error(
+    'Please provide a component path: node generate-component.js [ComponentName] or [Page/ComponentName]',
+  );
   process.exit(1);
 }
 
@@ -79,6 +81,8 @@ if (!fs.existsSync(componentDir)) {
     created = true;
   }
   if (!created) {
-    console.log(`Component folder "${componentDir.replace(baseDir + '/', '')}" already exists and all files are present.`);
+    console.log(
+      `Component folder "${componentDir.replace(baseDir + '/', '')}" already exists and all files are present.`,
+    );
   }
 }

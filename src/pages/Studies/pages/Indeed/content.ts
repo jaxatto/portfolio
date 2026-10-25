@@ -1,8 +1,8 @@
-import headerImage from './images/accessibility-annotations-min.jpg';
+import headerImage from './images/accessibility-annotations-min.jpg?size';
 // import contextImage from './images/name-min.png';
-import contributionsImage from './images/documentation-sample-min.jpg';
-import beforeImage from './images/indeed-before-min.jpg';
-import afterImage from './images/indeed-after-min.jpg';
+import contributionsImage from './images/documentation-sample-min.jpg?size';
+import beforeImage from './images/indeed-before-min.jpg?size';
+import afterImage from './images/indeed-after-min.jpg?size';
 // import deliverablesImage from './images/name-min.png';
 import type { ChipData } from '#pages/Studies/types/studyHeader';
 
@@ -29,11 +29,11 @@ const content = {
     ] as ChipData[],
     compare: {
       before: {
-        src: beforeImage,
+        ...beforeImage,
         alt: 'The Indeed job search results page before the design system: dense text, a left filter column and an email alert box.',
       },
       after: {
-        src: afterImage,
+        ...afterImage,
         alt: 'The Indeed job search results page with the design system applied: rounded job cards with tags, a job detail panel and clear actions.',
       },
       caption: 'The job search results page before and after the design system.',
@@ -50,9 +50,9 @@ const content = {
       ],
       // The three documentation pages are slices of one 1600 x 1036 image (D-054).
       panels: {
-        src: contributionsImage,
-        sourceWidth: 1600,
-        sourceHeight: 1036,
+        src: contributionsImage.src,
+        sourceWidth: contributionsImage.width,
+        sourceHeight: contributionsImage.height,
         slices: [
           {
             x: 4,
@@ -115,7 +115,7 @@ const content = {
       ],
       image: [
         {
-          src: headerImage,
+          ...headerImage,
           caption:
             'Accessibility annotations for design handoff, documented in collaboration with engineering.',
           alt: 'Sample of accessibility annotations in a Figma design file, showing how to annotate designs for developers.',

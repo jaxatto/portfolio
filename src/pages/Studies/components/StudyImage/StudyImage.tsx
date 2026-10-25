@@ -6,6 +6,8 @@ import styles from './StudyImage.module.css';
 const StudyImage: React.FC<StudyImageProps> = ({
   src,
   alt,
+  width,
+  height,
   caption,
   className,
   corners,
@@ -16,6 +18,8 @@ const StudyImage: React.FC<StudyImageProps> = ({
     <img
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
       className={clsx(

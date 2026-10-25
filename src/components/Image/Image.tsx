@@ -10,6 +10,8 @@ import styles from './Image.module.css';
 type ImageProps = {
   src: string;
   alt: string;
+  width?: number; // Pixel size of `src`, so the browser reserves the space before it loads
+  height?: number;
   imgClassName?: string; // Allows custom styling for the image element itself
   className?: string; // Allows custom styling for the image component container
   iconFallback?: IconName; // Defines the icon to show when the image fails to load
@@ -20,6 +22,8 @@ type ImageProps = {
 
 const Image: React.FC<ImageProps> = ({
   src,
+  width,
+  height,
   alt,
   altFallback,
   className,
@@ -33,7 +37,16 @@ const Image: React.FC<ImageProps> = ({
   return (
     <div className={[styles['component-wrapper'], className].filter(Boolean).join(' ')}>
       {!error ? (
-        <img src={src} alt={alt} onError={() => setError(true)} className={imgClassName} />
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          loading="lazy"
+          decoding="async"
+          onError={() => setError(true)}
+          className={imgClassName}
+        />
       ) : (
         <div className={[styles['fallback-wrapper'], fallbackClassName].filter(Boolean).join(' ')}>
           <Icon

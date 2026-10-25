@@ -4,12 +4,14 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
+import { imageSize } from './scripts/vite-image-size';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
   plugins: [
+    imageSize(),
     react(),
     svgr({
       include: '**/*.svg',

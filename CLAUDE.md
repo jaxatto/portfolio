@@ -117,7 +117,7 @@ src/styles/            _variables, _typography, _mixins, _functions, _utilities
 - **Copy lives inline** in components for short page copy (D-003); case studies will use Markdown/JSON. Don't add new `resources/*.ts` copy files. Older components still have them until migrated.
 - **Accessibility is part of the pitch.** Semantic HTML, one `h1` per page, sensible heading order, visible focus, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, enough contrast, keyboard operable. Treat regressions as bugs.
 - Run `npm run format` before committing (single quotes, semicolons, 2 spaces, 100 columns). TypeScript strict, function components with `React.FC`.
-- Images are `*-min.png`, already compressed. Every rendered image gets meaningful `alt` text.
+- Images are `*-min.png` or `*-min.jpg`, already compressed. Import them with `?size` (`import x from './x.jpg?size'` gives `{ src, width, height }`, D-125) and put the size on the `<img>`. Below the fold they load lazy. Every rendered image gets meaningful `alt` text.
 - Fonts: Inter (headings) and Manrope (body) from Google Fonts in `index.html`; the requested weights must cover the weights the design uses.
 - Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`. A new About-style page or study must also be listed in `scripts/prerender-meta.ts`, which writes each route's title, description, canonical and og tags into `dist/` for crawlers and link previews (D-122).
 
