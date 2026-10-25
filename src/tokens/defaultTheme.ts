@@ -244,10 +244,10 @@ const theme: Omit<SemanticTheme, 'colors'> & {
     layout: {
       gutter: 'lg',
       'content-max': '640px',
-      // Site content column. 960 per Jax (Figma's 912 is superseded, D-029).
+      // Site content column: 960px. Figma's 912px is superseded (D-029).
       'popout-max': '960px',
     },
-    // 3px ring, 3px offset: thicker than Figma's 2/2 per Jax's review (D-014, D-032).
+    // 3px ring, 3px offset: thicker than Figma's 2/2 (D-014, D-032).
     'focus-ring': {
       width: primitives.sizes['border-width'][3],
       offset: primitives.sizes['border-width'][3],

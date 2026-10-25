@@ -192,7 +192,9 @@ An audit of the CSS rules matching Home found legacy styling still reaching it. 
 
 Every UI icon is Phosphor bold now (D-026). The remaining hand-drawn icons that were still referenced were swapped for Phosphor equivalents: `cat`, `controller` (game-controller) and `paw` (paw-print) for the About image fallbacks, `download` (download-simple) for the Resume button and `image` for the default `Image` fallback. Unused hand-drawn files (`ai`, `automation`, `clouds`, `component`, `dog`, `file`, `pencil-ruler`, `person`) were deleted, and an unknown icon name falls back to the image glyph. Left alone on purpose: the hero's pointer and selection handles (CSS art), the favicon, and the Resume page's company logos (brand marks, not UI icons). The emoji are gone too: case study and "more of my work" section titles, the About bullets and the Resume byline's unicorn (the `titleEmoji` and `emoji` fields were removed). The 404 button's arrow had drifted high because the global `a` rule that centered it is scoped to `.legacy` pages since D-036; the legacy `.button` now carries its own `align-items`, gap and font family. The 404 no longer uses the legacy `Link` or SCSS at all: `NotFound.module.css` and a router link use only tokens (space, radius, type, color, focus ring), with no fixed values besides two media-query breakpoints and the derived display size.
 
-Revised (D-038, 2026-10-14): the 404 has its own ground token, `surface.error` (indigo-900 in light, indigo-800 in dark), instead of sharing `surface.accent` with the footer, so it is a theme pair of its own and distinct from the page surface (white / night-900). The button is inverted (`content-on-accent` fill, `surface-error` text, pale hover and pressed steps from the on-accent tokens), because a container color can't read on it: secondary-container is indigo-800, the same as the dark ground.
+## D-038: The 404 gets its own ground — decided, 2026-10-14
+
+The 404 has its own ground token, `surface.error` (indigo-900 in light, indigo-800 in dark), instead of sharing `surface.accent` with the footer, so it is a theme pair of its own and distinct from the page surface (white / night-900). The button is inverted (`content-on-accent` fill, `surface-error` text, pale hover and pressed steps from the on-accent tokens), because a container color can't read on it: secondary-container is indigo-800, the same as the dark ground. The 404 is now the `error` tone in `src/styles/tone.css` (D-119).
 
 ## D-039: Cards stay side-by-side on tablet — decided, 2026-10-14
 
@@ -333,6 +335,10 @@ The 40rem reading column (h1, role, chips, intro, h2s, h3s, text, captions, the 
 
 Sections: Context, Contributions, Outcomes, Deliverables, new Opportunities. The Figma frame's invented claims were left out (80% fewer dropdowns, "thousands of campaigns", WCAG-compliant, Slack and AI-mapping Opportunities). Added from Jax: role is Remote, a short ActBlue and users introduction (teams of one to presidential campaigns), the existing Blueprint design system (used and contributed to), Figma prototypes and CSS samples, close work with the product and engineering managers, FigJam workshops built together, and Jax's was the first design work on the team. Contributions are five labeled items. Opportunities are Jax's four: per-integration analytics, design iteration (Connected chip, image), notification history (moved to a future state), a clear path to help. The $1.5M estimate and the "sharp drop" in setup issues stay as before (confirmed). Opportunities are written from Jax's notes in the page voice, not his exact wording. The Design Iteration item says only that the Connected status is visually subtle (the logo point was cut by Jax).
 
+Revised (2026-10-19, D-067): ActBlue's intro first sentence is split in two, "fully" is cut from the annotated flow, the flow caption reads "annotated for developers and used to support QA", the Opportunities lead-in says "add or change four things", and the three long alt texts are split into shorter sentences.
+
+Revised (2026-10-19, D-067): the $1.5M saving is an estimate everywhere. The page no longer says "over" and now matches the Home card and meta ("an estimated $1.5M a year"). Jax confirmed the days or weeks to minutes setup claim and the reuse by other integrations and internal tools. The highlighted sentence in D-081's list reads "Internal estimates put the savings at $1.5 million per year in reduced support costs."
+
 ## D-068: ActBlue images from Figma — decided, 2026-10-19
 
 Figma `2860:33875` order: the hero is a before / after pair (old staff-only notifications screen, redesigned Salesforce page), then the FigJam board (Context), the annotated full flow (Contributions) and three final screens (Outcomes, one composite image). Exported from the frame's image fills as JPEG (`*-min.jpg`, quality 80, at most 1600px wide, the tall "before" cropped to 1600 x 1895). The five old PNGs are removed, including `responsive-specs`, which the Figma frame hides. The three final screens are one image, not `StudyPanels`: the source crops are landscape and the panels box is a fixed 300px, which left empty space.
@@ -402,19 +408,11 @@ Selecting text inside a study card (Home, and the "More of my work" row on a stu
 
 A phrase wrapped in `**double asterisks**` in a study section paragraph renders as bold text in the study's tint (the same `--study-heading` as the label h3s, so the palette's on-container color in light and dark). `StudySection` splits the text and wraps the phrase in a `strong`. First use: ServiceNow's Hybrid vs AI-only accuracy sentence. Use it sparingly, once or twice per study. Study header paragraphs do not parse it yet. Checked in the same pass (D-080): the footer keeps the site's violet selection on every study page.
 
+Highlight phrases (D-081): ActBlue's "Internal estimates put the savings at over $1.5 million per year in reduced support costs." and ServiceNow's "approved future work and assigned more resources to the tool" and the Hybrid versus AI-only accuracy sentence are the three in use.
+
 ## D-082: No focus ring on <main> — decided, 2026-10-19
 
 `<main id="main-content" tabindex="-1">` is the skip link's target and takes focus when a reader clicks blank space, but it is not a control. Keyboard activation of the skip link makes it `:focus-visible`, which drew the browser's ring around the whole page. `Layout.module.css` now sets `outline: none` on `.main:focus` and `.main:focus-visible`. There is deliberately no global `*:focus, *:focus-visible { outline: none }`: every control draws its own ring through its component's `:focus-visible` rule (nav, brand, TextLink, mode toggle, footer icons, card, 404 button, skip link), and a global reset would risk removing them for keyboard users. Any other element that shows an unwanted ring should get its own rule here.
-
-Highlight phrases (D-081): ActBlue's "Internal estimates put the savings at over $1.5 million per year in reduced support costs." and ServiceNow's "approved future work and assigned more resources to the tool" and the Hybrid versus AI-only accuracy sentence are the three in use.
-
-Revised (2026-10-19, D-067): ActBlue's intro first sentence is split in two, "fully" is cut from the annotated flow, the flow caption reads "annotated for developers and used to support QA", the Opportunities lead-in says "add or change four things", and the three long alt texts are split into shorter sentences.
-
-Revised (2026-10-19, D-067): the $1.5M saving is an estimate everywhere. The page no longer says "over" and now matches the Home card and meta ("an estimated $1.5M a year"). Jax confirmed the days or weeks to minutes setup claim and the reuse by other integrations and internal tools. The highlighted sentence in D-082's list reads "Internal estimates put the savings at $1.5 million per year in reduced support costs."
-
-## D-085: Study header role line on phones, en dash in dates — decided, 2026-10-20
-
-At 640px and below the role and place stay on one line and the date drops to its own line without the dot, so a wrapped line never ends or starts with a dot (it did on ActBlue at 375). The date never breaks across lines. DateRange uses an en dash (was an em dash), per Jax: dates take an en dash. The change also reaches Resume through the shared component.
 
 ## D-083: Toyota case study copy and page, reviewed with Jax — decided, 2026-10-21
 
@@ -425,6 +423,10 @@ Resolved (2026-10-24, Jax): the resume line "Supported 40+ product teams buildin
 ## D-084: Study image variant `column` — decided, 2026-10-21
 
 `StudyImage` gets a third variant, `column`: the image and its caption are 40rem wide (the reading column) and left-aligned to the 960 edge. It is for a tall UI crop that would stretch and blur at 960px. First use: Toyota's Figma variables panel in Outcomes. Part of the parked `StudyMedia` rethink in docs/plan.md.
+
+## D-085: Study header role line on phones, en dash in dates — decided, 2026-10-20
+
+At 640px and below the role and place stay on one line and the date drops to its own line without the dot, so a wrapped line never ends or starts with a dot (it did on ActBlue at 375). The date never breaks across lines. DateRange uses an en dash (was an em dash), per Jax: dates take an en dash. The change also reaches Resume through the shared component.
 
 ## D-086: Several images in one study section — decided, 2026-10-21
 
@@ -557,6 +559,8 @@ Removed because nothing used them: the Figma shadow recipe (blur, spread, x, y a
 
 Breakpoints are literal and written one way, `@media (max-width: …)` and `(min-width: …)`. Two are the system: 640px (phone, with 641px as its complement) and 900px (desktop). A component breakpoint such as 800px or 340px carries a comment saying why.
 
+D-118 fix (2026-10-25): `--shadow-lift` held `var(--shadow-lift-color, …)` and a custom property resolves where it is defined, so every card read the :root fallback (black 50%). The token is now the geometry only and the card writes `box-shadow: var(--shadow-lift) var(--shadow-lift-color)`. Measured on a hovered Home card: light is the palette color at 55%, dark is black at 50%. Any component that needs a themed shadow color composes it the same way.
+
 ## D-119: One palette scope, one Button, the 404 as a tone — decided, 2026-10-25
 
 `src/styles/palette.module.css` holds the five container pairs once (`brand`, `primary`, `secondary`, `tertiary`, `quaternary`) as `--palette-container`, `-container-hover`, `-on-container`, `-on-container-hover` and `-on-container-active`. The study cards, the study page and the chips read them, replacing the 5 x 5 card block, the study page's `pal-*` classes and the chip's four classes. A chip with no `palette` prop follows the palette of the section around it, so the study chips need no override. `Button` (`#components/Button`) replaces the Resume buttons and the 404 button: `filled`, `outline` (3px, D-102) and `inverted` (D-038), as a link (`to`, `href`, `newTab`) with an optional decorative icon. The back to top pill stays its own control. The 404's token re-pointing moved from `NotFound.module.css` to `[data-tone='error']` in `tone.css`, next to `blue` (D-109). At 340px and below every button tightens its padding (it was the 404 button only). Computed styles on Home, About, Resume, two studies and the 404 match the previous build at 375 and 1280, light and dark (the only differences are an invisible 0px border color on the filled button and the 404's random quip width).
@@ -568,24 +572,6 @@ Every import uses the `#` aliases (`#src`, `#tokens`, `#styles`, `#pages`, `#com
 ## D-121: Prettier decides formatting — decided, 2026-10-25
 
 The codebase mixed tabs and spaces, and single and double quotes, file by file. Prettier now formats `src`, `scripts` and the config files (`.prettierrc.json`: single quotes, 100 columns, its defaults otherwise, so semicolons and 2 spaces). `npm run format` runs it. The generated `theme.css` and the docs are not formatted. The formatting pass is its own commit, with bundle sizes unchanged (JS 372.3 kB, CSS 82.1 kB).
-
-D-118 fix (2026-10-25): `--shadow-lift` held `var(--shadow-lift-color, …)` and a custom property resolves where it is defined, so every card read the :root fallback (black 50%). The token is now the geometry only and the card writes `box-shadow: var(--shadow-lift) var(--shadow-lift-color)`. Measured on a hovered Home card: light is the palette color at 55%, dark is black at 50%. Any component that needs a themed shadow color composes it the same way.
-
-## D-117: Code audit batches 1 and 2 — decided, 2026-10-25
-
-Regressions fixed: the shared type steps (`type.module.css`) now carry `line-height` and sit in `@layer type`, so a page's own unlayered media-query size always beats the composed step. This restores the study h1 (48px from 641px, 56px from 900px, D-112), the About h1 (48 / 56, D-108), the phone card title (28px, D-028) and the 1.2 heading line height. Hover styles sit behind `(hover: hover)` so a tap leaves nothing stuck. `Icon` takes an `IconName`. The 404 renders a `<main id="main-content">` for the skip link and re-points the header tagline colors, which were dark slate on its indigo ground in light mode. The social image points at `social-preview-min.png`, with a `twitter:image`. Dead code removed: the three source-rewriting scripts (`generate-index-files`, `sync-icons`, `fix-svg-attributes`) and their npm hooks (`npm run dev` is plain `vite`, barrels and the icon map are hand-written), the unused study `subtitle` and `renderSection`, the ignored chip `theme` field, the template example, `Work/resources`, two unused images, `@types/react-helmet`, a stale `allowScripts` entry and Roboto Mono 500. `license` is MIT like the LICENSE file.
-
-## D-118: Motion, shadow and size tokens; leaner theme.css — decided, 2026-10-25
-
-New tokens, compiled from `src/tokens/effects.ts` (motion and shadows, no primitives behind them) and `defaultTheme.ts`: `--motion-duration-{fast .15s, base .2s, moderate .3s, slow .4s, slower .5s, slowest .8s}`, `--motion-ease-{standard, emphasized, out}`, `--shadow-raised` (tooltip and back to top, deeper with a faint edge in dark), `--shadow-lift` (card hover, colored by `--shadow-lift-color`), `--shadow-cursor` (drop shadow under the hero pointer and name tag arrows), `--size-target-{md 40px, lg 44px}`, `--size-radius-full`. `--size-border-width-thick` is now 3px (the accent line, the outline button and the focus ring width). Components use these and no raw durations, easings or shadows. The hero loops (resize, drag, blink) are ambient animation and keep their own timing. Timings moved by at most 50ms to land on the scale (0.25 and 0.35 to 0.3, 0.45 to 0.4), the back to top shadow is the tooltip's (4px down, was 2px), and the hero arrow shadows are both 25 percent.
-
-Removed because nothing used them: the Figma shadow recipe (blur, spread, x, y and the per-palette shadow colors, 45 variables) and the six `size-breakpoint-*` tokens (CSS cannot read a custom property in a media query). The generator now emits only the primitives a semantic token reads, so `theme.css` fell from 48.6 kB (7.0 gz) to 28.9 kB (3.7 gz) and 797 variables to 459.
-
-Breakpoints are literal and written one way, `@media (max-width: …)` and `(min-width: …)`. Two are the system: 640px (phone, with 641px as its complement) and 900px (desktop). A component breakpoint such as 800px or 340px carries a comment saying why.
-
-## D-119: One palette scope, one Button, the 404 as a tone — decided, 2026-10-25
-
-`src/styles/palette.module.css` holds the five container pairs once (`brand`, `primary`, `secondary`, `tertiary`, `quaternary`) as `--palette-container`, `-container-hover`, `-on-container`, `-on-container-hover` and `-on-container-active`. The study cards, the study page and the chips read them, replacing the 5 x 5 card block, the study page's `pal-*` classes and the chip's four classes. A chip with no `palette` prop follows the palette of the section around it, so the study chips need no override. `Button` (`#components/Button`) replaces the Resume buttons and the 404 button: `filled`, `outline` (3px, D-102) and `inverted` (D-038), as a link (`to`, `href`, `newTab`) with an optional decorative icon. The back to top pill stays its own control. The 404's token re-pointing moved from `NotFound.module.css` to `[data-tone='error']` in `tone.css`, next to `blue` (D-109). At 340px and below every button tightens its padding (it was the 404 button only). Computed styles on Home, About, Resume, two studies and the 404 match the previous build at 375 and 1280, light and dark (the only differences are an invisible 0px border color on the filled button and the 404's random quip width).
 
 ## D-122: Lazy images and per-route meta at build time — decided, 2026-10-25
 

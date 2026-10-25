@@ -19,7 +19,7 @@
   transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
-/* Large: the footer email link. 32px per Jax (Figma has 28px, which is off the type scale). */
+/* Large: the footer email link. 32px, since Figma's 28px is off the type scale. */
 .large {
   /* Fluid so the 24-character email plus arrow fits narrow cards; reaches 32px at about 550px wide (D-013). */
   font-size: clamp(var(--font-size-16), 7.4vw - 9px, var(--font-size-32));
