@@ -3,7 +3,7 @@
    element. Per-element tweaks go through custom properties:
      --line-bottom  distance of the line's bottom edge from the box (default 0)
      --line-inset   left and right inset (default 0)
-     --line-color   fill (default the primary color)
+     --line-color   fill (default the primary color, its hover color on hover and its active color pressed)
    A component that shows the line in another state (current page, card hover) sets the transform
    itself with a more specific selector. */
 
@@ -27,7 +27,12 @@
 @media (hover: hover) {
   .line:hover::after {
     transform: scaleX(1);
+    background: var(--line-color, var(--color-primary-default-hover));
   }
+}
+
+.line:active::after {
+  background: var(--line-color, var(--color-primary-default-active));
 }
 
 @media (prefers-reduced-motion: reduce) {

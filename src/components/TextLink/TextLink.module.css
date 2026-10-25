@@ -5,7 +5,6 @@
 
 .link {
   composes: line from '#styles/line.module.css';
-  composes: tint from '#styles/tint.module.css';
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -17,9 +16,7 @@
   font-weight: var(--font-weight-emphasis);
   line-height: var(--font-line-height-default);
   text-decoration: none;
-  transition:
-    color var(--motion-duration-base) var(--motion-ease-standard),
-    background-color var(--motion-duration-base) var(--motion-ease-standard);
+  transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 /* A link with an icon sets its text to the icon's size: both come from --link-icon (20px, D-132). */
@@ -35,6 +32,12 @@
   font-size: clamp(var(--font-size-16), 7.4vw - 9px, var(--font-size-32));
   overflow-wrap: anywhere;
   font-weight: var(--font-weight-extra-strong);
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--color-primary-default-hover);
+  }
 }
 
 .link:active {

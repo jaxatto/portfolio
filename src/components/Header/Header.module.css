@@ -80,7 +80,6 @@
    violet text and a line that grows in from the left at the same position (see .nav-link). */
 .brand {
   composes: line from '#styles/line.module.css';
-  composes: tint from '#styles/tint.module.css';
   --line-bottom: var(--size-border-width-default);
   position: relative;
   display: flex;
@@ -97,7 +96,7 @@
 
 @media (hover: hover) {
   .brand:hover {
-    color: var(--color-primary-default);
+    color: var(--color-primary-default-hover);
   }
 }
 
@@ -134,7 +133,6 @@
    underline here. See D-017. */
 .nav-link {
   composes: line from '#styles/line.module.css';
-  composes: tint from '#styles/tint.module.css';
   --line-bottom: var(--size-border-width-default);
   position: relative;
   display: flex;
@@ -152,7 +150,7 @@
 
 @media (hover: hover) {
   .nav-link:hover {
-    color: var(--color-primary-default);
+    color: var(--color-primary-default-hover);
   }
 }
 
@@ -172,7 +170,7 @@
 
 @media (hover: hover) {
   .nav-link[aria-current='page']:hover {
-    color: var(--color-primary-default);
+    color: var(--color-primary-default-hover);
   }
 }
 

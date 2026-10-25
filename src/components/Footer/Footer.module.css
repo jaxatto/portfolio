@@ -104,13 +104,16 @@
 
 @media (hover: hover) {
   .main .email:hover {
-    color: var(--color-primary-default);
+    color: var(--color-primary-default-hover);
   }
+}
+
+.main .email:active {
+  color: var(--color-primary-default-active);
 }
 
 .icon-link {
   composes: line from '#styles/line.module.css';
-  composes: tint from '#styles/tint.module.css';
   --line-inset: var(--icon-line-inset);
   position: relative;
   display: flex;
@@ -123,9 +126,7 @@
   border-radius: var(--size-radius-md);
   /* Violet at rest like the email link (D-107). */
   color: var(--color-content-link);
-  transition:
-    color var(--motion-duration-base) var(--motion-ease-standard),
-    background-color var(--motion-duration-base) var(--motion-ease-standard);
+  transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .icon-link svg {
@@ -138,7 +139,7 @@
 
 @media (hover: hover) {
   .icon-link:hover {
-    color: var(--color-primary-default);
+    color: var(--color-primary-default-hover);
   }
 }
 
