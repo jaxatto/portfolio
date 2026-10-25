@@ -6,7 +6,7 @@ Jax Engel's portfolio (https://jaxengeldesign.com): React 19 + TypeScript SPA, V
 
 ## Start of every session
 
-1. If a skill named `i-have-adhd` is available, load it and follow it for the whole session. (Jax wants it in every Claude session. See `docs/plan.md` → Setup.)
+1. If a skill named `i-have-adhd` is available, load it and follow it for the whole session. (Jax wants it in every Claude session. It is a user-level skill in `~/.claude/skills`.)
 2. Read `docs/plan.md` (where we are, what's next) and skim `docs/decisions.md` (what's already decided). Don't re-ask settled questions.
 3. Check `git status` and the current branch. Confirm the git identity (below).
 4. **Check GitHub auth is `jaxatto`.** Run `gh auth status`. If the active account is not `jaxatto` (the machine also has `rhya-games`, which is not a collaborator and cannot open PRs here), run `gh auth switch -u jaxatto` and check again before any `gh` or PR step.
@@ -27,7 +27,7 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 - **Collaborate on design and copy.** Jax's designs and drafts are the starting point, not the ceiling. If something in the content or design could be better (weak positioning, vague claims, missing outcomes, inconsistent patterns, accessibility gaps, hierarchy problems), say so plainly with a concrete suggestion and why it helps a hiring manager. Then discuss it. Don't silently rewrite copy and don't silently ship a design deviation; propose, agree, then do. Use the `portfolio-critique` skill for a structured pass.
 - **Consistency over one-offs.** Everything draws from the token system and shared components. If something needs a value, size, color, component or pattern that doesn't exist, stop and raise it, agree on whether it's a new token/variant or a design change, and log it in `docs/decisions.md`. No quiet one-off styles.
 - **Small slices, small commits, frequent merges.** One page or component per slice. Commit often (one logical change per commit, short imperative subject matching history, e.g. "update about page") and push after each commit so work is saved. Slices merge into the long-lived **`redesign`** branch, not `main`, and only after Jax approves (see Git). `main` stays the live site until Jax decides to bring `redesign` back. Never run `npm run deploy` unless asked.
-- **Every change is reviewable.** After any change, make sure the dev server is running (`npm run dev -- --no-open --host 0.0.0.0`, port 5173), then give Jax the exact place to look: the route and section, e.g. `http://localhost:5173/about` plus which section/breakpoint, and a screenshot of that area sent with `SendUserFile` (Playwright with `/opt/pw-browsers/chromium`; it works from the scratchpad). The cloud container's localhost may not open from Jax's browser, so the screenshot is the dependable part. For changes to docs, skills or other files, link the file.
+- **Every change is reviewable.** After any change, make sure the dev server is running (`npm run dev -- --no-open --host`, port 5173), then give Jax the exact place to look: the route and section, e.g. `http://localhost:5173/about` plus which section and breakpoint. End the reply with that local link. For changes to docs, skills or other files, link the file.
 - **Always make file links real.** Whenever you mention a file, give a markdown link with its absolute path, e.g. [CLAUDE.md](/home/user/portfolio/CLAUDE.md), so Jax can open it. Files outside the working directory, scratchpad and memory directories can't be opened by Jax, so copy anything meant for them into the repo or scratchpad first.
 - **Foundations before pages.** Tokens, typography, layout, header and footer come first.
 - **Match Figma where it is still current, then stop.** Read exact values from Figma, not from screenshots, but check `docs/decisions.md` first: later decisions override the frames. Don't add features or refactors that weren't asked for; mention them and leave them alone.
@@ -43,7 +43,7 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 
 ## Code comments
 
-Add comments where they help the next reader or session: *why* something is the way it is, a design/accessibility reason, a non-obvious Figma-to-code mapping, a workaround, a known limitation, or a pointer to a decision (`// See docs/decisions.md D-004`). Use `// NOTE:` for context and `// TODO(jax):` for an open question that needs a design or copy decision. Don't narrate obvious code. Keep comments true; update or delete them when the code changes.
+Comments say *why*, never what the code already says: a design or accessibility reason, a non-obvious Figma-to-code mapping, a workaround, a known limitation. Two lines at most. Cite a decision (`D-004`) only when it adds a pointer a reader needs. Use `// NOTE:` for context and `// TODO(jax):` for an open question that needs a design or copy decision. No change-log wording ("was 24, now 32", "+8px per Jax"): git history and `docs/decisions.md` hold that. Keep comments true; update or delete them when the code changes.
 
 ## Git
 
@@ -102,19 +102,21 @@ No test runner or linter exists yet. Prettier decides formatting. Verify with `n
 ## Structure and conventions
 
 ```
-src/components/        shared: Name/{Name.tsx, Name.module.css, index.ts}
-                       migrated so far: Header, Footer, ModeToggle, TextLink (D-014), StudyCard and StudyCardGrid (D-028), About page (D-040), HeroMarks (D-041); Layout is full-width, only <main> is constrained
-src/pages/             Work, About, Resume, Studies, NotFound (+ pages/<Page>/components)
+src/components/        shared components: Name/{Name.tsx, Name.module.css, index.ts}. Layout is full-width, only <main> is constrained
+src/pages/             Work, About, Resume, Studies, NotFound (+ pages/<Page>/components and resources)
 src/pages/Studies/pages/<Study>/   content.ts, meta.ts, images/
+src/pages/Studies/types/           study content types
 src/constants/         shared links and icon names
-src/providers/         SiteConfig context
-src/styles/            _variables, _typography, _mixins, _functions, _utilities
+src/providers/         SiteConfig and Theme context
+src/styles/            fonts, theme (generated), tone, palette, type and line modules, main
+src/tokens/            token source, compiled into theme.css
+scripts/               generate-component, prerender-meta, vite-image-size, tokens/
 ```
 
-- Routes: `src/App.tsx`. A new case study needs a slug in `src/constants/studyLinks.ts` and a card in `StudyCardGrid/resources/content.ts`.
+- Routes: `src/App.tsx`. A new case study needs a slug in `src/constants/studyLinks.ts`, a card in `StudyCardGrid/StudyCardGrid.tsx` and an entry in `scripts/prerender-meta.ts`.
 - Index barrels and the icon list are written by hand. To add an icon, put the SVG in `src/assets/icons` and add its name to `src/constants/iconNames.ts` and the map in `Icon.tsx` (the types enforce both).
 - Scaffold with `generate:component` instead of hand-making folders.
-- **Copy lives inline** in components for short page copy (D-003); case studies will use Markdown/JSON. Don't add new `resources/*.ts` copy files. Older components still have them until migrated.
+- **Copy lives inline** in components for short page copy (D-003). Case study copy stays in each study's inline `content.ts`. Don't add new `resources/*.ts` copy files for short page copy.
 - **Accessibility is part of the pitch.** Semantic HTML, one `h1` per page, sensible heading order, visible focus, real `alt` text (empty only for decorative images), `aria-hidden` on decorative emoji, enough contrast, keyboard operable. Treat regressions as bugs.
 - Run `npm run format` before committing (single quotes, semicolons, 2 spaces, 100 columns). TypeScript strict, function components with `React.FC`.
 - Images are `*-min.png` or `*-min.jpg`, already compressed. Import them with `?size` (`import x from './x.jpg?size'` gives `{ src, width, height }`, D-125) and put the size on the `<img>`. Below the fold they load lazy. Every rendered image gets meaningful `alt` text.
