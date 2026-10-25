@@ -67,3 +67,6 @@ li::marker { color: var(--accent); }
 .skills li { margin-top: 4pt; }
 
 a { color: var(--accent); text-decoration: underline; }
+
+/* Keep Skills and Education whole so a list never splits across pages. */
+main > section:nth-last-child(-n+2) { break-inside: avoid; }
