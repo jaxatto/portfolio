@@ -70,13 +70,6 @@ export function buildPrimitiveTokenContext() {
 	}
 
 	extractPrimitives(primitives.colors as TokenTree, 'color', 'color');
-	for (const [category, values] of Object.entries(primitives.shadow)) {
-		extractPrimitives(
-			values as TokenTree,
-			`shadow-${toKebabCase(category)}`,
-			'shadow',
-		);
-	}
 	for (const [category, values] of Object.entries(primitives.font)) {
 		const fontMap = new Map<string | number, string>();
 		primitiveFontMaps[category] = fontMap;

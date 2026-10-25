@@ -1,0 +1,43 @@
+/* effects.ts
+ * Motion and elevation tokens. They are plain CSS values (no primitives behind them), compiled into
+ * theme.css by scripts/tokens/build-theme/effects.ts. Hero loops (HeroMarks, the Home cursor) are ambient
+ * animation, not UI transitions, and keep their own timing.
+ */
+
+export type EffectMode = { light: string; dark: string };
+
+export const effects = {
+	// Transition and animation lengths for interface feedback.
+	duration: {
+		fast: '0.15s',
+		base: '0.2s',
+		moderate: '0.3s',
+		slow: '0.4s',
+		slower: '0.5s',
+		// The color fade when the theme switches.
+		slowest: '0.8s',
+	},
+	easing: {
+		standard: 'ease',
+		// Grow-in lines and toggles.
+		emphasized: 'cubic-bezier(0.4, 0.2, 0.2, 1)',
+		// Lift and settle, fast start and soft landing.
+		out: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+	},
+	// Full box-shadow or drop-shadow values. Dark mode needs a deeper shadow and a faint edge, since black
+	// vanishes on the dark ground.
+	shadow: {
+		raised: {
+			light: '0 4px 8px rgb(0 0 0 / 15%)',
+			dark: '0 4px 14px rgb(0 0 0 / 70%), 0 0 0 1px rgb(255 255 255 / 12%)',
+		},
+		// Card lift. A component sets `--shadow-lift-color` (the card's palette color).
+		lift: '0 24px 48px -20px var(--shadow-lift-color, rgb(0 0 0 / 50%))',
+		// For `filter: drop-shadow()` under pointer and tag arrows.
+		cursor: '0 2px 3px rgb(0 0 0 / 25%)',
+	},
+} as const satisfies {
+	duration: Record<string, string>;
+	easing: Record<string, string>;
+	shadow: Record<string, string | EffectMode>;
+};

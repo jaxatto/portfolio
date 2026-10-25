@@ -13,9 +13,9 @@
 	gap: var(--size-space-sm);
 	padding: var(--size-space-md) var(--size-space-2xl);
 	border: 0;
-	border-radius: 999px;
+	border-radius: var(--size-radius-full);
 	background: var(--color-surface-default);
-	box-shadow: 0 2px 8px rgb(0 0 0 / 16%);
+	box-shadow: var(--shadow-raised);
 	color: var(--color-content-prose);
 	cursor: pointer;
 	font-family: var(--font-family-heading);
@@ -27,10 +27,10 @@
 	visibility: hidden;
 	transform: translate(-50%, calc(-1 * var(--size-space-md)));
 	transition:
-		opacity 0.2s ease,
-		transform 0.2s ease,
-		visibility 0.2s,
-		background-color 0.2s ease;
+		opacity var(--motion-duration-base) var(--motion-ease-standard),
+		transform var(--motion-duration-base) var(--motion-ease-standard),
+		visibility var(--motion-duration-base),
+		background-color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .button[data-visible='true'] {
@@ -39,28 +39,14 @@
 	transform: translate(-50%, 0);
 }
 
-.button:hover {
-	background: color-mix(in srgb, var(--color-primary-default-hover) 12%, var(--color-surface-default));
+@media (hover: hover) {
+	.button:hover {
+		background: color-mix(in srgb, var(--color-primary-default-hover) 12%, var(--color-surface-default));
+	}
 }
 
 .button:active {
 	background: color-mix(in srgb, var(--color-primary-default-active) 20%, var(--color-surface-default));
-}
-
-/* A black shadow disappears on the dark ground, so dark mode gets a deeper one and a faint light edge to
-   keep the pill's shape. */
-:global([data-theme='dark']) .button {
-	box-shadow:
-		0 4px 14px rgb(0 0 0 / 70%),
-		0 0 0 1px rgb(255 255 255 / 12%);
-}
-
-@media (prefers-color-scheme: dark) {
-	:global(:root:not([data-theme='light'])) .button {
-		box-shadow:
-			0 4px 14px rgb(0 0 0 / 70%),
-			0 0 0 1px rgb(255 255 255 / 12%);
-	}
 }
 
 /* Keyboard focus keeps the site's focus ring: the only outline, shown for the keyboard alone. */

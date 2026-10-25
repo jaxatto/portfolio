@@ -2,6 +2,7 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import Icon from '#components/Icon';
+import type { IconName } from '#constants/iconNames';
 import styles from './TextLink.module.css';
 
 // Figma "Link": bold text with optional trailing icon and the animated hover line (D-104).
@@ -11,7 +12,7 @@ type TextLinkProps = {
 	to?: string;
 	href?: string;
 	newTab?: boolean;
-	icon?: string;
+	icon?: IconName;
 	size?: 'md' | 'lg';
 	className?: string;
 	children: React.ReactNode;

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { defaultTheme } from '#src/tokens/defaultTheme';
 import { buildPrimitiveTokenContext } from './build-theme/primitives';
 import { renderThemeCss } from './build-theme/renderCss';
+import { buildEffectVars } from './build-theme/effects';
 import { buildSemanticColorVars } from './build-theme/semanticColors';
 import { buildStaticSemanticVars } from './build-theme/semanticStatic';
 import { createValueResolver } from './build-theme/valueResolver';
@@ -12,6 +13,24 @@ import { writeThemeCss } from './build-theme/writeThemeCss';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const varName = (line: string) => line.trim().split(':')[0];
+
+// Keeps a primitive line when a semantic line, or another kept primitive, reads it with var().
+function pruneUnusedPrimitives(primitiveVars: string[], semanticVars: string[]) {
+	const referenced = (lines: string[]) =>
+		new Set(lines.join('\n').match(/--primitive-[a-z0-9-]+/g));
+	let kept = new Set(referenced(semanticVars));
+	for (;;) {
+		const next = new Set([
+			...kept,
+			...referenced(primitiveVars.filter((line) => kept.has(varName(line)))),
+		]);
+		if (next.size === kept.size) break;
+		kept = next;
+	}
+	return primitiveVars.filter((line) => kept.has(varName(line)));
+}
 
 function buildTheme() {
 	const { primitiveVars, primitiveFontMaps, primitiveMaps, primitiveSizeMaps } =
@@ -24,7 +43,6 @@ function buildTheme() {
 
 	const { lightSemanticVars, darkSemanticVars } = buildSemanticColorVars(
 		defaultTheme.colors,
-		defaultTheme.shadow,
 		resolveValue,
 	);
 	const staticSemanticVars = buildStaticSemanticVars(
@@ -33,11 +51,24 @@ function buildTheme() {
 		primitiveSizeMaps,
 	);
 
+	const effectVars = buildEffectVars();
+	const staticVars = [...staticSemanticVars, ...effectVars.staticVars];
+	const lightVars = [...lightSemanticVars, ...effectVars.lightVars];
+	const darkVars = [...darkSemanticVars, ...effectVars.darkVars];
+
+	// Primitives are raw scale steps. Only the ones a semantic token points at are emitted, so the
+	// stylesheet doesn't carry whole unused ramps (components never read primitives, D-002).
+	const usedPrimitiveVars = pruneUnusedPrimitives(primitiveVars, [
+		...staticVars,
+		...lightVars,
+		...darkVars,
+	]);
+
 	const cssContent = renderThemeCss({
-		primitiveVars,
-		staticSemanticVars,
-		lightSemanticVars,
-		darkSemanticVars,
+		primitiveVars: usedPrimitiveVars,
+		staticSemanticVars: staticVars,
+		lightSemanticVars: lightVars,
+		darkSemanticVars: darkVars,
 	});
 
 	const distDir = path.resolve(__dirname, '../../src/styles');

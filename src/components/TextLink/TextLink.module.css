@@ -16,7 +16,7 @@
 	font-weight: var(--font-weight-emphasis);
 	line-height: var(--font-line-height-default);
 	text-decoration: none;
-	transition: color 0.2s ease;
+	transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 /* Large: the footer email link. 32px per Jax (Figma has 28px, which is off the type scale). */

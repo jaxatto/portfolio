@@ -3,12 +3,8 @@
    section-sm / section-md / xs, so no component tokens were added. */
 
 .card {
-	/* Palette tokens are set by the modifier classes below. */
-	--card-bg: var(--color-brand-container);
-	--card-bg-hover: var(--color-brand-container-hover);
-	--card-fg: var(--color-brand-on-container);
-	--card-fg-hover: var(--color-brand-on-container-hover);
-	--card-fg-active: var(--color-brand-on-container-active);
+	/* The palette (--palette-*) comes from the class on the card, src/styles/palette.module.css (D-119). */
+	--card-fg: var(--palette-on-container);
 
 	position: relative;
 	display: flex;
@@ -19,64 +15,27 @@
 	--card-lift: 5%;
 	background: color-mix(
 		in oklch,
-		var(--card-bg) calc(100% - var(--card-lift)),
+		var(--palette-container) calc(100% - var(--card-lift)),
 		var(--color-surface-default)
 	);
 	color: var(--color-content-soft);
 	/* Shadow under a lifted card (D-111): the palette's own color. Dark mode swaps it for black below. */
-	--card-shadow: color-mix(in oklch, var(--card-fg) 55%, transparent);
-	transition: background-color 0.2s ease;
+	--shadow-lift-color: color-mix(in oklch, var(--card-fg) 55%, transparent);
+	transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 /* Text selection inside a card takes the card's own palette (D-080). The hover pair is used because the
    card face is the plain palette container, which a selection of the same color would vanish into.
    `.card.card` outweighs the study page's own selection rule, so cards under a study keep their own color. */
 .card.card ::selection {
-	background: var(--card-bg-hover);
-	color: var(--card-fg-hover);
-}
-
-.brand {
-	/* defaults above */
-	--card-bg: var(--color-brand-container);
-}
-
-.primary {
-	--card-bg: var(--color-primary-container);
-	--card-bg-hover: var(--color-primary-container-hover);
-	--card-fg: var(--color-primary-on-container);
-	--card-fg-hover: var(--color-primary-on-container-hover);
-	--card-fg-active: var(--color-primary-on-container-active);
-}
-
-.secondary {
-	--card-bg: var(--color-secondary-container);
-	--card-bg-hover: var(--color-secondary-container-hover);
-	--card-fg: var(--color-secondary-on-container);
-	--card-fg-hover: var(--color-secondary-on-container-hover);
-	--card-fg-active: var(--color-secondary-on-container-active);
-}
-
-.quaternary {
-	--card-bg: var(--color-quaternary-container);
-	--card-bg-hover: var(--color-quaternary-container-hover);
-	--card-fg: var(--color-quaternary-on-container);
-	--card-fg-hover: var(--color-quaternary-on-container-hover);
-	--card-fg-active: var(--color-quaternary-on-container-active);
-}
-
-.tertiary {
-	--card-bg: var(--color-tertiary-container);
-	--card-bg-hover: var(--color-tertiary-container-hover);
-	--card-fg: var(--color-tertiary-on-container);
-	--card-fg-hover: var(--color-tertiary-on-container-hover);
-	--card-fg-active: var(--color-tertiary-on-container-active);
+	background: var(--palette-container-hover);
+	color: var(--palette-on-container-hover);
 }
 
 .card:hover {
 	background: color-mix(
 		in oklch,
-		var(--card-bg-hover) calc(100% - var(--card-lift)),
+		var(--palette-container-hover) calc(100% - var(--card-lift)),
 		var(--color-surface-default)
 	);
 }
@@ -119,8 +78,7 @@
 	line-height: var(--font-style-body-md-line-height);
 }
 
-/* Tags are quieter than the outcome. */
-/* Link: bold, underlined at rest like TextLink (D-015, D-026); grows its offset on hover. */
+/* Link: bold, no resting underline; the shared line grows in on hover (D-031). */
 .link {
 	display: inline-flex;
 	align-items: center;
@@ -147,8 +105,6 @@
 	display: none;
 }
 
-/* Hover style from the nav and footer links (D-017, D-031): no resting underline; on hover a 3px
-   line grows in from the left. Text color and arrow stay put. Focus shows only the card's ring. */
 /* Stretched link: the whole card is the click target. */
 .link::after {
 	content: '';
@@ -170,16 +126,6 @@
 
 .link:focus-visible {
 	outline: none;
-}
-
-/* The card link never changes color or underline: every state stays at the palette color. */
-.link {
-	color: var(--card-fg);
-	text-decoration: none;
-}
-
-.link svg {
-	fill: currentcolor;
 }
 
 /* Preview: the sample UI is cropped by the card's right and bottom edges, on purpose. It is
@@ -362,20 +308,20 @@
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
 	.card {
 		transition:
-			background-color 0.2s ease,
-			transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-			box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+			background-color var(--motion-duration-base) var(--motion-ease-standard),
+			transform var(--motion-duration-slow) var(--motion-ease-out),
+			box-shadow var(--motion-duration-slow) var(--motion-ease-out);
 	}
 
 	.card:hover {
 		transform: translateY(calc(-1 * var(--size-space-sm)));
-		box-shadow: 0 24px 48px -20px var(--card-shadow);
+		box-shadow: var(--shadow-lift);
 	}
 
 	.image {
 		transition:
-			width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-			min-height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+			width var(--motion-duration-slower) var(--motion-ease-out),
+			min-height var(--motion-duration-slower) var(--motion-ease-out);
 	}
 
 	/* Wider, not scaled or shifted: the top-left corner stays put so the crop does not move. A short
@@ -403,13 +349,13 @@
 :global([data-theme='dark']) .card {
 	--card-fg: var(--color-content-emphasis);
 	--card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
-	--card-shadow: oklch(0 0 0 / 0.5);
+	--shadow-lift-color: oklch(0 0 0 / 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
 	:global(:root:not([data-theme='light'])) .card {
 		--card-fg: var(--color-content-emphasis);
 		--card-lift: 30%;
-		--card-shadow: oklch(0 0 0 / 0.5);
+		--shadow-lift-color: oklch(0 0 0 / 0.5);
 	}
 }

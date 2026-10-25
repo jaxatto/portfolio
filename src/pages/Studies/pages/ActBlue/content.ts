@@ -21,10 +21,10 @@ const content = {
             'I was the sole designer, embedded with product and engineering. I led a complete rebuild of the integration, from setup and configuration to sync visibility and error recovery.',
         ],
         chips: [
-            { label: 'B2B', theme: 'tertiary' },
-            { label: 'Nonprofit', theme: 'tertiary' },
-            { label: 'Product Design', theme: 'secondary' },
-            { label: 'Systems Thinking', theme: 'secondary' },
+            { label: 'B2B' },
+            { label: 'Nonprofit' },
+            { label: 'Product Design' },
+            { label: 'Systems Thinking' },
         ] as ChipData[],
         compare: {
             before: {

@@ -12,7 +12,7 @@
 	box-sizing: border-box;
 	width: 100%;
 	max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
-	min-height: 44px;
+	min-height: var(--size-target-lg);
 	margin-inline: auto;
 	padding-inline: var(--size-space-2xl);
 }
@@ -34,7 +34,7 @@
 	display: flex;
 	align-items: center;
 	gap: var(--size-space-sm);
-	height: 44px;
+	height: var(--size-target-lg);
 	/* Same face and size as the brand, so the two read as one line. */
 	font-family: var(--font-family-heading);
 	font-size: var(--font-style-heading-md-size);
@@ -84,7 +84,7 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-	height: 44px;
+	height: var(--size-target-lg);
 	border-radius: var(--size-radius-sm);
 	color: var(--color-content-variant);
 	font-family: var(--font-family-heading);
@@ -94,8 +94,10 @@
 	text-decoration: none;
 }
 
-.brand:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.brand:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .brand:active {
@@ -107,7 +109,7 @@
 	align-items: center;
 	/* Tight to the nav labels: the icon button already has its own internal padding. */
 	gap: var(--size-space-sm);
-	height: 44px;
+	height: var(--size-target-lg);
 }
 
 .controls nav,
@@ -146,8 +148,10 @@
 	text-decoration: none;
 }
 
-.nav-link:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.nav-link:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .nav-link:active {
@@ -161,11 +165,13 @@
 .nav-link[aria-current='page']::after {
 	transform: scaleX(1);
 	transform-origin: left center;
-	animation: grow-line 0.45s cubic-bezier(0.4, 0.2, 0.2, 1) both;
+	animation: grow-line var(--motion-duration-slow) var(--motion-ease-emphasized) both;
 }
 
-.nav-link[aria-current='page']:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.nav-link[aria-current='page']:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .nav-link[aria-current='page']:active {
@@ -199,9 +205,9 @@
 .brand,
 .nav-link {
 	transition:
-		color 0.2s ease,
-		text-decoration-color 0.2s ease,
-		text-underline-offset 0.2s ease;
+		color var(--motion-duration-base) var(--motion-ease-standard),
+		text-decoration-color var(--motion-duration-base) var(--motion-ease-standard),
+		text-underline-offset var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .skip-link {
@@ -259,7 +265,7 @@
 	/* Always stacked in the nav's left slot, one line per span (D-098, D-106). */
 	flex-direction: column;
 	/* Centers the first line on the 44px nav row: half of (44px minus one line), at any font size. */
-	margin: calc((44px - 1em * var(--font-line-height-default)) / 2) 0 0;
+	margin: calc((var(--size-target-lg) - 1em * var(--font-line-height-default)) / 2) 0 0;
 	color: var(--color-content-secondary);
 	/* Same face and weight as the sentence below (Inter, regular): Manrope at the same weight read too
 	   light, and a bold label read as another nav item. */
@@ -310,7 +316,7 @@
 /* Mobile (no Figma design, D-008; D-018): the nav row is a bar (links left, toggle at the right edge,
    hairline under it), the role moves from the bar to a byline under the greeting, and the sentence
    steps down one size. */
-@media (width <= 640px) {
+@media (max-width: 640px) {
 	.bar {
 		flex-wrap: wrap;
 		row-gap: var(--size-space-sm);

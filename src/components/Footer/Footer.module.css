@@ -94,12 +94,14 @@
 	content: '';
 	position: absolute;
 	inset-inline: 0;
-	top: min(0px, calc((100% - 44px) / 2));
-	bottom: min(0px, calc((100% - 44px) / 2));
+	top: min(0px, calc((100% - var(--size-target-lg)) / 2));
+	bottom: min(0px, calc((100% - var(--size-target-lg)) / 2));
 }
 
-.main .email:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.main .email:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .icon-link {
@@ -110,12 +112,12 @@
 	justify-content: center;
 	/* Same target, radius, line inset and focus ring as the nav's mode toggle, so the right edge of
 	   the icon row lines up with it. */
-	width: 40px;
-	height: 40px;
+	width: var(--size-target-md);
+	height: var(--size-target-md);
 	border-radius: var(--size-radius-md);
 	/* Violet at rest like the email link (D-107). */
 	color: var(--color-content-link);
-	transition: color 0.2s ease;
+	transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 .icon-link::after {
@@ -130,8 +132,10 @@
 	fill: currentcolor;
 }
 
-.icon-link:hover {
-	color: var(--color-primary-default);
+@media (hover: hover) {
+	.icon-link:hover {
+		color: var(--color-primary-default);
+	}
 }
 
 .icon-link:active {
@@ -191,7 +195,7 @@
 }
 
 /* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
-@media (width <= 640px) {
+@media (max-width: 640px) {
 	.row {
 		flex: initial;
 	}

@@ -14,7 +14,7 @@ export const THEMES = ['light', 'dark'] as const;
 export type ThemeId = (typeof THEMES)[number];
 export type ThemePreference = ThemeId | 'system';
 
-export const THEME_STORAGE_KEY = 'theme';
+const THEME_STORAGE_KEY = 'theme';
 const PREVIEW_STORAGE_KEY = 'themePreview';
 
 // Theme switching is off by default (VITE_THEME_SWITCHING in .env). While off, the site is
@@ -111,9 +111,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 		document
 			.querySelector('meta[name="theme-color"]')
 			?.setAttribute('content', THEME_COLORS[theme]);
-		document
-			.querySelector('meta[name="color-scheme"]')
-			?.setAttribute('content', 'light dark');
 		return () => window.clearTimeout(timer);
 	}, [preference, theme]);
 

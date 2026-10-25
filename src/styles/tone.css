@@ -1,8 +1,8 @@
 /* Tone scopes (D-109). A tone re-points the semantic tokens inside one section, so shared components
    (TextLink, the icon links, the name tag and so on) recolor themselves without knowing about it.
-   Today there is one: data-tone="blue", the footer band in dark mode, where text and link tokens go to
-   their on-accent values (soft indigo hovers) on the indigo-tinted ground. Portaled UI (the Tooltip)
-   copies its control's tone onto itself, so a tooltip in the footer wears the same blue. The ground
+   There are two. `blue` is the footer band in dark mode, where text and link tokens go to their on-accent
+   values (soft indigo hovers) on the indigo-tinted ground. `error` is the 404, an indigo ground in both
+   themes. Portaled UI (the Tooltip) copies its control's tone onto itself, so a tooltip in the footer wears the same blue. The ground
    color itself stays with the section (Footer.module.css). Selectors mirror theme.css: an explicit
    data-theme, or the OS setting when nothing is stored. */
 
@@ -35,4 +35,22 @@
 		--tag-bg: var(--color-content-on-accent-hover);
 		--tag-fg: var(--color-surface-default);
 	}
+}
+
+/* The 404 (D-038): the page sets its own indigo ground, and every token the shared header and links read is
+   re-pointed to an on-accent value. The same in both themes, since the ground is indigo in both. */
+[data-tone='error'] {
+	--color-content-default: var(--color-content-on-accent);
+	--color-content-variant: var(--color-content-on-accent);
+	--color-content-emphasis: var(--color-content-on-accent);
+	/* The header's tagline and ampersand (secondary, muted) are dark slate by default: unreadable here. */
+	--color-content-secondary: var(--color-content-on-accent-hover);
+	--color-content-muted: var(--color-content-on-accent-hover);
+	--color-content-default-hover: var(--color-content-on-accent-hover);
+	--color-content-default-active: var(--color-content-on-accent-active);
+	--color-primary-default: var(--color-content-on-accent-hover);
+	--color-primary-default-active: var(--color-content-on-accent-active);
+	--color-state-focus-ring: var(--color-content-on-accent);
+	/* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
+	--color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
 }

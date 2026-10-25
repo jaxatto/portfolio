@@ -54,7 +54,7 @@
 	height: auto;
 	padding: var(--size-space-3xl);
 	gap: var(--size-space-2xl);
-	background: var(--study-container, var(--color-surface-sunken));
+	background: var(--palette-container, var(--color-surface-sunken));
 }
 
 .framed .panel {

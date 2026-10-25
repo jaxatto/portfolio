@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@components/Layout';
-import Icon from '#components/Icon';
+import Button from '#components/Button';
+import { chipPalettes } from '#components/Chip';
 import RoleLines from '#components/RoleLines';
 import { contactInfo } from '@constants/contactInfo';
 import { roleLines } from '@constants/roleLines';
@@ -21,8 +22,6 @@ const facts = [
   { value: '8 systems', label: 'Design systems contributed to in production' },
   { value: 'Remote-first', label: 'Based in Texas, on Central Time' },
 ];
-
-const chipPalettes = ['primary', 'secondary', 'tertiary', 'quaternary'] as const;
 
 const Resume: React.FC = () => (
   <Layout
@@ -51,14 +50,12 @@ const Resume: React.FC = () => (
         unify multi-team ecosystems and build in accessibility at scale.
       </p>
       <div className={styles.actions}>
-        <a className={styles.button} href={contactInfo.resume.src} target="_blank" rel="noopener noreferrer">
-          <Icon name="download" className={styles.buttonIcon} aria-hidden="true" />
+        <Button href={contactInfo.resume.src} newTab icon="download" iconPosition="start" className={styles.action}>
           Download resume (PDF)
-        </a>
-        <a className={`${styles.button} ${styles.outline}`} href={contactInfo.email.src}>
-          <Icon name="envelope-simple" className={styles.buttonIcon} aria-hidden="true" />
+        </Button>
+        <Button variant="outline" href={contactInfo.email.src} icon="envelope-simple" iconPosition="start" className={styles.action}>
           Contact
-        </a>
+        </Button>
       </div>
       </div>
       <dl className={styles.facts}>

@@ -146,10 +146,6 @@ export type SizeCategory = keyof Primitives['sizes'];
 export type SizeStep<TCategory extends SizeCategory> =
 	keyof Primitives['sizes'][TCategory];
 
-export type ShadowCategory = keyof Primitives['shadow'];
-export type ShadowStep<TCategory extends ShadowCategory> =
-	keyof Primitives['shadow'][TCategory];
-
 // Helper type to decouple the generic definition from the specific layout properties
 type BaseSemanticThemeSizes = {
 	[K in SizeCategory]: Record<string, string>;
@@ -166,27 +162,13 @@ export type SemanticThemeSizes = BaseSemanticThemeSizes & {
 		width: keyof BaseSemanticThemeSizes['border-width'];
 		offset: keyof BaseSemanticThemeSizes['border-width'];
 	};
+	target: { md: string; lg: string };
 	'border-width': {
 		none: keyof BaseSemanticThemeSizes['border-width'];
 		thin: keyof BaseSemanticThemeSizes['border-width'];
 		default: keyof BaseSemanticThemeSizes['border-width'];
 		thick: keyof BaseSemanticThemeSizes['border-width'];
 	};
-};
-
-export type SemanticThemeShadow = {
-	blur: Record<string, string>;
-	spread: Record<string, string>;
-	x: Record<string, string>;
-	y: Record<string, string>;
-	color: {
-		default: { color: ColorMode; opacity: string };
-	};
-} & {
-	[K in ColorGroup]: Record<
-		'default' | 'hover' | 'active',
-		{ color: ColorMode; opacity: string }
-	>;
 };
 
 /* ------------------------------------------------------------- */
@@ -198,5 +180,4 @@ export type SemanticTheme = {
 	colors: SemanticThemeColors;
 	font: SemanticThemeTypography;
 	sizes: SemanticThemeSizes;
-	shadow: SemanticThemeShadow;
 };

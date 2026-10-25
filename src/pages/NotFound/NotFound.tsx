@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Icon from '#components/Icon';
+import Button from '#components/Button';
 import Header from '@components/Header';
 import Meta from '@components/Meta';
 import { content } from '@pages/NotFound/resources/content';
@@ -13,26 +12,26 @@ const NotFound: React.FC = () => {
   );
 
   return (
-  // The page keeps its own dark ground; the shared nav header sits on it, recolored via tokens.
-  <div className={styles.page}>
-    <Meta
-      title="Page not found | Jax Engel"
-      metaDescription="This page doesn’t exist. Head back to Jax Engel’s portfolio."
-    />
-    <Header />
-  <div className={styles.wrapper}>
-    <div className={styles.main}>
-      <div className={styles.copy}>
-        <h1 className={styles.title}>{content.title}</h1>
-        <p className={styles.description}>{description}</p>
-      </div>
-      <Link to={content.button.src} className={styles.button}>
-        {content.button.label}
-        <Icon name="arrow-right" className={styles.icon} aria-hidden="true" />
-      </Link>
+    // The page keeps its own dark ground; the shared nav header sits on it, recolored via tokens.
+    <div className={styles.page} data-tone="error">
+      <Meta
+        title="Page not found | Jax Engel"
+        metaDescription="This page doesn’t exist. Head back to Jax Engel’s portfolio."
+      />
+      <Header />
+      {/* The skip link in the header lands here. Not a control, so it draws no ring (D-082). */}
+      <main id="main-content" tabIndex={-1} className={styles.wrapper}>
+        <div className={styles.main}>
+          <div className={styles.copy}>
+            <h1 className={styles.title}>{content.title}</h1>
+            <p className={styles.description}>{description}</p>
+          </div>
+          <Button variant="inverted" to={content.button.src} icon="arrow-right" className={styles.button}>
+            {content.button.label}
+          </Button>
+        </div>
+      </main>
     </div>
-  </div>
-  </div>
   );
 };
 
