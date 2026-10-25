@@ -80,7 +80,7 @@
    violet text and a line that grows in from the left at the same position (see .nav-link). */
 .brand {
   composes: line from '#styles/line.module.css';
-  --line-bottom: 2px;
+  --line-bottom: var(--size-border-width-default);
   position: relative;
   display: flex;
   align-items: center;
@@ -133,7 +133,7 @@
    underline here. See D-017. */
 .nav-link {
   composes: line from '#styles/line.module.css';
-  --line-bottom: 2px;
+  --line-bottom: var(--size-border-width-default);
   position: relative;
   display: flex;
   align-items: center;
@@ -334,7 +334,7 @@
     content: '';
     position: absolute;
     right: 0;
-    bottom: 2px;
+    bottom: var(--size-border-width-default);
     left: 0;
     z-index: var(--layer-behind);
     height: var(--size-border-width-default);

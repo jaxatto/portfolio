@@ -214,7 +214,7 @@
 
   /* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-028). */
   .horizontal.enlarge .image {
-    --image-w: calc(112% + 40px);
+    --image-w: calc(112% + var(--size-space-4xl));
     width: var(--image-w);
   }
 }
