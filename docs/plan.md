@@ -25,7 +25,7 @@ Slices 0 to 6 are merged into `redesign`. Remaining: Jax's Resume refinements (s
 Batches 1 to 4 are done (regressions, dead code, tokens, shared components). Not handled yet, in the order proposed:
 
 - **Batch 5, consistency:** move every `@` import to `#` and delete the `@` aliases in vite, tsconfig and `package.json`. `moduleResolution` Node to Bundler. Colocate `commonTypes/study` with Studies. Fix indentation drift in Resume.tsx, NotFound.tsx, StudyTemplate.tsx. Tooltip reads `refs.domReference.current` during render.
-- **Batch 6, performance and SEO:** done except two items. Image width/height attributes are not set (the images are imported URLs with no known size, so lazy images below the fold can shift the page as they load). Self-hosting the fonts is not done (two third-party connections, not measured). Home PNG samples with alpha were left as they are.
+- **Batch 6, performance and SEO:** done except two items. Image width and height are set from the file (D-123). Self-hosting the fonts is not done (two third-party connections, not measured). Home PNG samples with alpha were left as they are.
 - **Batch 7, docs and comments:** stale CLAUDE.md lines, the plan.md Setup section and dated TODOs, decisions.md ordering (D-082 holds text from D-081 and D-067, D-085 before D-083, D-038 has no heading), README. Remove change-log comments ("was 24 / 32, +8px per Jax" and similar). Write the comment convention into CLAUDE.md.
 - **Decided (2026-10-25):** keep Floating UI (D-103). Keep the `Image` fallback component and its cat, controller and paw icons.
 - **TODO(jax):** explore what the `Image` fallback looks like when a photo fails to load, and whether the About page should use it differently.

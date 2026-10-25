@@ -1,14 +1,14 @@
-import primaryImage from '#assets/about/primary-image-min.jpg';
-import secondaryImage from '#assets/about/secondary-image-min.jpg';
-import tertiaryImage from '#assets/about/tertiary-image-min.jpg';
-import quaternaryImage from '#assets/about/quaternary-image-min.jpg';
+import primaryImage from '#assets/about/primary-image-min.jpg?size';
+import secondaryImage from '#assets/about/secondary-image-min.jpg?size';
+import tertiaryImage from '#assets/about/tertiary-image-min.jpg?size';
+import quaternaryImage from '#assets/about/quaternary-image-min.jpg?size';
 
 // Order is Kirby, Beau, Midna, Zelda (pose and tone alternate). `alt` only describes the photo;
 // the personality lines live in `caption`, which sighted visitors see under each photo.
 // Captions are Jax's flavor text.
 export const images = [
   {
-    src: secondaryImage,
+    ...secondaryImage,
     name: 'Kirby',
     palette: 'primary',
     caption: 'Sweet and cuddly boy.',
@@ -17,7 +17,7 @@ export const images = [
     altFallback: 'A paw icon as fallback for the image of Kirby the dog.',
   },
   {
-    src: tertiaryImage,
+    ...tertiaryImage,
     name: 'Beau',
     palette: 'secondary',
     caption: 'Menace to society.',
@@ -26,7 +26,7 @@ export const images = [
     altFallback: 'A paw icon as fallback for the image of Beauregard the cat.',
   },
   {
-    src: primaryImage,
+    ...primaryImage,
     name: 'Midna',
     palette: 'tertiary',
     caption: 'Thinking evil thoughts.',
@@ -35,7 +35,7 @@ export const images = [
     altFallback: 'A cat icon as fallback for the image of Midna the cat.',
   },
   {
-    src: quaternaryImage,
+    ...quaternaryImage,
     name: 'Zelda',
     palette: 'quaternary',
     caption: 'Having zero thoughts.',

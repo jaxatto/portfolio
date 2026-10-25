@@ -14,7 +14,7 @@ import styles from './StudyCard.module.css';
 export type StudyCardProps = {
   title: string; // The problem solved
   outcome?: string; // One sentence of proof: what changed and Jax's part
-  image: string;
+  image: { src: string; width: number; height: number }; // From `import x from './x.png?size'`
   imageAlt?: string; // Empty by default: the preview is decorative next to the title
   linkUrl: string;
   linkText: string; // Full label, e.g. "Read the Indeed case study"
@@ -70,7 +70,9 @@ const StudyCard: React.FC<StudyCardProps> = ({
       <div className={styles.preview}>
         <div className={styles.sample}>
           <img
-            src={image}
+            src={image.src}
+            width={image.width}
+            height={image.height}
             alt={imageAlt}
             className={styles.image}
             loading={priority ? 'eager' : 'lazy'}
