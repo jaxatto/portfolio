@@ -79,7 +79,7 @@ const Resume: React.FC = () => (
         </Button>
       </div>
       </div>
-      {/* Stacks above the name below 900px, beside the intro from 900px (D-132). */}
+      {/* Stacks above the name below 900px, beside the intro from 900px (D-135). */}
       <figure className={styles.portrait}>
         <Image
           src={portrait.src}

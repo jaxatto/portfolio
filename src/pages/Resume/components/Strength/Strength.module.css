@@ -118,10 +118,10 @@
 	--shadow-lift-color: oklch(0 0 0 / 0.5);
 }
 
-@media (prefers-color-scheme: dark) {
-	:global(:root:not([data-theme='light'])) .card {
-		--card-fg: var(--color-content-emphasis);
-		--card-lift: 30%;
-		--shadow-lift-color: oklch(0 0 0 / 0.5);
-	}
+/* Forced colors drops the background, so the shape is drawn by an outline in the system text color. An outline
+   takes no space, so the layout is the same as without it (D-129). */
+@media (forced-colors: active) {
+  .card {
+    outline: var(--size-border-width-default) solid CanvasText;
+  }
 }

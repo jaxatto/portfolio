@@ -31,10 +31,8 @@ Hover and pressed washes recur (12% hover, 20% pressed, in BackToTop and the out
 | `components/Button/Button.module.css:75` | `.outline:active` | `background: color-mix(in srgb, var(--color-primary-default-active) 20%, transparent)` |
 | `components/Button/Button.module.css:83` | `.outline:hover` ((hover: hover)) | `background: color-mix(in srgb, var(--color-primary-default-hover) 12%, transparent)` |
 | `components/Footer/Footer.module.css:178` | `[data-theme='dark']) .band` | `background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-cont` |
-| `components/Footer/Footer.module.css:188` | `:root:not([data-theme='light'])) .band` ((prefers-color-scheme: dark)) | `background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-cont` |
 | `components/StudyCard/StudyCard.module.css:23` | `.card` | `--shadow-lift-color: color-mix(in oklch, var(--card-fg) 55%, transparent)` |
 | `components/StudyCard/StudyCard.module.css:352` | `[data-theme='dark']) .card` | `--shadow-lift-color: oklch(0 0 0 / 0.5)` |
-| `components/StudyCard/StudyCard.module.css:359` | `:root:not([data-theme='light'])) .card` ((prefers-color-scheme: dark)) | `--shadow-lift-color: oklch(0 0 0 / 0.5)` |
 | `styles/tone.css:55` | `[data-tone='error']` | `--color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent)` |
 
 ## Layering (4)
@@ -185,7 +183,6 @@ These are the component API (`--line-bottom`, `--line-inset`, `--card-lift`, `--
 | `components/StudyCard/StudyCard.module.css:211` | `.horizontal:not(.enlarge) .image` ((min-width: 641px)) | `--image-w: calc(112% + 2 * var(--size-border-width-default))` |
 | `components/StudyCard/StudyCard.module.css:217` | `.horizontal.enlarge .image` ((min-width: 641px)) | `--image-w: calc(112% + 40px)` |
 | `components/StudyCard/StudyCard.module.css:351` | `[data-theme='dark']) .card` | `--card-lift: 30%` |
-| `components/StudyCard/StudyCard.module.css:358` | `:root:not([data-theme='light'])) .card` ((prefers-color-scheme: dark)) | `--card-lift: 30%` |
 
 ## Transform / filter (4)
 

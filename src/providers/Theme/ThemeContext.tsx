@@ -93,11 +93,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       timer = window.setTimeout(() => root.classList.remove('theme-fading'), 900);
     }
     hasAppliedTheme.current = true;
-    if (preference === 'system') {
-      root.removeAttribute('data-theme');
-    } else {
-      root.setAttribute('data-theme', preference);
-    }
+    // Always the theme being shown, so the CSS needs no prefers-color-scheme blocks (D-128).
+    root.setAttribute('data-theme', theme);
     document
       .querySelector('meta[name="theme-color"]')
       ?.setAttribute('content', THEME_COLORS[theme]);

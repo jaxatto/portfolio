@@ -33,8 +33,10 @@
   --chip-fg: var(--color-content-emphasis);
 }
 
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .tinted {
-    --chip-fg: var(--color-content-emphasis);
+/* Forced colors drops the background, so the shape is drawn by an outline in the system text color. An outline
+   takes no space, so the layout is the same as without it (D-129). */
+@media (forced-colors: active) {
+  .chip {
+    outline: var(--size-border-width-default) solid CanvasText;
   }
 }

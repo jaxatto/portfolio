@@ -7,9 +7,3 @@
 :global([data-theme='dark']) .amp {
   color: inherit;
 }
-
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .amp {
-    color: inherit;
-  }
-}

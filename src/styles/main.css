@@ -25,6 +25,16 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Browser-drawn parts (scrollbars, form controls, default outlines) follow the site's theme, not the OS
+   setting that the color-scheme meta tag reports (D-128). */
+html {
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
 a,
 p {
   margin: 0;

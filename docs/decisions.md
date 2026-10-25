@@ -575,7 +575,7 @@ The codebase mixed tabs and spaces, and single and double quotes, file by file. 
 
 ## D-122: Lazy images and per-route meta at build time — decided, 2026-10-25
 
-Images below the fold use `loading="lazy"` and `decoding="async"`. The first Home card, the study header image, compare and panels set `priority` and load at once. The Toyota sample is resized from 1664 to 1000px wide (294 kB to 127 kB, same ratio, still twice its 460px display width). `scripts/prerender-meta.ts` runs in `postbuild` and writes `dist/<route>/index.html` for About, Resume and the four studies, with that page's title, description, canonical and og tags. Crawlers do not run JavaScript, so a shared case study link now previews as itself and not as Home. A new route needs an entry in that script. Home and the 404 keep the `index.html` defaults.
+Images below the fold use `loading="lazy"` and `decoding="async"`. The first Home card, the study header image, compare and panels set `priority` and load at once. The Toyota sample is resized from 1664 to 1000px wide (294 kB to 127 kB, same ratio, still twice its 460px display width). `scripts/prerender-meta.ts` runs in `postbuild` and writes `dist/<route>/index.html` for About, Resume and the four studies, with that page's title, description, canonical and og tags. Crawlers do not run JavaScript, so a shared case study link now previews as itself and not as Home. A new route needs an entry in that script. Home and the 404 keep the `index.html` defaults. The canonical and `og:url` of each route end in a slash (`/about/`) because GitHub Pages serves the directory file there and redirects the slash-less path to it.
 
 ## D-123: Fifth color group, quinary (green) — decided, 2026-10-25
 
@@ -597,11 +597,11 @@ The Resume page drops the Skills and tools chips (the PDF carries the full list)
 
 Inter, Manrope and Roboto Mono are the latin subset of Google's variable files, saved in `public/fonts` and declared in `src/styles/fonts.css` with one `@font-face` per family and a weight range, so every weight the site uses comes from one file (86 kB in all, the same bytes as before). `index.html` preloads Inter and Manrope and no longer connects to fonts.googleapis.com or fonts.gstatic.com. The 21 kB Google stylesheet and its two connections are gone from the path to first paint. The unicode-range is Google's latin range, which covers every character in `src` and `index.html` (checked by script). Anything outside it, for example a name in another script, would fall back to a system font. To add a weight outside a family's range or another subset, download that file the same way and add a rule.
 
-## D-128: Footer line and 404 quips settled — decided, 2026-10-25
+## D-133: Footer line and 404 quips settled — decided, 2026-10-25
 
 Jax settled the footer line ("Open to remote Staff Product Designer and Design Engineer roles.", D-021, D-024) and the seven 404 quips (D-022). The provisional markers are removed.
 
-## D-129: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
+## D-134: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
 
 Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUDE.md` now has a No-nos section: never raise the Toyota token count as a proof point, never style h1 to h6 directly (classes carry the look, tags carry the structure), and do not bring up the audit. The Resume strengths proof line for Toyota no longer cites the token count. Known direct heading styling to fix: the tag reset in `main.css` and the `.story section > h2 + *` selector in `About.module.css`.
 
@@ -609,6 +609,21 @@ Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUD
 
 The heading reset in `main.css` (margin and padding on h1 to h6) is gone, so no rule targets a heading element. Every heading takes margin 0 from its type step in `type.module.css`. The About `section > h2 + *` selector became `margin-bottom` on the `.heading` class (still 12px under the heading, D-057). Checked on every route at 1280: all headings compute to zero margin and padding except the two About h2s, which carry the intended -12px bottom margin.
 
-## D-132: Resume header portrait with a cursor tag — decided, 2026-10-25
+## D-135: Resume header portrait with a cursor tag — decided, 2026-10-25
 
 The Resume header carries a square portrait on the right (14rem tablet, 18rem desktop) with the violet "Jax" cursor tag at the bottom-right, the same tag as the About photos. It fills the empty right half of the header and puts a face on the page. Below 900px it stacks above the name (14rem wide). The tag is violet and the photo takes the About photo hover (4% zoom, tag nudges up and left). The name uses the About h1 size (48px, 56px from 900px). The photo is Jax's own (not AI-generated), cropped 5% in from each edge to remove a glow around the edges, and exported as `src/assets/resume/portrait-min.jpg` at 960px. The Core strengths card titles use a new `headingMd` step in `type.module.css`, and the header has 40px more space below it and 16px more above the buttons.
+## D-128: data-theme always holds the theme being shown — decided, 2026-10-25
+
+The inline script in `index.html` and `ThemeProvider` now set `data-theme` to the resolved theme (stored choice, else the OS setting) and never leave it off. The `prefers-color-scheme` copies are deleted: the second dark block in `theme.css` (the generator no longer writes it) and six component or tone blocks (`tone.css`, Footer, RoleLines, StudyCard, Chip, Resume Strength). Dark is written once, as `[data-theme='dark']`. The cost is that a visitor with JavaScript off sees light mode, which is every visitor of this app. Checked in the browser on Home, About, Resume, Indeed, Toyota and the 404 at 1280, in four cases (OS dark or light, stored theme or none): the computed color, background, border, shadow, fill and opacity of every element matched the previous build in all 24 combinations. `theme.css` is 25.8 kB. `main.css` sets `color-scheme` from `data-theme`, so browser-drawn parts (scrollbars, form controls) follow the site's theme and not the OS when they differ. The meta tag still says `light dark` for the moment before the CSS loads.
+
+## D-129: Forced colors keeps the shape of cards, chips and buttons — decided, 2026-10-25
+
+With `forced-colors: active` the browser drops backgrounds, so study cards, chips, Resume strength cards and the filled and inverted buttons lost their shape. Each now draws a 2px `CanvasText` outline inside a `@media (forced-colors: active)` block. An outline takes no space and the rule exists only in that mode, so the normal look and the layout are unchanged. Checked in emulated forced colors on Home, Resume, Indeed and the 404: the shapes show and nothing overflows.
+
+## D-131: SEO copy settled; dark mode switching on — decided, 2026-10-25
+
+Home takes the About description ("Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX."), in `Work.tsx` and the static tags in `index.html`. About gets its own line built on the page's front-end foundation wording. Resume, ActBlue, ServiceNow and Toyota descriptions lead with what Jax did and stay under about 155 characters. The unused `keywords` fields are deleted from every `meta.ts` (search engines ignore them). `VITE_THEME_SWITCHING` is `true` in `.env`: the toggle ships and the site follows the OS until a visitor picks a theme (D-006, D-011).
+
+## D-132: Figma retired; footer tablet settled — decided, 2026-10-25
+
+The project ignores Figma entirely. Code and this file are the only source of truth, for built pages and new ones. The footer keeps the desktop row from 641px and stacks at 640px and under, with no tablet-specific layout.

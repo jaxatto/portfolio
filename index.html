@@ -5,11 +5,11 @@
     <meta name="author" content="Jax Engel" />
     <meta name="robots" content="index, follow" />
     <title>Jax Engel | Staff Product Designer and Design Engineer</title>
-    <meta name="description" content="Jax Engel is a staff product designer who designs and builds accessible products and the systems behind them: enterprise tools, fintech, design systems and AI-assisted workflows." />
+    <meta name="description" content="Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Jax Engel | Staff Product Designer and Design Engineer">
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Staff product designer who designs and builds accessible products and the systems behind them: enterprise tools, fintech, design systems and AI-assisted workflows." />
+    <meta property="og:description" content="Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX." />
     <meta property="og:image" content="https://jaxengeldesign.com/social-preview-min.png">
     <meta name="twitter:image" content="https://jaxengeldesign.com/social-preview-min.png">
     <meta property="og:url" content="https://jaxengeldesign.com/">
@@ -26,8 +26,9 @@
     <link rel="canonical" href="https://jaxengeldesign.com/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="b2deb163-967d-4d93-8159-1cadd6efc9cf"></script>
     <script>
-      // Apply the theme before first paint to avoid a flash. Mirrors ThemeProvider:
-      // while theme switching is gated (VITE_THEME_SWITCHING), the site is pinned to light.
+      // Apply the theme before first paint to avoid a flash. Mirrors ThemeProvider: data-theme always
+      // holds the theme being shown, the OS setting when nothing is stored (D-128). While theme
+      // switching is gated (VITE_THEME_SWITCHING), the site is pinned to light.
       (function () {
         var root = document.documentElement;
         var theme = 'light';
@@ -40,13 +41,11 @@
             var t = localStorage.getItem('theme');
             if (t === 'light' || t === 'dark') theme = t;
             else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
-            if (t === 'light' || t === 'dark') root.setAttribute('data-theme', t);
-          } else {
-            root.setAttribute('data-theme', 'light');
           }
         } catch (e) {
-          root.setAttribute('data-theme', 'light');
+          theme = 'light';
         }
+        root.setAttribute('data-theme', theme);
         var m = document.querySelector('meta[name="theme-color"]');
         if (m) m.setAttribute('content', theme === 'dark' ? '#0f172b' : '#ffffff');
       })();
