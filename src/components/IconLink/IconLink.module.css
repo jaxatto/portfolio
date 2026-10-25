@@ -1,0 +1,16 @@
+.link {
+  composes: iconControl from '#styles/iconControl.module.css';
+  display: flex;
+  --line-inset: var(--size-icon-inset-lg);
+  /* Violet at rest like the email link (D-107). */
+  --icon-control-color: var(--color-content-link);
+}
+
+.link svg {
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
+  /* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
+  fill: currentcolor;
+  /* Rises a pixel to clear the hover line (D-140). */
+  transform: translateY(calc(-1 * var(--size-icon-optical)));
+}

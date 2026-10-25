@@ -2,6 +2,7 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Icon from '#components/Icon';
 import palettes from '#styles/palette.module.css';
+import type { ColorGroup } from '#tokens/types';
 import styles from './Strength.module.css';
 
 // A strength with its proof (D-124): a card in a study's color with the same hover as the work cards
@@ -13,7 +14,7 @@ type StrengthProps = {
   proof: string;
   to: string;
   linkText: string;
-  palette: 'brand' | 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+  palette: ColorGroup;
 };
 
 const Strength: React.FC<StrengthProps> = ({ title, proof, to, linkText, palette }) => (

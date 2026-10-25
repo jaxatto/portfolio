@@ -4,46 +4,12 @@
    like the nav links: no color change, no line. See D-017. */
 
 .button {
-  composes: line from '#styles/line.module.css';
-  /* Glyph inset in the target plus 1px, the same rule as the footer icons. */
-  --line-inset: calc((var(--size-target-md) - var(--size-icon-lg)) / 2 + 1px);
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--size-target-md);
-  height: var(--size-target-md);
+  composes: iconControl from '#styles/iconControl.module.css';
+  --line-inset: var(--size-icon-inset-lg);
   padding: 0;
   border: 0;
-  border-radius: var(--size-radius-md);
   background: none;
-  /* Same near-black as the nav labels. */
-  color: var(--color-content-variant);
   cursor: pointer;
-  transition: color var(--motion-duration-base) var(--motion-ease-standard);
-}
-
-@media (hover: hover) {
-  .button:hover {
-    color: var(--color-primary-default-hover);
-  }
-}
-
-.button:active {
-  color: var(--color-primary-default-active);
-}
-
-/* The accent line under the icon: same size, easing and duration as the nav links' line, aligned to the
-   nav line's baseline (the button is 40px in a 44px row, so bottom: 0 lands on the same y). It grows
-   in from the left on hover and shrinks out to the right, like the nav. */
-.button:active::after {
-  background: var(--color-primary-default-active);
-}
-
-/* Keyboard focus also gets the focus ring (token), so it stays visible without a background. See D-014. */
-.button:focus-visible {
-  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
-  outline-offset: var(--size-focus-ring-offset);
 }
 
 /* Both icons share the slot. Light mode shows the moon (switch to dark); dark mode shows the sun. */
@@ -78,8 +44,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .button,
-  .button::after,
   .icon {
     transition: none;
   }

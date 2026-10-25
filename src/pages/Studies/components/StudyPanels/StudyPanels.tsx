@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import type { StudyPanelsData } from '#pages/Studies/types/studySection';
 import styles from './StudyPanels.module.css';
 
@@ -17,7 +18,7 @@ const StudyPanels: React.FC<StudyPanelsProps> = ({
   className,
   priority = false,
 }) => (
-  <figure className={`${styles.figure} ${framed ? styles.framed : ''} ${className ?? ''}`}>
+  <figure className={clsx(styles.figure, framed && styles.framed, className)}>
     <div className={styles.box}>
       {slices.map((slice) => (
         <div

@@ -28,6 +28,10 @@ All seven audit batches are done and merged (D-117 to D-127): regressions, dead 
 - **Firefox 132 and WebKit 18.2 (Playwright, 2026-10-25):** 8 routes, light and dark, 1280 and 375 (32 combinations each): no console errors, no horizontal scroll, one h1 per page, no broken images, self-hosted fonts load, the study h1 is 56px with line height 1.2. Behaviors match Chromium: focus moves to the h1 after navigation, a live OS light/dark switch updates `data-theme` and `color-scheme`, the card lift is 8px with the palette shadow, lazy images load on scroll. Firefox Tabs through the nav with 3px rings. WebKit's Tab key did not move focus past the skip link in the headless build. Jax checked real Safari keyboard use on 2026-10-25 and it works as expected (settled).
 - **Not tested:** real iOS and Android devices. Screen readers are in the Backlog.
 
+## Resume skills area (open, 2026-10-25)
+
+The Resume page has no skills area (D-124 removed the chips). Jax rejected seven layouts: grouped text rows, grouped chips, skills inside the case study cards, one paragraph, a skill by employer grid, a skills timeline and proof-number tiles (all deleted). Jax wants something that reads fast and is visual, and is not wordy. The PDF's four groups and its outcomes (Toyota 40+ teams, Albertsons 20+ teams and 5,000+ stores, ServiceNow 60%, Visa 20% SLAs) are the raw material. Next step is a new direction from Jax.
+
 ## Resume PDF (side task, 2026-10-24)
 
 Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Design Engineer and Design Engineer ATS. The public PDF is the main build and the only one the site links (decided 2026-10-25). Copies sit in `~/Desktop/resume/`. To revisit with Jax: more Design Engineer framing in the role bullets, the Toyota first bullet, whether the headline should change. Merge to `redesign` only when Jax says so.
@@ -60,5 +64,5 @@ Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner, `corner
 ## Backlog
 
 - **Screen reader test (Jax).** VoiceOver on a Mac: Cmd+F5, then Tab through the nav. Check that each page change announces the h1 (D-126), the photo list on About reads as a list with its intro, the card links name their study, the mode toggle states its mode and the tooltips do not double-announce.
-- **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md): the four first picks are done (D-130). Left are the exact-match literals (use `space-*` tokens), the 2px values and the single-use layout measures. See its last section.
+- **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md): the four first picks are done (D-139). Left are the exact-match literals (use `space-*` tokens), the 2px values and the single-use layout measures. See its last section.
 - **`Image` fallback.** Explore how it looks when an About photo fails to load (TODO(jax)).

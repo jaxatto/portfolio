@@ -18,6 +18,9 @@ export function buildEffectVars() {
   for (const [key, val] of Object.entries(effects.wash)) {
     staticVars.push(`  ${cssVarName('state', 'wash', key)}: ${val};`);
   }
+  staticVars.push(`  ${cssVarName('state', 'deepen')}: ${effects.deepen.amount};`);
+  lightVars.push(`  ${cssVarName('state', 'deepen', 'target')}: ${effects.deepen.target.light};`);
+  darkVars.push(`  ${cssVarName('state', 'deepen', 'target')}: ${effects.deepen.target.dark};`);
   for (const [key, val] of Object.entries(effects.layer)) {
     staticVars.push(`  ${cssVarName('layer', key)}: ${val};`);
   }

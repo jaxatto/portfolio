@@ -125,11 +125,8 @@
 }
 
 .caption {
+  composes: caption from '#styles/type.module.css';
   color: var(--color-content-soft);
-  font-family: var(--font-style-body-sm-family);
-  font-size: var(--font-style-body-sm-size);
-  line-height: var(--font-style-body-sm-line-height);
-  text-wrap: pretty;
 }
 
 .photoFrame {

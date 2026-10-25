@@ -262,6 +262,15 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       sm: '20px',
       md: '24px',
       lg: '28px',
+      // The drawn edge of these glyphs sits a pixel inside their box, so the hover line is inset by one
+      // more pixel and the glyph rises one (D-140).
+      optical: '1px',
+    },
+    // How far a glyph's drawn edge sits inside its 40px target: the hover line's inset, and the pull
+    // that lines a wrapped icon row up with the text edge.
+    'icon-inset': {
+      md: 'calc((var(--size-target-md) - var(--size-icon-md)) / 2 + var(--size-icon-optical))',
+      lg: 'calc((var(--size-target-md) - var(--size-icon-lg)) / 2 + var(--size-icon-optical))',
     },
     'border-width': {
       none: primitives.sizes['border-width'][0],

@@ -207,7 +207,7 @@ ModeToggle sun and moon turn (rotate 60deg, scale 0.6) and About photo hover (sc
 - `src/pages/Studies/components/*` and the study `content.ts` files: panel `weight`, `sourceWidth`, `sourceHeight` and slice pixels are per-image numbers (the parked `StudyMedia` rework in `docs/plan.md`).
 - Keyframes in `Header.module.css`, `HeroMarks.module.css` and `Tooltip.module.css` carry literal percentages and transforms.
 
-## Done (D-130, 2026-10-25)
+## Done (D-139, 2026-10-25)
 
 Icon sizes (`--size-icon-sm/md/lg`, 16, 24 and 28px), the state washes (`--state-wash-hover` 12% and `--state-wash-active` 20%), the layer order (`--layer-behind`, `raised`, `tooltip`, `skip-link`) and the `theme-color` pair (generated from `surface.default` into `src/tokens/themeColor.ts`) are tokens now. The rows above that point at them are kept for the record.
 
@@ -221,10 +221,10 @@ A scan of the length literals that are left (px and rem, 42 values) against the 
 
 - `1px` visually-hidden pattern (`.sr-only`, skip link): fixed by the technique.
 - `2px` in `Role` gap and `NameTag` padding (`space-xs + 2px`): spacing, not a border, so `--size-border-width-default` would say the wrong thing. Left.
-- `7px` footer icon underline inset and `-7px` margin, and `9px` ModeToggle `--line-inset`: now `(target - icon) / 2 + 1px` from the tokens (D-131).
-- HeroMarks `1px` and `2px` nudges and the `10px` tag margin: decided to stay as written (D-131).
+- `7px` footer icon underline inset and `-7px` margin, and `9px` ModeToggle `--line-inset`: now `(target - icon) / 2 + 1px` from the tokens (D-140).
+- HeroMarks `1px` and `2px` nudges and the `10px` tag margin: decided to stay as written (D-140).
 - `9px` in the TextLink fluid clamp: part of a tuned formula.
 
-**Far from any token (layout measures, keep as they are):** `17rem` and `12.5rem` card preview heights, `31.25rem`, `28.75rem` and `34.25rem` card geometry (D-028), `18.75rem` and `13.75rem` panel boxes, `14rem` and `38rem` Resume role columns, `900px` on the Home hero sentence (decided to stay, D-131).
+**Far from any token (layout measures, keep as they are):** `17rem` and `12.5rem` card preview heights, `31.25rem`, `28.75rem` and `34.25rem` card geometry (D-028), `18.75rem` and `13.75rem` panel boxes, `14rem` and `38rem` Resume role columns, `900px` on the Home hero sentence (decided to stay, D-140).
 
 **Em-based sizes** (`1em`, `1.2em` glyphs in Button, StudyCard, TextLink, ModeToggle) follow their text on purpose and are not icon tokens.

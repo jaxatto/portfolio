@@ -58,10 +58,6 @@
 }
 
 .row {
-  /* The glyph's drawn edge sits 1px inside its box. The hover line is inset by the glyph's own inset in
-     the 40px target plus that pixel, and the glyph rises 1px so it clears the line. */
-  --icon-optical: 1px;
-  --icon-line-inset: calc((var(--size-target-md) - var(--size-icon-lg)) / 2 + var(--icon-optical));
   display: flex;
   flex: none;
   flex-wrap: wrap;
@@ -70,7 +66,7 @@
   /* Wrapped under the email, the first glyph sits flush with the text edge: pull the row left by the
 	   glyph's inset in its 40px target. Side by side the row is flush right, so this has no effect. */
   margin: 0;
-  margin-inline-start: calc(-1 * var(--icon-line-inset));
+  margin-inline-start: calc(-1 * var(--size-icon-inset-lg));
   padding: 0;
   list-style: none;
 }
@@ -104,52 +100,12 @@
 
 @media (hover: hover) {
   .main .email:hover {
-    color: var(--color-primary-default-hover);
+    color: var(--link-hover);
   }
 }
 
 .main .email:active {
-  color: var(--color-primary-default-active);
-}
-
-.icon-link {
-  composes: line from '#styles/line.module.css';
-  --line-inset: var(--icon-line-inset);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Same target, radius and focus ring as the nav's mode toggle, so the right edge of the icon row lines
-     up with it. The line inset and the glyph's rise are set on .row. */
-  width: var(--size-target-md);
-  height: var(--size-target-md);
-  border-radius: var(--size-radius-md);
-  /* Violet at rest like the email link (D-107). */
-  color: var(--color-content-link);
-  transition: color var(--motion-duration-base) var(--motion-ease-standard);
-}
-
-.icon-link svg {
-  width: var(--size-icon-lg);
-  height: var(--size-icon-lg);
-  /* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
-  fill: currentcolor;
-  transform: translateY(calc(-1 * var(--icon-optical)));
-}
-
-@media (hover: hover) {
-  .icon-link:hover {
-    color: var(--color-primary-default-hover);
-  }
-}
-
-.icon-link:active {
-  color: var(--color-primary-default-active);
-}
-
-.icon-link:focus-visible {
-  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
-  outline-offset: var(--size-focus-ring-offset);
+  color: var(--link-active);
 }
 
 /* One footer on every page (D-049): the page ground, a 2px hairline across the content column, 40px more

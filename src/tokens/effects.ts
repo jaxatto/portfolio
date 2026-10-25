@@ -29,6 +29,13 @@ export const effects = {
     hover: '12%',
     active: '20%',
   },
+  // How much deeper a link's hover and pressed colors are than the Button's: the mix toward --state-deepen-target
+  // (black on a light ground, white on a dark one, so "deeper" is always more contrast). Sections on a dark
+  // ground (the tones in tone.css) set the target to white.
+  deepen: {
+    amount: '20%',
+    target: { light: 'oklch(0 0 none)', dark: 'oklch(1 0 none)' },
+  },
   // Stacking order, lowest to highest. Components name a layer, they never pick a number.
   layer: {
     behind: '-1',
@@ -53,6 +60,7 @@ export const effects = {
 } as const satisfies {
   duration: Record<string, string>;
   easing: Record<string, string>;
+  deepen: { amount: string; target: EffectMode };
   wash: Record<string, string>;
   layer: Record<string, string>;
   shadow: Record<string, string | EffectMode>;

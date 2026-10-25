@@ -64,12 +64,9 @@
 
 /* The caption is as wide as the pair (D-071). */
 .caption {
+  composes: caption from '#styles/type.module.css';
   width: 100%;
   color: var(--color-content-muted);
-  font-family: var(--font-style-body-sm-family);
-  font-size: var(--font-style-body-sm-size);
-  line-height: var(--font-style-body-sm-line-height);
-  text-wrap: pretty;
 }
 
 @media (max-width: 640px) {

@@ -96,12 +96,12 @@
 
 @media (hover: hover) {
   .brand:hover {
-    color: var(--color-primary-default-hover);
+    color: var(--link-hover);
   }
 }
 
 .brand:active {
-  color: var(--color-primary-default-active);
+  color: var(--link-active);
 }
 
 .controls {
@@ -150,12 +150,12 @@
 
 @media (hover: hover) {
   .nav-link:hover {
-    color: var(--color-primary-default-hover);
+    color: var(--link-hover);
   }
 }
 
 .nav-link:active {
-  color: var(--color-primary-default-active);
+  color: var(--link-active);
 }
 
 .nav-link[aria-current='page'] {
@@ -170,12 +170,12 @@
 
 @media (hover: hover) {
   .nav-link[aria-current='page']:hover {
-    color: var(--color-primary-default-hover);
+    color: var(--link-hover);
   }
 }
 
 .nav-link[aria-current='page']:active {
-  color: var(--color-primary-default-active);
+  color: var(--link-active);
 }
 
 @keyframes grow-line {

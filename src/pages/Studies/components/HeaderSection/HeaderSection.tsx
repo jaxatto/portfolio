@@ -53,7 +53,6 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
         src={image[0].src}
         alt={image[0].alt}
         caption={image[0].caption}
-        corners={image[0].corners}
         variant={image[0].variant}
         priority
         className={styles.media}

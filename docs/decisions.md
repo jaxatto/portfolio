@@ -597,21 +597,6 @@ The Resume page drops the Skills and tools chips (the PDF carries the full list)
 
 Inter, Manrope and Roboto Mono are the latin subset of Google's variable files, saved in `public/fonts` and declared in `src/styles/fonts.css` with one `@font-face` per family and a weight range, so every weight the site uses comes from one file (86 kB in all, the same bytes as before). `index.html` preloads Inter and Manrope and no longer connects to fonts.googleapis.com or fonts.gstatic.com. The 21 kB Google stylesheet and its two connections are gone from the path to first paint. The unicode-range is Google's latin range, which covers every character in `src` and `index.html` (checked by script). Anything outside it, for example a name in another script, would fall back to a system font. To add a weight outside a family's range or another subset, download that file the same way and add a rule.
 
-## D-133: Footer line and 404 quips settled — decided, 2026-10-25
-
-Jax settled the footer line ("Open to remote Staff Product Designer and Design Engineer roles.", D-021, D-024) and the seven 404 quips (D-022). The provisional markers are removed.
-
-## D-134: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
-
-Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUDE.md` now has a No-nos section: never raise the Toyota token count as a proof point, never style h1 to h6 directly (classes carry the look, tags carry the structure), and do not bring up the audit. The Resume strengths proof line for Toyota no longer cites the token count. Known direct heading styling to fix: the tag reset in `main.css` and the `.story section > h2 + *` selector in `About.module.css`.
-
-## D-130: Headings are never styled by their tag — decided, 2026-10-25
-
-The heading reset in `main.css` (margin and padding on h1 to h6) is gone, so no rule targets a heading element. Every heading takes margin 0 from its type step in `type.module.css`. The About `section > h2 + *` selector became `margin-bottom` on the `.heading` class (still 12px under the heading, D-057). Checked on every route at 1280: all headings compute to zero margin and padding except the two About h2s, which carry the intended -12px bottom margin.
-
-## D-135: Resume header portrait with a cursor tag — decided, 2026-10-25
-
-The Resume header carries a square portrait on the right (14rem tablet, 18rem desktop) with the violet "Jax" cursor tag at the bottom-right, the same tag as the About photos. It fills the empty right half of the header and puts a face on the page. Below 900px it stacks above the name (14rem wide). The tag is violet and the photo takes the About photo hover (4% zoom, tag nudges up and left). The name uses the About h1 size (48px, 56px from 900px). The photo is Jax's own (not AI-generated), cropped 5% in from each edge to remove a glow around the edges, and exported as `src/assets/resume/portrait-min.jpg` at 960px. The Core strengths card titles use a new `headingMd` step in `type.module.css`, and the header has 40px more space below it and 16px more above the buttons.
 ## D-128: data-theme always holds the theme being shown — decided, 2026-10-25
 
 The inline script in `index.html` and `ThemeProvider` now set `data-theme` to the resolved theme (stored choice, else the OS setting) and never leave it off. The `prefers-color-scheme` copies are deleted: the second dark block in `theme.css` (the generator no longer writes it) and six component or tone blocks (`tone.css`, Footer, RoleLines, StudyCard, Chip, Resume Strength). Dark is written once, as `[data-theme='dark']`. The cost is that a visitor with JavaScript off sees light mode, which is every visitor of this app. Checked in the browser on Home, About, Resume, Indeed, Toyota and the 404 at 1280, in four cases (OS dark or light, stored theme or none): the computed color, background, border, shadow, fill and opacity of every element matched the previous build in all 24 combinations. `theme.css` is 25.8 kB. `main.css` sets `color-scheme` from `data-theme`, so browser-drawn parts (scrollbars, form controls) follow the site's theme and not the OS when they differ. The meta tag still says `light dark` for the moment before the CSS loads.
@@ -619,6 +604,10 @@ The inline script in `index.html` and `ThemeProvider` now set `data-theme` to th
 ## D-129: Forced colors keeps the shape of cards, chips and buttons — decided, 2026-10-25
 
 With `forced-colors: active` the browser drops backgrounds, so study cards, chips, Resume strength cards and the filled and inverted buttons lost their shape. Each now draws a 2px `CanvasText` outline inside a `@media (forced-colors: active)` block. An outline takes no space and the rule exists only in that mode, so the normal look and the layout are unchanged. Checked in emulated forced colors on Home, Resume, Indeed and the 404: the shapes show and nothing overflows.
+
+## D-130: Headings are never styled by their tag — decided, 2026-10-25
+
+The heading reset in `main.css` (margin and padding on h1 to h6) is gone, so no rule targets a heading element. Every heading takes margin 0 from its type step in `type.module.css`. The About `section > h2 + *` selector became `margin-bottom` on the `.heading` class (still 12px under the heading, D-057). Checked on every route at 1280: all headings compute to zero margin and padding except the two About h2s, which carry the intended -12px bottom margin.
 
 ## D-131: SEO copy settled; dark mode switching on — decided, 2026-10-25
 
@@ -628,13 +617,37 @@ Home takes the About description ("Jax Engel is a staff product designer and des
 
 The project ignores Figma entirely. Code and this file are the only source of truth, for built pages and new ones. The footer keeps the desktop row from 641px and stacks at 640px and under, with no tablet-specific layout.
 
-## D-130: Icon size, state wash, layer and theme-color tokens — decided, 2026-10-25
+## D-133: Footer line and 404 quips settled — decided, 2026-10-25
 
-`--size-icon-sm/md/lg` (20, 24, 28px after D-132) in `defaultTheme.ts`. `--state-wash-hover` (12%) and `--state-wash-active` (20%), the tint an outline control mixes in on hover and press, and `--layer-behind/raised/tooltip/skip-link` (-1, 10, 30, 1000) in `effects.ts`. BackToTop, Button, ModeToggle, Footer, Tooltip and Header read them. The browser bar color (`theme-color`) is now generated from `surface.default` into `src/tokens/themeColor.ts`, and `index.html` (meta tag and pre-paint script) and `ThemeProvider` read that file, through a small Vite plugin for the HTML. This fixes a drift: the dark value typed by hand was `#0f172b`, while the dark surface is `oklch(21% 0.05 280)`, which is `#14152f`. The dark browser bar on phones is now the page color. The fixed 28px footer glyph size has no neighbor on the 16, 24, 32 scale, so `lg` is 28. Checked against the previous build: computed color, background, border, shadow, fill, opacity, z-index and icon size matched on 6 routes in light and dark at 1280 and 375 (24 of 24), and hover, press, tooltip, skip link and back-to-top values matched except a mid-transition sample.
+Jax settled the footer line ("Open to remote Staff Product Designer and Design Engineer roles.", D-021, D-024) and the seven 404 quips (D-022). The provisional markers are removed.
 
-D-130 follow-up (2026-10-25): the literals that already equal a token now use it (Image, StudyCard, About, Resume bar, Role logo), Header's line offsets read `--size-border-width-default`, and the Resume bar radius reads `--size-radius-full`. The computed radius string changes from 2px to 9999px and the pixels do not: the Resume full-page screenshot is byte-identical. Computed styles, element sizes and pseudo-elements matched on 5 of 6 routes at 1280 and 375 in light and dark, and on Resume apart from that radius string.
+## D-134: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
 
-## D-131: Icon line inset from the tokens, the footer line bug, optical values that stay — decided, 2026-10-25
+Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUDE.md` now has a No-nos section: never raise the Toyota token count as a proof point, never style h1 to h6 directly (classes carry the look, tags carry the structure), and do not bring up the audit. The Resume strengths proof line for Toyota no longer cites the token count. Known direct heading styling to fix: the tag reset in `main.css` and the `.story section > h2 + *` selector in `About.module.css`.
+
+## D-135: Resume header portrait with a cursor tag — decided, 2026-10-25
+
+The Resume header carries a square portrait on the right (14rem tablet, 18rem desktop) with the violet "Jax" cursor tag at the bottom-right, the same tag as the About photos. It fills the empty right half of the header and puts a face on the page. Below 900px it stacks above the name (14rem wide). The tag is violet and the photo takes the About photo hover (4% zoom, tag nudges up and left). The name uses the About h1 size (48px, 56px from 900px). The photo is Jax's own (not AI-generated), cropped 5% in from each edge to remove a glow around the edges, and exported as `src/assets/resume/portrait-min.jpg` at 960px. The Core strengths card titles use a new `headingMd` step in `type.module.css`, and the header has 40px more space below it and 16px more above the buttons.
+
+## D-136: Link line follows the link text color; Resume role links keep the purple link color — decided, 2026-10-25
+
+`TextLink` sets `--line-color: currentcolor`, so the hover line always matches the text, including under a tone or a palette. On a Resume role card the job title takes the side's text color (`--role-fg`). The case study link keeps the shared purple link color on every role so it is easy to spot.
+
+## D-137: IconLink and a shared caption step — decided, 2026-10-25
+
+The Footer's three icon-only external links became `#components/IconLink` (tooltip, sr-only name with "opens in a new tab", 40px target; the styles moved out of `Footer.module.css`). The figure caption (body-sm, `text-wrap: pretty`) is the `caption` step in `type.module.css`; StudyImage, StudyCompare, StudyPanels and About compose it and set their own color and width. `Strength` types `palette` as `ColorGroup`. The shared `Image` component stays About-only: it wraps the img in a div and always lazy-loads, so study images (figure, priority, no fallback) keep their own `<img>`.
+
+## D-138: Smaller APIs — decided, 2026-10-25
+
+`SiteConfig` (context, provider, hook) for one boolean became `isJobSeeking` in `src/constants/siteConfig.ts`. `StudyCard` lost its `layout` prop: `variant="work"` is the horizontal card and `variant="study"` the stacked one. `StudyImage` lost the unused `corners` prop and the `.square` rule.
+
+## D-139: Icon size, state wash, layer and theme-color tokens — decided, 2026-10-25
+
+`--size-icon-sm/md/lg` (20, 24, 28px after D-141) in `defaultTheme.ts`. `--state-wash-hover` (12%) and `--state-wash-active` (20%), the tint an outline control mixes in on hover and press, and `--layer-behind/raised/tooltip/skip-link` (-1, 10, 30, 1000) in `effects.ts`. BackToTop, Button, ModeToggle, Footer, Tooltip and Header read them. The browser bar color (`theme-color`) is now generated from `surface.default` into `src/tokens/themeColor.ts`, and `index.html` (meta tag and pre-paint script) and `ThemeProvider` read that file, through a small Vite plugin for the HTML. This fixes a drift: the dark value typed by hand was `#0f172b`, while the dark surface is `oklch(21% 0.05 280)`, which is `#14152f`. The dark browser bar on phones is now the page color. The fixed 28px footer glyph size has no neighbor on the 16, 24, 32 scale, so `lg` is 28. Checked against the previous build: computed color, background, border, shadow, fill, opacity, z-index and icon size matched on 6 routes in light and dark at 1280 and 375 (24 of 24), and hover, press, tooltip, skip link and back-to-top values matched except a mid-transition sample.
+
+D-139 follow-up (2026-10-25): the literals that already equal a token now use it (Image, StudyCard, About, Resume bar, Role logo), Header's line offsets read `--size-border-width-default`, and the Resume bar radius reads `--size-radius-full`. The computed radius string changes from 2px to 9999px and the pixels do not: the Resume full-page screenshot is byte-identical. Computed styles, element sizes and pseudo-elements matched on 5 of 6 routes at 1280 and 375 in light and dark, and on Resume apart from that radius string.
+
+## D-140: Icon line inset from the tokens, the footer line bug, optical values that stay — decided, 2026-10-25
 
 The hover line under a footer icon and under the mode toggle is inset by the glyph's own inset in its 40px target plus 1px, because the drawn edge of these glyphs sits a pixel inside their box: `(--size-target-md - --size-icon-*) / 2 + 1px`, which is 7px for the 28px footer glyphs and the 28px toggle glyph. Both read it through `--line-inset`. The footer glyphs also rise 1px (`--icon-optical`) so they clear the line, which stays where it was.
 
@@ -644,10 +657,10 @@ How the footer icon links and the mode toggle differ today: the rest color (viol
 
 Kept as written: the HeroMarks values (1.2 stroke width, 1px and 2px margins, the tag hanging 2px under the arrow tip and 10px in) are tuned to the drawn cursor and its tag. The Home hero sentence keeps `max-width: 900px`, set so the larger "build" chip does not push "accessible" to a third line at desktop width.
 
-## D-132: Icons in px, and a link's text is its icon's size — decided, 2026-10-25
+## D-141: Icons in px, and a link's text is its icon's size — decided, 2026-10-25
 
 `--size-icon-sm/md/lg` are 20, 24 and 28px, and every icon reads one of them in px, with no `em` sizes left on UI icons (the hero caret and cursor marks follow their text on purpose). Moon and sun and the footer glyphs are 28px (lg), Button icons 24px (md), text-link arrows, card link arrows and the Back to top arrow 20px (sm). The footer email arrow stays em-sized. The text of a link with an icon is set to the icon's size from one custom property, `--link-icon`: TextLink with an icon and the study card links are 20px, and the footer email is not part of this: it keeps its fluid size (16px up to 32px at about 550px wide, D-013) with a 1em arrow, as before. This makes card links 20px on every width (they were 14 to 20px by breakpoint, and 14 to 16px under a case study), so the study variant's links are larger than before. Button labels keep their own size (16.6 to 20px) and are not tied to the 24px icon. Checked on Home, Resume, the 404 and a study at 1280, 700 and 375: sizes as listed, no horizontal scroll.
 
-## D-133: Links take the Button's hover and pressed colors — decided, 2026-10-25
+## D-142: Links take the Button's hover and pressed colors — decided, 2026-10-25
 
-A link's text and its accent line move through the outline Button's palette: `--color-primary-default-hover` on hover and `--color-primary-default-active` when pressed (violet-800 and violet-900 in light, violet-200 and violet-100 in dark), the same colors the outline Button uses for its text and border. This covers TextLink (so the footer email, the Resume role links and inline links, which had no hover color before), the nav links, the brand name, the footer icon links and the mode toggle. The shared line (`line.module.css`) follows the same colors unless a component sets `--line-color` (the study card link keeps `currentcolor`). There is no background tint on links. Under a `data-tone` section `tone.css` remaps `--color-primary-default-hover` too, so the footer band in dark mode stays on the soft indigo. The footer icon tooltips sit 2px higher (`offset={2}`).
+A link's text and its accent line move through the outline Button's palette, deepened by 20%: `--link-hover` is `--color-primary-default-hover` mixed 20% toward `--state-deepen-target` in oklch and `--link-active` does the same to `--color-primary-default-active`. The target is black in light (so hover and pressed are 20% darker: lightness 0.43 and 0.38 become 0.35 and 0.30) and white in dark (a little lighter, since the dark colors are already near white), and a `data-tone` section on a dark ground sets it to white. The target has a missing hue (`oklch(0 0 none)`), so mixing keeps the violet hue and does not drift toward magenta. The Button keeps its own, shallower hover and pressed colors. This covers TextLink (so the footer email, the Resume role links and inline links, which had no hover color before), the nav links, the brand name, the footer icon links and the mode toggle. The shared line (`line.module.css`) follows the same colors unless a component sets `--line-color` (the study card link keeps `currentcolor`). There is no background tint on links. Under a `data-tone` section `tone.css` remaps `--color-primary-default-hover` too, so the footer band in dark mode stays on the soft indigo. The footer icon tooltips sit 2px higher (`offset={2}`).
