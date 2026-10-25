@@ -2,6 +2,10 @@
    positions and fades it in. */
 
 .tooltip {
+  composes: deepen from '#styles/deepen.module.css';
+  /* The tag takes the hover color of the control it names (D-142). A data-tone on the tooltip says the
+     same in tone.css, with the tone's own hover color. */
+  --tag-bg: var(--state-color-hover);
   z-index: var(--layer-tooltip);
   animation: tooltip-in var(--motion-duration-fast) var(--motion-ease-standard) both;
 }

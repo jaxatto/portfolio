@@ -3,6 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import Icon from '#components/Icon';
 import type { IconName } from '#constants/iconNames';
+import { blockMailtoOnLocalhost } from '#src/utils/mailto';
 import styles from './TextLink.module.css';
 
 // Figma "Link": bold text with optional trailing icon and the animated hover line (D-104).
@@ -51,6 +52,7 @@ const TextLink: React.FC<TextLinkProps> = ({
   return (
     <a
       href={href}
+      onClick={blockMailtoOnLocalhost(href)}
       className={classes}
       target={newTab ? '_blank' : undefined}
       rel={newTab ? 'noopener noreferrer' : undefined}
