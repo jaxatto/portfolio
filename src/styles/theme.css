@@ -249,7 +249,7 @@
   --motion-ease-standard: ease;
   --motion-ease-emphasized: cubic-bezier(0.4, 0.2, 0.2, 1);
   --motion-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --shadow-lift: 0 24px 48px -20px var(--shadow-lift-color, rgb(0 0 0 / 50%));
+  --shadow-lift: 0 24px 48px -20px;
   --shadow-cursor: 0 2px 3px rgb(0 0 0 / 25%);
 
   /* ========================================== */

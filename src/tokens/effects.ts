@@ -31,8 +31,10 @@ export const effects = {
       light: '0 4px 8px rgb(0 0 0 / 15%)',
       dark: '0 4px 14px rgb(0 0 0 / 70%), 0 0 0 1px rgb(255 255 255 / 12%)',
     },
-    // Card lift. A component sets `--shadow-lift-color` (the card's palette color).
-    lift: '0 24px 48px -20px var(--shadow-lift-color, rgb(0 0 0 / 50%))',
+    // Card lift: offsets and blur only. A custom property resolves where it is defined, so a color
+    // variable inside this token would be read at :root. The card adds its own color:
+    // `box-shadow: var(--shadow-lift) var(--shadow-lift-color)`.
+    lift: '0 24px 48px -20px',
     // For `filter: drop-shadow()` under pointer and tag arrows.
     cursor: '0 2px 3px rgb(0 0 0 / 25%)',
   },
