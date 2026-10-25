@@ -25,18 +25,13 @@
   font-size: var(--link-icon);
 }
 
-/* Large: the footer email link, 28px text and arrow. The 24-character email plus arrow needs about 410px,
-   so phones step down to 20px (D-132). */
+/* Large: the footer email link. Its size is fluid so the 24-character email plus arrow fits narrow cards,
+   reaching 32px at about 550px wide (D-013). The arrow stays 1em, so it follows the text (D-132). */
 .large {
-  --link-icon: var(--size-icon-lg);
+  --link-icon: 1em;
+  font-size: clamp(var(--font-size-16), 7.4vw - 9px, var(--font-size-32));
   overflow-wrap: anywhere;
   font-weight: var(--font-weight-extra-strong);
-}
-
-@media (max-width: 640px) {
-  .large {
-    --link-icon: var(--size-icon-sm);
-  }
 }
 
 .link:active {
