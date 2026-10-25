@@ -10,7 +10,6 @@ const StudyImage: React.FC<StudyImageProps> = ({
   height,
   caption,
   className,
-  corners,
   variant = 'default',
   priority = false,
 }) => (
@@ -22,11 +21,7 @@ const StudyImage: React.FC<StudyImageProps> = ({
       height={height}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
-      className={clsx(
-        styles.image,
-        corners === 'square' && styles.square,
-        variant === 'banner' && styles.banner,
-      )}
+      className={clsx(styles.image, variant === 'banner' && styles.banner)}
     />
     {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
   </figure>

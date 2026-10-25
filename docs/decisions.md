@@ -641,3 +641,7 @@ D-130 follow-up (2026-10-25): the literals that already equal a token now use it
 ## D-137: IconLink and a shared caption step — decided, 2026-10-25
 
 The Footer's three icon-only external links became `#components/IconLink` (tooltip, sr-only name with "opens in a new tab", 40px target; the styles moved out of `Footer.module.css`). The figure caption (body-sm, `text-wrap: pretty`) is the `caption` step in `type.module.css`; StudyImage, StudyCompare, StudyPanels and About compose it and set their own color and width. `Strength` types `palette` as `ColorGroup`. The shared `Image` component stays About-only: it wraps the img in a div and always lazy-loads, so study images (figure, priority, no fallback) keep their own `<img>`.
+
+## D-138: Smaller APIs — decided, 2026-10-25
+
+`SiteConfig` (context, provider, hook) for one boolean became `isJobSeeking` in `src/constants/siteConfig.ts`. `StudyCard` lost its `layout` prop: `variant="work"` is the horizontal card and `variant="study"` the stacked one. `StudyImage` lost the unused `corners` prop and the `.square` rule.

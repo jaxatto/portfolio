@@ -22,8 +22,7 @@ export type StudyCardProps = {
   headingLevel?: 'h2' | 'h3'; // h2 on Home, h3 under a case study (heading order)
   enlargeImage?: boolean; // Screenshot 40px larger inside the same window (D-028)
   palette?: ColorGroup;
-  layout?: 'horizontal' | 'vertical'; // Horizontal: preview beside the text (desktop only)
-  variant?: 'work' | 'study'; // 'study' = smaller type, used under a case study
+  variant?: 'work' | 'study'; // 'work': preview beside the text from tablet up. 'study': stacked, smaller type, under a case study
   priority?: boolean; // Above the fold: load the preview now, not when it nears the viewport
 };
 
@@ -38,7 +37,6 @@ const StudyCard: React.FC<StudyCardProps> = ({
   headingLevel = 'h3',
   palette = 'brand',
   enlargeImage = false,
-  layout = 'vertical',
   priority = false,
   variant = 'work',
 }) => {
@@ -48,7 +46,7 @@ const StudyCard: React.FC<StudyCardProps> = ({
       className={clsx(
         styles.card,
         palettes[palette],
-        layout === 'horizontal' && styles.horizontal,
+        variant === 'work' && styles.horizontal,
         variant === 'study' && styles.study,
         enlargeImage && styles.enlarge,
       )}

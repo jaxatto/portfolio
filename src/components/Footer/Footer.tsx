@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import TextLink from '#components/TextLink';
 import IconLink from '#components/IconLink';
-import { useSiteConfig } from '#providers/SiteConfig';
+import { isJobSeeking } from '#constants/siteConfig';
 import { contactInfo } from '#constants/contactInfo';
 import styles from './Footer.module.css';
 
@@ -15,8 +15,6 @@ type FooterProps = {
 };
 
 const Footer: React.FC<FooterProps> = ({ band = true }) => {
-  const { isJobSeeking } = useSiteConfig();
-
   return (
     <footer
       className={clsx(styles.footer, band && styles.band)}

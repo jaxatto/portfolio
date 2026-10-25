@@ -115,7 +115,7 @@ src/pages/             Work, About, Resume, Studies, NotFound (+ pages/<Page>/co
 src/pages/Studies/pages/<Study>/   content.ts, meta.ts, images/
 src/pages/Studies/types/           study content types
 src/constants/         shared links and icon names
-src/providers/         SiteConfig and Theme context
+src/providers/         Theme context
 src/styles/            fonts, theme (generated), tone, palette, type and line modules, main
 src/tokens/            token source, compiled into theme.css
 scripts/               generate-component, prerender-meta, vite-image-size, tokens/
