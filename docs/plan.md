@@ -22,7 +22,7 @@ Slices 3 and 4 are done: the case study template and all four studies (Indeed, A
 
 ## Resume PDF (side task, 2026-10-24)
 
-HTML source and repeatable PDF export live in [`resume/`](../resume/) (D-087). Waiting on Jax: content edits (see the session report), then copy the PDF over `public/`.
+Four resumes build from HTML in [`resume/`](../resume/) (D-087): main, ATS, Design Engineer and Design Engineer ATS. The public PDF is the main build. Copies sit in `~/Desktop/resume/`. To revisit with Jax: more Design Engineer framing in the role bullets, the Toyota first bullet, whether the headline should change. Merge to `redesign` only when Jax says so.
 
 ## Open questions for Jax
 
