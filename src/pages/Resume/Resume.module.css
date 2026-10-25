@@ -166,15 +166,17 @@
 }
 
 .outline:hover {
-	/* A faint wash of the link color: the outline stays the hero and the fill reads as the same hue in light
-	   and dark (the container color is a saturated violet block on the dark ground). */
-	background: color-mix(in srgb, var(--color-content-link) 12%, transparent);
-	color: var(--color-content-link);
+	/* Same hover color as the filled button (violet-200 in dark, violet-800 in light), used as a faint wash
+	   with the text and border on it. The container fill was a saturated violet block in dark. */
+	border-color: var(--color-primary-default-hover);
+	background: color-mix(in srgb, var(--color-primary-default-hover) 12%, transparent);
+	color: var(--color-primary-default-hover);
 }
 
 .outline:active {
-	background: color-mix(in srgb, var(--color-content-link) 20%, transparent);
-	color: var(--color-content-link);
+	border-color: var(--color-primary-default-active);
+	background: color-mix(in srgb, var(--color-primary-default-active) 20%, transparent);
+	color: var(--color-primary-default-active);
 }
 
 .buttonIcon {
