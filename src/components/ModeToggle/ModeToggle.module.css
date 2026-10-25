@@ -6,7 +6,7 @@
 .button {
   composes: line from '#styles/line.module.css';
   /* Glyph inset in the target plus 1px, the same rule as the footer icons. */
-  --line-inset: calc((var(--size-target-md) - var(--size-icon-md)) / 2 + 1px);
+  --line-inset: calc((var(--size-target-md) - var(--size-icon-lg)) / 2 + 1px);
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -52,7 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--size-icon-md);
+  font-size: var(--size-icon-lg);
   transition:
     opacity var(--motion-duration-moderate) var(--motion-ease-standard),
     transform var(--motion-duration-moderate) var(--motion-ease-emphasized);
