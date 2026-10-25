@@ -230,7 +230,12 @@
 	background: var(--color-primary-default);
 	color: var(--color-primary-on-default);
 	font-size: var(--font-size-16);
+	font-weight: var(--font-weight-emphasis);
+	text-decoration: none;
 	border-radius: var(--size-radius-sm);
+	/* The site focus ring (D-014). Without it the browser's own ring shows, blue at the center. */
+	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+	outline-offset: var(--size-focus-ring-offset);
 }
 
 /* Intro (Home only): role, then one sentence. No photo; type, color and two small marks carry it. */

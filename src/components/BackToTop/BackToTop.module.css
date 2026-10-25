@@ -47,6 +47,22 @@
 	background: color-mix(in srgb, var(--color-primary-default-active) 20%, var(--color-surface-default));
 }
 
+/* A black shadow disappears on the dark ground, so dark mode gets a deeper one and a faint light edge to
+   keep the pill's shape. */
+:global([data-theme='dark']) .button {
+	box-shadow:
+		0 4px 14px rgb(0 0 0 / 70%),
+		0 0 0 1px rgb(255 255 255 / 12%);
+}
+
+@media (prefers-color-scheme: dark) {
+	:global(:root:not([data-theme='light'])) .button {
+		box-shadow:
+			0 4px 14px rgb(0 0 0 / 70%),
+			0 0 0 1px rgb(255 255 255 / 12%);
+	}
+}
+
 /* Keyboard focus keeps the site's focus ring: the only outline, shown for the keyboard alone. */
 .button:focus-visible {
 	outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
