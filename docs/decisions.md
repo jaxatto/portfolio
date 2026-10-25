@@ -444,3 +444,7 @@ The study h1 is 56px from 900px, 48px from 641px and 40px on phones (it was `tit
 ## D-090: Study chips: 16px more above — decided, 2026-10-24
 
 The chips sit 40px under the role line (the 24px intro gap plus 16px). The 40px between the chips and the intro paragraph is unchanged.
+
+## D-091: Study role line one step up, tight tracking on large headings — decided, 2026-10-24
+
+The study role line is body-lg (it was body-md) so it holds beside the 56px title. Headings over 44px get `letter-spacing: var(--font-letter-spacing-compact)` (-0.02em, an existing token): the study h1 from 641px, the About hero from 900px and the 404 numeral. Home hero sentence uses `title-md`, which stays at 40px until very wide screens, so it is not included yet. Any new heading over 44px should use the same token.

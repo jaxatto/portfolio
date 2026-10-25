@@ -45,6 +45,7 @@
 @media (min-width: 641px) {
 	.title {
 		font-size: var(--font-size-48);
+		letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-091) */
 	}
 }
 
@@ -71,9 +72,9 @@
 	align-items: center;
 	gap: var(--size-space-sm);
 	color: var(--color-content-soft);
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-md-size);
-	line-height: var(--font-style-body-md-line-height);
+	font-family: var(--font-style-body-lg-family);
+	font-size: var(--font-style-body-lg-size); /* one step up so it holds beside the 56px title (D-091) */
+	line-height: var(--font-style-body-lg-line-height);
 }
 
 /* The dot between role and date is decorative. */
