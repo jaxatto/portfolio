@@ -6,6 +6,7 @@ import ArrowUp from '@assets/icons/arrow-up.svg';
 import Cat from '@assets/icons/cat.svg';
 import Controller from '@assets/icons/controller.svg';
 import Download from '@assets/icons/download.svg';
+import EnvelopeSimple from '@assets/icons/envelope-simple.svg';
 import FileArrowDown from '@assets/icons/file-arrow-down.svg';
 import Github from '@assets/icons/github.svg';
 import Image from '@assets/icons/image.svg';
@@ -21,6 +22,7 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'cat': Cat,
   'controller': Controller,
   'download': Download,
+  'envelope-simple': EnvelopeSimple,
   'file-arrow-down': FileArrowDown,
   'github': Github,
   'image': Image,

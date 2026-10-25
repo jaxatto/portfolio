@@ -251,7 +251,10 @@
    and dropped: violet text, muted text, an accent bar, a filled chip and a status dot. */
 .role {
 	display: flex;
-	flex-direction: column;
+	/* One line when there is room. Each line is an item, so "& Design Engineer" drops under the first as a
+	   unit when the nav leaves too little space (D-101). */
+	flex-wrap: wrap;
+	column-gap: 0.3em;
 	/* Centers the first line on the 44px nav row: half of (44px minus one line), at any font size. */
 	margin: calc((44px - 1em * var(--font-line-height-default)) / 2) 0 0;
 	color: var(--color-content-secondary);
@@ -347,7 +350,8 @@
 
 	.byline {
 		display: flex;
-		flex-direction: column;
+		flex-wrap: wrap;
+		column-gap: 0.3em;
 		margin-bottom: var(--size-space-2xl);
 		color: var(--color-content-secondary);
 		font-size: var(--font-style-body-md-size);

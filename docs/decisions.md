@@ -480,3 +480,6 @@ Inner pages that show the brand link now read "Jax Engel · Designer & Engineer"
 
 ## D-100: Name and tagline wrap at tablet widths — decided, 2026-10-24
 Between 641px and 760px the name and "Designer & Engineer" no longer fit beside the nav (the tagline squeezed onto two lines at 720px), so the tagline drops under the name and the dot is hidden, with the nav row top-aligned. At 761px and wider they share one line, and phones (640px and below) keep one line because the nav sits on its own row. The 760px edge was measured against the nav's width and moves if the nav gains an item.
+
+## D-101: Role label wraps only when it has to; phone buttons fill the width — decided, 2026-10-24
+The role label on Home and Resume (and the phone bylines) is one line when there is room, "Staff Product Designer & Design Engineer", and "& Design Engineer" drops under the first line as a unit when the nav leaves too little space (flex-wrap, no breakpoint). It stays single at wide desktop and stacks at tablet widths (it stacked at 800px). This refines D-098's always-stacked label. On Resume the two buttons fill the width and stack at 640px and below, and "Contact" has a Phosphor bold envelope icon (`envelope-simple`).

@@ -56,6 +56,7 @@ const Resume: React.FC = () => (
           Download resume (PDF)
         </a>
         <a className={`${styles.button} ${styles.outline}`} href={contactInfo.email.src}>
+          <Icon name="envelope-simple" className={styles.buttonIcon} aria-hidden="true" />
           Contact
         </a>
       </div>

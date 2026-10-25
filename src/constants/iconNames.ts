@@ -5,6 +5,7 @@ export const iconNames = [
   'cat',
   'controller',
   'download',
+  'envelope-simple',
   'file-arrow-down',
   'github',
   'image',
