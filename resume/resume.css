@@ -1,0 +1,72 @@
+/* ATS-safe resume: single column, real text only, system Helvetica (Arial fallback), no images or icons.
+   Color is decoration only: ink #1d0d3a and purple #6f42c1 (the site brand), both above 7:1 and 5:1 on white.
+   The extracted text is identical with or without it. See docs/decisions.md D-087. */
+
+:root {
+  --ink: #1d0d3a;
+  --muted: #5b4d73;
+  --accent: #6f42c1;
+}
+
+@page {
+  size: Letter;
+  margin: 0.45in 0.65in;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 9.8pt;
+  line-height: 1.4;
+  color: var(--ink);
+  background: #fff;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 7.2in;
+  padding: 0.5in 0;
+}
+
+@media print {
+  body { max-width: none; padding: 0; }
+}
+
+h1 { font-size: 27pt; font-weight: 800; line-height: 1.1; margin: 0; color: var(--accent); }
+
+h2 {
+  font-size: 14pt;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 13pt 0 5pt;
+  padding-bottom: 3pt;
+  border-bottom: 2px solid var(--accent);
+  break-after: avoid;
+}
+
+h3 { font-size: 10.5pt; font-weight: 700; margin: 0; break-after: avoid; }
+
+p { margin: 0; }
+
+.title { font-size: 15pt; font-weight: 700; margin-top: 1pt; }
+.contact { margin-top: 5pt; color: var(--muted); font-size: 9.2pt; }
+.sep { color: #a090c0; }
+
+.meta { margin: 1pt 0 3pt; color: var(--muted); }
+.dates { white-space: nowrap; }
+
+article { margin-top: 9pt; break-inside: avoid; }
+article:first-of-type { margin-top: 0; }
+
+ul { margin: 0; padding-left: 14pt; }
+li { margin-top: 2pt; break-inside: avoid; }
+li::marker { color: var(--accent); }
+
+.skills, .links { padding-left: 0; list-style: none; }
+.skills li { margin-top: 4pt; }
+
+a { color: var(--accent); text-decoration: underline; }
+
+/* Keep Skills and Education whole so a list never splits across pages. */
+main > section:nth-last-child(-n+2) { break-inside: avoid; }

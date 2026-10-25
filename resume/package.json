@@ -1,0 +1,13 @@
+{
+  "name": "resume",
+  "private": true,
+  "type": "module",
+  "description": "HTML source and PDF export for the resume. Run: cd resume && npm install && npm run build",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "pdf-lib": "1.17.1",
+    "puppeteer-core": "24.2.0"
+  }
+}
