@@ -1,19 +1,28 @@
-/* Tooltip (D-103): the Figma tooltip. A dark rounded tag with white medium text, 8px off the control.
-   Black with white text in light, near white with black text in dark, so it reads on either ground. */
+/* Tooltip (D-103, D-105): the name tag look from src/styles/name-tag.module.css, placed above the
+   control by Floating UI. The square corner is the one nearest the control, so it follows the side the
+   tag ends up on (it flips to below when there is no room above). */
 
 .tooltip {
+	composes: label from '#styles/name-tag.module.css';
 	z-index: 30;
-	padding: var(--size-space-sm) var(--size-space-md);
-	border-radius: var(--size-radius-sm);
-	background: var(--color-content-prose);
 	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
-	color: var(--color-content-inverse);
-	font-family: var(--font-family-heading);
-	font-size: var(--font-size-14);
-	font-weight: var(--font-weight-medium);
-	line-height: 1.2;
-	white-space: nowrap;
 	animation: tooltip-in 0.15s ease both;
+}
+
+.tooltip[data-side='top'] {
+	border-bottom-right-radius: 0;
+}
+
+.tooltip[data-side='bottom'] {
+	border-top-right-radius: 0;
+}
+
+.tooltip[data-side='left'] {
+	border-top-right-radius: 0;
+}
+
+.tooltip[data-side='right'] {
+	border-top-left-radius: 0;
 }
 
 @keyframes tooltip-in {

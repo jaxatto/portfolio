@@ -1,0 +1,16 @@
+/* The name tag look, shared (D-105): the Figma multiplayer-cursor tag. Violet label, white bold Inter,
+   rounded with one square corner (the corner that points at what it names). Used by tooltips and by the
+   pet photo tags on About, so they match. Colors come from `--tag-bg` and `--tag-fg` (the primary pair by
+   default; About sets a palette per photo). The caller sets which corner is square. */
+
+.label {
+	padding: calc(var(--size-space-xs) + 2px) calc(var(--size-space-sm) + 2px);
+	border-radius: var(--size-radius-md);
+	background: var(--tag-bg, var(--color-primary-default));
+	color: var(--tag-fg, var(--color-primary-on-default));
+	font-family: var(--font-family-heading);
+	font-size: var(--font-size-14);
+	font-weight: var(--font-weight-emphasis);
+	line-height: 1.2;
+	white-space: nowrap;
+}

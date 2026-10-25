@@ -23,8 +23,8 @@ import styles from './Tooltip.module.css';
 // stays open while the pointer moves onto it (WCAG 1.4.13: hoverable) and closes with Escape (dismissible).
 // It is portaled to <body>, so a themed ancestor (the footer band) cannot recolor it.
 // The tooltip is visual only: the control keeps its real accessible name (aria-label or sr-only text),
-// so the tooltip is `aria-hidden` and nothing is announced twice. Look: the Figma tooltip, a dark
-// rounded tag with white text (black and white in light, near white and black in dark).
+// so the tooltip is `aria-hidden` and nothing is announced twice. Look: the violet name tag shared with
+// the pet photo tags (src/styles/name-tag.module.css, D-105).
 
 type TooltipProps = {
   label: string;
@@ -32,15 +32,21 @@ type TooltipProps = {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }>;
 };
 
-const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top', children }) => {
+const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', children }) => {
   const [open, setOpen] = useState(false);
 
-  const { refs, floatingStyles, context } = useFloating({
+  const { refs, floatingStyles, context, placement: finalPlacement } = useFloating({
     open,
     onOpenChange: setOpen,
     placement,
     whileElementsMounted: autoUpdate,
-    middleware: [offset(8), flip({ padding: 8 }), shift({ padding: 8 })],
+    // 8px off the control. The tag's square corner (its tip) sits over the control's center and the body
+    // extends away from it, so a control at the right edge of the page never clips the tag.
+    middleware: [
+      offset(({ rects }) => ({ mainAxis: 8, alignmentAxis: rects.reference.width / 2 })),
+      flip({ padding: 8 }),
+      shift({ padding: 8 }),
+    ],
   });
 
   const hover = useHover(context, { move: false, delay: { open: 120, close: 0 }, handleClose: safePolygon() });
@@ -59,6 +65,7 @@ const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top', children })
             ref={refs.setFloating}
             className={styles.tooltip}
             style={floatingStyles}
+            data-side={finalPlacement.split('-')[0]}
             aria-hidden="true"
             {...getFloatingProps()}
           >
