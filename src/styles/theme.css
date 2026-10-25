@@ -7,6 +7,15 @@
   /* ========================================== */
   /* Primitive Tokens (Raw Values)             */
   /* ========================================== */
+  --primitive-color-green-50: oklch(98.2% 0.018 155.826deg);
+  --primitive-color-green-100: oklch(96.2% 0.044 156.743deg);
+  --primitive-color-green-200: oklch(92.5% 0.084 155.995deg);
+  --primitive-color-green-300: oklch(87.1% 0.15 154.449deg);
+  --primitive-color-green-600: oklch(62.7% 0.194 149.214deg);
+  --primitive-color-green-700: oklch(52.7% 0.154 150.069deg);
+  --primitive-color-green-800: oklch(44.8% 0.119 151.328deg);
+  --primitive-color-green-900: oklch(39.3% 0.095 152.535deg);
+  --primitive-color-green-950: oklch(26.6% 0.065 152.934deg);
   --primitive-color-teal-50: oklch(98.4% 0.014 180.72deg);
   --primitive-color-teal-100: oklch(95.3% 0.051 180.801deg);
   --primitive-color-teal-200: oklch(91% 0.096 180.426deg);
@@ -324,6 +333,16 @@
   --color-quaternary-container-active: var(--primitive-color-teal-300);
   --color-quaternary-on-container-hover: var(--primitive-color-teal-950);
   --color-quaternary-on-container-active: var(--primitive-color-teal-950);
+  --color-quinary-default: var(--primitive-color-green-700);
+  --color-quinary-on-default: var(--primitive-color-white);
+  --color-quinary-container: var(--primitive-color-green-100);
+  --color-quinary-on-container: var(--primitive-color-green-900);
+  --color-quinary-default-hover: var(--primitive-color-green-800);
+  --color-quinary-default-active: var(--primitive-color-green-900);
+  --color-quinary-container-hover: var(--primitive-color-green-200);
+  --color-quinary-container-active: var(--primitive-color-green-300);
+  --color-quinary-on-container-hover: var(--primitive-color-green-950);
+  --color-quinary-on-container-active: var(--primitive-color-green-950);
   --color-state-focus-ring: var(--primitive-color-purple-950);
   --color-state-overlay-tint: var(--primitive-color-indigo-900);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-100);
@@ -403,6 +422,16 @@
   --color-quaternary-container-active: var(--primitive-color-teal-600);
   --color-quaternary-on-container-hover: var(--primitive-color-teal-50);
   --color-quaternary-on-container-active: var(--primitive-color-teal-50);
+  --color-quinary-default: var(--primitive-color-green-300);
+  --color-quinary-on-default: var(--primitive-color-black);
+  --color-quinary-container: var(--primitive-color-green-800);
+  --color-quinary-on-container: var(--primitive-color-green-100);
+  --color-quinary-default-hover: var(--primitive-color-green-200);
+  --color-quinary-default-active: var(--primitive-color-green-100);
+  --color-quinary-container-hover: var(--primitive-color-green-700);
+  --color-quinary-container-active: var(--primitive-color-green-600);
+  --color-quinary-on-container-hover: var(--primitive-color-green-50);
+  --color-quinary-on-container-active: var(--primitive-color-green-50);
   --color-state-focus-ring: var(--primitive-color-white-alpha-98);
   --color-state-overlay-tint: var(--primitive-color-indigo-100);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-900);
@@ -480,6 +509,16 @@
   --color-quaternary-container-active: var(--primitive-color-teal-600);
   --color-quaternary-on-container-hover: var(--primitive-color-teal-50);
   --color-quaternary-on-container-active: var(--primitive-color-teal-50);
+  --color-quinary-default: var(--primitive-color-green-300);
+  --color-quinary-on-default: var(--primitive-color-black);
+  --color-quinary-container: var(--primitive-color-green-800);
+  --color-quinary-on-container: var(--primitive-color-green-100);
+  --color-quinary-default-hover: var(--primitive-color-green-200);
+  --color-quinary-default-active: var(--primitive-color-green-100);
+  --color-quinary-container-hover: var(--primitive-color-green-700);
+  --color-quinary-container-active: var(--primitive-color-green-600);
+  --color-quinary-on-container-hover: var(--primitive-color-green-50);
+  --color-quinary-on-container-active: var(--primitive-color-green-50);
   --color-state-focus-ring: var(--primitive-color-white-alpha-98);
   --color-state-overlay-tint: var(--primitive-color-indigo-100);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-900);

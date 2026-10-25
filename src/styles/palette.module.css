@@ -46,3 +46,11 @@
   --palette-on-container-hover: var(--color-quaternary-on-container-hover);
   --palette-on-container-active: var(--color-quaternary-on-container-active);
 }
+
+.quinary {
+  --palette-container: var(--color-quinary-container);
+  --palette-container-hover: var(--color-quinary-container-hover);
+  --palette-on-container: var(--color-quinary-on-container);
+  --palette-on-container-hover: var(--color-quinary-on-container-hover);
+  --palette-on-container-active: var(--color-quinary-on-container-active);
+}
