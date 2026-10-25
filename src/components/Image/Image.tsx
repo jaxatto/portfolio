@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Icon from '@components/Icon';
+import type { IconName } from '@constants/iconNames';
 import styles from './Image.module.css';
 
 // Image component that displays an image with a fallback icon if the image fails to load 
@@ -11,7 +12,7 @@ type ImageProps = {
   alt: string;
   imgClassName?: string; // Allows custom styling for the image element itself
   className?: string; // Allows custom styling for the image component container
-  iconFallback?: string; // Defines the icon to show when the image fails to load
+  iconFallback?: IconName; // Defines the icon to show when the image fails to load
   iconClassName?: string; // Allows custom styling for the fallback icon
   altFallback?: string; // Provides alt text for the fallback icon, if desired
   fallbackClassName?: string; // Allows custom styling for the container of the fallback image component, within className container

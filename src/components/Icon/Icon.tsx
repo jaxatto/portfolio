@@ -32,15 +32,10 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'sun': Sun,
 };
 
-type IconProps = {
-  name: string; // Accept any string
-  className?: string;
-  style?: React.CSSProperties;
-  [key: string]: any;
-};
+type IconProps = { name: IconName } & React.SVGProps<SVGSVGElement>;
 
 const Icon: React.FC<IconProps> = ({ name, ...props }) => {
-  const SvgIcon = icons[name as IconName] || icons['image']; // Fallback to the image glyph if the name is unknown
+  const SvgIcon = icons[name];
   return <SvgIcon {...props} />;
 };
 
