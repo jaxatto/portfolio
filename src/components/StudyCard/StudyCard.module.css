@@ -399,12 +399,20 @@
 	}
 
 	.image {
-		transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+		transition:
+			width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+			min-height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
 
-	/* Wider, not scaled or shifted: the top-left corner stays put so the crop does not move. */
+	/* Wider, not scaled or shifted: the top-left corner stays put so the crop does not move. A short
+	   screenshot (Toyota) is held by the window's height, so the height grows with the width, or
+	   the cover crop would show more of the sides and not a larger picture. */
 	.card:hover .image {
 		width: calc(var(--image-w) + 4%);
+	}
+
+	.horizontal:hover .image {
+		min-height: 104%;
 	}
 }
 
