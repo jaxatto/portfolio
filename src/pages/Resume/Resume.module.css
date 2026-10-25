@@ -139,7 +139,7 @@
 	font-weight: var(--font-weight-emphasis);
 	line-height: var(--font-line-height-default);
 	text-decoration: none;
-	transition: background-color 0.2s ease;
+	transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 @media (hover: hover) {
@@ -158,9 +158,8 @@
 }
 
 .outline {
-	/* 3px outline per Jax (D-102). No semantic border token sits at 3px, so it is set here. The padding
-	   gives back the same width so the button stays the size of the filled one. */
-	--outline-width: 3px;
+	/* 3px outline (D-102): `border-width-thick`. The padding gives back the same width so the button stays the size of the filled one. */
+	--outline-width: var(--size-border-width-thick);
 
 	padding: calc(var(--size-space-lg) - var(--outline-width)) calc(var(--size-space-3xl) - var(--outline-width));
 	/* The link color keeps contrast on the dark ground (violet-300 there). */

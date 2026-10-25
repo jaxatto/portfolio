@@ -24,8 +24,8 @@
 	);
 	color: var(--color-content-soft);
 	/* Shadow under a lifted card (D-111): the palette's own color. Dark mode swaps it for black below. */
-	--card-shadow: color-mix(in oklch, var(--card-fg) 55%, transparent);
-	transition: background-color 0.2s ease;
+	--shadow-lift-color: color-mix(in oklch, var(--card-fg) 55%, transparent);
+	transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
 /* Text selection inside a card takes the card's own palette (D-080). The hover pair is used because the
@@ -344,20 +344,20 @@
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
 	.card {
 		transition:
-			background-color 0.2s ease,
-			transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-			box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+			background-color var(--motion-duration-base) var(--motion-ease-standard),
+			transform var(--motion-duration-slow) var(--motion-ease-out),
+			box-shadow var(--motion-duration-slow) var(--motion-ease-out);
 	}
 
 	.card:hover {
 		transform: translateY(calc(-1 * var(--size-space-sm)));
-		box-shadow: 0 24px 48px -20px var(--card-shadow);
+		box-shadow: var(--shadow-lift);
 	}
 
 	.image {
 		transition:
-			width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-			min-height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+			width var(--motion-duration-slower) var(--motion-ease-out),
+			min-height var(--motion-duration-slower) var(--motion-ease-out);
 	}
 
 	/* Wider, not scaled or shifted: the top-left corner stays put so the crop does not move. A short
@@ -385,13 +385,13 @@
 :global([data-theme='dark']) .card {
 	--card-fg: var(--color-content-emphasis);
 	--card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
-	--card-shadow: oklch(0 0 0 / 0.5);
+	--shadow-lift-color: oklch(0 0 0 / 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
 	:global(:root:not([data-theme='light'])) .card {
 		--card-fg: var(--color-content-emphasis);
 		--card-lift: 30%;
-		--card-shadow: oklch(0 0 0 / 0.5);
+		--shadow-lift-color: oklch(0 0 0 / 0.5);
 	}
 }
