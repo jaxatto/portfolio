@@ -159,7 +159,8 @@
 }
 
 .nav-link[aria-current='page'] {
-  color: var(--color-content-variant);
+  /* The line's own color, so the current page's text and underline match. */
+  color: var(--color-primary-default);
 }
 
 .nav-link[aria-current='page']::after {
