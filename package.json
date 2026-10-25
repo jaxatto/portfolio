@@ -7,7 +7,7 @@
     "generate:component": "node scripts/generate-component.js",
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "cp dist/index.html dist/404.html",
+    "postbuild": "cp dist/index.html dist/404.html && tsx scripts/prerender-meta.ts",
     "preview": "vite preview",
     "predeploy": "vite build && npm run postbuild && cp CNAME dist/CNAME",
     "deploy": "gh-pages -d dist",

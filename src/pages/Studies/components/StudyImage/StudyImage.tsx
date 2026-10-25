@@ -10,11 +10,14 @@ const StudyImage: React.FC<StudyImageProps> = ({
   className,
   corners,
   variant = 'default',
+  priority = false,
 }) => (
   <figure className={clsx(styles.figure, variant === 'column' && styles.column, className)}>
     <img
       src={src}
       alt={alt}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
       className={clsx(
         styles.image,
         corners === 'square' && styles.square,
