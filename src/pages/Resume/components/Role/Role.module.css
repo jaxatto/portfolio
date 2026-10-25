@@ -22,8 +22,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 48px;
-	height: 48px;
+	width: var(--size-space-section-sm);
+	height: var(--size-space-section-sm);
 	margin-bottom: var(--size-space-md);
 	border-radius: 50%;
 	background: color-mix(in oklab, var(--role-fg) 14%, transparent);
@@ -67,7 +67,23 @@
 .title {
 	composes: headingSm from '#styles/type.module.css';
 	margin: 0;
-	color: var(--color-content-emphasis);
+	color: var(--role-fg);
+}
+
+.heading {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-space-xs);
+}
+
+/* The promotion belongs to the title, so it sits under it and not in the dates column. */
+.promotion {
+	margin: 0;
+	color: var(--color-content-soft);
+	font-family: var(--font-style-body-md-family);
+	font-size: var(--font-style-body-sm-size);
+	font-weight: var(--font-weight-medium);
+	line-height: var(--font-style-body-md-line-height);
 }
 
 .summary {
@@ -80,14 +96,33 @@
 	text-wrap: pretty;
 }
 
-.study {
+/* Adds to the column gap so the link sits clear of the summary. The link keeps the shared link color. */
+.main .study {
 	align-self: flex-start;
+	margin-top: var(--size-space-lg);
 }
 
 /* Phones: the colored side sits on top, as a row of logo and company with the details under it. */
 @media (max-width: 700px) {
 	.role {
 		grid-template-columns: minmax(0, 1fr);
+	}
+
+	/* Logo on the left, then company, date and location in a column beside it. */
+	.side {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr);
+		column-gap: var(--size-space-lg);
+		align-items: center;
+	}
+
+	.logo {
+		grid-row: 1 / span 4;
+		margin-bottom: 0;
+	}
+
+	.side > :not(.logo) {
+		grid-column: 2;
 	}
 
 	.main {

@@ -15,6 +15,12 @@ export function buildEffectVars() {
   for (const [key, val] of Object.entries(effects.easing)) {
     staticVars.push(`  ${cssVarName('motion', 'ease', key)}: ${val};`);
   }
+  for (const [key, val] of Object.entries(effects.wash)) {
+    staticVars.push(`  ${cssVarName('state', 'wash', key)}: ${val};`);
+  }
+  for (const [key, val] of Object.entries(effects.layer)) {
+    staticVars.push(`  ${cssVarName('layer', key)}: ${val};`);
+  }
   for (const [key, val] of Object.entries(effects.shadow)) {
     const name = cssVarName('shadow', key);
     if (isMode(val)) {

@@ -45,10 +45,12 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
           <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
         </p>
         <p className={styles.meta}>{role.location}</p>
-        {role.promotion && <p className={styles.meta}>{role.promotion}</p>}
       </div>
       <div className={styles.main}>
-        <h3 className={styles.title}>{role.title}</h3>
+        <div className={styles.heading}>
+          <h3 className={styles.title}>{role.title}</h3>
+          {role.promotion && <p className={styles.promotion}>{role.promotion}</p>}
+        </div>
         <p className={styles.summary}>{role.summary}</p>
         {role.studyHref && (
           <TextLink to={role.studyHref} icon="arrow-right" className={styles.study}>

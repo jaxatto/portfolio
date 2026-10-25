@@ -154,7 +154,7 @@
   }
 
   .figure:hover .tag {
-    transform: translate(-4px, -4px);
+    transform: translate(calc(-1 * var(--size-space-xs)), calc(-1 * var(--size-space-xs)));
   }
 }
 

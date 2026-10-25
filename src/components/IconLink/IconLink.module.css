@@ -20,8 +20,8 @@
 }
 
 .link svg {
-  width: 28px;
-  height: 28px;
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
   /* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
   fill: currentcolor;
 }

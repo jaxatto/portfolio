@@ -7,7 +7,7 @@
   position: fixed;
   top: var(--size-space-lg);
   left: 50%;
-  z-index: 10;
+  z-index: var(--layer-raised);
   display: inline-flex;
   align-items: center;
   gap: var(--size-space-sm);
@@ -43,7 +43,7 @@
   .button:hover {
     background: color-mix(
       in srgb,
-      var(--color-primary-default-hover) 12%,
+      var(--color-primary-default-hover) var(--state-wash-hover),
       var(--color-surface-default)
     );
   }
@@ -52,7 +52,7 @@
 .button:active {
   background: color-mix(
     in srgb,
-    var(--color-primary-default-active) 20%,
+    var(--color-primary-default-active) var(--state-wash-active),
     var(--color-surface-default)
   );
 }
@@ -64,8 +64,8 @@
 }
 
 .icon {
-  width: 16px;
-  height: 16px;
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
   flex-shrink: 0;
   fill: currentcolor;
 }

@@ -5,6 +5,7 @@ import { dirname } from 'path';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import { imageSize } from './scripts/vite-image-size';
+import { themeColor } from './src/tokens/themeColor';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,6 +13,15 @@ const __dirname = dirname(__filename);
 export default defineConfig({
   plugins: [
     imageSize(),
+    {
+      // index.html carries the browser bar color in a meta tag and in the pre-paint script. Both read
+      // the values generated from the surface token (npm run build:theme), so they cannot drift.
+      name: 'theme-color',
+      transformIndexHtml: (html: string) =>
+        html
+          .replaceAll('%THEME_COLOR_LIGHT%', themeColor.light)
+          .replaceAll('%THEME_COLOR_DARK%', themeColor.dark),
+    },
     react(),
     svgr({
       include: '**/*.svg',
@@ -19,7 +29,9 @@ export default defineConfig({
   ],
   base: '/',
   server: {
-    open: true,
+    // Reachable from a phone on the same network, and no auto-opened tab (sessions have no browser).
+    host: true,
+    open: false,
   },
   build: {
     outDir: 'dist',

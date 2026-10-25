@@ -1,0 +1,168 @@
+/* Skills lab: throwaway comparison page (see SkillsLab.tsx). Tokens only. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-section-lg);
+  padding-block: var(--size-space-section-lg);
+  color: var(--color-content-prose);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-md);
+}
+
+.title {
+  composes: titleMd from '#styles/type.module.css';
+  margin: 0;
+  color: var(--color-content-emphasis);
+}
+
+.lead,
+.note,
+.flat {
+  margin: 0;
+  font-family: var(--font-style-body-md-family);
+  font-size: var(--font-style-body-md-size);
+  line-height: var(--font-style-body-md-line-height);
+  text-wrap: pretty;
+}
+
+.note {
+  color: var(--color-content-soft);
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-2xl);
+  padding-top: var(--size-space-3xl);
+  border-top: var(--size-border-width-default) solid var(--color-border-decorative);
+}
+
+.optionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-xs);
+}
+
+.optionTitle {
+  composes: headingSm from '#styles/type.module.css';
+  margin: 0;
+  color: var(--color-content-emphasis);
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-2xl);
+}
+
+/* Same heading style as the Resume page's major headings. */
+.heading {
+  composes: headingLg from '#styles/type.module.css';
+  margin: 0;
+  color: var(--color-content-prose);
+}
+
+.heading::after {
+  content: '';
+  display: block;
+  width: var(--size-space-section-md);
+  height: var(--size-space-xs);
+  margin-top: var(--size-space-md);
+  border-radius: var(--size-radius-full);
+  background: var(--color-brand-default);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-2xl);
+  margin: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: var(--size-space-lg) var(--size-space-2xl);
+}
+
+.label {
+  composes: headingSm from '#styles/type.module.css';
+  margin: 0;
+  color: var(--color-content-emphasis);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-md);
+  margin: 0;
+  color: var(--color-content-prose);
+  font-family: var(--font-style-body-md-family);
+  font-size: var(--font-style-body-md-size);
+  line-height: var(--font-style-body-md-line-height);
+}
+
+.rowLink {
+  align-self: flex-start;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--size-space-2xl);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-md);
+  padding: var(--size-space-2xl);
+  border-radius: var(--size-radius-lg);
+  background: var(--palette-container);
+}
+
+.cardTitle {
+  composes: headingMd from '#styles/type.module.css';
+  margin: 0;
+  color: var(--palette-on-container);
+}
+
+.proof,
+.cardSkills {
+  margin: 0;
+  color: var(--color-content-prose);
+  font-family: var(--font-style-body-md-family);
+  font-size: var(--font-style-body-md-size);
+  line-height: var(--font-style-body-md-line-height);
+}
+
+.cardSkills {
+  padding-top: var(--size-space-md);
+  border-top: var(--size-border-width-default) solid var(--palette-on-container);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-style-body-sm-size);
+}
+
+.flat {
+  max-width: var(--size-layout-content-max);
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

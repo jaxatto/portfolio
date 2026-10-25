@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { themeColor } from '#tokens/themeColor';
 
 // Theme ids map to `[data-theme="<id>"]` blocks in the generated theme.css.
 // Add new ids here (and to the token pipeline) to support more themes later.
@@ -31,10 +32,8 @@ const isThemeSwitchingEnabled = (): boolean => {
   }
   return import.meta.env.VITE_THEME_SWITCHING === 'true';
 };
-const THEME_COLORS: Record<ThemeId, string> = {
-  light: '#ffffff',
-  dark: '#0f172b',
-};
+// The browser bar color per theme, generated from the surface token (src/tokens/themeColor.ts).
+const THEME_COLORS: Record<ThemeId, string> = themeColor;
 
 const isThemeId = (value: unknown): value is ThemeId => THEMES.includes(value as ThemeId);
 
