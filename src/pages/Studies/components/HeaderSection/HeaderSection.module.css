@@ -67,44 +67,41 @@
 }
 
 .details {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: var(--size-space-sm);
+	/* Clips the dot of an item that wraps to the start of a line (see .row), so a line never starts
+	   with a dot (D-093). */
+	overflow: hidden;
 	color: var(--color-content-soft);
 	font-family: var(--font-style-body-lg-family);
 	font-size: var(--font-style-body-lg-size); /* one step up so it holds beside the 56px title (D-091) */
 	line-height: var(--font-style-body-lg-line-height);
 }
 
-/* The dot between role and date is decorative. */
-.dot::before {
-	content: '\00b7';
-}
+/* Role, place and date sit on one line when they fit and wrap one by one when they do not. Each item
+   after the first carries its own dot in left padding. The row is pulled left by that padding, so the
+   first item of every line starts at the edge and its dot lands outside the clipped box. */
+.row {
+	--sep-w: var(--size-space-xl);
 
-/* Role and place travel together, with the same gap as the details line. */
-.where {
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
-	gap: var(--size-space-sm);
+	margin: 0 0 0 calc(-1 * var(--sep-w));
+	row-gap: var(--size-space-xs);
 }
 
-/* The date never splits across lines. On phones the role and place stay together and the date drops
-   to its own line, without the dot, so a wrapped line never starts or ends with one (D-085). */
+.item {
+	position: relative;
+	padding-left: var(--sep-w);
+}
+
+.sep::before {
+	content: '\00b7' / ''; /* decorative, empty alt text keeps it out of screen readers */
+	position: absolute;
+	left: calc(var(--sep-w) / 2 - 0.15em);
+}
+
+/* A date never splits across lines. */
 .date {
 	white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-	.details {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--size-space-xs);
-	}
-
-	.dateDot {
-		display: none;
-	}
 }
 
 .chips {

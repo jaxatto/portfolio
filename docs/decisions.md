@@ -452,3 +452,7 @@ The study role line is body-lg (it was body-md) so it holds beside the 56px titl
 ## D-092: New pages open at the top — decided, 2026-10-24
 
 `ScrollToTop` (mounted in App) scrolls to the top when the path changes, so a "More of my work" card opens the next study at its title and not at the footer. Back and forward keep the browser scroll position and a #hash link keeps its anchor. TODO(jax): move keyboard focus to the h1 on navigation if we want screen readers to announce the new page.
+
+## D-093: Study role line wraps item by item; phone study cards 8px more under the link — decided, 2026-10-24
+
+The role, place and date stay on one line whenever they fit and wrap one by one when they do not (replaces the always-stacked date on phones, D-085). Each item after the first carries its own dot, and the row is pulled left by the dot padding inside a clipped box, so a wrapped line never starts with a dot. Study cards under a case study have 24px under the link on phones (was 16, D-063). Home cards are unchanged.
