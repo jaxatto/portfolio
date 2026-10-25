@@ -448,3 +448,7 @@ The chips sit 40px under the role line (the 24px intro gap plus 16px). The 40px 
 ## D-091: Study role line one step up, tight tracking on large headings — decided, 2026-10-24
 
 The study role line is body-lg (it was body-md) so it holds beside the 56px title. Headings over 44px get `letter-spacing: var(--font-letter-spacing-compact)` (-0.02em, an existing token): the study h1 from 641px, the About hero from 900px and the 404 numeral. Home hero sentence uses `title-md`, which stays at 40px until very wide screens, so it is not included yet. Any new heading over 44px should use the same token.
+
+## D-092: New pages open at the top — decided, 2026-10-24
+
+`ScrollToTop` (mounted in App) scrolls to the top when the path changes, so a "More of my work" card opens the next study at its title and not at the footer. Back and forward keep the browser scroll position and a #hash link keeps its anchor. TODO(jax): move keyboard focus to the h1 on navigation if we want screen readers to announce the new page.
