@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StudyPanelsData } from '@commonTypes/study/studySection';
+import type { StudyPanelsData } from '#pages/Studies/types/studySection';
 import styles from './StudyPanels.module.css';
 
 // Page crops side by side in a sunken box (D-054, Figma Indeed 2853:27124). Each panel is a pixel

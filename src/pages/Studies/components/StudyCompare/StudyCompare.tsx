@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StudyCompareData } from '@commonTypes/study/studySection';
+import type { StudyCompareData } from '#pages/Studies/types/studySection';
 import styles from './StudyCompare.module.css';
 
 // Before / after pair (D-050, Figma Indeed 2853:27124): two columns, the "Before" on the sunken

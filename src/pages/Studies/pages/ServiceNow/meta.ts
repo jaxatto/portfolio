@@ -1,4 +1,4 @@
-import { studyLinks } from '@constants/studyLinks';
+import { studyLinks } from '#constants/studyLinks';
 
 const meta = {
   title: 'ServiceNow AI Research Tool Case Study | Jax Engel',

@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "@components/Layout";
-import Image from "@components/Image";
+import Layout from "#components/Layout";
+import Image from "#components/Image";
 import { DesignSelection, Caret, CursorTag } from "#components/HeroMarks";
 import TextLink from "#components/TextLink";
 import { Chip, ChipList, chipPalettes } from "#components/Chip";
-import { studyLinks } from "@constants/studyLinks";
+import { studyLinks } from "#constants/studyLinks";
 import { images } from "./resources/images";
 import { content } from "./resources/content";
 import { meta } from "./resources/meta";

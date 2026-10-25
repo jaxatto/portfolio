@@ -1,4 +1,4 @@
-import { studyLinks } from '@constants/studyLinks';
+import { studyLinks } from '#constants/studyLinks';
 
 const meta = {
   title: 'Toyota Design Token System Case Study | Jax Engel',

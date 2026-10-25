@@ -1,12 +1,12 @@
 import React from 'react';
-import Layout from '@components/Layout';
-import HeaderSection from '@pages/Studies/components/HeaderSection';
-import StudySection from '@pages/Studies/components/StudySection';
-import { studyPalette } from '@components/StudyCardGrid';
-import NextStudy from '@pages/Studies/components/NextStudy';
-import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
-import type { StudySectionProps } from '@commonTypes/study/studySection';
-import type { StudyMetaProps } from '@commonTypes/study/studyMeta';
+import Layout from '#components/Layout';
+import HeaderSection from '#pages/Studies/components/HeaderSection';
+import StudySection from '#pages/Studies/components/StudySection';
+import { studyPalette } from '#components/StudyCardGrid';
+import NextStudy from '#pages/Studies/components/NextStudy';
+import type { StudyHeaderProps } from '#pages/Studies/types/studyHeader';
+import type { StudySectionProps } from '#pages/Studies/types/studySection';
+import type { StudyMetaProps } from '#pages/Studies/types/studyMeta';
 import palettes from '#styles/palette.module.css';
 import styles from './StudyTemplate.module.css';
 

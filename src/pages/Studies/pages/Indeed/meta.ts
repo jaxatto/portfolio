@@ -1,4 +1,4 @@
-import { studyLinks } from '@constants/studyLinks';
+import { studyLinks } from '#constants/studyLinks';
 
 const meta = {
   title: 'Indeed Design System Case Study | Jax Engel',

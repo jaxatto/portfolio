@@ -1,5 +1,5 @@
 import React from 'react';
-import DateRange from '@components/DateRange';
+import DateRange from '#components/DateRange';
 import TextLink from '#components/TextLink';
 import logos from '../../resources/logos';
 import type { ResumeRole } from '../../resources/roles';

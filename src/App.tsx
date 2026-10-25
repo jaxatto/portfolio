@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Work from '@pages/Work';
-import About from '@pages/About';
-import Resume from '@pages/Resume';
-import StudyPage from '@pages/Studies';
-import NotFound from '@pages/NotFound';
-import ScrollToTop from '@components/ScrollToTop';
+import Work from '#pages/Work';
+import About from '#pages/About';
+import Resume from '#pages/Resume';
+import StudyPage from '#pages/Studies';
+import NotFound from '#pages/NotFound';
+import ScrollToTop from '#components/ScrollToTop';
 
 const App: React.FC = () => (
   <Router>

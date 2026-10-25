@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import StudyPanels from '@pages/Studies/components/StudyPanels';
-import StudyCompare from '@pages/Studies/components/StudyCompare';
-import StudyImage from '@pages/Studies/components/StudyImage';
-import type { StudySectionProps } from '@commonTypes/study/studySection';
+import StudyPanels from '#pages/Studies/components/StudyPanels';
+import StudyCompare from '#pages/Studies/components/StudyCompare';
+import StudyImage from '#pages/Studies/components/StudyImage';
+import type { StudySectionProps } from '#pages/Studies/types/studySection';
 import styles from './StudySection.module.css';
 
 // `**text**` in a paragraph is a highlighted phrase: bold in the study's tint (D-081).

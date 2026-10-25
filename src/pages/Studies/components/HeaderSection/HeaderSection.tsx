@@ -1,10 +1,10 @@
 import React from 'react';
-import DateRange from '@components/DateRange';
-import StudyPanels from '@pages/Studies/components/StudyPanels';
-import StudyCompare from '@pages/Studies/components/StudyCompare';
-import StudyImage from '@pages/Studies/components/StudyImage';
+import DateRange from '#components/DateRange';
+import StudyPanels from '#pages/Studies/components/StudyPanels';
+import StudyCompare from '#pages/Studies/components/StudyCompare';
+import StudyImage from '#pages/Studies/components/StudyImage';
 import { Chip, ChipList } from '#components/Chip';
-import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
+import type { StudyHeaderProps } from '#pages/Studies/types/studyHeader';
 import styles from './HeaderSection.module.css';
 
 // The one h1 on a study page. Chips are a list of plain labels (no interaction); all of them use the

@@ -2,7 +2,7 @@ import proposalImage from './images/token-proposal-min.jpg';
 import variablesImage from './images/figma-variables-min.jpg';
 import ecosystemImage from './images/ecosystem-diagram-min.jpg';
 import sprintImage from './images/sprint-board-min.jpg';
-import type { ChipData } from '@commonTypes/study/studyHeader';
+import type { ChipData } from '#pages/Studies/types/studyHeader';
 
 const content = {
     header: {

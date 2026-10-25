@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import Meta, { MetaProps } from '@components/Meta';
-import Header from '@components/Header';
-import Footer from '@components/Footer';
+import Meta, { MetaProps } from '#components/Meta';
+import Header from '#components/Header';
+import Footer from '#components/Footer';
 import BackToTop from '#components/BackToTop';
 import styles from './Layout.module.css';
 

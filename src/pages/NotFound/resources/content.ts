@@ -1,4 +1,4 @@
-import { mainLinks } from '@constants/mainLinks';
+import { mainLinks } from '#constants/mainLinks';
 
 export const content = {
   title: '404',

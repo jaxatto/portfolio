@@ -1,7 +1,7 @@
-import primaryImage from '@assets/about/primary-image-min.jpg';
-import secondaryImage from '@assets/about/secondary-image-min.jpg';
-import tertiaryImage from '@assets/about/tertiary-image-min.jpg';
-import quaternaryImage from '@assets/about/quaternary-image-min.jpg';
+import primaryImage from '#assets/about/primary-image-min.jpg';
+import secondaryImage from '#assets/about/secondary-image-min.jpg';
+import tertiaryImage from '#assets/about/tertiary-image-min.jpg';
+import quaternaryImage from '#assets/about/quaternary-image-min.jpg';
 
 // Order is Kirby, Beau, Midna, Zelda (pose and tone alternate). `alt` only describes the photo;
 // the personality lines live in `caption`, which sighted visitors see under each photo.

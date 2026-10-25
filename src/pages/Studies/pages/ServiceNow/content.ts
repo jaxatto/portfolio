@@ -3,7 +3,7 @@ import contextImage from './images/journey-map-min.jpg';
 import beforeImage from './images/themeweaver-before-min.jpg';
 import afterImage from './images/themeweaver-after-min.jpg';
 import deliverablesImage from './images/figma-board-min.jpg';
-import type { ChipData } from '@commonTypes/study/studyHeader';
+import type { ChipData } from '#pages/Studies/types/studyHeader';
 
 const content = {
     header: {

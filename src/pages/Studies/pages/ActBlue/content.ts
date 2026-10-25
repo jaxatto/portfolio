@@ -3,7 +3,7 @@ import afterImage from './images/actblue-after-min.jpg';
 import contextImage from './images/figjam-min.jpg';
 import flowImage from './images/flow-min.jpg';
 import finalScreensImage from './images/final-screens-min.jpg';
-import type { ChipData } from '@commonTypes/study/studyHeader';
+import type { ChipData } from '#pages/Studies/types/studyHeader';
 
 const content = {
     header: {
