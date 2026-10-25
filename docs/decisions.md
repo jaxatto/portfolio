@@ -569,3 +569,5 @@ Every import uses the `#` aliases (`#src`, `#tokens`, `#styles`, `#pages`, `#com
 ## D-121: Prettier decides formatting — decided, 2026-10-25
 
 The codebase mixed tabs and spaces, and single and double quotes, file by file. Prettier now formats `src`, `scripts` and the config files (`.prettierrc.json`: single quotes, 100 columns, its defaults otherwise, so semicolons and 2 spaces). `npm run format` runs it. The generated `theme.css` and the docs are not formatted. The formatting pass is its own commit, with bundle sizes unchanged (JS 372.3 kB, CSS 82.1 kB).
+
+D-118 fix (2026-10-25): `--shadow-lift` held `var(--shadow-lift-color, …)` and a custom property resolves where it is defined, so every card read the :root fallback (black 50%). The token is now the geometry only and the card writes `box-shadow: var(--shadow-lift) var(--shadow-lift-color)`. Measured on a hovered Home card: light is the palette color at 55%, dark is black at 50%. Any component that needs a themed shadow color composes it the same way.
