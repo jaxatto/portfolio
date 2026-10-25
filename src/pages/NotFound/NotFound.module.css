@@ -65,6 +65,7 @@
 	/* No type token goes past 56px, so the display size is derived from it: 56px on small phones,
 	   up to 2.5x on desktop. D-022. */
 	font-size: clamp(var(--font-size-56), 18vw, calc(var(--font-size-56) * 2.5));
+	letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
 	line-height: 1;
 }
 

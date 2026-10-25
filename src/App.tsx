@@ -5,9 +5,11 @@ import About from '@pages/About';
 import Resume from '@pages/Resume';
 import StudyPage from '@pages/Studies';
 import NotFound from '@pages/NotFound';
+import ScrollToTop from '@components/ScrollToTop';
 
 const App: React.FC = () => (
   <Router>
+    <ScrollToTop />
     <Routes>
       <Route path='/' element={<Work />} />
       <Route path='/about' element={<About />} />

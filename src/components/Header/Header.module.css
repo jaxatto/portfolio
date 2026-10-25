@@ -287,7 +287,7 @@
 }
 
 /* "build": a code chip with a blinking terminal cursor. Mono token = Roboto Mono, loaded in
-   _variables.scss (D-017). */
+   index.html (D-017). */
 .build {
 	display: inline-block;
 	padding-inline: 0.3em;

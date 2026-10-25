@@ -20,6 +20,10 @@ Order is a proposal; confirm before starting slice 0.
 
 Slices 3 and 4 are done: the case study template and all four studies (Indeed, ActBlue, ServiceNow, Toyota). Slice 6, Resume, is built (D-087 to D-091) and all legacy styling and SCSS is deleted. Remaining: Jax's review of Resume (skills layout), then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
 
+## Resume PDF (side task, 2026-10-24)
+
+Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Design Engineer and Design Engineer ATS. The public PDF is the main build. Copies sit in `~/Desktop/resume/`. To revisit with Jax: more Design Engineer framing in the role bullets, the Toyota first bullet, whether the headline should change. Merge to `redesign` only when Jax says so.
+
 ## Open questions for Jax
 
 Copy (all marked `TODO(jax)`, provisional):

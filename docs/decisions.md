@@ -422,6 +422,8 @@ At 640px and below the role and place stay on one line and the date drops to its
 
 The page is `/case-studies/toyota` (`Studies/pages/Toyota`), wired in `Studies.tsx`. The `ready` flag on the study cards is gone because every study now has a page, so Toyota shows under Home and in the "More of my work" row (ServiceNow and Indeed on its own page). Title "Toyota PRIME Token System" (the Home card keeps "Building a multi-brand token system"), role "Senior UX Engineer", "Plano, TX (Hybrid)", 2025–2026. Chips: Design Systems, Design Tokens, Automation, Multi-Brand ("Logistics" dropped, the supply chain org is only context). Facts from Jax: PRIME is a React system with 80+ components in production that served one organization, Supply Chain and Fulfillment (SCaFT and Toyota are supported today, Lexus is not yet). The token library was a separate project applied to PRIME and could serve React, Angular and Swift consumers. 680 primitive and theme tokens, 120 component tokens, 15 components mapped in Figma and 3 in development, 40 SCaFT product teams across 10 web apps expected to adopt (numbers from leadership), 5 designers, 12 epics and 200+ stories created in bulk with Python and AI. The CLI was finished and used to build the tokens. The handoff pipeline was designed and planned only, so it is worded "would" and listed as "designed and planned". Coded components were in progress and nothing is claimed about reduced manual work beyond "expected to reduce". "Single source of truth" appears once (Outcomes). The migration benefit of binding tokens is worded as expected. Opportunities: shifting priorities with slow or missing answers, and engineering prioritization with stakeholder turnover (neutral wording, a named engineering sponsor is Claude's suggestion that Jax accepted). Meta is the D-045 draft. The Home card outcome now cites the token counts instead of "single source of truth". The proposal strip (Context) and the ecosystem diagram (Contributions) are in. The Outcomes image is the Figma variables panel (no code screenshot exists any more). Still missing: the header banner and an optional Deliverables image.
 
+Resolved (2026-10-24, Jax): the resume line "Supported 40+ product teams building on the React design system" is Jax's own claim and stays. Do not flag the 40 teams as "expected adopters" against the resume again. The case study wording above stays as written.
+
 
 ## D-084: Study image variant `column` — decided, 2026-10-21
 
@@ -513,3 +515,33 @@ D-108 follow-up (2026-10-24): in dark mode the back to top pill gets a deeper sh
 
 ## D-109: Tone scopes, data-tone="blue" — decided, 2026-10-24
 Sections can re-point the semantic tokens with a `data-tone` attribute instead of per-component overrides. `src/styles/tone.css` defines `[data-tone='blue']` for dark mode (an explicit `data-theme` or the OS setting): text and link tokens go to their on-accent values, the primary hover goes to the soft indigo, the focus ring goes white, and the name tag colors (`--tag-bg`, `--tag-fg`) become that same soft indigo with the page ground as text. The footer band carries `data-tone="blue"` (its tinted ground stays in `Footer.module.css`); Home's footer without the band carries none. The Tooltip is portaled to `<body>`, so it reads the nearest `data-tone` on its control and puts it on itself, which makes a footer tooltip the same soft indigo as the footer's hover lines (checked: both oklch 0.87 0.065 274). A new tone is a new block in `tone.css`.
+
+Renumbered on merge: another session used D-087 to D-093 for the entries below while the Resume work used the same numbers. These are D-110 to D-116 now, and their references in code and docs are updated.
+
+## D-110: Resume PDF is built from HTML in `resume/` — decided, 2026-10-24
+
+`resume/resume.html` and `resume.css` are the source, `resume/build.mjs` (puppeteer-core with the local Chrome, pdf-lib for author and title) writes a tagged, text-only, single-column Letter PDF in Arial. It has its own `package.json` so the site's dependencies stay untouched. Content is the current public PDF word for word, with separators changed to pipes and "Skills & Tools" shortened to "Skills" (standard ATS section name). The public PDF is not replaced until Jax says so. Round two (2026-10-24, Jax approved all seven proposals): headline "Staff Product Designer & Design Engineer", "Present", Toyota and ServiceNow bullets rebuilt from D-077 and D-083 facts (Toyota's 40 teams are expected adopters), ActBlue's $1.5M is "an estimated" figure (D-067), Indeed gets the localization and RTL documentation fact, a Case Studies section with the four study URLs, skills reordered (Python, design tokens added, SASS duplicate cut). Round three (2026-10-24): Toyota ends Sep 2026 and Spectrum (Senior Design Engineer, contract, remote, from `resume-slice` roles.ts) starts Sep 2026. Three bullets at most per role, no one or two word last lines (checked in the PDF text), Visa is one Senior UX Engineer entry (Nov 2017 – Feb 2020) with a "Promoted from UX Engineer" line (Nov 2015 – Nov 2017), Helvetica at 9.8pt, site purple and ink. The Toyota bullets lost the 40 teams (expected adopters) and the specification and Zeroheight bullet. The tighter v2 wording replaced the first version (2026-10-24): summary and bullets keep Jax's original wording plus added facts, Albertsons and Routable have one bullet each, skills are trimmed, GitHub is in the contact line. `resume/resume-ats.html` (`node build.mjs resume-ats`) is the same resume without title descriptors, "Contract" and "(Hybrid)", for strict parsers. Role titles are unchanged. Albertsons, Routable, FireHydrant and Visa are only reworded, no new metrics exist.
+
+## D-111: Study card hover lift — decided, 2026-10-24
+
+On devices that hover and without reduced motion, a study card rises 8px with a soft shadow and its screenshot grows 4 points wider inside its window, anchored top left (no shift, no transform scale, so the crop does not move). The arrow and link stay where they are (Jax: the arrow moving as well was too much at once). The tint change and the link underline stay. The shadow is a card-scoped custom property, `--card-shadow` (the palette color at 55 percent, black at 50 percent in dark), because the token system has no semantic shadow token yet. TODO(jax): add one if more components lift.
+
+## D-112: Study h1 size and width — decided, 2026-10-24
+
+The study h1 is 56px from 900px, 48px from 641px and 40px on phones (it was `title-md`, which stayed at 40px until about 2,800px). It matches the About hero and is 1.75 times the 32px h2s. The h1 may use the full 960 column. Role line, chips and the 40px gap under them are unchanged.
+
+## D-113: Study chips: 16px more above — decided, 2026-10-24
+
+The chips sit 40px under the role line (the 24px intro gap plus 16px). The 40px between the chips and the intro paragraph is unchanged.
+
+## D-114: Study role line one step up, tight tracking on large headings — decided, 2026-10-24
+
+The study role line is body-lg (it was body-md) so it holds beside the 56px title. Headings over 44px get `letter-spacing: var(--font-letter-spacing-compact)` (-0.02em, an existing token): the study h1 from 641px, the About hero from 900px and the 404 numeral. Home hero sentence uses `title-md`, which stays at 40px until very wide screens, so it is not included yet. Any new heading over 44px should use the same token.
+
+## D-115: New pages open at the top — decided, 2026-10-24
+
+`ScrollToTop` (mounted in App) scrolls to the top when the path changes, so a "More of my work" card opens the next study at its title and not at the footer. Back and forward keep the browser scroll position and a #hash link keeps its anchor. TODO(jax): move keyboard focus to the h1 on navigation if we want screen readers to announce the new page.
+
+## D-116: Study role line wraps item by item; phone study cards 8px more under the link — decided, 2026-10-24
+
+The role, place and date stay on one line whenever they fit and wrap one by one when they do not (replaces the always-stacked date on phones, D-085). Each item after the first carries its own dot, and the row is pulled left by the dot padding inside a clipped box, so a wrapped line never starts with a dot. Study cards under a case study have 24px under the link on phones (was 16, D-063). Home cards are unchanged.

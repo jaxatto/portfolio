@@ -190,6 +190,7 @@
 @media (min-width: 900px) {
 	.title {
 		font-size: var(--font-size-56);
+		letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
 	}
 }
 
