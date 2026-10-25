@@ -600,3 +600,7 @@ The Resume page drops the Skills and tools chips (the PDF carries the full list)
 ## D-125: Footer line and 404 quips settled — decided, 2026-10-25
 
 Jax settled the footer line ("Open to remote Staff Product Designer and Design Engineer roles.", D-021, D-024) and the seven 404 quips (D-022). The provisional markers are removed.
+
+## D-126: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
+
+Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUDE.md` now has a No-nos section: never raise the Toyota token count as a proof point, never style h1 to h6 directly (classes carry the look, tags carry the structure), and do not bring up the audit. The Resume strengths proof line for Toyota no longer cites the token count. Known direct heading styling to fix: the tag reset in `main.css` and the `.story section > h2 + *` selector in `About.module.css`.

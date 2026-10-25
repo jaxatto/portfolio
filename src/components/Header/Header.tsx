@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 
       <div className={styles.bar}>
         {/* Left slot: the brand on inner pages; on Home the greeting carries the name, so the slot
-				    holds the role instead. A page can pass `label` to do the same (Resume, D-097). TODO(jax): role line is provisional (content pass). */}
+				    holds the role instead. A page can pass `label` to do the same (Resume, D-097). */}
         {slotLabel ? (
           <p className={styles.role}>
             <RoleLines lines={slotLabel} />
@@ -80,7 +80,6 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 
       {isHome && (
         <div className={styles.intro}>
-          {/* TODO(jax): H1 and treatments are provisional, to be reviewed with the content pass. */}
           {/* The "design" selection box (with a resizing cursor) and the "build" chip are decorative: the
 					    box parts are aria-hidden and empty, so the sentence reads cleanly to assistive tech. */}
           <h1 className={styles.heading}>
