@@ -23,6 +23,8 @@
 		var(--color-surface-default)
 	);
 	color: var(--color-content-soft);
+	/* Shadow under a lifted card (D-088): the palette's own color. Dark mode swaps it for black below. */
+	--card-shadow: color-mix(in oklch, var(--card-fg) 55%, transparent);
 	transition: background-color 0.2s ease;
 }
 
@@ -227,8 +229,10 @@
 }
 
 .image {
+	/* The screenshot's width is a variable so the hover can grow it by 4 points (D-088). */
+	--image-w: 100%;
 	display: block;
-	width: 100%;
+	width: var(--image-w);
 	height: auto;
 }
 
@@ -271,7 +275,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 112%;
+		--image-w: 112%;
+		width: var(--image-w);
 		max-width: none;
 		height: auto;
 		min-height: 100%;
@@ -283,12 +288,14 @@
 	.horizontal:not(.enlarge) .image {
 		top: calc(-1 * var(--size-border-width-default));
 		left: calc(-1 * var(--size-border-width-default));
-		width: calc(112% + 2 * var(--size-border-width-default));
+		--image-w: calc(112% + 2 * var(--size-border-width-default));
+		width: var(--image-w);
 	}
 
 	/* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-028). */
 	.horizontal.enlarge .image {
-		width: calc(112% + 40px);
+		--image-w: calc(112% + 40px);
+		width: var(--image-w);
 	}
 }
 
@@ -375,6 +382,40 @@
 	}
 }
 
+/* Hover lift (D-088): on devices that hover, the card rises 8px with a soft shadow and its screenshot
+   grows 4 points wider inside the window, anchored top left. The arrow and link stay where they are. Skipped for
+   reduced motion, which keeps only the tint change. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+	.card {
+		transition:
+			background-color 0.2s ease,
+			transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+			box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+
+	.card:hover {
+		transform: translateY(calc(-1 * var(--size-space-sm)));
+		box-shadow: 0 24px 48px -20px var(--card-shadow);
+	}
+
+	.image {
+		transition:
+			width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+			min-height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+
+	/* Wider, not scaled or shifted: the top-left corner stays put so the crop does not move. A short
+	   screenshot (Toyota) is held by the window's height, so the height grows with the width, or
+	   the cover crop would show more of the sides and not a larger picture. */
+	.card:hover .image {
+		width: calc(var(--image-w) + 4%);
+	}
+
+	.horizontal:hover .image {
+		min-height: 104%;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.card,
 	.linkText::after,
@@ -388,11 +429,13 @@
 :global([data-theme='dark']) .card {
 	--card-fg: var(--color-content-emphasis);
 	--card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
+	--card-shadow: oklch(0 0 0 / 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
 	:global(:root:not([data-theme='light'])) .card {
 		--card-fg: var(--color-content-emphasis);
 		--card-lift: 30%;
+		--card-shadow: oklch(0 0 0 / 0.5);
 	}
 }
