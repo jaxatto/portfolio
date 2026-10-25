@@ -596,3 +596,15 @@ The Resume page drops the Skills and tools chips (the PDF carries the full list)
 ## D-127: Self-hosted fonts — decided, 2026-10-25
 
 Inter, Manrope and Roboto Mono are the latin subset of Google's variable files, saved in `public/fonts` and declared in `src/styles/fonts.css` with one `@font-face` per family and a weight range, so every weight the site uses comes from one file (86 kB in all, the same bytes as before). `index.html` preloads Inter and Manrope and no longer connects to fonts.googleapis.com or fonts.gstatic.com. The 21 kB Google stylesheet and its two connections are gone from the path to first paint. The unicode-range is Google's latin range, which covers every character in `src` and `index.html` (checked by script). Anything outside it, for example a name in another script, would fall back to a system font. To add a weight outside a family's range or another subset, download that file the same way and add a rule.
+
+## D-128: Footer line and 404 quips settled — decided, 2026-10-25
+
+Jax settled the footer line ("Open to remote Staff Product Designer and Design Engineer roles.", D-021, D-024) and the seven 404 quips (D-022). The provisional markers are removed.
+
+## D-129: No-no list in CLAUDE.md; hero settled; heading tags are semantic only — decided, 2026-10-25
+
+Jax settled the Home hero and the header role line (D-016, D-018, D-098). `CLAUDE.md` now has a No-nos section: never raise the Toyota token count as a proof point, never style h1 to h6 directly (classes carry the look, tags carry the structure), and do not bring up the audit. The Resume strengths proof line for Toyota no longer cites the token count. Known direct heading styling to fix: the tag reset in `main.css` and the `.story section > h2 + *` selector in `About.module.css`.
+
+## D-130: Headings are never styled by their tag — decided, 2026-10-25
+
+The heading reset in `main.css` (margin and padding on h1 to h6) is gone, so no rule targets a heading element. Every heading takes margin 0 from its type step in `type.module.css`. The About `section > h2 + *` selector became `margin-bottom` on the `.heading` class (still 12px under the heading, D-057). Checked on every route at 1280: all headings compute to zero margin and padding except the two About h2s, which carry the intended -12px bottom margin.

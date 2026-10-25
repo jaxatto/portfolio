@@ -10,13 +10,13 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
 - [x] 2. Home / Work page and study cards (D-028 to D-038, merged to `redesign` with the About page, 2026-10-16)
 - [x] 3. Case study template (D-046 to D-066, merged to `redesign` 2026-10-19; Indeed is its first finished page)
-- [x] 4. Case study content: Indeed, ActBlue, ServiceNow and Toyota (D-047 to D-086), all merged to `redesign` or ready on the slice 3 branch; verified end to end 2026-10-21 (375, 768, 1280, light and dark: no overflow, one h1, heading order, alt text, links, meta)
+- [x] 4. Case study content: Indeed, ActBlue, ServiceNow and Toyota (D-047 to D-086), all merged to `redesign`; verified end to end 2026-10-21 (375, 768, 1280, light and dark: no overflow, one h1, heading order, alt text, links, meta)
 - [x] 5. About (D-040 to D-045, merged with slice 2). The Toyota scale number is answered (D-083)
-- [x] 6. Resume (D-087 to D-091, merged to `redesign` in PR #11, 2026-10-25): page, roles and skills on tokens, legacy global rules and SCSS deleted. Skills layout still to revisit with Jax
+- [x] 6. Resume (D-087 to D-091 and D-123, D-124, merged to `redesign` in PRs #11 and #16, 2026-10-25): page on tokens, legacy global rules and SCSS deleted, then redesigned with strengths cards, gradient split role cards and no skills list
 
 ## Now
 
-Slices 0 to 6 are merged into `redesign`. Resume redesign (D-124) is merged: strengths cards, gradient split role cards, no skills list. Remaining: Jax's review and role summaries, the Design Engineer PDF download, the `TODO(jax)` copy below, then flip `VITE_THEME_SWITCHING` when Jax is ready to ship dark mode (D-006, D-011). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
+Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-128, D-129). Remaining for Jax: review of the Resume role summaries and strength lines (drafts, `TODO(jax)` in `roles.ts`), the Design Engineer PDF download on the Resume page, the Home SEO copy, then flip `VITE_THEME_SWITCHING` when ready to ship dark mode (D-006, D-011). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant. Dark mode is gated for production but shows in the dev server (`.env.development`).
 
 ## Audit follow-ups (2026-10-25)
 
@@ -34,24 +34,26 @@ Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Desi
 
 ## Open questions for Jax
 
-Copy (all marked `TODO(jax)`, provisional):
+Copy:
 - About copy, round one applied (D-044). Earlier-roles paragraph added with links to the three case studies (Visa left out). The Toyota scale is answered in D-083 (680 + 120 tokens, 40 teams, one brand today).
-- Hero: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Revisit later if needed.
-- Footer line: "Open to remote Staff Product Designer and Design Engineer roles." (D-021, D-024).
-- 404 quips: seven phrases in `src/pages/NotFound/resources/content.ts`, picked at random (D-022).
-- Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021).
+- Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Page titles and meta follow it.
 
 Design / tokens:
 1. **Figma is a reference only.** It is out of date for Home, About and the focus ring, and Jax won't update it; code and `docs/decisions.md` are the source of truth (2026-10-15).
-2. The card ramp ends at teal (container teal 100); a fifth study would continue with green (not built, D-030).
-3. Dark card backgrounds were tinted 30% toward the ground; check against the rest of the dark pages when they migrate (D-028).
+2. The card ramp is purple, indigo, sky, teal, and the green group `quinary` now exists (D-123). A fifth study card would take it.
+3. Dark card backgrounds were tinted 30% toward the ground; all pages are migrated, so judge them in the dark pass (D-028).
 4. Mobile/tablet: no designs exist (D-008). Proposed per slice, agreed in review. There is no tablet design for the footer (stacks at 640px).
 5. The link arrows are Phosphor bold, so their stroke scales with size (D-026). Revisit if it reads light.
 6. Icons: all UI icons are Phosphor bold and the emoji are gone (D-037).
 7. ServiceNow's Outcomes rest on what Jax recalls (no metrics exist for the tool). The Toyota frame's footer says "Design Technologist" where the site says "Design Engineer".
 8. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
 
-`TODO(jax)` in the code (all provisional copy or design, none block anything): footer line and tablet footer (`Footer.tsx`, `Footer.module.css`, D-021, D-008, D-024), header role line and H1 treatment (`Header.tsx`), 404 quips (`NotFound/resources/content.ts`), Home SEO copy (`Work.tsx`), Resume role summaries (`Resume/resources/roles.ts`, D-124). Toyota has no Deliverables image by choice (2026-10-21).
+Remaining `TODO(jax)` in the code (2026-10-25):
+- No tablet design for the footer (`Footer.module.css`, D-008, D-024).
+- The Home SEO copy (`Work.tsx`, D-003, D-016).
+- Resume role summaries and strength proof lines are drafts condensed from the PDF bullets and the case studies (`roles.ts`, `Resume.tsx`, D-124).
+- Design Engineer PDF: the `resume/` folder builds it, but `public/` and the Resume page link only the main PDF.
+- Toyota page: no Deliverables image (decided 2026-10-21: none wanted). The sprint board image is 800px and soft on retina (Jax is fine with that).
 
 ## Parked: study image component (raised 2026-10-19, return after ServiceNow copy is done)
 

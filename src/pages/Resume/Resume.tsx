@@ -20,7 +20,7 @@ import styles from './Resume.module.css';
 const strengths = [
   {
     title: 'Design tokens at enterprise scale',
-    proof: '680 primitive and theme tokens and 120 component tokens for Toyota\u2019s PRIME design system.',
+    proof: 'Architected the enterprise token framework and the Figma-to-code pipeline for Toyota\u2019s PRIME design system.',
     to: studyLinks.toyota,
     linkText: 'Toyota case study',
     palette: 'brand',

@@ -41,6 +41,12 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 - **No interrupting clauses.** Don't split a subject from its verb with a comma-set clause ("The ICL, which was strict, was replaced by the IDS"). Put the subject and verb together and give the extra detail in its own short sentence. Also no em dashes or semicolons in sentences, and no run-ons. Rules from Jax (2026-10-17).
 - **Revise lightly.** Keep the original's specifics, fix only what is weak, and don't reuse phrasing that already appears elsewhere on the site. Ask for facts (outcomes, current employer) instead of inventing them.
 
+## No-nos (permanent, from Jax)
+
+- **Never raise the Toyota token count ("680 tokens" and similar) as a proof point, a suggestion or an example.** Jax says it is irrelevant (2026-10-25). Leave it where it already sits in his study content unless he asks.
+- **h1 to h6 are semantic only.** The tag is for structure, screen readers and the DOM. Never style a heading element directly (no `h1 {}`, `.x h2 {}` or `section > h2 + *` selectors). Choose the tag for the outline and the look from a class (compose a step from `type.module.css`), so any tag can look like any step (2026-10-25).
+- **Don't bring up the code audit** or ask for its approvals. It runs on its own.
+
 ## Code comments
 
 Comments say *why*, never what the code already says: a design or accessibility reason, a non-obvious Figma-to-code mapping, a workaround, a known limitation. Two lines at most. Cite a decision (`D-004`) only when it adds a pointer a reader needs. Use `// NOTE:` for context and `// TODO(jax):` for an open question that needs a design or copy decision. No change-log wording ("was 24, now 32", "+8px per Jax"): git history and `docs/decisions.md` hold that. Keep comments true; update or delete them when the code changes.

@@ -27,7 +27,6 @@ const Footer: React.FC<FooterProps> = ({ band = true }) => {
         <div className={styles.main}>
           <div className={styles.top}>
             <h2 className={styles.title}>Let’s work together</h2>
-            {/* TODO(jax): provisional copy (D-021: Staff Product Designer, plus Design Engineer where it fits). */}
             <p className={styles.description}>
               Open to remote <span className={styles.nowrap}>Staff Product Designer</span>{' '}
               <span className={styles.nowrap}>and Design Engineer</span> roles.
