@@ -5,6 +5,7 @@
 
 .link {
   composes: line from '#styles/line.module.css';
+  --line-color: currentcolor;
   position: relative;
   display: inline-flex;
   align-items: center;

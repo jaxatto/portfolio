@@ -13,8 +13,8 @@ import styles from './Role.module.css';
 
 const ramp = ['brand', 'primary', 'secondary', 'quaternary', 'quinary'] as const;
 
-// A point `pos` (0 to 4) along the ramp, for the container fill (k = 0) or its text color (k = 1).
-const along = (pos: number, k: 'container' | 'on-container'): string => {
+// A point `pos` (0 to 4) along the ramp, for the container fill, its text color or the vibrant default.
+const along = (pos: number, k: 'default' | 'container' | 'on-container'): string => {
   const seg = Math.min(Math.floor(pos), ramp.length - 2);
   const percent = Math.round((pos - seg) * 100);
   return `color-mix(in oklab, var(--color-${ramp[seg + 1]}-${k}) ${percent}%, var(--color-${ramp[seg]}-${k}))`;
@@ -29,6 +29,7 @@ const toneFor = (index: number, total: number): CSSProperties => {
     '--role-from': along(here, 'container'),
     '--role-to': along(next, 'container'),
     '--role-fg': along(here, 'on-container'),
+    '--role-accent': along(here, 'default'),
   } as CSSProperties;
 };
 
