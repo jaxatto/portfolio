@@ -28,10 +28,10 @@ const content = {
             },
         ],
         chips: [
-            { label: 'Design Systems', theme: 'tertiary' },
-            { label: 'Design Tokens', theme: 'tertiary' },
-            { label: 'Automation', theme: 'secondary' },
-            { label: 'Multi-Brand', theme: 'secondary' },
+            { label: 'Design Systems' },
+            { label: 'Design Tokens' },
+            { label: 'Automation' },
+            { label: 'Multi-Brand' },
         ] as ChipData[],
     },
     sections: [

@@ -22,10 +22,10 @@ const content = {
             'I built and documented components for Indeed\'s new enterprise design system, used by 100+ designers. My focus was applying WCAG accessibility standards to our components and embedding localization guidance directly into our design and code.',
         ],
         chips: [
-            { label: 'B2C', theme: 'tertiary' },
-            { label: 'PeopleTech', theme: 'tertiary' },
-            { label: 'Design Systems', theme: 'secondary' },
-            { label: 'Accessibility', theme: 'secondary' },
+            { label: 'B2C' },
+            { label: 'PeopleTech' },
+            { label: 'Design Systems' },
+            { label: 'Accessibility' },
         ] as ChipData[],
         compare: {
             before: {

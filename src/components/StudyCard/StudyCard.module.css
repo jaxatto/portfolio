@@ -36,11 +36,6 @@
 	color: var(--card-fg-hover);
 }
 
-.brand {
-	/* defaults above */
-	--card-bg: var(--color-brand-container);
-}
-
 .primary {
 	--card-bg: var(--color-primary-container);
 	--card-bg-hover: var(--color-primary-container-hover);
@@ -119,8 +114,7 @@
 	line-height: var(--font-style-body-md-line-height);
 }
 
-/* Tags are quieter than the outcome. */
-/* Link: bold, underlined at rest like TextLink (D-015, D-026); grows its offset on hover. */
+/* Link: bold, no resting underline; the shared line grows in on hover (D-031). */
 .link {
 	display: inline-flex;
 	align-items: center;
@@ -147,8 +141,6 @@
 	display: none;
 }
 
-/* Hover style from the nav and footer links (D-017, D-031): no resting underline; on hover a 3px
-   line grows in from the left. Text color and arrow stay put. Focus shows only the card's ring. */
 /* Stretched link: the whole card is the click target. */
 .link::after {
 	content: '';
@@ -170,16 +162,6 @@
 
 .link:focus-visible {
 	outline: none;
-}
-
-/* The card link never changes color or underline: every state stays at the palette color. */
-.link {
-	color: var(--card-fg);
-	text-decoration: none;
-}
-
-.link svg {
-	fill: currentcolor;
 }
 
 /* Preview: the sample UI is cropped by the card's right and bottom edges, on purpose. It is

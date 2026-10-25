@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@components/Layout';
 import Icon from '#components/Icon';
+import { chipPalettes } from '#components/Chip';
 import RoleLines from '#components/RoleLines';
 import { contactInfo } from '@constants/contactInfo';
 import { roleLines } from '@constants/roleLines';
@@ -21,8 +22,6 @@ const facts = [
   { value: '8 systems', label: 'Design systems contributed to in production' },
   { value: 'Remote-first', label: 'Based in Texas, on Central Time' },
 ];
-
-const chipPalettes = ['primary', 'secondary', 'tertiary', 'quaternary'] as const;
 
 const Resume: React.FC = () => (
   <Layout

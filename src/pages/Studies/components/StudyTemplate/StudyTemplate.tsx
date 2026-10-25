@@ -15,13 +15,12 @@ export type StudyTemplateProps = {
     header: StudyHeaderProps;
     sections: StudySectionProps[];
   };
-  renderSection?: (section: StudySectionProps, idx: number) => React.ReactNode;
 };
 
 const endsWithMedia = (section?: StudySectionProps) =>
   Boolean(section && (section.panels || section.compare || section.image?.some((img) => img.src)));
 
-const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSection }) => {
+const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content }) => {
   const palette = studyPalette(meta.linkUrl);
   const sections = [...content.sections].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
   return (
@@ -34,7 +33,6 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
     <HeaderSection
       className={content.header.image?.[0] || content.header.compare || content.header.panels ? undefined : styles.headerNoImage}
       title={content.header.title}
-      subtitle={content.header.subtitle}
       roleDetails={content.header.roleDetails}
       chips={content.header.chips}
       description={content.header.description}
@@ -43,7 +41,7 @@ const StudyTemplate: React.FC<StudyTemplateProps> = ({ meta, content, renderSect
       panels={content.header.panels}
     />
     {sections.map((section, idx) =>
-      renderSection ? renderSection(section, idx) : <StudySection key={idx} section={section} />
+      <StudySection key={idx} section={section} />
     )}
     <NextStudy meta={meta} afterMedia={endsWithMedia(sections[sections.length - 1])} />
   </Layout>
