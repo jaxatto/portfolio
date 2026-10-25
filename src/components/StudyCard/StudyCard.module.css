@@ -23,6 +23,8 @@
 		var(--color-surface-default)
 	);
 	color: var(--color-content-soft);
+	/* Shadow under a lifted card (D-088): the palette's own color. Dark mode swaps it for black below. */
+	--card-shadow: color-mix(in oklch, var(--card-fg) 55%, transparent);
 	transition: background-color 0.2s ease;
 }
 
@@ -375,6 +377,32 @@
 	}
 }
 
+/* Hover lift (D-088): on devices that hover, the card rises 8px with a soft shadow and its screenshot
+   drifts up and zooms 4% inside the window. The arrow and link stay where they are. Skipped for
+   reduced motion, which keeps only the tint change. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+	.card {
+		transition:
+			background-color 0.2s ease,
+			transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+			box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+
+	.card:hover {
+		transform: translateY(calc(-1 * var(--size-space-sm)));
+		box-shadow: 0 24px 48px -20px var(--card-shadow);
+	}
+
+	.image {
+		transform-origin: top left;
+		transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+	}
+
+	.card:hover .image {
+		transform: translateY(-10px) scale(1.04);
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.card,
 	.linkText::after,
@@ -388,11 +416,13 @@
 :global([data-theme='dark']) .card {
 	--card-fg: var(--color-content-emphasis);
 	--card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
+	--card-shadow: oklch(0 0 0 / 0.5);
 }
 
 @media (prefers-color-scheme: dark) {
 	:global(:root:not([data-theme='light'])) .card {
 		--card-fg: var(--color-content-emphasis);
 		--card-lift: 30%;
+		--card-shadow: oklch(0 0 0 / 0.5);
 	}
 }
