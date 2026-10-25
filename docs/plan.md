@@ -32,7 +32,7 @@ Batches 1 to 4 are done (regressions, dead code, tokens, shared components). Not
 - **Held:** the dark-mode override dedupe (item 11) and the token worklist. The cheaper route is to have the inline script and ThemeProvider always set `data-theme` to the resolved theme (the OS setting when nothing is stored), which makes the `prefers-color-scheme` blocks in `theme.css` and about 13 component sites redundant.
 - **Fonts, measured:** Google's stylesheet is 21 kB (58 `@font-face` rules, 3 used in latin) and blocks first paint. A visit then downloads 3 variable latin files, 86 kB (Inter 48 kB, Manrope 25 kB, Roboto Mono 13 kB). Self-hosting keeps the 86 kB, drops the 21 kB stylesheet and both third-party connections (about 100 to 180 ms of handshakes and a stylesheet-then-font chain in the render path, measured from one fast connection). Not done, awaiting Jax.
 - **Token worklist:** [untokenized-styles.md](untokenized-styles.md), 101 declarations. First candidates are icon sizes, state washes, layer order and the `theme-color` pair.
-- **Not tested:** screen readers, 200% and 400% zoom, forced colors, Safari and Firefox. Route changes do not move focus or announce (D-115 TODO).
+- **Not tested:** screen readers, 200% and 400% zoom, forced colors, Safari and Firefox. Route changes now move focus to the h1 (D-126), checked without a screen reader.
 
 ## Resume PDF (side task, 2026-10-24)
 

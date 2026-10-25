@@ -75,3 +75,9 @@ body {
   white-space: nowrap !important;
   border: 0 !important;
 }
+
+/* A page's h1 takes focus after a route change (FocusOnRouteChange). It is not a control, so no ring. */
+main h1[tabindex='-1']:focus,
+main h1[tabindex='-1']:focus-visible {
+  outline: none;
+}
