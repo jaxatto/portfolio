@@ -172,8 +172,7 @@
    it (cards are about 0.34 lightness, this is about 0.25). The hairline goes (the band is the
    divider). Home turns the band off (`band={false}`) and keeps the plain ground and hairline. The text,
    link and tag tokens are re-pointed to their on-accent values by the footer's data-tone="blue"
-   (src/styles/tone.css, D-109), so the shared TextLink and Tooltip work unchanged. Selectors mirror
-   theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
+   (src/styles/tone.css, D-109), so the shared TextLink and Tooltip work unchanged. */
 :global([data-theme='dark']) .band {
   background: color-mix(
     in oklch,
@@ -186,22 +185,6 @@
 :global([data-theme='dark']) .band .inner::before {
   display: none;
 }
-
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .band {
-    background: color-mix(
-      in oklch,
-      var(--color-surface-default) 80%,
-      var(--color-secondary-container)
-    );
-    color: var(--color-content-on-accent);
-  }
-
-  :global(:root:not([data-theme='light'])) .band .inner::before {
-    display: none;
-  }
-}
-
 /* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
 @media (max-width: 640px) {
   .row {

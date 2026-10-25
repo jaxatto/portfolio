@@ -39,11 +39,5 @@ ${lightSemanticVars.join('\n')}
 [data-theme="dark"] {
 ${darkSemanticVars.join('\n')}
 }
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-${darkSemanticVars.join('\n')}
-  }
-}
 `;
 }

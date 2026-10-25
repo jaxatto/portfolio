@@ -343,18 +343,9 @@
   }
 }
 
-/* Dark mode (D-028): heading and link are white, the paragraph one step dimmer. Selectors mirror
-   theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
+/* Dark mode (D-028): heading and link are white, the paragraph one step dimmer. */
 :global([data-theme='dark']) .card {
   --card-fg: var(--color-content-emphasis);
   --card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
   --shadow-lift-color: oklch(0 0 0 / 0.5);
-}
-
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .card {
-    --card-fg: var(--color-content-emphasis);
-    --card-lift: 30%;
-    --shadow-lift-color: oklch(0 0 0 / 0.5);
-  }
 }

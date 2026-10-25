@@ -3,8 +3,8 @@
    There are two. `blue` is the footer band in dark mode, where text and link tokens go to their on-accent
    values (soft indigo hovers) on the indigo-tinted ground. `error` is the 404, an indigo ground in both
    themes. Portaled UI (the Tooltip) copies its control's tone onto itself, so a tooltip in the footer wears the same blue. The ground
-   color itself stays with the section (Footer.module.css). Selectors mirror theme.css: an explicit
-   data-theme, or the OS setting when nothing is stored. */
+   color itself stays with the section (Footer.module.css). Dark is `[data-theme='dark']`, which always
+   holds the theme being shown (D-128). */
 
 :root[data-theme='dark'] [data-tone='blue'] {
   --color-content-default: var(--color-content-on-accent);
@@ -20,23 +20,6 @@
   --tag-bg: var(--color-content-on-accent-hover);
   --tag-fg: var(--color-surface-default);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) [data-tone='blue'] {
-    --color-content-default: var(--color-content-on-accent);
-    --color-content-variant: var(--color-content-on-accent);
-    --color-content-soft: var(--color-content-on-accent);
-    --color-content-emphasis: var(--color-content-on-accent);
-    --color-content-link: var(--color-content-on-accent);
-    --color-primary-default: var(--color-content-on-accent-hover);
-    --color-primary-default-active: var(--color-content-on-accent-active);
-    --color-primary-on-container-active: var(--color-content-on-accent-active);
-    --color-state-focus-ring: var(--color-content-on-accent);
-    --tag-bg: var(--color-content-on-accent-hover);
-    --tag-fg: var(--color-surface-default);
-  }
-}
-
 /* The 404 (D-038): the page sets its own indigo ground, and every token the shared header and links read is
    re-pointed to an on-accent value. The same in both themes, since the ground is indigo in both. */
 [data-tone='error'] {
