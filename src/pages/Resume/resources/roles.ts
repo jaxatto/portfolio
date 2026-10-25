@@ -110,7 +110,7 @@ export const roles: ResumeRole[] = [
     company: 'Visa',
     logo: 'visa',
     location: 'Austin, TX',
-    startDate: 'Nov 2017',
+    startDate: 'Nov 2015',
     endDate: 'Feb 2020',
     promotion: 'Promoted from UX Engineer, Nov 2015 – Nov 2017',
     summary:

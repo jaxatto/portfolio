@@ -64,16 +64,36 @@
 	}
 }
 
-/* Desktop: the portrait sits right of the intro. Below that it stacks above the name. */
+/* Tablet: 80px larger than the phone size. */
+@media (min-width: 641px) and (max-width: 899px) {
+	.portrait {
+		width: calc(14rem + 80px);
+	}
+}
+
+/* Desktop: the portrait sits right of the intro and stretches to its full height, name to buttons, so
+   the two edges line up. Below that it stacks above the name. */
 @media (min-width: 900px) {
 	.header {
-		grid-template-columns: minmax(0, 1fr) 18rem;
-		align-items: center;
+		grid-template-columns: minmax(0, 1fr) 22rem;
+		align-items: stretch;
 	}
 
 	.portrait {
 		order: 0;
 		width: auto;
+	}
+
+	/* Out of flow, so the photo takes the intro's height and never sets it. */
+	.portraitFrame {
+		position: absolute;
+		inset: 0;
+		width: auto;
+		aspect-ratio: auto;
+	}
+
+	.portraitImage {
+		aspect-ratio: auto;
 	}
 }
 
