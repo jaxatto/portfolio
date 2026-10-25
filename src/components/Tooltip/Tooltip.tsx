@@ -44,10 +44,19 @@ const cornerFor: Record<string, NameTagCorner> = {
 
 const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset: gap = 0, children }) => {
   const [open, setOpen] = useState(false);
+  // The tooltip is portaled out of its section, so it copies the control's tone (data-tone, src/styles/tone.css,
+  // D-109) and wears the section's colors, for example the footer's blue. Read when it opens, not during render.
+  const [tone, setTone] = useState<string | undefined>();
 
   const { refs, floatingStyles, context, placement: finalPlacement } = useFloating({
     open,
-    onOpenChange: setOpen,
+    onOpenChange: (next) => {
+      if (next) {
+        const control = refs.domReference.current as HTMLElement | null;
+        setTone(control?.closest<HTMLElement>('[data-tone]')?.dataset.tone);
+      }
+      setOpen(next);
+    },
     placement,
     whileElementsMounted: autoUpdate,
     // `offset` px off the control. The tag's square corner (its tip) sits over the control's center and the body
@@ -67,10 +76,6 @@ const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset:
   const ref = useMergeRefs([refs.setReference, children.props.ref]);
 
   const side = finalPlacement.split('-')[0];
-  // The tooltip is portaled out of its section, so it copies the control's tone (data-tone, src/styles/tone.css,
-  // D-109) and wears the section's colors, for example the footer's blue.
-  const tone = open ? (refs.domReference.current as HTMLElement | null)?.closest<HTMLElement>('[data-tone]')?.dataset.tone : undefined;
-
   return (
     <>
       {cloneElement(children, getReferenceProps({ ...children.props, ref }))}
