@@ -1,90 +1,85 @@
 import React, { useEffect } from 'react';
 import Layout from '#components/Layout';
-import { Chip, ChipList } from '#components/Chip';
-import TextLink from '#components/TextLink';
-import { studyLinks } from '#constants/studyLinks';
-import palettes from '#styles/palette.module.css';
 import styles from './SkillsLab.module.css';
 
 // Throwaway page to compare ways to show skills on Resume. Not linked, not prerendered, noindex.
-// Skills come from the resume PDF. Delete this folder and its route once one option is chosen.
+// Every mark comes from the bullets in the resume PDF. Jax to correct anything that is wrong.
+// Delete this folder and its route once one option is chosen.
 
-const groups = [
-  {
-    label: 'Design systems and engineering',
-    items: [
-      'Design tokens',
-      'Token taxonomy',
-      'Token automation',
-      'Figma variables',
-      'Component libraries',
-      'Storybook',
-      'React',
-      'HTML',
-      'CSS',
-    ],
-    to: studyLinks.toyota,
-    linkText: 'Toyota case study',
-  },
-  {
-    label: 'Product and UX',
-    items: [
-      'Accessibility (WCAG)',
-      'Inclusive design',
-      'Product discovery',
-      'Usability testing',
-      'User research',
-    ],
-    to: studyLinks.indeed,
-    linkText: 'Indeed case study',
-  },
-  {
-    label: 'Operations and leadership',
-    items: [
-      'Cross-functional governance',
-      'Technical documentation',
-      'Mentorship',
-      'Team alignment',
-    ],
-  },
-  {
-    label: 'Tools',
-    items: [
-      'Figma',
-      'Zeroheight',
-      'GitHub',
-      'Jira',
-      'Confluence',
-      'Notion',
-      'Miro',
-      'Claude Code',
-      'Kiro',
-    ],
-  },
-] as const;
+type Role = { name: string; from: [number, number]; to: [number, number] };
 
-const cards = [
-  {
-    title: 'Design tokens at enterprise scale',
-    proof: 'Led token architecture and Figma-to-code automation for Toyota’s PRIME design system.',
-    skills: ['Token taxonomy', 'Token automation', 'Figma variables'],
-    palette: 'brand',
-  },
-  {
-    title: 'Accessible, localized components',
-    proof: '20 components for Indeed’s design system, documented with WCAG guidance.',
-    skills: ['WCAG', 'Storybook', 'Technical documentation'],
-    palette: 'tertiary',
-  },
-  {
-    title: 'Self-serve enterprise workflows',
-    proof: 'ActBlue admins set up and fix their Salesforce sync themselves.',
-    skills: ['Product discovery', 'Usability testing', 'User research'],
-    palette: 'quaternary',
-  },
-] as const;
+// Oldest first. Dates are [year, month]. Spectrum runs to the chart's right edge.
+const roles: Role[] = [
+  { name: 'Visa', from: [2015, 11], to: [2020, 2] },
+  { name: 'Indeed', from: [2020, 2], to: [2020, 10] },
+  { name: 'FireHydrant', from: [2020, 11], to: [2021, 11] },
+  { name: 'Routable', from: [2021, 11], to: [2022, 3] },
+  { name: 'ActBlue', from: [2022, 3], to: [2023, 5] },
+  { name: 'Albertsons', from: [2023, 6], to: [2023, 9] },
+  { name: 'ServiceNow', from: [2024, 2], to: [2025, 10] },
+  { name: 'Toyota', from: [2025, 10], to: [2026, 9] },
+  { name: 'Spectrum', from: [2026, 9], to: [2026, 10] },
+];
 
-const flat = groups.flatMap((group) => group.items).join(', ');
+const skills: { label: string; usedAt: string[] }[] = [
+  {
+    label: 'Design systems',
+    usedAt: [
+      'Visa',
+      'Indeed',
+      'FireHydrant',
+      'ActBlue',
+      'Albertsons',
+      'ServiceNow',
+      'Toyota',
+      'Spectrum',
+    ],
+  },
+  { label: 'Design tokens', usedAt: ['Toyota', 'Spectrum'] },
+  { label: 'Front-end code', usedAt: ['Visa', 'Toyota', 'Spectrum'] },
+  { label: 'Accessibility', usedAt: ['Indeed', 'ActBlue', 'ServiceNow'] },
+  { label: 'Enterprise workflows', usedAt: ['Visa', 'FireHydrant', 'Routable', 'ActBlue'] },
+  { label: 'Research and testing', usedAt: ['Visa', 'Routable', 'ServiceNow'] },
+  { label: 'AI-assisted tools', usedAt: ['ServiceNow'] },
+];
+
+const stats = [
+  {
+    skill: 'Design tokens',
+    value: '40+',
+    caption: 'product teams supported on the Toyota design system',
+  },
+  { skill: 'Design systems', value: '100+', caption: 'designers using Indeed assets I improved' },
+  {
+    skill: 'Component libraries',
+    value: '60%',
+    caption: 'less repetitive UI design after the ServiceNow library launch',
+  },
+  {
+    skill: 'Adoption',
+    value: '20+',
+    caption: 'Albertsons teams on one design system, serving 5,000+ stores',
+  },
+  {
+    skill: 'Enterprise workflows',
+    value: '$1.5M',
+    caption: 'estimated yearly ActBlue support savings',
+  },
+  {
+    skill: 'Usability testing',
+    value: '20%',
+    caption: 'reduction in case resolution SLAs at Visa',
+  },
+];
+
+const toYear = ([year, month]: [number, number]): number => year + (month - 1) / 12;
+const start = toYear(roles[0].from);
+const end = toYear([2026, 11]);
+const span = end - start;
+const pct = (value: number): string => `${((value - start) / span) * 100}%`;
+const years = Array.from({ length: 6 }, (_, i) => 2016 + i * 2);
+
+const rangeText = (role: Role): string => `${role.name} (${role.from[0]} to ${role.to[0]})`;
 
 const Option: React.FC<{ id: string; name: string; note: string; children: React.ReactNode }> = ({
   id,
@@ -124,78 +119,103 @@ const SkillsLab: React.FC = () => {
       <header className={styles.intro}>
         <h1 className={styles.title}>Skills lab</h1>
         <p className={styles.lead}>
-          Four ways to show skills on the Resume page. Pick one, or mix parts of them.
+          Three charts built from the bullets in your resume PDF. Check every mark and number before
+          anything ships.
         </p>
       </header>
 
       <Option
         id="a"
-        name="A. Grouped rows with proof"
-        note="Quiet text lists under a label. Rows with a matching case study link to it."
+        name="A. Skill by employer grid"
+        note="Where each skill shows up in your resume. Scan a row to see how long it has been part of your work."
       >
-        <dl className={styles.rows}>
-          {groups.map((group) => (
-            <div key={group.label} className={styles.row}>
-              <dt className={styles.label}>{group.label}</dt>
-              <dd className={styles.items}>
-                {group.items.join(' · ')}
-                {'to' in group && (
-                  <TextLink to={group.to} icon="arrow-right" className={styles.rowLink}>
-                    {group.linkText}
-                  </TextLink>
-                )}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <div className={styles.scroll} role="region" aria-label="Skills by employer" tabIndex={0}>
+          <table className={styles.grid}>
+            <thead>
+              <tr>
+                <td />
+                {roles.map((role) => (
+                  <th key={role.name} scope="col" className={styles.colHead}>
+                    {role.name}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {skills.map((skill) => (
+                <tr key={skill.label}>
+                  <th scope="row" className={styles.rowHead}>
+                    {skill.label}
+                  </th>
+                  {roles.map((role) => {
+                    const used = skill.usedAt.includes(role.name);
+                    return (
+                      <td key={role.name} className={styles.cell}>
+                        <span className={used ? styles.dotOn : styles.dotOff} aria-hidden="true" />
+                        <span className="sr-only">{used ? 'Used' : 'Not listed'}</span>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Option>
 
       <Option
         id="b"
-        name="B. Grouped chips"
-        note="The same groups with the code-style chips from About. Louder, easier to scan."
+        name="B. Skills over time"
+        note="The same data on a 2015 to 2026 timeline. Bars show the roles where each skill appears."
       >
-        <div className={styles.rows}>
-          {groups.map((group, index) => (
-            <div key={group.label} className={styles.row}>
-              <h4 className={styles.label}>{group.label}</h4>
-              <ChipList>
-                {group.items.map((item) => (
-                  <Chip
-                    key={item}
-                    palette={(['primary', 'secondary', 'tertiary', 'quaternary'] as const)[index]}
-                  >
-                    {item}
-                  </Chip>
-                ))}
-              </ChipList>
-            </div>
-          ))}
+        <div className={styles.timeline}>
+          <div className={styles.axis} aria-hidden="true">
+            {years.map((year) => (
+              <span key={year} className={styles.tick} style={{ left: pct(year) }}>
+                {year}
+              </span>
+            ))}
+          </div>
+          <ul className={styles.lanes}>
+            {skills.map((skill) => {
+              const where = roles.filter((role) => skill.usedAt.includes(role.name));
+              return (
+                <li key={skill.label} className={styles.lane}>
+                  <span className={styles.laneLabel}>{skill.label}</span>
+                  <span className={styles.track} aria-hidden="true">
+                    {where.map((role) => (
+                      <span
+                        key={role.name}
+                        className={styles.bar}
+                        style={{
+                          left: pct(toYear(role.from)),
+                          width: `calc(${pct(toYear(role.to) + 0.04)} - ${pct(toYear(role.from))})`,
+                        }}
+                      />
+                    ))}
+                  </span>
+                  <span className="sr-only">{where.map(rangeText).join(', ')}</span>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </Option>
 
       <Option
         id="c"
-        name="C. Skills inside the case study cards"
-        note="Each card gets a skills line next to its proof. The full list does not appear."
+        name="C. Skills with proof numbers"
+        note="Six tiles. Each pairs a skill with one result from your resume."
       >
-        <ul className={styles.cards}>
-          {cards.map((card) => (
-            <li key={card.title} className={`${styles.card} ${palettes[card.palette]}`}>
-              <h4 className={styles.cardTitle}>{card.title}</h4>
-              <p className={styles.proof}>{card.proof}</p>
-              <p className={styles.cardSkills}>{card.skills.join(' · ')}</p>
+        <ul className={styles.tiles}>
+          {stats.map((stat) => (
+            <li key={stat.skill} className={styles.tile}>
+              <p className={styles.tileSkill}>{stat.skill}</p>
+              <p className={styles.tileValue}>{stat.value}</p>
+              <p className={styles.tileCaption}>{stat.caption}</p>
             </li>
           ))}
         </ul>
-      </Option>
-
-      <Option
-        id="d"
-        name="D. One compact paragraph"
-        note="Fastest to build and read. It reads as a keyword list."
-      >
-        <p className={styles.flat}>{flat}</p>
       </Option>
     </Layout>
   );
