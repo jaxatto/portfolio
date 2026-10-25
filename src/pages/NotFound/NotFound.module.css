@@ -35,6 +35,11 @@
 	padding: var(--size-space-section-sm) var(--size-space-2xl);
 }
 
+.wrapper:focus,
+.wrapper:focus-visible {
+	outline: none;
+}
+
 /* Phones: the message sits near the top, under the header, instead of floating mid-screen. */
 @media (width <= 640px) {
 	.wrapper {
