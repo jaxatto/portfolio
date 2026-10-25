@@ -32,9 +32,3 @@
 :global([data-theme='dark']) .tinted {
   --chip-fg: var(--color-content-emphasis);
 }
-
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .tinted {
-    --chip-fg: var(--color-content-emphasis);
-  }
-}

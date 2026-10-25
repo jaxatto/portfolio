@@ -24,7 +24,8 @@ All seven audit batches are done and merged (D-117 to D-127): regressions, dead 
 
 - **Decided (2026-10-25):** keep Floating UI (D-103). Keep the `Image` fallback component and its cat, controller and paw icons.
 - **TODO(jax):** explore what the `Image` fallback looks like when a photo fails to load, and whether the About page should use it differently.
-- **Held:** the dark-mode override dedupe (item 11) and the token worklist. The cheaper route is to have the inline script and ThemeProvider always set `data-theme` to the resolved theme (the OS setting when nothing is stored), which makes the `prefers-color-scheme` blocks in `theme.css` and about 13 component sites redundant.
+- **Held:** the token worklist.
+- **Follow-up (not done):** `color-scheme` follows the OS through the meta tag, so a stored dark theme on a light OS still gets light scrollbars and default form colors. Set `color-scheme` per `data-theme` in CSS if wanted.
 - **Token worklist:** [untokenized-styles.md](untokenized-styles.md), 101 declarations. First candidates are icon sizes, state washes, layer order and the `theme-color` pair.
 - **Not tested:** screen readers, 200% and 400% zoom, forced colors, Safari and Firefox. Route changes now move focus to the h1 (D-126), checked without a screen reader.
 
