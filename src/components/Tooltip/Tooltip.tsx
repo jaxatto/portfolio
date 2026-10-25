@@ -29,10 +29,11 @@ import styles from './Tooltip.module.css';
 type TooltipProps = {
   label: string;
   placement?: Placement;
+  offset?: number; // px between the control and the tag (default 0, the tag hugs the control's padding)
   children: React.ReactElement<React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }>;
 };
 
-const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', children }) => {
+const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset: gap = 0, children }) => {
   const [open, setOpen] = useState(false);
 
   const { refs, floatingStyles, context, placement: finalPlacement } = useFloating({
@@ -40,10 +41,10 @@ const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', childre
     onOpenChange: setOpen,
     placement,
     whileElementsMounted: autoUpdate,
-    // 8px off the control. The tag's square corner (its tip) sits over the control's center and the body
+    // `offset` px off the control. The tag's square corner (its tip) sits over the control's center and the body
     // extends away from it, so a control at the right edge of the page never clips the tag.
     middleware: [
-      offset(({ rects }) => ({ mainAxis: 8, alignmentAxis: rects.reference.width / 2 })),
+      offset(({ rects }) => ({ mainAxis: gap, alignmentAxis: rects.reference.width / 2 })),
       flip({ padding: 8 }),
       shift({ padding: 8 }),
     ],

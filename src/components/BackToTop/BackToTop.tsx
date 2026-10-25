@@ -39,7 +39,7 @@ const BackToTop: React.FC = () => {
   };
 
   return (
-    <Tooltip label="Back to top">
+    <Tooltip label="Back to top" offset={8}>
       <button
         type="button"
         className={styles.button}
