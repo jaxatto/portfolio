@@ -166,21 +166,13 @@
 
 /* Dark band: the page ground tinted 20% toward indigo, so it stays calm and never matches a card above
    it (cards are about 0.34 lightness, this is about 0.25). The hairline goes (the band is the
-   divider). Home turns the band off (`band={false}`) and keeps the plain ground and hairline. The text
-   and link tokens are re-pointed to their on-accent values inside it, so the shared TextLink works
-   unchanged. Selectors mirror theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
+   divider). Home turns the band off (`band={false}`) and keeps the plain ground and hairline. The text,
+   link and tag tokens are re-pointed to their on-accent values by the footer's data-tone="blue"
+   (src/styles/tone.css, D-109), so the shared TextLink and Tooltip work unchanged. Selectors mirror
+   theme.css: an explicit data-theme, or the OS setting when nothing is stored. */
 :global([data-theme='dark']) .band {
 	background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
 	color: var(--color-content-on-accent);
-	--color-content-default: var(--color-content-on-accent);
-	--color-content-variant: var(--color-content-on-accent);
-	--color-content-soft: var(--color-content-on-accent);
-	--color-content-emphasis: var(--color-content-on-accent);
-	--color-content-link: var(--color-content-on-accent);
-	--color-primary-default: var(--color-content-on-accent-hover);
-	--color-primary-default-active: var(--color-content-on-accent-active);
-	--color-primary-on-container-active: var(--color-content-on-accent-active);
-	--color-state-focus-ring: var(--color-content-on-accent);
 }
 
 :global([data-theme='dark']) .band .inner::before {
@@ -191,15 +183,6 @@
 	:global(:root:not([data-theme='light'])) .band {
 		background: color-mix(in oklch, var(--color-surface-default) 80%, var(--color-secondary-container));
 		color: var(--color-content-on-accent);
-		--color-content-default: var(--color-content-on-accent);
-		--color-content-variant: var(--color-content-on-accent);
-		--color-content-soft: var(--color-content-on-accent);
-		--color-content-emphasis: var(--color-content-on-accent);
-		--color-content-link: var(--color-content-on-accent);
-		--color-primary-default: var(--color-content-on-accent-hover);
-		--color-primary-default-active: var(--color-content-on-accent-active);
-		--color-primary-on-container-active: var(--color-content-on-accent-active);
-		--color-state-focus-ring: var(--color-content-on-accent);
 	}
 
 	:global(:root:not([data-theme='light'])) .band .inner::before {

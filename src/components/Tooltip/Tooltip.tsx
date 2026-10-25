@@ -67,6 +67,9 @@ const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset:
   const ref = useMergeRefs([refs.setReference, children.props.ref]);
 
   const side = finalPlacement.split('-')[0];
+  // The tooltip is portaled out of its section, so it copies the control's tone (data-tone, src/styles/tone.css,
+  // D-109) and wears the section's colors, for example the footer's blue.
+  const tone = open ? (refs.domReference.current as HTMLElement | null)?.closest<HTMLElement>('[data-tone]')?.dataset.tone : undefined;
 
   return (
     <>
@@ -77,6 +80,7 @@ const Tooltip: React.FC<TooltipProps> = ({ label, placement = 'top-end', offset:
             ref={refs.setFloating}
             className={styles.tooltip}
             style={floatingStyles}
+            data-tone={tone}
             aria-hidden="true"
             {...getFloatingProps()}
           >

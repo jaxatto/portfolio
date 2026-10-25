@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({ band = true }) => {
 	const { isJobSeeking } = useSiteConfig();
 
 	return (
-		<footer className={clsx(styles.footer, band && styles.band)}>
+		<footer className={clsx(styles.footer, band && styles.band)} data-tone={band ? 'blue' : undefined}>
 			<div className={styles.inner}>
 				<div className={styles.main}>
 					<div className={styles.top}>

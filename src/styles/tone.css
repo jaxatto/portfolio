@@ -1,0 +1,38 @@
+/* Tone scopes (D-109). A tone re-points the semantic tokens inside one section, so shared components
+   (TextLink, the icon links, the name tag and so on) recolor themselves without knowing about it.
+   Today there is one: data-tone="blue", the footer band in dark mode, where text and link tokens go to
+   their on-accent values (soft indigo hovers) on the indigo-tinted ground. Portaled UI (the Tooltip)
+   copies its control's tone onto itself, so a tooltip in the footer wears the same blue. The ground
+   color itself stays with the section (Footer.module.css). Selectors mirror theme.css: an explicit
+   data-theme, or the OS setting when nothing is stored. */
+
+:root[data-theme='dark'] [data-tone='blue'] {
+	--color-content-default: var(--color-content-on-accent);
+	--color-content-variant: var(--color-content-on-accent);
+	--color-content-soft: var(--color-content-on-accent);
+	--color-content-emphasis: var(--color-content-on-accent);
+	--color-content-link: var(--color-content-on-accent);
+	--color-primary-default: var(--color-content-on-accent-hover);
+	--color-primary-default-active: var(--color-content-on-accent-active);
+	--color-primary-on-container-active: var(--color-content-on-accent-active);
+	--color-state-focus-ring: var(--color-content-on-accent);
+	/* Name tags and tooltips: the same soft indigo as the hovers, with the page ground (the dark navy) as text. */
+	--tag-bg: var(--color-content-on-accent-hover);
+	--tag-fg: var(--color-surface-default);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) [data-tone='blue'] {
+		--color-content-default: var(--color-content-on-accent);
+		--color-content-variant: var(--color-content-on-accent);
+		--color-content-soft: var(--color-content-on-accent);
+		--color-content-emphasis: var(--color-content-on-accent);
+		--color-content-link: var(--color-content-on-accent);
+		--color-primary-default: var(--color-content-on-accent-hover);
+		--color-primary-default-active: var(--color-content-on-accent-active);
+		--color-primary-on-container-active: var(--color-content-on-accent-active);
+		--color-state-focus-ring: var(--color-content-on-accent);
+		--tag-bg: var(--color-content-on-accent-hover);
+		--tag-fg: var(--color-surface-default);
+	}
+}
