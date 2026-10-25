@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Icon from '#components/Icon';
+import Tooltip from '#components/Tooltip';
 import styles from './BackToTop.module.css';
 
 // General-purpose floating "Back to top" button for long pages. Layout renders it when a page passes
-// `backToTop`: a round button fixed 80px from the viewport's bottom-right corner (24px on phones) that
+// `backToTop`: a round button fixed 64px from the viewport corner (24px on phones) that
 // appears after about one screen of scrolling. When the footer scrolls into view the button rides up with
 // it, so it never covers the footer. It is a button, not a hash link, so the URL doesn't change. Click scrolls to the top (instantly with reduced motion) and moves focus to the page
 // root (`#top`, set on Layout) so Tab continues at the skip link. While hidden it is also out of the tab
@@ -42,18 +43,19 @@ const BackToTop: React.FC = () => {
   };
 
   return (
-    <button
-      type="button"
-      className={styles.button}
-      data-visible={visible}
-      aria-label="Back to top"
-      data-tooltip="Back to top"
-      style={{ '--lift': `${lift}px` } as React.CSSProperties}
-      hidden={!visible}
-      onClick={handleClick}
-    >
-      <Icon name="arrow-up" className={styles.icon} aria-hidden="true" />
-    </button>
+    <Tooltip label="Back to top">
+      <button
+        type="button"
+        className={styles.button}
+        data-visible={visible}
+        aria-label="Back to top"
+        style={{ '--lift': `${lift}px` } as React.CSSProperties}
+        hidden={!visible}
+        onClick={handleClick}
+      >
+        <Icon name="arrow-up" className={styles.icon} aria-hidden="true" />
+      </button>
+    </Tooltip>
   );
 };
 

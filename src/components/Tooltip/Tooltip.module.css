@@ -1,0 +1,33 @@
+/* Tooltip (D-103): the Figma tooltip. A dark rounded tag with white medium text, 8px off the control.
+   Black with white text in light, near white with black text in dark, so it reads on either ground. */
+
+.tooltip {
+	z-index: 30;
+	padding: var(--size-space-sm) var(--size-space-md);
+	border-radius: var(--size-radius-sm);
+	background: var(--color-content-prose);
+	box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+	color: var(--color-content-inverse);
+	font-family: var(--font-family-heading);
+	font-size: var(--font-size-14);
+	font-weight: var(--font-weight-medium);
+	line-height: 1.2;
+	white-space: nowrap;
+	animation: tooltip-in 0.15s ease both;
+}
+
+@keyframes tooltip-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tooltip {
+		animation: none;
+	}
+}

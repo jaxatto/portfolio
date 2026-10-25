@@ -21,9 +21,6 @@
 	--color-primary-default: var(--color-content-on-accent-hover);
 	--color-primary-default-active: var(--color-content-on-accent-active);
 	--color-state-focus-ring: var(--color-content-on-accent);
-	/* Tooltips: the primary tokens are pale here, so use the container pair. */
-	--tooltip-bg: var(--color-primary-container);
-	--tooltip-fg: var(--color-primary-on-container);
 	/* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
 	--color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
 }

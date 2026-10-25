@@ -175,9 +175,6 @@
 	--color-primary-default-active: var(--color-content-on-accent-active);
 	--color-primary-on-container-active: var(--color-content-on-accent-active);
 	--color-state-focus-ring: var(--color-content-on-accent);
-	/* Tooltips: the primary tokens are pale here, so use the container pair. */
-	--tooltip-bg: var(--color-primary-container);
-	--tooltip-fg: var(--color-primary-on-container);
 }
 
 :global([data-theme='dark']) .band .inner::before {
@@ -197,9 +194,6 @@
 		--color-primary-default-active: var(--color-content-on-accent-active);
 		--color-primary-on-container-active: var(--color-content-on-accent-active);
 		--color-state-focus-ring: var(--color-content-on-accent);
-		/* Tooltips: the primary tokens are pale here, so use the container pair. */
-		--tooltip-bg: var(--color-primary-container);
-		--tooltip-fg: var(--color-primary-on-container);
 	}
 
 	:global(:root:not([data-theme='light'])) .band .inner::before {
@@ -209,14 +203,6 @@
 
 /* TODO(jax): no tablet design; this stacks the footer on phones (D-008, D-024). */
 @media (width <= 640px) {
-	/* The icon row is at the left edge here, so tooltips extend to the right of the icon's center
-	   (the default, extending left, would clip off-screen). Square corner moves to the bottom-left. */
-	.row .icon-link::before {
-		right: auto;
-		left: 50%;
-		border-radius: var(--size-radius-md) var(--size-radius-md) var(--size-radius-md) 0;
-	}
-
 	.row {
 		flex: initial;
 		/* Stacked under the email: pull the row left by the glyph's inset in its 40px target (9px) so
