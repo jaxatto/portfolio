@@ -28,7 +28,7 @@ type HeaderProps = {
 };
 
 const Header: React.FC<HeaderProps> = ({ label }) => {
-  const { theme, enabled, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const { pathname } = useLocation();
   const isHome = pathname === mainLinks.home;
   const slotLabel = label ?? (isHome ? roleLines : undefined);
@@ -73,8 +73,7 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
               ))}
             </ul>
           </nav>
-          {/* Hidden until theme switching is enabled (D-011). */}
-          {enabled && <ModeToggle checked={theme === 'dark'} onChange={toggleTheme} />}
+          <ModeToggle checked={theme === 'dark'} onChange={toggleTheme} />
         </div>
       </div>
 

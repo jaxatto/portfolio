@@ -53,7 +53,8 @@ body {
   text-wrap: pretty;
 }
 
-/* Slow color fade while switching modes (class set briefly by ThemeProvider). */
+/* Slow color fade while switching modes (class set briefly by ThemeProvider). `!important` is needed
+   because component rules (hover states, media queries) set their own transitions with higher specificity. */
 @media (prefers-reduced-motion: no-preference) {
   html.theme-fading,
   html.theme-fading *,

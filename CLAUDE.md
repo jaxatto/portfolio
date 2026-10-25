@@ -30,7 +30,7 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 - **Every change is reviewable.** After any change, make sure the dev server is running (`npm run dev`, port 5173), then give Jax the exact place to look: the route and section, e.g. `http://localhost:5173/about` plus which section and breakpoint. End the reply with that local link. For changes to docs, skills or other files, link the file.
 - **Always make file links real.** Whenever you mention a file, give a markdown link with its absolute path, e.g. [CLAUDE.md](/home/user/portfolio/CLAUDE.md), so Jax can open it. Files outside the working directory, scratchpad and memory directories can't be opened by Jax, so copy anything meant for them into the repo or scratchpad first.
 - **Foundations before pages.** Tokens, typography, layout, header and footer come first.
-- **Ignore Figma.** The project has moved on from it entirely (2026-10-25). Don't open the Figma file, the MCP or `screens/` unless Jax asks. The code and `docs/decisions.md` are the only source of truth. Don't add features or refactors that weren't asked for; mention them and leave them alone.
+- **Ignore Figma.** The project has moved on from it entirely (2026-10-25). Don't open the Figma file, or the MCP unless Jax asks. The code and `docs/decisions.md` are the only source of truth. Don't add features or refactors that weren't asked for; mention them and leave them alone.
 - **Be honest about verification.** Say what was built, what was checked (build, typecheck, viewport widths), and what wasn't.
 - **Resume page is a later, joint effort.** Don't change `src/pages/Resume` or the resume PDF until Jax starts that work.
 - **Make skills for repeat tasks.** When a procedure comes up a second time (or is obviously going to), write it as a skill in `.claude/skills/<name>/SKILL.md`. Also look for good existing skills or plugins (SearchSkills, SearchPlugins) when a task would benefit, and propose them to Jax rather than installing silently.
@@ -78,14 +78,13 @@ File `Portfolio-2026`, key `MqsYPIWOx9imJtSiXidiww` (https://www.figma.com/desig
 
   Each page has a second frame with an adjacent id (Home `2839:21652`, About `2850:26578`, Indeed `2853:27125`, ActBlue `2860:33874`, ServiceNow `2860:34445`, Toyota `2951:40612`), probably the mobile versions. Confirm with Jax and check frame widths before relying on that.
 - Figma has **desktop designs only**, in light and dark. There are no mobile designs. Mobile/tablet behavior is a joint design decision: propose it from the desktop system, get Jax's OK, log it in `docs/decisions.md`.
-- **Exported screens** are in [`screens/`](screens/) in the repo (1280px wide). For each page, `Name.png` is the light theme and `Name-1.png` is the dark theme (Home, About, and the Indeed, ActBlue, ServiceNow and Toyota studies). There are also component crops: Header, Footer, Nav, Nav Item, Menu Item, Mode Toggle, Theme Picker, Chip, Link, Study Card, Study Card Link. Use them for a quick visual check. Figma remains the source for exact values.
 - **Figma is retired** (decided 2026-10-25). Ignore it for every task, including new pages. Design and behavior questions go to Jax in the session.
 
 ## Tokens and styling
 
 Token system (D-002, ported in slice 0): `src/tokens/` (`primitives.ts` raw values, `defaultTheme.ts` semantic light/dark tokens, `colorSteps.ts` hover/active states, `types.ts`) compiles with `npm run build:theme` (`scripts/tokens/build-theme*`) into `src/styles/theme.css`. **Never hand-edit `theme.css`**; edit the TS and rebuild, and commit both. Semantic tokens are CSS custom properties (`--color-brand-default`, `--size-space-lg`, `--font-style-body-md-size`, ...); components use these, never primitives or raw values. Light is `:root`, dark is `[data-theme='dark']`. `data-theme` always holds the theme being shown, the OS setting when nothing is stored, so there are no `prefers-color-scheme` blocks (D-128).
 
-- `src/providers/Theme` sets `data-theme`, persists the choice, follows the OS when nothing is stored. Switching is **gated** by `VITE_THEME_SWITCHING` in `.env` (currently `false`, site pinned to light) until components are migrated to tokens. Preview with `?themePreview=1` (`=0` clears). Flip the flag when the dark designs are built (D-006, D-011). The inline script in `index.html` must mirror the provider's logic.
+- `src/providers/Theme` sets `data-theme`, persists the choice and follows the OS when nothing is stored. The header toggle is always on (D-139). The inline script in `index.html` must mirror the provider's logic.
 - Colors, spacing, radius, border width and the type scale were verified against Figma (light and dark) in slice 0. Type sizes are fluid `clamp()`s that reach the Figma desktop sizes at about 1280px; only the desktop size must match Figma, smaller sizes are tuned per slice (D-013). Manrope has no 900 weight; use 800 where Figma says 900 (D-010).
 - Components are plain CSS modules using tokens (`Name.module.css`). There is no SCSS left (D-091). Breakpoints are literal `@media (max-width: …)` / `(min-width: …)` widths: 640 (phone, 641 up) and 900 (desktop). A component-specific breakpoint carries a comment (D-118). Motion (`--motion-duration-*`, `--motion-ease-*`), shadows (`--shadow-*`), tap targets (`--size-target-*`) and the 3px line (`--size-border-width-thick`) are tokens: no raw durations, easings, shadows or 40/44px targets in component CSS. Motion, shadows, state washes (`--state-wash-*`) and stacking (`--layer-*`) live in `src/tokens/effects.ts`. Fixed icon glyphs use `--size-icon-*`. The browser bar color is generated from `surface.default` into `src/tokens/themeColor.ts` by `npm run build:theme`, never typed by hand. Colored surfaces take a palette from one class in `src/styles/palette.module.css` and read `--palette-*` (cards, chips, the study page); a section that re-colors the semantic tokens is a tone in `src/styles/tone.css` (`data-tone`: `blue` footer band, `error` 404). Every button is `#components/Button` (`filled`, `outline`, `inverted`) and every link `TextLink` (D-119).
 - Import aliases are `#src`, `#tokens`, `#styles`, `#pages`, `#components`, `#assets`, `#constants` and `#providers` (`vite.config.ts`, `tsconfig.json` and `package.json` `imports` must stay in sync).
@@ -99,13 +98,15 @@ npm run dev                              # vite
 npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
 npm run build                            # vite build; postbuild copies index.html to 404.html and writes per-route HTML (scripts/prerender-meta.ts)
 npm run preview                          # serve dist/
+npm run lint                             # eslint with jsx-a11y
+npm run typecheck                        # tsc --noEmit
 npm run format                           # prettier on src, scripts and config (.prettierrc.json)
 npm run generate:component -- Name       # scaffold src/components/Name
 npm run generate:component -- Page/Name  # scaffold src/pages/Page/components/Name
 npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
-No test runner or linter exists yet. Prettier decides formatting. Verify with `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
+No test runner exists yet. Prettier decides formatting and CI runs `lint`, `typecheck` and `build`. Verify with `npm run lint`, `npm run typecheck`, `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
 
 ## Structure and conventions
 

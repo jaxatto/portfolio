@@ -645,3 +645,7 @@ The Footer's three icon-only external links became `#components/IconLink` (toolt
 ## D-138: Smaller APIs — decided, 2026-10-25
 
 `SiteConfig` (context, provider, hook) for one boolean became `isJobSeeking` in `src/constants/siteConfig.ts`. `StudyCard` lost its `layout` prop: `variant="work"` is the horizontal card and `variant="study"` the stacked one. `StudyImage` lost the unused `corners` prop and the `.square` rule.
+
+## D-139: Theme switching always on, CI and lint — decided, 2026-10-25
+
+`VITE_THEME_SWITCHING`, `?themePreview` and the `.env` files are deleted. The toggle ships on every build and `ThemeProvider` always reads the stored choice, then the OS. The inline script in `index.html` mirrors it. `package.json` carries real metadata (`jaxengeldesign-portfolio`, private), `generate-component` is TypeScript run by `tsx`, and the favicon is a 64px quantized PNG in a 6 kB SVG wrapper (was 46 kB). ESLint 9 with `jsx-a11y` and `react-hooks` runs through `npm run lint`, and `.github/workflows/ci.yml` runs lint, typecheck and build on pull requests and on pushes to `main` and `redesign`. The lint pass found an unused import in Resume and an unused type in the token script, both deleted. `react-hooks/refs` is off for the Tooltip: Floating UI's `refs.setFloating` is a callback ref. List keys use the item's text or name, not the index.

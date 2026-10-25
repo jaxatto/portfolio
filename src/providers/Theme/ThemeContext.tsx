@@ -16,22 +16,7 @@ export type ThemeId = (typeof THEMES)[number];
 export type ThemePreference = ThemeId | 'system';
 
 const THEME_STORAGE_KEY = 'theme';
-const PREVIEW_STORAGE_KEY = 'themePreview';
 
-// Theme switching is off by default (VITE_THEME_SWITCHING in .env). While off, the site is
-// pinned to light so OS dark mode does not restyle half-migrated components. `?themePreview=1`
-// turns it on for the current browser. Keep the inline script in index.html in sync.
-const isThemeSwitchingEnabled = (): boolean => {
-  try {
-    const param = new URLSearchParams(window.location.search).get('themePreview');
-    if (param === '1') window.localStorage.setItem(PREVIEW_STORAGE_KEY, '1');
-    if (param === '0') window.localStorage.removeItem(PREVIEW_STORAGE_KEY);
-    if (window.localStorage.getItem(PREVIEW_STORAGE_KEY) === '1') return true;
-  } catch {
-    // Storage unavailable; fall through to the build-time flag.
-  }
-  return import.meta.env.VITE_THEME_SWITCHING === 'true';
-};
 // The browser bar color per theme, generated from the surface token (src/tokens/themeColor.ts).
 const THEME_COLORS: Record<ThemeId, string> = themeColor;
 
@@ -55,8 +40,6 @@ interface ThemeContextValue {
   preference: ThemePreference;
   /** The theme actually being shown. */
   theme: ThemeId;
-  /** False while dark mode is gated; the UI should hide theme controls. */
-  enabled: boolean;
   setPreference: (preference: ThemePreference) => void;
   toggleTheme: () => void;
 }
@@ -64,10 +47,7 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [enabled] = useState(isThemeSwitchingEnabled);
-  const [preference, setPreferenceState] = useState<ThemePreference>(() =>
-    enabled ? readStoredPreference() : 'light',
-  );
+  const [preference, setPreferenceState] = useState<ThemePreference>(readStoredPreference);
   const [systemDark, setSystemDark] = useState(prefersDark);
 
   useEffect(() => {
@@ -100,22 +80,18 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return () => window.clearTimeout(timer);
   }, [preference, theme]);
 
-  const setPreference = useCallback(
-    (next: ThemePreference) => {
-      if (!enabled) return;
-      setPreferenceState(next);
-      try {
-        if (next === 'system') {
-          window.localStorage.removeItem(THEME_STORAGE_KEY);
-        } else {
-          window.localStorage.setItem(THEME_STORAGE_KEY, next);
-        }
-      } catch {
-        // Storage can be unavailable (private mode); the choice still applies for this visit.
+  const setPreference = useCallback((next: ThemePreference) => {
+    setPreferenceState(next);
+    try {
+      if (next === 'system') {
+        window.localStorage.removeItem(THEME_STORAGE_KEY);
+      } else {
+        window.localStorage.setItem(THEME_STORAGE_KEY, next);
       }
-    },
-    [enabled],
-  );
+    } catch {
+      // Storage can be unavailable (private mode); the choice still applies for this visit.
+    }
+  }, []);
 
   const toggleTheme = useCallback(
     () => setPreference(theme === 'dark' ? 'light' : 'dark'),
@@ -123,8 +99,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   );
 
   const value = useMemo(
-    () => ({ preference, theme, enabled, setPreference, toggleTheme }),
-    [preference, theme, enabled, setPreference, toggleTheme],
+    () => ({ preference, theme, setPreference, toggleTheme }),
+    [preference, theme, setPreference, toggleTheme],
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;

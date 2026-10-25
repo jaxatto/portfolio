@@ -33,7 +33,11 @@ const About: React.FC = () => (
       </h1>
       <ChipList>
         {content.header.bullets.map((bullet, i) => (
-          <Chip key={i} palette={chipPalettes[i % chipPalettes.length]} className={styles.chip}>
+          <Chip
+            key={bullet.text}
+            palette={chipPalettes[i % chipPalettes.length]}
+            className={styles.chip}
+          >
             {bullet.text}
             {i === content.header.bullets.length - 1 && <Caret />}
           </Chip>
@@ -42,8 +46,8 @@ const About: React.FC = () => (
     </div>
     <div className={styles.story}>
       <section>
-        {content.header.description.map((desc, i) => (
-          <p key={i}>{desc}</p>
+        {content.header.description.map((desc) => (
+          <p key={desc}>{desc}</p>
         ))}
         {/* Earlier roles link to their case studies. Copy is inline because it contains links (D-003). */}
         <p>
@@ -64,22 +68,22 @@ const About: React.FC = () => (
       </section>
       <section>
         <h2 className={styles.heading}>{content.how.heading}</h2>
-        {content.how.description.map((desc, i) => (
-          <LabelledParagraph key={i} text={desc} />
+        {content.how.description.map((desc) => (
+          <LabelledParagraph key={desc} text={desc} />
         ))}
       </section>
       <section>
         <h2 className={styles.heading}>{content.more.heading}</h2>
-        {content.more.description.map((desc, i) => (
-          <p key={i}>{desc}</p>
+        {content.more.description.map((desc) => (
+          <p key={desc}>{desc}</p>
         ))}
       </section>
     </div>
     <section>
       <p className="sr-only">{content.images.srOnly.intro}</p>
       <ul className={styles.photos}>
-        {images.map((img, i) => (
-          <li key={i} className={styles.photo}>
+        {images.map((img) => (
+          <li key={img.name} className={styles.photo}>
             <figure className={`${styles.figure} ${styles[img.palette]}`}>
               <div className={styles.frame}>
                 <Image

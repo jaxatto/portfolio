@@ -41,8 +41,8 @@ const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
         ))}
       </ChipList>
       <div className={styles.description}>
-        {description.map((desc, i) => (
-          <p key={i}>{desc}</p>
+        {description.map((desc) => (
+          <p key={desc}>{desc}</p>
         ))}
       </div>
     </div>
