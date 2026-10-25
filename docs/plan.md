@@ -40,8 +40,6 @@ Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Desi
 Copy (all marked `TODO(jax)`, provisional):
 - About copy, round one applied (D-044). Earlier-roles paragraph added with links to the three case studies (Visa left out). The Toyota scale is answered in D-083 (680 + 120 tokens, 40 teams, one brand today).
 - Hero: add one proof point (metric or shipped outcome) and one concrete AI example (D-016). Revisit later if needed.
-- Footer line: "Open to remote Staff Product Designer and Design Engineer roles." (D-021, D-024).
-- 404 quips: seven phrases in `src/pages/NotFound/resources/content.ts`, picked at random (D-022).
 - Titles: "Staff Product Designer" throughout, "Design Engineer" where it fits (D-021). Other pages' titles and meta still say "Staff Product Designer – Scalable UX…" and "at ServiceNow" (the About design says Toyota); each page's slice updates its own.
 
 Design / tokens:
@@ -55,9 +53,9 @@ Design / tokens:
 8. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
 
 Remaining `TODO(jax)` in the code (2026-10-21, all provisional copy or design, none block the studies):
-- Footer line copy (`Footer.tsx`, D-021) and no tablet design for the footer (`Footer.module.css`, D-008, D-024).
+- No tablet design for the footer (`Footer.module.css`, D-008, D-024).
 - Header role line and H1 treatment are provisional (`Header.tsx`, content pass).
-- 404 quips (`NotFound/resources/content.ts`) and the Home SEO copy (`Work.tsx`, D-003, D-016).
+- The Home SEO copy (`Work.tsx`, D-003, D-016).
 - Toyota page: no Deliverables image (decided 2026-10-21: none wanted). The sprint board image is 800px and soft on retina (Jax is fine with that).
 
 ## Parked: study image component (raised 2026-10-19, return after ServiceNow copy is done)

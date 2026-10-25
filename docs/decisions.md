@@ -596,3 +596,7 @@ A green group (`quinary`: default green 700 / 300, container green 100 / 800, wi
 ## D-124: Resume page: strengths cards, split role cards, no skills list — decided, 2026-10-25
 
 The Resume page drops the Skills and tools chips (the PDF carries the full list). It gains "Core strengths": three cards in study colors with the work cards' hover (tint, lift, link line; no pointer tilt), each with one proof line from its case study (Toyota tokens, Indeed components, ActBlue workflows). Experience is a list of split cards: a colored side (logo, company, dates, place such as "Remote (contract)") and a white side (title, one short summary, case study link). The sides follow one gradient down the list in the order purple, violet, indigo, teal, green (the quinary group, D-123), each fading into the next role. Roles carry a `summary` in place of bullets (drafts condensed from the PDF bullets, TODO(jax)). Major headings share one style: the heading plus a 56px, 4px violet bar. The lift runs only on devices that hover and never with reduced motion. Not in this slice: the Design Engineer PDF download (the resume folder builds four PDFs, public has one).
+
+## D-125: Footer line and 404 quips settled — decided, 2026-10-25
+
+Jax settled the footer line ("Open to remote Staff Product Designer and Design Engineer roles.", D-021, D-024) and the seven 404 quips (D-022). The provisional markers are removed.

@@ -2,7 +2,7 @@ import { mainLinks } from '#constants/mainLinks';
 
 export const content = {
   title: '404',
-  // One is picked at random each time the page shows. TODO(jax): provisional copy, edit freely.
+  // One is picked at random each time the page shows.
   descriptions: [
     'Well, this wasn’t in the flowchart.',
     'This one didn’t make it past design review.',
