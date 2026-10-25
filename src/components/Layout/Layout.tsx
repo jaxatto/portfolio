@@ -6,8 +6,6 @@ import Footer from '#components/Footer';
 import BackToTop from '#components/BackToTop';
 import styles from './Layout.module.css';
 
-// Layout component that wraps the main content of the application
-// It includes a header, footer, and meta tags for SEO
 // NOTE: Header and Footer are full width (their decorations bleed to the viewport edge);
 // only <main> is constrained to the site width.
 

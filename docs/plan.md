@@ -20,15 +20,11 @@ Slices 0 to 6 are merged into `redesign`. Resume redesign (D-124) is merged: str
 
 ## Audit follow-ups (2026-10-25)
 
-Batches 1 to 4 are done (regressions, dead code, tokens, shared components). Not handled yet, in the order proposed:
+All seven audit batches are done and merged (D-117 to D-127): regressions, dead code, tokens, shared components, consistency, performance and SEO, docs and comments. Image width and height come from the file (D-125), fonts are self-hosted (D-127), per-route meta is written at build time (D-122). What is left:
 
-- **Batch 5, consistency:** move every `@` import to `#` and delete the `@` aliases in vite, tsconfig and `package.json`. `moduleResolution` Node to Bundler. Colocate `commonTypes/study` with Studies. Fix indentation drift in Resume.tsx, NotFound.tsx, StudyTemplate.tsx. Tooltip reads `refs.domReference.current` during render.
-- **Batch 6, performance and SEO:** done except two items. Image width and height are set from the file (D-125). Fonts are self-hosted (D-127). Home PNG samples with alpha were left as they are.
-- **Batch 7, docs and comments:** stale CLAUDE.md lines, the plan.md Setup section and dated TODOs, decisions.md ordering (D-082 holds text from D-081 and D-067, D-085 before D-083, D-038 has no heading), README. Remove change-log comments ("was 24 / 32, +8px per Jax" and similar). Write the comment convention into CLAUDE.md.
 - **Decided (2026-10-25):** keep Floating UI (D-103). Keep the `Image` fallback component and its cat, controller and paw icons.
 - **TODO(jax):** explore what the `Image` fallback looks like when a photo fails to load, and whether the About page should use it differently.
 - **Held:** the dark-mode override dedupe (item 11) and the token worklist. The cheaper route is to have the inline script and ThemeProvider always set `data-theme` to the resolved theme (the OS setting when nothing is stored), which makes the `prefers-color-scheme` blocks in `theme.css` and about 13 component sites redundant.
-- **Fonts:** self-hosted (D-127). Measured before: a 21 kB Google stylesheet and two third-party connections on the render path (about 100 to 180 ms from one fast connection). The 86 kB of font files is unchanged.
 - **Token worklist:** [untokenized-styles.md](untokenized-styles.md), 101 declarations. First candidates are icon sizes, state washes, layer order and the `theme-color` pair.
 - **Not tested:** screen readers, 200% and 400% zoom, forced colors, Safari and Firefox. Route changes now move focus to the h1 (D-126), checked without a screen reader.
 
