@@ -229,8 +229,10 @@
 }
 
 .image {
+	/* The screenshot's width is a variable so the hover can grow it by 4 points (D-088). */
+	--image-w: 100%;
 	display: block;
-	width: 100%;
+	width: var(--image-w);
 	height: auto;
 }
 
@@ -273,7 +275,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 112%;
+		--image-w: 112%;
+		width: var(--image-w);
 		max-width: none;
 		height: auto;
 		min-height: 100%;
@@ -285,12 +288,14 @@
 	.horizontal:not(.enlarge) .image {
 		top: calc(-1 * var(--size-border-width-default));
 		left: calc(-1 * var(--size-border-width-default));
-		width: calc(112% + 2 * var(--size-border-width-default));
+		--image-w: calc(112% + 2 * var(--size-border-width-default));
+		width: var(--image-w);
 	}
 
 	/* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-028). */
 	.horizontal.enlarge .image {
-		width: calc(112% + 40px);
+		--image-w: calc(112% + 40px);
+		width: var(--image-w);
 	}
 }
 
@@ -378,7 +383,7 @@
 }
 
 /* Hover lift (D-088): on devices that hover, the card rises 8px with a soft shadow and its screenshot
-   drifts up and zooms 4% inside the window. The arrow and link stay where they are. Skipped for
+   grows 4 points wider inside the window, anchored top left. The arrow and link stay where they are. Skipped for
    reduced motion, which keeps only the tint change. */
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
 	.card {
@@ -394,12 +399,12 @@
 	}
 
 	.image {
-		transform-origin: top left;
-		transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+		transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 	}
 
+	/* Wider, not scaled or shifted: the top-left corner stays put so the crop does not move. */
 	.card:hover .image {
-		transform: translateY(-10px) scale(1.04);
+		width: calc(var(--image-w) + 4%);
 	}
 }
 
