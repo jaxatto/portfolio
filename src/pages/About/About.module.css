@@ -181,7 +181,12 @@
 	border-radius: var(--size-radius-lg);
 }
 
-/* Desktop: the hero title is 56px, the top of the type scale, matching Home's sentence. */
+/* The hero title is 48px below 900px (it was the fluid 40px floor) and 56px from 900px, the top of the type
+   scale, matching Home's sentence (D-108). */
+.title {
+	font-size: var(--font-size-48);
+}
+
 @media (min-width: 900px) {
 	.title {
 		font-size: var(--font-size-56);
