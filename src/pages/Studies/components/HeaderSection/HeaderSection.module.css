@@ -23,7 +23,7 @@
 }
 
 .top {
-	max-width: 40rem; /* left-aligned to the 960 edge (D-066) */
+	/* Left-aligned to the 960 edge (D-066). The h1 may use the whole column (D-089). */
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-space-sm);
@@ -38,6 +38,20 @@
 	font-weight: var(--font-style-title-md-weight);
 	line-height: var(--font-style-title-md-line-height);
 	text-wrap: balance;
+}
+
+/* The title is the top of the type scale on desktop, matching the About hero: 56px from 900px, 48px on
+   tablets, 40px on phones (D-089). The h2s stay at 32px, so the title is 1.75 times their size. */
+@media (min-width: 641px) {
+	.title {
+		font-size: var(--font-size-48);
+	}
+}
+
+@media (min-width: 900px) {
+	.title {
+		font-size: var(--font-size-56);
+	}
 }
 
 /* One line under the h1 (D-059): what the study is about, in the body-lg step. */
