@@ -796,3 +796,7 @@ The five approach cards became four, rephrased from Jax's description and not qu
 ## D-169: Resume role header on phones — decided, 2026-10-26
 
 Jax asked for the role header without wrapping on phones only, with the title staying in the body. Desktop keeps the split card. On phones the colored side is a grid: logo, company and dates on the first row, the place under the company on the second, all `nowrap`. Logo, company, dates and place in one line need about 480px for the longest role (Toyota, with "hybrid, contract") and a phone gives 323px, so one line is not possible without cutting words. Below 360px the dates drop to their own row, since ServiceNow beside its dates no longer fits. A first attempt that moved the band and title to the top on every width was reverted.
+
+## D-170: Phone role header, dates beside the place — decided, 2026-10-26
+
+On phones the header holds the logo and company on row one and the dates and place on row two, with the logo at the card's 24px text edge, 40px wide and 16px from the company. The place line uses a middle dot: "Remote · Contract", "Plano, TX · Hybrid · Contract", on every width. The data has a `workMode` field for "Hybrid". Toyota's dates and place need about 327px and a 375px phone leaves 275px, so Toyota's two items stack. Supersedes the 360px rule in D-169.
