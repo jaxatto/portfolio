@@ -26,7 +26,7 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 
 - **Collaborate on design and copy.** Jax's designs and drafts are the starting point, not the ceiling. If something in the content or design could be better (weak positioning, vague claims, missing outcomes, inconsistent patterns, accessibility gaps, hierarchy problems), say so plainly with a concrete suggestion and why it helps a hiring manager. Then discuss it. Don't silently rewrite copy and don't silently ship a design deviation; propose, agree, then do. Use the `portfolio-critique` skill for a structured pass.
 - **Consistency over one-offs.** Everything draws from the token system and shared components. If something needs a value, size, color, component or pattern that doesn't exist, stop and raise it, agree on whether it's a new token/variant or a design change, and log it in `docs/decisions.md`. No quiet one-off styles.
-- **Small slices, small commits, frequent merges.** One page or component per slice. Commit often (one logical change per commit, short imperative subject matching history, e.g. "update about page") and push after each commit so work is saved. Slices merge into the long-lived **`redesign`** branch, not `main`, and only after Jax approves (see Git). `main` stays the live site until Jax decides to bring `redesign` back. Never run `npm run deploy` unless asked.
+- **Small slices, small commits, frequent merges.** One page or component per slice. Commit often (one logical change per commit, short imperative subject matching history, e.g. "update about page") and push after each commit so work is saved. Slices merge into **`main`** by pull request, and only after Jax approves (see Git). Never run `npm run deploy` unless asked.
 - **Every change is reviewable.** After any change, make sure the dev server is running (`npm run dev`, port 5173), then give Jax the exact place to look: the route and section, e.g. `http://localhost:5173/about` plus which section and breakpoint. End the reply with that local link. For changes to docs, skills or other files, link the file.
 - **Always make file links real.** Whenever you mention a file, give a markdown link with its absolute path, e.g. [CLAUDE.md](/home/user/portfolio/CLAUDE.md), so Jax can open it. Files outside the working directory, scratchpad and memory directories can't be opened by Jax, so copy anything meant for them into the repo or scratchpad first.
 - **Foundations before pages.** Tokens, typography, layout, header and footer come first.
@@ -54,8 +54,8 @@ Comments say *why*, never what the code already says: a design or accessibility 
 ## Git
 
 - Commit as Jax: `Jax Engel <6673768+jaxatto@users.noreply.github.com>`. At the start of a session check `git config user.name` / `user.email`; set them locally if they say anything else.
-- **Branches.** `main` = live site. `redesign` = integration branch for all redesign work (created from `main`, 2026-10-13). Work happens on the session's designated branch, which is branched from the latest `redesign`. Merge into `redesign` only when Jax has approved the slice; never merge to or push to `main`, and never merge to `redesign` unprompted. When Jax says redesign is ready, bringing it into `main` is a separate, explicit step.
-- Merging: after approval, open a PR from the working branch into `redesign` and merge it. Keep PRs one slice each.
+- **Branches.** `main` is the site and the integration branch. The redesign merged into it on 2026-10-25 (PR #36), so there is no separate integration branch. Work happens on the session's designated branch, branched from the latest `main`. When that branch's PR has merged, restart it from `main` (the same name) before any follow-up work. Never push straight to `main`, and never merge to it unprompted. Publishing to GitHub Pages stays a separate step (`npm run deploy`, only when Jax asks).
+- Merging: after approval, open a PR from the working branch into `main` and merge it. Keep PRs one slice each. A merged PR's branch is deleted automatically.
 
 ## Design source
 
@@ -121,4 +121,4 @@ scripts/               generate-component, prerender, vite-image-size, tokens/
 
 ## Skills
 
-Project skills live in `.claude/skills/`. Current: `copy-check` (lint and read copy against the Copy voice rules), `ship-slice` (verify, commit, push, review links, merge to `redesign` on approval) and `portfolio-critique` (structured content/design review for hiring impact).
+Project skills live in `.claude/skills/`. Current: `copy-check` (lint and read copy against the Copy voice rules), `ship-slice` (verify, commit, push, review links, merge to `main` on approval) and `portfolio-critique` (structured content/design review for hiring impact).

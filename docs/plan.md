@@ -4,7 +4,7 @@ Goal: make the portfolio as strong as possible for getting Jax hired as a staff-
 
 ## Roadmap
 
-Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
+Status: `[ ]` not started, `[~]` in progress, `[x]` merged (into `redesign`, which merged into `main` on 2026-10-25, PR #36).
 
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
