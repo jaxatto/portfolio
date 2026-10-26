@@ -53,7 +53,7 @@
 	color: var(--card-fg);
 	/* The link's text is its icon's size, like the work cards (D-146). */
 	font-size: var(--size-icon-sm);
-	font-weight: var(--font-weight-extra-strong);
+	font-weight: var(--font-weight-strong);
 	text-decoration: none;
 }
 

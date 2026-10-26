@@ -1,5 +1,5 @@
-/* 404: a full-bleed ground of its own (surface-error) with the shared nav header on it. Every value
-   is a semantic token (surface-error / content-on-accent, space, radius,
+/* 404: a full-bleed ground of its own (surface-inverse) with the shared nav header on it. Every value
+   is a semantic token (surface-inverse / content-on-accent, space, radius,
    type), so light and dark both work. D-022, D-038. */
 
 .page {
@@ -9,7 +9,7 @@
   /* New stacking context: the header's divider uses z-index -1 and would otherwise fall behind
 	   this background. */
   isolation: isolate;
-  background: var(--color-surface-error);
+  background: var(--color-surface-inverse);
   color: var(--color-content-on-accent);
 }
 

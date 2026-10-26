@@ -289,7 +289,7 @@
 }
 
 .greeting {
-  font-weight: var(--font-weight-extra-strong);
+  font-weight: var(--font-weight-strong);
 }
 
 /* "build": a code chip with a blinking terminal cursor. Mono token = Roboto Mono, loaded in

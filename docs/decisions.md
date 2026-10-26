@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-154.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-155.
 
 ## Workflow
 
@@ -14,7 +14,7 @@ The rules that are in force today, grouped by area, with the IDs that hold the r
 - Token source is `src/tokens`, compiled by `npm run build:theme` into `theme.css`, which is never hand-edited (D-002). Primitives are raw scale steps, semantic tokens only reference them, and components only read semantic tokens (D-149). The generator emits only the primitives a semantic token reads (D-118).
 - Light is `:root`, dark is `[data-theme='dark']`. `data-theme` always holds the theme being shown (stored choice, else the OS), so there are no `prefers-color-scheme` blocks (D-128). The header toggle is always on and the `.env` gate is gone (D-006, D-011, D-139).
 - Plain CSS modules on tokens, no SCSS (D-091). Prettier formats the code (D-121). Imports use the `#` aliases (D-120).
-- Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes are named by role (`--font-size-label`, `-control`, `-lead`, `-card-title`, `-card-title-compact`, `-display-sm`, `-display`), never by value (D-149). Manrope tops out at 800, Inter keeps 900 for headings (D-010). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
+- Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes are named by role (`--font-size-label`, `-control`, `-lead`, `-card-title`, `-card-title-compact`, `-display-sm`, `-display`), never by value (D-149). One `strong` weight (900) serves both families, and Manrope renders it as 800 (D-154). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
 - Shared steps in `type.module.css` (`titleMd`, `headingLg`, `headingSm`, `headingMd`, `caption`) are composed by components, which add only color, spacing and wrapping. They sit in `@layer type` so a page's own media-query size wins (D-093, D-117, D-137).
 - Heading tags are semantic only. No rule targets `h1` to `h6`, the look comes from a class (D-130, D-134).
 - Breakpoints are literal: 640 (phone, 641 up) and 900 (desktop). Any other width carries a comment (D-118).
@@ -40,7 +40,7 @@ The rules that are in force today, grouped by area, with the IDs that hold the r
 - Footer: one footer on every page, a 2px hairline, a tinted band in dark except on Home, Resume/LinkedIn/GitHub as icon links, stacked at 640px and under (D-049, D-107, D-132).
 - Back to top is a scroll-up pill at the top middle, shown on About, Resume and studies (D-108).
 - Title wording is "Staff Product Designer", with "Design Engineer" where it fits (D-021). Footer line and 404 quips are settled (D-133).
-- 404 is the `error` tone with a display-size numeral and one of seven quips per visit (D-022, D-038).
+- 404 is the `inverse` tone with a display-size numeral and one of seven quips per visit (D-022, D-038).
 
 ## Home
 
@@ -153,3 +153,8 @@ Space steps are `none` (0), `3xs` (2px), `2xs` (4), `xs` (8), `sm` (12), `md` (1
 Rules that keep hydration clean: render nothing from `window`, `localStorage`, the clock or `Math.random` during the first render. `ThemeProvider` starts from light and a layout effect reads the stored choice and the OS setting before paint (until then `index.html`'s pre-paint script owns `data-theme`). `NotFound` shows its first line in the HTML and picks a random one after mount. The header's active link ignores a trailing slash, which GitHub Pages adds. A new route needs an entry in `scripts/prerender.ts`.
 
 Checked on a development-mode build (readable React warnings), 8 routes in light and dark at 1280 and 375: no hydration warnings or console errors. On a throttled connection (1.6 Mbps, 150 ms), Home paints at 0.7 s and About at 0.7 s, with a layout shift under 0.002.
+
+## D-154: Inverse surface, one strong weight, text-style tokens trimmed — decided, 2026-10-26
+
+`surface.error` is `surface.inverse` (`--color-surface-inverse`) and the 404 tone is `data-tone="inverse"`: it is the dark ground that text and links on it re-point to `on-accent` values for, so it is not about errors. `font-weight` has one `strong` (900) in place of `strong` and `extra-strong`. Manrope's `@font-face` stops at 800, so the browser renders 900 as 800, and Inter renders 900. Measured in the built site: Manrope text is the same width at 800 and 900, Inter is not. Removed because nothing read them: `font-weight-subtle` and the 13 `font-text-*` tokens (transform, decoration, thickness, underline offset), with their type fields. The primitives for them stay. `tone.css` stopped re-pointing `content-default-hover` and `-active`, which D-152 had already removed.
+

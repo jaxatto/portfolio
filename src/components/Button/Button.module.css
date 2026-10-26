@@ -92,7 +92,7 @@
   --button-ring: var(--color-content-on-accent);
 
   background: var(--color-content-on-accent);
-  color: var(--color-surface-error);
+  color: var(--color-surface-inverse);
 }
 
 @media (hover: hover) {

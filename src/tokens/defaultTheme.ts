@@ -73,7 +73,7 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       },
       // The 404's own ground: distinct from the page surface in both themes and a theme pair of its
       // own (indigo-900 light, one step lighter in dark so it separates from the night ground). D-038.
-      error: {
+      inverse: {
         light: primitives.colors.indigo[900],
         dark: primitives.colors.indigo[800],
       },
@@ -281,14 +281,12 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       display: primitives.font.size[56],
     },
     weight: {
-      subtle: primitives.font.weight.light,
       default: primitives.font.weight.regular,
       // Body copy on tinted grounds (card paragraphs): 400 read thin there. Manrope 500 is loaded. D-033.
       medium: primitives.font.weight.medium,
       emphasis: primitives.font.weight.bold,
-      // NOTE: Figma sets Manrope text to 900, but Manrope stops at 800 (D-010). Use this for Manrope
-      // bold text such as nav items and links; `strong` (900) is for Inter headings.
-      'extra-strong': primitives.font.weight.extrabold,
+      // Inter headings and Manrope bold text both use this. Manrope's face stops at 800, so a 900 request
+      // renders 800 (fonts.css, D-010).
       strong: primitives.font.weight.black,
     },
     'line-height': {
@@ -300,28 +298,6 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       compact: primitives.font['letter-spacing']['negative-02'],
       default: primitives.font['letter-spacing']['none'],
       relaxed: primitives.font['letter-spacing']['02'],
-    },
-    'text-transform': {
-      none: primitives.font['text-transform']['none'],
-      uppercase: primitives.font['text-transform']['uppercase'],
-      lowercase: primitives.font['text-transform']['lowercase'],
-    },
-    'text-decoration': {
-      none: primitives.font['text-decoration']['none'],
-      underline: primitives.font['text-decoration']['underline'],
-      'strike-through': primitives.font['text-decoration']['line-through'],
-    },
-    'text-decoration-thickness': {
-      auto: primitives.font['text-decoration-thickness']['auto'],
-      sm: primitives.font['text-decoration-thickness']['1'],
-      md: primitives.font['text-decoration-thickness']['2'],
-    },
-    'text-underline-offset': {
-      auto: primitives.font['text-underline-offset']['auto'],
-      sm: primitives.font['text-underline-offset']['1'],
-      md: primitives.font['text-underline-offset']['2'],
-      // Hover distance for links: the line moves from `md` out to `lg` (D-015).
-      lg: primitives.font['text-underline-offset']['4'],
     },
     styles: {
       'title-md': {

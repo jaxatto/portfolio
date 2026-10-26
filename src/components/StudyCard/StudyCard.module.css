@@ -87,7 +87,7 @@
   font-family: var(--font-family-body);
   /* The link's text is its icon's size (D-146). */
   font-size: var(--size-icon-sm);
-  font-weight: var(--font-weight-extra-strong);
+  font-weight: var(--font-weight-strong);
   line-height: var(--font-line-height-default);
   text-decoration: none;
 }

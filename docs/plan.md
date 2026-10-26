@@ -67,3 +67,4 @@ Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner), `Study
 - **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md) lists the raw values still open, each with a proposed default of keep (D-141). Next pass: log or tokenize them as Jax decides.
 
 - **Low priority: shorten the other `--size-*` token names.** Space tokens dropped the prefix (`--space-md`, D-143). Radius, border width, icon, target and layout tokens still read `--size-radius-*`, `--size-border-width-*`, `--size-icon-*`, `--size-target-*`. Decide later whether they follow, and rename them in one pass with the generator.
+- **Palettes (on hold, Jax 2026-10-26).** Revisit the six palettes and how `palette.module.css` and tones relate before changing either. Open with it: content color roles (`default`, `emphasis`, `muted`, `link`, `on-accent` as the proposed five), the fixed role font sizes, and one method for applying type.

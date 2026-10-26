@@ -26,7 +26,7 @@ const NotFound: React.FC = () => {
 
   return (
     // The page keeps its own dark ground; the shared nav header sits on it, recolored via tokens.
-    <div className={styles.page} data-tone="error">
+    <div className={styles.page} data-tone="inverse">
       <Meta
         title="Page not found | Jax Engel"
         metaDescription="This page doesn’t exist. Head back to Jax Engel’s portfolio."

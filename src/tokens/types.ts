@@ -61,7 +61,7 @@ export type BaseSemanticGeneralColor = {
   surface: {
     default: ColorMode;
     sunken: ColorMode;
-    error: ColorMode;
+    inverse: ColorMode;
   };
   border: {
     decorative: ColorMode;
@@ -90,12 +90,6 @@ export type TextStyleDefinition = {
   weight: keyof SemanticThemeTypography['weight'];
   'line-height': keyof SemanticThemeTypography['line-height'];
   'letter-spacing'?: keyof SemanticThemeTypography['letter-spacing'];
-  'text-transform'?: keyof NonNullable<SemanticThemeTypography['text-transform']>;
-  'text-decoration'?: keyof NonNullable<SemanticThemeTypography['text-decoration']>;
-  'text-decoration-thickness'?: keyof NonNullable<
-    SemanticThemeTypography['text-decoration-thickness']
-  >;
-  'text-underline-offset'?: keyof NonNullable<SemanticThemeTypography['text-underline-offset']>;
 };
 
 export type TextStyleKey =
@@ -107,10 +101,6 @@ export type SemanticThemeTypography = {
   weight: Record<string, number>;
   'line-height': Record<string, number>;
   'letter-spacing'?: Record<string, string>;
-  'text-transform'?: Record<string, string>;
-  'text-decoration'?: Record<string, string>;
-  'text-decoration-thickness'?: Record<string, string>;
-  'text-underline-offset'?: Record<string, string>;
   styles: Partial<Record<TextStyleKey, TextStyleDefinition>>;
 };
 
