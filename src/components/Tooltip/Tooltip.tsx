@@ -83,7 +83,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   const hover = useHover(context, {
     move: false,
-    delay: { open: 650, close: 0 },
+    delay: { open: 600, close: 0 },
     handleClose: safePolygon(),
   });
   const focus = useFocus(context, { visibleOnly: true });
@@ -100,8 +100,8 @@ const Tooltip: React.FC<TooltipProps> = ({
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const { isMounted, styles: motion } = useTransitionStyles(context, {
-    // The durations: --motion-duration-moderate (0.3s) in, 0.2s out.
-    duration: reduceMotion ? 0 : { open: 300, close: 200 },
+    // The durations: 0.35s in, 0.25s out, a little slower than --motion-duration-moderate (0.3s).
+    duration: reduceMotion ? 0 : { open: 350, close: 250 },
     initial: ({ side: placed }) => ({
       opacity: 0,
       transform: reduceMotion ? 'none' : `translateY(${placed === 'bottom' ? '-4px' : '4px'})`,
