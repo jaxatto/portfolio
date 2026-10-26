@@ -93,8 +93,8 @@ const content = {
       order: 3,
       title: 'Outcomes',
       description: [
-        'Leadership approved the token proposal and approved it again as priorities evolved.',
         'I architected the multi-brand token framework and the automation that syncs it with Figma. I applied the tokens to Figma components manually and through automation where possible. When I left, 15 components were mapped and 3 more were in development. The coded components were in progress.',
+        'Leadership approved the token proposal and approved it again as priorities evolved.',
         'In the short term, 40 SCaFT product teams were expected to adopt the tokens across 10 web apps, with more as themes expand. The framework gives design and engineering one source of truth, and new brands and themes can be added to it. Once the tokens are fully applied, they are expected to reduce the manual upkeep between design and code.',
       ],
       image: [
