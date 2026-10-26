@@ -1,0 +1,1 @@
+import{j as s}from"./index-Bg8-cAXg.js";const i=({startDate:r,endDate:n,className:a})=>s.jsxs("span",{className:a,children:[r,n&&s.jsxs(s.Fragment,{children:[s.jsx("span",{"aria-hidden":"true",children:" – "}),s.jsx("span",{className:"sr-only",children:" to "}),n]})]});export{i as D};
