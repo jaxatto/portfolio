@@ -44,11 +44,6 @@
   color: var(--color-content-soft);
 }
 
-.nowrap {
-  /* Job titles stay whole: a line break goes before or after them, never inside. */
-  white-space: nowrap;
-}
-
 .row {
   display: flex;
   flex: none;
@@ -146,7 +141,6 @@
 
   .description {
     max-width: none;
-    text-wrap: wrap;
   }
 
   .inner {

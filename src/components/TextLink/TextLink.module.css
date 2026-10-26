@@ -15,10 +15,9 @@
   transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
-/* A link with an icon sets its text to the icon's size: both come from --link-icon (20px, D-146). */
+/* A link with an icon keeps the copy's size: the icon is 1em (D-173). */
 .with-icon {
-  --link-icon: var(--size-icon-sm);
-  font-size: var(--link-icon);
+  --link-icon: 1em;
 }
 
 /* Large: the footer email link. Its size is fluid so the 24-character email plus arrow fits narrow cards,

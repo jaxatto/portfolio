@@ -31,6 +31,13 @@
   --chip-fg: var(--color-content-emphasis);
 }
 
+/* Phones read the chips at the control size (16px), up from the 14px body-sm. */
+@media (max-width: 640px) {
+  .chip {
+    font-size: var(--font-size-control);
+  }
+}
+
 /* Forced colors drops the background, so the shape is drawn by an outline in the system text color. An outline
    takes no space, so the layout is the same as without it (D-129). */
 @media (forced-colors: active) {
