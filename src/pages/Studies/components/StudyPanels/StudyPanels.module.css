@@ -37,7 +37,7 @@
 }
 
 /* Image wraps the picture in a div. It takes no box, so the crop positions against the panel as before. */
-.imageBox {
+.image-box {
   display: contents;
 }
 

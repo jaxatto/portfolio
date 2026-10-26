@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-161.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-162.
 
 ## Workflow
 
@@ -178,4 +178,8 @@ Components apply a type class in their markup, `className={clsx(typography.headi
 ## D-160: `main` is the integration branch — decided, 2026-10-26
 
 The redesign merged into `main` on 2026-10-25 (PR #36), so `redesign` is no longer a long-lived branch. Session branches start from the latest `main`, merge back by pull request only after Jax approves, and a merged branch is deleted automatically and restarted from `main` for follow-up work. Nothing pushes straight to `main`. Deploying to GitHub Pages is still a separate step that only runs when Jax asks. Supersedes D-007.
+
+## D-161: Kebab-case classes, camelCase in markup — decided, 2026-10-26
+
+Class names in CSS are kebab-case, and components are PascalCase. Vite reads classes as camelCase (`localsConvention: 'camelCaseOnly'`), so `.nav-link` is `styles.navLink` and bracket access is not used. The generated type classes follow it (`.heading-lg` is `typography.headingLg`). `scripts/css-conventions.test.ts` fails on a class that is not kebab-case, on bracket access to a module, and on markup that reads a class its module does not define. The last check found two dead reads in `Image.tsx` (`component-wrapper` and `fallback-icon` never existed), now removed. Computed layout, color, spacing and type matched the previous build on 8 routes at 375, 768 and 1280. The one variation is the 404 quip, which is random and changes the text box width.
 

@@ -40,11 +40,11 @@
 }
 
 /* The tagline, soft, behind a decorative dot. */
-.brandRole {
+.brand-role {
   color: var(--color-content-secondary);
 }
 
-.brandRole::before {
+.brand-role::before {
   content: '\00b7';
   margin-right: var(--space-xs);
 }
@@ -64,12 +64,12 @@
     height: auto;
   }
 
-  .brandRole {
+  .brand-role {
     /* Tucks the tagline up under the 44px name row. */
     margin-top: calc(-1 * var(--space-xs));
   }
 
-  .brandRole::before {
+  .brand-role::before {
     display: none;
   }
 }

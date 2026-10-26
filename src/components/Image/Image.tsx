@@ -39,7 +39,7 @@ const Image: React.FC<ImageProps> = ({
   const [error, setError] = useState(false);
 
   return (
-    <div className={clsx(styles['component-wrapper'], className)}>
+    <div className={className}>
       {!error ? (
         <img
           src={src}
@@ -56,12 +56,8 @@ const Image: React.FC<ImageProps> = ({
           style={imgStyle}
         />
       ) : (
-        <div className={clsx(styles['fallback-wrapper'], fallbackClassName)}>
-          <Icon
-            name={iconFallback}
-            className={clsx(styles['fallback-icon'], iconClassName)}
-            aria-hidden="true"
-          />
+        <div className={clsx(styles.fallbackWrapper, fallbackClassName)}>
+          <Icon name={iconFallback} className={iconClassName} aria-hidden="true" />
           <span className="sr-only">{altFallback ?? alt}</span>
         </div>
       )}

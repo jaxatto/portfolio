@@ -13,22 +13,22 @@ export const DesignSelection: React.FC<{
 }> = ({ children, corner = 'bottom-right' }) => (
   <span className={styles.design}>
     <span
-      className={`${styles.selection} ${corner === 'top-right' ? styles['corner-tr'] : ''}`}
+      className={`${styles.selection} ${corner === 'top-right' ? styles.cornerTr : ''}`}
       aria-hidden="true"
     >
-      <i className={styles['handle-tl']} />
-      <i className={styles['handle-tr']} />
-      <i className={styles['handle-bl']} />
-      <i className={styles['handle-br']} />
+      <i className={styles.handleTl} />
+      <i className={styles.handleTr} />
+      <i className={styles.handleBl} />
+      <i className={styles.handleBr} />
       <span className={styles.pointer}>
         <svg
-          className={styles['pointer-arrow']}
+          className={styles.pointerArrow}
           width="14"
           height="19"
           viewBox="0 0 14 19"
           focusable="false"
         >
-          <path d="M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z" className={styles['pointer-fill']} />
+          <path d="M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z" className={styles.pointerFill} />
         </svg>
       </span>
     </span>
@@ -41,16 +41,10 @@ export const DesignSelection: React.FC<{
 // photo's alt text, so it is aria-hidden here.
 export const CursorTag: React.FC<{ name: string; className?: string }> = ({ name, className }) => (
   <span className={`${styles.tag} ${className ?? ''}`} aria-hidden="true">
-    <svg
-      className={styles['tag-arrow']}
-      width="14"
-      height="19"
-      viewBox="0 0 14 19"
-      focusable="false"
-    >
+    <svg className={styles.tagArrow} width="14" height="19" viewBox="0 0 14 19" focusable="false">
       <path d="M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z" />
     </svg>
-    <NameTag corner="top-left" className={styles['tag-label']}>
+    <NameTag corner="top-left" className={styles.tagLabel}>
       {name}
     </NameTag>
   </span>

@@ -53,7 +53,7 @@
 	text-decoration: none;
 }
 
-.linkText {
+.link-text {
 	composes: line from '#styles/line.module.css';
 	--line-bottom: calc(-1 * var(--size-border-width-default));
 	--line-color: currentcolor;
@@ -77,7 +77,7 @@
 	outline-offset: var(--size-focus-ring-offset);
 }
 
-.card:hover .linkText::after {
+.card:hover .link-text::after {
 	transform: scaleX(1);
 }
 
@@ -105,7 +105,7 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.card,
-	.linkText::after {
+	.link-text::after {
 		transition: none;
 	}
 }

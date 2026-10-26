@@ -1,5 +1,5 @@
 .link {
-  composes: iconControl from '#styles/iconControl.module.css';
+  composes: icon-control from '#styles/iconControl.module.css';
   display: flex;
   --icon-control-size: var(--size-icon-lg);
   /* Violet at rest like the email link (D-107). */

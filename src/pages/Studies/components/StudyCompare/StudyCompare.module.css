@@ -43,7 +43,7 @@
 }
 
 /* Image wraps the picture in a div. It takes no box, so the picture lays out as before. */
-.imageBox {
+.image-box {
   display: contents;
 }
 

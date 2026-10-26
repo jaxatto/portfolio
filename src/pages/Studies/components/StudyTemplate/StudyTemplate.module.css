@@ -22,7 +22,7 @@
 }
 
 /* Without a hero image, the header needs its own gap before the first section. */
-.page > .headerNoImage {
+.page > .header-no-image {
   margin-bottom: var(--space-6xl);
 }
 
@@ -31,7 +31,7 @@
     padding-block: var(--space-2xl) var(--space-4xl);
   }
 
-  .page > .headerNoImage {
+  .page > .header-no-image {
     margin-bottom: var(--space-4xl);
   }
 }

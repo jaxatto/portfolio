@@ -18,7 +18,7 @@
 }
 
 /* A link with an icon sets its text to the icon's size: both come from --link-icon (20px, D-146). */
-.withIcon {
+.with-icon {
   --link-icon: var(--size-icon-sm);
   font-size: var(--link-icon);
 }

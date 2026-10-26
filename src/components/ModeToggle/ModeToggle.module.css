@@ -4,7 +4,7 @@
    like the nav links: no color change, no line. See D-017. */
 
 .button {
-  composes: iconControl from '#styles/iconControl.module.css';
+  composes: icon-control from '#styles/iconControl.module.css';
   --icon-control-size: var(--size-icon-lg);
   padding: 0;
   border: 0;

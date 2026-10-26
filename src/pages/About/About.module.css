@@ -122,14 +122,14 @@
   color: var(--color-content-soft);
 }
 
-.photoFrame {
+.photo-frame {
   aspect-ratio: 1;
   width: 100%;
   overflow: hidden;
   border-radius: var(--size-radius-lg);
 }
 
-.photoImage {
+.photo-image {
   display: block;
   width: 100%;
   height: 100%;
@@ -142,7 +142,7 @@
 /* Hover or keyboard focus inside the figure: the photo eases in a little and the tag nudges up and
    left, like a cursor being dragged. Motion only; the name is always visible. */
 @media (hover: hover) {
-  .figure:hover .photoImage {
+  .figure:hover .photo-image {
     transform: scale(1.04);
   }
 
@@ -152,18 +152,18 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .photoImage {
+  .photo-image {
     transition: none;
   }
 
-  .figure:hover .photoImage,
+  .figure:hover .photo-image,
   .figure:hover .tag {
     transform: none;
   }
 }
 
 /* The fallback takes the photo's own corner radius from the shared Image. Doubled class keeps this one. */
-.photoFallback.photoFallback {
+.photo-fallback.photo-fallback {
   aspect-ratio: 1;
   border-radius: var(--size-radius-lg);
 }
