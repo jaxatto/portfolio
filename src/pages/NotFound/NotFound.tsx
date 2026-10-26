@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useSyncExternalStore } from 'react';
 import Button from '#components/Button';
 import Header from '#components/Header';
 import Meta from '#components/Meta';
@@ -16,13 +16,14 @@ const descriptions = [
   'This link took a wrong turn at handoff.',
 ];
 
+// 404.html is pre-rendered once for every missing path, so the server and the first client render show
+// the first line. The random pick follows, once per visit, so the HTML React attaches to matches.
+let picked: number | null = null;
+const subscribeNothing = () => () => {};
+const pick = () => (picked ??= Math.floor(Math.random() * descriptions.length));
+
 const NotFound: React.FC = () => {
-  // 404.html is pre-rendered once for every missing path, so the first render always shows the first line.
-  // The random pick follows on mount, so the HTML React attaches to matches what it renders.
-  const [description, setDescription] = useState(descriptions[0]);
-  useEffect(() => {
-    setDescription(descriptions[Math.floor(Math.random() * descriptions.length)]);
-  }, []);
+  const description = descriptions[useSyncExternalStore(subscribeNothing, pick, () => 0)];
 
   return (
     // The page keeps its own dark ground; the shared nav header sits on it, recolored via tokens.

@@ -3,10 +3,9 @@ import React, {
   useCallback,
   useContext,
   useEffect,
-  useLayoutEffect,
   useMemo,
   useRef,
-  useState,
+  useSyncExternalStore,
 } from 'react';
 import { themeColor } from '#tokens/themeColor';
 
@@ -48,26 +47,40 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+// The stored choice is an external store: the server and the first client render read the server
+// snapshot (system, light, the HTML that was pre-rendered), and React re-renders with the real values
+// before the first paint (D-154). `chosen` keeps a choice that storage refused (private mode).
+let chosen: ThemePreference | null = null;
+const preferenceListeners = new Set<() => void>();
+
+const subscribePreference = (onChange: () => void) => {
+  preferenceListeners.add(onChange);
+  window.addEventListener('storage', onChange);
+  return () => {
+    preferenceListeners.delete(onChange);
+    window.removeEventListener('storage', onChange);
+  };
+};
+const getPreference = (): ThemePreference => chosen ?? readStoredPreference();
+const getServerPreference = (): ThemePreference => 'system';
+
+const subscribeSystemDark = (onChange: () => void) => {
+  if (typeof window.matchMedia !== 'function') return () => {};
+  const query = window.matchMedia('(prefers-color-scheme: dark)');
+  query.addEventListener('change', onChange);
+  return () => query.removeEventListener('change', onChange);
+};
+const getServerSystemDark = () => false;
+
+// False on the server and during hydration, true after.
+const subscribeNothing = () => () => {};
+const getHydrated = () => true;
+const getServerHydrated = () => false;
+
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // NOTE: The server and the first client render both start from light, the HTML that was pre-rendered.
-  // A layout effect then reads the stored choice and the OS setting before the first paint (D-154).
-  const [preference, setPreferenceState] = useState<ThemePreference>('system');
-  const [systemDark, setSystemDark] = useState(false);
-  const [synced, setSynced] = useState(false);
-
-  useLayoutEffect(() => {
-    setPreferenceState(readStoredPreference());
-    setSystemDark(prefersDark());
-    setSynced(true);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window.matchMedia !== 'function') return;
-    const query = window.matchMedia('(prefers-color-scheme: dark)');
-    const onChange = (event: MediaQueryListEvent) => setSystemDark(event.matches);
-    query.addEventListener('change', onChange);
-    return () => query.removeEventListener('change', onChange);
-  }, []);
+  const preference = useSyncExternalStore(subscribePreference, getPreference, getServerPreference);
+  const systemDark = useSyncExternalStore(subscribeSystemDark, prefersDark, getServerSystemDark);
+  const synced = useSyncExternalStore(subscribeNothing, getHydrated, getServerHydrated);
 
   const theme: ThemeId = preference === 'system' ? (systemDark ? 'dark' : 'light') : preference;
 
@@ -94,7 +107,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, [preference, theme, synced]);
 
   const setPreference = useCallback((next: ThemePreference) => {
-    setPreferenceState(next);
+    chosen = next;
+    preferenceListeners.forEach((listener) => listener());
     try {
       if (next === 'system') {
         window.localStorage.removeItem(THEME_STORAGE_KEY);
