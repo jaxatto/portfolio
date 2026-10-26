@@ -36,7 +36,7 @@ const strengths = [
     palette: 'tertiary',
   },
   {
-    title: 'Self-serve enterprise workflows',
+    title: 'Self-serve workflows',
     proof: 'ActBlue admins set up and fix their Salesforce sync themselves, cutting support costs an estimated $1.5M a year.',
     to: studyLinks.actblue,
     linkText: 'ActBlue case study',
