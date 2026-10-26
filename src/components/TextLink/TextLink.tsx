@@ -16,6 +16,7 @@ type TextLinkProps = {
   newTab?: boolean;
   icon?: IconName;
   size?: 'md' | 'lg';
+  inline?: boolean; // A link inside a sentence: underlined at rest (D-164)
   className?: string;
   children: React.ReactNode;
 };
@@ -26,6 +27,7 @@ const TextLink: React.FC<TextLinkProps> = ({
   newTab,
   icon,
   size = 'md',
+  inline,
   className,
   children,
 }) => {
@@ -34,6 +36,7 @@ const TextLink: React.FC<TextLinkProps> = ({
     styles.link,
     icon && styles.withIcon,
     size === 'lg' && styles.large,
+    inline && styles.inline,
     className,
   );
   const content = (

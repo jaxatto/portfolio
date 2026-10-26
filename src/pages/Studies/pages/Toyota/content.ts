@@ -42,8 +42,8 @@ const content = {
       description: [
         'I joined Toyota as a UX Engineer to apply my design and code expertise to PRIME. PRIME is an existing React design system with 80+ components in production. It served one organization, Supply Chain and Fulfillment (SCaFT). The goal was to expand it globally across multiple brands in marketing, dealer tooling and manufacturing.',
         "My role in the token effort was to scale the system beyond PRIME. Consumers could be React, Angular and Swift applications, so the framework could not depend on PRIME's React components.",
-        'Two things complicated the plan. Design introduced tokens as a best practice before the business had set its scaling goals. Engineering then dropped a planned migration from MUI v5 to shadcn/ui partway through the project, which changed the implementation plans.',
-        'With codebases shifting and budgets unsettled, I took technical ownership of the token framework and the automation between Figma and code.',
+        'Two things shaped the plan. Tokens arrived as a design best practice while the business was still setting its scaling goals. Partway through the project, engineering changed course on a planned migration from MUI v5 to shadcn/ui, so I adjusted the implementation plans.',
+        'With codebases evolving and budgets still taking shape, I took technical ownership of the token framework and the automation between Figma and code.',
       ],
       image: [
         {
@@ -68,7 +68,7 @@ const content = {
         },
         {
           label: 'Figma-to-Code Automation',
-          text: "Engineering doubted that Figma and code could stay aligned, so I built a CLI in Node.js and TypeScript, with AI agents. It uses Figma's REST API to pull library snapshots and compare variables with the TypeScript definitions. It then creates, updates or deletes Figma variables to match the code. I used it to build the token system.",
+          text: "To show that Figma and code could stay aligned, I built a CLI in Node.js and TypeScript, with AI agents. It uses Figma's REST API to pull library snapshots and compare variables with the TypeScript definitions. It then creates, updates or deletes Figma variables to match the code. I used it to build the token system.",
         },
         {
           label: 'Developer Handoff Pipeline',
@@ -93,7 +93,6 @@ const content = {
       order: 3,
       title: 'Outcomes',
       description: [
-        'Leadership approved the token proposal and approved it again as priorities evolved.',
         'I architected the multi-brand token framework and the automation that syncs it with Figma. I applied the tokens to Figma components manually and through automation where possible. When I left, 15 components were mapped and 3 more were in development. The coded components were in progress.',
         'In the short term, 40 SCaFT product teams were expected to adopt the tokens across 10 web apps, with more as themes expand. The framework gives design and engineering one source of truth, and new brands and themes can be added to it. Once the tokens are fully applied, they are expected to reduce the manual upkeep between design and code.',
       ],
@@ -126,11 +125,11 @@ const content = {
       items: [
         {
           label: 'Plan for Shifting Priorities',
-          text: 'Priorities shifted several times. Answers I needed often took more than a month, and some never came. I would define fallback plans from day one, so the team keeps shipping small, useful pieces while direction settles.',
+          text: 'Priorities shifted several times, and some decisions took more than a month. I would define fallback plans from day one, so the team keeps shipping small, useful pieces while direction settles.',
         },
         {
-          label: 'Engineering Prioritization',
-          text: 'Engineers were busy with other work, so conversations about the tokens kept moving down the list. Stakeholders also turned over, so each conversation had to start again. I would ask for a named engineering sponsor early, so the work had a clear owner.',
+          label: 'Engineering Sponsorship',
+          text: 'Token work shared the engineering calendar with other priorities, and stakeholders changed over the year. I would ask for a named engineering sponsor early, so the work has a clear owner and the context carries through each change.',
         },
       ],
     },

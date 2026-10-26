@@ -768,3 +768,15 @@ Class names in CSS are kebab-case, and components are PascalCase. Vite reads cla
 ## D-162: Theme switch is a View Transition — decided, 2026-10-26
 
 The per-element color fade snapped shadows, gradients and the dark-only overrides while colors faded, which read as a flash. `ThemeProvider.setPreference` now wraps the change in `document.startViewTransition` and commits with `flushSync`, and `data-theme` is set in a layout effect so it lands before the new snapshot. The page cross-fades in 400ms to dark and 500ms to light (`--motion-duration-theme`, `--motion-duration-theme-to-light`). Dark to white is the larger luminance jump, so it runs 100ms longer. Both sit in the 300 to 500ms range for a whole-screen change. The mode toggle gets `view-transition-name` only while switching (a name makes a stacking context) so its icon swap keeps the 300ms moderate speed, and `::view-transition` takes no pointer events so the toggle keeps its hover. The `theme-fading` fade is the fallback where View Transitions are missing. Tooltip open and close are both `--motion-duration-base` (200ms), read from the token in `Tooltip.tsx`. A 99% and a 98% indigo-tinted off-white were tried for the light surface and rejected, so it stays pure white.
+
+## D-163: `content.heading`, the label h3 color — decided, 2026-10-26
+
+A dark-mode emphasis of purple-300 was tried and reverted: `content.emphasis` keeps white at 98% in dark (D-035). The new `content.heading` token is purple-950 in light and indigo-200 in dark. Only About's labelled h3s ("Strategic Product Design" and the others) use it. The h2s stay `content.prose` (D-056) and case study headings keep the study's palette tint (D-070).
+
+## D-164: Inline links keep a resting underline — decided, 2026-10-26
+
+A `TextLink` with `inline` (About's links to the case studies) shows a 1px underline at rest. The underline is `text-decoration`, so a link that wraps underlines each line. On hover it thickens to 3px in place of the growing line, which is off for inline links. Standalone links (footer email, Resume study links) keep the animated line and no resting underline. This restores D-024 for links in running text and narrows D-104.
+
+## D-165: Inline links are indigo-300 on dark — decided, 2026-10-26
+
+`content.link-inline` is the link color in light (violet-700) and indigo-300 in dark. Only `TextLink` with `inline` reads it (D-164). Hover is `link-inline-hover` (indigo-200 in dark) and pressed is `link-inline-active` (indigo-100). In light they are violet-800 and violet-900, which match the shared hover and pressed colors. Standalone links keep `content.link` (violet-300 in dark).
