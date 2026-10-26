@@ -1,32 +1,30 @@
-/* Resume role (D-124): a card with a colored band on top and a white body. Tokens only. The band colors
-   come from Role.tsx as --role-from, --role-to and --role-fg (a gradient along the palette ramp). */
+/* Resume role (D-124): a split card. Tokens only. The side colors come from Role.tsx as --role-from,
+   --role-to and --role-fg (a gradient along the palette ramp). */
 
 .role {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: 14rem minmax(0, 1fr);
 	overflow: hidden;
 	border: var(--size-border-width-default) solid var(--color-border-decorative);
 	border-radius: var(--size-radius-lg);
 }
 
-/* One line: logo, company, title, dates, place. Items wrap if a place runs long. */
-.head {
+.side {
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: var(--space-xs) var(--space-lg);
-	padding: var(--space-lg) var(--space-2xl);
-	background: linear-gradient(90deg, var(--role-from), var(--role-to));
+	flex-direction: column;
+	gap: var(--space-3xs);
+	padding: var(--space-2xl) var(--space-xl);
+	background: linear-gradient(180deg, var(--role-from), var(--role-to));
 	color: var(--role-fg);
 }
 
 .logo {
 	display: flex;
-	flex: none;
 	align-items: center;
 	justify-content: center;
-	width: var(--space-3xl);
-	height: var(--space-3xl);
+	width: var(--space-4xl);
+	height: var(--space-4xl);
+	margin-bottom: var(--space-sm);
 	border-radius: 50%;
 	background: color-mix(in oklab, var(--role-fg) 14%, transparent);
 }
@@ -34,18 +32,13 @@
 .logo svg {
 	width: 100%;
 	height: 100%;
-	padding: var(--space-2xs);
+	padding: var(--space-xs);
 	fill: currentcolor;
 }
 
-.company,
-.title {
+.company {
 	margin: 0;
 	color: var(--role-fg);
-}
-
-.title {
-	font-weight: var(--font-weight-medium);
 }
 
 .meta {
@@ -67,7 +60,18 @@
 	padding: var(--space-2xl);
 }
 
-/* The promotion belongs to the title, so it leads the body. */
+.title {
+	margin: 0;
+	color: var(--role-fg);
+}
+
+.heading {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+}
+
+/* The promotion belongs to the title, so it sits under it and not in the dates column. */
 .promotion {
 	margin: 0;
 	color: var(--color-content-soft);
@@ -87,22 +91,26 @@
 	margin-top: var(--space-md);
 }
 
-/* Below the 900px desktop width the band stacks: logo on the left, then company, title, dates and place
-   in a column beside it. */
-@media (max-width: 900px) {
-	.head {
+/* Phones: the colored side sits on top, as a row of logo and company with the details under it. */
+@media (max-width: 700px) {
+	.role {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	/* Logo on the left, then company, date and location in a column beside it. */
+	.side {
 		display: grid;
 		grid-template-columns: auto minmax(0, 1fr);
 		column-gap: var(--space-md);
-		row-gap: var(--space-3xs);
-		padding: var(--space-lg) var(--space-xl);
+		align-items: center;
 	}
 
 	.logo {
 		grid-row: 1 / span 4;
+		margin-bottom: 0;
 	}
 
-	.head > :not(.logo) {
+	.side > :not(.logo) {
 		grid-column: 2;
 	}
 
