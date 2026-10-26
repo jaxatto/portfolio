@@ -1,20 +1,20 @@
 /* Header: nav row on every page, plus the intro on Home (D-016, D-017). */
 
 .header {
-  padding-block: var(--size-space-section-md) var(--size-space-section-sm);
+  padding-block: var(--space-section-md) var(--space-section-sm);
 }
 
 .bar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--size-space-2xl);
+  gap: var(--space-2xl);
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-2xl));
   min-height: var(--size-target-lg);
   margin-inline: auto;
-  padding-inline: var(--size-space-2xl);
+  padding-inline: var(--space-2xl);
 }
 
 /* Brand (inner pages) or role line (Home) on the left, nav and toggle on the right. */
@@ -33,7 +33,7 @@
 .identity {
   display: flex;
   align-items: center;
-  gap: var(--size-space-sm);
+  gap: var(--space-sm);
   height: var(--size-target-lg);
   /* Same face and size as the brand, so the two read as one line. */
   font-family: var(--font-family-heading);
@@ -48,7 +48,7 @@
 
 .brandRole::before {
   content: '\00b7';
-  margin-right: var(--size-space-sm);
+  margin-right: var(--space-sm);
 }
 
 /* Tablet widths (641px to 760px): the name and tagline no longer fit beside the nav, so the tagline drops
@@ -68,7 +68,7 @@
 
   .brandRole {
     /* Tucks the tagline up under the 44px name row. */
-    margin-top: calc(-1 * var(--size-space-sm));
+    margin-top: calc(-1 * var(--space-sm));
   }
 
   .brandRole::before {
@@ -108,7 +108,7 @@
   display: flex;
   align-items: center;
   /* Tight to the nav labels: the icon button already has its own internal padding. */
-  gap: var(--size-space-sm);
+  gap: var(--space-sm);
   height: var(--size-target-lg);
 }
 
@@ -121,7 +121,7 @@
 
 .list {
   align-items: stretch;
-  gap: var(--size-space-2xl);
+  gap: var(--space-2xl);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -228,8 +228,8 @@
   left: 0;
   width: auto;
   height: auto;
-  margin: var(--size-space-md);
-  padding: var(--size-space-md) var(--size-space-lg);
+  margin: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
   overflow: visible;
   clip-path: none;
   white-space: normal;
@@ -248,14 +248,14 @@
 .intro {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(var(--size-layout-popout-max) + 2 * var(--size-space-2xl));
+  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-2xl));
   margin-inline: auto;
-  padding-inline: var(--size-space-2xl);
+  padding-inline: var(--space-2xl);
   /* 176px under the nav row (two section-xl steps plus lg; 120px originally, D-029). 40px of its own
 	   below the sentence, and the header's own bottom padding adds 48px before the first card (88px
 	   in all, D-098). */
-  padding-top: calc(var(--size-space-section-xl) * 2 + var(--size-space-lg));
-  padding-bottom: var(--size-space-4xl);
+  padding-top: calc(var(--space-section-xl) * 2 + var(--space-lg));
+  padding-bottom: var(--space-4xl);
 }
 
 /* Role label: plain text in the body color. Lives in the nav row's left slot on Home (D-017). Tried
@@ -319,7 +319,7 @@
 @media (max-width: 640px) {
   .bar {
     flex-wrap: wrap;
-    row-gap: var(--size-space-sm);
+    row-gap: var(--space-sm);
   }
 
   .controls {
@@ -346,7 +346,7 @@
   }
 
   .intro {
-    padding-top: var(--size-space-section-lg); /* 64px (D-029) */
+    padding-top: var(--space-section-lg); /* 64px (D-029) */
   }
 
   .heading {
@@ -361,7 +361,7 @@
     display: flex;
     flex-wrap: wrap;
     column-gap: 0.3em;
-    margin-bottom: var(--size-space-2xl);
+    margin-bottom: var(--space-2xl);
     color: var(--color-content-secondary);
     font-size: var(--font-style-body-md-size);
     font-weight: var(--font-weight-default);

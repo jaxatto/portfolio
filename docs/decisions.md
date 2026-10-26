@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-143.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-144.
 
 ## Workflow
 
@@ -87,4 +87,8 @@ The icon control line inset is now derived from `--size-target-md` and the glyph
 
 ## D-142: A 2px space token — decided, 2026-10-26
 
-`--size-space-2xs` (2px, primitive `space-2`) sits below `xs`. The Resume role card side gap and the NameTag padding (`xs` plus 2xs, `sm` plus 2xs) read it. Border widths keep their own `--size-border-width-*` tokens, so a 2px gap does not borrow the border token.
+`--space-2xs` (2px, primitive `space-2`) sits below `xs`. The Resume role card side gap and the NameTag padding (`xs` plus 2xs, `sm` plus 2xs) read it. Border widths keep their own `--size-border-width-*` tokens, so a 2px gap does not borrow the border token.
+
+## D-143: Space tokens drop the `size` prefix — decided, 2026-10-26
+
+Space tokens are `--space-xs`, `--space-lg`, `--space-section-xl` and so on (were `--size-space-*`). Other size tokens keep `--size-*` (`--size-radius-*`, `--size-border-width-*`, `--size-icon-*`, `--size-target-*`). The generator special-cases the `space` category, and the primitives keep their `--primitive-size-space-*` names. The archive still uses the old name in its older entries.

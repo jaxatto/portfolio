@@ -3,7 +3,7 @@
 .figure {
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-md);
+  gap: var(--space-md);
   margin: 0;
 }
 

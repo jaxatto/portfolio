@@ -1,11 +1,11 @@
 /* "More of my work" row (D-046): a hairline, an h2, then two cards (h3s) from StudyCardGrid. */
 
 .wrapper {
-  margin-top: var(--size-space-section-lg);
+  margin-top: var(--space-section-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-xl); /* 20px under the h2, 8px more than other h2s (D-064) */
-  padding-top: var(--size-space-section-md); /* 56px, 8px more (D-065) */
+  gap: var(--space-xl); /* 20px under the h2, 8px more than other h2s (D-064) */
+  padding-top: var(--space-section-md); /* 56px, 8px more (D-065) */
   border-top: var(--size-border-width-default) solid var(--color-border-decorative);
 }
 
@@ -22,6 +22,6 @@
 
 @media (max-width: 640px) {
   .wrapper:not(.afterMedia) {
-    margin-top: var(--size-space-section-sm);
+    margin-top: var(--space-section-sm);
   }
 }

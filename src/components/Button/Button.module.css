@@ -3,12 +3,12 @@
 
 .button {
   --outline-width: 0px;
-  --pad-y: var(--size-space-lg);
-  --pad-x: var(--size-space-3xl);
+  --pad-y: var(--space-lg);
+  --pad-x: var(--space-3xl);
 
   display: inline-flex;
   align-items: center;
-  gap: var(--size-space-sm);
+  gap: var(--space-sm);
   /* The outline look gives its border width back from the padding, so every look is the same size. */
   padding: calc(var(--pad-y) - var(--outline-width)) calc(var(--pad-x) - var(--outline-width));
   border: var(--outline-width) solid transparent;
@@ -40,8 +40,8 @@
 /* Very small phones: the padding tightens so a label never wraps. */
 @media (max-width: 340px) {
   .button {
-    --pad-y: var(--size-space-md);
-    --pad-x: var(--size-space-xl);
+    --pad-y: var(--space-md);
+    --pad-x: var(--space-xl);
   }
 }
 

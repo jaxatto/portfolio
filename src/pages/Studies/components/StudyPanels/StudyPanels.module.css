@@ -4,7 +4,7 @@
 .figure {
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-md);
+  gap: var(--space-md);
   width: 100%;
   max-width: var(--size-layout-content-max);
   margin: 0;
@@ -14,9 +14,9 @@
 .box {
   display: flex;
   align-items: flex-start;
-  gap: var(--size-space-lg);
+  gap: var(--space-lg);
   height: 18.75rem; /* 300px */
-  padding: var(--size-space-3xl) var(--size-space-3xl) 0;
+  padding: var(--space-3xl) var(--space-3xl) 0;
   overflow: hidden;
   border-radius: var(--size-radius-lg);
   background: var(--color-surface-sunken);
@@ -49,8 +49,8 @@
 
 .framed .box {
   height: auto;
-  padding: var(--size-space-3xl);
-  gap: var(--size-space-2xl);
+  padding: var(--space-3xl);
+  gap: var(--space-2xl);
   background: var(--palette-container, var(--color-surface-sunken));
 }
 
@@ -61,12 +61,12 @@
 @media (max-width: 640px) {
   .box {
     height: 13.75rem; /* 220px */
-    padding: var(--size-space-lg) var(--size-space-lg) 0;
-    gap: var(--size-space-md);
+    padding: var(--space-lg) var(--space-lg) 0;
+    gap: var(--space-md);
   }
 
   .framed .box {
-    padding: var(--size-space-lg);
-    gap: var(--size-space-md);
+    padding: var(--space-lg);
+    gap: var(--space-md);
   }
 }

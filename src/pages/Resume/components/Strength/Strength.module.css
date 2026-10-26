@@ -9,8 +9,8 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-space-md);
-	padding: var(--size-space-2xl);
+	gap: var(--space-md);
+	padding: var(--space-2xl);
 	border-radius: var(--size-radius-lg);
 	background: color-mix(
 		in oklch,
@@ -47,9 +47,9 @@
 .link {
 	display: inline-flex;
 	align-items: center;
-	gap: var(--size-space-xs);
+	gap: var(--space-xs);
 	margin-top: auto;
-	padding-top: var(--size-space-md);
+	padding-top: var(--space-md);
 	color: var(--card-fg);
 	font-weight: var(--font-weight-extra-strong);
 	text-decoration: none;
@@ -100,7 +100,7 @@
 	}
 
 	.card:hover {
-		transform: translateY(calc(-1 * var(--size-space-sm)));
+		transform: translateY(calc(-1 * var(--space-sm)));
 		box-shadow: var(--shadow-lift) var(--shadow-lift-color);
 	}
 }

@@ -5,13 +5,13 @@
 
 .button {
   position: fixed;
-  top: var(--size-space-lg);
+  top: var(--space-lg);
   left: 50%;
   z-index: var(--layer-raised);
   display: inline-flex;
   align-items: center;
-  gap: var(--size-space-sm);
-  padding: var(--size-space-md) var(--size-space-2xl);
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-2xl);
   border: 0;
   border-radius: var(--size-radius-full);
   background: var(--color-surface-default);
@@ -25,7 +25,7 @@
   text-decoration: none;
   opacity: 0;
   visibility: hidden;
-  transform: translate(-50%, calc(-1 * var(--size-space-md)));
+  transform: translate(-50%, calc(-1 * var(--space-md)));
   transition:
     opacity var(--motion-duration-base) var(--motion-ease-standard),
     transform var(--motion-duration-base) var(--motion-ease-standard),

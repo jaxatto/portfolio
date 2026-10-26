@@ -26,7 +26,7 @@ export function buildStaticSemanticVars(
     for (const [key, val] of Object.entries(values)) {
       if (category === 'layout' && key === 'gutter' && typeof val === 'string') {
         staticSemanticVars.push(
-          `  ${cssVarName('size', 'layout', 'gutter')}: var(${cssVarName('size', 'space', val)});`,
+          `  ${cssVarName('size', 'layout', 'gutter')}: var(${cssVarName('space', val)});`,
         );
         continue;
       }
@@ -39,7 +39,7 @@ export function buildStaticSemanticVars(
           : null;
 
       staticSemanticVars.push(
-        `  ${cssVarName('size', category, key)}: ${categoryResolved ?? resolveValue(val, 'size')};`,
+        `  ${category === 'space' ? cssVarName('space', key) : cssVarName('size', category, key)}: ${categoryResolved ?? resolveValue(val, 'size')};`,
       );
     }
   }
