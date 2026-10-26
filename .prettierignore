@@ -8,3 +8,4 @@ src/styles/theme.css
 package-lock.json
 *.md
 *.svg
+.ssr

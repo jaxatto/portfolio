@@ -18,10 +18,11 @@ const navLinks = [
 ];
 
 // Work stays active on case study pages, which live under /case-studies.
-const isActive = (pathname: string, url: string) =>
-  url === mainLinks.work
-    ? pathname === url || pathname.startsWith('/case-studies')
-    : pathname === url;
+// GitHub Pages serves a route at /about/, so the trailing slash is ignored.
+const isActive = (pathname: string, url: string) => {
+  const path = pathname.replace(/(.)\/$/, '$1');
+  return url === mainLinks.work ? path === url || path.startsWith('/case-studies') : path === url;
+};
 
 type HeaderProps = {
   label?: string[]; // Lines for the left slot instead of the brand link (Home always shows the role)

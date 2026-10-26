@@ -29,7 +29,7 @@ The rules that are in force today, grouped by area, with the IDs that hold the r
 
 - Page folders are `Page.tsx`, `Page.module.css`, `index.ts` plus optional `components/` and `resources/`. SEO text is in `resources/meta.ts`. Short page copy is inline in the page file at any length (D-003, D-140). Studies keep `pages/<Study>/{content.ts, meta.ts, images/}`.
 - Images import with `?size` and carry width and height. Below the fold they lazy-load, above it they set `priority` (D-122, D-125). Fonts are self-hosted latin variable files with Inter and Manrope preloaded (D-127).
-- `scripts/prerender-meta.ts` writes each route's title, description, canonical and og tags at build time. A new route needs an entry (D-122). Titles read "topic | Jax Engel" (D-045).
+- `scripts/prerender.ts` renders each route to HTML and writes its title, description, canonical and og tags at build time. A new route needs an entry (D-122, D-154). Titles read "topic | Jax Engel" (D-045).
 - Routes scroll to the top, and focus moves to the page's `h1` after a client navigation (D-115, D-126). `<main>` draws no focus ring (D-082).
 - Lint (ESLint with `jsx-a11y`), typecheck and build run in CI on pull requests (D-139). Floating UI stays (D-103).
 
@@ -134,9 +134,9 @@ The study card fallback is a tint of the card's own palette (14% of the text col
 
 `StudyImage`, `StudyCompare` and `StudyPanels` render through `Image`. A failed picture leaves its frame (banner, column, before or after shot, panel) as a 12% tint of the muted text color with the image icon, at the size the picture would have had. `StudySection` now passes each image's width and height so the plain figure keeps its aspect ratio (checked: loaded image sizes are unchanged at 1280 on all four studies).
 
-## D-151: Route chunks and a static first-paint shell — decided, 2026-10-25
+## D-151: Route chunks — decided, 2026-10-25
 
-Home stays in the entry bundle. About, Resume, the case studies and NotFound are `React.lazy` chunks behind one `Suspense` in `App.tsx`, whose fallback is the real `Header`. `index.html` ships a plain header (brand and nav, styled by `src/styles/shell.css` from the same tokens as the inner-page Header bar) inside `#root`, so the page is not blank while the JavaScript downloads. React replaces it on mount. Keep `shell.css` in step with `Header.module.css`. On a throttled connection (1.6 Mbps, 150 ms, no compression) first contentful paint went from 3.2 s to 1.3 s and the home content from 3.0 s to 2.4 s.
+Home stays in the entry bundle. About, Resume, the case studies and NotFound are `React.lazy` chunks behind one `Suspense` in `App.tsx`, whose fallback is the real `Header`. The static first-paint shell tried the same day moved when React mounted, so D-152 replaced it.
 
 ## D-152: Dead tokens removed, only read states derived, a guard for undefined tokens — decided, 2026-10-26
 
@@ -146,3 +146,10 @@ Removed because nothing read them: `surface.accent`, `state.overlay-tint` and it
 
 Space steps are `none` (0), `3xs` (2px), `2xs` (4), `xs` (8), `sm` (12), `md` (16), `lg` (20), `xl` (24), `2xl` (32), `3xl` (40), `4xl` (48), `5xl` (56), `6xl` (64) and `7xl` (80). The `section-*` names are gone, so one scale runs without a break. Every old name moved one step down, so `--space-lg` is now `--space-md`. Each use kept its pixel value, which I checked against the old and new `theme.css`. Space primitives are `--primitive-space-8`, without `size`. The other size scales keep `--primitive-size-*`.
 
+## D-154: Pre-render every route and hydrate — decided, 2026-10-25
+
+`npm run build` makes the client build, then a server build (`src/entry-server.tsx`, into `.ssr`), then `scripts/prerender.ts` renders each route to HTML with `StaticRouter` and writes it into `#root` of `dist/<route>/index.html` and `dist/404.html`. The script also writes each route's title, description, canonical and og tags (it replaces `prerender-meta.ts`, D-122) and adds the lazy page's CSS and `modulepreload` links from the client manifest. `src/index.tsx` calls `hydrateRoot` when `#root` has markup and `createRoot` on the dev server. The router moved out of `App` into the two entries. `vite-react-ssg` was not used because it supports react-router-dom 6 and the site is on 7.
+
+Rules that keep hydration clean: render nothing from `window`, `localStorage`, the clock or `Math.random` during the first render. `ThemeProvider` starts from light and a layout effect reads the stored choice and the OS setting before paint (until then `index.html`'s pre-paint script owns `data-theme`). `NotFound` shows its first line in the HTML and picks a random one after mount. The header's active link ignores a trailing slash, which GitHub Pages adds. A new route needs an entry in `scripts/prerender.ts`.
+
+Checked on a development-mode build (readable React warnings), 8 routes in light and dark at 1280 and 375: no hydration warnings or console errors. On a throttled connection (1.6 Mbps, 150 ms), Home paints at 0.7 s and About at 0.7 s, with a layout shift under 0.002.

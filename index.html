@@ -24,13 +24,6 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href="https://jaxengeldesign.com/" />
-    <!-- The shell stays hidden until shell.css loads. Without this, a half-loaded stylesheet (dev, or a
-         slow connection) shows the shell as unstyled links. shell.css sets visibility back. -->
-    <style>
-      .shell-header {
-        visibility: hidden;
-      }
-    </style>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="b2deb163-967d-4d93-8159-1cadd6efc9cf"></script>
     <script>
       // Apply the theme before first paint to avoid a flash. Mirrors ThemeProvider: data-theme always
@@ -52,21 +45,7 @@
     </script>
   </head>
   <body>
-    <div id="root">
-      <!-- First-paint shell (D-151, src/styles/shell.css). React replaces it on mount. -->
-      <header class="shell-header">
-        <div class="shell-bar">
-          <a class="shell-brand" href="/">Jax Engel</a>
-          <nav aria-label="Main">
-            <ul class="shell-nav">
-              <li><a href="/">Work</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/resume">Resume</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-    </div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

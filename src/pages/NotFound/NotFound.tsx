@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '#components/Button';
 import Header from '#components/Header';
 import Meta from '#components/Meta';
 import { mainLinks } from '#constants/mainLinks';
 import styles from './NotFound.module.css';
 
-// One is picked at random each time the page shows.
+// One is picked at random each time the page shows, after the first render (D-154).
 const descriptions = [
   'Well, this wasn’t in the flowchart.',
   'This one didn’t make it past design review.',
@@ -17,10 +17,12 @@ const descriptions = [
 ];
 
 const NotFound: React.FC = () => {
-  // Picked once per visit (state initializer), so it doesn't change on re-render.
-  const [description] = useState(
-    () => descriptions[Math.floor(Math.random() * descriptions.length)],
-  );
+  // 404.html is pre-rendered once for every missing path, so the first render always shows the first line.
+  // The random pick follows on mount, so the HTML React attaches to matches what it renders.
+  const [description, setDescription] = useState(descriptions[0]);
+  useEffect(() => {
+    setDescription(descriptions[Math.floor(Math.random() * descriptions.length)]);
+  }, []);
 
   return (
     // The page keeps its own dark ground; the shared nav header sits on it, recolored via tokens.

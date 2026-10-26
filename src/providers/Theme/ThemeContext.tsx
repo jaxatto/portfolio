@@ -3,6 +3,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -32,6 +33,7 @@ const readStoredPreference = (): ThemePreference => {
 };
 
 const prefersDark = () =>
+  typeof window !== 'undefined' &&
   typeof window.matchMedia === 'function' &&
   window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -47,8 +49,17 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [preference, setPreferenceState] = useState<ThemePreference>(readStoredPreference);
-  const [systemDark, setSystemDark] = useState(prefersDark);
+  // NOTE: The server and the first client render both start from light, the HTML that was pre-rendered.
+  // A layout effect then reads the stored choice and the OS setting before the first paint (D-154).
+  const [preference, setPreferenceState] = useState<ThemePreference>('system');
+  const [systemDark, setSystemDark] = useState(false);
+  const [synced, setSynced] = useState(false);
+
+  useLayoutEffect(() => {
+    setPreferenceState(readStoredPreference());
+    setSystemDark(prefersDark());
+    setSynced(true);
+  }, []);
 
   useEffect(() => {
     if (typeof window.matchMedia !== 'function') return;
@@ -63,6 +74,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const hasAppliedTheme = useRef(false);
 
   useEffect(() => {
+    // Until the stored choice is read, index.html's pre-paint script owns data-theme.
+    if (!synced) return;
     const root = document.documentElement;
     // Fade colors on later switches only (not first paint). The `theme-fading` rule lives in
     // styles/main.css and is skipped for prefers-reduced-motion.
@@ -78,7 +91,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       .querySelector('meta[name="theme-color"]')
       ?.setAttribute('content', THEME_COLORS[theme]);
     return () => window.clearTimeout(timer);
-  }, [preference, theme]);
+  }, [preference, theme, synced]);
 
   const setPreference = useCallback((next: ThemePreference) => {
     setPreferenceState(next);

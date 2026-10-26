@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Work from '#pages/Work';
 import ScrollToTop from '#components/ScrollToTop';
 import FocusOnRouteChange from '#components/FocusOnRouteChange';
@@ -12,8 +12,7 @@ const Resume = React.lazy(() => import('#pages/Resume'));
 const StudyPage = React.lazy(() => import('#pages/Studies'));
 const NotFound = React.lazy(() => import('#pages/NotFound'));
 
-// Shown while a route chunk loads. The real Header keeps the page from going blank between the
-// static shell in index.html and the page.
+// Shown while a route chunk loads on a client-side navigation.
 const RouteFallback: React.FC = () => (
   <>
     <Header />
@@ -21,8 +20,10 @@ const RouteFallback: React.FC = () => (
   </>
 );
 
+// The router comes from the entry: BrowserRouter in the browser (src/index.tsx), StaticRouter when
+// pre-rendering (src/entry-server.tsx).
 const App: React.FC = () => (
-  <Router>
+  <>
     <ScrollToTop />
     <FocusOnRouteChange />
     <Suspense fallback={<RouteFallback />}>
@@ -34,7 +35,7 @@ const App: React.FC = () => (
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
-  </Router>
+  </>
 );
 
 export default App;

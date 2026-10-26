@@ -35,6 +35,8 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    // scripts/prerender.ts reads it to put each route's CSS and chunks into its HTML.
+    manifest: true,
   },
   resolve: {
     alias: {

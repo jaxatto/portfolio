@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 
 // Keeps the title and description current on client-side navigation. Crawlers get each route's own
-// tags from scripts/prerender-meta.ts (D-122).
+// tags from scripts/prerender.ts (D-122).
 
 export type MetaProps = {
   title?: string;

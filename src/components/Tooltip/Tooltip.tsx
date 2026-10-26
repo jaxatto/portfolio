@@ -97,6 +97,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   // Enters and leaves with a short fade and a 4px drift away from the control. The motion sits on an inner
   // element because the outer one is positioned with a transform. Reduced motion keeps the instant swap.
   const reduceMotion =
+    typeof window !== 'undefined' &&
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const { isMounted, styles: motion } = useTransitionStyles(context, {
