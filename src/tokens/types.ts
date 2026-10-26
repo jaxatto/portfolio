@@ -14,8 +14,6 @@ export type ColorMode = Record<(typeof colorModes)[number], string>;
 
 export type ColorGroup = (typeof colorGroups)[number];
 
-// on-container foregrounds get hover/active too (they sit atop the container's states);
-// only 'on-{group}' (the solid-fill foreground) doesn't need them
 type StatefulPairingKey<TGroup extends string> =
   'default' | `${TGroup}-container` | `on-${TGroup}-container`;
 type ForegroundPairingKey<TGroup extends string> = `on-${TGroup}`;
@@ -27,8 +25,12 @@ export type BaseColorPairingGroup<TGroup extends string> = {
   [K in ForegroundPairingKey<TGroup>]: ColorMode;
 };
 
+// Only the states a component reads are derived: the container and its foreground (palette.module.css).
+type DerivedStateKey<TGroup extends string> =
+  `${TGroup}-container-hover` | `on-${TGroup}-container-hover` | `on-${TGroup}-container-active`;
+
 export type ColorPairingGroup<TGroup extends string> = BaseColorPairingGroup<TGroup> & {
-  [K in StatefulPairingKey<TGroup> as `${K}-hover` | `${K}-active`]: ColorMode;
+  [K in DerivedStateKey<TGroup>]: ColorMode;
 };
 
 export type BaseSemanticBrandColors = {
@@ -37,6 +39,9 @@ export type BaseSemanticBrandColors = {
 
 export type SemanticBrandColors = {
   [K in ColorGroup]: ColorPairingGroup<K>;
+} & {
+  // Solid primary controls and links deepen on hover and press (deepen.module.css).
+  primary: { 'default-hover': ColorMode; 'default-active': ColorMode };
 };
 
 export type BaseSemanticGeneralColor = {
@@ -45,7 +50,6 @@ export type BaseSemanticGeneralColor = {
     variant: ColorMode;
     muted: ColorMode;
     link: ColorMode;
-    inverse: ColorMode;
     'on-accent': ColorMode;
     'on-accent-hover': ColorMode;
     'on-accent-active': ColorMode;
@@ -57,7 +61,6 @@ export type BaseSemanticGeneralColor = {
   surface: {
     default: ColorMode;
     sunken: ColorMode;
-    accent: ColorMode;
     error: ColorMode;
   };
   border: {
@@ -65,17 +68,10 @@ export type BaseSemanticGeneralColor = {
   };
   state: {
     'focus-ring': ColorMode;
-    'overlay-tint': ColorMode;
-    'overlay-tint-inverse': ColorMode;
   };
 };
 
-export type SemanticGeneralColor = Omit<BaseSemanticGeneralColor, 'content'> & {
-  content: BaseSemanticGeneralColor['content'] & {
-    'default-hover': ColorMode;
-    'default-active': ColorMode;
-  };
-};
+export type SemanticGeneralColor = BaseSemanticGeneralColor;
 
 export type SemanticThemeColors = SemanticGeneralColor & SemanticBrandColors;
 export type BaseSemanticThemeColors = BaseSemanticGeneralColor & BaseSemanticBrandColors;
@@ -103,10 +99,7 @@ export type TextStyleDefinition = {
 };
 
 export type TextStyleKey =
-  | `${'title'}-${'sm' | 'md'}`
-  | `${'heading' | 'display'}-${'sm' | 'md' | 'lg'}`
-  | `${'body' | 'label'}-${'sm' | 'md' | 'lg'}`
-  | `${'body' | 'label'}-${'sm' | 'md' | 'lg'}-${'bold' | 'link' | 'strike-through'}`;
+  `${'title'}-${'sm' | 'md'}` | `${'heading' | 'body'}-${'sm' | 'md' | 'lg'}`;
 
 export type SemanticThemeTypography = {
   family: Record<string, string>;
@@ -144,7 +137,6 @@ type BaseSemanticThemeSizes = {
 
 export type SemanticThemeSizes = BaseSemanticThemeSizes & {
   layout: {
-    gutter: keyof BaseSemanticThemeSizes['space'];
     'content-max': string;
     'popout-max': string;
   };

@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-150.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-153.
 
 ## Workflow
 
@@ -137,3 +137,8 @@ The study card fallback is a tint of the card's own palette (14% of the text col
 ## D-151: Route chunks and a static first-paint shell — decided, 2026-10-25
 
 Home stays in the entry bundle. About, Resume, the case studies and NotFound are `React.lazy` chunks behind one `Suspense` in `App.tsx`, whose fallback is the real `Header`. `index.html` ships a plain header (brand and nav, styled by `src/styles/shell.css` from the same tokens as the inner-page Header bar) inside `#root`, so the page is not blank while the JavaScript downloads. React replaces it on mount. Keep `shell.css` in step with `Header.module.css`. On a throttled connection (1.6 Mbps, 150 ms, no compression) first contentful paint went from 3.2 s to 1.3 s and the home content from 3.0 s to 2.4 s.
+
+## D-152: Dead tokens removed, only read states derived, a guard for undefined tokens — decided, 2026-10-26
+
+Removed because nothing read them: `surface.accent`, `state.overlay-tint` and its inverse, `content.inverse`, `layout.gutter`, the `decorative` font family (the same as body), the `all-caps` text transform (it pointed at `capitalize`, and `uppercase` exists), `extractInteractStates`, and the hover and pressed colors nobody uses. Hover and pressed states are derived only for what is read: each group's container hover and its foreground's hover and pressed (`palette.module.css`), plus the primary default hover and pressed (`deepen.module.css`). Every palette keeps the same members (`default`, `on-default`, `container`, `on-container`), so `quinary` and `brand` keep a default pair that nothing reads yet. `TextStyleKey` lists the eight styles that exist. `token-layers.test.ts` now also fails when a component reads a token that is not defined, which would have caught `shell.css` still using the old `--size-space-*` names after D-143 (fixed).
+

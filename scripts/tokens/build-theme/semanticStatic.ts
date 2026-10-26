@@ -35,13 +35,6 @@ export function buildStaticSemanticVars(
     }
 
     for (const [key, val] of Object.entries(values)) {
-      if (category === 'layout' && key === 'gutter' && typeof val === 'string') {
-        staticSemanticVars.push(
-          `  ${cssVarName('size', 'layout', 'gutter')}: var(${cssVarName('space', val)});`,
-        );
-        continue;
-      }
-
       // A calc() built from other tokens stays as written. The raw-value check covers its parts.
       if (typeof val === 'string' && val.startsWith('calc(')) {
         staticSemanticVars.push(`  ${cssVarName('size', category, key)}: ${val};`);

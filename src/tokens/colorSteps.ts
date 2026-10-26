@@ -52,44 +52,22 @@ export function deriveState(base: ColorMode, level: number, invert = false): Col
   };
 }
 
-// derives hover/active states for 'default', '{group}-container', and 'on-{group}-container'
+// Hover and pressed states a component reads: the container and its foreground (palette.module.css),
+// plus the primary default (deepen.module.css). Nothing else is derived, so no unused token is emitted.
 export function withInteractionStates(colors: BaseSemanticThemeColors): SemanticThemeColors {
   const themeColors = colors as unknown as SemanticThemeColors;
   for (const group of colorGroups) {
     const pairing = themeColors[group] as Record<string, ColorMode>;
-    const keys = ['default', `${group}-container`, `on-${group}-container`];
-    for (const key of keys) {
-      const base = pairing[key];
-      pairing[`${key}-hover`] = deriveState(base, 1);
-      pairing[`${key}-active`] = deriveState(base, 2);
-    }
+    const container = `${group}-container`;
+    const onContainer = `on-${group}-container`;
+    pairing[`${container}-hover`] = deriveState(pairing[container], 1);
+    pairing[`${onContainer}-hover`] = deriveState(pairing[onContainer], 1);
+    pairing[`${onContainer}-active`] = deriveState(pairing[onContainer], 2);
   }
 
-  const content = themeColors.content as unknown as Record<string, ColorMode>;
-  content['default-hover'] = deriveState(content.default, 1, true);
-  content['default-active'] = deriveState(content.default, 2, true);
+  const primary = themeColors.primary as unknown as Record<string, ColorMode>;
+  primary['default-hover'] = deriveState(primary.default, 1);
+  primary['default-active'] = deriveState(primary.default, 2);
 
   return themeColors;
-}
-
-const interactStateSuffix = /-(?:hover|active)$/;
-
-// pulls '-hover'/'-active' keys out of each group into a sibling 'interact' branch,
-// so Figma folders read as color/interact/{group}/... instead of polluting color/{group}
-export function extractInteractStates(target: Record<string, unknown>) {
-  const interact: Record<string, unknown> = {};
-  for (const group of [...colorGroups, 'content']) {
-    const groupObj = target[group] as Record<string, unknown> | undefined;
-    if (!groupObj) continue;
-
-    const remaining: Record<string, unknown> = {};
-    const extracted: Record<string, unknown> = {};
-    for (const [key, val] of Object.entries(groupObj)) {
-      (interactStateSuffix.test(key) ? extracted : remaining)[key] = val;
-    }
-
-    target[group] = remaining;
-    if (Object.keys(extracted).length > 0) interact[group] = extracted;
-  }
-  if (Object.keys(interact).length > 0) target.interact = interact;
 }

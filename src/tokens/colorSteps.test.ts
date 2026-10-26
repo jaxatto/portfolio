@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { deriveState } from './colorSteps';
 import { primitives } from './primitives';
+import { defaultTheme } from './defaultTheme';
 
 const blue = primitives.colors.blue as Record<number, string>;
 
@@ -25,5 +26,21 @@ describe('deriveState', () => {
 
   it('rejects a value that is not a primitive', () => {
     expect(() => deriveState({ light: '#123456', dark: '#654321' }, 1)).toThrow(/recognized/);
+  });
+});
+
+describe('withInteractionStates', () => {
+  it('derives only the states a component reads', () => {
+    const keys = (group: string) =>
+      Object.keys(defaultTheme.colors[group as 'primary']).filter((k) =>
+        /-(hover|active)$/.test(k),
+      );
+    expect(keys('secondary').sort()).toEqual([
+      'on-secondary-container-active',
+      'on-secondary-container-hover',
+      'secondary-container-hover',
+    ]);
+    expect(keys('primary')).toContain('default-hover');
+    expect(keys('primary')).toContain('default-active');
   });
 });

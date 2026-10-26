@@ -50,6 +50,26 @@ describe('primitive and semantic tokens stay in their own layers', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('every token a component reads is defined', () => {
+    const files = walk(resolve(root, 'src')).filter(
+      (file) => /\.(css|tsx)$/.test(file) && file !== resolve(root, 'src/styles/theme.css'),
+    );
+    const sources = files.map((file) => readFileSync(file, 'utf8'));
+    const defined = new Set(lines.map(name));
+    // Custom properties a component or its inline style sets for itself.
+    for (const source of sources) {
+      for (const m of source.matchAll(/(--[\w-]+)\s*:/g)) defined.add(m[1]);
+      for (const m of source.matchAll(/['"`](--[\w-]+)['"`]/g)) defined.add(m[1]);
+    }
+    const missing = sources.flatMap((source, i) =>
+      [...source.matchAll(/var\((--[\w-]+)/g)]
+        .map((m) => m[1])
+        .filter((ref) => !ref.endsWith('-') && !defined.has(ref))
+        .map((ref) => `${relative(root, files[i])}: ${ref}`),
+    );
+    expect(missing).toEqual([]);
+  });
+
   it('recognises a raw value', () => {
     expect(holdsRawValue('16px')).toBe(true);
     expect(holdsRawValue('clamp(var(--a), 1rem + 2vw, var(--b))')).toBe(true);

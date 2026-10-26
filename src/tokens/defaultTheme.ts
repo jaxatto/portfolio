@@ -48,10 +48,6 @@ const theme: Omit<SemanticTheme, 'colors'> & {
         light: primitives.colors.violet[700],
         dark: primitives.colors.violet[300],
       },
-      inverse: {
-        light: primitives.colors.white,
-        dark: primitives.colors.black,
-      },
       'on-accent': {
         light: primitives.colors.white,
         dark: primitives.colors['white-alpha-98'],
@@ -74,11 +70,6 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       sunken: {
         light: primitives.colors.slate[200],
         dark: primitives.colors.night[800],
-      },
-      // Feature ground for full-bleed moments (the 404, the footer); content on it is content.on-accent. Same in both themes: indigo-950 vanished against the dark ground. D-022, D-024.
-      accent: {
-        light: primitives.colors.indigo[900],
-        dark: primitives.colors.indigo[900],
       },
       // The 404's own ground: distinct from the page surface in both themes and a theme pair of its
       // own (indigo-900 light, one step lighter in dark so it separates from the night ground). D-038.
@@ -206,14 +197,6 @@ const theme: Omit<SemanticTheme, 'colors'> & {
         light: primitives.colors.purple[950],
         dark: primitives.colors['white-alpha-98'],
       },
-      'overlay-tint': {
-        light: primitives.colors.indigo[900],
-        dark: primitives.colors.indigo[100],
-      },
-      'overlay-tint-inverse': {
-        light: primitives.colors.indigo[100],
-        dark: primitives.colors.indigo[900],
-      },
     },
   },
   sizes: {
@@ -243,7 +226,6 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'section-xl': primitives.sizes.space[80],
     },
     layout: {
-      gutter: 'lg',
       'content-max': primitives.sizes.dimension[640],
       // Site content column: 960px (D-029).
       'popout-max': primitives.sizes.dimension[960],
@@ -286,7 +268,6 @@ const theme: Omit<SemanticTheme, 'colors'> & {
     family: {
       heading: primitives.font.family.inter,
       body: primitives.font.family.manrope,
-      decorative: primitives.font.family.manrope,
       mono: primitives.font.family['roboto-mono'],
     },
     // Named by role, never by value. Fluid body and heading sizes are the type styles below.
@@ -324,7 +305,6 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       none: primitives.font['text-transform']['none'],
       uppercase: primitives.font['text-transform']['uppercase'],
       lowercase: primitives.font['text-transform']['lowercase'],
-      'all-caps': primitives.font['text-transform']['capitalize'],
     },
     'text-decoration': {
       none: primitives.font['text-decoration']['none'],
