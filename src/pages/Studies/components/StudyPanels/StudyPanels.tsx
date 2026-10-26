@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import Image from '#components/Image';
 import type { StudyPanelsData } from '#pages/Studies/types/studySection';
 import styles from './StudyPanels.module.css';
 
@@ -26,13 +27,14 @@ const StudyPanels: React.FC<StudyPanelsProps> = ({
           className={styles.panel}
           style={{ aspectRatio: `${slice.width} / ${slice.height}`, flexGrow: slice.weight }}
         >
-          <img
+          <Image
             src={src}
             alt={slice.alt}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
-            className={styles.image}
-            style={{
+            priority={priority}
+            className={styles.imageBox}
+            imgClassName={styles.image}
+            fallbackClassName={styles.fallback}
+            imgStyle={{
               width: `${(sourceWidth / slice.width) * 100}%`,
               left: `${(-slice.x / slice.width) * 100}%`,
               top: `${(-slice.y / slice.height) * 100}%`,

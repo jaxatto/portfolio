@@ -57,6 +57,8 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
           key={image.src}
           src={image.src}
           alt={image.alt || ''}
+          width={image.width}
+          height={image.height}
           caption={image.caption}
           variant={image.variant}
           className={styles.media}

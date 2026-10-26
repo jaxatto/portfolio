@@ -36,6 +36,19 @@
   max-width: none;
 }
 
+/* Image wraps the picture in a div. It takes no box, so the crop positions against the panel as before. */
+.imageBox {
+  display: contents;
+}
+
+/* Shown when the picture fails to load: the panel, a faint tint of the text color, with the image icon. */
+.fallback {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  background: color-mix(in oklch, var(--color-content-muted) 12%, transparent);
+}
+
 .caption {
   composes: caption from '#styles/type.module.css';
   color: var(--color-content-muted);

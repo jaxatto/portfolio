@@ -14,6 +14,18 @@
   border-radius: var(--size-radius-lg);
 }
 
+/* Image wraps the picture in a div. It takes no box, so the picture lays out as before. */
+.imageBox {
+  display: contents;
+}
+
+/* Shown when the picture fails to load: its frame, a faint tint of the text color, with the image icon. */
+.fallback {
+  aspect-ratio: var(--shot-ratio, 2 / 1);
+  border-radius: var(--size-radius-lg);
+  background: color-mix(in oklch, var(--color-content-muted) 12%, var(--color-surface-default));
+}
+
 .caption {
   composes: caption from '#styles/type.module.css';
   color: var(--color-content-muted);

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '#components/Image';
 import type { StudyCompareData } from '#pages/Studies/types/studySection';
 import styles from './StudyCompare.module.css';
 
@@ -19,24 +20,26 @@ const StudyCompare: React.FC<StudyCompareProps> = ({
     <div className={styles.pair}>
       <div className={`${styles.col} ${styles.before}`}>
         <div className={styles.shot} style={aspectRatio ? { aspectRatio } : undefined}>
-          <img
+          <Image
             src={before.src}
             alt={before.alt}
-            className={styles.image}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
+            priority={priority}
+            className={styles.imageBox}
+            imgClassName={styles.image}
+            fallbackClassName={styles.fallback}
           />
           <span className={styles.chip}>Before</span>
         </div>
       </div>
       <div className={`${styles.col} ${styles.after}`}>
         <div className={styles.shot} style={aspectRatio ? { aspectRatio } : undefined}>
-          <img
+          <Image
             src={after.src}
             alt={after.alt}
-            className={styles.image}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
+            priority={priority}
+            className={styles.imageBox}
+            imgClassName={styles.image}
+            fallbackClassName={styles.fallback}
           />
           <span className={styles.chip}>After</span>
         </div>
