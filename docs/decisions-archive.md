@@ -792,3 +792,7 @@ Jax wants one case across the site. Headings, labels and chips use sentence case
 ## D-168: Four approach cards and contract labels — decided, 2026-10-26
 
 The five approach cards became four, rephrased from Jax's description and not quoted: curiosity and documentation, focus and trade-offs, accessibility and teaching, and prototyping with AI. Share and teach folded into accessibility. The place line on Resume roles shows "(contract)" again for Spectrum, Toyota, ServiceNow and Albertsons, as the PDF does. It supports the tenure story in the "What I'm looking for" section. D-164 and D-167 are superseded for the card list.
+
+## D-169: Resume role band on one line — decided, 2026-10-26
+
+Jax asked for the role header as image, company, title, time frame and place, all on one line. The split card (colored side column, white main) became a colored band across the top with the same five items in a row, and a white body below with the promotion note, summary and case study link. The band keeps the ramp colors, now as a left to right gradient. Below 900px it stacks as a grid with the logo on the left and the four text items in a column. D-124 is superseded for the card layout.
