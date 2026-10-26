@@ -34,20 +34,6 @@ const toneFor = (index: number, total: number): CSSProperties => {
   } as CSSProperties;
 };
 
-// "Remote · Contract" and "Plano, TX · Hybrid · Contract". The dot trails its item and is followed by a
-// break point, so a wrapped line never starts with one.
-const Dot: React.FC<{ className?: string }> = ({ className }) => (
-  <>
-    <span className={clsx(styles.dot, className)} aria-hidden="true">
-      ·
-    </span>
-    <wbr />
-  </>
-);
-
-const placeParts = (role: ResumeRole): string[] =>
-  [role.location, role.workMode, role.type].filter((part): part is string => Boolean(part));
-
 const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ role, index, total }) => {
   const Logo = logos[role.logo];
   return (
@@ -57,19 +43,17 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
           {Logo && <Logo />}
         </div>
         <p className={clsx(typography.headingSm, styles.company)}>{role.company}</p>
-        {/* Two lines on desktop. On phones one flowing line under the company, dates first. */}
+        {/* Items flow on one wrapping line, and a dot leads every item but is clipped when the item starts
+            a line (see the CSS). Desktop puts the dates on their own line, then the place. Phones put
+            the dates and contract first and the place last. */}
         <div className={styles.details}>
           <p className={clsx(typography.bodySm, styles.meta)}>
-            <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
-            <Dot className={styles.dateDot} />
-          </p>
-          <p className={clsx(typography.bodySm, styles.meta)}>
-            {placeParts(role).map((part, i, parts) => (
-              <React.Fragment key={part}>
-                <span className={styles.part}>{part}</span>
-                {i < parts.length - 1 && <Dot />}
-              </React.Fragment>
-            ))}
+            <span className={clsx(styles.item, styles.when)}>
+              <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
+            </span>
+            {role.type && <span className={clsx(styles.item, styles.type)}>{role.type}</span>}
+            <span className={clsx(styles.item, styles.where)}>{role.location}</span>
+            {role.workMode && <span className={clsx(styles.item, styles.mode)}>{role.workMode}</span>}
           </p>
         </div>
       </div>
@@ -81,7 +65,7 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
         <p className={clsx(typography.bodyMd, styles.summary)}>{role.summary}</p>
         {role.studyHref && (
           <TextLink to={role.studyHref} icon="arrow-right" className={styles.study}>
-            Read the {role.studyName} case study
+            {`Read the ${role.studyName} case study`}
           </TextLink>
         )}
       </div>

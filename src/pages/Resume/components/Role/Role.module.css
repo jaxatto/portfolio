@@ -41,29 +41,56 @@
 	color: var(--role-fg);
 }
 
+/* The wrapper clips the leading dot of an item that starts a line: the list sits one dot-width to the left
+   and the wrapper hides what spills out. The dot is a 4px circle with 4px on each side (D-171). */
+.details {
+	--dot-size: var(--space-2xs);
+	--dot-gap: var(--space-2xs);
+	overflow: hidden;
+}
+
 .meta {
+	display: flex;
+	flex-wrap: wrap;
 	margin: 0;
 	color: color-mix(in oklab, var(--role-fg) 80%, transparent);
 	font-weight: var(--font-weight-medium);
+	margin-inline-start: calc(-1 * (var(--dot-size) + 2 * var(--dot-gap)));
+	row-gap: var(--space-3xs);
 }
 
-.details {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-3xs);
-}
-
-/* 4px of air on each side of the dot (D-171). */
-.dot {
-	margin-inline: var(--space-2xs);
-}
-
-.date-dot {
-	display: none;
-}
-
-.part {
+.item {
+	display: inline-flex;
+	align-items: center;
 	white-space: nowrap;
+}
+
+.item::before {
+	content: '';
+	flex: none;
+	width: var(--dot-size);
+	height: var(--dot-size);
+	margin-inline: var(--dot-gap);
+	border-radius: 50%;
+	background: currentcolor;
+}
+
+/* Desktop: dates on their own line, then the place with the contract last. */
+.when {
+	flex-basis: 100%;
+	order: 0;
+}
+
+.where {
+	order: 1;
+}
+
+.mode {
+	order: 2;
+}
+
+.type {
+	order: 3;
 }
 
 /* The date never splits across lines. */
@@ -135,21 +162,21 @@
 		margin-bottom: 0;
 	}
 
-	.details {
-		display: block;
+	/* Phones: dates, then the contract beside them, then the place, wrapping as whole items. */
+	.when {
+		flex-basis: auto;
 	}
 
-	.details .meta {
-		display: inline;
+	.type {
+		order: 1;
 	}
 
-	/* The place stays together, so a break can only fall after the date. */
-	.details .meta + .meta {
-		white-space: nowrap;
+	.where {
+		order: 2;
 	}
 
-	.date-dot {
-		display: inline;
+	.mode {
+		order: 3;
 	}
 
 	.main {
