@@ -41,6 +41,7 @@ const intro = [
 const approach = [
   'Strategic Product Design: Alongside business and product leadership, I define requirements and turn organizational goals into clear, usable experiences.',
   'Concept to Execution: I bring a front-end foundation to every design and handoff, and use modern AI workflows to set engineering teams up for success.',
+  'Accessibility as a Default: I build WCAG guidance into the components and documentation teams already use. At Indeed I documented 20 components with WCAG and right-to-left guidance, and at ActBlue I led accessibility work that other teams adopted.',
   'Building Inclusive Design Culture: I foster team cohesion through a strong feedback culture, candid critiques, and collaborative practices that invite everyone to participate in design.',
 ];
 
