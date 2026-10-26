@@ -100,13 +100,15 @@ npm run build                            # vite build; postbuild copies index.ht
 npm run preview                          # serve dist/
 npm run lint                             # eslint with jsx-a11y
 npm run typecheck                        # tsc --noEmit
+npm test                                 # vitest unit tests (*.test.ts beside the code)
+npm run test:e2e                         # playwright + axe on every route, light/dark, desktop/phone (builds first)
 npm run format                           # prettier on src, scripts and config (.prettierrc.json)
 npm run generate:component -- Name       # scaffold src/components/Name
 npm run generate:component -- Page/Name  # scaffold src/pages/Page/components/Name
 npm run deploy                           # publishes to GitHub Pages. Only when Jax asks.
 ```
 
-No test runner exists yet. Prettier decides formatting and CI runs `lint`, `typecheck` and `build`. Verify with `npm run lint`, `npm run typecheck`, `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
+Prettier decides formatting and CI runs `lint`, `typecheck`, `build`, `test` and `test:e2e`. A new route goes in the list in `e2e/a11y.spec.ts`. Verify with `npm run lint`, `npm run typecheck`, `npm test`, `npm run build` plus a visual check at desktop (1280), tablet and mobile (~375). TypeScript is 5.x.
 
 ## Structure and conventions
 

@@ -19,5 +19,6 @@ export default tseslint.config(
       'react-hooks/refs': 'off',
     },
   },
-  { files: ['scripts/**/*.ts', 'vite.config.ts'], languageOptions: { globals: globals.node } },
+  {
+    files: ['scripts/**/*.ts', 'e2e/**/*.ts', '*.config.ts'], languageOptions: { globals: globals.node } },
 );
