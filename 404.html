@@ -4,27 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Jax Engel" />
     <meta name="robots" content="index, follow" />
-    <title>Jax Engel | Senior Product Designer – Scalable UX, Systems Thinking, Inclusive Design</title>
-    <meta name="description" content="Jax Engel is a remote senior-level product designer at ServiceNow, building accessible, scalable tools for enterprise and fintech. Experienced in systems, Figma, and working closely with engineering." />
+    <title>Jax Engel | Staff Product Designer and Design Engineer</title>
+    <meta name="description" content="Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Jax Engel | Senior Product Designer">
+    <meta property="og:title" content="Jax Engel | Staff Product Designer and Design Engineer">
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Jax Engel is a Senior Product Designer specializing in scalable UX, accessibility, and design systems for enterprise tools and internal platforms." />
-    <meta property="og:image" content="https://jaxengeldesign.com/social-preview.png">
+    <meta property="og:description" content="Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX." />
+    <meta property="og:image" content="https://jaxengeldesign.com/social-preview-min.png">
+    <meta name="twitter:image" content="https://jaxengeldesign.com/social-preview-min.png">
     <meta property="og:url" content="https://jaxengeldesign.com/">
     <meta property="og:site_name" content="Jax Engel Portfolio">
     <meta name="twitter:image:alt" content="Screenshot of Jax Engel's portfolio site home page.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#ffffff" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- Fonts are self-hosted (D-127, src/styles/fonts.css). Preload the two used above the fold. -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href="https://jaxengeldesign.com/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="b2deb163-967d-4d93-8159-1cadd6efc9cf"></script>
-    <script type="module" crossorigin src="/assets/index-DMj1eiPa.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DI-Q9v40.css">
+    <script>
+      // Apply the theme before first paint to avoid a flash. Mirrors ThemeProvider: data-theme always
+      // holds the theme being shown, the OS setting when nothing is stored (D-128).
+      (function () {
+        var root = document.documentElement;
+        var theme = 'light';
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') theme = t;
+          else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+        } catch (e) {
+          theme = 'light';
+        }
+        root.setAttribute('data-theme', theme);
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute('content', theme === 'dark' ? '#14152f' : '#ffffff');
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-poVGrTRC.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B5nfCkSW.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-da3Il7nm.css">
+    <link rel="stylesheet" crossorigin href="/assets/Button-D6kTH5uN.css">
+    <link rel="modulepreload" crossorigin href="/assets/index-hwkdNyeC.js">
+    <link rel="modulepreload" crossorigin href="/assets/Button-suADYi45.js">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--$--><div class="_page_1p827_5" data-tone="error"><header class="_header_16zco_3"><a href="#main-content" class="_skip-link_16zco_213">Skip to main content</a><div class="_bar_16zco_7"><div class="_identity_16zco_21"><a class="_brand_16zco_45 _line_14txg_10 _deepen_usoju_6" href="/" data-discover="true">Jax Engel</a><span class="_brandRole_16zco_45"><span>Designer <span class="_amp_1somc_3">&amp;</span> Engineer</span></span></div><div class="_controls_16zco_107"><nav aria-label="Main"><ul class="_list_16zco_116"><li><a class="_nav-link_16zco_80 _line_14txg_10 _deepen_usoju_6" href="/" data-discover="true">Work</a></li><li><a class="_nav-link_16zco_80 _line_14txg_10 _deepen_usoju_6" href="/about" data-discover="true">About</a></li><li><a class="_nav-link_16zco_80 _line_14txg_10 _deepen_usoju_6" href="/resume" data-discover="true">Resume</a></li></ul></nav><button type="button" aria-label="Switch to dark mode" data-mode="light" class="_button_6disf_6 _iconControl_1gxb4_6 _line_14txg_10 _deepen_usoju_6"><span class="_icon_6disf_16 _sun_6disf_31"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M116,36V20a12,12,0,0,1,24,0V36a12,12,0,0,1-24,0Zm80,92a68,68,0,1,1-68-68A68.07,68.07,0,0,1,196,128Zm-24,0a44,44,0,1,0-44,44A44.05,44.05,0,0,0,172,128ZM51.51,68.49a12,12,0,1,0,17-17l-12-12a12,12,0,0,0-17,17Zm0,119-12,12a12,12,0,0,0,17,17l12-12a12,12,0,1,0-17-17ZM196,72a12,12,0,0,0,8.49-3.51l12-12a12,12,0,0,0-17-17l-12,12A12,12,0,0,0,196,72Zm8.49,115.51a12,12,0,0,0-17,17l12,12a12,12,0,0,0,17-17ZM48,128a12,12,0,0,0-12-12H20a12,12,0,0,0,0,24H36A12,12,0,0,0,48,128Zm80,80a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V220A12,12,0,0,0,128,208Zm108-92H220a12,12,0,0,0,0,24h16a12,12,0,0,0,0-24Z"></path></svg></span><span class="_icon_6disf_16 _moon_6disf_41"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.37,139.4a12,12,0,0,0-12-3A84.07,84.07,0,0,1,119.6,31.59a12,12,0,0,0-15-15A108.86,108.86,0,0,0,49.69,55.07,108,108,0,0,0,136,228a107.09,107.09,0,0,0,64.93-21.69,108.86,108.86,0,0,0,38.44-54.94A12,12,0,0,0,236.37,139.4Zm-49.88,47.74A84,84,0,0,1,68.86,69.51,84.93,84.93,0,0,1,92.27,48.29Q92,52.13,92,56A108.12,108.12,0,0,0,200,164q3.87,0,7.71-.27A84.79,84.79,0,0,1,186.49,187.14Z"></path></svg></span></button></div></div></header><main id="main-content" tabindex="-1" class="_wrapper_1p827_16"><div class="_main_1p827_39"><div class="_copy_1p827_47"><h1 class="_title_1p827_54">404</h1><p class="_description_1p827_65">Well, this wasn’t in the flowchart.</p></div><a class="_button_1e0a8_4 _deepen_usoju_6 _inverted_1e0a8_91 _button_1p827_73" href="/" data-discover="true">Return to portfolio<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256" fill="currentColor" class="_icon_1e0a8_34" aria-hidden="true"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg></a></div></main></div><!--/$--></div>
   </body>
 </html>
