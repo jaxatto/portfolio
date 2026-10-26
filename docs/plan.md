@@ -18,6 +18,8 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged (into `redesign`, whi
 
 Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-133, D-134). Remaining for Jax: review of the Resume role summaries and strength lines (on hold, drafts, `TODO(jax)` in `roles.ts`). SEO copy is settled and dark mode switching is on (D-131). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Page folders share one shape (D-140, merged 2026-10-25): every page's SEO text is in `resources/meta.ts`. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant.
 
+Hiring review applied (2026-10-26): Toyota, ServiceNow, Indeed and About copy revised, About opens with the product-and-systems line, `content.heading` and `content.link-inline` tokens, inline links underlined at rest (D-163 to D-165). Still open from the review: the title ladder (Senior titles on three studies, Staff on ServiceNow) is left as it is, and the ServiceNow Outcomes have no stated time because the creator's wording is not available.
+
 ## Audit follow-ups (2026-10-25)
 
 All seven audit batches are done and merged (D-117 to D-127): regressions, dead code, tokens, shared components, consistency, performance and SEO, docs and comments. Image width and height come from the file (D-125), fonts are self-hosted (D-127), per-route meta is written at build time (D-122). What is left:
@@ -30,7 +32,7 @@ All seven audit batches are done and merged (D-117 to D-127): regressions, dead 
 
 ## Design review follow-ups (2026-10-26)
 
-Done: card order (D-163), About approach cards (D-164, D-167, D-168), shell test (D-165), What I'm looking for (D-166), Resume summary, role outcome lines and contract labels (D-168). Settled: Toyota has no adoption result and the Home card stays as is. Every page carries the email in the footer. Jax tested a phone with no issues (2026-10-26). Not tested: a screen reader (Backlog).
+Done: card order (D-166), About approach cards (D-167, D-170, D-171), shell test (D-168), What I'm looking for (D-169), Resume summary, role outcome lines and contract labels (D-171). Settled: Toyota has no adoption result and the Home card stays as is. Every page carries the email in the footer. Jax tested a phone with no issues (2026-10-26). Not tested: a screen reader (Backlog).
 
 ## Resume skills area (open, 2026-10-25)
 

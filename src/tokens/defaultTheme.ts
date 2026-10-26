@@ -30,6 +30,11 @@ const theme: Omit<SemanticTheme, 'colors'> & {
         light: primitives.colors.purple[950],
         dark: primitives.colors['white-alpha-98'],
       },
+      // Label h3s that carry the brand tint: dark purple in light, a lighter indigo in dark (D-163).
+      heading: {
+        light: primitives.colors.purple[950],
+        dark: primitives.colors.indigo[200],
+      },
       // Body copy on card and footer grounds: dark is white at 80% instead of a purple tint (D-035).
       soft: {
         light: primitives.colors.slate[900],
@@ -47,6 +52,19 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       link: {
         light: primitives.colors.violet[700],
         dark: primitives.colors.violet[300],
+      },
+      // Links inside a sentence: the link color in light, a paler indigo on dark (D-165).
+      'link-inline': {
+        light: primitives.colors.violet[700],
+        dark: primitives.colors.indigo[300],
+      },
+      'link-inline-hover': {
+        light: primitives.colors.violet[800],
+        dark: primitives.colors.indigo[200],
+      },
+      'link-inline-active': {
+        light: primitives.colors.violet[900],
+        dark: primitives.colors.indigo[100],
       },
       'on-accent': {
         light: primitives.colors.white,

@@ -34,15 +34,15 @@ const facts = [
 ];
 
 const intro = [
-  'I bridge product design and engineering through design tokens and automation. I architect token systems for multi-brand products and build the Figma-to-code pipelines that carry them into production. My background spans interface design, complex workflow automation and WCAG accessibility across fintech, automotive and SaaS.',
+  'I design products and the systems behind them, and I write the code that carries both into production. I architect token systems for multi-brand products and build Figma-to-code pipelines. My background spans interface design, complex workflow automation and WCAG accessibility across fintech, automotive and SaaS.',
   'I recently joined Spectrum, where I work on the ecommerce design system. My most recent role was at Toyota, where I led design token architecture, token-to-code pipelines and developer tooling across a multi-brand product ecosystem.',
 ];
 
 const approach = [
-  'Curiosity and documentation: I start with questions and careful listening. What I learn goes into clear documentation, so the next person can pick it up without starting over.',
-  'Focus and trade-offs: When I commit to a task, I aim to get it right the first time. I set honest expectations up front, rank the goals and agree with the team on how to weigh speed against quality.',
+  'Curiosity and documentation: I start with questions and careful listening. What I learn goes into clear documentation, so the next person can pick it up without starting over. At Indeed I answered daily system questions and contributed to onboarding sessions.',
+  'Focus and trade-offs: When I commit to a task, I aim to get it right the first time. I set honest expectations up front, rank the goals and agree with the team on how to weigh speed against quality. At Toyota I ran sprint planning for five designers.',
   'Accessibility and teaching: Accessibility is the part of the craft I most enjoy sharing. I coach teammates on WCAG, code and Figma, and I build the guidance into the components and documentation they already use. At Indeed I documented 20 components with WCAG and right-to-left guidance. At ActBlue I led accessibility work that other teams adopted.',
-  'Prototyping with AI: AI is my newest way to prototype. Working in code lets me take an idea to a running prototype and hand engineers something they can build from.',
+  'Prototyping with AI: AI is my newest way to prototype. Working in code lets me take an idea to a running prototype and hand engineers something they can build from. At Toyota I built a CLI that keeps Figma variables in line with code, and used Python and AI to create 200+ stories in bulk.',
 ];
 
 const personal = [
@@ -75,15 +75,15 @@ const About: React.FC = () => (
         {/* Earlier roles link to their case studies. Copy is inline because it contains links (D-003). */}
         <p>
           Earlier work includes AI-assisted survey analysis at{' '}
-          <TextLink to={studyLinks.servicenow}>
+          <TextLink inline to={studyLinks.servicenow}>
             ServiceNow<span className="sr-only"> case study</span>
           </TextLink>
           , an accessible, rebranded design system at{' '}
-          <TextLink to={studyLinks.indeed}>
+          <TextLink inline to={studyLinks.indeed}>
             Indeed<span className="sr-only"> case study</span>
           </TextLink>
           , and a self-serve Salesforce integration at{' '}
-          <TextLink to={studyLinks.actblue}>
+          <TextLink inline to={studyLinks.actblue}>
             ActBlue<span className="sr-only"> case study</span>
           </TextLink>
           .

@@ -769,46 +769,58 @@ Class names in CSS are kebab-case, and components are PascalCase. Vite reads cla
 
 The per-element color fade snapped shadows, gradients and the dark-only overrides while colors faded, which read as a flash. `ThemeProvider.setPreference` now wraps the change in `document.startViewTransition` and commits with `flushSync`, and `data-theme` is set in a layout effect so it lands before the new snapshot. The page cross-fades in 400ms to dark and 500ms to light (`--motion-duration-theme`, `--motion-duration-theme-to-light`). Dark to white is the larger luminance jump, so it runs 100ms longer. Both sit in the 300 to 500ms range for a whole-screen change. The mode toggle gets `view-transition-name` only while switching (a name makes a stacking context) so its icon swap keeps the 300ms moderate speed, and `::view-transition` takes no pointer events so the toggle keeps its hover. The `theme-fading` fade is the fallback where View Transitions are missing. Tooltip open and close are both `--motion-duration-base` (200ms), read from the token in `Tooltip.tsx`. A 99% and a 98% indigo-tinted off-white were tried for the light surface and rejected, so it stays pure white.
 
-## D-163: Study card order and palette by position — decided, 2026-10-26
+## D-163: `content.heading`, the label h3 color — decided, 2026-10-26
+
+A dark-mode emphasis of purple-300 was tried and reverted: `content.emphasis` keeps white at 98% in dark (D-035). The new `content.heading` token is purple-950 in light and indigo-200 in dark. Only About's labelled h3s ("Strategic Product Design" and the others) use it. The h2s stay `content.prose` (D-056) and case study headings keep the study's palette tint (D-070).
+
+## D-164: Inline links keep a resting underline — decided, 2026-10-26
+
+A `TextLink` with `inline` (About's links to the case studies) shows a 1px underline at rest. The underline is `text-decoration`, so a link that wraps underlines each line. On hover it thickens to 3px in place of the growing line, which is off for inline links. Standalone links (footer email, Resume study links) keep the animated line and no resting underline. This restores D-024 for links in running text and narrows D-104.
+
+## D-165: Inline links are indigo-300 on dark — decided, 2026-10-26
+
+`content.link-inline` is the link color in light (violet-700) and indigo-300 in dark. Only `TextLink` with `inline` reads it (D-164). Hover is `link-inline-hover` (indigo-200 in dark) and pressed is `link-inline-active` (indigo-100). In light they are violet-800 and violet-900, which match the shared hover and pressed colors. Standalone links keep `content.link` (violet-300 in dark).
+
+## D-166: Study card order and palette by position — decided, 2026-10-26
 
 Home order is Toyota, ActBlue, ServiceNow, Indeed (Jax). ActBlue is the strongest end-to-end product design story and Toyota carries the design engineer pitch. The palette ramp (brand, secondary, tertiary, quaternary) follows position, so ActBlue is now indigo and ServiceNow sky. Study pages take their h1 and chip colors from their card, so those two changed with it. The Resume case study cards and the About earlier-work sentence keep their own order, since they are selections and a narrative.
 
-## D-164: Accessibility card in Approach to Work — decided, 2026-10-26
+## D-167: Accessibility card in Approach to Work — decided, 2026-10-26
 
 About gains "Accessibility as a Default" as the third card: WCAG guidance built into components and documentation, 20 documented components with WCAG and right-to-left guidance at Indeed, and accessibility work other teams adopted at ActBlue. The ActBlue claim comes from the resume, not the case study. The three-card copy still has Title Case labels and is generic, to revisit with proof lines.
 
-## D-165: The shell matches the live site — decided, 2026-10-26
+## D-168: The shell matches the live site — decided, 2026-10-26
 
 Jax's rule: the pre-rendered shell must always match the live page. `Header` now picks its left-slot role label from the route (Home and Resume), so the `Suspense` fallback in `App.tsx` draws the same header. The `headerLabel` prop on `Layout` and `label` on `Header` are removed. `e2e/shell.spec.ts` loads each route with JavaScript off and on and compares the header and footer text. Client navigation keeps the old page while a chunk loads, so the fallback only shows on a first load without pre-rendering.
 
-## D-166: "What I'm looking for" on Resume — decided, 2026-10-26
+## D-169: "What I'm looking for" on Resume — decided, 2026-10-26
 
 New first section on the Resume page, above Experience. It states the wish for a long-term role that mixes design and code, points to Visa (more than four years, promoted) as proof of staying, and says several recent roles ended with a contract, a budget or a team. Reasons tied to culture fit are left for conversation. The ActBlue estimate of $1.5M a year is credited to the product manager's calculations in the case study.
 
-## D-167: Sentence case for headings and labels — decided, 2026-10-26
+## D-170: Sentence case for headings and labels — decided, 2026-10-26
 
-Jax wants one case across the site. Headings, labels and chips use sentence case, and names and acronyms keep their capitals. Job titles and study names stay as written. About's h2s and cards and every study's item labels and chips changed. `copy-check` has a `title-case` rule on h1 to h6 text, `label:` and `heading:` strings and "Label: sentence" strings, with a list of proper nouns. About's approach cards were rewritten from Jax's own description of how they work (D-164 superseded in part): five cards, no "passionate" because the linter flags it as a buzzword.
+Jax wants one case across the site. Headings, labels and chips use sentence case, and names and acronyms keep their capitals. Job titles and study names stay as written. About's h2s and cards and every study's item labels and chips changed. `copy-check` has a `title-case` rule on h1 to h6 text, `label:` and `heading:` strings and "Label: sentence" strings, with a list of proper nouns. About's approach cards were rewritten from Jax's own description of how they work (D-167 superseded in part): five cards, no "passionate" because the linter flags it as a buzzword.
 
-## D-168: Four approach cards and contract labels — decided, 2026-10-26
+## D-171: Four approach cards and contract labels — decided, 2026-10-26
 
-The five approach cards became four, rephrased from Jax's description and not quoted: curiosity and documentation, focus and trade-offs, accessibility and teaching, and prototyping with AI. Share and teach folded into accessibility. The place line on Resume roles shows "(contract)" again for Spectrum, Toyota, ServiceNow and Albertsons, as the PDF does. It supports the tenure story in the "What I'm looking for" section. D-164 and D-167 are superseded for the card list.
+The five approach cards became four, rephrased from Jax's description and not quoted: curiosity and documentation, focus and trade-offs, accessibility and teaching, and prototyping with AI. Share and teach folded into accessibility. The place line on Resume roles shows "(contract)" again for Spectrum, Toyota, ServiceNow and Albertsons, as the PDF does. It supports the tenure story in the "What I'm looking for" section. D-167 and D-170 are superseded for the card list.
 
-## D-169: Resume role header on phones — decided, 2026-10-26
+## D-172: Resume role header on phones — decided, 2026-10-26
 
 Jax asked for the role header without wrapping on phones only, with the title staying in the body. Desktop keeps the split card. On phones the colored side is a grid: logo, company and dates on the first row, the place under the company on the second, all `nowrap`. Logo, company, dates and place in one line need about 480px for the longest role (Toyota, with "hybrid, contract") and a phone gives 323px, so one line is not possible without cutting words. Below 360px the dates drop to their own row, since ServiceNow beside its dates no longer fits. A first attempt that moved the band and title to the top on every width was reverted.
 
-## D-170: Phone role header, dates beside the place — decided, 2026-10-26
+## D-173: Phone role header, dates beside the place — decided, 2026-10-26
 
-On phones the header holds the logo and company on row one and the dates and place on row two, with the logo at the card's 24px text edge, 40px wide and 16px from the company. The place line uses a middle dot: "Remote · Contract", "Plano, TX · Hybrid · Contract", on every width. The data has a `workMode` field for "Hybrid". Toyota's dates and place need about 327px and a 375px phone leaves 275px, so Toyota's two items stack. Supersedes the 360px rule in D-169.
+On phones the header holds the logo and company on row one and the dates and place on row two, with the logo at the card's 24px text edge, 40px wide and 16px from the company. The place line uses a middle dot: "Remote · Contract", "Plano, TX · Hybrid · Contract", on every width. The data has a `workMode` field for "Hybrid". Toyota's dates and place need about 327px and a 375px phone leaves 275px, so Toyota's two items stack. Supersedes the 360px rule in D-172.
 
-## D-171: Phone role header as one flowing line — decided, 2026-10-26
+## D-174: Phone role header as one flowing line — decided, 2026-10-26
 
-Jax asked for a dot between the date and the rest on phones, stacked under the company beside the logo, with 4px each side of every dot. The logo is a left column spanning two rows. The company is row one and the dates and place are one inline line under it. The dot trails its item and is followed by a break point, and the place stays together, so a wrap can only fall after the date. The four contract roles (Spectrum, Toyota, ServiceNow, Albertsons) wrap to two lines at 375px, with a dot ending the first. The other five fit on one. No overflow at 320px. Supersedes D-170's second-row layout.
+Jax asked for a dot between the date and the rest on phones, stacked under the company beside the logo, with 4px each side of every dot. The logo is a left column spanning two rows. The company is row one and the dates and place are one inline line under it. The dot trails its item and is followed by a break point, and the place stays together, so a wrap can only fall after the date. The four contract roles (Spectrum, Toyota, ServiceNow, Albertsons) wrap to two lines at 375px, with a dot ending the first. The other five fit on one. No overflow at 320px. Supersedes D-173's second-row layout.
 
-## D-172: Link icons inline, white cursor edge, dot clipped on wrap — decided, 2026-10-26
+## D-175: Link icons inline, white cursor edge, dot clipped on wrap — decided, 2026-10-26
 
-`TextLink` is `inline-block` and its icon sits inline after the last word, which is wrapped with the icon in a no-wrap span, so a wrapped link ends "case study →" and never strands the arrow at the far edge. A single-word child (the footer email) keeps its own break rules, and JSX children get the icon inline. The tag cursor's arrow edge uses `--color-content-on-accent` (white, 98% in dark), so the Figma-style white edge shows in dark mode too. The phone role header is one wrapping line of items: dates, contract, then place (and hybrid), with desktop keeping dates on their own line and the place line ending in the contract. Each item draws its dot as a 4px circle with 4px each side before it, and the list is shifted left one dot width inside an `overflow: hidden` wrapper, so the dot of an item that starts a line is clipped and no line starts or ends with one. This replaces D-171's trailing dot.
+`TextLink` is `inline-block` and its icon sits inline after the last word, which is wrapped with the icon in a no-wrap span, so a wrapped link ends "case study →" and never strands the arrow at the far edge. A single-word child (the footer email) keeps its own break rules, and JSX children get the icon inline. The tag cursor's arrow edge uses `--color-content-on-accent` (white, 98% in dark), so the Figma-style white edge shows in dark mode too. The phone role header is one wrapping line of items: dates, contract, then place (and hybrid), with desktop keeping dates on their own line and the place line ending in the contract. Each item draws its dot as a 4px circle with 4px each side before it, and the list is shifted left one dot width inside an `overflow: hidden` wrapper, so the dot of an item that starts a line is clipped and no line starts or ends with one. This replaces D-174's trailing dot.
 
-## D-173: Phone polish on Resume, chips and footer — decided, 2026-10-26
+## D-176: Phone polish on Resume, chips and footer — decided, 2026-10-26
 
 At 400px and under the Resume portrait fills the column. The Visa promotion keeps its dates whole and puts them on their own line at 400px and under. Chips read at the control size (16px) up to 640px, up from the 14px body-sm. The footer description drops the no-wrap job titles and balances on phones, so it breaks "Open to remote Staff Product / Designer and Design Engineer roles." `TextLink` with an icon takes the copy's size and a 1em icon, and the Resume case study cards' links (`Strength`) take body-md with a 1em icon, replacing the 20px link text of D-146 for those two. Work cards (`StudyCard`) keep the 20px link.

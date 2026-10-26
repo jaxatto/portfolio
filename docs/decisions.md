@@ -22,13 +22,13 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 - Effects tokens (motion, shadow, state wash, layer) live in `effects.ts`. Targets are 40 and 44px, the focus ring is 3px with a 3px offset, the browser bar color is generated from `surface.default` (D-032, D-118, D-144).
 - Raw values that stay as written: card and panel geometry in rem, the Resume column widths, em-sized glyphs, card lift, the lift shadow color, the footer band mix, the 404 display size, the ambient hero loops, grid tracks, and `.sr-only` with its `!important` (the skip link hand-writes the block because it must un-hide on focus). The rest of the list, each with a default of keep, is in `untokenized-styles.md` (D-141).
 - Palettes: five container pairs (brand, primary, secondary, tertiary, quaternary) plus `quinary` green, one class each in `palette.module.css`. Every palette keeps the same members (`default`, `on-default`, `container`, `on-container`). Hover and pressed colors are derived only for what is read. A section that re-colors the semantic tokens is a tone in `tone.css`: `blue` for the dark footer band and `inverse` for the 404, which uses `surface.inverse` and `content.on-accent` (D-030, D-038, D-052, D-109, D-119, D-123, D-152, D-154).
-- Dark text: `content.emphasis` and `on-accent` are white at 98%, `content.soft` is white at 80%, `content.prose` is black in light and purple-50 in dark for long reading text (D-035, D-042).
+- Dark text: `content.emphasis` and `on-accent` are white at 98%, `content.heading` is purple-950 in light and indigo-200 in dark (D-163), `content.soft` is white at 80%, `content.prose` is black in light and purple-50 in dark for long reading text (D-035, D-042).
 - Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes name a role in the type scale, never a value or a place: `label`, `control`, `lead`, `heading-xl`, `display-sm`, `display` (D-149, D-155). One `strong` weight (900) serves both families, and Manrope renders it as 800 (D-154). `text-wrap: pretty` site-wide, non-breaking hyphens in headings, headings over 44px take compact letter spacing (D-034, D-114).
 - Every text style (`title-sm/md`, `heading-sm/md/lg`, `body-sm/md/lg`) has a generated class in `type.module.css`. A component applies it in its markup with `clsx` and sets only color, spacing and overrides, and does not read `--font-style-*`. The one exception is StudyCard's phone media query, since a class cannot change at a breakpoint. The classes sit in `@layer type`, so a component's own rules win whatever the bundle order (D-093, D-117, D-156).
 - Heading tags are semantic only. No rule targets `h1` to `h6`, the look comes from a class (D-130, D-134).
 - Icons are `--size-icon-xs/sm/md/lg` (16, 20, 24, 28px). A link's text is its icon's size, through `--link-icon`. The hover line under an icon is inset by the glyph's inset in its 40px target plus 1px (D-144, D-145, D-146).
 - Links, buttons, Back to top and tooltips share one hover and pressed color pair from `deepen.module.css`, a mix toward the next violet that tones on dark grounds turn off. Tooltips open after 400ms and fade (D-147).
-- Shared pieces: `Button` (filled, outline 3px, inverted), `TextLink` (animated line, no resting underline), `Chip`, `NameTag`, `Tooltip` (Floating UI, kept), `IconLink`, and the `iconControl`, `line` and `deepen` modules (D-092, D-093, D-102, D-103, D-104, D-105, D-107, D-119, D-137).
+- Shared pieces: `Button` (filled, outline 3px, inverted), `TextLink` (animated line, no resting underline, except `inline` links in a sentence, which are underlined at rest and colored by `content.link-inline`, indigo-300 on dark, D-164, D-165), `Chip`, `NameTag`, `Tooltip` (Floating UI, kept), `IconLink`, and the `iconControl`, `line` and `deepen` modules (D-092, D-093, D-102, D-103, D-104, D-105, D-107, D-119, D-137).
 - Image fallbacks: `Image` shows a muted icon in its frame's shape, a person icon for the Resume portrait, pet icons on About, and a tint of the card's palette on the Home cards. Study page images (banner, compare, panels) fall back to their frame (D-148, D-150).
 - Forced colors: cards, chips and buttons keep their shape with a 2px `CanvasText` outline. Hover styles sit behind `(hover: hover)` (D-117, D-129).
 
@@ -45,7 +45,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 ## Layout and shared UI
 
 - Content column is 960px, reading text 40rem, left-aligned on the header edge. Layout is full width, only `<main>` is constrained (D-014, D-029, D-040, D-066).
-- Header: brand left, nav and toggle right. The role label sits in the left slot as two stacked lines on Home and Resume, chosen from the route inside `Header` (D-165), hidden on phones where it becomes a byline. Nav links draw the accent line on the current page and on hover (D-016, D-017, D-018, D-097, D-098, D-106).
+- Header: brand left, nav and toggle right. The role label sits in the left slot as two stacked lines on Home and Resume, chosen from the route inside `Header` (D-168), hidden on phones where it becomes a byline. Nav links draw the accent line on the current page and on hover (D-016, D-017, D-018, D-097, D-098, D-106).
 - Footer: one footer on every page, a 2px hairline, a tinted band in dark except on Home, Resume, LinkedIn and GitHub as icon links, stacked at 640px and under (D-049, D-107, D-132).
 - Back to top is a scroll-up pill at the top middle, shown on About, Resume and studies (D-108).
 - Title wording is "Staff Product Designer", with "Design Engineer" where it fits. Footer line and 404 quips are settled (D-021, D-133).
@@ -54,15 +54,15 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 ## Home
 
 - Hero: one role line and one sentence. The "design" selection box and the "build" code chip are CSS art, and both stop under reduced motion (D-016, D-017, D-134).
-- Study cards: one stacked column, horizontal from 641px (text 55%, preview beside it), stacked on phones where the title uses `heading-lg`. Order Toyota, ActBlue, ServiceNow, Indeed. Ramp purple, indigo, sky, teal, assigned by position (D-163). Copy is inline in `StudyCardGrid.tsx` and uses only facts from each study (D-028, D-030, D-031, D-039, D-155).
+- Study cards: one stacked column, horizontal from 641px (text 55%, preview beside it), stacked on phones where the title uses `heading-lg`. Order Toyota, ActBlue, ServiceNow, Indeed. Ramp purple, indigo, sky, teal, assigned by position (D-166). Copy is inline in `StudyCardGrid.tsx` and uses only facts from each study (D-028, D-030, D-031, D-039, D-155).
 - Card hover lifts 8px with a colored shadow and the screenshot grows inside its window. Selection inside a card takes the card's palette (D-080, D-111).
 
 ## About
 
 - One column on the 960 grid. The hero is "About me" with the selection box, four code chips and a caret. Story at 40rem. The four pets are tagged photos with captions (D-040 to D-043).
 - The earlier-roles paragraph links to three case studies. Visa is left out on purpose (D-044, D-045).
-- h2 is `content.prose`, 12px under it, label h3s are bold (D-055, D-056, D-057).
-- Approach to work has four labelled cards: curiosity and documentation, focus and trade-offs, accessibility and teaching with proof from Indeed and ActBlue, and prototyping with AI (D-164, D-167, D-168).
+- About's label h3s are `content.heading` (D-163). The h2s stay `content.prose`. The h2 has 12px under it and label h3s are bold (D-055, D-056, D-057).
+- Approach to work has four labelled cards: curiosity and documentation, focus and trade-offs, accessibility and teaching with proof from Indeed and ActBlue, and prototyping with AI (D-167, D-170, D-171).
 
 ## Case studies
 
@@ -76,14 +76,14 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 ## Resume
 
 - The page carries the resume. The h1 reads "Resume: Jax Engel" (prefix `sr-only`). The header has the portrait with a cursor tag, then the actions row (D-087, D-094, D-097, D-135).
-- Roles marked Contract in the PDF (Spectrum, Toyota, ServiceNow, Albertsons) show it in the place line, for example "Remote (contract)" (D-168).
-- Core strengths: three cards in study colors, each with a proof line from its case study. Experience is split role cards on one gradient down the list. On phones the colored header is the logo beside the company, with the dates, contract and place flowing as one wrapping line under it, and a dot that disappears when an item starts a line. The title stays in the body (D-169, D-171). Role summaries and strength lines are drafts until Jax signs them off (D-124).
-- "What I'm looking for" is the first section under the intro, ahead of Experience, and carries the tenure context (D-166).
+- Roles marked Contract in the PDF (Spectrum, Toyota, ServiceNow, Albertsons) show it in the place line, for example "Remote (contract)" (D-171).
+- Core strengths: three cards in study colors, each with a proof line from its case study. Experience is split role cards on one gradient down the list. On phones the colored header is the logo beside the company, with the dates, contract and place flowing as one wrapping line under it, and a dot that disappears when an item starts a line. The title stays in the body (D-172, D-174). Role summaries and strength lines are drafts until Jax signs them off (D-124).
+- "What I'm looking for" is the first section under the intro, ahead of Experience, and carries the tenure context (D-169).
 - The PDF is built from `resume/` HTML. The public PDF is not replaced until Jax says so (D-110).
 
 ## Tests
 
-- `e2e/shell.spec.ts` compares the pre-rendered header and footer with the live page on every route, light and dark. The pre-rendered shell must always match the live site (D-165).
+- `e2e/shell.spec.ts` compares the pre-rendered header and footer with the live page on every route, light and dark. The pre-rendered shell must always match the live site (D-168).
 
 ## Open
 

@@ -61,7 +61,7 @@
 
 /* "Strategic Product Design" etc.: h3s, one step above the sentence and well under the h2s. */
 .subheading {
-  color: var(--color-content-emphasis);
+  color: var(--color-content-heading);
 }
 
 /* Pets: rounded squares, the same corner as the cards. They sit outside the 640px story column, so the
