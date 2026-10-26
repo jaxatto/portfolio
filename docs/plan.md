@@ -65,6 +65,5 @@ Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner), `Study
 
 - **Screen reader test (Jax).** VoiceOver on a Mac: Cmd+F5, then Tab through the nav. Check that each page change announces the h1 (D-126), the photo list on About reads as a list with its intro, the card links name their study, the mode toggle states its mode and the tooltips do not double-announce.
 - **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md) lists the raw values still open, each with a proposed default of keep (D-141). Next pass: log or tokenize them as Jax decides.
-- **`Image` fallback.** Explore how it looks when an About photo fails to load (TODO(jax)).
 
 - **Low priority: shorten the other `--size-*` token names.** Space tokens dropped the prefix (`--space-lg`, D-143). Radius, border width, icon, target and layout tokens still read `--size-radius-*`, `--size-border-width-*`, `--size-icon-*`, `--size-target-*`. Decide later whether they follow, and rename them in one pass with the generator.
