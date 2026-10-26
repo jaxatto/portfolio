@@ -4,7 +4,7 @@ Goal: make the portfolio as strong as possible for getting Jax hired as a staff-
 
 ## Roadmap
 
-Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
+Status: `[ ]` not started, `[~]` in progress, `[x]` merged (into `redesign`, which merged into `main` on 2026-10-25, PR #36).
 
 - [x] 0. Foundations: tokens (port from `update-content`, light + dark), typography, layout
 - [x] 1. Header, footer and mode toggle (nav, icon toggle, Home hero, footer variants, icons, tooltips, 404). Decisions D-014 to D-027. Multi-theme picker deferred to its own later slice
@@ -34,7 +34,7 @@ The Resume page has no skills area (D-124 removed the chips). Jax rejected seven
 
 ## Resume PDF (side task, 2026-10-24)
 
-Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Design Engineer and Design Engineer ATS. The public PDF is the main build and the only one the site links (decided 2026-10-25). Copies sit in `~/Desktop/resume/`. To revisit with Jax: more Design Engineer framing in the role bullets, the Toyota first bullet, whether the headline should change. Merge to `redesign` only when Jax says so.
+Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Design Engineer and Design Engineer ATS. The public PDF is the main build and the only one the site links (decided 2026-10-25). Copies sit in `~/Desktop/resume/`. To revisit with Jax: more Design Engineer framing in the role bullets, the Toyota first bullet, whether the headline should change. Merge to `main` only when Jax says so.
 
 ## Open questions for Jax
 
@@ -67,5 +67,4 @@ Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner), `Study
 - **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md) lists the raw values still open, each with a proposed default of keep (D-141). Next pass: log or tokenize them as Jax decides.
 
 - **Low priority: shorten the other `--size-*` token names.** Space tokens dropped the prefix (`--space-md`, D-143). Radius, border width, icon, target and layout tokens still read `--size-radius-*`, `--size-border-width-*`, `--size-icon-*`, `--size-target-*`. Decide later whether they follow, and rename them in one pass with the generator.
-- **Palettes (on hold, Jax 2026-10-26).** Revisit the six palettes and how `palette.module.css` and tones relate before changing either. Open with it: content color roles (`default`, `emphasis`, `muted`, `link`, `on-accent` as the proposed five), the fixed role font sizes, and one method for applying type.
-- **Fixed card title sizes (open).** `heading-xl` is 36px on desktop. The phone size is `heading-xl-sm` (28px), a name Jax rejected. The nearest existing step is `heading-lg` (24px at 375, 27px at 768). Decide: phones use `heading-lg` (4px smaller) or another step.
+- **Palettes (on hold, Jax 2026-10-26).** Revisit the six palettes and how `palette.module.css` and tones relate before changing either. Open with it: content color roles (`default`, `emphasis`, `muted`, `link`, `on-accent` as the proposed five), `soft` as one amount token plus a class, renaming `on-accent` to `content-inverse` to match `surface-inverse`, and the footer email size (no existing type token fits: `heading-lg` has a 24px minimum that likely overflows at 375).

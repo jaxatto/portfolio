@@ -88,7 +88,7 @@
   text-decoration: none;
 }
 
-.linkText {
+.link-text {
   composes: line from '#styles/line.module.css';
   /* Same distance from the text as the nav link's line (1px into the text box): the line sits 2px
 	   below the box, not 2px above its bottom (D-031). */
@@ -98,7 +98,7 @@
 }
 
 /* Phones swap in the short label so the link stays on one line (D-031). */
-.linkShort {
+.link-short {
   display: none;
 }
 
@@ -117,7 +117,7 @@
   fill: currentcolor;
 }
 
-.card:hover .linkText::after {
+.card:hover .link-text::after {
   transform: scaleX(1);
 }
 
@@ -145,7 +145,7 @@
   background: var(--color-surface-sunken);
 }
 
-.imageBox {
+.image-box {
   /* Image wraps the screenshot in a div. It takes no box of its own, so the screenshot lays out as before. */
   display: contents;
 }
@@ -279,11 +279,11 @@
 
 /* The text column is narrow below 800px, so the short label keeps the link on one line (D-031). */
 @media (max-width: 800px) {
-  .linkFull {
+  .link-full {
     display: none;
   }
 
-  .linkShort {
+  .link-short {
     display: inline;
   }
 
@@ -294,11 +294,6 @@
 
 /* Mobile (no Figma design, D-008; see D-028): tighter padding and a shorter preview. */
 @media (max-width: 640px) {
-  /* Phone title is 28px, a real step on the type scale (D-033). */
-  .title {
-    font-size: var(--font-size-heading-xl-sm);
-  }
-
   /* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). The
      stacked cards under a case study stay at body-sm. */
   .card:not(.study) .outcome {
@@ -355,7 +350,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .card,
-  .linkText::after,
+  .link-text::after,
   .sample {
     transition: none;
   }

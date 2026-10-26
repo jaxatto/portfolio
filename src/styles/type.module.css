@@ -4,7 +4,7 @@
    own media-query size always wins whatever the bundle order. */
 
 @layer type {
-  .titleMd {
+  .title-md {
     margin: 0;
     font-family: var(--font-style-title-md-family);
     font-size: var(--font-style-title-md-size);
@@ -12,7 +12,7 @@
     line-height: var(--font-style-title-md-line-height);
   }
 
-  .titleSm {
+  .title-sm {
     margin: 0;
     font-family: var(--font-style-title-sm-family);
     font-size: var(--font-style-title-sm-size);
@@ -20,7 +20,7 @@
     line-height: var(--font-style-title-sm-line-height);
   }
 
-  .headingLg {
+  .heading-lg {
     margin: 0;
     font-family: var(--font-style-heading-lg-family);
     font-size: var(--font-style-heading-lg-size);
@@ -28,7 +28,7 @@
     line-height: var(--font-style-heading-lg-line-height);
   }
 
-  .headingMd {
+  .heading-md {
     margin: 0;
     font-family: var(--font-style-heading-md-family);
     font-size: var(--font-style-heading-md-size);
@@ -36,7 +36,7 @@
     line-height: var(--font-style-heading-md-line-height);
   }
 
-  .headingSm {
+  .heading-sm {
     margin: 0;
     font-family: var(--font-style-heading-sm-family);
     font-size: var(--font-style-heading-sm-size);
@@ -44,21 +44,21 @@
     line-height: var(--font-style-heading-sm-line-height);
   }
 
-  .bodyLg {
+  .body-lg {
     font-family: var(--font-style-body-lg-family);
     font-size: var(--font-style-body-lg-size);
     font-weight: var(--font-style-body-lg-weight);
     line-height: var(--font-style-body-lg-line-height);
   }
 
-  .bodyMd {
+  .body-md {
     font-family: var(--font-style-body-md-family);
     font-size: var(--font-style-body-md-size);
     font-weight: var(--font-style-body-md-weight);
     line-height: var(--font-style-body-md-line-height);
   }
 
-  .bodySm {
+  .body-sm {
     font-family: var(--font-style-body-sm-family);
     font-size: var(--font-style-body-sm-size);
     font-weight: var(--font-style-body-sm-weight);

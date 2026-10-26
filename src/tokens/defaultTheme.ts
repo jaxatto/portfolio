@@ -275,8 +275,7 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       label: primitives.font.size[14],
       control: primitives.font.size[16],
       lead: primitives.font.size[32],
-      // The role scale continues past the fluid heading styles. `-sm` is the step down for smaller screens.
-      'heading-xl-sm': primitives.font.size[28],
+      // The role scale continues past the fluid heading styles.
       'heading-xl': primitives.font.size[36],
       'display-sm': primitives.font.size[48],
       display: primitives.font.size[56],

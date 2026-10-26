@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
 
   return (
     <header className={styles.header}>
-      <a href="#main-content" className={styles['skip-link']}>
+      <a href="#main-content" className={styles.skipLink}>
         Skip to main content
       </a>
 
@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
                 <li key={link.url}>
                   <Link
                     to={link.url}
-                    className={clsx(typography.bodyLg, styles['nav-link'])}
+                    className={clsx(typography.bodyLg, styles.navLink)}
                     aria-current={isActive(pathname, link.url) ? 'page' : undefined}
                   >
                     {link.name}

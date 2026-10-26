@@ -1,6 +1,6 @@
 # Decisions archive
 
-Full history and reasoning, oldest first. Code comments cite these IDs (`D-028`), so every entry stays. Some entries are superseded by later ones, and the current rules are in [decisions.md](decisions.md). D-130 appears twice: headings are never styled by their tag, and the icon size, state wash, layer and theme-color tokens. Add new decisions to `decisions.md`, not here.
+Full history and reasoning, oldest first. Code comments cite these IDs (`D-028`), so every entry stays. Some entries are superseded by later ones, and the current rules are in [decisions.md](decisions.md). D-130 appears twice: headings are never styled by their tag, and the icon size, state wash, layer and theme-color tokens. Add new decisions to `decisions.md`, not here. Entries from D-141 on sit at the end, after the 2026-10-26 compression.
 
 ## D-001 Commit identity and workflow — decided, 2026-10-13
 Commits are authored as Jax Engel. Work in small slices with frequent small commits; merge in small steps into `redesign` (D-007). Why: Jax wants to move fast while saving work as we go.
@@ -653,3 +653,114 @@ The Footer's three icon-only external links became `#components/IconLink` (toolt
 ## D-140: Page folder shape — decided, 2026-10-25
 
 Every page folder is `Page.tsx`, `Page.module.css` and `index.ts`, plus optional `components/` and `resources/`. Each page's SEO title and description live in `resources/meta.ts` as `export const meta` (Work's moved out of `Work.tsx`). Short page copy stays inline (D-003) at any length. Jax chose this on 2026-10-26: About's, NotFound's and NextStudy's `content.ts` files are gone and their text sits in constants at the top of the page file, word for word. Resume's `roles.ts` and `logos.ts` and About's `images.ts` are data and stay in `resources/`. Studies keep `pages/<Study>/{content.ts, meta.ts, images/}` because each study is a content bundle, not a page component.
+
+<!-- Entries below were moved here from decisions.md when it was compressed again (2026-10-26). Some IDs repeat (D-149 carries the image fallback text of D-148, and the numbering of D-154 to D-159 is out of order). -->
+
+## D-141: Raw values that stay, and what is still open — decided, 2026-10-26
+
+A scan of `src/**/*.css` found 82 declarations with a literal length, color, duration or ratio outside `var(--token)`. These stay as written, each for a stated reason:
+- **Layout measures:** the card and panel geometry in rem (preview heights, text and preview widths, panel heights, `--image-w`), the Resume column widths (D-028, D-039, D-054, D-124). They size one component and match no scale step.
+- **Em-sized glyphs** (`1em`, `1.2em` in Button, StudyCard, TextLink, Strength): they follow their text on purpose. Fixed glyphs use `--size-icon-*`.
+- **Design values with a decision:** card lift 5% and 30%, the lift shadow color 55% and black 50%, the footer band mix, the 404 display size (D-022, D-028, D-049, D-118).
+- **Ambient hero loops** keep their own timing and em sizes (D-118).
+- **Visually hidden:** `.sr-only` uses `!important` so it works anywhere. The skip link hand-writes the same block because it must un-hide on focus, which an `!important` rule would block.
+- **Grid tracks** (`minmax(0, 1fr)`, `repeat(n, …)`) are layout, not values.
+
+The icon control line inset is now derived from `--size-target-md` and the glyph size (`calc((target - glyph) / 2 + 1px)`), so the toggle and footer icons share one rule. Open items with a proposed default of "keep" are listed in `docs/untokenized-styles.md`.
+
+## D-142: A 2px space token — decided, 2026-10-26
+
+Superseded by D-153: the 2px step is `--space-3xs`.
+
+## D-143: Space tokens drop the `size` prefix — decided, 2026-10-26
+
+Space tokens are `--space-*`, not `--size-space-*`. Other size tokens keep `--size-*` for now. The scale is in D-153.
+
+## D-144: Icon size, state wash, layer and theme-color tokens — decided, 2026-10-25
+
+`--size-icon-xs/sm/md/lg` (16, 20, 24, 28px after D-146, with `xs` for Back to top) in `defaultTheme.ts`. `--state-wash-hover` (12%) and `--state-wash-active` (20%), the tint an outline control mixes in on hover and press, and `--layer-behind/raised/tooltip/skip-link` (-1, 10, 30, 1000) in `effects.ts`. BackToTop, Button, ModeToggle, Footer, Tooltip and Header read them. The browser bar color (`theme-color`) is now generated from `surface.default` into `src/tokens/themeColor.ts`, and `index.html` (meta tag and pre-paint script) and `ThemeProvider` read that file, through a small Vite plugin for the HTML. This fixes a drift: the dark value typed by hand was `#0f172b`, while the dark surface is `oklch(21% 0.05 280)`, which is `#14152f`. The dark browser bar on phones is now the page color. The fixed 28px footer glyph size has no neighbor on the 16, 24, 32 scale, so `lg` is 28. Checked against the previous build: computed color, background, border, shadow, fill, opacity, z-index and icon size matched on 6 routes in light and dark at 1280 and 375 (24 of 24), and hover, press, tooltip, skip link and back-to-top values matched except a mid-transition sample.
+
+D-144 follow-up (2026-10-25): the literals that already equal a token now use it (Image, StudyCard, About, Resume bar, Role logo), Header's line offsets read `--size-border-width-default`, and the Resume bar radius reads `--size-radius-full`. The computed radius string changes from 2px to 9999px and the pixels do not: the Resume full-page screenshot is byte-identical. Computed styles, element sizes and pseudo-elements matched on 5 of 6 routes at 1280 and 375 in light and dark, and on Resume apart from that radius string.
+
+## D-145: Icon line inset from the tokens, the footer line bug, optical values that stay — decided, 2026-10-25
+
+The hover line under a footer icon and under the mode toggle is inset by the glyph's own inset in its 40px target plus 1px, because the drawn edge of these glyphs sits a pixel inside their box: `(--size-target-md - --size-icon-*) / 2 + 1px`, which is 7px for the 28px footer glyphs and the 28px toggle glyph. Both read it through `--line-inset`. The footer glyphs also rise 1px (`--icon-optical`) so they clear the line, which stays where it was.
+
+Bug found on the way: the footer's `right: 7px; left: 7px` on `::after` never applied. In the bundle that rule comes before the shared `.line::after` rule at the same specificity, so the line under a footer icon was the full 40px, in the built site and in dev. It now uses `--line-inset` like the toggle, so the footer line is 26px wide, centered, as the code and its comment always said.
+
+How the footer icon links and the mode toggle differ today: the rest color (violet link color in the footer, near-black variant color on the toggle), the glyph size (the toggle was 24px and is 28px from 2026-10-25, matching the footer, so both lines are 26px), the pressed state (the toggle also tints its line, the footer icons tint only the glyph), and the element (the toggle is a button with its border, padding and background reset, an icon swap animation and a pointer cursor). Target size, radius, hover color, focus ring and line geometry are the same.
+
+Kept as written: the HeroMarks values (1.2 stroke width, 1px and 2px margins, the tag hanging 2px under the arrow tip and 10px in) are tuned to the drawn cursor and its tag. The Home hero sentence keeps `max-width: 900px`, set so the larger "build" chip does not push "accessible" to a third line at desktop width.
+
+## D-146: Icons in px, and a link's text is its icon's size — decided, 2026-10-25
+
+`--size-icon-sm/md/lg` are 20, 24 and 28px, and every icon reads one of them in px, with no `em` sizes left on UI icons (the hero caret and cursor marks follow their text on purpose). Moon and sun and the footer glyphs are 28px (lg), Button icons 24px (md), text-link arrows, card link arrows and the Back to top arrow 20px (sm). The footer email arrow stays em-sized. The text of a link with an icon is set to the icon's size from one custom property, `--link-icon`: TextLink with an icon and the study card links are 20px, and the footer email is not part of this: it keeps its fluid size (16px up to 32px at about 550px wide, D-013) with a 1em arrow, as before. This makes card links 20px on every width (they were 14 to 20px by breakpoint, and 14 to 16px under a case study), so the study variant's links are larger than before. Button labels keep their own size (16.6 to 20px) and are not tied to the 24px icon. Checked on Home, Resume, the 404 and a study at 1280, 700 and 375: sizes as listed, no horizontal scroll.
+
+## D-147: Hover and pressed colors of links, buttons and tooltips — decided, 2026-10-25
+
+Every interactive control steps from the primary hover and pressed colors toward the next violet: `src/styles/deepen.module.css` mixes `--color-primary-default-hover` toward violet-900 by `--state-deepen-hover` and `--color-primary-default-active` toward violet-950 by `--state-deepen-active` (oklch), and exposes `--state-color-hover` and `--state-color-active`. Light uses 50% and 30%, so hover is half a step past violet-800 (lightness 0.406, chroma 0.21) and pressed is 0.351 and 0.175. Dark uses 0%, so it keeps violet-200 and violet-100. Sections on a dark ground (`tone.css`) set both amounts to 0%. Mixing with black or white was tried first (20%, then 10%) and washed the colors out, because the chroma fell with the lightness. The line style composes it for every link (text and line), and so do `Button`, Back to top and the Tooltip, whose tag background is the hover color of the control it names. The pressed rules in `Button` now come after the hover rules, so a pressed button shows its own color. The tooltip opens after 400ms, fades in over 350ms while drifting 4px away from the control and out over 250ms, instantly under reduced motion, and the footer icon tooltips sit 2px higher. `Button` and `TextLink` do nothing on a `mailto:` click on localhost. The Resume strength card links are 20px text with a 20px arrow, and the ActBlue strength title is "Self-serve workflows" so the three cards align.
+
+## D-148: Image fallbacks take their frame's shape; a person icon on the Resume portrait; study card previews fall back — decided, 2026-10-26
+
+The shared `Image` fallback copies its frame's corner radius (`border-radius: inherit`) instead of drawing a circle, so a failed Resume portrait stays a rounded square. The Resume portrait shows a `user` icon (Phosphor bold, new in `src/assets/icons`), the About photos keep their pet icons, and the Home study card previews now render through `Image`, so a failed screenshot leaves the sample window with a muted image icon. `Image` takes `priority` for the first card, and its wrapper is `display: contents` in the card so the screenshot lays out as before (checked: sizes and positions match at 1280 and 375). Study page images (banner, compare, panels) have no fallback yet.
+
+## D-149: Primitives and semantic tokens stay apart — decided, 2026-10-26
+
+Three rules, enforced. (1) Components never read a `--primitive-*` token or import `primitives.ts`. (2) Every semantic token resolves to a primitive or another semantic token. The generator throws on a semantic value with no primitive, and `scripts/tokens/token-layers.test.ts` checks `theme.css` for raw values, undefined references and any use of a primitive outside `src/tokens`. (3) No semantic token is named for a value. The `--font-size-12` to `--font-size-56` aliases are gone. Components use role names: `label` (14), `control` (16), `lead` (32), `card-title-compact` (28), `card-title` (36), `display-sm` (48), `display` (56). New primitives back what was raw: a `dimension` size scale (icon, target, layout), `motion` (durations, easings), `shadow`, `utils.layer`, `utils.ratio` (the half in the icon inset calc), more `utils.opacity` steps for the deepen amounts, and `font.fluid` for the sloped part of each `clamp()`. `--state-deepen-off` is the semantic zero that `tone.css` uses. A `calc()` of other tokens in `defaultTheme.ts` stays as written and the raw-value check covers its parts. Computed font sizes, spacing, durations, layers and shadows matched the previous build (About, Resume and Indeed h1 56px, Home card title 36px, the 404 numeral 140px), and the 33 accessibility tests pass. Supersedes the value-named sizes in D-033.
+
+The shared `Image` fallback copies its frame's corner radius (`border-radius: inherit`) instead of drawing a circle, so a failed Resume portrait stays a rounded square. The Resume portrait shows a `user` icon (Phosphor bold, new in `src/assets/icons`), the About photos keep their pet icons, and the Home study card previews now render through `Image`, so a failed screenshot leaves the sample window with a muted image icon. `Image` takes `priority` for the first card, and its wrapper is `display: contents` in the card so the screenshot lays out as before (checked: sizes and positions match at 1280 and 375).
+
+The study card fallback is a tint of the card's own palette (14% of the text color in light, 8% in dark), so it reads as part of the card.
+
+## D-150: Study page images fall back to their frame — decided, 2026-10-26
+
+`StudyImage`, `StudyCompare` and `StudyPanels` render through `Image`. A failed picture leaves its frame (banner, column, before or after shot, panel) as a 12% tint of the muted text color with the image icon, at the size the picture would have had. `StudySection` now passes each image's width and height so the plain figure keeps its aspect ratio (checked: loaded image sizes are unchanged at 1280 on all four studies).
+
+## D-151: Route chunks — decided, 2026-10-25
+
+Home stays in the entry bundle. About, Resume, the case studies and NotFound are `React.lazy` chunks behind one `Suspense` in `App.tsx`, whose fallback is the real `Header`. The static first-paint shell tried the same day moved when React mounted, so D-152 replaced it.
+
+## D-152: Dead tokens removed, only read states derived, a guard for undefined tokens — decided, 2026-10-26
+
+Removed because nothing read them: `surface.accent`, `state.overlay-tint` and its inverse, `content.inverse`, `layout.gutter`, the `decorative` font family (the same as body), the `all-caps` text transform (it pointed at `capitalize`, and `uppercase` exists), `extractInteractStates`, and the hover and pressed colors nobody uses. Hover and pressed states are derived only for what is read: each group's container hover and its foreground's hover and pressed (`palette.module.css`), plus the primary default hover and pressed (`deepen.module.css`). Every palette keeps the same members (`default`, `on-default`, `container`, `on-container`), so `quinary` and `brand` keep a default pair that nothing reads yet. `TextStyleKey` lists the eight styles that exist. `token-layers.test.ts` now also fails when a component reads a token that is not defined, which would have caught `shell.css` still using the old `--size-space-*` names after D-143 (fixed).
+
+## D-153: The space scale, and space primitives — decided, 2026-10-26
+
+Space steps are `none` (0), `3xs` (2px), `2xs` (4), `xs` (8), `sm` (12), `md` (16), `lg` (20), `xl` (24), `2xl` (32), `3xl` (40), `4xl` (48), `5xl` (56), `6xl` (64) and `7xl` (80). The `section-*` names are gone, so one scale runs without a break. Every old name moved one step down, so `--space-lg` is now `--space-md`. Each use kept its pixel value, which I checked against the old and new `theme.css`. Space primitives are `--primitive-space-8`, without `size`. The other size scales keep `--primitive-size-*`.
+
+## D-159: Pre-render every route and hydrate — decided, 2026-10-25
+
+`npm run build` makes the client build, then a server build (`src/entry-server.tsx`, into `.ssr`), then `scripts/prerender.ts` renders each route to HTML with `StaticRouter` and writes it into `#root` of `dist/<route>/index.html` and `dist/404.html`. The script also writes each route's title, description, canonical and og tags (it replaces `prerender-meta.ts`, D-122) and adds the lazy page's CSS and `modulepreload` links from the client manifest. `src/index.tsx` calls `hydrateRoot` when `#root` has markup and `createRoot` on the dev server. The router moved out of `App` into the two entries. `vite-react-ssg` was not used because it supports react-router-dom 6 and the site is on 7.
+
+Rules that keep hydration clean: render nothing from `window`, `localStorage`, the clock or `Math.random` during the first render. `ThemeProvider` starts from light and a layout effect reads the stored choice and the OS setting before paint (until then `index.html`'s pre-paint script owns `data-theme`). `NotFound` shows its first line in the HTML and picks a random one after mount. The header's active link ignores a trailing slash, which GitHub Pages adds. A new route needs an entry in `scripts/prerender.ts`.
+
+Checked on a development-mode build (readable React warnings), 8 routes in light and dark at 1280 and 375: no hydration warnings or console errors. On a throttled connection (1.6 Mbps, 150 ms), Home paints at 0.7 s and About at 0.7 s, with a layout shift under 0.002.
+
+## D-154: Inverse surface, one strong weight, text-style tokens trimmed — decided, 2026-10-26
+
+`surface.error` is `surface.inverse` (`--color-surface-inverse`) and the 404 tone is `data-tone="inverse"`: it is the dark ground that text and links on it re-point to `on-accent` values for, so it is not about errors. `font-weight` has one `strong` (900) in place of `strong` and `extra-strong`. Manrope's `@font-face` stops at 800, so the browser renders 900 as 800, and Inter renders 900. Measured in the built site: Manrope text is the same width at 800 and 900, Inter is not. Removed because nothing read them: `font-weight-subtle` and the 13 `font-text-*` tokens (transform, decoration, thickness, underline offset), with their type fields. The primitives for them stay. `tone.css` stopped re-pointing `content-default-hover` and `-active`, which D-152 had already removed.
+
+
+## D-158: Home card previews are WebP, and the first one loads at high priority — decided, 2026-10-25
+
+The Toyota, Indeed and ActBlue card previews are `-min.webp` (quality 90, visually identical to the PNGs): 127, 75 and 85 KB became 37, 30 and 31 KB. ServiceNow stays a PNG because it is already 28 KB and WebP gains nothing. `?size` reads WebP headers (`scripts/vite-image-size.ts`, tested). `Image` sets `fetchPriority="high"` when `priority` is on, so the first preview does not queue behind the scripts. On a throttled connection (1.6 Mbps, 150 ms) Home's largest paint went from 2.9 s to 1.2 s and first paint stayed at 0.7 s.
+
+## D-155: Fixed font sizes are named for a role in the type scale — decided, 2026-10-26
+
+A semantic size names a step of the type scale, never a component or a place. `card-title` (36) is `heading-xl`, continuing past the fluid `heading-sm/md/lg` styles. The phone card title uses `heading-lg` (24px at 375, was 28px), so there is no `-sm` step for it. `display-sm` (48) stays the step down from `display` (56). `label`, `control` and `lead` stay.
+
+## D-157: robots.txt and a generated sitemap — decided, 2026-10-25
+
+`public/robots.txt` allows everything and points to the sitemap. `scripts/prerender.ts` writes `dist/sitemap.xml` from the same route list as the pages, with the trailing-slash URLs the canonical tags use, so a new route is in the sitemap the moment it is in the script. ESLint ignores `temp/`. The site's one host is `https://www.jaxengeldesign.com`, the CNAME, because Pages redirects the bare domain to it (decided 2026-10-25). The canonical, og and sitemap URLs, `robots.txt`, `homepage` and `siteURL` all use it. The resume HTML in `resume/` still links the bare domain, which redirects, and waits for the Resume work.
+
+## D-156: One way to apply type — decided, 2026-10-26
+
+Components apply a type class in their markup, `className={clsx(typography.headingLg, styles.title)}`, and no longer use `composes` for type. `src/styles/type.module.css` is generated by `npm run build:theme` from the text styles, one class per style (eight, including the three body styles that were read property by property before). `heading-sm` is the bold label weight in the tokens (D-055), so its class needs no override. `caption` is `bodySm`. Components do not read `--font-style-*`, with one allowed exception: a media query that steps a card's body size on phones (StudyCard), since a class cannot change at a breakpoint. `token-layers.test.ts` enforces both. Computed font family, size, weight, line height, letter spacing and margins matched the previous build on 8 routes at 375, 768 and 1280, except the Home byline, which is `display: none` above 640px. The layer is still needed: it keeps the shared defaults under a component's own rules whatever the bundle order.
+
+## D-160: `main` is the integration branch — decided, 2026-10-26
+
+The redesign merged into `main` on 2026-10-25 (PR #36), so `redesign` is no longer a long-lived branch. Session branches start from the latest `main`, merge back by pull request only after Jax approves, and a merged branch is deleted automatically and restarted from `main` for follow-up work. Nothing pushes straight to `main`. Deploying to GitHub Pages is still a separate step that only runs when Jax asks. Supersedes D-007.
+
+## D-161: Kebab-case classes, camelCase in markup — decided, 2026-10-26
+
+Class names in CSS are kebab-case, and components are PascalCase. Vite reads classes as camelCase (`localsConvention: 'camelCaseOnly'`), so `.nav-link` is `styles.navLink` and bracket access is not used. The generated type classes follow it (`.heading-lg` is `typography.headingLg`). `scripts/css-conventions.test.ts` fails on a class that is not kebab-case, on bracket access to a module, and on markup that reads a class its module does not define. The last check found two dead reads in `Image.tsx` (`component-wrapper` and `fallback-icon` never existed), now removed. Computed layout, color, spacing and type matched the previous build on 8 routes at 375, 768 and 1280. The one variation is the 404 quip, which is random and changes the text box width.

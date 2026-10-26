@@ -15,8 +15,15 @@ type NameTagProps = {
   children: React.ReactNode;
 };
 
+const cornerClass: Record<NameTagCorner, string> = {
+  'top-left': styles.topLeft,
+  'top-right': styles.topRight,
+  'bottom-right': styles.bottomRight,
+  'bottom-left': styles.bottomLeft,
+};
+
 const NameTag: React.FC<NameTagProps> = ({ corner, className, children }) => (
-  <span className={clsx(styles.label, styles[corner], className)}>{children}</span>
+  <span className={clsx(styles.label, cornerClass[corner], className)}>{children}</span>
 );
 
 export default NameTag;

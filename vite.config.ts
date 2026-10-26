@@ -28,6 +28,10 @@ export default defineConfig({
     }),
   ],
   base: '/',
+  css: {
+    // Class names are kebab-case in CSS and camelCase in TSX (`.nav-link` is `styles.navLink`).
+    modules: { localsConvention: 'camelCaseOnly' },
+  },
   server: {
     // Reachable from a phone on the same network, and no auto-opened tab (sessions have no browser).
     host: true,

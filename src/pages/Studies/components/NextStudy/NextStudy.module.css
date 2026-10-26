@@ -15,12 +15,12 @@
 }
 
 /* After an image the image's own 40px margin is the gap above the line. */
-.afterMedia {
+.after-media {
   margin-top: 0;
 }
 
 @media (max-width: 640px) {
-  .wrapper:not(.afterMedia) {
+  .wrapper:not(.after-media) {
     margin-top: var(--space-4xl);
   }
 }

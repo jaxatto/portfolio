@@ -11,7 +11,7 @@
   margin-top: var(--space-4xl);
 }
 
-.section.endsWithMedia + .section {
+.section.ends-with-media + .section {
   margin-top: 0;
 }
 
