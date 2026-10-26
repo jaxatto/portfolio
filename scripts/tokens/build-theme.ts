@@ -10,6 +10,7 @@ import { buildEffectVars } from './build-theme/effects';
 import { buildSemanticColorVars } from './build-theme/semanticColors';
 import { buildStaticSemanticVars } from './build-theme/semanticStatic';
 import { createValueResolver } from './build-theme/valueResolver';
+import { findRawValues } from './build-theme/rawValues';
 import { renderThemeColorModule } from './build-theme/themeColor';
 import { writeThemeCss } from './build-theme/writeThemeCss';
 
@@ -40,19 +41,30 @@ function buildTheme() {
   const resolveValue = createValueResolver({
     primitiveFontMaps,
     primitiveMaps,
-    fontSizes: defaultTheme.font.size,
   });
 
   const { lightSemanticVars, darkSemanticVars } = buildSemanticColorVars(
     defaultTheme.colors,
     resolveValue,
   );
-  const staticSemanticVars = buildStaticSemanticVars(defaultTheme, resolveValue, primitiveSizeMaps);
+  const staticSemanticVars = buildStaticSemanticVars(
+    defaultTheme,
+    resolveValue,
+    primitiveSizeMaps,
+    primitiveFontMaps,
+  );
 
-  const effectVars = buildEffectVars();
+  const effectVars = buildEffectVars(primitiveMaps);
   const staticVars = [...staticSemanticVars, ...effectVars.staticVars];
   const lightVars = [...lightSemanticVars, ...effectVars.lightVars];
   const darkVars = [...darkSemanticVars, ...effectVars.darkVars];
+
+  const raw = findRawValues([...staticVars, ...lightVars, ...darkVars]);
+  if (raw.length > 0) {
+    throw new Error(
+      `Semantic tokens must reference primitives, not raw values:\n${raw.join('\n')}`,
+    );
+  }
 
   // Primitives are raw scale steps. Only the ones a semantic token points at are emitted, so the
   // stylesheet doesn't carry whole unused ramps (components never read primitives, D-002).

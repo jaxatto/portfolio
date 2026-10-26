@@ -20,7 +20,7 @@
   color: var(--color-content-prose);
   cursor: pointer;
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-label);
   font-weight: var(--font-weight-emphasis);
   line-height: var(--font-line-height-default);
   text-decoration: none;

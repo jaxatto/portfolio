@@ -75,6 +75,8 @@ export function buildPrimitiveTokenContext() {
     extractPrimitives(values as TokenTree, `size-${toKebabCase(category)}`, 'size', scopedMap);
   }
   extractPrimitives(primitives.utils as TokenTree, 'utils', 'utils');
+  extractPrimitives(primitives.motion as TokenTree, 'motion', 'motion');
+  extractPrimitives(primitives.shadow as TokenTree, 'shadow', 'shadow');
 
   return {
     primitiveVars,

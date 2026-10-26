@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-144.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-150.
 
 ## Workflow
 
@@ -11,10 +11,10 @@ The rules that are in force today, grouped by area, with the IDs that hold the r
 
 ## Tokens, theme and CSS
 
-- Token source is `src/tokens`, compiled by `npm run build:theme` into `theme.css`, which is never hand-edited (D-002). The generator emits only the primitives a semantic token reads (D-118).
+- Token source is `src/tokens`, compiled by `npm run build:theme` into `theme.css`, which is never hand-edited (D-002). Primitives are raw scale steps, semantic tokens only reference them, and components only read semantic tokens (D-149). The generator emits only the primitives a semantic token reads (D-118).
 - Light is `:root`, dark is `[data-theme='dark']`. `data-theme` always holds the theme being shown (stored choice, else the OS), so there are no `prefers-color-scheme` blocks (D-128). The header toggle is always on and the `.env` gate is gone (D-006, D-011, D-139).
 - Plain CSS modules on tokens, no SCSS (D-091). Prettier formats the code (D-121). Imports use the `#` aliases (D-120).
-- Type: sizes are named by pixel (`--font-size-28`) and fluid down from the Figma desktop size at 1280px (D-013, D-033). Manrope tops out at 800, Inter keeps 900 for headings (D-010). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
+- Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes are named by role (`--font-size-label`, `-control`, `-lead`, `-card-title`, `-card-title-compact`, `-display-sm`, `-display`), never by value (D-149). Manrope tops out at 800, Inter keeps 900 for headings (D-010). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
 - Shared steps in `type.module.css` (`titleMd`, `headingLg`, `headingSm`, `headingMd`, `caption`) are composed by components, which add only color, spacing and wrapping. They sit in `@layer type` so a page's own media-query size wins (D-093, D-117, D-137).
 - Heading tags are semantic only. No rule targets `h1` to `h6`, the look comes from a class (D-130, D-134).
 - Breakpoints are literal: 640 (phone, 641 up) and 900 (desktop). Any other width carries a comment (D-118).
@@ -120,10 +120,16 @@ Every interactive control steps from the primary hover and pressed colors toward
 
 ## D-148: Image fallbacks take their frame's shape; a person icon on the Resume portrait; study card previews fall back — decided, 2026-10-26
 
+The shared `Image` fallback copies its frame's corner radius (`border-radius: inherit`) instead of drawing a circle, so a failed Resume portrait stays a rounded square. The Resume portrait shows a `user` icon (Phosphor bold, new in `src/assets/icons`), the About photos keep their pet icons, and the Home study card previews now render through `Image`, so a failed screenshot leaves the sample window with a muted image icon. `Image` takes `priority` for the first card, and its wrapper is `display: contents` in the card so the screenshot lays out as before (checked: sizes and positions match at 1280 and 375). Study page images (banner, compare, panels) have no fallback yet.
+
+## D-149: Primitives and semantic tokens stay apart — decided, 2026-10-26
+
+Three rules, enforced. (1) Components never read a `--primitive-*` token or import `primitives.ts`. (2) Every semantic token resolves to a primitive or another semantic token. The generator throws on a semantic value with no primitive, and `scripts/tokens/token-layers.test.ts` checks `theme.css` for raw values, undefined references and any use of a primitive outside `src/tokens`. (3) No semantic token is named for a value. The `--font-size-12` to `--font-size-56` aliases are gone. Components use role names: `label` (14), `control` (16), `lead` (32), `card-title-compact` (28), `card-title` (36), `display-sm` (48), `display` (56). New primitives back what was raw: a `dimension` size scale (icon, target, layout), `motion` (durations, easings), `shadow`, `utils.layer`, `utils.ratio` (the half in the icon inset calc), more `utils.opacity` steps for the deepen amounts, and `font.fluid` for the sloped part of each `clamp()`. `--state-deepen-off` is the semantic zero that `tone.css` uses. A `calc()` of other tokens in `defaultTheme.ts` stays as written and the raw-value check covers its parts. Computed font sizes, spacing, durations, layers and shadows matched the previous build (About, Resume and Indeed h1 56px, Home card title 36px, the 404 numeral 140px), and the 33 accessibility tests pass. Supersedes the value-named sizes in D-033.
+
 The shared `Image` fallback copies its frame's corner radius (`border-radius: inherit`) instead of drawing a circle, so a failed Resume portrait stays a rounded square. The Resume portrait shows a `user` icon (Phosphor bold, new in `src/assets/icons`), the About photos keep their pet icons, and the Home study card previews now render through `Image`, so a failed screenshot leaves the sample window with a muted image icon. `Image` takes `priority` for the first card, and its wrapper is `display: contents` in the card so the screenshot lays out as before (checked: sizes and positions match at 1280 and 375).
 
 The study card fallback is a tint of the card's own palette (14% of the text color in light, 8% in dark), so it reads as part of the card.
 
-## D-149: Study page images fall back to their frame — decided, 2026-10-26
+## D-150: Study page images fall back to their frame — decided, 2026-10-26
 
 `StudyImage`, `StudyCompare` and `StudyPanels` render through `Image`. A failed picture leaves its frame (banner, column, before or after shot, panel) as a 12% tint of the muted text color with the image icon, at the size the picture would have had. `StudySection` now passes each image's width and height so the plain figure keeps its aspect ratio (checked: loaded image sizes are unchanged at 1280 on all four studies).

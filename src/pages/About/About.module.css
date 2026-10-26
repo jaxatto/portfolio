@@ -178,12 +178,12 @@
 /* The hero title is 48px below 900px (it was the fluid 40px floor) and 56px from 900px, the top of the type
    scale, matching Home's sentence (D-108). */
 .title {
-  font-size: var(--font-size-48);
+  font-size: var(--font-size-display-sm);
 }
 
 @media (min-width: 900px) {
   .title {
-    font-size: var(--font-size-56);
+    font-size: var(--font-size-display);
     letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
   }
 }

@@ -254,7 +254,7 @@
   /* Desktop title is 36px, a real step on the type scale now (D-033). Below 900px it stays
 	   heading-lg. */
   .horizontal .title {
-    font-size: var(--font-size-36);
+    font-size: var(--font-size-card-title);
   }
 }
 
@@ -304,7 +304,7 @@
 @media (max-width: 640px) {
   /* Phone title is 28px, a real step on the type scale (D-033). */
   .title {
-    font-size: var(--font-size-28);
+    font-size: var(--font-size-card-title-compact);
   }
 
   /* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). */

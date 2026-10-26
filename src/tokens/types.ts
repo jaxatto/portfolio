@@ -90,7 +90,7 @@ export type TypographyStep<TCategory extends TypographyCategory> =
 
 export type TextStyleDefinition = {
   family: keyof SemanticThemeTypography['family'];
-  size: keyof SemanticThemeTypography['size'] | FluidValue;
+  size: FluidValue;
   weight: keyof SemanticThemeTypography['weight'];
   'line-height': keyof SemanticThemeTypography['line-height'];
   'letter-spacing'?: keyof SemanticThemeTypography['letter-spacing'];
@@ -121,10 +121,12 @@ export type SemanticThemeTypography = {
   styles: Partial<Record<TextStyleKey, TextStyleDefinition>>;
 };
 
+// A fluid size is `clamp(min, preferred, max)`. All three are primitive steps, so a semantic type style
+// never holds a raw number.
 export type FluidValue = {
-  min: keyof SemanticThemeTypography['size'];
-  preferred: string;
-  max: keyof SemanticThemeTypography['size'];
+  min: keyof Primitives['font']['size'];
+  preferred: keyof Primitives['font']['fluid'];
+  max: keyof Primitives['font']['size'];
 };
 
 /* ------------------------------------------------------------- */
@@ -135,8 +137,9 @@ export type SizeCategory = keyof Primitives['sizes'];
 export type SizeStep<TCategory extends SizeCategory> = keyof Primitives['sizes'][TCategory];
 
 // Helper type to decouple the generic definition from the specific layout properties
+// `dimension` is a primitive scale only: icon, target and layout tokens read it, nothing is named for it.
 type BaseSemanticThemeSizes = {
-  [K in SizeCategory]: Record<string, string>;
+  [K in Exclude<SizeCategory, 'dimension'>]: Record<string, string>;
 };
 
 export type SemanticThemeSizes = BaseSemanticThemeSizes & {
