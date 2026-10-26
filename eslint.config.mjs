@@ -5,7 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist', 'node_modules', 'resume', '.claude', 'src/styles/theme.css'] },
+  { ignores: ['dist', 'node_modules', 'resume', '.claude', 'temp', 'src/styles/theme.css'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   jsxA11y.flatConfigs.recommended,

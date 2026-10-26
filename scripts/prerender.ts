@@ -119,8 +119,17 @@ async function main() {
   // GitHub Pages serves this for every path without a file, so it carries the Not Found page.
   writeFileSync(join(dist, '404.html'), build(notFound, rendered.get(notFound.path) ?? ''));
 
+  // One entry per route, with the same trailing-slash URL as its canonical tag.
+  const urls = pages.map(
+    (page) => `  <url><loc>${origin}${page.path === '/' ? '' : page.path}/</loc></url>`,
+  );
+  writeFileSync(
+    join(dist, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`,
+  );
+
   rmSync(ssrDir, { recursive: true, force: true });
-  console.log(`Pre-rendered ${pages.length} routes and 404.html.`);
+  console.log(`Pre-rendered ${pages.length} routes, 404.html and sitemap.xml.`);
 }
 
 main();
