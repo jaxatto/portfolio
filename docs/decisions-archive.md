@@ -792,3 +792,7 @@ Jax wants one case across the site. Headings, labels and chips use sentence case
 ## D-168: Four approach cards and contract labels — decided, 2026-10-26
 
 The five approach cards became four, rephrased from Jax's description and not quoted: curiosity and documentation, focus and trade-offs, accessibility and teaching, and prototyping with AI. Share and teach folded into accessibility. The place line on Resume roles shows "(contract)" again for Spectrum, Toyota, ServiceNow and Albertsons, as the PDF does. It supports the tenure story in the "What I'm looking for" section. D-164 and D-167 are superseded for the card list.
+
+## D-169: Resume role header on phones — decided, 2026-10-26
+
+Jax asked for the role header without wrapping on phones only, with the title staying in the body. Desktop keeps the split card. On phones the colored side is a grid: logo, company and dates on the first row, the place under the company on the second, all `nowrap`. Logo, company, dates and place in one line need about 480px for the longest role (Toyota, with "hybrid, contract") and a phone gives 323px, so one line is not possible without cutting words. Below 360px the dates drop to their own row, since ServiceNow beside its dates no longer fits. A first attempt that moved the band and title to the top on every width was reverted.
