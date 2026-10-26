@@ -21,16 +21,16 @@
 
 @media (hover: hover) {
   .iconControl:hover {
-    color: var(--color-primary-default);
+    color: var(--state-color-hover);
   }
 }
 
 .iconControl:active {
-  color: var(--color-primary-default-active);
+  color: var(--state-color-active);
 }
 
 .iconControl:active::after {
-  background: var(--color-primary-default-active);
+  background: var(--state-color-active);
 }
 
 .iconControl:focus-visible {

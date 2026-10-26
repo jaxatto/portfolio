@@ -13,11 +13,14 @@
   --color-content-emphasis: var(--color-content-on-accent);
   --color-content-link: var(--color-content-on-accent);
   --color-primary-default: var(--color-content-on-accent-hover);
+  --color-primary-default-hover: var(--color-content-on-accent-hover);
+  --state-deepen-hover: 0%;
+  --state-deepen-active: 0%;
   --color-primary-default-active: var(--color-content-on-accent-active);
   --color-primary-on-container-active: var(--color-content-on-accent-active);
   --color-state-focus-ring: var(--color-content-on-accent);
-  /* Name tags and tooltips: the same soft indigo as the hovers, with the page ground (the dark navy) as text. */
-  --tag-bg: var(--color-content-on-accent-hover);
+  /* Name tags and tooltips: the same hover color the controls take, with the page ground (the dark navy) as text. */
+  --tag-bg: var(--state-color-hover);
   --tag-fg: var(--color-surface-default);
 }
 /* The 404 (D-038): the page sets its own indigo ground, and every token the shared header and links read is
@@ -32,8 +35,14 @@
   --color-content-default-hover: var(--color-content-on-accent-hover);
   --color-content-default-active: var(--color-content-on-accent-active);
   --color-primary-default: var(--color-content-on-accent-hover);
+  --color-primary-default-hover: var(--color-content-on-accent-hover);
+  --state-deepen-hover: 0%;
+  --state-deepen-active: 0%;
   --color-primary-default-active: var(--color-content-on-accent-active);
   --color-state-focus-ring: var(--color-content-on-accent);
+  /* Tooltips: the hover color with the 404's ground as text (white on the soft indigo was unreadable). */
+  --tag-bg: var(--state-color-hover);
+  --tag-fg: var(--color-surface-error);
   /* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
   --color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
 }

@@ -18,6 +18,12 @@ export function buildEffectVars() {
   for (const [key, val] of Object.entries(effects.wash)) {
     staticVars.push(`  ${cssVarName('state', 'wash', key)}: ${val};`);
   }
+  for (const [state, { amount, target }] of Object.entries(effects.deepen)) {
+    lightVars.push(`  ${cssVarName('state', 'deepen', state)}: ${amount.light};`);
+    darkVars.push(`  ${cssVarName('state', 'deepen', state)}: ${amount.dark};`);
+    lightVars.push(`  ${cssVarName('state', 'deepen', state, 'target')}: ${target.light};`);
+    darkVars.push(`  ${cssVarName('state', 'deepen', state, 'target')}: ${target.dark};`);
+  }
   for (const [key, val] of Object.entries(effects.layer)) {
     staticVars.push(`  ${cssVarName('layer', key)}: ${val};`);
   }

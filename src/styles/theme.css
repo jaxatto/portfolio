@@ -174,9 +174,13 @@
   --size-focus-ring-offset: var(--primitive-size-border-width-3);
   --size-target-md: var(--primitive-size-space-40);
   --size-target-lg: 44px;
-  --size-icon-sm: var(--primitive-size-space-16);
+  --size-icon-xs: var(--primitive-size-space-16);
+  --size-icon-sm: var(--primitive-size-space-20);
   --size-icon-md: var(--primitive-size-space-24);
   --size-icon-lg: 28px;
+  --size-icon-optical: var(--primitive-size-border-width-1);
+  --size-icon-inset-md: calc((var(--size-target-md) - var(--size-icon-md)) / 2 + var(--size-icon-optical));
+  --size-icon-inset-lg: calc((var(--size-target-md) - var(--size-icon-lg)) / 2 + var(--size-icon-optical));
   --size-border-width-none: var(--primitive-size-border-width-0);
   --size-border-width-thin: var(--primitive-size-border-width-1);
   --size-border-width-default: var(--primitive-size-border-width-2);
@@ -357,6 +361,10 @@
   --color-state-focus-ring: var(--primitive-color-purple-950);
   --color-state-overlay-tint: var(--primitive-color-indigo-900);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-100);
+  --state-deepen-hover: 50%;
+  --state-deepen-hover-target: var(--primitive-color-violet-900);
+  --state-deepen-active: 30%;
+  --state-deepen-active-target: var(--primitive-color-violet-950);
   --shadow-raised: 0 4px 8px rgb(0 0 0 / 15%);
 }
 
@@ -446,5 +454,9 @@
   --color-state-focus-ring: var(--primitive-color-white-alpha-98);
   --color-state-overlay-tint: var(--primitive-color-indigo-100);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-900);
+  --state-deepen-hover: 0%;
+  --state-deepen-hover-target: var(--primitive-color-violet-900);
+  --state-deepen-active: 0%;
+  --state-deepen-active-target: var(--primitive-color-violet-950);
   --shadow-raised: 0 4px 14px rgb(0 0 0 / 70%), 0 0 0 1px rgb(255 255 255 / 12%);
 }
