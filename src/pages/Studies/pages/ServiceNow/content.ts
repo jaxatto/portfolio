@@ -21,11 +21,11 @@ const content = {
       'I was the sole designer on a short project to improve an internal research tool that uses AI to extract insights from qualitative data. I joined after the first prototype was built to shape the experience, support implementation and validate real research use cases.',
     ],
     chips: [
-      { label: 'Internal Tools' },
+      { label: 'Internal tools' },
       { label: 'Enterprise' },
       { label: 'AI/ML' },
-      { label: 'UX Architecture' },
-      { label: 'User Research' },
+      { label: 'UX architecture' },
+      { label: 'User research' },
     ] as ChipData[],
     compare: {
       before: {
@@ -64,15 +64,15 @@ const content = {
       title: 'Contributions',
       items: [
         {
-          label: 'Simplifying the Core Flow',
+          label: 'Simplifying the core flow',
           text: 'I mapped the journey from upload to coded dataset to make each step clear. From the map I simplified the interaction model and reworked how guidance appears.',
         },
         {
-          label: 'Designing Responsive Screens',
+          label: 'Designing responsive screens',
           text: 'I used low-fidelity layouts to move the conversation to content and flow, then built high-fidelity designs with Oolong components to match the corporate design language. I annotated responsive layouts in Figma so engineering could build them.',
         },
         {
-          label: 'Partnering on Implementation',
+          label: 'Partnering on implementation',
           text: 'I worked with the research team to get my designs implemented and to gather feedback on them. That feedback led us to prioritize the responsive layouts that users asked for.',
         },
       ],
@@ -146,11 +146,11 @@ const content = {
       ],
       items: [
         {
-          label: 'AI Suggestions Upfront',
+          label: 'AI suggestions upfront',
           text: 'Researchers write their own themes before the AI does any work. I would have the AI suggest a starting set from the responses and let researchers accept, edit or replace them. That would speed up setup.',
         },
         {
-          label: 'Live Feedback on Results',
+          label: 'Live feedback on results',
           text: 'I would let researchers correct AI-coded responses as they review. Those corrections would add to the training the AI gets from the responses researchers code up front, and improve its accuracy over time.',
         },
       ],

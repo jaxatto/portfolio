@@ -29,8 +29,8 @@ const content = {
       },
     ],
     chips: [
-      { label: 'Design Systems' },
-      { label: 'Design Tokens' },
+      { label: 'Design systems' },
+      { label: 'Design tokens' },
       { label: 'Automation' },
       { label: 'Multi-Brand' },
     ] as ChipData[],
@@ -59,23 +59,23 @@ const content = {
       title: 'Contributions',
       items: [
         {
-          label: 'Figma Library Architecture',
+          label: 'Figma library architecture',
           text: 'I integrated multi-brand tokens into the existing Figma libraries and kept refactors to a minimum. Binding tokens to assets was expected to make migration easier for product teams and simplify developer handoff.',
         },
         {
-          label: 'Token Architecture & Taxonomy',
+          label: 'Token architecture & taxonomy',
           text: "I wrote the token framework in TypeScript for engineering teams to build on. PRIME already used TypeScript, so the framework fit the team's stack. I chose it over Style Dictionary for type safety, code generation and easy fit with frontend toolchains. It replaces third-party plugins such as Tokens Studio.",
         },
         {
-          label: 'Figma-to-Code Automation',
+          label: 'Figma-to-code automation',
           text: "To show that Figma and code could stay aligned, I built a CLI in Node.js and TypeScript, with AI agents. It uses Figma's REST API to pull library snapshots and compare variables with the TypeScript definitions. It then creates, updates or deletes Figma variables to match the code. I used it to build the token system.",
         },
         {
-          label: 'Developer Handoff Pipeline',
+          label: 'Developer handoff pipeline',
           text: 'I designed and planned an automated pipeline that would read tokenized components. It would write Markdown specs with component logic, token maps and CSS snippets for developers and AI coding agents.',
         },
         {
-          label: 'Project Leadership',
+          label: 'Project leadership',
           text: 'I ran sprint planning for five contributing designers and held alignment meetings with engineering throughout the year, until I handed the work off. I wrote 12 epics and 200+ stories, creating and importing the stories in bulk with Python and AI.',
         },
       ],
@@ -124,11 +124,11 @@ const content = {
       description: ['Looking back, I would change two things.'],
       items: [
         {
-          label: 'Plan for Shifting Priorities',
+          label: 'Plan for shifting priorities',
           text: 'Priorities shifted several times, and some decisions took more than a month. I would define fallback plans from day one, so the team keeps shipping small, useful pieces while direction settles.',
         },
         {
-          label: 'Engineering Sponsorship',
+          label: 'Engineering sponsorship',
           text: 'Token work shared the engineering calendar with other priorities, and stakeholders changed over the year. I would ask for a named engineering sponsor early, so the work has a clear owner and the context carries through each change.',
         },
       ],

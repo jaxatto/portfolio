@@ -6,10 +6,10 @@
 .link {
   composes: line from '#styles/line.module.css';
   --line-color: currentcolor;
+  /* The line sits 2px below the text box, the same distance as the card links (D-176). */
+  --line-bottom: calc(-1 * var(--size-border-width-default));
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
+  display: inline-block;
   border-radius: var(--size-radius-sm);
   color: var(--color-content-link);
   font-weight: var(--font-weight-emphasis);
@@ -17,17 +17,21 @@
   transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
-/* A link with an icon sets its text to the icon's size: both come from --link-icon (20px, D-146). */
+/* A link with an icon keeps the copy's size: the icon is 1em (D-176). */
 .with-icon {
-  --link-icon: var(--size-icon-sm);
-  font-size: var(--link-icon);
+  --link-icon: 1em;
 }
 
-/* Large: the footer email link. Its size is fluid so the 24-character email plus arrow fits narrow cards,
-   reaching 32px at about 550px wide (D-013). The arrow stays 1em, so it follows the text (D-146). */
+/* Large: the footer email link. Its size is fluid and fills the column on phones: the address plus its arrow
+   is about 14.8em wide, so the column width over 14.8 is the font size that spans it. It reaches 32px at
+   about 520px wide (D-013). The arrow stays 1em, so it follows the text (D-146). */
 .large {
   --link-icon: 1em;
-  font-size: clamp(var(--font-size-control), 7.4vw - 9px, var(--font-size-lead));
+  font-size: clamp(
+    var(--font-size-control),
+    calc((100vw - 2 * var(--space-xl)) / 14.8),
+    var(--font-size-lead)
+  );
   overflow-wrap: anywhere;
   font-weight: var(--font-weight-strong);
 }
@@ -74,7 +78,15 @@
   outline-offset: var(--size-focus-ring-offset);
 }
 
+/* The last word and the icon never separate. */
+.tail {
+  white-space: nowrap;
+}
+
 .icon {
+  display: inline-block;
+  margin-inline-start: var(--space-xs);
+  vertical-align: -0.2em;
   width: var(--link-icon, var(--size-icon-sm));
   height: var(--link-icon, var(--size-icon-sm));
   flex-shrink: 0;

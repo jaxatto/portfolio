@@ -39,9 +39,10 @@ const intro = [
 ];
 
 const approach = [
-  'Strategic Product Design: Alongside business and product leadership, I define requirements and turn organizational goals into clear, usable experiences.',
-  'Concept to Execution: I bring a front-end foundation to every design and handoff. At Toyota I built a CLI that keeps Figma variables in line with code, and used Python and AI to create 200+ stories in bulk.',
-  'Building Inclusive Design Culture: I run candid critiques and invite everyone into the design process. At Indeed I mentored designers, contributed to onboarding sessions and answered daily system questions. At Toyota I ran sprint planning for five designers.',
+  'Curiosity and documentation: I start with questions and careful listening. What I learn goes into clear documentation, so the next person can pick it up without starting over. At Indeed I answered daily system questions and contributed to onboarding sessions.',
+  'Focus and trade-offs: When I commit to a task, I aim to get it right the first time. I set honest expectations up front, rank the goals and agree with the team on how to weigh speed against quality. At Toyota I ran sprint planning for five designers.',
+  'Accessibility and teaching: Accessibility is the part of the craft I most enjoy sharing. I coach teammates on WCAG, code and Figma, and I build the guidance into the components and documentation they already use. At Indeed I documented 20 components with WCAG and right-to-left guidance. At ActBlue I led accessibility work that other teams adopted.',
+  'Prototyping with AI: AI is my newest way to prototype. Working in code lets me take an idea to a running prototype and hand engineers something they can build from. At Toyota I built a CLI that keeps Figma variables in line with code, and used Python and AI to create 200+ stories in bulk.',
 ];
 
 const personal = [
@@ -89,13 +90,13 @@ const About: React.FC = () => (
         </p>
       </section>
       <section>
-        <h2 className={clsx(typography.headingLg, styles.heading)}>Approach to Work</h2>
+        <h2 className={clsx(typography.headingLg, styles.heading)}>Approach to work</h2>
         {approach.map((desc) => (
           <LabelledParagraph key={desc} text={desc} />
         ))}
       </section>
       <section>
-        <h2 className={clsx(typography.headingLg, styles.heading)}>Personal Life</h2>
+        <h2 className={clsx(typography.headingLg, styles.heading)}>Personal life</h2>
         {personal.map((desc) => (
           <p key={desc}>{desc}</p>
         ))}

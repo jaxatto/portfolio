@@ -39,12 +39,25 @@ const TextLink: React.FC<TextLinkProps> = ({
     inline && styles.inline,
     className,
   );
-  const content = (
-    <>
-      {children}
-      {icon && <Icon name={icon} className={styles.icon} aria-hidden="true" />}
-    </>
-  );
+  const iconEl = icon && <Icon name={icon} className={styles.icon} aria-hidden="true" />;
+  // The icon rides with the last word, so a wrapped link never strands it at the far edge. A single word
+  // (the footer email) keeps its own break rules.
+  const lastSpace = typeof children === 'string' ? children.lastIndexOf(' ') : -1;
+  const content =
+    typeof children === 'string' && icon && lastSpace !== -1 ? (
+      <>
+        {`${children.slice(0, lastSpace)} `}
+        <span className={styles.tail}>
+          {children.slice(lastSpace + 1)}
+          {iconEl}
+        </span>
+      </>
+    ) : (
+      <>
+        {children}
+        {iconEl}
+      </>
+    );
 
   if (to) {
     return (

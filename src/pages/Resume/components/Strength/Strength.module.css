@@ -47,8 +47,6 @@
 	margin-top: auto;
 	padding-top: var(--space-sm);
 	color: var(--card-fg);
-	/* The link's text is its icon's size, like the work cards (D-146). */
-	font-size: var(--size-icon-sm);
 	font-weight: var(--font-weight-strong);
 	text-decoration: none;
 }
@@ -82,8 +80,8 @@
 }
 
 .icon {
-	width: var(--size-icon-sm);
-	height: var(--size-icon-sm);
+	width: 1em;
+	height: 1em;
 	flex-shrink: 0;
 	fill: currentcolor;
 }

@@ -12,7 +12,7 @@
 .side {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-3xs);
+	gap: var(--space-2xs);
 	padding: var(--space-2xl) var(--space-xl);
 	background: linear-gradient(180deg, var(--role-from), var(--role-to));
 	color: var(--role-fg);
@@ -41,10 +41,59 @@
 	color: var(--role-fg);
 }
 
+/* The wrapper clips the leading dot of an item that starts a line: the list sits one dot-width to the left
+   and the wrapper hides what spills out. The dot is a 4px circle with 8px on each side. */
+.details {
+	--dot-size: var(--space-2xs);
+	--dot-gap: var(--space-xs);
+	overflow: hidden;
+}
+
 .meta {
+	display: flex;
+	flex-wrap: wrap;
 	margin: 0;
 	color: color-mix(in oklab, var(--role-fg) 80%, transparent);
 	font-weight: var(--font-weight-medium);
+	margin-inline-start: calc(-1 * (var(--dot-size) + 2 * var(--dot-gap)));
+	row-gap: var(--space-3xs);
+}
+
+.item {
+	display: inline-flex;
+	align-items: center;
+	white-space: nowrap;
+}
+
+.item::before,
+.mode::before {
+	content: '';
+	flex: none;
+	width: var(--dot-size);
+	height: var(--dot-size);
+	margin-inline: var(--dot-gap);
+	border-radius: 50%;
+	background: currentcolor;
+}
+
+/* Desktop: dates on their own line, then the place with the contract last. */
+.when {
+	flex-basis: 100%;
+	order: 0;
+}
+
+.where {
+	order: 1;
+}
+
+/* Hybrid stays with its location: it sits inside the where item, so the two wrap together. */
+.mode {
+	display: inline-flex;
+	align-items: center;
+}
+
+.type {
+	order: 3;
 }
 
 /* The date never splits across lines. */
@@ -78,6 +127,17 @@
 	font-weight: var(--font-weight-medium);
 }
 
+.promotion-dates {
+	white-space: nowrap;
+}
+
+/* 400px: the dates take their own line under the title. */
+@media (max-width: 400px) {
+	.promotion-dates {
+		display: block;
+	}
+}
+
 .summary {
 	max-width: 38rem;
 	margin: 0;
@@ -91,27 +151,42 @@
 	margin-top: var(--space-md);
 }
 
-/* Phones: the colored side sits on top, as a row of logo and company with the details under it. */
+/* Phones: the colored side is a short header. The logo sits on the left and the company with one flowing
+   line of dates and place beside it. Items never split inside themselves. */
 @media (max-width: 700px) {
 	.role {
 		grid-template-columns: minmax(0, 1fr);
 	}
 
-	/* Logo on the left, then company, date and location in a column beside it. */
+	/* Padding matches the body, so the logo lines up with the text below. */
 	.side {
 		display: grid;
 		grid-template-columns: auto minmax(0, 1fr);
-		column-gap: var(--space-md);
+		grid-template-rows: auto auto;
 		align-items: center;
+		column-gap: var(--space-md);
+		row-gap: var(--space-2xs);
+		padding: var(--space-md) var(--space-xl);
 	}
 
 	.logo {
-		grid-row: 1 / span 4;
+		grid-row: 1 / span 2;
+		width: var(--space-3xl);
+		height: var(--space-3xl);
 		margin-bottom: 0;
 	}
 
-	.side > :not(.logo) {
-		grid-column: 2;
+	/* Phones: dates, then the contract beside them, then the place, wrapping as whole items. */
+	.when {
+		flex-basis: auto;
+	}
+
+	.type {
+		order: 1;
+	}
+
+	.where {
+		order: 2;
 	}
 
 	.main {

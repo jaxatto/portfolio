@@ -15,7 +15,6 @@ type LayoutProps = {
   footerBand?: boolean; // Dark-mode band behind the footer (default on); Home turns it off (D-049)
   className?: string; // Applies styles to main content
   backToTop?: boolean; // Floating "Back to top" button for long pages (D-096)
-  headerLabel?: string[]; // Lines of text in the nav's left slot instead of the brand link (D-097, D-098)
 } & MetaProps; // Extends MetaProps to include title and metaDescription for SEO
 
 const Layout: React.FC<LayoutProps> = ({
@@ -26,11 +25,10 @@ const Layout: React.FC<LayoutProps> = ({
   footerBand,
   className = '',
   backToTop = false,
-  headerLabel,
 }) => (
   <div id="top" tabIndex={-1} className={styles.root}>
     <Meta title={title} metaDescription={metaDescription} />
-    <Header label={headerLabel} />
+    <Header />
     <main id="main-content" className={clsx(styles.main, className)} tabIndex={-1}>
       {children}
     </main>

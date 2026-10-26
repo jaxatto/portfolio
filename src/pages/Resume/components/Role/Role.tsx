@@ -34,6 +34,15 @@ const toneFor = (index: number, total: number): CSSProperties => {
   } as CSSProperties;
 };
 
+// "Promoted from UX Engineer, Nov 2015 – Nov 2017": the dates stay whole and drop to their own line on
+// small phones.
+const promotionParts = (promotion: string) => {
+  const split = promotion.lastIndexOf(', ');
+  return split === -1
+    ? { text: promotion, dates: '' }
+    : { text: `${promotion.slice(0, split)}, `, dates: promotion.slice(split + 2) };
+};
+
 const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ role, index, total }) => {
   const Logo = logos[role.logo];
   return (
@@ -43,20 +52,36 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
           {Logo && <Logo />}
         </div>
         <p className={clsx(typography.headingSm, styles.company)}>{role.company}</p>
-        <p className={clsx(typography.bodySm, styles.meta)}>
-          <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
-        </p>
-        <p className={clsx(typography.bodySm, styles.meta)}>{role.location}</p>
+        {/* Items flow on one wrapping line, and a dot leads every item but is clipped when the item starts
+            a line (see the CSS). Desktop puts the dates on their own line, then the place. Phones put
+            the dates and contract first and the place last. */}
+        <div className={styles.details}>
+          <p className={clsx(typography.bodySm, styles.meta)}>
+            <span className={clsx(styles.item, styles.when)}>
+              <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
+            </span>
+            {role.type && <span className={clsx(styles.item, styles.type)}>{role.type}</span>}
+            <span className={clsx(styles.item, styles.where)}>
+              {role.location}
+              {role.workMode && <span className={styles.mode}>{role.workMode}</span>}
+            </span>
+          </p>
+        </div>
       </div>
       <div className={styles.main}>
         <div className={styles.heading}>
           <h3 className={clsx(typography.headingSm, styles.title)}>{role.title}</h3>
-          {role.promotion && <p className={clsx(typography.bodySm, styles.promotion)}>{role.promotion}</p>}
+          {role.promotion && (
+            <p className={clsx(typography.bodySm, styles.promotion)}>
+              {promotionParts(role.promotion).text}
+              <span className={styles.promotionDates}>{promotionParts(role.promotion).dates}</span>
+            </p>
+          )}
         </div>
         <p className={clsx(typography.bodyMd, styles.summary)}>{role.summary}</p>
         {role.studyHref && (
           <TextLink to={role.studyHref} icon="arrow-right" className={styles.study}>
-            Read the {role.studyName} case study
+            {`Read the ${role.studyName} case study`}
           </TextLink>
         )}
       </div>

@@ -26,15 +26,10 @@ const isActive = (pathname: string, url: string) => {
   return url === mainLinks.work ? path === url || path.startsWith('/case-studies') : path === url;
 };
 
-type HeaderProps = {
-  label?: string[]; // Lines for the left slot instead of the brand link (Home always shows the role)
-};
-
-const Header: React.FC<HeaderProps> = ({ label }) => {
+const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const { pathname } = useLocation();
   const isHome = pathname === mainLinks.home;
-  const slotLabel = label ?? (isHome ? roleLines : undefined);
 
   return (
     <header className={styles.header}>
@@ -43,23 +38,16 @@ const Header: React.FC<HeaderProps> = ({ label }) => {
       </a>
 
       <div className={styles.bar}>
-        {/* Left slot: the brand on inner pages; on Home the greeting carries the name, so the slot
-				    holds the role instead. A page can pass `label` to do the same (Resume, D-097). */}
-        {slotLabel ? (
-          <p className={clsx(typography.bodyLg, styles.role)}>
-            <RoleLines lines={slotLabel} />
-          </p>
-        ) : (
-          <div className={clsx(typography.headingMd, styles.identity)}>
-            <Link to={mainLinks.home} className={clsx(typography.headingMd, styles.brand)}>
-              Jax Engel
-            </Link>
-            {/* Soft tagline after a dot (D-099). Outside the link: only the name goes home. */}
-            <span className={styles.brandRole}>
-              <RoleLines lines={['Designer & Engineer']} />
-            </span>
-          </div>
-        )}
+        {/* Left slot: the brand and its tagline on every page, so the header is the same everywhere. */}
+        <div className={clsx(typography.headingMd, styles.identity)}>
+          <Link to={mainLinks.home} className={clsx(typography.headingMd, styles.brand)}>
+            Jax Engel
+          </Link>
+          {/* Soft tagline after a dot (D-099). Outside the link: only the name goes home. */}
+          <span className={styles.brandRole}>
+            <RoleLines lines={['Designer & Engineer']} />
+          </span>
+        </div>
         <div className={styles.controls}>
           <nav aria-label="Main">
             <ul className={styles.list}>

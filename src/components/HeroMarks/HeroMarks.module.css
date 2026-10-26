@@ -161,7 +161,7 @@
 }
 
 /* Name tag: the arrow with a label under and to the right of its tip, like a collaborator's cursor.
-   Color pair comes from the parent (--tag-bg, --tag-fg); the arrow carries a thin edge so it reads on
+   Color pair comes from the parent (--tag-bg, --tag-fg); the arrow carries a thin white edge in both themes so it reads on
    any photo. */
 .tag {
   display: inline-flex;
@@ -176,7 +176,7 @@
   display: block;
   overflow: visible;
   fill: var(--tag-bg, var(--color-primary-default));
-  stroke: var(--color-surface-default);
+  stroke: var(--color-content-on-accent);
   stroke-width: 1.2;
   stroke-linejoin: round;
   filter: drop-shadow(var(--shadow-cursor));

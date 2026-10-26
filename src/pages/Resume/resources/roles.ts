@@ -7,7 +7,9 @@ export type ResumeRole = {
   title: string;
   company: string;
   logo: string; // key into resources/logos.ts
+  type?: string; // "Contract" where the PDF says so
   location: string;
+  workMode?: string; // "Hybrid" where the role was not fully remote
   startDate: string;
   endDate?: string;
   promotion?: string; // second soft line under the dates (Visa)
@@ -21,6 +23,7 @@ export const roles: ResumeRole[] = [
     title: 'Senior Design Engineer',
     company: 'Spectrum',
     logo: 'spectrum',
+    type: 'Contract',
     location: 'Remote',
     startDate: 'Sep 2026',
     endDate: 'Present',
@@ -31,7 +34,9 @@ export const roles: ResumeRole[] = [
     title: 'Senior UX Engineer',
     company: 'Toyota',
     logo: 'toyota',
-    location: 'Plano, TX (hybrid)',
+    type: 'Contract',
+    location: 'Plano, TX',
+    workMode: 'Hybrid',
     startDate: 'Oct 2025',
     endDate: 'Sep 2026',
     summary:
@@ -43,6 +48,7 @@ export const roles: ResumeRole[] = [
     title: 'Staff UI/UX Designer',
     company: 'ServiceNow',
     logo: 'servicenow',
+    type: 'Contract',
     location: 'Remote',
     startDate: 'Feb 2024',
     endDate: 'Oct 2025',
@@ -55,11 +61,12 @@ export const roles: ResumeRole[] = [
     title: 'Senior Product Designer',
     company: 'Albertsons',
     logo: 'albertsons',
+    type: 'Contract',
     location: 'Remote',
     startDate: 'Jun 2023',
     endDate: 'Sep 2023',
     summary:
-      'Shaped reusable components and documentation for a merchandising platform, and drove adoption across teams.',
+      'Shaped reusable components and documentation for a merchandising platform serving 5,000+ stores, and drove adoption across 20+ teams.',
   },
   {
     title: 'Senior Product Designer',
@@ -91,7 +98,7 @@ export const roles: ResumeRole[] = [
     startDate: 'Nov 2020',
     endDate: 'Nov 2021',
     summary:
-      'Architected incident management workflows for enterprise engineering teams, from role assignment to postmortem documentation.',
+      'Created the company design system and architected incident management workflows for enterprise engineering teams including Spotify, Peloton and Snapchat.',
   },
   {
     title: 'UX Designer',
@@ -114,6 +121,6 @@ export const roles: ResumeRole[] = [
     endDate: 'Feb 2020',
     promotion: 'Promoted from UX Engineer, Nov 2015 – Nov 2017',
     summary:
-      'Helped build the front-end framework library hundreds of developers used globally, and redesigned fraud investigation and transaction reporting tools for enterprise clients.',
+      'Redesigned fraud investigation and transaction reporting tools for enterprise clients, contributing to a 20% reduction in case resolution SLAs. Helped build the front-end framework library hundreds of developers used globally.',
   },
 ];
