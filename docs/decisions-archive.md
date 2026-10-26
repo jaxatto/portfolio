@@ -836,3 +836,7 @@ The footer description breaks after "Staff Product Designer" again (job titles s
 ## D-179: One header on every page — decided, 2026-10-26
 
 The nav's left slot is always the brand link and its "Designer & Engineer" tagline. The stacked "Staff Product Designer & Design Engineer" label that Home and Resume used is removed from the bar, with its CSS (`.role`, the top-aligned bar). The full role still shows as the Home greeting byline and the Resume byline on phones. `Header` no longer picks a label from the route, so the shell test (D-168) holds for every page. Supersedes the route-based label of D-168 and the left slot of D-097.
+
+## D-180: The Resume h1 is the position — decided, 2026-10-26
+
+Jax asked to replace the name on Resume with the positions. The h1 is "Staff Product Designer & Design Engineer", balanced across lines, with the `sr-only` "Resume: " prefix. The name stays in the nav on every page (D-179). It is 36px on phones, where it takes three lines, and 48px from 641px, where it takes two beside the portrait (56px made it three). The phone byline under the name is removed, since the h1 now says it. Supersedes the name h1 of D-087 and D-097.

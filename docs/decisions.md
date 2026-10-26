@@ -75,7 +75,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 
 ## Resume
 
-- The page carries the resume. The h1 reads "Resume: Jax Engel" (prefix `sr-only`). The header has the portrait with a cursor tag, then the actions row (D-087, D-094, D-097, D-135).
+- The page carries the resume. The h1 reads "Resume: Staff Product Designer & Design Engineer" (prefix `sr-only`), at 36px on phones and 48px from 641px (D-180). The header has the portrait with a cursor tag, then the actions row (D-087, D-094, D-097, D-135).
 - Roles marked Contract in the PDF (Spectrum, Toyota, ServiceNow, Albertsons) show it in the place line, for example "Remote (contract)" (D-171).
 - Core strengths: three cards in study colors, each with a proof line from its case study. Experience is split role cards on one gradient down the list. On phones the colored header is the logo beside the company, with the dates, contract and place flowing as one wrapping line under it, and a dot that disappears when an item starts a line. The title stays in the body (D-172, D-174). Role summaries and strength lines are drafts until Jax signs them off (D-124).
 - "What I'm looking for" is the first section under the intro, ahead of Experience, and carries the tenure context (D-169).
