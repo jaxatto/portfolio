@@ -50,11 +50,15 @@ export type BaseSemanticGeneralColor = {
     variant: ColorMode;
     muted: ColorMode;
     link: ColorMode;
+    'link-inline': ColorMode;
+    'link-inline-hover': ColorMode;
+    'link-inline-active': ColorMode;
     'on-accent': ColorMode;
     'on-accent-hover': ColorMode;
     'on-accent-active': ColorMode;
     secondary: ColorMode;
     emphasis: ColorMode;
+    heading: ColorMode;
     soft: ColorMode;
     prose: ColorMode;
   };

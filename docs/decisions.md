@@ -22,13 +22,13 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 - Effects tokens (motion, shadow, state wash, layer) live in `effects.ts`. Targets are 40 and 44px, the focus ring is 3px with a 3px offset, the browser bar color is generated from `surface.default` (D-032, D-118, D-144).
 - Raw values that stay as written: card and panel geometry in rem, the Resume column widths, em-sized glyphs, card lift, the lift shadow color, the footer band mix, the 404 display size, the ambient hero loops, grid tracks, and `.sr-only` with its `!important` (the skip link hand-writes the block because it must un-hide on focus). The rest of the list, each with a default of keep, is in `untokenized-styles.md` (D-141).
 - Palettes: five container pairs (brand, primary, secondary, tertiary, quaternary) plus `quinary` green, one class each in `palette.module.css`. Every palette keeps the same members (`default`, `on-default`, `container`, `on-container`). Hover and pressed colors are derived only for what is read. A section that re-colors the semantic tokens is a tone in `tone.css`: `blue` for the dark footer band and `inverse` for the 404, which uses `surface.inverse` and `content.on-accent` (D-030, D-038, D-052, D-109, D-119, D-123, D-152, D-154).
-- Dark text: `content.emphasis` and `on-accent` are white at 98%, `content.soft` is white at 80%, `content.prose` is black in light and purple-50 in dark for long reading text (D-035, D-042).
+- Dark text: `content.emphasis` and `on-accent` are white at 98%, `content.heading` is purple-950 in light and indigo-200 in dark (D-163), `content.soft` is white at 80%, `content.prose` is black in light and purple-50 in dark for long reading text (D-035, D-042).
 - Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes name a role in the type scale, never a value or a place: `label`, `control`, `lead`, `heading-xl`, `display-sm`, `display` (D-149, D-155). One `strong` weight (900) serves both families, and Manrope renders it as 800 (D-154). `text-wrap: pretty` site-wide, non-breaking hyphens in headings, headings over 44px take compact letter spacing (D-034, D-114).
 - Every text style (`title-sm/md`, `heading-sm/md/lg`, `body-sm/md/lg`) has a generated class in `type.module.css`. A component applies it in its markup with `clsx` and sets only color, spacing and overrides, and does not read `--font-style-*`. The one exception is StudyCard's phone media query, since a class cannot change at a breakpoint. The classes sit in `@layer type`, so a component's own rules win whatever the bundle order (D-093, D-117, D-156).
 - Heading tags are semantic only. No rule targets `h1` to `h6`, the look comes from a class (D-130, D-134).
 - Icons are `--size-icon-xs/sm/md/lg` (16, 20, 24, 28px). A link's text is its icon's size, through `--link-icon`. The hover line under an icon is inset by the glyph's inset in its 40px target plus 1px (D-144, D-145, D-146).
 - Links, buttons, Back to top and tooltips share one hover and pressed color pair from `deepen.module.css`, a mix toward the next violet that tones on dark grounds turn off. Tooltips open after 400ms and fade (D-147).
-- Shared pieces: `Button` (filled, outline 3px, inverted), `TextLink` (animated line, no resting underline), `Chip`, `NameTag`, `Tooltip` (Floating UI, kept), `IconLink`, and the `iconControl`, `line` and `deepen` modules (D-092, D-093, D-102, D-103, D-104, D-105, D-107, D-119, D-137).
+- Shared pieces: `Button` (filled, outline 3px, inverted), `TextLink` (animated line, no resting underline, except `inline` links in a sentence, which are underlined at rest and colored by `content.link-inline`, indigo-300 on dark, D-164, D-165), `Chip`, `NameTag`, `Tooltip` (Floating UI, kept), `IconLink`, and the `iconControl`, `line` and `deepen` modules (D-092, D-093, D-102, D-103, D-104, D-105, D-107, D-119, D-137).
 - Image fallbacks: `Image` shows a muted icon in its frame's shape, a person icon for the Resume portrait, pet icons on About, and a tint of the card's palette on the Home cards. Study page images (banner, compare, panels) fall back to their frame (D-148, D-150).
 - Forced colors: cards, chips and buttons keep their shape with a 2px `CanvasText` outline. Hover styles sit behind `(hover: hover)` (D-117, D-129).
 
@@ -61,7 +61,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 
 - One column on the 960 grid. The hero is "About me" with the selection box, four code chips and a caret. Story at 40rem. The four pets are tagged photos with captions (D-040 to D-043).
 - The earlier-roles paragraph links to three case studies. Visa is left out on purpose (D-044, D-045).
-- h2 is `content.prose`, 12px under it, label h3s are bold (D-055, D-056, D-057).
+- About's label h3s are `content.heading` (D-163). The h2s stay `content.prose`. The h2 has 12px under it and label h3s are bold (D-055, D-056, D-057).
 
 ## Case studies
 

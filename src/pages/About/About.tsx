@@ -34,14 +34,14 @@ const facts = [
 ];
 
 const intro = [
-  'I bridge product design and engineering through design tokens and automation. I architect token systems for multi-brand products and build the Figma-to-code pipelines that carry them into production. My background spans interface design, complex workflow automation and WCAG accessibility across fintech, automotive and SaaS.',
+  'I design products and the systems behind them, and I write the code that carries both into production. I architect token systems for multi-brand products and build Figma-to-code pipelines. My background spans interface design, complex workflow automation and WCAG accessibility across fintech, automotive and SaaS.',
   'I recently joined Spectrum, where I work on the ecommerce design system. My most recent role was at Toyota, where I led design token architecture, token-to-code pipelines and developer tooling across a multi-brand product ecosystem.',
 ];
 
 const approach = [
   'Strategic Product Design: Alongside business and product leadership, I define requirements and turn organizational goals into clear, usable experiences.',
-  'Concept to Execution: I bring a front-end foundation to every design and handoff, and use modern AI workflows to set engineering teams up for success.',
-  'Building Inclusive Design Culture: I foster team cohesion through a strong feedback culture, candid critiques, and collaborative practices that invite everyone to participate in design.',
+  'Concept to Execution: I bring a front-end foundation to every design and handoff. At Toyota I built a CLI that keeps Figma variables in line with code, and used Python and AI to create 200+ stories in bulk.',
+  'Building Inclusive Design Culture: I run candid critiques and invite everyone into the design process. At Indeed I mentored designers, contributed to onboarding sessions and answered daily system questions. At Toyota I ran sprint planning for five designers.',
 ];
 
 const personal = [
@@ -74,15 +74,15 @@ const About: React.FC = () => (
         {/* Earlier roles link to their case studies. Copy is inline because it contains links (D-003). */}
         <p>
           Earlier work includes AI-assisted survey analysis at{' '}
-          <TextLink to={studyLinks.servicenow}>
+          <TextLink inline to={studyLinks.servicenow}>
             ServiceNow<span className="sr-only"> case study</span>
           </TextLink>
           , an accessible, rebranded design system at{' '}
-          <TextLink to={studyLinks.indeed}>
+          <TextLink inline to={studyLinks.indeed}>
             Indeed<span className="sr-only"> case study</span>
           </TextLink>
           , and a self-serve Salesforce integration at{' '}
-          <TextLink to={studyLinks.actblue}>
+          <TextLink inline to={studyLinks.actblue}>
             ActBlue<span className="sr-only"> case study</span>
           </TextLink>
           .
