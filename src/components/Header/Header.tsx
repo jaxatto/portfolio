@@ -30,9 +30,6 @@ const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const { pathname } = useLocation();
   const isHome = pathname === mainLinks.home;
-  // Decided from the route here, so the loading fallback in App draws the same header as the page.
-  const showsRole = isHome || isActive(pathname, mainLinks.resume);
-  const slotLabel = showsRole ? roleLines : undefined;
 
   return (
     <header className={styles.header}>
@@ -41,23 +38,16 @@ const Header: React.FC = () => {
       </a>
 
       <div className={styles.bar}>
-        {/* Left slot: the brand on inner pages; on Home the greeting carries the name, so the slot
-				    holds the role instead. Resume does the same (D-097). */}
-        {slotLabel ? (
-          <p className={clsx(typography.bodyLg, styles.role)}>
-            <RoleLines lines={slotLabel} />
-          </p>
-        ) : (
-          <div className={clsx(typography.headingMd, styles.identity)}>
-            <Link to={mainLinks.home} className={clsx(typography.headingMd, styles.brand)}>
-              Jax Engel
-            </Link>
-            {/* Soft tagline after a dot (D-099). Outside the link: only the name goes home. */}
-            <span className={styles.brandRole}>
-              <RoleLines lines={['Designer & Engineer']} />
-            </span>
-          </div>
-        )}
+        {/* Left slot: the brand and its tagline on every page, so the header is the same everywhere. */}
+        <div className={clsx(typography.headingMd, styles.identity)}>
+          <Link to={mainLinks.home} className={clsx(typography.headingMd, styles.brand)}>
+            Jax Engel
+          </Link>
+          {/* Soft tagline after a dot (D-099). Outside the link: only the name goes home. */}
+          <span className={styles.brandRole}>
+            <RoleLines lines={['Designer & Engineer']} />
+          </span>
+        </div>
         <div className={styles.controls}>
           <nav aria-label="Main">
             <ul className={styles.list}>
