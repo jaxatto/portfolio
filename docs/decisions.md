@@ -77,7 +77,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 
 - The page carries the resume. The h1 reads "Resume: Jax Engel" (prefix `sr-only`). The header has the portrait with a cursor tag, then the actions row (D-087, D-094, D-097, D-135).
 - Roles marked Contract in the PDF (Spectrum, Toyota, ServiceNow, Albertsons) show it in the place line, for example "Remote (contract)" (D-168).
-- Core strengths: three cards in study colors, each with a proof line from its case study. Experience is role cards with a colored band on top and a white body. The band is one line on desktop (logo, company, title, dates, place) and stacks beside the logo below 900px (D-169). Role summaries and strength lines are drafts until Jax signs them off (D-124).
+- Core strengths: three cards in study colors, each with a proof line from its case study. Experience is split role cards on one gradient down the list. Role summaries and strength lines are drafts until Jax signs them off (D-124).
 - "What I'm looking for" is the first section under the intro, ahead of Experience, and carries the tenure context (D-166).
 - The PDF is built from `resume/` HTML. The public PDF is not replaced until Jax says so (D-110).
 
