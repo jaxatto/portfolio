@@ -12,6 +12,7 @@ type ImageProps = {
   alt: string;
   width?: number; // Pixel size of `src`, so the browser reserves the space before it loads
   height?: number;
+  priority?: boolean; // Above the fold: load now, not when it nears the viewport
   imgClassName?: string; // Allows custom styling for the image element itself
   className?: string; // Allows custom styling for the image component container
   iconFallback?: IconName; // Defines the icon to show when the image fails to load
@@ -24,6 +25,7 @@ const Image: React.FC<ImageProps> = ({
   src,
   width,
   height,
+  priority = false,
   alt,
   altFallback,
   className,
@@ -42,7 +44,7 @@ const Image: React.FC<ImageProps> = ({
           alt={alt}
           width={width}
           height={height}
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
           decoding="async"
           onError={() => setError(true)}
           className={imgClassName}

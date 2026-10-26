@@ -84,6 +84,7 @@ const Resume: React.FC = () => (
           src={portrait.src}
           width={portrait.width}
           height={portrait.height}
+          iconFallback="user"
           alt="Jax smiling at the camera outdoors, in a maroon hoodie with a white checkerboard print."
           className={styles.portraitFrame}
           imgClassName={styles.portraitImage}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import Icon from '#components/Icon';
+import Image from '#components/Image';
 import palettes from '#styles/palette.module.css';
 import type { ColorGroup } from '#tokens/types';
 import styles from './StudyCard.module.css';
@@ -67,14 +68,15 @@ const StudyCard: React.FC<StudyCardProps> = ({
       </div>
       <div className={styles.preview}>
         <div className={styles.sample}>
-          <img
+          <Image
             src={image.src}
             width={image.width}
             height={image.height}
             alt={imageAlt}
-            className={styles.image}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
+            priority={priority}
+            className={styles.imageBox}
+            imgClassName={styles.image}
+            fallbackClassName={styles.fallback}
           />
         </div>
       </div>

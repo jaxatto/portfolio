@@ -149,6 +149,18 @@
   background: var(--color-surface-sunken);
 }
 
+.imageBox {
+  /* Image wraps the screenshot in a div. It takes no box of its own, so the screenshot lays out as before. */
+  display: contents;
+}
+
+/* Shown when the screenshot fails to load: the sample window with a muted image icon. */
+.fallback {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+}
+
 .image {
   /* The screenshot's width is a variable so the hover can grow it by 4 points (D-111). */
   --image-w: 100%;
