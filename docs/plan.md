@@ -30,7 +30,7 @@ All seven audit batches are done and merged (D-117 to D-127): regressions, dead 
 
 ## Design review follow-ups (2026-10-26)
 
-Done: card order (D-163), accessibility card (D-164), shell test (D-165), What I'm looking for (D-166), Resume summary rewritten. Open: one outcome line each for Albertsons, Routable, FireHydrant and Visa from the PDF bullets (proposed, waiting on Jax). Toyota has no adoption result and the Home card stays as is. The About approach cards still have generic copy and Title Case labels.
+Done: card order (D-163), About approach cards (D-164, D-167, D-168), shell test (D-165), What I'm looking for (D-166), Resume summary, role outcome lines and contract labels (D-168). Settled: Toyota has no adoption result and the Home card stays as is. Every page carries the email in the footer. Jax tested a phone with no issues (2026-10-26). Not tested: a screen reader (Backlog).
 
 ## Resume skills area (open, 2026-10-25)
 

@@ -62,7 +62,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 - One column on the 960 grid. The hero is "About me" with the selection box, four code chips and a caret. Story at 40rem. The four pets are tagged photos with captions (D-040 to D-043).
 - The earlier-roles paragraph links to three case studies. Visa is left out on purpose (D-044, D-045).
 - h2 is `content.prose`, 12px under it, label h3s are bold (D-055, D-056, D-057).
-- Approach to work has five labelled cards in Jax's own words: ask and document, focus and prioritization, share and teach, accessibility with proof from Indeed and ActBlue, and AI prototyping (D-164, D-167).
+- Approach to work has four labelled cards: curiosity and documentation, focus and trade-offs, accessibility and teaching with proof from Indeed and ActBlue, and prototyping with AI (D-164, D-167, D-168).
 
 ## Case studies
 
@@ -76,6 +76,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 ## Resume
 
 - The page carries the resume. The h1 reads "Resume: Jax Engel" (prefix `sr-only`). The header has the portrait with a cursor tag, then the actions row (D-087, D-094, D-097, D-135).
+- Roles marked Contract in the PDF (Spectrum, Toyota, ServiceNow, Albertsons) show it in the place line, for example "Remote (contract)" (D-168).
 - Core strengths: three cards in study colors, each with a proof line from its case study. Experience is split role cards on one gradient down the list. Role summaries and strength lines are drafts until Jax signs them off (D-124).
 - "What I'm looking for" is the first section under the intro, ahead of Experience, and carries the tenure context (D-166).
 - The PDF is built from `resume/` HTML. The public PDF is not replaced until Jax says so (D-110).

@@ -788,3 +788,7 @@ New first section on the Resume page, above Experience. It states the wish for a
 ## D-167: Sentence case for headings and labels — decided, 2026-10-26
 
 Jax wants one case across the site. Headings, labels and chips use sentence case, and names and acronyms keep their capitals. Job titles and study names stay as written. About's h2s and cards and every study's item labels and chips changed. `copy-check` has a `title-case` rule on h1 to h6 text, `label:` and `heading:` strings and "Label: sentence" strings, with a list of proper nouns. About's approach cards were rewritten from Jax's own description of how they work (D-164 superseded in part): five cards, no "passionate" because the linter flags it as a buzzword.
+
+## D-168: Four approach cards and contract labels — decided, 2026-10-26
+
+The five approach cards became four, rephrased from Jax's description and not quoted: curiosity and documentation, focus and trade-offs, accessibility and teaching, and prototyping with AI. Share and teach folded into accessibility. The place line on Resume roles shows "(contract)" again for Spectrum, Toyota, ServiceNow and Albertsons, as the PDF does. It supports the tenure story in the "What I'm looking for" section. D-164 and D-167 are superseded for the card list.
