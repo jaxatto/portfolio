@@ -23,6 +23,14 @@
   --tag-bg: var(--state-color-hover);
   --tag-fg: var(--color-surface-default);
 }
+/* Touch screens never show a hover color, so the footer's email and icon links rest on the light blue
+   (the hover color) there (D-176). */
+@media (hover: none) {
+  :root[data-theme='dark'] [data-tone='blue'] {
+    --color-content-link: var(--color-content-on-accent-hover);
+  }
+}
+
 /* The 404 (D-038): the page sets its own indigo ground, and every token the shared header and links read is
    re-pointed to an on-accent value. The same in both themes, since the ground is indigo in both. */
 [data-tone='inverse'] {

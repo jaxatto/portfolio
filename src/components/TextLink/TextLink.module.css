@@ -6,6 +6,8 @@
 .link {
   composes: line from '#styles/line.module.css';
   --line-color: currentcolor;
+  /* The line sits 2px below the text box, the same distance as the card links (D-176). */
+  --line-bottom: calc(-1 * var(--size-border-width-default));
   position: relative;
   display: inline-block;
   border-radius: var(--size-radius-sm);
@@ -20,11 +22,16 @@
   --link-icon: 1em;
 }
 
-/* Large: the footer email link. Its size is fluid so the 24-character email plus arrow fits narrow cards,
-   reaching 32px at about 550px wide (D-013). The arrow stays 1em, so it follows the text (D-146). */
+/* Large: the footer email link. Its size is fluid and fills the column on phones: the address plus its arrow
+   is about 14.8em wide, so the column width over 14.8 is the font size that spans it. It reaches 32px at
+   about 520px wide (D-013). The arrow stays 1em, so it follows the text (D-146). */
 .large {
   --link-icon: 1em;
-  font-size: clamp(var(--font-size-control), 7.4vw - 9px, var(--font-size-lead));
+  font-size: clamp(
+    var(--font-size-control),
+    calc((100vw - 2 * var(--space-xl)) / 14.8),
+    var(--font-size-lead)
+  );
   overflow-wrap: anywhere;
   font-weight: var(--font-weight-strong);
 }

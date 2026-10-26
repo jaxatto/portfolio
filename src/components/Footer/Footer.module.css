@@ -85,6 +85,13 @@
   bottom: min(0px, calc((100% - var(--size-target-lg)) / 2));
 }
 
+/* Touch screens never show the hover line, so the email keeps it underlined (D-176). */
+@media (hover: none) {
+  .main .email::after {
+    transform: scaleX(1);
+  }
+}
+
 @media (hover: hover) {
   .main .email:hover {
     color: var(--state-color-hover);

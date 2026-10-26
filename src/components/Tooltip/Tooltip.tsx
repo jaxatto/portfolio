@@ -37,12 +37,13 @@ type TooltipProps = {
   >;
 };
 
-// The square corner is the one nearest the control, so it follows the side the tag ends up on.
-const cornerFor: Record<string, NameTagCorner> = {
-  top: 'bottom-right',
-  bottom: 'top-right',
-  left: 'top-right',
-  right: 'top-left',
+// The square corner is the one nearest the control, so it follows the side the tag ends up on and, above
+// or below, which way the body extends.
+const cornerFor = (side: string, align: string): NameTagCorner => {
+  if (side === 'left') return 'top-right';
+  if (side === 'right') return 'top-left';
+  const horizontal = align === 'start' ? 'left' : 'right';
+  return side === 'top' ? `bottom-${horizontal}` : `top-${horizontal}`;
 };
 
 // Floating UI needs milliseconds to time the unmount, so read them from the motion token.
@@ -65,6 +66,14 @@ const Tooltip: React.FC<TooltipProps> = ({
   // The tooltip is portaled out of its section, so it copies the control's tone (data-tone, src/styles/tone.css,
   // D-109) and wears the section's colors, for example the footer's blue. Read when it opens, not during render.
   const [tone, setTone] = useState<string | undefined>();
+  // A control in the left half of the page grows its tag to the right, so the body never has to be
+  // shifted off the control and the square corner keeps pointing at it (phones, where the icons sit left).
+  const [align, setAlign] = useState<'start' | 'end'>('end');
+  const [baseSide, baseAlign] = placement.split('-');
+  const placed =
+    (baseSide === 'top' || baseSide === 'bottom') && baseAlign
+      ? (`${baseSide}-${align}` as Placement)
+      : placement;
 
   const {
     refs,
@@ -77,10 +86,14 @@ const Tooltip: React.FC<TooltipProps> = ({
       if (next) {
         const control = refs.domReference.current as HTMLElement | null;
         setTone(control?.closest<HTMLElement>('[data-tone]')?.dataset.tone);
+        if (control) {
+          const box = control.getBoundingClientRect();
+          setAlign(box.left + box.width / 2 < window.innerWidth / 2 ? 'start' : 'end');
+        }
       }
       setOpen(next);
     },
-    placement,
+    placement: placed,
     whileElementsMounted: autoUpdate,
     // `offset` px off the control. The tag's square corner (its tip) sits over the control's center and the body
     // extends away from it, so a control at the right edge of the page never clips the tag.
@@ -102,7 +115,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   const ref = useMergeRefs([refs.setReference, children.props.ref]);
 
-  const side = finalPlacement.split('-')[0];
+  const [side, finalAlign] = finalPlacement.split('-');
 
   // Enters and leaves with a short fade and a 4px drift away from the control. The motion sits on an inner
   // element because the outer one is positioned with a transform. Reduced motion keeps the instant swap.
@@ -132,7 +145,7 @@ const Tooltip: React.FC<TooltipProps> = ({
             {...getFloatingProps()}
           >
             <div style={motion}>
-              <NameTag corner={cornerFor[side]} className={styles.tag}>
+              <NameTag corner={cornerFor(side, finalAlign)} className={styles.tag}>
                 {label}
               </NameTag>
             </div>
