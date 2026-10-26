@@ -34,7 +34,7 @@ The Resume page has no skills area (D-124 removed the chips). Jax rejected seven
 
 ## Resume PDF (side task, 2026-10-24)
 
-Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Design Engineer and Design Engineer ATS. The public PDF is the main build and the only one the site links (decided 2026-10-25). Copies sit in `~/Desktop/resume/`. To revisit with Jax: more Design Engineer framing in the role bullets, the Toyota first bullet, whether the headline should change. Merge to `redesign` only when Jax says so.
+Four resumes build from HTML in [`resume/`](../resume/) (D-110): main, ATS, Design Engineer and Design Engineer ATS. The public PDF is the main build and the only one the site links (decided 2026-10-25). Copies sit in `~/Desktop/resume/`. To revisit with Jax: more Design Engineer framing in the role bullets, the Toyota first bullet, whether the headline should change. Merge to `main` only when Jax says so.
 
 ## Open questions for Jax
 
@@ -67,4 +67,4 @@ Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner), `Study
 - **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md) lists the raw values still open, each with a proposed default of keep (D-141). Next pass: log or tokenize them as Jax decides.
 
 - **Low priority: shorten the other `--size-*` token names.** Space tokens dropped the prefix (`--space-md`, D-143). Radius, border width, icon, target and layout tokens still read `--size-radius-*`, `--size-border-width-*`, `--size-icon-*`, `--size-target-*`. Decide later whether they follow, and rename them in one pass with the generator.
-- **Palettes (on hold, Jax 2026-10-26).** Revisit the six palettes and how `palette.module.css` and tones relate before changing either. Open with it: content color roles (`default`, `emphasis`, `muted`, `link`, `on-accent` as the proposed five), the fixed role font sizes, and one method for applying type.
+- **Palettes (on hold, Jax 2026-10-26).** Revisit the six palettes and how `palette.module.css` and tones relate before changing either. Open with it: content color roles (`default`, `emphasis`, `muted`, `link`, `on-accent` as the proposed five), `soft` as one amount token plus a class, renaming `on-accent` to `content-inverse` to match `surface-inverse`, and the footer email size (no existing type token fits: `heading-lg` has a 24px minimum that likely overflows at 375).
