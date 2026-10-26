@@ -45,6 +45,16 @@ const cornerFor: Record<string, NameTagCorner> = {
   right: 'top-left',
 };
 
+// Floating UI needs milliseconds to time the unmount, so read them from the motion token.
+const tooltipDuration = () => {
+  if (typeof document === 'undefined') return 200;
+  const value = getComputedStyle(document.documentElement)
+    .getPropertyValue('--motion-duration-base')
+    .trim();
+  const ms = value.endsWith('ms') ? parseFloat(value) : parseFloat(value) * 1000;
+  return Number.isFinite(ms) ? ms : 200;
+};
+
 const Tooltip: React.FC<TooltipProps> = ({
   label,
   placement = 'top-end',
@@ -101,8 +111,7 @@ const Tooltip: React.FC<TooltipProps> = ({
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const { isMounted, styles: motion } = useTransitionStyles(context, {
-    // The durations: 0.35s in, 0.25s out, a little slower than --motion-duration-moderate (0.3s).
-    duration: reduceMotion ? 0 : { open: 350, close: 250 },
+    duration: reduceMotion ? 0 : tooltipDuration(),
     initial: ({ side: placed }) => ({
       opacity: 0,
       transform: reduceMotion ? 'none' : `translateY(${placed === 'bottom' ? '-4px' : '4px'})`,
