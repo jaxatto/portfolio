@@ -12,6 +12,7 @@ import {
   useHover,
   useInteractions,
   useMergeRefs,
+  useTransitionStyles,
   type Placement,
 } from '@floating-ui/react';
 import NameTag, { type NameTagCorner } from '#components/NameTag';
@@ -82,7 +83,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   const hover = useHover(context, {
     move: false,
-    delay: { open: 800, close: 0 },
+    delay: { open: 700, close: 0 },
     handleClose: safePolygon(),
   });
   const focus = useFocus(context, { visibleOnly: true });
@@ -92,10 +93,25 @@ const Tooltip: React.FC<TooltipProps> = ({
   const ref = useMergeRefs([refs.setReference, children.props.ref]);
 
   const side = finalPlacement.split('-')[0];
+
+  // Enters and leaves with a short fade and a 4px drift away from the control. The motion sits on an inner
+  // element because the outer one is positioned with a transform. Reduced motion keeps the instant swap.
+  const reduceMotion =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const { isMounted, styles: motion } = useTransitionStyles(context, {
+    // The durations are --motion-duration-fast (0.15s) in, shorter out.
+    duration: reduceMotion ? 0 : { open: 150, close: 100 },
+    initial: ({ side: placed }) => ({
+      opacity: 0,
+      transform: reduceMotion ? 'none' : `translateY(${placed === 'bottom' ? '-4px' : '4px'})`,
+    }),
+    common: { transitionTimingFunction: 'var(--motion-ease-out)' },
+  });
   return (
     <>
       {cloneElement(children, getReferenceProps({ ...children.props, ref }))}
-      {open && (
+      {isMounted && (
         <FloatingPortal>
           <div
             ref={refs.setFloating}
@@ -105,9 +121,11 @@ const Tooltip: React.FC<TooltipProps> = ({
             aria-hidden="true"
             {...getFloatingProps()}
           >
-            <NameTag corner={cornerFor[side]} className={styles.tag}>
-              {label}
-            </NameTag>
+            <div style={motion}>
+              <NameTag corner={cornerFor[side]} className={styles.tag}>
+                {label}
+              </NameTag>
+            </div>
           </div>
         </FloatingPortal>
       )}

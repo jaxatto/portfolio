@@ -1,5 +1,5 @@
 /* Tooltip (D-103, D-105, D-107): the NameTag, placed above the control by Floating UI. This wrapper only
-   positions and fades it in. */
+   positions it. The enter and exit motion is in Tooltip.tsx. */
 
 .tooltip {
   composes: deepen from '#styles/deepen.module.css';
@@ -7,25 +7,8 @@
      same in tone.css, with the tone's own hover color. */
   --tag-bg: var(--state-color-hover);
   z-index: var(--layer-tooltip);
-  animation: tooltip-in var(--motion-duration-fast) var(--motion-ease-standard) both;
 }
 
 .tag {
   box-shadow: var(--shadow-raised);
-}
-
-@keyframes tooltip-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tooltip {
-    animation: none;
-  }
 }
