@@ -51,7 +51,7 @@
 	margin-top: auto;
 	padding-top: var(--size-space-md);
 	color: var(--card-fg);
-	/* The link's text is its icon's size, like the work cards (D-141). */
+	/* The link's text is its icon's size, like the work cards (D-145). */
 	font-size: var(--size-icon-sm);
 	font-weight: var(--font-weight-extra-strong);
 	text-decoration: none;

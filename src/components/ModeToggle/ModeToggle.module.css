@@ -5,7 +5,7 @@
 
 .button {
   composes: iconControl from '#styles/iconControl.module.css';
-  --line-inset: var(--size-icon-inset-lg);
+  --icon-control-size: var(--size-icon-lg);
   padding: 0;
   border: 0;
   background: none;

@@ -7,8 +7,6 @@ import {
   type ResolveValue,
 } from './types';
 
-type TokenTree = Record<string, unknown>;
-
 export function buildStaticSemanticVars(
   theme: SemanticTheme,
   resolveValue: ResolveValue,

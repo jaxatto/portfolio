@@ -228,6 +228,7 @@ const theme: Omit<SemanticTheme, 'colors'> & {
     },
     space: {
       none: primitives.sizes.space[0],
+      '2xs': primitives.sizes.space[2],
       xs: primitives.sizes.space[4],
       sm: primitives.sizes.space[8],
       md: primitives.sizes.space[12],
@@ -264,7 +265,7 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       md: '24px',
       lg: '28px',
       // The drawn edge of these glyphs sits a pixel inside their box, so the hover line is inset by one
-      // more pixel and the glyph rises one (D-140).
+      // more pixel and the glyph rises one (D-144).
       optical: '1px',
     },
     // How far a glyph's drawn edge sits inside its 40px target: the hover line's inset, and the pull

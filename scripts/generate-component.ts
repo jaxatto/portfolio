@@ -1,11 +1,14 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const here = path.dirname(fileURLToPath(import.meta.url));
 
 const input = process.argv[2];
 
 if (!input) {
   console.error(
-    'Please provide a component path: node generate-component.js [ComponentName] or [Page/ComponentName]',
+    'Please provide a component path: npm run generate:component -- [ComponentName] or [Page/ComponentName]',
   );
   process.exit(1);
 }
@@ -15,8 +18,8 @@ const parts = input.split(/[\\/]/).filter(Boolean);
 const componentName = parts[parts.length - 1];
 const subDir = parts.slice(0, -1).join('/');
 
-const baseDir = path.resolve(__dirname, '../src');
-let componentDir;
+const baseDir = path.resolve(here, '../src');
+let componentDir: string;
 
 if (subDir) {
   if (subDir.startsWith('components') || subDir.startsWith('pages')) {

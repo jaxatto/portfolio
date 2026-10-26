@@ -6,7 +6,6 @@ import TextLink from '#components/TextLink';
 import { Chip, ChipList, chipPalettes } from '#components/Chip';
 import { studyLinks } from '#constants/studyLinks';
 import { images } from './resources/images';
-import { content } from './resources/content';
 import { meta } from './resources/meta';
 import styles from './About.module.css';
 
@@ -25,6 +24,31 @@ const LabelledParagraph: React.FC<{ text: string }> = ({ text }) => {
   );
 };
 
+const facts = [
+  '11+ years product design',
+  'Accessibility advocacy',
+  'Design systems leadership',
+  'Design-to-code automation',
+];
+
+const intro = [
+  'I bridge product design and engineering through design tokens and automation. I architect token systems for multi-brand products and build the Figma-to-code pipelines that carry them into production. My background spans interface design, complex workflow automation and WCAG accessibility across fintech, automotive and SaaS.',
+  'I recently joined Spectrum, where I work on the ecommerce design system. My most recent role was at Toyota, where I led design token architecture, token-to-code pipelines and developer tooling across a multi-brand product ecosystem.',
+];
+
+const approach = [
+  'Strategic Product Design: Alongside business and product leadership, I define requirements and turn organizational goals into clear, usable experiences.',
+  'Concept to Execution: I bring a front-end foundation to every design and handoff, and use modern AI workflows to set engineering teams up for success.',
+  'Building Inclusive Design Culture: I foster team cohesion through a strong feedback culture, candid critiques, and collaborative practices that invite everyone to participate in design.',
+];
+
+const personal = [
+  "I live in Fort Worth, Texas with my partner and our four rowdy pets: Kirby, Midna, Zelda, and Beau. When I'm not in Figma or VS Code, you can find me playing narrative-heavy video games, analyzing complex Zelda lore timelines, or watching 2-hour video essays on obscure topics.",
+];
+
+const petsIntro =
+  "Meet my pets! Kirby, Beauregard, Midna, and Zelda. Because I work remote, they're always around and up to no good (but are very cute).";
+
 const About: React.FC = () => (
   <Layout title={meta.title} metaDescription={meta.description} className={styles.page} backToTop>
     <div className={styles.hero}>
@@ -32,18 +56,18 @@ const About: React.FC = () => (
         About <DesignSelection corner="top-right">me</DesignSelection>
       </h1>
       <ChipList>
-        {content.header.bullets.map((bullet, i) => (
-          <Chip key={i} palette={chipPalettes[i % chipPalettes.length]} className={styles.chip}>
-            {bullet.text}
-            {i === content.header.bullets.length - 1 && <Caret />}
+        {facts.map((fact, i) => (
+          <Chip key={fact} palette={chipPalettes[i % chipPalettes.length]} className={styles.chip}>
+            {fact}
+            {i === facts.length - 1 && <Caret />}
           </Chip>
         ))}
       </ChipList>
     </div>
     <div className={styles.story}>
       <section>
-        {content.header.description.map((desc, i) => (
-          <p key={i}>{desc}</p>
+        {intro.map((desc) => (
+          <p key={desc}>{desc}</p>
         ))}
         {/* Earlier roles link to their case studies. Copy is inline because it contains links (D-003). */}
         <p>
@@ -63,23 +87,23 @@ const About: React.FC = () => (
         </p>
       </section>
       <section>
-        <h2 className={styles.heading}>{content.how.heading}</h2>
-        {content.how.description.map((desc, i) => (
-          <LabelledParagraph key={i} text={desc} />
+        <h2 className={styles.heading}>Approach to Work</h2>
+        {approach.map((desc) => (
+          <LabelledParagraph key={desc} text={desc} />
         ))}
       </section>
       <section>
-        <h2 className={styles.heading}>{content.more.heading}</h2>
-        {content.more.description.map((desc, i) => (
-          <p key={i}>{desc}</p>
+        <h2 className={styles.heading}>Personal Life</h2>
+        {personal.map((desc) => (
+          <p key={desc}>{desc}</p>
         ))}
       </section>
     </div>
     <section>
-      <p className="sr-only">{content.images.srOnly.intro}</p>
+      <p className="sr-only">{petsIntro}</p>
       <ul className={styles.photos}>
-        {images.map((img, i) => (
-          <li key={i} className={styles.photo}>
+        {images.map((img) => (
+          <li key={img.name} className={styles.photo}>
             <figure className={`${styles.figure} ${styles[img.palette]}`}>
               <div className={styles.frame}>
                 <Image

@@ -10,7 +10,7 @@ import styles from './StudySection.module.css';
 const renderEmphasis = (text: string) =>
   text.split(/\*\*(.+?)\*\*/g).map((part, i) =>
     i % 2 === 1 ? (
-      <strong key={i} className={styles.emphasis}>
+      <strong key={part} className={styles.emphasis}>
         {part}
       </strong>
     ) : (
@@ -31,8 +31,8 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
         <h2 className={styles.title}>{section.title}</h2>
         {(section.description?.length || section.items?.length || hasBullets) && (
           <div className={styles.text}>
-            {section.description?.map((desc, i) => (
-              <p key={i}>{renderEmphasis(desc)}</p>
+            {section.description?.map((desc) => (
+              <p key={desc}>{renderEmphasis(desc)}</p>
             ))}
             {section.items?.map((item) => (
               <div key={item.label} className={styles.item}>
@@ -42,8 +42,8 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
             ))}
             {hasBullets && (
               <ul>
-                {section.descriptionBullets!.map((bullet, i) => (
-                  <li key={i}>{bullet}</li>
+                {section.descriptionBullets!.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
             )}

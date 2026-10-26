@@ -16,7 +16,7 @@ Status: `[ ]` not started, `[~]` in progress, `[x]` merged to `redesign`.
 
 ## Now
 
-Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-133, D-134). Remaining for Jax: review of the Resume role summaries and strength lines (on hold, drafts, `TODO(jax)` in `roles.ts`). SEO copy is settled and dark mode switching is on (D-131). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant.
+Slices 0 to 6 are merged into `redesign`, and the Home hero, header role line, footer line and 404 quips are settled (D-133, D-134). Remaining for Jax: review of the Resume role summaries and strength lines (on hold, drafts, `TODO(jax)` in `roles.ts`). SEO copy is settled and dark mode switching is on (D-131). The permanent no-nos are in `CLAUDE.md` (never cite the Toyota token count, never style h1 to h6 directly). The code audit's batches 1 to 4 are merged (D-117 to D-119). Its open items are listed under Audit follow-ups. Page folders share one shape (D-140, merged 2026-10-25): every page's SEO text is in `resources/meta.ts`. Standing rule from Jax (2026-10-19): delete anything legacy as we touch it, and fold one-off styles into shared ones where relevant.
 
 ## Audit follow-ups (2026-10-25)
 
@@ -53,16 +53,16 @@ Design / tokens:
 8. Which case studies are strongest for the hiring goal, and what outcomes/metrics can we state for each? (For the first `portfolio-critique` pass.)
 
 Remaining `TODO(jax)` in the code (2026-10-25):
-- The Home SEO copy (`Work.tsx`, D-003, D-016).
+- The Home SEO copy (`src/pages/Work/resources/meta.ts`, D-016).
 - Resume role summaries and strength proof lines are drafts condensed from the PDF bullets and the case studies (`roles.ts`, `Resume.tsx`, D-124).
 - Toyota page: no Deliverables image (decided 2026-10-21: none wanted). The sprint board image is 800px and soft on retina (Jax is fine with that).
 
 ## Parked: study image component (raised 2026-10-19, return after ServiceNow copy is done)
 
-Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner, `corners` as a free string), `StudyCompare` (1200 / 740 default box, `aspectRatio` override added in D-078) and `StudyPanels` (300px / 220px box, `sourceWidth`, `sourceHeight`, pixel slice coordinates and hand-computed `weight` in the content files). ServiceNow's hero needed a composite sheet and slices computed by hand. Proposal to discuss: one `StudyMedia` component with a `layout` of `single` (natural or a named ratio, optional surface or clipped inset), `pair` (before / after) and `spread` (several screens in a row with their own `src`, `alt` and fractional `crop`, equal height from their own aspect ratios). Shared: caption as wide as the image, surfaces and padding from tokens only, the 40px spacing, a fixed 16px corner (drop the free-string `corners`). Open: image aspect ratios (declare per item, or have the export script write each size to a generated `images.json`), then migrate Indeed, ActBlue and ServiceNow and compare screenshots, and delete the three old components. Its own slice, not part of the ServiceNow PR. Study copy stays inline in `content.ts` (D-003).
+Jax finds the image approach too fixed. Today: `StudyImage` (3:1 banner), `StudyCompare` (1200 / 740 default box, `aspectRatio` override added in D-078) and `StudyPanels` (300px / 220px box, `sourceWidth`, `sourceHeight`, pixel slice coordinates and hand-computed `weight` in the content files). ServiceNow's hero needed a composite sheet and slices computed by hand. Proposal to discuss: one `StudyMedia` component with a `layout` of `single` (natural or a named ratio, optional surface or clipped inset), `pair` (before / after) and `spread` (several screens in a row with their own `src`, `alt` and fractional `crop`, equal height from their own aspect ratios). Shared: caption as wide as the image, surfaces and padding from tokens only, the 40px spacing, a fixed 16px corner (drop the free-string `corners`). Open: image aspect ratios (declare per item, or have the export script write each size to a generated `images.json`), then migrate Indeed, ActBlue and ServiceNow and compare screenshots, and delete the three old components. Its own slice, not part of the ServiceNow PR. Study copy stays inline in `content.ts` (D-003).
 
 ## Backlog
 
 - **Screen reader test (Jax).** VoiceOver on a Mac: Cmd+F5, then Tab through the nav. Check that each page change announces the h1 (D-126), the photo list on About reads as a list with its intro, the card links name their study, the mode toggle states its mode and the tooltips do not double-announce.
-- **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md): the four first picks are done (D-139). Left are the exact-match literals (use `space-*` tokens), the 2px values and the single-use layout measures. See its last section.
+- **Token worklist, remaining.** [untokenized-styles.md](untokenized-styles.md): the four first picks are done (D-143). Left are the exact-match literals (use `space-*` tokens), the 2px values and the single-use layout measures. See its last section.
 - **`Image` fallback.** Explore how it looks when an About photo fails to load (TODO(jax)).

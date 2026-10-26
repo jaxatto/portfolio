@@ -1,4 +1,4 @@
-/* The hover and pressed colors of every interactive control (D-142): the primary hover and pressed colors, stepped
+/* The hover and pressed colors of every interactive control (D-146): the primary hover and pressed colors, stepped
    on toward the next violet by --state-deepen-hover and --state-deepen-active (see effects.ts). Compose it
    (`composes: deepen from '#styles/deepen.module.css'`) and read --state-color-hover and --state-color-active.
    The line style composes it for every link. Tone sections on a dark ground set the amounts to 0%. */

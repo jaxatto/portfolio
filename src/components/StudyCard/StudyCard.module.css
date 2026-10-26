@@ -85,7 +85,7 @@
   gap: var(--size-space-xs);
   color: var(--card-fg);
   font-family: var(--font-family-body);
-  /* The link's text is its icon's size (D-141). */
+  /* The link's text is its icon's size (D-145). */
   font-size: var(--size-icon-sm);
   font-weight: var(--font-weight-extra-strong);
   line-height: var(--font-line-height-default);

@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import Button from '#components/Button';
 import Header from '#components/Header';
 import Meta from '#components/Meta';
-import { content } from '#pages/NotFound/resources/content';
+import { mainLinks } from '#constants/mainLinks';
 import styles from './NotFound.module.css';
+
+// One is picked at random each time the page shows.
+const descriptions = [
+  'Well, this wasn’t in the flowchart.',
+  'This one didn’t make it past design review.',
+  'Looks like this page got cut from the scope.',
+  'Still in the backlog. Probably.',
+  'We checked the sitemap. It isn’t there either.',
+  'Even the design system doesn’t have this one.',
+  'This link took a wrong turn at handoff.',
+];
 
 const NotFound: React.FC = () => {
   // Picked once per visit (state initializer), so it doesn't change on re-render.
   const [description] = useState(
-    () => content.descriptions[Math.floor(Math.random() * content.descriptions.length)],
+    () => descriptions[Math.floor(Math.random() * descriptions.length)],
   );
 
   return (
@@ -23,16 +34,16 @@ const NotFound: React.FC = () => {
       <main id="main-content" tabIndex={-1} className={styles.wrapper}>
         <div className={styles.main}>
           <div className={styles.copy}>
-            <h1 className={styles.title}>{content.title}</h1>
+            <h1 className={styles.title}>404</h1>
             <p className={styles.description}>{description}</p>
           </div>
           <Button
             variant="inverted"
-            to={content.button.src}
+            to={mainLinks.home}
             icon="arrow-right"
             className={styles.button}
           >
-            {content.button.label}
+            Return to portfolio
           </Button>
         </div>
       </main>

@@ -4,7 +4,6 @@ import Button from '#components/Button';
 import Image from '#components/Image';
 import { CursorTag } from '#components/HeroMarks';
 import portrait from '#assets/resume/portrait-min.jpg?size';
-import { chipPalettes } from '#components/Chip';
 import RoleLines from '#components/RoleLines';
 import { contactInfo } from '#constants/contactInfo';
 import { roleLines } from '#constants/roleLines';
