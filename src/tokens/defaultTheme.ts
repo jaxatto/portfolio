@@ -259,6 +259,7 @@ const theme: Omit<SemanticTheme, 'colors'> & {
     },
     // Icon glyphs drawn at a fixed size. A link's font size is its icon size (TextLink, card links).
     icon: {
+      xs: '16px',
       sm: '20px',
       md: '24px',
       lg: '28px',

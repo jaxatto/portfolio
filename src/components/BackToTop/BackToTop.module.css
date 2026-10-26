@@ -65,8 +65,8 @@
 }
 
 .icon {
-  width: var(--size-icon-sm);
-  height: var(--size-icon-sm);
+  width: var(--size-icon-xs);
+  height: var(--size-icon-xs);
   flex-shrink: 0;
   fill: currentcolor;
 }

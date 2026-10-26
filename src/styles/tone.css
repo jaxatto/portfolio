@@ -14,7 +14,8 @@
   --color-content-link: var(--color-content-on-accent);
   --color-primary-default: var(--color-content-on-accent-hover);
   --color-primary-default-hover: var(--color-content-on-accent-hover);
-  --state-deepen-target: oklch(1 0 none);
+  --state-deepen-hover: 0%;
+  --state-deepen-active: 0%;
   --color-primary-default-active: var(--color-content-on-accent-active);
   --color-primary-on-container-active: var(--color-content-on-accent-active);
   --color-state-focus-ring: var(--color-content-on-accent);
@@ -35,7 +36,8 @@
   --color-content-default-active: var(--color-content-on-accent-active);
   --color-primary-default: var(--color-content-on-accent-hover);
   --color-primary-default-hover: var(--color-content-on-accent-hover);
-  --state-deepen-target: oklch(1 0 none);
+  --state-deepen-hover: 0%;
+  --state-deepen-active: 0%;
   --color-primary-default-active: var(--color-content-on-accent-active);
   --color-state-focus-ring: var(--color-content-on-accent);
   /* Tooltips: the hover color with the 404's ground as text (white on the soft indigo was unreadable). */
