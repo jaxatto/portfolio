@@ -141,7 +141,7 @@
 }
 
 .summary,
-.education {
+.text {
 	max-width: var(--size-layout-content-max);
 	margin: 0;
 	text-wrap: pretty;

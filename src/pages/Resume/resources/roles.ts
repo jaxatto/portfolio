@@ -59,7 +59,7 @@ export const roles: ResumeRole[] = [
     startDate: 'Jun 2023',
     endDate: 'Sep 2023',
     summary:
-      'Shaped reusable components and documentation for a merchandising platform, and drove adoption across teams.',
+      'Shaped reusable components and documentation for a merchandising platform serving 5,000+ stores, and drove adoption across 20+ teams.',
   },
   {
     title: 'Senior Product Designer',
@@ -91,7 +91,7 @@ export const roles: ResumeRole[] = [
     startDate: 'Nov 2020',
     endDate: 'Nov 2021',
     summary:
-      'Architected incident management workflows for enterprise engineering teams, from role assignment to postmortem documentation.',
+      'Created the company design system and architected incident management workflows for enterprise engineering teams including Spotify, Peloton and Snapchat.',
   },
   {
     title: 'UX Designer',
@@ -114,6 +114,6 @@ export const roles: ResumeRole[] = [
     endDate: 'Feb 2020',
     promotion: 'Promoted from UX Engineer, Nov 2015 – Nov 2017',
     summary:
-      'Helped build the front-end framework library hundreds of developers used globally, and redesigned fraud investigation and transaction reporting tools for enterprise clients.',
+      'Redesigned fraud investigation and transaction reporting tools for enterprise clients, contributing to a 20% reduction in case resolution SLAs. Helped build the front-end framework library hundreds of developers used globally.',
   },
 ];
