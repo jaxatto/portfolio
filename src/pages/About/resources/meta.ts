@@ -1,5 +1,5 @@
 export const meta = {
-  title: 'About Jax Engel – Enterprise UX, Fintech, Internal Tools',
-  description: 'Jax Engel is a senior-level product designer specializing in enterprise UX, fintech, and internal tools. Figma expert with deep experience in design systems, accessibility, and cross-functional collaboration.',
-  keywords: [],
+  title: 'About Jax Engel | Staff Product Designer and Design Engineer',
+  description:
+    'About Jax Engel, a staff product designer and design engineer. A front-end foundation, design systems, accessibility and enterprise UX.',
 };

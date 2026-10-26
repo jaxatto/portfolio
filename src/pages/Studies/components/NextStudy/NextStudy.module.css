@@ -1,0 +1,26 @@
+/* "More of my work" row (D-046): a hairline, an h2, then two cards (h3s) from StudyCardGrid. */
+
+.wrapper {
+  margin-top: var(--space-6xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg); /* 20px under the h2, 8px more than other h2s (D-064) */
+  padding-top: var(--space-5xl); /* 56px, 8px more (D-065) */
+  border-top: var(--size-border-width-default) solid var(--color-border-decorative);
+}
+
+.title {
+  /* Left edge matches the cards below (D-062). */
+  color: var(--color-content-prose); /* true black in light (D-056) */
+}
+
+/* After an image the image's own 40px margin is the gap above the line. */
+.afterMedia {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .wrapper:not(.afterMedia) {
+    margin-top: var(--space-4xl);
+  }
+}

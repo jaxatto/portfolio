@@ -1,21 +1,41 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Work from '@pages/Work';
-import About from '@pages/About';
-import Resume from '@pages/Resume';
-import StudyPage from '@pages/Studies';
-import NotFound from '@pages/NotFound';
+import React, { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Work from '#pages/Work';
+import ScrollToTop from '#components/ScrollToTop';
+import FocusOnRouteChange from '#components/FocusOnRouteChange';
+import Header from '#components/Header';
 
+// NOTE: Home ships in the entry bundle because most visits land there. Every other route is its own
+// chunk, so a visitor downloads only the page they open (D-151).
+const About = React.lazy(() => import('#pages/About'));
+const Resume = React.lazy(() => import('#pages/Resume'));
+const StudyPage = React.lazy(() => import('#pages/Studies'));
+const NotFound = React.lazy(() => import('#pages/NotFound'));
+
+// Shown while a route chunk loads on a client-side navigation.
+const RouteFallback: React.FC = () => (
+  <>
+    <Header />
+    <main id="main-content" tabIndex={-1} />
+  </>
+);
+
+// The router comes from the entry: BrowserRouter in the browser (src/index.tsx), StaticRouter when
+// pre-rendering (src/entry-server.tsx).
 const App: React.FC = () => (
-  <Router>
-    <Routes>
-      <Route path='/' element={<Work />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/resume' element={<Resume />} />
-      <Route path="/case-studies/:slug" element={<StudyPage />} />  
-      <Route path="*" element={<NotFound />} />  
-    </Routes>
-  </Router>
+  <>
+    <ScrollToTop />
+    <FocusOnRouteChange />
+    <Suspense fallback={<RouteFallback />}>
+      <Routes>
+        <Route path="/" element={<Work />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/case-studies/:slug" element={<StudyPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
+  </>
 );
 
 export default App;

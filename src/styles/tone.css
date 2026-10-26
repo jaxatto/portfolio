@@ -1,0 +1,46 @@
+/* Tone scopes (D-109). A tone re-points the semantic tokens inside one section, so shared components
+   (TextLink, the icon links, the name tag and so on) recolor themselves without knowing about it.
+   There are two. `blue` is the footer band in dark mode, where text and link tokens go to their on-accent
+   values (soft indigo hovers) on the indigo-tinted ground. `error` is the 404, an indigo ground in both
+   themes. Portaled UI (the Tooltip) copies its control's tone onto itself, so a tooltip in the footer wears the same blue. The ground
+   color itself stays with the section (Footer.module.css). Dark is `[data-theme='dark']`, which always
+   holds the theme being shown (D-128). */
+
+:root[data-theme='dark'] [data-tone='blue'] {
+  --color-content-default: var(--color-content-on-accent);
+  --color-content-variant: var(--color-content-on-accent);
+  --color-content-soft: var(--color-content-on-accent);
+  --color-content-emphasis: var(--color-content-on-accent);
+  --color-content-link: var(--color-content-on-accent);
+  --color-primary-default: var(--color-content-on-accent-hover);
+  --color-primary-default-hover: var(--color-content-on-accent-hover);
+  --state-deepen-hover: var(--state-deepen-off);
+  --state-deepen-active: var(--state-deepen-off);
+  --color-primary-default-active: var(--color-content-on-accent-active);
+  --color-primary-on-container-active: var(--color-content-on-accent-active);
+  --color-state-focus-ring: var(--color-content-on-accent);
+  /* Name tags and tooltips: the same hover color the controls take, with the page ground (the dark navy) as text. */
+  --tag-bg: var(--state-color-hover);
+  --tag-fg: var(--color-surface-default);
+}
+/* The 404 (D-038): the page sets its own indigo ground, and every token the shared header and links read is
+   re-pointed to an on-accent value. The same in both themes, since the ground is indigo in both. */
+[data-tone='inverse'] {
+  --color-content-default: var(--color-content-on-accent);
+  --color-content-variant: var(--color-content-on-accent);
+  --color-content-emphasis: var(--color-content-on-accent);
+  /* The header's tagline and ampersand (secondary, muted) are dark slate by default: unreadable here. */
+  --color-content-secondary: var(--color-content-on-accent-hover);
+  --color-content-muted: var(--color-content-on-accent-hover);
+  --color-primary-default: var(--color-content-on-accent-hover);
+  --color-primary-default-hover: var(--color-content-on-accent-hover);
+  --state-deepen-hover: var(--state-deepen-off);
+  --state-deepen-active: var(--state-deepen-off);
+  --color-primary-default-active: var(--color-content-on-accent-active);
+  --color-state-focus-ring: var(--color-content-on-accent);
+  /* Tooltips: the hover color with the 404's ground as text (white on the soft indigo was unreadable). */
+  --tag-bg: var(--state-color-hover);
+  --tag-fg: var(--color-surface-inverse);
+  /* Mobile nav divider: a quiet tint of the on-accent color (the default slate is invisible here). */
+  --color-border-decorative: color-mix(in srgb, var(--color-content-on-accent) 22%, transparent);
+}

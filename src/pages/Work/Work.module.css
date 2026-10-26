@@ -1,0 +1,4 @@
+/* Home: 64px between the last card and the footer's hairline (the footer carries its own top padding). */
+.work {
+  padding-bottom: var(--space-6xl);
+}

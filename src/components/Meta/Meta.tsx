@@ -1,9 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
 
-// Meta component for setting the document title and meta description
-// This component updates the document's title and meta description based on the props provided.
-// It is typically used in the main layout or individual pages to improve SEO and user experience.
+// Keeps the title and description current on client-side navigation. Crawlers get each route's own
+// tags from scripts/prerender.ts (D-122).
 
 export type MetaProps = {
   title?: string;

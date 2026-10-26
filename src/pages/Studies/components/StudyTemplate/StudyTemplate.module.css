@@ -1,0 +1,37 @@
+/* Case study template on tokens (D-046). One column on the 960 grid from Layout; text holds a 640px
+   reading measure (D-040) and images run the full column. Every image has 40px above and below it
+   (D-053): the image's own margin, so the blocks around it add no extra gap. */
+
+/* The study's card palette (D-052, D-069) comes from the class on the page (src/styles/palette.module.css,
+   D-119). --study-heading is the h1 and h3 color: the palette's on-container in light and dark (D-070).
+   Chips, the "After" side of a before / after pair, the spread box and the text selection read the palette. */
+.page {
+  --study-heading: var(--palette-on-container);
+}
+
+.page ::selection {
+  background: var(--palette-container);
+  color: var(--palette-on-container);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-6xl) var(--space-6xl);
+  color: var(--color-content-prose);
+}
+
+/* Without a hero image, the header needs its own gap before the first section. */
+.page > .headerNoImage {
+  margin-bottom: var(--space-6xl);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-block: var(--space-2xl) var(--space-4xl);
+  }
+
+  .page > .headerNoImage {
+    margin-bottom: var(--space-4xl);
+  }
+}

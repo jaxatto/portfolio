@@ -1,0 +1,82 @@
+/* Study section (D-046): h2 at heading-lg like About, text at 640px, image at full column width. */
+
+/* Each image has 40px above and below it (D-053), its own margin. A section that ends with an image
+   adds no gap before the next section. */
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section + .section {
+  margin-top: var(--space-4xl);
+}
+
+.section.endsWithMedia + .section {
+  margin-top: 0;
+}
+
+.media {
+  margin-block: var(--space-3xl);
+}
+
+/* Two images in a row are 40px apart, not 80 (D-086). */
+.media + .media {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .section + .section {
+    margin-top: var(--space-3xl);
+  }
+}
+
+/* The title and text share one left-aligned 640px reading column (`copy`); images and the before / after
+   pair run the full 960 column (D-051). Text inside stays left-aligned. */
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm); /* 12px under the h2 (D-057) */
+  width: 100%;
+  max-width: var(--size-layout-content-max);
+  margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
+}
+
+.title {
+  color: var(--color-content-prose); /* true black in light (D-056) */
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  text-wrap: pretty;
+}
+
+.text p,
+.text ul {
+  margin: 0;
+}
+
+.text ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-left: var(--space-2xl);
+}
+
+/* A highlighted phrase inside a paragraph (D-081): bold, in the study's tint like the label h3s. */
+.emphasis {
+  color: var(--study-heading, var(--color-content-emphasis));
+  font-weight: var(--font-weight-emphasis);
+}
+
+/* "Label: sentence" groups: an h3 one step above the text, like About (D-042). */
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.label {
+  color: var(--study-heading, var(--color-content-emphasis)); /* the study's tint (D-069) */
+}

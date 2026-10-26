@@ -1,0 +1,230 @@
+/* The decorative marks from the Home hero (D-017), shared with other page headers: a design-tool
+   selection box with a pointer, and a blinking terminal caret. Both are aria-hidden. */
+
+/* "design": a design-tool selection box with corner handles and a pointer that slowly resizes it.
+   The box is an empty aria-hidden overlay, so it never reflows the text. See D-017. */
+.design {
+  position: relative;
+  display: inline-block;
+  margin-inline: 0.04em;
+  padding-inline: 0.1em;
+}
+
+.selection {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border: var(--size-border-width-default) solid var(--color-secondary-default);
+  pointer-events: none;
+  animation: resize-box 12s ease-in-out infinite;
+}
+
+.handle-tl,
+.handle-tr,
+.handle-bl,
+.handle-br {
+  position: absolute;
+  box-sizing: border-box;
+  width: 0.2em;
+  height: 0.2em;
+  background: var(--color-surface-default);
+  border: var(--size-border-width-default) solid var(--color-secondary-default);
+}
+
+.handle-tl {
+  top: calc(-1 * var(--size-border-width-default));
+  left: calc(-1 * var(--size-border-width-default));
+  transform: translate(-50%, -50%);
+}
+
+.handle-tr {
+  top: calc(-1 * var(--size-border-width-default));
+  right: calc(-1 * var(--size-border-width-default));
+  transform: translate(50%, -50%);
+}
+
+.handle-bl {
+  bottom: calc(-1 * var(--size-border-width-default));
+  left: calc(-1 * var(--size-border-width-default));
+  transform: translate(-50%, 50%);
+}
+
+.handle-br {
+  right: calc(-1 * var(--size-border-width-default));
+  bottom: calc(-1 * var(--size-border-width-default));
+  transform: translate(50%, 50%);
+}
+
+/* A Figma multiplayer cursor: arrow plus a name tag, in the same color as the selection box (as Figma
+   colors a person's cursor and selection alike). Authentic orientation: tip up-left, on the box's
+   bottom-right handle (the corner being dragged), with the tag below it. It only shows while the box
+   is being dragged and fades out at rest, so the tag is not sitting over the line below all the
+   time. Decorative only (aria-hidden parent). See D-017. */
+.pointer {
+  --pointer-color: var(--color-secondary-default);
+
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 1px 0 0 1px;
+  pointer-events: none;
+  user-select: none;
+  animation: pointer-drag 12s ease-in-out infinite;
+}
+
+.pointer-arrow {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(var(--shadow-cursor));
+}
+
+.pointer-fill {
+  fill: var(--pointer-color);
+  /* The thin white edge Figma draws around a cursor so it reads on any background. */
+  stroke: var(--color-surface-default);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+
+/* 12s cycle = an 8s drag (first two thirds) then a 4s pause at rest before it repeats. */
+@keyframes resize-box {
+  0%,
+  13% {
+    right: 0;
+    bottom: 0;
+  }
+
+  30%,
+  40% {
+    right: -0.3em;
+    bottom: -0.1em;
+  }
+
+  57%,
+  100% {
+    right: 0;
+    bottom: 0;
+  }
+}
+
+/* Same 12s cycle as the box: the pointer fades in as the drag starts and out as it ends, and stays
+   hidden during the 4s pause. */
+@keyframes pointer-drag {
+  0%,
+  8% {
+    opacity: 0;
+  }
+
+  16%,
+  52% {
+    opacity: 1;
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Top-right variant: the pointer drags the top-right handle, so the box grows up and to the right.
+   The pointer sits on that corner, tag below-right of the tip like the bottom-right one. */
+.corner-tr {
+  animation-name: resize-box-tr;
+}
+
+.corner-tr .pointer {
+  top: 0;
+  left: 100%;
+  margin: -1px 0 0 1px;
+}
+
+@keyframes resize-box-tr {
+  0%,
+  13% {
+    top: 0;
+    right: 0;
+  }
+
+  30%,
+  40% {
+    top: -0.1em;
+    right: -0.3em;
+  }
+
+  57%,
+  100% {
+    top: 0;
+    right: 0;
+  }
+}
+
+/* Name tag: the arrow with a label under and to the right of its tip, like a collaborator's cursor.
+   Color pair comes from the parent (--tag-bg, --tag-fg); the arrow carries a thin edge so it reads on
+   any photo. */
+.tag {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: none;
+  user-select: none;
+  transition: transform var(--motion-duration-moderate) var(--motion-ease-emphasized);
+}
+
+.tag-arrow {
+  display: block;
+  overflow: visible;
+  fill: var(--tag-bg, var(--color-primary-default));
+  stroke: var(--color-surface-default);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+  filter: drop-shadow(var(--shadow-cursor));
+}
+
+.tag-label {
+  /* Hangs 2px under the arrow's tip and 10px in (the NameTag supplies the look, D-107). */
+  margin: -2px 0 0 10px;
+}
+
+/* A blinking terminal caret. Sized in em so it follows the text it sits in; `--caret-color` lets a
+   chip match it to its text. */
+.caret {
+  display: inline-block;
+  width: 0.12em;
+  height: 0.85em;
+  margin-left: 0.15em;
+  background: var(--caret-color, var(--color-primary-default));
+  vertical-align: -0.1em;
+  animation: blink 1.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,
+  55% {
+    opacity: 1;
+  }
+
+  75%,
+  100% {
+    opacity: 0.15;
+  }
+}
+
+/* No looping motion for people who ask for less: the box and caret stay still, solid. */
+@media (prefers-reduced-motion: reduce) {
+  .selection,
+  .pointer,
+  .caret {
+    animation: none;
+  }
+
+  /* Still box, no pointer: the pointer only makes sense mid-drag. */
+  .pointer {
+    display: none;
+  }
+
+  .tag {
+    transition: none;
+  }
+}

@@ -6,5 +6,5 @@ export const mainLinks = {
   work: '/',
   about: '/about',
   resume: '/resume',
-  siteURL: 'https://jaxengeldesign.com',
+  siteURL: 'https://www.jaxengeldesign.com',
 };

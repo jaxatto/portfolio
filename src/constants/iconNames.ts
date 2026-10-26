@@ -1,17 +1,19 @@
 export const iconNames = [
-  'ai',
   'arrow-right',
   'arrow-top-right',
+  'arrow-up',
   'cat',
-  'clouds',
-  'component',
   'controller',
-  'dog',
   'download',
+  'envelope-simple',
+  'file-arrow-down',
+  'github',
   'image',
+  'linkedin',
+  'moon',
   'paw',
-  'pencil-ruler',
-  'person'
+  'sun',
+  'user',
 ] as const;
 
-export type IconName = typeof iconNames[number];
+export type IconName = (typeof iconNames)[number];

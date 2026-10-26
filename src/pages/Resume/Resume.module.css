@@ -1,0 +1,214 @@
+/* Resume page (slice 6, D-087). Tokens only. One column on the 960 grid, text held to 640px. */
+
+.page {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-6xl);
+	padding-block: var(--space-6xl);
+	color: var(--color-content-prose);
+}
+
+.header {
+	display: grid;
+	margin-bottom: var(--space-3xl);
+	grid-template-columns: minmax(0, 1fr);
+	gap: var(--space-3xl);
+}
+
+.portrait {
+	--tag-bg: var(--color-primary-default);
+	--tag-fg: var(--color-primary-on-default);
+	position: relative;
+	order: -1;
+	width: 14rem;
+	margin: 0;
+}
+
+.portraitFrame {
+	aspect-ratio: 1;
+	width: 100%;
+	overflow: hidden;
+	border-radius: var(--size-radius-lg);
+}
+
+.portraitImage {
+	display: block;
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	transition: transform var(--motion-duration-slow) var(--motion-ease-emphasized);
+}
+
+/* Same spot as the name tags on the About photos. */
+.tag {
+	position: absolute;
+	right: var(--space-2xs);
+	bottom: var(--space-2xs);
+}
+
+/* The About photo hover: the photo eases in and the tag nudges up and left, like a dragged cursor. */
+@media (hover: hover) {
+	.portrait:hover .portraitImage {
+		transform: scale(1.04);
+	}
+
+	.portrait:hover .tag {
+		transform: translate(-4px, -4px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.portraitImage {
+		transition: none;
+	}
+}
+
+/* Tablet: 80px larger than the phone size. */
+@media (min-width: 641px) and (max-width: 899px) {
+	.portrait {
+		width: calc(14rem + 80px);
+	}
+}
+
+/* Desktop: the portrait sits right of the intro and stretches to its full height, name to buttons, so
+   the two edges line up. Below that it stacks above the name. */
+@media (min-width: 900px) {
+	.header {
+		/* The portrait grows from 14rem at 900px to 22rem at 968px, so the two buttons keep one row. */
+		grid-template-columns: minmax(0, 1fr) clamp(14rem, calc(14rem + (100vw - 900px) * 1.9), 22rem);
+		align-items: stretch;
+	}
+
+	.portrait {
+		order: 0;
+		width: auto;
+	}
+
+	/* Out of flow, so the photo takes the intro's height and never sets it. */
+	.portraitFrame {
+		position: absolute;
+		inset: 0;
+		width: auto;
+		aspect-ratio: auto;
+	}
+
+	.portraitImage {
+		aspect-ratio: auto;
+	}
+}
+
+.intro {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xl);
+}
+
+/* Name, role and place sit close (8px, 4px). The summary is 24px below, the actions 48px below that. */
+.identity {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+}
+
+.title {
+	color: var(--color-content-emphasis);
+	/* The About page's h1 size (48px, 56px from 900px). */
+	font-size: var(--font-size-display-sm);
+}
+
+@media (min-width: 900px) {
+	.title {
+		font-size: var(--font-size-display);
+		letter-spacing: var(--font-letter-spacing-compact);
+	}
+}
+
+.byline {
+	display: none;
+	margin: 0;
+	color: var(--color-content-soft);
+	font-weight: var(--font-weight-medium);
+	text-wrap: balance;
+}
+
+@media (max-width: 640px) {
+	.byline {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 0.3em;
+	}
+}
+
+.summary,
+.education {
+	max-width: var(--size-layout-content-max);
+	margin: 0;
+	text-wrap: pretty;
+}
+
+/* The two buttons share one row. */
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-md) var(--space-xl);
+	margin-top: calc(var(--space-2xl) - var(--space-xl) + var(--space-md));
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xl);
+}
+
+.heading {
+	color: var(--color-content-prose);
+}
+
+/* Major heading style on this page (D-124): the heading, then a short accent bar. */
+.heading::after {
+	content: '';
+	display: block;
+	width: var(--space-5xl);
+	height: var(--space-2xs);
+	margin-top: var(--space-sm);
+	border-radius: var(--size-radius-full);
+	background: var(--color-brand-default);
+}
+
+.strengths {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--space-xl);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.roles {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xl);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+@media (max-width: 900px) {
+	.strengths {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* Phones: the buttons fill the width, one above the other. */
+@media (max-width: 640px) {
+	.actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.actions .action {
+		justify-content: center;
+	}
+}

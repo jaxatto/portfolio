@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Text selection: a light container color (not the browser default blue) with its paired text color,
+   so dragging over text stays in the violet family and keeps contrast in light and dark. See D-017. */
+::selection {
+  background: var(--color-primary-container);
+  color: var(--color-primary-on-container);
+}
+
+/* Default pointer: the same arrow as the hero's Figma-style cursor, but black with a thin white edge so
+   it shows on light and dark pages. Fixed colors on purpose (a cursor image can't read CSS variables).
+   Soft drop shadow like Figma's cursor (the canvas is padded so the shadow isn't clipped). Links and
+   buttons keep their own cursors (hand, etc.); the hotspot is the arrow's tip. See D-017. */
+html {
+  cursor:
+    url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2722%27 height=%2729%27 viewBox=%27-2 -1 18 24%27%3E%3Cdefs%3E%3Cfilter id=%27s%27 x=%27-50%25%27 y=%27-50%25%27 width=%27200%25%27 height=%27200%25%27%3E%3CfeDropShadow dx=%270%27 dy=%271.2%27 stdDeviation=%271.1%27 flood-color=%27%23000%27 flood-opacity=%270.32%27/%3E%3C/filter%3E%3C/defs%3E%3Cpath d=%27M0.6 0.6V17.2L5.1 12.6H12.4L0.6 0.6Z%27 fill=%27%23000%27 stroke=%27%23fff%27 stroke-width=%271.2%27 stroke-linejoin=%27round%27 filter=%27url%28%23s%29%27/%3E%3C/svg%3E')
+      3 2,
+    auto;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Browser-drawn parts (scrollbars, form controls, default outlines) follow the site's theme, not the OS
+   setting that the color-scheme meta tag reports (D-128). */
+html {
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+a,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Page defaults come from tokens (D-036). */
+  color: var(--color-content-default);
+  font-family: var(--font-family-body);
+  line-height: var(--font-line-height-default);
+  background: var(--color-surface-default);
+  margin: 0;
+  /* Pretty wrapping site-wide: avoids a single word on the last line. Inherited; elements that set
+       `text-wrap: balance` (card titles, footer description) keep it. See D-034. */
+  text-wrap: pretty;
+}
+
+/* Slow color fade while switching modes (class set briefly by ThemeProvider). `!important` is needed
+   because component rules (hover states, media queries) set their own transitions with higher specificity. */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-fading,
+  html.theme-fading *,
+  html.theme-fading *::before,
+  html.theme-fading *::after {
+    transition:
+      background-color var(--motion-duration-slowest) var(--motion-ease-standard),
+      color var(--motion-duration-slowest) var(--motion-ease-standard),
+      border-color var(--motion-duration-slowest) var(--motion-ease-standard),
+      fill var(--motion-duration-slowest) var(--motion-ease-standard),
+      stroke var(--motion-duration-slowest) var(--motion-ease-standard) !important;
+  }
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* A page's h1 takes focus after a route change (FocusOnRouteChange). It is not a control, so no ring. */
+main h1[tabindex='-1']:focus,
+main h1[tabindex='-1']:focus-visible {
+  outline: none;
+}

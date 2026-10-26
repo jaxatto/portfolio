@@ -1,21 +1,42 @@
 import React from 'react';
-import Image from '@components/Image';
-import type { StudyImageProps } from '@commonTypes/study/studyImage';
-import styles from './StudyImage.module.scss';
+import clsx from 'clsx';
+import Image from '#components/Image';
+import type { StudyImageProps } from '#pages/Studies/types/studyImage';
+import typography from '#styles/type.module.css';
+import styles from './StudyImage.module.css';
 
-const StudyImage: React.FC<StudyImageProps> = ({ src, alt, caption, className, corners }) => (
-  <div className={[styles['study-image'], className].filter(Boolean).join(' ')}>
+const StudyImage: React.FC<StudyImageProps> = ({
+  src,
+  alt,
+  width,
+  height,
+  caption,
+  className,
+  variant = 'default',
+  priority = false,
+}) => (
+  <figure
+    className={clsx(styles.figure, variant === 'column' && styles.column, className)}
+    style={
+      width && height
+        ? ({ '--shot-ratio': `${width} / ${height}` } as React.CSSProperties)
+        : undefined
+    }
+  >
     <Image
       src={src}
       alt={alt}
-      imgClassName={[
-        styles.image,
-        corners === 'square' ? styles.square : ''
-      ].filter(Boolean).join(' ')}
-      fallbackClassName={styles['image-fallback-wrapper']}
+      width={width}
+      height={height}
+      priority={priority}
+      className={styles.imageBox}
+      imgClassName={clsx(styles.image, variant === 'banner' && styles.banner)}
+      fallbackClassName={clsx(styles.fallback, variant === 'banner' && styles.banner)}
     />
-    {caption && <p className={styles['image-caption']}>{caption}</p>}
-  </div>
+    {caption && (
+      <figcaption className={clsx(typography.bodySm, styles.caption)}>{caption}</figcaption>
+    )}
+  </figure>
 );
 
 export default StudyImage;

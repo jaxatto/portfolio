@@ -1,0 +1,54 @@
+import React from 'react';
+import clsx from 'clsx';
+import Image from '#components/Image';
+import type { StudyPanelsData } from '#pages/Studies/types/studySection';
+import typography from '#styles/type.module.css';
+import styles from './StudyPanels.module.css';
+
+// Page crops side by side in a sunken box (D-054, Figma Indeed 2853:27124). Each panel is a pixel
+// rectangle of one source image, positioned with percentages, so one file serves all of them and
+// stays sharp. The box clips whatever runs past its bottom edge.
+type StudyPanelsProps = StudyPanelsData & { className?: string; priority?: boolean };
+
+const StudyPanels: React.FC<StudyPanelsProps> = ({
+  src,
+  sourceWidth,
+  sourceHeight,
+  slices,
+  caption,
+  framed,
+  className,
+  priority = false,
+}) => (
+  <figure className={clsx(styles.figure, framed && styles.framed, className)}>
+    <div className={styles.box}>
+      {slices.map((slice) => (
+        <div
+          key={slice.alt}
+          className={styles.panel}
+          style={{ aspectRatio: `${slice.width} / ${slice.height}`, flexGrow: slice.weight }}
+        >
+          <Image
+            src={src}
+            alt={slice.alt}
+            priority={priority}
+            className={styles.imageBox}
+            imgClassName={styles.image}
+            fallbackClassName={styles.fallback}
+            imgStyle={{
+              width: `${(sourceWidth / slice.width) * 100}%`,
+              left: `${(-slice.x / slice.width) * 100}%`,
+              top: `${(-slice.y / slice.height) * 100}%`,
+              height: `${(sourceHeight / slice.height) * 100}%`,
+            }}
+          />
+        </div>
+      ))}
+    </div>
+    {caption && (
+      <figcaption className={clsx(typography.bodySm, styles.caption)}>{caption}</figcaption>
+    )}
+  </figure>
+);
+
+export default StudyPanels;

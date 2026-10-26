@@ -1,0 +1,46 @@
+/* The accent line that grows in from the left on hover (nav, footer, mode toggle, card links, TextLink
+   line style; D-017). Compose it (`composes: line from '#styles/line.module.css'`) on a positioned
+   element. Per-element tweaks go through custom properties:
+     --line-bottom  distance of the line's bottom edge from the box (default 0)
+     --line-inset   left and right inset (default 0)
+     --line-color   fill (default the primary color, its hover color on hover and its active color pressed)
+   A component that shows the line in another state (current page, card hover) sets the transform
+   itself with a more specific selector. */
+
+.line {
+  composes: deepen from '#styles/deepen.module.css';
+}
+
+.line::after {
+  content: '';
+  position: absolute;
+  right: var(--line-inset, 0);
+  bottom: var(--line-bottom, 0);
+  left: var(--line-inset, 0);
+  height: var(--size-border-width-thick);
+  border-radius: var(--size-radius-full);
+  background: var(--line-color, var(--color-primary-default));
+  transform: scaleX(0);
+  /* The origin stays on the left for grow and retract: swapping it on hover made the line jump when
+	   the pointer re-entered mid-transition. */
+  transform-origin: left center;
+  transition: transform var(--motion-duration-moderate) var(--motion-ease-emphasized);
+}
+
+/* Hover only on devices that hover, so a tap on a phone doesn't leave the line stuck on. */
+@media (hover: hover) {
+  .line:hover::after {
+    transform: scaleX(1);
+    background: var(--line-color, var(--state-color-hover));
+  }
+}
+
+.line:active::after {
+  background: var(--line-color, var(--state-color-active));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line::after {
+    transition: none;
+  }
+}

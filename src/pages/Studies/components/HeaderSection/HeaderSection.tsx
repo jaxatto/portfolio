@@ -1,47 +1,69 @@
 import React from 'react';
-import ChipGroup from '@components/ChipGroup';
-import Divider from '@components/Divider';
-import DateRange from '@components/DateRange';
-import StudyImage from '@pages/Studies/components/StudyImage';
-import type { StudyHeaderProps } from '@commonTypes/study/studyHeader';
-import styles from './HeaderSection.module.scss';
+import clsx from 'clsx';
+import DateRange from '#components/DateRange';
+import StudyPanels from '#pages/Studies/components/StudyPanels';
+import StudyCompare from '#pages/Studies/components/StudyCompare';
+import StudyImage from '#pages/Studies/components/StudyImage';
+import { Chip, ChipList } from '#components/Chip';
+import type { StudyHeaderProps } from '#pages/Studies/types/studyHeader';
+import typography from '#styles/type.module.css';
+import styles from './HeaderSection.module.css';
 
-const Header: React.FC<StudyHeaderProps> = ({
+// The one h1 on a study page. Chips are a list of plain labels (no interaction); all of them use the
+// study's card palette from the page, like the h1 (D-052), so a chip's own `theme` is not used here.
+const HeaderSection: React.FC<StudyHeaderProps & { className?: string }> = ({
   title,
   roleDetails,
   chips,
   description,
   image,
+  compare,
+  panels,
+  className,
 }) => (
-  <section>
-    <div className={styles['top-section']}>
-      <h1 className={styles.title}>{title}</h1>
-      <div className={styles.details}>
-        <span className={styles.role}>
-          {roleDetails[0].role}
-        </span>
-        <DateRange 
-          startDate={roleDetails[0].startDate}
-          endDate={roleDetails[0].endDate}
-          className={styles.date}
-        />
+  <header className={`${styles.header} ${className ?? ''}`}>
+    <div className={styles.intro}>
+      <div className={styles.top}>
+        <h1 className={clsx(typography.titleMd, styles.title)}>{title}</h1>
+        {/* One step up so the role line holds beside the 56px title (D-114). */}
+        <p className={clsx(typography.bodyLg, styles.details)}>
+          <span className={styles.row}>
+            <span className={styles.item}>{roleDetails[0].role}</span>
+            {roleDetails[0].location && (
+              <span className={`${styles.item} ${styles.sep}`}>{roleDetails[0].location}</span>
+            )}
+            <span className={`${styles.item} ${styles.sep} ${styles.date}`}>
+              <DateRange startDate={roleDetails[0].startDate} endDate={roleDetails[0].endDate} />
+            </span>
+          </span>
+        </p>
+      </div>
+      <ChipList className={styles.chips}>
+        {chips.map((chip) => (
+          <Chip key={chip.label}>{chip.label}</Chip>
+        ))}
+      </ChipList>
+      <div className={styles.description}>
+        {description.map((desc) => (
+          <p key={desc} className={typography.bodyMd}>
+            {desc}
+          </p>
+        ))}
       </div>
     </div>
-    <ChipGroup chips={chips} className={styles['chip-row']} size='small' />
-    <Divider variant='section-divider' />
-    {description.map((desc, i) => (
-      <p key={i} className={styles.description}>{desc}</p>
-    ))}
+    {panels && <StudyPanels {...panels} priority className={styles.media} />}
+    {compare && <StudyCompare {...compare} priority className={styles.media} />}
     {image && image[0] && (
       <StudyImage
         src={image[0].src}
         alt={image[0].alt}
         caption={image[0].caption}
-        corners={image[0].corners}
-        className={styles['header-image']}
+        variant={image[0].variant}
+        priority
+        className={styles.media}
       />
     )}
-  </section>
+  </header>
 );
 
-export default Header;
+export default HeaderSection;

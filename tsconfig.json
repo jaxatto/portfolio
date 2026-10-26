@@ -3,22 +3,24 @@
     "target": "ESNext",
     "module": "ESNext",
     "jsx": "react-jsx",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "strict": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node"],
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"],
-      "@assets/*": ["src/assets/*"],
-      "@pages/*": ["src/pages/*"],
-      "@constants/*": ["src/constants/*"],
-      "@commonTypes/*": ["src/commonTypes/*"],
-      "@providers/*": ["src/providers/*"]
+      "#src/*": ["src/*"],
+      "#tokens/*": ["src/tokens/*"],
+      "#styles/*": ["src/styles/*"],
+      "#pages/*": ["src/pages/*"],
+      "#components/*": ["src/components/*"],
+      "#assets/*": ["src/assets/*"],
+      "#constants/*": ["src/constants/*"],
+      "#providers/*": ["src/providers/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "e2e", "*.config.ts"]
 }

@@ -1,0 +1,356 @@
+/* Header: nav row on every page, plus the intro on Home (D-016, D-017). */
+
+.header {
+  padding-block: var(--space-5xl) var(--space-4xl);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-xl);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-xl));
+  min-height: var(--size-target-lg);
+  margin-inline: auto;
+  padding-inline: var(--space-xl);
+}
+
+/* Brand (inner pages) or role line (Home) on the left, nav and toggle on the right. */
+.bar:has(.identity),
+.bar:has(.role) {
+  justify-content: space-between;
+}
+
+/* The stacked role label is taller than the nav row, so the row top-aligns: the nav links stay level with
+   the label's first line (D-098). */
+.bar:has(.role) {
+  align-items: flex-start;
+}
+
+/* Name link plus tagline on inner pages (D-099). Only the name is a link. */
+.identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  height: var(--size-target-lg);
+  /* Same face and size as the brand (headingMd), so the two read as one line. Its children set their own weight. */
+  font-weight: var(--font-weight-default);
+}
+
+/* The tagline, soft, behind a decorative dot. */
+.brandRole {
+  color: var(--color-content-secondary);
+}
+
+.brandRole::before {
+  content: '\00b7';
+  margin-right: var(--space-xs);
+}
+
+/* Tablet widths (641px to 760px): the name and tagline no longer fit beside the nav, so the tagline drops
+   under the name and the dot goes (D-100). Phones put the nav on its own row, so they fit on one line. The
+   row top-aligns so the nav stays level with the name. */
+@media (min-width: 641px) and (max-width: 760px) {
+  .bar:has(.identity) {
+    align-items: flex-start;
+  }
+
+  .identity {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    height: auto;
+  }
+
+  .brandRole {
+    /* Tucks the tagline up under the 44px name row. */
+    margin-top: calc(-1 * var(--space-xs));
+  }
+
+  .brandRole::before {
+    display: none;
+  }
+}
+
+/* Brand (inner pages): the name, regular weight, with the same hover treatment as the nav links:
+   violet text and a line that grows in from the left at the same position (see .nav-link). */
+.brand {
+  composes: line from '#styles/line.module.css';
+  --line-bottom: var(--size-border-width-default);
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--size-target-lg);
+  border-radius: var(--size-radius-sm);
+  color: var(--color-content-variant);
+  font-weight: var(--font-weight-emphasis);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .brand:hover {
+    color: var(--state-color-hover);
+  }
+}
+
+.brand:active {
+  color: var(--state-color-active);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  /* Tight to the nav labels: the icon button already has its own internal padding. */
+  gap: var(--space-xs);
+  height: var(--size-target-lg);
+}
+
+.controls nav,
+.list,
+.list li {
+  display: flex;
+  height: 100%;
+}
+
+.list {
+  align-items: stretch;
+  gap: var(--space-xl);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Nav item: quiet bold words. Every link has a line drawn with ::after at the same position (full
+   width, 3px, rounded). The current page always shows it (it grows in when the page becomes
+   current); other links grow it in on hover. Hover color is violet on all of them. No native
+   underline here. See D-017. */
+.nav-link {
+  composes: line from '#styles/line.module.css';
+  --line-bottom: var(--size-border-width-default);
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-radius: var(--size-radius-sm);
+  color: var(--color-content-variant);
+  /* Inter, like the label and the sentence: the top of the page is one typeface. See D-017. */
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-emphasis);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .nav-link:hover {
+    color: var(--state-color-hover);
+  }
+}
+
+.nav-link:active {
+  color: var(--state-color-active);
+}
+
+.nav-link[aria-current='page'] {
+  color: var(--color-content-variant);
+}
+
+.nav-link[aria-current='page']::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+  animation: grow-line var(--motion-duration-slow) var(--motion-ease-emphasized) both;
+}
+
+@media (hover: hover) {
+  .nav-link[aria-current='page']:hover {
+    color: var(--state-color-hover);
+  }
+}
+
+.nav-link[aria-current='page']:active {
+  color: var(--state-color-active);
+}
+
+@keyframes grow-line {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link[aria-current='page']::after {
+    animation: none;
+  }
+}
+
+/* Focus ring uses the state-focus-ring token (purple-950 light, white dark). See D-014. */
+.nav-link:focus-visible,
+.brand:focus-visible {
+  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+  outline-offset: var(--size-focus-ring-offset);
+}
+
+/* Keep the focus ring static between items; only color and the underline ease. */
+.brand,
+.nav-link {
+  transition:
+    color var(--motion-duration-base) var(--motion-ease-standard),
+    text-decoration-color var(--motion-duration-base) var(--motion-ease-standard),
+    text-underline-offset var(--motion-duration-base) var(--motion-ease-standard);
+}
+
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus-visible {
+  z-index: var(--layer-skip-link);
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  margin: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  background: var(--color-primary-default);
+  color: var(--color-primary-on-default);
+  font-size: var(--font-size-control);
+  font-weight: var(--font-weight-emphasis);
+  text-decoration: none;
+  border-radius: var(--size-radius-sm);
+  /* The site focus ring (D-014). Without it the browser's own ring shows, blue at the center. */
+  outline: var(--size-focus-ring-width) solid var(--color-state-focus-ring);
+  outline-offset: var(--size-focus-ring-offset);
+}
+
+/* Intro (Home only): role, then one sentence. No photo; type, color and two small marks carry it. */
+.intro {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-xl));
+  margin-inline: auto;
+  padding-inline: var(--space-xl);
+  /* 176px under the nav row (two 7xl steps plus md; 120px originally, D-029). 40px of its own
+	   below the sentence, and the header's own bottom padding adds 48px before the first card (88px
+	   in all, D-098). */
+  padding-top: calc(var(--space-7xl) * 2 + var(--space-md));
+  padding-bottom: var(--space-3xl);
+}
+
+/* Role label: plain text in the body color. Lives in the nav row's left slot on Home (D-017). Tried
+   and dropped: violet text, muted text, an accent bar, a filled chip and a status dot. */
+.role {
+  display: flex;
+  /* Always stacked in the nav's left slot, one line per span (D-098, D-106). */
+  flex-direction: column;
+  /* Centers the first line on the 44px nav row: half of (44px minus one line), at any font size. */
+  margin: calc((var(--size-target-lg) - 1em * var(--font-line-height-default)) / 2) 0 0;
+  color: var(--color-content-secondary);
+  /* Same face and weight as the sentence below (Inter, regular): Manrope at the same weight read too
+	   light, and a bold label read as another nav item. */
+  font-family: var(--font-family-heading);
+}
+
+/* One sentence: the greeting is heavy and the same dark color, the rest is regular weight. */
+.heading {
+  /* 900px so the larger "build" chip and the box's extra margin don't push "accessible" to a
+	   third line at desktop width. */
+  max-width: 900px;
+  color: var(--color-content-emphasis);
+  font-weight: var(--font-weight-default);
+  line-height: var(--font-line-height-default);
+}
+
+.greeting {
+  font-weight: var(--font-weight-strong);
+}
+
+/* "build": a code chip with a blinking terminal cursor. Mono token = Roboto Mono, loaded in
+   index.html (D-017). */
+.build {
+  display: inline-block;
+  padding-inline: 0.3em;
+  border-radius: var(--size-radius-md);
+  background: var(--color-primary-container);
+  color: var(--color-primary-on-container);
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  font-weight: var(--font-weight-emphasis);
+  /* The I-beam over the chip, a nod to the typing cursor inside it (the site cursor is the arrow
+	   everywhere else). */
+  cursor: text;
+}
+
+/* Byline: mobile only, see the media query below. */
+.byline {
+  display: none;
+}
+
+/* Mobile (no Figma design, D-008; D-018): the nav row is a bar (links left, toggle at the right edge,
+   hairline under it), the role moves from the bar to a byline under the greeting, and the sentence
+   steps down one size. */
+@media (max-width: 640px) {
+  .bar {
+    flex-wrap: wrap;
+    row-gap: var(--space-xs);
+  }
+
+  .controls {
+    flex: 1 0 100%;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  /* Divider: drawn 2px up from the row's bottom and behind the content, so the current page's
+	   line sits over it. */
+  .controls::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: var(--size-border-width-default);
+    left: 0;
+    z-index: var(--layer-behind);
+    height: var(--size-border-width-default);
+    background: var(--color-border-decorative);
+  }
+
+  .bar:has(.role) .role {
+    display: none;
+  }
+
+  .intro {
+    padding-top: var(--space-6xl); /* 64px (D-029) */
+  }
+
+  .heading {
+    font-size: var(--font-size-lead);
+  }
+
+  .greeting {
+    display: block;
+  }
+
+  .byline {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.3em;
+    margin-bottom: var(--space-xl);
+    color: var(--color-content-secondary);
+    /* Inter like the sentence it sits in, not the body face the class sets. */
+    font-family: var(--font-family-heading);
+  }
+}

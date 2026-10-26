@@ -1,0 +1,84 @@
+/* Panels box (D-054): the copy's width (640px), 300px tall, sunken surface, 32px at the top and sides and
+   none at the bottom, so the pages run off the bottom edge. Panels are top aligned and clipped. */
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: var(--size-layout-content-max);
+  margin: 0;
+  margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
+}
+
+.box {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  height: 18.75rem; /* 300px */
+  padding: var(--space-2xl) var(--space-2xl) 0;
+  overflow: hidden;
+  border-radius: var(--size-radius-lg);
+  background: var(--color-surface-sunken);
+}
+
+.panel {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--size-radius-xs) var(--size-radius-xs) 0 0;
+}
+
+.image {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+
+/* Image wraps the picture in a div. It takes no box, so the crop positions against the panel as before. */
+.imageBox {
+  display: contents;
+}
+
+/* Shown when the picture fails to load: the panel, a faint tint of the text color, with the image icon. */
+.fallback {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  background: color-mix(in oklch, var(--color-content-muted) 12%, transparent);
+}
+
+.caption {
+  color: var(--color-content-muted);
+}
+
+/* Spread (D-069, Figma ActBlue 2858:28022): the full 960 column, the study's tint, 32px all round and
+   24px between panels, every panel fully inside the box with the card corner. */
+.framed {
+  max-width: none;
+}
+
+.framed .box {
+  height: auto;
+  padding: var(--space-2xl);
+  gap: var(--space-xl);
+  background: var(--palette-container, var(--color-surface-sunken));
+}
+
+.framed .panel {
+  border-radius: var(--size-radius-xs);
+}
+
+@media (max-width: 640px) {
+  .box {
+    height: 13.75rem; /* 220px */
+    padding: var(--space-md) var(--space-md) 0;
+    gap: var(--space-sm);
+  }
+
+  .framed .box {
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+}

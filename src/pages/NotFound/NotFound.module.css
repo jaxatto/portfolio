@@ -1,0 +1,71 @@
+/* 404: a full-bleed ground of its own (surface-inverse) with the shared nav header on it. Every value
+   is a semantic token (surface-inverse / content-on-accent, space, radius,
+   type), so light and dark both work. D-022, D-038. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* New stacking context: the header's divider uses z-index -1 and would otherwise fall behind
+	   this background. */
+  isolation: isolate;
+  background: var(--color-surface-inverse);
+  color: var(--color-content-on-accent);
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-4xl) var(--space-xl);
+}
+
+.wrapper:focus,
+.wrapper:focus-visible {
+  outline: none;
+}
+
+/* Phones: the message sits near the top, under the header, instead of floating mid-screen. */
+@media (max-width: 640px) {
+  .wrapper {
+    justify-content: flex-start;
+    padding-top: var(--space-5xl);
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-5xl);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-strong);
+  /* No type token goes past 56px, so the display size is derived from it: 56px on small phones,
+	   up to 2.5x on desktop. D-022. */
+  font-size: clamp(var(--font-size-display), 18vw, calc(var(--font-size-display) * 2.5));
+  letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
+  line-height: 1;
+}
+
+.description {
+  margin: 0;
+}
+
+.button {
+  align-self: center;
+}

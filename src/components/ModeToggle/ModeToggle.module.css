@@ -1,0 +1,50 @@
+/* Mode Toggle: an icon button that shows the mode you will switch to (moon in light mode, sun in dark).
+   No track and no background: like the nav links, it turns violet and draws the same accent line under
+   the icon on hover (same 3px line, easing and duration). Keyboard focus shows only the focus ring,
+   like the nav links: no color change, no line. See D-017. */
+
+.button {
+  composes: iconControl from '#styles/iconControl.module.css';
+  --icon-control-size: var(--size-icon-lg);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Both icons share the slot. Light mode shows the moon (switch to dark); dark mode shows the sun. */
+.icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    opacity var(--motion-duration-moderate) var(--motion-ease-standard),
+    transform var(--motion-duration-moderate) var(--motion-ease-emphasized);
+}
+
+.icon svg {
+  width: var(--size-icon-lg);
+  height: var(--size-icon-lg);
+}
+
+.sun {
+  opacity: 0;
+  transform: rotate(-60deg) scale(0.6);
+}
+
+.button[data-mode='dark'] .sun {
+  opacity: 1;
+  transform: none;
+}
+
+.button[data-mode='dark'] .moon {
+  opacity: 0;
+  transform: rotate(60deg) scale(0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    transition: none;
+  }
+}

@@ -1,0 +1,9 @@
+/* The ampersand takes the muted content color in light, one step down from the role text. In dark it is
+   the same color as the role text around it (D-099). */
+.amp {
+  color: var(--color-content-muted);
+}
+
+:global([data-theme='dark']) .amp {
+  color: inherit;
+}

@@ -1,119 +1,160 @@
-import headerImage from './images/header-min.png';
-import contextImage from './images/workflow-min.png';
-import contributionsImage from './images/screens-min.png';
-import outcomesImage from './images/annotations-min.png';
-import deliverablesImage from './images/footer-min.png';
-import type { ChipData } from '@components/ChipGroup';
+import spreadImage from './images/screens-hero-min.jpg?size';
+import contextImage from './images/journey-map-min.jpg?size';
+import beforeImage from './images/themeweaver-before-min.jpg?size';
+import afterImage from './images/themeweaver-after-min.jpg?size';
+import deliverablesImage from './images/figma-board-min.jpg?size';
+import type { ChipData } from '#pages/Studies/types/studyHeader';
 
 const content = {
-    header: {
-        title: 'ServiceNow AI Research Tool',
-        roleDetails: [
-            {
-                role: 'Staff UI/UX Designer',
-                startDate: '2024',
-                endDate: 'Present',
-            },
-        ],
-        description: [
-            'Researchers across the organization were collecting thousands of open-ended responses from surveys, workshops, and interviews. Turning that input into something useful took many hours of manual effort and often got deprioritized.',
-            'This project is an internal tool that uses AI to group similar responses and suggest themes with an estimated 95% accuracy rate. I joined the project after the initial prototype was built to help shape the user experience, support implementation, and validate real research use cases.',
-        ],
-        chips: [
-            { label: 'Internal Tools', theme: 'tertiary' },
-            { label: 'Enterprise', theme: 'tertiary' },
-            { label: 'AI/ML', theme: 'tertiary' },
-            { label: 'UX Architecture', theme: 'secondary' },
-            { label: 'Documentation', theme: 'secondary' },
-            { label: 'User Research', theme: 'secondary' },
-            { label: 'Wireframing', theme: 'secondary' },
-            { label: 'Figma', theme: 'primary' },
-        ] as ChipData[],
-        image: [
-            { 
-                src: headerImage, 
-                caption: 'Prototype screen for selecting a theming strategy before processing survey input.',
-                alt: 'Screenshot of the prototype showing a form with two strategy options for how AI themes will be generated and labeled.',
-            },
-        ],
-    },
-    sections: [
-        {
-            order: 1,
-            title: 'Context',
-            titleEmoji: '🧭',
-            description: [
-                'The first version of the tool was already functional when I joined. I partnered with the original creator to shape the experience around real research workflows, explore the core flow, and identify ways to reduce friction.',
-                'Open-ended feedback needs to be coded into themes before it can be analyzed. This process is usually manual and time consuming, often taking 10 hours or more to process just 100 responses. With multiple projects and thousands of inputs, researchers were often overwhelmed.',
-                'This tool simplifies that process. Users upload responses, define a few themes, and get a fully coded dataset in return. The goal was to make the workflow faster, easier to navigate, and usable by non-experts, not just trained researchers.',
-            ],
-            descriptionBullets: [],
-            image: [
-                { 
-                    src: contextImage, 
-                    caption: 'Final journey map showing branching paths, repeated states, and decision points across the flow.',
-                    alt: 'User journey map illustrating multiple flow paths, repeat states, and decision points throughout the research analysis experience.',
-                },
-            ],
-        },
-        {
-            order: 2,
-            title: 'Contributions',
-            titleEmoji: '🛠️',
-            description: [
-                'I helped bring structure to an early concept by framing how the experience should adapt to real research scenarios, where inputs are messy and processes aren\'t always linear.',
-                'From there, I simplified the interaction model and reworked how guidance showed up in the tool, making it more focused and less interruptive. I used low-fidelity layouts to shift the conversation toward content and flow, then moved into high-fidelity designs using the internal design system to bring it into the corporate design language.',
-                'This work helped the team realign the prototype around actual research behavior and set the foundation for what is now being prepped for user testing.',
-            ],
-            descriptionBullets: [],
-            image: [
-                { 
-                    src: contributionsImage, 
-                    caption: 'Screens showing early layout restructuring and simplified task flow.',
-                    alt: 'Series of early screen designs including wireframes and mid-fidelity layouts, focused on simplifying the user flow and task structure.',
-                    corners: 'square',
-                },
-            ],
-        },
-        {
-            order: 3,
-            title: 'Outcomes',
-            titleEmoji: '📈',
-            description: [
-                'The updated design helped shape how the team talks about the tool and how it\'s being built. Several of the interaction and flow changes have already made it into the working prototype.',
-                'A demo of the tool, including early flow updates, was presented to senior leadership and received strong support. While design fidelity is currently limited by the prototype platform, the long-term plan is to move to a more flexible system that can better reflect the intended experience.',
-                'We\'re now preparing for user testing. The research will help validate the current flow, guide content updates, and inform the next round of design improvements.',
-            ],
-            descriptionBullets: [],
-            image: [
-                { 
-                    src: outcomesImage, 
-                    caption: 'Updated Figma designs with notes on layout logic, interaction behavior, and responsive patterns.',
-                    alt: 'Figma board showing updated high-fidelity designs, responsive layouts, and interaction notes organized by screen type and use case.',
-                },
-            ],
-        },
-        {
-            order: 4,
-            title: 'Deliverables',
-            titleEmoji: '📦',
-            description: [],
-            descriptionBullets: [
-                'Revised user journey covering key states and branching paths',
-                'Wireframes exploring improved layout and flow',
-                'High-fidelity designs using design system styles and components',
-                'Responsive layouts with annotated interaction and content behavior in Figma',
-                'Ongoing design support and collaboration with research, engineering, and content',
-            ],
-            image: [
-                { 
-                    src: deliverablesImage, 
-                    caption: 'Final proposal for the strategy selection screen, designed with Horizon system components.',
-                    alt: 'High-fidelity mockup of the final strategy selection screen, designed with internal system components and updated layout structure.',
-                },
-            ],
-        },
+  header: {
+    title: 'ServiceNow AI Research Tool',
+    roleDetails: [
+      {
+        role: 'Staff UI/UX Engineer',
+        location: 'Remote',
+        startDate: '2024',
+        endDate: '2025',
+      },
     ],
+    description: [
+      'Researchers across the organization collect thousands of open-ended responses from surveys, workshops and interviews. Assigning each response a theme by hand, known as coding, takes 10 hours or more per 100 responses, so the work often gets deprioritized.',
+      'I was the sole designer on a short project to improve an internal research tool that uses AI to extract insights from qualitative data. I joined after the first prototype was built to shape the experience, support implementation and validate real research use cases.',
+    ],
+    chips: [
+      { label: 'Internal Tools' },
+      { label: 'Enterprise' },
+      { label: 'AI/ML' },
+      { label: 'UX Architecture' },
+      { label: 'User Research' },
+    ] as ChipData[],
+    compare: {
+      before: {
+        ...beforeImage,
+        alt: "The prototype's strategy screen: a dark header, a short paragraph describing two workflows, and a dropdown for choosing between Hybrid and AI Only.",
+      },
+      after: {
+        ...afterImage,
+        alt: 'The redesigned strategy screen: a five-step progress bar and two side-by-side cards, AI-only and Hybrid, each with a list of what it does. Hybrid is marked as recommended and most accurate.',
+      },
+      aspectRatio: '1440 / 1230',
+      caption: "The prototype's strategy selection screen and the redesign.",
+    },
+  },
+  sections: [
+    {
+      order: 1,
+      title: 'Context',
+      description: [
+        'ServiceNow is an enterprise cloud platform that automates workflows across IT, HR and customer service. Its 22,000+ employees rely on internal tools such as the employee intranet. Every internal tool uses Oolong, the design system I worked on in my primary role.',
+        'This project began as an effort to quickly improve the insights gained from user research. A researcher built the first prototype with AI. The goal was a workflow that is faster, easier to navigate and usable by non-experts as well as trained researchers.',
+        'Researchers define a set of themes, and the AI assigns them to responses. This is called coding, and a fully coded dataset has a theme on every response. With the Hybrid strategy, the tool recommends that researchers code about 10% of their responses. For 1,000 responses, that means coding 100, which saves a lot of time. **The AI codes the rest with an estimated 95% accuracy, against an estimated 70% for AI-only.**',
+        "Early testing of the prototype showed that users were unsure how best to use the tool and how it differed from the company's internal ChatGPT.",
+      ],
+      image: [
+        {
+          ...contextImage,
+          caption:
+            'User journey map showing branching paths, repeated states and decision points across the flow.',
+          alt: 'A flowchart of the research analysis flow, with yellow steps, orange groups of options, diamond decision points, and loops back to earlier steps.',
+        },
+      ],
+    },
+    {
+      order: 2,
+      title: 'Contributions',
+      items: [
+        {
+          label: 'Simplifying the Core Flow',
+          text: 'I mapped the journey from upload to coded dataset to make each step clear. From the map I simplified the interaction model and reworked how guidance appears.',
+        },
+        {
+          label: 'Designing Responsive Screens',
+          text: 'I used low-fidelity layouts to move the conversation to content and flow, then built high-fidelity designs with Oolong components to match the corporate design language. I annotated responsive layouts in Figma so engineering could build them.',
+        },
+        {
+          label: 'Partnering on Implementation',
+          text: 'I worked with the research team to get my designs implemented and to gather feedback on them. That feedback led us to prioritize the responsive layouts that users asked for.',
+        },
+      ],
+    },
+    {
+      order: 3,
+      title: 'Outcomes',
+      description: [
+        'The prototype had no clear path or end point. The redesign adds a five-step progress bar, so users can see where they are and what comes next. The strategy screen sets AI-only against Hybrid and recommends Hybrid as the most accurate. Testing showed that users understood the tool and liked it. They also saw how it differs from general chat tools, which are not trained for research coding.',
+        'Leadership reviewed the designs, **approved future work and assigned more resources to the tool**. I designed draft features for those enhancements before my engagement ended.',
+      ],
+      // Three screen widths from one 1600 x 1225 sheet, each cropped to the same height (D-077).
+      panels: {
+        src: spreadImage.src,
+        sourceWidth: spreadImage.width,
+        sourceHeight: spreadImage.height,
+        framed: true,
+        slices: [
+          {
+            x: 0,
+            y: 0,
+            width: 801,
+            height: 661,
+            weight: 4,
+            alt: 'The desktop screen for selecting columns to analyze. It has a five-step progress bar, a form for open-ended, quantitative and segment columns, and a preview of the column data.',
+          },
+          {
+            x: 801,
+            y: 0,
+            width: 427,
+            height: 705,
+            weight: 2,
+            alt: 'The same screen at tablet width, with the column form above the data preview.',
+          },
+          {
+            x: 1229,
+            y: 0,
+            width: 371,
+            height: 1225,
+            weight: 1,
+            alt: 'The same screen at phone width, with links that jump between the column selection and the data preview.',
+          },
+        ],
+        caption: 'Responsive screens for selecting columns from research data to analyze.',
+      },
+    },
+    {
+      order: 4,
+      title: 'Deliverables',
+      descriptionBullets: [
+        'Revised user journey with key states and branching paths',
+        'Wireframes exploring a simpler layout and flow',
+        'High-fidelity designs built with Oolong styles and components',
+        'Responsive layouts annotated with interaction and content behavior in Figma',
+        'Ongoing design support for research, engineering and content',
+      ],
+      image: [
+        {
+          ...deliverablesImage,
+          caption: 'Figma board with annotated mocks for the upload and interaction states.',
+          alt: 'A dark Figma board with annotated screens for the upload step and the post-upload data check. It includes mocks of the upload loading states and a collapsed table.',
+        },
+      ],
+    },
+    {
+      order: 5,
+      title: 'Opportunities',
+      description: [
+        "The prototype's technical limits shaped what we could build. Looking back, I would add two things:",
+      ],
+      items: [
+        {
+          label: 'AI Suggestions Upfront',
+          text: 'Researchers write their own themes before the AI does any work. I would have the AI suggest a starting set from the responses and let researchers accept, edit or replace them. That would speed up setup.',
+        },
+        {
+          label: 'Live Feedback on Results',
+          text: 'I would let researchers correct AI-coded responses as they review. Those corrections would add to the training the AI gets from the responses researchers code up front, and improve its accuracy over time.',
+        },
+      ],
+    },
+  ],
 };
 
 export default content;

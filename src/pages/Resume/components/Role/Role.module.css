@@ -1,0 +1,120 @@
+/* Resume role (D-124): a split card. Tokens only. The side colors come from Role.tsx as --role-from,
+   --role-to and --role-fg (a gradient along the palette ramp). */
+
+.role {
+	display: grid;
+	grid-template-columns: 14rem minmax(0, 1fr);
+	overflow: hidden;
+	border: var(--size-border-width-default) solid var(--color-border-decorative);
+	border-radius: var(--size-radius-lg);
+}
+
+.side {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3xs);
+	padding: var(--space-2xl) var(--space-xl);
+	background: linear-gradient(180deg, var(--role-from), var(--role-to));
+	color: var(--role-fg);
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--space-4xl);
+	height: var(--space-4xl);
+	margin-bottom: var(--space-sm);
+	border-radius: 50%;
+	background: color-mix(in oklab, var(--role-fg) 14%, transparent);
+}
+
+.logo svg {
+	width: 100%;
+	height: 100%;
+	padding: var(--space-xs);
+	fill: currentcolor;
+}
+
+.company {
+	margin: 0;
+	color: var(--role-fg);
+}
+
+.meta {
+	margin: 0;
+	color: color-mix(in oklab, var(--role-fg) 80%, transparent);
+	font-weight: var(--font-weight-medium);
+}
+
+/* The date never splits across lines. */
+.date {
+	white-space: nowrap;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+	min-width: 0;
+	padding: var(--space-2xl);
+}
+
+.title {
+	margin: 0;
+	color: var(--role-fg);
+}
+
+.heading {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+}
+
+/* The promotion belongs to the title, so it sits under it and not in the dates column. */
+.promotion {
+	margin: 0;
+	color: var(--color-content-soft);
+	font-weight: var(--font-weight-medium);
+}
+
+.summary {
+	max-width: 38rem;
+	margin: 0;
+	color: var(--color-content-prose);
+	text-wrap: pretty;
+}
+
+/* Adds to the column gap so the link sits clear of the summary. The link keeps the shared link color. */
+.main .study {
+	align-self: flex-start;
+	margin-top: var(--space-md);
+}
+
+/* Phones: the colored side sits on top, as a row of logo and company with the details under it. */
+@media (max-width: 700px) {
+	.role {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	/* Logo on the left, then company, date and location in a column beside it. */
+	.side {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr);
+		column-gap: var(--space-md);
+		align-items: center;
+	}
+
+	.logo {
+		grid-row: 1 / span 4;
+		margin-bottom: 0;
+	}
+
+	.side > :not(.logo) {
+		grid-column: 2;
+	}
+
+	.main {
+		padding: var(--space-xl);
+	}
+}

@@ -1,94 +1,97 @@
 import React from 'react';
-import Link from '@components/Link';
-import Image from '@components/Image';
-import Icon from '@components/Icon';
-import styles from './StudyCard.module.scss';
+import { Link as RouterLink } from 'react-router-dom';
+import clsx from 'clsx';
+import Icon from '#components/Icon';
+import Image from '#components/Image';
+import palettes from '#styles/palette.module.css';
+import type { ColorGroup } from '#tokens/types';
+import typography from '#styles/type.module.css';
+import styles from './StudyCard.module.css';
 
-// StudyCard component for displaying case studies or work examples
-// It supports various props for customization, including title, description, image, link URL, and link text
-// Usage: <StudyCard title="Case Study Title" description={["Byline text"]} image="image-url.jpg" linkUrl="/case-study" linkText="Read more" />
-// The component can be used in different layouts (horizontal or vertical) and palettes (primary, secondary, tertiary)
-// It also supports an optional count and total for displaying the number of case studies
+// Figma "Study Card" (Home, node 2726:63413). Palette = container / on-container token pair.
+// The whole card is clickable through a stretched link (the link text's ::after covers the card),
+// so the heading stays a real heading and the link name is unique: "Read AI study: <title>".
+// Anatomy: title, outcome, link naming the company (D-028).
 
 export type StudyCardProps = {
-  title: string; // Card title
-  description: string[]; // Byline text divided by dot
-  image: string | React.ReactNode; // Image URL or React node
-  imageAlt?: string; // Alt text for the image
-  linkUrl: string; // URL for the study
-  linkText: string; // Text for the link
-  palette?: 'primary' | 'secondary' | 'tertiary'; // Color palette for the card
-  layout?: 'horizontal' | 'vertical'; // Orientation of the card content
-  count?: number; // Optional count for the card, e.g., "Case study 1"
-  total?: number; // Optional total number of cards, e.g., "of 5"
-  iconFallback?: string; // Fallback icon name if image fails to load
-  variant?: 'work' | 'study'; // Variant used on home/work page or on case study page
+  title: string; // The problem solved
+  outcome?: string; // One sentence of proof: what changed and Jax's part
+  image: { src: string; width: number; height: number }; // From `import x from './x.png?size'`
+  imageAlt?: string; // Empty by default: the preview is decorative next to the title
+  linkUrl: string;
+  linkText: string; // Full label, e.g. "Read the Indeed case study"
+  linkTextShort?: string; // Shown on phones so the link never wraps (D-031)
+  headingLevel?: 'h2' | 'h3'; // h2 on Home, h3 under a case study (heading order)
+  enlargeImage?: boolean; // Screenshot 40px larger inside the same window (D-028)
+  palette?: ColorGroup;
+  variant?: 'work' | 'study'; // 'work': preview beside the text from tablet up. 'study': stacked, smaller type, under a case study
+  priority?: boolean; // Above the fold: load the preview now, not when it nears the viewport
 };
 
 const StudyCard: React.FC<StudyCardProps> = ({
   title,
-  description,
+  outcome,
   image,
-  imageAlt = '', // Image is decorative by default
+  imageAlt = '',
   linkUrl,
   linkText,
-  palette = 'primary',
-  layout = 'vertical',
-  count,
-  total,
-  iconFallback = 'pencilRuler', // Default icon fallback
+  linkTextShort = 'Read the case study',
+  headingLevel = 'h3',
+  palette = 'brand',
+  enlargeImage = false,
+  priority = false,
   variant = 'work',
 }) => {
-  const accessibleLabel = [
-    `Case study${typeof count === 'number' ? ` ${count}` : ''}${typeof total === 'number' ? ` of ${total}` : ''}:`,
-    title,
-    linkText
-  ].filter(Boolean).join(' – ');
-
+  const Heading = headingLevel;
   return (
-    <Link
-      href={linkUrl}
-      className={[
-        styles.wrapper,
-        styles[layout] ? styles[layout] : '',
-        `${palette}-card`,
-        styles[variant]
-      ].filter(Boolean).join(' ')}
-      aria-label={accessibleLabel}
+    <article
+      className={clsx(
+        styles.card,
+        palettes[palette],
+        variant === 'work' && styles.horizontal,
+        variant === 'study' && styles.study,
+        enlargeImage && styles.enlarge,
+      )}
     >
       <div className={styles.content}>
         <div className={styles.text}>
-          <h3 className={styles.title}>
-            {title}
-          </h3>
-          <p className={styles.description}>
-            {description.map((desc, i) => (
-              <span key={i}>{desc}</span>
-            ))}
-          </p>
+          <Heading className={clsx(typography.headingLg, styles.title)}>{title}</Heading>
+          {outcome && (
+            <p
+              className={clsx(
+                variant === 'study' ? typography.bodySm : typography.bodyMd,
+                styles.outcome,
+              )}
+            >
+              {outcome}
+            </p>
+          )}
         </div>
-        <span className={styles['card-link']}>
-          {linkText}
-          <Icon 
-            name="arrow-right" 
-            className={styles.icon}
+        <RouterLink to={linkUrl} className={styles.link}>
+          <span className={styles.linkText}>
+            <span className={styles.linkFull}>{linkText}</span>
+            <span className={styles.linkShort}>{linkTextShort}</span>
+            <span className="sr-only">: {title}</span>
+          </span>
+          <Icon name="arrow-right" className={styles.icon} aria-hidden="true" />
+        </RouterLink>
+      </div>
+      <div className={styles.preview}>
+        <div className={styles.sample}>
+          <Image
+            src={image.src}
+            width={image.width}
+            height={image.height}
+            alt={imageAlt}
+            priority={priority}
+            className={styles.imageBox}
+            imgClassName={styles.image}
+            fallbackClassName={styles.fallback}
           />
-        </span>
+        </div>
       </div>
-      <div className={styles['case-study-image-wrapper']}>
-        {typeof image === 'string'
-          ? <Image 
-              src={image} 
-              alt={imageAlt} 
-              iconFallback={iconFallback} 
-              imgClassName={styles['case-study-image']}
-              className={styles['case-study-component-wrapper']} 
-              fallbackClassName={styles['case-study-image-fallback']}
-            />
-          : image}
-      </div>
-    </Link>
+    </article>
   );
-}
+};
 
 export default StudyCard;

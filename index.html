@@ -4,26 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Jax Engel" />
     <meta name="robots" content="index, follow" />
-    <title>Jax Engel | Senior Product Designer – Scalable UX, Systems Thinking, Inclusive Design</title>
-    <meta name="description" content="Jax Engel is a remote senior-level product designer at ServiceNow, building accessible, scalable tools for enterprise and fintech. Experienced in systems, Figma, and working closely with engineering." />
+    <title>Jax Engel | Staff Product Designer and Design Engineer</title>
+    <meta name="description" content="Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Jax Engel | Senior Product Designer">
+    <meta property="og:title" content="Jax Engel | Staff Product Designer and Design Engineer">
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Jax Engel is a Senior Product Designer specializing in scalable UX, accessibility, and design systems for enterprise tools and internal platforms." />
-    <meta property="og:image" content="https://jaxengeldesign.com/social-preview.png">
-    <meta property="og:url" content="https://jaxengeldesign.com/">
+    <meta property="og:description" content="Jax Engel is a staff product designer and design engineer with 11 years in design systems, accessibility, token automation and enterprise UX." />
+    <meta property="og:image" content="https://www.jaxengeldesign.com/social-preview-min.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Screenshot of Jax Engel's portfolio site home page.">
+    <meta name="twitter:image" content="https://www.jaxengeldesign.com/social-preview-min.png">
+    <meta property="og:url" content="https://www.jaxengeldesign.com/">
     <meta property="og:site_name" content="Jax Engel Portfolio">
     <meta name="twitter:image:alt" content="Screenshot of Jax Engel's portfolio site home page.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="%THEME_COLOR_LIGHT%" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- Fonts are self-hosted (D-127, src/styles/fonts.css). Preload the two used above the fold. -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="canonical" href="https://jaxengeldesign.com/" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://www.jaxengeldesign.com/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="b2deb163-967d-4d93-8159-1cadd6efc9cf"></script>
+    <script>
+      // Apply the theme before first paint to avoid a flash. Mirrors ThemeProvider: data-theme always
+      // holds the theme being shown, the OS setting when nothing is stored (D-128).
+      (function () {
+        var root = document.documentElement;
+        var theme = 'light';
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') theme = t;
+          else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+        } catch (e) {
+          theme = 'light';
+        }
+        root.setAttribute('data-theme', theme);
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute('content', theme === 'dark' ? '%THEME_COLOR_DARK%' : '%THEME_COLOR_LIGHT%');
+      })();
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

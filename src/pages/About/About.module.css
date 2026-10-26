@@ -1,0 +1,202 @@
+/* About page on tokens (D-040, D-041). The column and side padding come from Layout (960px, D-029).
+   One column: hero, then the story at a reading measure. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4xl);
+  /* Quiet footer: a hairline above it, so the photos need room before it. */
+  padding-block: var(--space-6xl);
+  color: var(--color-content-prose);
+}
+
+/* Hero: the Home header's marks carried over. "me" gets the selection box and pointer; the facts are
+   code-style chips with a caret after the last one. */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.title {
+  color: var(--color-content-emphasis);
+}
+
+/* The I-beam, like the "build" chip on Home: these chips read as typed text. */
+.chip {
+  cursor: text;
+}
+
+/* Story: left-aligned on the grid, held to about 640px so lines stay readable. */
+.story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4xl);
+  max-width: var(--size-layout-content-max);
+  text-wrap: pretty;
+}
+
+.story section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.story p {
+  margin: 0;
+}
+
+.heading {
+  color: var(--color-content-prose); /* true black in light (D-056) */
+  /* 12px between the heading and what follows (D-057): the section's 24px gap minus 12. */
+  margin-bottom: calc(var(--space-sm) - var(--space-xl));
+}
+
+/* Group of label + sentence under Approach to Work. */
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+/* "Strategic Product Design" etc.: h3s, one step above the sentence and well under the h2s. */
+.subheading {
+  color: var(--color-content-emphasis);
+}
+
+/* Pets: rounded squares, the same corner as the cards. They sit outside the 640px story column, so the
+   row spans the full 960 grid. Two by two on phones, four across from tablet. */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.photo {
+  min-width: 0;
+}
+
+.figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Name tag colors: the saturated pair of each palette, so the tag reads on any photo. */
+.figure.primary {
+  --tag-bg: var(--color-primary-default);
+  --tag-fg: var(--color-primary-on-default);
+}
+
+.figure.secondary {
+  --tag-bg: var(--color-secondary-default);
+  --tag-fg: var(--color-secondary-on-default);
+}
+
+.figure.tertiary {
+  --tag-bg: var(--color-tertiary-default);
+  --tag-fg: var(--color-tertiary-on-default);
+}
+
+.figure.quaternary {
+  --tag-bg: var(--color-quaternary-default);
+  --tag-fg: var(--color-quaternary-on-default);
+}
+
+.frame {
+  position: relative;
+}
+
+/* Name tag: the same spot on every photo, 4px in from the bottom-right corner. */
+.tag {
+  position: absolute;
+  right: var(--space-2xs);
+  bottom: var(--space-2xs);
+}
+
+.caption {
+  color: var(--color-content-soft);
+}
+
+.photoFrame {
+  aspect-ratio: 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--size-radius-lg);
+}
+
+.photoImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--size-radius-lg);
+  object-fit: cover;
+  transition: transform var(--motion-duration-slow) var(--motion-ease-emphasized);
+}
+
+/* Hover or keyboard focus inside the figure: the photo eases in a little and the tag nudges up and
+   left, like a cursor being dragged. Motion only; the name is always visible. */
+@media (hover: hover) {
+  .figure:hover .photoImage {
+    transform: scale(1.04);
+  }
+
+  .figure:hover .tag {
+    transform: translate(calc(-1 * var(--space-2xs)), calc(-1 * var(--space-2xs)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photoImage {
+    transition: none;
+  }
+
+  .figure:hover .photoImage,
+  .figure:hover .tag {
+    transform: none;
+  }
+}
+
+/* The fallback takes the photo's own corner radius from the shared Image. Doubled class keeps this one. */
+.photoFallback.photoFallback {
+  aspect-ratio: 1;
+  border-radius: var(--size-radius-lg);
+}
+
+/* The hero title is 48px below 900px (it was the fluid 40px floor) and 56px from 900px, the top of the type
+   scale, matching Home's sentence (D-108). */
+.title {
+  font-size: var(--font-size-display-sm);
+}
+
+@media (min-width: 900px) {
+  .title {
+    font-size: var(--font-size-display);
+    letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
+  }
+}
+
+@media (min-width: 641px) {
+  .photos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Tablet and phone: less room between the photos and the footer. */
+@media (max-width: 899px) {
+  .page {
+    padding-block-end: var(--space-4xl);
+  }
+}
+
+/* Phone: the name tags are enough; the captions come back from 641px up. */
+@media (max-width: 640px) {
+  .caption {
+    display: none;
+  }
+}

@@ -1,9 +1,9 @@
-import { studyLinks } from '@constants/studyLinks';
+import { studyLinks } from '#constants/studyLinks';
 
 const meta = {
-  title: 'Redesigning ActBlue\'s Salesforce Integration – Jax Engel',
-  description: 'Led end-to-end design of ActBlue\'s Salesforce integration, improving setup, sync visibility, and error handling to support flexible campaign workflows and reduce support costs by $1.5M annually.',
-  keywords: [],
+  title: 'ActBlue Salesforce Integration Case Study | Jax Engel',
+  description:
+    "Designed ActBlue's Salesforce integration end to end. Admins now set up and fix sync issues themselves, cutting support costs an estimated $1.5M a year.",
   linkUrl: studyLinks.actblue,
 };
 

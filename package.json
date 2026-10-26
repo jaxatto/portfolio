@@ -1,44 +1,77 @@
 {
-  "name": "portfolio-project",
+  "name": "jaxengeldesign-portfolio",
   "version": "1.0.0",
-  "description": "A personal portfolio project showcasing skills, projects, and contact information.",
-  "main": "src/index.tsx",
+  "description": "Portfolio of Jax Engel, a staff product designer and design engineer: case studies, About and Resume.",
   "scripts": {
-    "generate-index": "node scripts/generate-index-files.js",
-    "generate-scss": "node scripts/generate-scss-files.js",
-    "fix-svgs": "node scripts/fix-svg-attributes.js",
-    "sync-icons": "node scripts/sync-icons.js",
-    "build-scripts": "npm run generate-index && npm run sync-icons",
-    "generate:component": "node scripts/generate-component.js",
-    "dev": "npm run build-scripts && vite",
-    "build": "vite build",
-    "postbuild": "cp dist/index.html dist/404.html",
+    "generate:component": "tsx scripts/generate-component.ts",
+    "dev": "vite",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir .ssr",
+    "postbuild": "tsx scripts/prerender.ts",
     "preview": "vite preview",
-    "predeploy": "vite build && npm run postbuild && cp CNAME dist/CNAME && npm run build-scripts",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build && cp CNAME dist/CNAME",
+    "deploy": "gh-pages -d dist",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\" \"scripts/**/*.ts\" \"*.{ts,json}\"",
+    "build:theme": "tsx scripts/tokens/build-theme.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.20",
+    "clsx": "^2.1.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^24.0.1",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
-    "@types/react-helmet": "^6.1.11",
     "@vitejs/plugin-react": "^4.5.1",
+    "eslint": "^9.39.5",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "gh-pages": "^6.3.0",
-    "sass": "^1.89.1",
-    "typescript": "^4.1.2",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.0",
     "vite": "^6.3.5",
-    "vite-plugin-svgr": "^4.3.0"
+    "vite-plugin-svgr": "^4.3.0",
+    "vitest": "^5.0.5"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "allowScripts": {
-    "@parcel/watcher@2.5.1": true,
-    "fsevents@2.3.3": true
+  "keywords": [
+    "portfolio",
+    "product design",
+    "design systems",
+    "react",
+    "typescript"
+  ],
+  "author": "Jax Engel",
+  "license": "MIT",
+  "imports": {
+    "#src/*": "./src/*",
+    "#styles/*": "./src/styles/*",
+    "#pages/*": "./src/pages/*",
+    "#components/*": "./src/components/*",
+    "#assets/*": "./src/assets/*",
+    "#constants/*": "./src/constants/*",
+    "#providers/*": "./src/providers/*",
+    "#tokens/*": "./src/tokens/*"
+  },
+  "private": true,
+  "homepage": "https://www.jaxengeldesign.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaxatto/portfolio.git"
+  },
+  "overrides": {
+    "playwright-core": "1.63.0"
   }
 }

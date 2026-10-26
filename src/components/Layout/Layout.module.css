@@ -1,0 +1,23 @@
+/* Page wrapper: the content column and its side padding come from the same tokens as the header
+   and footer (D-029), so there is one source for the width. */
+.main {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-xl));
+  margin-inline: auto;
+  padding-inline: var(--space-xl);
+}
+
+/* <main> is only a programmatic focus target (tabindex -1: the skip link and clicks land on it), not a
+   control, so it never draws a focus ring around the whole page (D-082). Controls keep their own rings. */
+.main:focus,
+.main:focus-visible {
+  outline: none;
+}
+
+/* The page root is the focus target for "Back to top" (focus lands at the top, then Tab reaches the skip
+   link). Like <main>, it never draws a ring around the whole page. */
+.root:focus,
+.root:focus-visible {
+  outline: none;
+}

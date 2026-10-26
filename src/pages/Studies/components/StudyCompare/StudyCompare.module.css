@@ -1,0 +1,89 @@
+/* Before / after pair (D-050). Two columns from tablet; stacked on phones, where each shot needs the
+   width. Colors are surface and palette tokens, so both columns follow dark mode. */
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border-radius: var(--size-radius-lg);
+}
+
+.col {
+  padding: var(--space-2xl);
+}
+
+.before {
+  background: var(--color-surface-sunken);
+}
+
+.after {
+  background: var(--palette-container, var(--color-secondary-container));
+}
+
+.shot {
+  position: relative;
+  aspect-ratio: 1200 / 740;
+  overflow: hidden;
+  border-radius: var(--size-radius-lg);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Image wraps the picture in a div. It takes no box, so the picture lays out as before. */
+.imageBox {
+  display: contents;
+}
+
+/* Shown when the picture fails to load: a faint tint of the text color over the column, with the image icon. */
+.fallback {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  background: color-mix(in oklch, var(--color-content-muted) 12%, transparent);
+}
+
+/* The label sits on the image's bottom-right corner. */
+.chip {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--size-radius-sm);
+  background: var(--color-surface-sunken);
+  color: var(--color-content-variant);
+  font-weight: var(--font-weight-emphasis);
+}
+
+.after .chip {
+  background: var(--palette-container, var(--color-secondary-container));
+  color: var(--palette-on-container, var(--color-secondary-on-container));
+}
+
+/* The caption is as wide as the pair (D-071). */
+.caption {
+  width: 100%;
+  color: var(--color-content-muted);
+}
+
+@media (max-width: 640px) {
+  .pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .col {
+    padding: var(--space-xl);
+  }
+}

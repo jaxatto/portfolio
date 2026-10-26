@@ -1,0 +1,11 @@
+dist
+node_modules
+docs
+screens
+resume
+public
+src/styles/theme.css
+package-lock.json
+*.md
+*.svg
+.ssr

@@ -1,0 +1,56 @@
+/* One palette scope for every colored surface (D-119). A component puts one of these classes on a
+   section or on itself and reads the generic `--palette-*` properties, so the five container pairs are
+   written here once and a new palette is one block. The study page, the study cards and the chips all use it.
+     --palette-container            the tint
+     --palette-container-hover      the tint on hover
+     --palette-on-container         text on the tint
+     --palette-on-container-hover   text on the hover tint
+     --palette-on-container-active  pressed text */
+
+.brand {
+  --palette-container: var(--color-brand-container);
+  --palette-container-hover: var(--color-brand-container-hover);
+  --palette-on-container: var(--color-brand-on-container);
+  --palette-on-container-hover: var(--color-brand-on-container-hover);
+  --palette-on-container-active: var(--color-brand-on-container-active);
+}
+
+.primary {
+  --palette-container: var(--color-primary-container);
+  --palette-container-hover: var(--color-primary-container-hover);
+  --palette-on-container: var(--color-primary-on-container);
+  --palette-on-container-hover: var(--color-primary-on-container-hover);
+  --palette-on-container-active: var(--color-primary-on-container-active);
+}
+
+.secondary {
+  --palette-container: var(--color-secondary-container);
+  --palette-container-hover: var(--color-secondary-container-hover);
+  --palette-on-container: var(--color-secondary-on-container);
+  --palette-on-container-hover: var(--color-secondary-on-container-hover);
+  --palette-on-container-active: var(--color-secondary-on-container-active);
+}
+
+.tertiary {
+  --palette-container: var(--color-tertiary-container);
+  --palette-container-hover: var(--color-tertiary-container-hover);
+  --palette-on-container: var(--color-tertiary-on-container);
+  --palette-on-container-hover: var(--color-tertiary-on-container-hover);
+  --palette-on-container-active: var(--color-tertiary-on-container-active);
+}
+
+.quaternary {
+  --palette-container: var(--color-quaternary-container);
+  --palette-container-hover: var(--color-quaternary-container-hover);
+  --palette-on-container: var(--color-quaternary-on-container);
+  --palette-on-container-hover: var(--color-quaternary-on-container-hover);
+  --palette-on-container-active: var(--color-quaternary-on-container-active);
+}
+
+.quinary {
+  --palette-container: var(--color-quinary-container);
+  --palette-container-hover: var(--color-quinary-container-hover);
+  --palette-on-container: var(--color-quinary-on-container);
+  --palette-on-container-hover: var(--color-quinary-on-container-hover);
+  --palette-on-container-active: var(--color-quinary-on-container-active);
+}

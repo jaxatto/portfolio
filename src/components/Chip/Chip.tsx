@@ -1,33 +1,47 @@
 import React from 'react';
-import styles from './Chip.module.scss';
+import clsx from 'clsx';
+import type { ColorGroup } from '#tokens/types';
+import palettes from '#styles/palette.module.css';
+import typography from '#styles/type.module.css';
+import styles from './Chip.module.css';
 
-// Chip component for displaying tags or labels
-// It supports different variants and sizes for customization
-// Usage: <Chip variant="secondary" size="small">Tag</Chip>
+// The code-style chip from the About hero (D-040): Roboto Mono, a container color with its paired text
+// color. Used on About, the study headers and Resume skills.
+// `palette` picks one of the four container pairs (white text in dark, D-028). Without it the chip follows the
+// palette of the section it sits in (a study page, D-052) and is the primary pair outside one (D-119).
+// Chips are plain labels, so they render as a list: <ChipList> holds <Chip>s.
+
+type ChipPalette = Exclude<ColorGroup, 'brand'>;
+
+export const chipPalettes: readonly ChipPalette[] = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'quaternary',
+];
 
 type ChipProps = {
-  children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
+  palette?: ChipPalette;
   className?: string;
-  size?: 'large' | 'small';
+  children: React.ReactNode;
 };
 
-const Chip: React.FC<ChipProps> = ({
-  children,
-  variant = 'neutral',
-  className = '',
-  size= 'large',
-}) => (
-  <div
-    className={[
-      styles.wrapper,
-      styles[variant],
-      styles[size],
+export const Chip: React.FC<ChipProps> = ({ palette, className, children }) => (
+  <li
+    className={clsx(
+      typography.bodySm,
+      styles.chip,
+      palette && [palettes[palette], styles.tinted],
       className,
-    ].filter(Boolean).join(' ')}
+    )}
   >
     {children}
-  </div>
+  </li>
 );
+
+export const ChipList: React.FC<{ className?: string; children: React.ReactNode }> = ({
+  className,
+  children,
+}) => <ul className={clsx(styles.list, className)}>{children}</ul>;
 
 export default Chip;
