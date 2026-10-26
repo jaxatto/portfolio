@@ -44,7 +44,7 @@ Keep all of it lean: current facts and decisions only, no history, no narration.
 ## No-nos (permanent, from Jax)
 
 - **Never raise the Toyota token count ("680 tokens" and similar) as a proof point, a suggestion or an example.** Jax says it is irrelevant (2026-10-25). Leave it where it already sits in his study content unless he asks.
-- **h1 to h6 are semantic only.** The tag is for structure, screen readers and the DOM. Never style a heading element directly (no `h1 {}`, `.x h2 {}` or `section > h2 + *` selectors). Choose the tag for the outline and the look from a class (compose a step from `type.module.css`), so any tag can look like any step (2026-10-25).
+- **h1 to h6 are semantic only.** The tag is for structure, screen readers and the DOM. Never style a heading element directly (no `h1 {}`, `.x h2 {}` or `section > h2 + *` selectors). Choose the tag for the outline and the look from a class (apply a class from `type.module.css`), so any tag can look like any step (2026-10-25).
 - **Don't bring up the code audit** or ask for its approvals. It runs on its own.
 
 ## Code comments
@@ -66,7 +66,7 @@ Figma is retired (2026-10-25, D-132). Don't open the file or the MCP unless Jax 
 Token system (D-002): `src/tokens/` (`primitives.ts`, `defaultTheme.ts` semantic light/dark, `colorSteps.ts`, `types.ts`) compiles with `npm run build:theme` into `src/styles/theme.css`. **Never hand-edit `theme.css`**; edit the TS and rebuild, and commit both. Semantic tokens are CSS custom properties (`--color-brand-default`, `--space-md`, `--font-style-body-md-size`, ...). Components use these, never primitives or raw values. Every semantic token references a primitive, and none is named for a value (`--font-size-display`, never `--font-size-56`). The generator and `scripts/tokens/token-layers.test.ts` enforce it (D-149). Light is `:root`, dark is `[data-theme='dark']`. `data-theme` always holds the theme being shown, the OS setting when nothing is stored, so there are no `prefers-color-scheme` blocks (D-128).
 
 - `src/providers/Theme` sets `data-theme`, persists the choice and follows the OS when nothing is stored. The header toggle is always on (D-139). The inline script in `index.html` must mirror the provider's logic.
-- Type sizes are fluid `clamp()`s that reach the desktop sizes at about 1280px, smaller sizes are tuned per slice (D-013). One `--font-weight-strong` serves both families: Inter renders 900 and Manrope's face stops at 800, so it renders 800 (D-154).
+- Type: every text style has a generated class in `src/styles/type.module.css`. A component applies it in its markup (`className={clsx(typography.headingLg, styles.title)}`) and sets only color, spacing and overrides, and never reads `--font-style-*` itself (D-156). Sizes are fluid `clamp()`s that reach the desktop sizes at about 1280px (D-013). One `--font-weight-strong` serves both families: Inter renders 900 and Manrope's face stops at 800, so it renders 800 (D-154).
 - Components are plain CSS modules on tokens, no SCSS (D-091). Breakpoints are literal `@media` widths: 640 (phone, 641 up) and 900 (desktop), and any other width carries a comment (D-118). Motion, shadows, state washes, layers and tap targets (40 and 44px) are tokens from `src/tokens/effects.ts` and `defaultTheme.ts`, so no raw durations, easings, shadows or target sizes in component CSS. Fixed icon glyphs use `--size-icon-*`. The browser bar color is generated into `src/tokens/themeColor.ts`, never typed by hand.
 - Colored surfaces take a palette from one class in `src/styles/palette.module.css` and read `--palette-*`. A section that re-colors the semantic tokens is a tone in `src/styles/tone.css` (`data-tone`). Every button is `#components/Button` and every link `TextLink` (D-119).
 - Import aliases are `#src`, `#tokens`, `#styles`, `#pages`, `#components`, `#assets`, `#constants` and `#providers` (`vite.config.ts`, `tsconfig.json` and `package.json` `imports` must stay in sync).
@@ -76,7 +76,7 @@ Token system (D-002): `src/tokens/` (`primitives.ts`, `defaultTheme.ts` semantic
 ```
 npm ci                                   # install
 npm run dev                              # vite
-npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
+npm run build:theme                      # regenerate src/styles/theme.css and type.module.css from src/tokens
 npm run build                            # client build, server build (.ssr), then scripts/prerender.ts pre-renders each route, 404.html and sitemap.xml into dist/ (D-159)
 npm run preview                          # serve dist/
 npm run lint                             # eslint with jsx-a11y

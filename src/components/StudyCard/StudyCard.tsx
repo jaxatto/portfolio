@@ -5,6 +5,7 @@ import Icon from '#components/Icon';
 import Image from '#components/Image';
 import palettes from '#styles/palette.module.css';
 import type { ColorGroup } from '#tokens/types';
+import typography from '#styles/type.module.css';
 import styles from './StudyCard.module.css';
 
 // Figma "Study Card" (Home, node 2726:63413). Palette = container / on-container token pair.
@@ -54,8 +55,17 @@ const StudyCard: React.FC<StudyCardProps> = ({
     >
       <div className={styles.content}>
         <div className={styles.text}>
-          <Heading className={styles.title}>{title}</Heading>
-          {outcome && <p className={styles.outcome}>{outcome}</p>}
+          <Heading className={clsx(typography.headingLg, styles.title)}>{title}</Heading>
+          {outcome && (
+            <p
+              className={clsx(
+                variant === 'study' ? typography.bodySm : typography.bodyMd,
+                styles.outcome,
+              )}
+            >
+              {outcome}
+            </p>
+          )}
         </div>
         <RouterLink to={linkUrl} className={styles.link}>
           <span className={styles.linkText}>

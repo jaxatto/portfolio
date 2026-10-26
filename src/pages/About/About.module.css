@@ -19,7 +19,6 @@
 }
 
 .title {
-  composes: titleMd from '#styles/type.module.css';
   color: var(--color-content-emphasis);
 }
 
@@ -34,9 +33,6 @@
   flex-direction: column;
   gap: var(--space-4xl);
   max-width: var(--size-layout-content-max);
-  font-family: var(--font-style-body-md-family);
-  font-size: var(--font-style-body-md-size);
-  line-height: var(--font-style-body-md-line-height);
   text-wrap: pretty;
 }
 
@@ -51,7 +47,6 @@
 }
 
 .heading {
-  composes: headingLg from '#styles/type.module.css';
   color: var(--color-content-prose); /* true black in light (D-056) */
   /* 12px between the heading and what follows (D-057): the section's 24px gap minus 12. */
   margin-bottom: calc(var(--space-sm) - var(--space-xl));
@@ -66,7 +61,6 @@
 
 /* "Strategic Product Design" etc.: h3s, one step above the sentence and well under the h2s. */
 .subheading {
-  composes: headingSm from '#styles/type.module.css';
   color: var(--color-content-emphasis);
 }
 
@@ -125,7 +119,6 @@
 }
 
 .caption {
-  composes: caption from '#styles/type.module.css';
   color: var(--color-content-soft);
 }
 

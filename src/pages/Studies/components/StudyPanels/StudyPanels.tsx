@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Image from '#components/Image';
 import type { StudyPanelsData } from '#pages/Studies/types/studySection';
+import typography from '#styles/type.module.css';
 import styles from './StudyPanels.module.css';
 
 // Page crops side by side in a sunken box (D-054, Figma Indeed 2853:27124). Each panel is a pixel
@@ -44,7 +45,9 @@ const StudyPanels: React.FC<StudyPanelsProps> = ({
         </div>
       ))}
     </div>
-    {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
+    {caption && (
+      <figcaption className={clsx(typography.bodySm, styles.caption)}>{caption}</figcaption>
+    )}
   </figure>
 );
 

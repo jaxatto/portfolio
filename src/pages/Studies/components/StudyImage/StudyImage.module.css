@@ -27,7 +27,6 @@
 }
 
 .caption {
-  composes: caption from '#styles/type.module.css';
   color: var(--color-content-muted);
   text-align: left;
   /* The caption is as wide as its image (D-071), left-aligned to the 960 edge (D-066). */

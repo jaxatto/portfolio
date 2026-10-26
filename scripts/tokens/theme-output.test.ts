@@ -4,7 +4,11 @@ import { resolve } from 'node:path';
 import { expect, it } from 'vitest';
 
 const root = resolve(__dirname, '../..');
-const generated = ['src/styles/theme.css', 'src/tokens/themeColor.ts'].map((p) => resolve(root, p));
+const generated = [
+  'src/styles/theme.css',
+  'src/tokens/themeColor.ts',
+  'src/styles/type.module.css',
+].map((p) => resolve(root, p));
 
 // Catches a token edit committed without `npm run build:theme`.
 it('committed theme files match what the token source compiles to', () => {

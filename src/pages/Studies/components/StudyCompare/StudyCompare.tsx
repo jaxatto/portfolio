@@ -1,6 +1,8 @@
 import React from 'react';
+import clsx from 'clsx';
 import Image from '#components/Image';
 import type { StudyCompareData } from '#pages/Studies/types/studySection';
+import typography from '#styles/type.module.css';
 import styles from './StudyCompare.module.css';
 
 // Before / after pair (D-050, Figma Indeed 2853:27124): two columns, the "Before" on the sunken
@@ -28,7 +30,7 @@ const StudyCompare: React.FC<StudyCompareProps> = ({
             imgClassName={styles.image}
             fallbackClassName={styles.fallback}
           />
-          <span className={styles.chip}>Before</span>
+          <span className={clsx(typography.bodySm, styles.chip)}>Before</span>
         </div>
       </div>
       <div className={`${styles.col} ${styles.after}`}>
@@ -41,11 +43,13 @@ const StudyCompare: React.FC<StudyCompareProps> = ({
             imgClassName={styles.image}
             fallbackClassName={styles.fallback}
           />
-          <span className={styles.chip}>After</span>
+          <span className={clsx(typography.bodySm, styles.chip)}>After</span>
         </div>
       </div>
     </div>
-    {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
+    {caption && (
+      <figcaption className={clsx(typography.bodySm, styles.caption)}>{caption}</figcaption>
+    )}
   </figure>
 );
 

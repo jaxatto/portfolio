@@ -64,7 +64,6 @@
 }
 
 .title {
-  composes: headingLg from '#styles/type.module.css';
   color: var(--card-fg);
   /* heading-lg (32px at desktop, Figma). Titles are written to wrap to two lines (D-034). */
   text-wrap: balance;
@@ -72,10 +71,7 @@
 
 .outcome {
   margin: 0;
-  font-family: var(--font-style-body-md-family);
-  font-size: var(--font-style-body-md-size);
   font-weight: var(--font-weight-medium); /* 500: 400 read thin on the tinted card (D-033) */
-  line-height: var(--font-style-body-md-line-height);
 }
 
 /* Link: bold, no resting underline; the shared line grows in on hover (D-031). */
@@ -269,10 +265,6 @@
 }
 
 /* Study (under a case study): smaller body type, text and preview stay stacked. */
-.study .outcome {
-  font-size: var(--font-style-body-sm-size);
-}
-
 .study .content {
   gap: var(--space-xl);
   /* 24px under the link, 16px less than the Home cards (D-063). */
@@ -307,8 +299,9 @@
     font-size: var(--font-size-heading-xl-sm);
   }
 
-  /* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). */
-  .outcome {
+  /* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). The
+     stacked cards under a case study stay at body-sm. */
+  .card:not(.study) .outcome {
     font-size: var(--font-style-body-lg-size);
     line-height: var(--font-style-body-lg-line-height);
   }

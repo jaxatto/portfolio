@@ -10,7 +10,6 @@
 }
 
 .title {
-  composes: headingLg from '#styles/type.module.css';
   /* Left edge matches the cards below (D-062). */
   color: var(--color-content-prose); /* true black in light (D-056) */
 }

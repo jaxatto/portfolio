@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Image from '#components/Image';
 import type { StudyImageProps } from '#pages/Studies/types/studyImage';
+import typography from '#styles/type.module.css';
 import styles from './StudyImage.module.css';
 
 const StudyImage: React.FC<StudyImageProps> = ({
@@ -32,7 +33,9 @@ const StudyImage: React.FC<StudyImageProps> = ({
       imgClassName={clsx(styles.image, variant === 'banner' && styles.banner)}
       fallbackClassName={clsx(styles.fallback, variant === 'banner' && styles.banner)}
     />
-    {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
+    {caption && (
+      <figcaption className={clsx(typography.bodySm, styles.caption)}>{caption}</figcaption>
+    )}
   </figure>
 );
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Layout from '#components/Layout';
 import Button from '#components/Button';
 import Image from '#components/Image';
@@ -12,6 +13,7 @@ import Strength from '#pages/Resume/components/Strength';
 import { roles } from '#pages/Resume/resources/roles';
 import { studyLinks } from '#constants/studyLinks';
 import { meta } from '#pages/Resume/resources/meta';
+import typography from '#styles/type.module.css';
 import styles from './Resume.module.css';
 
 // Resume page on tokens and the 960 column (slice 6, D-087). The page carries the resume's content so it
@@ -55,16 +57,16 @@ const Resume: React.FC = () => (
       <div className={styles.intro}>
       <div className={styles.identity}>
         {/* The visible heading is the name. "Resume:" is read by assistive tech only, so the h1 names the page. */}
-        <h1 className={styles.title}>
+        <h1 className={clsx(typography.titleMd, styles.title)}>
           <span className="sr-only">Resume: </span>
           Jax Engel
         </h1>
         {/* Phones only: the nav's left slot is hidden there (like Home), so the role shows under the name. */}
-        <p className={styles.byline}>
+        <p className={clsx(typography.bodyLg, styles.byline)}>
           <RoleLines lines={roleLines} />
         </p>
       </div>
-      <p className={styles.summary}>
+      <p className={clsx(typography.bodyMd, styles.summary)}>
         11 years of experience in scalable design systems, enterprise tools and AI-assisted
         workflows. I work across product design and front-end engineering to reduce UX friction,
         unify multi-team ecosystems and build in accessibility at scale.
@@ -94,7 +96,7 @@ const Resume: React.FC = () => (
     </header>
 
     <section className={styles.section} aria-labelledby="experience">
-      <h2 id="experience" className={styles.heading}>Experience</h2>
+      <h2 id="experience" className={clsx(typography.headingLg, styles.heading)}>Experience</h2>
       <ul className={styles.roles}>
         {roles.map((role, index) => (
           <Role key={`${role.company}-${role.startDate}`} role={role} index={index} total={roles.length} />
@@ -103,14 +105,14 @@ const Resume: React.FC = () => (
     </section>
 
     <section className={styles.section} aria-labelledby="education">
-      <h2 id="education" className={styles.heading}>Education</h2>
-      <p className={styles.education}>
+      <h2 id="education" className={clsx(typography.headingLg, styles.heading)}>Education</h2>
+      <p className={clsx(typography.bodyMd, styles.education)}>
         The Art Institute of Austin, Bachelor of Fine Arts, Web Design and Interactive Media
       </p>
     </section>
 
     <section className={styles.section} aria-labelledby="case-studies">
-      <h2 id="case-studies" className={styles.heading}>Case studies</h2>
+      <h2 id="case-studies" className={clsx(typography.headingLg, styles.heading)}>Case studies</h2>
       <ul className={styles.strengths}>
         {strengths.map((strength) => (
           <Strength key={strength.title} {...strength} />

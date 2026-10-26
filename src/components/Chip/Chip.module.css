@@ -20,9 +20,7 @@
   background: var(--chip-bg);
   color: var(--chip-fg);
   font-family: var(--font-family-mono);
-  font-size: var(--font-style-body-sm-size);
   font-weight: var(--font-weight-emphasis);
-  line-height: var(--font-line-height-default);
   /* A caret after the last chip (About) takes the chip's text color. */
   --caret-color: var(--chip-fg);
 }

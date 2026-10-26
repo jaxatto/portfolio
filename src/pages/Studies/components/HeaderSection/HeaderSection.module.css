@@ -30,7 +30,6 @@
 }
 
 .title {
-  composes: titleMd from '#styles/type.module.css';
   /* The h1 takes the study's heading color (D-052, set on the page by StudyTemplate). */
   color: var(--study-heading, var(--color-content-emphasis));
   text-wrap: balance;
@@ -56,11 +55,6 @@
 	   with a dot (D-116). */
   overflow: hidden;
   color: var(--color-content-soft);
-  font-family: var(--font-style-body-lg-family);
-  font-size: var(
-    --font-style-body-lg-size
-  ); /* one step up so it holds beside the 56px title (D-114) */
-  line-height: var(--font-style-body-lg-line-height);
 }
 
 /* Role, place and date sit on one line when they fit and wrap one by one when they do not. Each item
@@ -107,9 +101,6 @@
 
 .description p {
   margin: 0;
-  font-family: var(--font-style-body-md-family);
-  font-size: var(--font-style-body-md-size);
-  line-height: var(--font-style-body-md-line-height);
   text-wrap: pretty;
 }
 

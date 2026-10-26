@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import type { ColorGroup } from '#tokens/types';
 import palettes from '#styles/palette.module.css';
+import typography from '#styles/type.module.css';
 import styles from './Chip.module.css';
 
 // The code-style chip from the About hero (D-040): Roboto Mono, a container color with its paired text
@@ -26,7 +27,14 @@ type ChipProps = {
 };
 
 export const Chip: React.FC<ChipProps> = ({ palette, className, children }) => (
-  <li className={clsx(styles.chip, palette && [palettes[palette], styles.tinted], className)}>
+  <li
+    className={clsx(
+      typography.bodySm,
+      styles.chip,
+      palette && [palettes[palette], styles.tinted],
+      className,
+    )}
+  >
     {children}
   </li>
 );

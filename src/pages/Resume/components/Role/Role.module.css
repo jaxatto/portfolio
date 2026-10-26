@@ -37,7 +37,6 @@
 }
 
 .company {
-	composes: headingSm from '#styles/type.module.css';
 	margin: 0;
 	color: var(--role-fg);
 }
@@ -45,10 +44,7 @@
 .meta {
 	margin: 0;
 	color: color-mix(in oklab, var(--role-fg) 80%, transparent);
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-sm-size);
 	font-weight: var(--font-weight-medium);
-	line-height: var(--font-style-body-md-line-height);
 }
 
 /* The date never splits across lines. */
@@ -65,7 +61,6 @@
 }
 
 .title {
-	composes: headingSm from '#styles/type.module.css';
 	margin: 0;
 	color: var(--role-fg);
 }
@@ -80,19 +75,13 @@
 .promotion {
 	margin: 0;
 	color: var(--color-content-soft);
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-sm-size);
 	font-weight: var(--font-weight-medium);
-	line-height: var(--font-style-body-md-line-height);
 }
 
 .summary {
 	max-width: 38rem;
 	margin: 0;
 	color: var(--color-content-prose);
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-md-size);
-	line-height: var(--font-style-body-md-line-height);
 	text-wrap: pretty;
 }
 

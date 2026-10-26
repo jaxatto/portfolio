@@ -1,9 +1,11 @@
 import React from 'react';
+import clsx from 'clsx';
 import type { CSSProperties } from 'react';
 import DateRange from '#components/DateRange';
 import TextLink from '#components/TextLink';
 import logos from '../../resources/logos';
 import type { ResumeRole } from '../../resources/roles';
+import typography from '#styles/type.module.css';
 import styles from './Role.module.css';
 
 // One job on the resume (D-124): a split card. The colored side holds the logo, company, dates and place.
@@ -40,18 +42,18 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
         <div className={styles.logo} aria-hidden="true">
           {Logo && <Logo />}
         </div>
-        <p className={styles.company}>{role.company}</p>
-        <p className={styles.meta}>
+        <p className={clsx(typography.headingSm, styles.company)}>{role.company}</p>
+        <p className={clsx(typography.bodySm, styles.meta)}>
           <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
         </p>
-        <p className={styles.meta}>{role.location}</p>
+        <p className={clsx(typography.bodySm, styles.meta)}>{role.location}</p>
       </div>
       <div className={styles.main}>
         <div className={styles.heading}>
-          <h3 className={styles.title}>{role.title}</h3>
-          {role.promotion && <p className={styles.promotion}>{role.promotion}</p>}
+          <h3 className={clsx(typography.headingSm, styles.title)}>{role.title}</h3>
+          {role.promotion && <p className={clsx(typography.bodySm, styles.promotion)}>{role.promotion}</p>}
         </div>
-        <p className={styles.summary}>{role.summary}</p>
+        <p className={clsx(typography.bodyMd, styles.summary)}>{role.summary}</p>
         {role.studyHref && (
           <TextLink to={role.studyHref} icon="arrow-right" className={styles.study}>
             Read the {role.studyName} case study

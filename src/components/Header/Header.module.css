@@ -35,10 +35,8 @@
   align-items: center;
   gap: var(--space-xs);
   height: var(--size-target-lg);
-  /* Same face and size as the brand, so the two read as one line. */
-  font-family: var(--font-family-heading);
-  font-size: var(--font-style-heading-md-size);
-  line-height: var(--font-style-heading-md-line-height);
+  /* Same face and size as the brand (headingMd), so the two read as one line. Its children set their own weight. */
+  font-weight: var(--font-weight-default);
 }
 
 /* The tagline, soft, behind a decorative dot. */
@@ -87,10 +85,7 @@
   height: var(--size-target-lg);
   border-radius: var(--size-radius-sm);
   color: var(--color-content-variant);
-  font-family: var(--font-family-heading);
-  font-size: var(--font-style-heading-md-size);
   font-weight: var(--font-weight-emphasis);
-  line-height: var(--font-style-heading-md-line-height);
   text-decoration: none;
 }
 
@@ -142,9 +137,7 @@
   color: var(--color-content-variant);
   /* Inter, like the label and the sentence: the top of the page is one typeface. See D-017. */
   font-family: var(--font-family-heading);
-  font-size: var(--font-style-body-lg-size);
   font-weight: var(--font-weight-emphasis);
-  line-height: var(--font-line-height-default);
   text-decoration: none;
 }
 
@@ -270,9 +263,6 @@
   /* Same face and weight as the sentence below (Inter, regular): Manrope at the same weight read too
 	   light, and a bold label read as another nav item. */
   font-family: var(--font-family-heading);
-  font-size: var(--font-style-body-lg-size);
-  font-weight: var(--font-weight-default);
-  line-height: var(--font-style-body-lg-line-height);
 }
 
 /* One sentence: the greeting is heavy and the same dark color, the rest is regular weight. */
@@ -280,10 +270,7 @@
   /* 900px so the larger "build" chip and the box's extra margin don't push "accessible" to a
 	   third line at desktop width. */
   max-width: 900px;
-  margin: 0;
   color: var(--color-content-emphasis);
-  font-family: var(--font-family-heading);
-  font-size: var(--font-style-title-md-size);
   font-weight: var(--font-weight-default);
   line-height: var(--font-line-height-default);
 }
@@ -363,8 +350,7 @@
     column-gap: 0.3em;
     margin-bottom: var(--space-xl);
     color: var(--color-content-secondary);
-    font-size: var(--font-style-body-md-size);
-    font-weight: var(--font-weight-default);
-    line-height: var(--font-style-body-md-line-height);
+    /* Inter like the sentence it sits in, not the body face the class sets. */
+    font-family: var(--font-family-heading);
   }
 }

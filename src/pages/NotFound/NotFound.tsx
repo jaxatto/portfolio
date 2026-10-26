@@ -1,8 +1,10 @@
 import React, { useSyncExternalStore } from 'react';
+import clsx from 'clsx';
 import Button from '#components/Button';
 import Header from '#components/Header';
 import Meta from '#components/Meta';
 import { mainLinks } from '#constants/mainLinks';
+import typography from '#styles/type.module.css';
 import styles from './NotFound.module.css';
 
 // One is picked at random each time the page shows, after the first render (D-159).
@@ -38,7 +40,7 @@ const NotFound: React.FC = () => {
         <div className={styles.main}>
           <div className={styles.copy}>
             <h1 className={styles.title}>404</h1>
-            <p className={styles.description}>{description}</p>
+            <p className={clsx(typography.bodyLg, styles.description)}>{description}</p>
           </div>
           <Button
             variant="inverted"

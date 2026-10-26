@@ -30,17 +30,13 @@
 }
 
 .title {
-	composes: headingMd from '#styles/type.module.css';
 	margin: 0;
 	color: var(--card-fg);
 }
 
 .proof {
 	margin: 0;
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-md-size);
 	font-weight: var(--font-weight-medium);
-	line-height: var(--font-style-body-md-line-height);
 	color: var(--color-content-prose);
 }
 

@@ -112,7 +112,6 @@
 }
 
 .title {
-	composes: titleMd from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
 	/* The About page's h1 size (48px, 56px from 900px). */
 	font-size: var(--font-size-display-sm);
@@ -129,10 +128,7 @@
 	display: none;
 	margin: 0;
 	color: var(--color-content-soft);
-	font-family: var(--font-style-body-lg-family);
-	font-size: var(--font-style-body-lg-size);
 	font-weight: var(--font-weight-medium);
-	line-height: var(--font-style-body-lg-line-height);
 	text-wrap: balance;
 }
 
@@ -148,9 +144,6 @@
 .education {
 	max-width: var(--size-layout-content-max);
 	margin: 0;
-	font-family: var(--font-style-body-md-family);
-	font-size: var(--font-style-body-md-size);
-	line-height: var(--font-style-body-md-line-height);
 	text-wrap: pretty;
 }
 
@@ -170,7 +163,6 @@
 }
 
 .heading {
-	composes: headingLg from '#styles/type.module.css';
 	color: var(--color-content-prose);
 }
 

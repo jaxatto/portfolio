@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Icon from '#components/Icon';
 import type { IconName } from '#constants/iconNames';
 import { blockMailtoOnLocalhost } from '#src/utils/mailto';
+import typography from '#styles/type.module.css';
 import styles from './Button.module.css';
 
 // The site's button: `filled` (primary action), `outline` (secondary) and `inverted` (on a saturated ground).
@@ -30,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   children,
 }) => {
-  const classes = clsx(styles.button, styles[variant], className);
+  const classes = clsx(typography.bodyMd, styles.button, styles[variant], className);
   const glyph = icon && <Icon name={icon} className={styles.icon} aria-hidden="true" />;
   const content = (
     <>

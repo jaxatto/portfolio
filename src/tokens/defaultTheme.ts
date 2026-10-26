@@ -348,7 +348,8 @@ const theme: Omit<SemanticTheme, 'colors'> & {
           preferred: 'rem-110-vw-070',
           max: 20,
         },
-        weight: 'strong',
+        // Label headings ("Label: sentence", role titles) are bold 700, not the 900 of the larger headings (D-055).
+        weight: 'emphasis',
         'line-height': 'compact',
       },
       'body-lg': {

@@ -50,7 +50,6 @@
 }
 
 .caption {
-  composes: caption from '#styles/type.module.css';
   color: var(--color-content-muted);
 }
 

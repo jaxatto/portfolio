@@ -15,9 +15,7 @@
   border: var(--outline-width) solid transparent;
   border-radius: var(--size-radius-md);
   font-family: var(--font-family-heading);
-  font-size: var(--font-style-body-md-size);
   font-weight: var(--font-weight-emphasis);
-  line-height: var(--font-line-height-default);
   text-decoration: none;
   cursor: pointer;
   transition:

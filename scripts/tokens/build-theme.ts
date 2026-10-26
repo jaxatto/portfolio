@@ -12,6 +12,7 @@ import { buildStaticSemanticVars } from './build-theme/semanticStatic';
 import { createValueResolver } from './build-theme/valueResolver';
 import { findRawValues } from './build-theme/rawValues';
 import { renderThemeColorModule } from './build-theme/themeColor';
+import { renderTypeModule } from './build-theme/typeModule';
 import { writeThemeCss } from './build-theme/writeThemeCss';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -87,6 +88,10 @@ function buildTheme() {
   writeFileSync(
     path.resolve(__dirname, '../../src/tokens/themeColor.ts'),
     renderThemeColorModule(light, dark),
+  );
+  writeFileSync(
+    path.resolve(__dirname, '../../src/styles/type.module.css'),
+    renderTypeModule(defaultTheme.font.styles),
   );
   console.log(
     '✅ Theme compiled successfully to ./src/styles/theme.css and src/tokens/themeColor.ts',

@@ -4,6 +4,7 @@ import TextLink from '#components/TextLink';
 import IconLink from '#components/IconLink';
 import { isJobSeeking } from '#constants/siteConfig';
 import { contactInfo } from '#constants/contactInfo';
+import typography from '#styles/type.module.css';
 import styles from './Footer.module.css';
 
 // Page footer: the call to action and links, the same on every page (D-049). In dark mode it sits on
@@ -23,8 +24,8 @@ const Footer: React.FC<FooterProps> = ({ band = true }) => {
       <div className={styles.inner}>
         <div className={styles.main}>
           <div className={styles.top}>
-            <h2 className={styles.title}>Let’s work together</h2>
-            <p className={styles.description}>
+            <h2 className={clsx(typography.titleSm, styles.title)}>Let’s work together</h2>
+            <p className={clsx(typography.bodyLg, styles.description)}>
               Open to remote <span className={styles.nowrap}>Staff Product Designer</span>{' '}
               <span className={styles.nowrap}>and Design Engineer</span> roles.
             </p>

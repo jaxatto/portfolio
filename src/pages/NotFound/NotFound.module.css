@@ -64,10 +64,6 @@
 
 .description {
   margin: 0;
-  font-family: var(--font-style-body-lg-family);
-  font-size: var(--font-style-body-lg-size);
-  font-weight: var(--font-style-body-lg-weight);
-  line-height: var(--font-style-body-lg-line-height);
 }
 
 .button {

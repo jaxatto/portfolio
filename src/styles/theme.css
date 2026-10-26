@@ -233,7 +233,7 @@
   --font-style-heading-md-line-height: var(--font-line-height-compact);
   --font-style-heading-sm-family: var(--font-family-heading);
   --font-style-heading-sm-size: clamp(var(--primitive-font-size-16), var(--primitive-font-fluid-rem-110-vw-070), var(--primitive-font-size-20));
-  --font-style-heading-sm-weight: var(--font-weight-strong);
+  --font-style-heading-sm-weight: var(--font-weight-emphasis);
   --font-style-heading-sm-line-height: var(--font-line-height-compact);
   --font-style-body-lg-family: var(--font-family-body);
   --font-style-body-lg-size: clamp(var(--primitive-font-size-16), var(--primitive-font-fluid-rem-088-vw-140), var(--primitive-font-size-24));

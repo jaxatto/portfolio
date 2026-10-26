@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Layout from '#components/Layout';
 import Image from '#components/Image';
 import { DesignSelection, Caret, CursorTag } from '#components/HeroMarks';
@@ -7,6 +8,7 @@ import { Chip, ChipList, chipPalettes } from '#components/Chip';
 import { studyLinks } from '#constants/studyLinks';
 import { images } from './resources/images';
 import { meta } from './resources/meta';
+import typography from '#styles/type.module.css';
 import styles from './About.module.css';
 
 // About page on tokens and the 960px column (D-040, D-041). One column: a hero with the Home
@@ -18,7 +20,7 @@ const LabelledParagraph: React.FC<{ text: string }> = ({ text }) => {
   if (split === -1) return <p>{text}</p>;
   return (
     <div className={styles.item}>
-      <h3 className={styles.subheading}>{text.slice(0, split)}</h3>
+      <h3 className={clsx(typography.headingSm, styles.subheading)}>{text.slice(0, split)}</h3>
       <p>{text.slice(split + 2)}</p>
     </div>
   );
@@ -52,7 +54,7 @@ const petsIntro =
 const About: React.FC = () => (
   <Layout title={meta.title} metaDescription={meta.description} className={styles.page} backToTop>
     <div className={styles.hero}>
-      <h1 className={styles.title}>
+      <h1 className={clsx(typography.titleMd, styles.title)}>
         About <DesignSelection corner="top-right">me</DesignSelection>
       </h1>
       <ChipList>
@@ -64,7 +66,7 @@ const About: React.FC = () => (
         ))}
       </ChipList>
     </div>
-    <div className={styles.story}>
+    <div className={clsx(typography.bodyMd, styles.story)}>
       <section>
         {intro.map((desc) => (
           <p key={desc}>{desc}</p>
@@ -87,13 +89,13 @@ const About: React.FC = () => (
         </p>
       </section>
       <section>
-        <h2 className={styles.heading}>Approach to Work</h2>
+        <h2 className={clsx(typography.headingLg, styles.heading)}>Approach to Work</h2>
         {approach.map((desc) => (
           <LabelledParagraph key={desc} text={desc} />
         ))}
       </section>
       <section>
-        <h2 className={styles.heading}>Personal Life</h2>
+        <h2 className={clsx(typography.headingLg, styles.heading)}>Personal Life</h2>
         {personal.map((desc) => (
           <p key={desc}>{desc}</p>
         ))}
@@ -119,7 +121,9 @@ const About: React.FC = () => (
                 />
                 <CursorTag name={img.name} className={styles.tag} />
               </div>
-              <figcaption className={styles.caption}>{img.caption}</figcaption>
+              <figcaption className={clsx(typography.bodySm, styles.caption)}>
+                {img.caption}
+              </figcaption>
             </figure>
           </li>
         ))}

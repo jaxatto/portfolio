@@ -70,6 +70,30 @@ describe('primitive and semantic tokens stay in their own layers', () => {
     expect(missing).toEqual([]);
   });
 
+  it('components apply type through the generated classes, not the text-style tokens', () => {
+    // A rule inside a media query cannot switch a class, so it may read a style's size and line height.
+    const allowed = new Set(['src/components/StudyCard/StudyCard.module.css']);
+    const offenders = walk(resolve(root, 'src'))
+      .filter(
+        (file) =>
+          /\.css$/.test(file) &&
+          file !== resolve(root, 'src/styles/theme.css') &&
+          file !== resolve(root, 'src/styles/type.module.css'),
+      )
+      .filter((file) => /var\(\s*--font-style-/.test(readFileSync(file, 'utf8')))
+      .map((file) => relative(root, file))
+      .filter((file) => !allowed.has(file));
+    expect(offenders).toEqual([]);
+  });
+
+  it('no stylesheet composes from the type module', () => {
+    const offenders = walk(resolve(root, 'src'))
+      .filter((file) => /\.css$/.test(file))
+      .filter((file) => /composes:[^;]*type\.module\.css/.test(readFileSync(file, 'utf8')))
+      .map((file) => relative(root, file));
+    expect(offenders).toEqual([]);
+  });
+
   it('recognises a raw value', () => {
     expect(holdsRawValue('16px')).toBe(true);
     expect(holdsRawValue('clamp(var(--a), 1rem + 2vw, var(--b))')).toBe(true);

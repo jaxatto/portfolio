@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Icon from '#components/Icon';
 import type { IconName } from '#constants/iconNames';
 import { blockMailtoOnLocalhost } from '#src/utils/mailto';
+import typography from '#styles/type.module.css';
 import styles from './TextLink.module.css';
 
 // Figma "Link": bold text with optional trailing icon and the animated hover line (D-104).
@@ -29,6 +30,7 @@ const TextLink: React.FC<TextLinkProps> = ({
   children,
 }) => {
   const classes = clsx(
+    typography.bodyMd,
     styles.link,
     icon && styles.withIcon,
     size === 'lg' && styles.large,

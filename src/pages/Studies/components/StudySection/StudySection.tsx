@@ -4,6 +4,7 @@ import StudyPanels from '#pages/Studies/components/StudyPanels';
 import StudyCompare from '#pages/Studies/components/StudyCompare';
 import StudyImage from '#pages/Studies/components/StudyImage';
 import type { StudySectionProps } from '#pages/Studies/types/studySection';
+import typography from '#styles/type.module.css';
 import styles from './StudySection.module.css';
 
 // `**text**` in a paragraph is a highlighted phrase: bold in the study's tint (D-081).
@@ -28,15 +29,15 @@ const StudySection: React.FC<{ section: StudySectionProps }> = ({ section }) => 
       data-order={section.order}
     >
       <div className={styles.copy}>
-        <h2 className={styles.title}>{section.title}</h2>
+        <h2 className={clsx(typography.headingLg, styles.title)}>{section.title}</h2>
         {(section.description?.length || section.items?.length || hasBullets) && (
-          <div className={styles.text}>
+          <div className={clsx(typography.bodyMd, styles.text)}>
             {section.description?.map((desc) => (
               <p key={desc}>{renderEmphasis(desc)}</p>
             ))}
             {section.items?.map((item) => (
               <div key={item.label} className={styles.item}>
-                <h3 className={styles.label}>{item.label}</h3>
+                <h3 className={clsx(typography.headingSm, styles.label)}>{item.label}</h3>
                 <p>{item.text}</p>
               </div>
             ))}
