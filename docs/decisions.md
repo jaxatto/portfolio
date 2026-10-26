@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-142.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-143.
 
 ## Workflow
 
@@ -84,3 +84,7 @@ A scan of `src/**/*.css` found 82 declarations with a literal length, color, dur
 - **Grid tracks** (`minmax(0, 1fr)`, `repeat(n, …)`) are layout, not values.
 
 The icon control line inset is now derived from `--size-target-md` and the glyph size (`calc((target - glyph) / 2 + 1px)`), so the toggle and footer icons share one rule. Open items with a proposed default of "keep" are listed in `docs/untokenized-styles.md`.
+
+## D-142: A 2px space token — decided, 2026-10-26
+
+`--size-space-2xs` (2px, primitive `space-2`) sits below `xs`. The Resume role card side gap and the NameTag padding (`xs` plus 2xs, `sm` plus 2xs) read it. Border widths keep their own `--size-border-width-*` tokens, so a 2px gap does not borrow the border token.

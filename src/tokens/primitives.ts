@@ -450,7 +450,7 @@ const primitiveTypography = {
 /* -- Size ----------------------------------------------------- */
 /* ------------------------------------------------------------- */
 
-const spaceScale = [0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80] as const;
+const spaceScale = [0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80] as const;
 const radiusScale = [0, 4, 8, 12, 16, 20, 24] as const;
 const borderWidthScale = [0, 1, 2, 3, 4] as const;
 

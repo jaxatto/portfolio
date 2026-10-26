@@ -228,6 +228,7 @@ const theme: Omit<SemanticTheme, 'colors'> & {
     },
     space: {
       none: primitives.sizes.space[0],
+      '2xs': primitives.sizes.space[2],
       xs: primitives.sizes.space[4],
       sm: primitives.sizes.space[8],
       md: primitives.sizes.space[12],

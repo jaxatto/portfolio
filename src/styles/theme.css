@@ -118,6 +118,7 @@
   --primitive-font-text-underline-offset-4: 4px;
   --primitive-font-text-underline-offset-auto: auto;
   --primitive-size-space-0: 0px;
+  --primitive-size-space-2: 2px;
   --primitive-size-space-4: 4px;
   --primitive-size-space-8: 8px;
   --primitive-size-space-12: 12px;
@@ -153,6 +154,7 @@
   --size-radius-xl: var(--primitive-size-radius-24);
   --size-radius-full: var(--primitive-size-radius-full);
   --size-space-none: var(--primitive-size-space-0);
+  --size-space-2xs: var(--primitive-size-space-2);
   --size-space-xs: var(--primitive-size-space-4);
   --size-space-sm: var(--primitive-size-space-8);
   --size-space-md: var(--primitive-size-space-12);

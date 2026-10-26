@@ -12,7 +12,7 @@
 .side {
 	display: flex;
 	flex-direction: column;
-	gap: 2px;
+	gap: var(--size-space-2xs);
 	padding: var(--size-space-3xl) var(--size-space-2xl);
 	background: linear-gradient(180deg, var(--role-from), var(--role-to));
 	color: var(--role-fg);
