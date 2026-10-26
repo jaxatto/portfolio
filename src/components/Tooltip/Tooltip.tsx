@@ -100,8 +100,8 @@ const Tooltip: React.FC<TooltipProps> = ({
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const { isMounted, styles: motion } = useTransitionStyles(context, {
-    // The durations are --motion-duration-fast (0.15s) in, shorter out.
-    duration: reduceMotion ? 0 : { open: 150, close: 100 },
+    // The durations: --motion-duration-moderate (0.3s) in, 0.2s out.
+    duration: reduceMotion ? 0 : { open: 300, close: 200 },
     initial: ({ side: placed }) => ({
       opacity: 0,
       transform: reduceMotion ? 'none' : `translateY(${placed === 'bottom' ? '-4px' : '4px'})`,
