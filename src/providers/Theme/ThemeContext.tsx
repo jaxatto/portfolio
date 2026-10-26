@@ -2,11 +2,12 @@ import React, {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useSyncExternalStore,
 } from 'react';
+import { flushSync } from 'react-dom';
 import { themeColor } from '#tokens/themeColor';
 
 // Theme ids map to `[data-theme="<id>"]` blocks in the generated theme.css.
@@ -19,6 +20,10 @@ const THEME_STORAGE_KEY = 'theme';
 
 // The browser bar color per theme, generated from the surface token (src/tokens/themeColor.ts).
 const THEME_COLORS: Record<ThemeId, string> = themeColor;
+
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (update: () => void) => { finished: Promise<void> };
+};
 
 const isThemeId = (value: unknown): value is ThemeId => THEMES.includes(value as ThemeId);
 
@@ -86,14 +91,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const hasAppliedTheme = useRef(false);
 
-  useEffect(() => {
+  // Layout effect so data-theme is set before the View Transition takes its new snapshot.
+  useLayoutEffect(() => {
     // Until the stored choice is read, index.html's pre-paint script owns data-theme.
     if (!synced) return;
     const root = document.documentElement;
     // Fade colors on later switches only (not first paint). The `theme-fading` rule lives in
     // styles/main.css and is skipped for prefers-reduced-motion.
     let timer: number | undefined;
-    if (hasAppliedTheme.current) {
+    if (hasAppliedTheme.current && !root.classList.contains('theme-transitioning')) {
       root.classList.add('theme-fading');
       timer = window.setTimeout(() => root.classList.remove('theme-fading'), 900);
     }
@@ -107,8 +113,26 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, [preference, theme, synced]);
 
   const setPreference = useCallback((next: ThemePreference) => {
-    chosen = next;
-    preferenceListeners.forEach((listener) => listener());
+    const apply = () => {
+      chosen = next;
+      preferenceListeners.forEach((listener) => listener());
+    };
+    const root = document.documentElement;
+    const nextTheme = next === 'system' ? (prefersDark() ? 'dark' : 'light') : next;
+    const start = (document as ViewTransitionDocument).startViewTransition;
+    const motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (start && motionOk) {
+      // A View Transition cross-fades the whole page as one snapshot, so gradients, shadows and
+      // images fade with the colors. flushSync makes React commit inside the snapshot callback.
+      root.classList.add('theme-transitioning');
+      root.classList.toggle('theme-to-light', nextTheme === 'light');
+      const transition = start.call(document, () => flushSync(apply));
+      transition.finished.finally(() =>
+        root.classList.remove('theme-transitioning', 'theme-to-light'),
+      );
+    } else {
+      apply();
+    }
     try {
       if (next === 'system') {
         window.localStorage.removeItem(THEME_STORAGE_KEY);

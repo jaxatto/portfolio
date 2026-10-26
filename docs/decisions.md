@@ -1,6 +1,6 @@
 # Decisions
 
-The rules in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling), and fold it into its area when this file is next trimmed. Next ID: D-162.
+The rules in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling), and fold it into its area when this file is next trimmed. Next ID: D-163.
 
 ## Workflow
 
@@ -14,6 +14,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 
 - Token source is `src/tokens`, compiled by `npm run build:theme` into `theme.css` and `type.module.css`, never hand-edited (D-002). Primitives are raw scale steps. Every semantic token resolves to a primitive or another semantic token, and none is named for a value. Components read semantic tokens only. The generator throws on a raw semantic value, and `scripts/tokens/token-layers.test.ts` checks raw values, undefined references, primitive use outside `src/tokens`, and that every token a component reads is defined (D-118, D-149, D-152).
 - Light is `:root`, dark is `[data-theme='dark']`. `data-theme` always holds the theme being shown (stored choice, else the OS), so there are no `prefers-color-scheme` blocks. The header toggle is always on (D-006, D-011, D-128, D-139).
+- Switching theme cross-fades the whole page with a View Transition (400ms to dark, 500ms to light, `--motion-duration-theme*`). The mode toggle has its own transition name during the switch so its icon swaps at the normal 300ms. The per-element `theme-fading` color fade stays as the fallback, and reduced motion switches instantly (D-162).
 - Plain CSS modules on tokens, no SCSS. Prettier formats the code. Imports use the `#` aliases (D-091, D-120, D-121).
 - Names: components are PascalCase. Classes in CSS are kebab-case and read in markup as camelCase with dot access (`.nav-link` is `styles.navLink`, through Vite's `localsConvention: 'camelCaseOnly'`). `scripts/css-conventions.test.ts` enforces it and checks every class the markup reads exists (D-161).
 - Breakpoints are literal: 640 (phone, 641 up) and 900 (desktop). Any other width carries a comment (D-118).

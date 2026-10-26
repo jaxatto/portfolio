@@ -18,7 +18,10 @@ export const effects = {
     moderate: duration['300'],
     slow: duration['400'],
     slower: duration['500'],
-    // The color fade when the theme switches.
+    // The page cross-fade when the theme switches to dark. Switching to light runs 100ms longer.
+    theme: duration['400'],
+    themeToLight: duration['500'],
+    // The per-element color fade used where View Transitions are missing.
     slowest: duration['800'],
   },
   easing: {

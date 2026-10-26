@@ -250,6 +250,8 @@
   --motion-duration-moderate: var(--primitive-motion-duration-300);
   --motion-duration-slow: var(--primitive-motion-duration-400);
   --motion-duration-slower: var(--primitive-motion-duration-500);
+  --motion-duration-theme: var(--primitive-motion-duration-400);
+  --motion-duration-theme-to-light: var(--primitive-motion-duration-500);
   --motion-duration-slowest: var(--primitive-motion-duration-800);
   --motion-ease-standard: var(--primitive-motion-easing-ease);
   --motion-ease-emphasized: var(--primitive-motion-easing-in-out-sharp);
