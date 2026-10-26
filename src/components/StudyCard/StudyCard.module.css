@@ -154,11 +154,25 @@
   display: contents;
 }
 
-/* Shown when the screenshot fails to load: the sample window with a muted image icon. */
+/* Shown when the screenshot fails to load: the sample window as a tint of the card's own palette, with its
+   image icon in the card's text color. */
 .fallback {
   position: absolute;
   inset: 0;
   border-radius: 0;
+  background: color-mix(
+    in oklch,
+    var(--card-fg) var(--fallback-tint, 14%),
+    color-mix(
+      in oklch,
+      var(--palette-container) calc(100% - var(--card-lift)),
+      var(--color-surface-default)
+    )
+  );
+}
+
+.fallback svg {
+  fill: var(--card-fg);
 }
 
 .image {
@@ -357,6 +371,7 @@
 /* Dark mode (D-028): heading and link are white, the paragraph one step dimmer. */
 :global([data-theme='dark']) .card {
   --card-fg: var(--color-content-emphasis);
+  --fallback-tint: 8%;
   --card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
   --shadow-lift-color: oklch(0 0 0 / 0.5);
 }
