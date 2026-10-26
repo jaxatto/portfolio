@@ -34,14 +34,9 @@ const toneFor = (index: number, total: number): CSSProperties => {
   } as CSSProperties;
 };
 
-// "Remote (contract)", and "Plano, TX (hybrid, contract)" where the place already has a note.
-const placeLine = (role: ResumeRole): string => {
-  if (!role.type) return role.location;
-  const type = role.type.toLowerCase();
-  return role.location.includes('(')
-    ? role.location.replace(')', `, ${type})`)
-    : `${role.location} (${type})`;
-};
+// "Remote · Contract" and "Plano, TX · Hybrid · Contract".
+const placeLine = (role: ResumeRole): string =>
+  [role.location, role.workMode, role.type].filter(Boolean).join(' · ');
 
 const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ role, index, total }) => {
   const Logo = logos[role.logo];
@@ -52,10 +47,13 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
           {Logo && <Logo />}
         </div>
         <p className={clsx(typography.headingSm, styles.company)}>{role.company}</p>
-        <p className={clsx(typography.bodySm, styles.meta)}>
-          <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
-        </p>
-        <p className={clsx(typography.bodySm, styles.meta)}>{placeLine(role)}</p>
+        {/* Stacked on desktop and on one line under the company on phones. */}
+        <div className={styles.details}>
+          <p className={clsx(typography.bodySm, styles.meta)}>
+            <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
+          </p>
+          <p className={clsx(typography.bodySm, styles.meta)}>{placeLine(role)}</p>
+        </div>
       </div>
       <div className={styles.main}>
         <div className={styles.heading}>

@@ -47,6 +47,12 @@
 	font-weight: var(--font-weight-medium);
 }
 
+.details {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3xs);
+}
+
 /* The date never splits across lines. */
 .date {
 	white-space: nowrap;
@@ -91,51 +97,37 @@
 	margin-top: var(--space-md);
 }
 
-/* Phones: the colored side is a short header with nothing wrapped inside an item. Logo, company and dates
-   share the first row and the place sits under them, because all four do not fit on one line at 375px. */
+/* Phones: the colored side is a short header. The logo and company share the first row, and the dates
+   and place share the second. Items never wrap inside themselves. */
 @media (max-width: 700px) {
 	.role {
 		grid-template-columns: minmax(0, 1fr);
 	}
 
+	/* Padding matches the body, so the logo lines up with the text below. */
 	.side {
 		display: grid;
-		grid-template-columns: auto auto minmax(0, 1fr);
+		grid-template-columns: auto minmax(0, 1fr);
 		align-items: center;
-		column-gap: var(--space-xs);
-		row-gap: var(--space-3xs);
-		padding: var(--space-md) var(--space-sm);
+		column-gap: var(--space-md);
+		row-gap: var(--space-sm);
+		padding: var(--space-md) var(--space-xl);
 		white-space: nowrap;
 	}
 
 	.logo {
-		grid-row: 1 / span 2;
-		width: var(--space-2xl);
-		height: var(--space-2xl);
+		width: var(--space-3xl);
+		height: var(--space-3xl);
 		margin-bottom: 0;
 	}
 
-	.company + .meta {
-		justify-self: end;
-	}
-
-	.meta + .meta {
-		grid-column: 2 / -1;
+	.details {
+		grid-column: 1 / -1;
+		flex-flow: row wrap;
+		column-gap: var(--space-md);
 	}
 
 	.main {
 		padding: var(--space-xl);
-	}
-}
-
-/* 360px: the longest company beside its dates no longer fits, so the dates drop to their own row. */
-@media (max-width: 360px) {
-	.logo {
-		grid-row: 1 / span 3;
-	}
-
-	.company + .meta {
-		grid-column: 2 / -1;
-		justify-self: start;
 	}
 }

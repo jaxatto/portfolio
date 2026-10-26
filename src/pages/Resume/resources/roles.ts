@@ -9,6 +9,7 @@ export type ResumeRole = {
   logo: string; // key into resources/logos.ts
   type?: string; // "Contract" where the PDF says so
   location: string;
+  workMode?: string; // "Hybrid" where the role was not fully remote
   startDate: string;
   endDate?: string;
   promotion?: string; // second soft line under the dates (Visa)
@@ -34,7 +35,8 @@ export const roles: ResumeRole[] = [
     company: 'Toyota',
     logo: 'toyota',
     type: 'Contract',
-    location: 'Plano, TX (hybrid)',
+    location: 'Plano, TX',
+    workMode: 'Hybrid',
     startDate: 'Oct 2025',
     endDate: 'Sep 2026',
     summary:
