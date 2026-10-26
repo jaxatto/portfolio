@@ -69,6 +69,34 @@ body {
   }
 }
 
+/* The transition overlay would take the pointer's hit test, dropping :hover on the toggle until it ends. */
+::view-transition {
+  pointer-events: none;
+}
+
+/* Theme switch cross-fade (View Transitions API, set up in ThemeProvider). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--motion-duration-theme);
+  animation-timing-function: var(--motion-ease-standard);
+}
+
+html.theme-to-light::view-transition-old(root),
+html.theme-to-light::view-transition-new(root) {
+  animation-duration: var(--motion-duration-theme-to-light);
+}
+
+/* The mode toggle is captured apart from the page so its icon swap keeps the normal speed while the
+   page colors fade slowly. Named only during the switch because a name makes a stacking context. */
+html.theme-transitioning button[data-mode] {
+  view-transition-name: mode-toggle;
+}
+
+::view-transition-group(mode-toggle) {
+  animation-duration: var(--motion-duration-moderate);
+  animation-timing-function: var(--motion-ease-standard);
+}
+
 .sr-only {
   position: absolute !important;
   width: 1px !important;
