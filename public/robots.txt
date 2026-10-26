@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jaxengeldesign.com/sitemap.xml
+Sitemap: https://www.jaxengeldesign.com/sitemap.xml

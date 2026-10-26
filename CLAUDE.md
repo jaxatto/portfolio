@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Jax Engel's portfolio (https://jaxengeldesign.com): React 19 + TypeScript SPA, Vite, CSS modules, React Router, deployed to GitHub Pages. This file describes `main`.
+Jax Engel's portfolio (https://www.jaxengeldesign.com): React 19 + TypeScript SPA, Vite, CSS modules, React Router, deployed to GitHub Pages. This file describes `main`.
 
 **Goal: get Jax hired.** Every change should make the portfolio stronger to a hiring manager or design leader reviewing a staff-level product designer. Polish, clarity, accessibility and craft matter more than feature count.
 
