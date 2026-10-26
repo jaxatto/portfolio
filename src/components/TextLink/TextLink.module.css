@@ -9,7 +9,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   border-radius: var(--size-radius-sm);
   color: var(--color-content-link);
   font-family: var(--font-family-body);

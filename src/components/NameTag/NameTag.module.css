@@ -1,6 +1,6 @@
 .label {
   display: inline-block;
-  padding: calc(var(--space-xs) + var(--space-2xs)) calc(var(--space-sm) + var(--space-2xs));
+  padding: calc(var(--space-2xs) + var(--space-3xs)) calc(var(--space-xs) + var(--space-3xs));
   border-radius: var(--size-radius-md);
   background: var(--tag-bg, var(--color-primary-default));
   color: var(--tag-fg, var(--color-primary-on-default));

@@ -3,7 +3,7 @@
   /* One row while it fits, wrapping when the screen is narrower. */
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -15,7 +15,7 @@
   --chip-bg: var(--palette-container, var(--color-primary-container));
   --chip-fg: var(--palette-on-container, var(--color-primary-on-container));
 
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--space-xs) var(--space-md);
   border-radius: var(--size-radius-md);
   background: var(--chip-bg);
   color: var(--chip-fg);

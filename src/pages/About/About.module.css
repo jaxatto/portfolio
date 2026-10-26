@@ -4,9 +4,9 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: var(--space-section-sm);
+  gap: var(--space-4xl);
   /* Quiet footer: a hairline above it, so the photos need room before it. */
-  padding-block: var(--space-section-lg);
+  padding-block: var(--space-6xl);
   color: var(--color-content-prose);
 }
 
@@ -15,7 +15,7 @@
 .hero {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3xl);
+  gap: var(--space-2xl);
 }
 
 .title {
@@ -32,7 +32,7 @@
 .story {
   display: flex;
   flex-direction: column;
-  gap: var(--space-section-sm);
+  gap: var(--space-4xl);
   max-width: var(--size-layout-content-max);
   font-family: var(--font-style-body-md-family);
   font-size: var(--font-style-body-md-size);
@@ -43,7 +43,7 @@
 .story section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
 }
 
 .story p {
@@ -54,14 +54,14 @@
   composes: headingLg from '#styles/type.module.css';
   color: var(--color-content-prose); /* true black in light (D-056) */
   /* 12px between the heading and what follows (D-057): the section's 24px gap minus 12. */
-  margin-bottom: calc(var(--space-md) - var(--space-2xl));
+  margin-bottom: calc(var(--space-sm) - var(--space-xl));
 }
 
 /* Group of label + sentence under Approach to Work. */
 .item {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-2xs);
 }
 
 /* "Strategic Product Design" etc.: h3s, one step above the sentence and well under the h2s. */
@@ -75,7 +75,7 @@
 .photos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-lg);
+  gap: var(--space-md);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -89,7 +89,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 /* Name tag colors: the saturated pair of each palette, so the tag reads on any photo. */
@@ -120,8 +120,8 @@
 /* Name tag: the same spot on every photo, 4px in from the bottom-right corner. */
 .tag {
   position: absolute;
-  right: var(--space-xs);
-  bottom: var(--space-xs);
+  right: var(--space-2xs);
+  bottom: var(--space-2xs);
 }
 
 .caption {
@@ -154,7 +154,7 @@
   }
 
   .figure:hover .tag {
-    transform: translate(calc(-1 * var(--space-xs)), calc(-1 * var(--space-xs)));
+    transform: translate(calc(-1 * var(--space-2xs)), calc(-1 * var(--space-2xs)));
   }
 }
 
@@ -197,7 +197,7 @@
 /* Tablet and phone: less room between the photos and the footer. */
 @media (max-width: 899px) {
   .page {
-    padding-block-end: var(--space-section-sm);
+    padding-block-end: var(--space-4xl);
   }
 }
 

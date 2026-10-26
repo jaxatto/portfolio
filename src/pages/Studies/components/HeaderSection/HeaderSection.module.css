@@ -8,13 +8,13 @@
 
 /* 40px above and below the hero image (D-053). */
 .media {
-  margin-block: var(--space-4xl);
+  margin-block: var(--space-3xl);
 }
 
 /* The text (title block and intro paragraphs) holds a left-aligned 640px reading column; the chips and the
    hero image run the full 960 column so five chips fit on one row (D-051, D-079). */
 .intro {
-  --intro-gap: var(--space-2xl);
+  --intro-gap: var(--space-xl);
 
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@
   /* Left-aligned to the 960 edge (D-066). The h1 may use the whole column (D-112). */
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .title {
@@ -67,12 +67,12 @@
    after the first carries its own dot in left padding. The row is pulled left by that padding, so the
    first item of every line starts at the edge and its dot lands outside the clipped box. */
 .row {
-  --sep-w: var(--space-xl);
+  --sep-w: var(--space-lg);
 
   display: flex;
   flex-wrap: wrap;
   margin: 0 0 0 calc(-1 * var(--sep-w));
-  row-gap: var(--space-xs);
+  row-gap: var(--space-2xs);
 }
 
 .item {
@@ -93,16 +93,16 @@
 
 /* 16px more above the chips than the usual intro gap (D-113). The shared ChipList does the rest. */
 .chips {
-  margin: var(--space-lg) 0 0;
+  margin: var(--space-md) 0 0;
 }
 
 .description {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   max-width: var(--size-layout-content-max);
   /* 40px under the title, role and chips (the gap above is --intro-gap). */
-  margin-top: calc(var(--space-4xl) - var(--intro-gap));
+  margin-top: calc(var(--space-3xl) - var(--intro-gap));
 }
 
 .description p {
@@ -115,6 +115,6 @@
 
 @media (max-width: 640px) {
   .intro {
-    --intro-gap: var(--space-xl);
+    --intro-gap: var(--space-lg);
   }
 }

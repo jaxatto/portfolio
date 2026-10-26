@@ -6,13 +6,13 @@
 .button {
   composes: deepen from '#styles/deepen.module.css';
   position: fixed;
-  top: var(--space-lg);
+  top: var(--space-md);
   left: 50%;
   z-index: var(--layer-raised);
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-2xl);
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-xl);
   border: 0;
   border-radius: var(--size-radius-full);
   background: var(--color-surface-default);
@@ -26,7 +26,7 @@
   text-decoration: none;
   opacity: 0;
   visibility: hidden;
-  transform: translate(-50%, calc(-1 * var(--space-md)));
+  transform: translate(-50%, calc(-1 * var(--space-sm)));
   transition:
     opacity var(--motion-duration-base) var(--motion-ease-standard),
     transform var(--motion-duration-base) var(--motion-ease-standard),

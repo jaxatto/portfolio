@@ -3,18 +3,18 @@
 .grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-3xl);
+  gap: var(--space-2xl);
 }
 
 /* Under a case study: two cards side by side on desktop. */
 .study {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-3xl); /* 32px (D-065) */
+  gap: var(--space-2xl); /* 32px (D-065) */
 }
 
 @media (max-width: 900px) {
   .grid {
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
   }
 
   .study {

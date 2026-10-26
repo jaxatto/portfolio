@@ -12,24 +12,24 @@
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
-  gap: var(--space-2xl) var(--space-4xl);
+  gap: var(--space-xl) var(--space-3xl);
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-2xl));
+  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-xl));
   margin-inline: auto;
-  padding-inline: var(--space-2xl);
+  padding-inline: var(--space-xl);
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
 }
 
 .top {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .title {
@@ -62,7 +62,7 @@
   flex: none;
   flex-wrap: wrap;
   /* 16px: 40px targets plus focus rings (3px outline, 3px offset) would overlap at 8px. */
-  gap: var(--space-lg);
+  gap: var(--space-md);
   /* Wrapped under the email, the first glyph sits flush with the text edge: pull the row left by the
 	   glyph's inset in its 40px target. Side by side the row is flush right, so this has no effect. */
   margin: 0;
@@ -83,7 +83,7 @@
   /* Hug the text so the hover line spans the email, not the column. */
   align-self: flex-start;
   /* 16px extra above, on top of the column gap. */
-  margin-top: var(--space-lg);
+  margin-top: var(--space-md);
   text-decoration: none;
   color: var(--color-content-link);
 }
@@ -111,8 +111,8 @@
 /* One footer on every page (D-049): the page ground, a 2px hairline across the content column, 40px more
    room above the content than the section rhythm and 80px below it. */
 .footer {
-  --footer-pad-top: calc(var(--space-section-lg) + var(--space-4xl));
-  padding-block: var(--footer-pad-top) var(--space-section-xl);
+  --footer-pad-top: calc(var(--space-6xl) + var(--space-3xl));
+  padding-block: var(--footer-pad-top) var(--space-7xl);
 }
 
 .footer .inner {
@@ -123,8 +123,8 @@
   content: '';
   position: absolute;
   top: calc(-1 * var(--footer-pad-top));
-  right: var(--space-2xl);
-  left: var(--space-2xl);
+  right: var(--space-xl);
+  left: var(--space-xl);
   height: var(--size-border-width-default);
   background: var(--color-border-decorative);
 }
@@ -160,6 +160,6 @@
   .inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
   }
 }

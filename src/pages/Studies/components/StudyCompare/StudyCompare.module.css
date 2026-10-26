@@ -4,7 +4,7 @@
 .figure {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   margin: 0;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .col {
-  padding: var(--space-3xl);
+  padding: var(--space-2xl);
 }
 
 .before {
@@ -58,9 +58,9 @@
 /* The label sits on the image's bottom-right corner. */
 .chip {
   position: absolute;
-  right: var(--space-lg);
-  bottom: var(--space-lg);
-  padding: var(--space-sm) var(--space-md);
+  right: var(--space-md);
+  bottom: var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: var(--size-radius-sm);
   background: var(--color-surface-sunken);
   color: var(--color-content-variant);
@@ -88,6 +88,6 @@
   }
 
   .col {
-    padding: var(--space-2xl);
+    padding: var(--space-xl);
   }
 }

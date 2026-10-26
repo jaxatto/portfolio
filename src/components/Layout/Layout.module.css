@@ -3,9 +3,9 @@
 .main {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-2xl));
+  max-width: calc(var(--size-layout-popout-max) + 2 * var(--space-xl));
   margin-inline: auto;
-  padding-inline: var(--space-2xl);
+  padding-inline: var(--space-xl);
 }
 
 /* <main> is only a programmatic focus target (tabindex -1: the skip link and clicks land on it), not a

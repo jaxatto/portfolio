@@ -17,21 +17,21 @@
 .page {
   display: flex;
   flex-direction: column;
-  padding-block: var(--space-section-lg) var(--space-section-lg);
+  padding-block: var(--space-6xl) var(--space-6xl);
   color: var(--color-content-prose);
 }
 
 /* Without a hero image, the header needs its own gap before the first section. */
 .page > .headerNoImage {
-  margin-bottom: var(--space-section-lg);
+  margin-bottom: var(--space-6xl);
 }
 
 @media (max-width: 640px) {
   .page {
-    padding-block: var(--space-3xl) var(--space-section-sm);
+    padding-block: var(--space-2xl) var(--space-4xl);
   }
 
   .page > .headerNoImage {
-    margin-bottom: var(--space-section-sm);
+    margin-bottom: var(--space-4xl);
   }
 }

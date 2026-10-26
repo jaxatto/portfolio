@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-153.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-154.
 
 ## Workflow
 
@@ -88,11 +88,11 @@ The icon control line inset is now derived from `--size-target-md` and the glyph
 
 ## D-142: A 2px space token — decided, 2026-10-26
 
-`--space-2xs` (2px, primitive `space-2`) sits below `xs`. The Resume role card side gap and the NameTag padding (`xs` plus 2xs, `sm` plus 2xs) read it. Border widths keep their own `--size-border-width-*` tokens, so a 2px gap does not borrow the border token.
+Superseded by D-153: the 2px step is `--space-3xs`.
 
 ## D-143: Space tokens drop the `size` prefix — decided, 2026-10-26
 
-Space tokens are `--space-xs`, `--space-lg`, `--space-section-xl` and so on (were `--size-space-*`). Other size tokens keep `--size-*` (`--size-radius-*`, `--size-border-width-*`, `--size-icon-*`, `--size-target-*`). The generator special-cases the `space` category, and the primitives keep their `--primitive-size-space-*` names. The archive still uses the old name in its older entries.
+Space tokens are `--space-*`, not `--size-space-*`. Other size tokens keep `--size-*` for now. The scale is in D-153.
 
 ## D-144: Icon size, state wash, layer and theme-color tokens — decided, 2026-10-25
 
@@ -141,4 +141,8 @@ Home stays in the entry bundle. About, Resume, the case studies and NotFound are
 ## D-152: Dead tokens removed, only read states derived, a guard for undefined tokens — decided, 2026-10-26
 
 Removed because nothing read them: `surface.accent`, `state.overlay-tint` and its inverse, `content.inverse`, `layout.gutter`, the `decorative` font family (the same as body), the `all-caps` text transform (it pointed at `capitalize`, and `uppercase` exists), `extractInteractStates`, and the hover and pressed colors nobody uses. Hover and pressed states are derived only for what is read: each group's container hover and its foreground's hover and pressed (`palette.module.css`), plus the primary default hover and pressed (`deepen.module.css`). Every palette keeps the same members (`default`, `on-default`, `container`, `on-container`), so `quinary` and `brand` keep a default pair that nothing reads yet. `TextStyleKey` lists the eight styles that exist. `token-layers.test.ts` now also fails when a component reads a token that is not defined, which would have caught `shell.css` still using the old `--size-space-*` names after D-143 (fixed).
+
+## D-153: The space scale, and space primitives — decided, 2026-10-26
+
+Space steps are `none` (0), `3xs` (2px), `2xs` (4), `xs` (8), `sm` (12), `md` (16), `lg` (20), `xl` (24), `2xl` (32), `3xl` (40), `4xl` (48), `5xl` (56), `6xl` (64) and `7xl` (80). The `section-*` names are gone, so one scale runs without a break. Every old name moved one step down, so `--space-lg` is now `--space-md`. Each use kept its pixel value, which I checked against the old and new `theme.css`. Space primitives are `--primitive-space-8`, without `size`. The other size scales keep `--primitive-size-*`.
 

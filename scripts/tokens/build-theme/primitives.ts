@@ -72,7 +72,9 @@ export function buildPrimitiveTokenContext() {
     if (!scopedMap) {
       throw new Error(`Missing primitive size map for category: ${String(category)}`);
     }
-    extractPrimitives(values as TokenTree, `size-${toKebabCase(category)}`, 'size', scopedMap);
+    // Space primitives read `--primitive-space-8`, the other size scales keep `size-`.
+    const prefix = category === 'space' ? 'space' : `size-${toKebabCase(category)}`;
+    extractPrimitives(values as TokenTree, prefix, 'size', scopedMap);
   }
   extractPrimitives(primitives.utils as TokenTree, 'utils', 'utils');
   extractPrimitives(primitives.motion as TokenTree, 'motion', 'motion');

@@ -9,8 +9,8 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-md);
-	padding: var(--space-2xl);
+	gap: var(--space-sm);
+	padding: var(--space-xl);
 	border-radius: var(--size-radius-lg);
 	background: color-mix(
 		in oklch,
@@ -47,9 +47,9 @@
 .link {
 	display: inline-flex;
 	align-items: center;
-	gap: var(--space-xs);
+	gap: var(--space-2xs);
 	margin-top: auto;
-	padding-top: var(--space-md);
+	padding-top: var(--space-sm);
 	color: var(--card-fg);
 	/* The link's text is its icon's size, like the work cards (D-146). */
 	font-size: var(--size-icon-sm);
@@ -102,7 +102,7 @@
 	}
 
 	.card:hover {
-		transform: translateY(calc(-1 * var(--space-sm)));
+		transform: translateY(calc(-1 * var(--space-xs)));
 		box-shadow: var(--shadow-lift) var(--shadow-lift-color);
 	}
 }

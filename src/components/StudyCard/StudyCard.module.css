@@ -1,6 +1,6 @@
 /* Study card, from Figma node 2726:63413. All values are tokens (D-005, D-028):
    Figma's study-card padding 48 / 56 and link gap 4 are the existing space tokens
-   section-sm / section-md / xs, so no component tokens were added. */
+   4xl / 5xl / 2xs, so no component tokens were added. */
 
 .card {
   /* The palette (--palette-*) comes from the class on the card, src/styles/palette.module.css (D-119). */
@@ -51,15 +51,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-section-sm);
+  gap: var(--space-4xl);
   /* 32px sides and top, 40px bottom (D-028). */
-  padding: var(--space-3xl) var(--space-3xl) var(--space-4xl);
+  padding: var(--space-2xl) var(--space-2xl) var(--space-3xl);
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md); /* 12px between title and outcome (D-028) */
+  gap: var(--space-sm); /* 12px between title and outcome (D-028) */
   width: 100%;
 }
 
@@ -82,7 +82,7 @@
 .link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-2xs);
   color: var(--card-fg);
   font-family: var(--font-family-body);
   /* The link's text is its icon's size (D-146). */
@@ -137,7 +137,7 @@
   display: flex;
   flex-direction: column;
   height: 17rem; /* 272px, Figma sample height in vertical cards */
-  padding: var(--space-2xl) 0 0 var(--space-section-lg);
+  padding: var(--space-xl) 0 0 var(--space-6xl);
 }
 
 .sample {
@@ -197,13 +197,13 @@
   .horizontal .content {
     flex: 0 1 55%;
     min-width: 0;
-    padding-right: var(--space-2xl);
+    padding-right: var(--space-xl);
   }
 
   .horizontal .preview {
     flex: 1;
     height: auto;
-    padding: var(--space-3xl) 0 0;
+    padding: var(--space-2xl) 0 0;
   }
 
   /* Paragraph is 32px narrower than the title: 460px (D-028). */
@@ -241,7 +241,7 @@
 
   /* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-028). */
   .horizontal.enlarge .image {
-    --image-w: calc(112% + var(--space-4xl));
+    --image-w: calc(112% + var(--space-3xl));
     width: var(--image-w);
   }
 }
@@ -274,14 +274,14 @@
 }
 
 .study .content {
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   /* 24px under the link, 16px less than the Home cards (D-063). */
-  padding-bottom: var(--space-2xl);
+  padding-bottom: var(--space-xl);
 }
 
 @media (max-width: 640px) {
   .study .content {
-    padding-bottom: var(--space-2xl); /* 24px (D-116) */
+    padding-bottom: var(--space-xl); /* 24px (D-116) */
   }
 }
 
@@ -314,15 +314,15 @@
   }
 
   .content {
-    gap: var(--space-4xl);
+    gap: var(--space-3xl);
     /* 32px under the link, 8px less than desktop's 40px, so the image sits closer. */
-    padding-bottom: var(--space-3xl);
+    padding-bottom: var(--space-2xl);
   }
 
   .preview {
     height: 12.5rem; /* 200px */
     /* Sample starts at the preview's top edge: 16px more of the screenshot, card height unchanged. */
-    padding: var(--space-none) 0 0 var(--space-3xl);
+    padding: var(--space-none) 0 0 var(--space-2xl);
   }
 }
 
@@ -338,7 +338,7 @@
   }
 
   .card:hover {
-    transform: translateY(calc(-1 * var(--space-sm)));
+    transform: translateY(calc(-1 * var(--space-xs)));
     box-shadow: var(--shadow-lift) var(--shadow-lift-color);
   }
 

@@ -3,16 +3,16 @@
 .page {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-section-lg);
-	padding-block: var(--space-section-lg);
+	gap: var(--space-6xl);
+	padding-block: var(--space-6xl);
 	color: var(--color-content-prose);
 }
 
 .header {
 	display: grid;
-	margin-bottom: var(--space-4xl);
+	margin-bottom: var(--space-3xl);
 	grid-template-columns: minmax(0, 1fr);
-	gap: var(--space-4xl);
+	gap: var(--space-3xl);
 }
 
 .portrait {
@@ -43,8 +43,8 @@
 /* Same spot as the name tags on the About photos. */
 .tag {
 	position: absolute;
-	right: var(--space-xs);
-	bottom: var(--space-xs);
+	right: var(--space-2xs);
+	bottom: var(--space-2xs);
 }
 
 /* The About photo hover: the photo eases in and the tag nudges up and left, like a dragged cursor. */
@@ -101,14 +101,14 @@
 .intro {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-2xl);
+	gap: var(--space-xl);
 }
 
 /* Name, role and place sit close (8px, 4px). The summary is 24px below, the actions 48px below that. */
 .identity {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-sm);
+	gap: var(--space-xs);
 }
 
 .title {
@@ -159,14 +159,14 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: var(--space-lg) var(--space-2xl);
-	margin-top: calc(var(--space-3xl) - var(--space-2xl) + var(--space-lg));
+	gap: var(--space-md) var(--space-xl);
+	margin-top: calc(var(--space-2xl) - var(--space-xl) + var(--space-md));
 }
 
 .section {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-3xl);
+	gap: var(--space-2xl);
 }
 
 .heading {
@@ -178,9 +178,9 @@
 .heading::after {
 	content: '';
 	display: block;
-	width: var(--space-section-md);
-	height: var(--space-xs);
-	margin-top: var(--space-md);
+	width: var(--space-5xl);
+	height: var(--space-2xs);
+	margin-top: var(--space-sm);
 	border-radius: var(--size-radius-full);
 	background: var(--color-brand-default);
 }
@@ -188,7 +188,7 @@
 .strengths {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: var(--space-2xl);
+	gap: var(--space-xl);
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -197,7 +197,7 @@
 .roles {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-2xl);
+	gap: var(--space-xl);
 	margin: 0;
 	padding: 0;
 	list-style: none;
