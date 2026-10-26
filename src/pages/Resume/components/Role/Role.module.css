@@ -12,7 +12,7 @@
 .side {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-3xs);
+	gap: var(--space-2xs);
 	padding: var(--space-2xl) var(--space-xl);
 	background: linear-gradient(180deg, var(--role-from), var(--role-to));
 	color: var(--role-fg);
@@ -42,10 +42,10 @@
 }
 
 /* The wrapper clips the leading dot of an item that starts a line: the list sits one dot-width to the left
-   and the wrapper hides what spills out. The dot is a 4px circle with 4px on each side (D-171). */
+   and the wrapper hides what spills out. The dot is a 4px circle with 8px on each side. */
 .details {
 	--dot-size: var(--space-2xs);
-	--dot-gap: var(--space-2xs);
+	--dot-gap: var(--space-xs);
 	overflow: hidden;
 }
 
@@ -65,7 +65,8 @@
 	white-space: nowrap;
 }
 
-.item::before {
+.item::before,
+.mode::before {
 	content: '';
 	flex: none;
 	width: var(--dot-size);
@@ -85,8 +86,10 @@
 	order: 1;
 }
 
+/* Hybrid stays with its location: it sits inside the where item, so the two wrap together. */
 .mode {
-	order: 2;
+	display: inline-flex;
+	align-items: center;
 }
 
 .type {
@@ -162,7 +165,7 @@
 		grid-template-rows: auto auto;
 		align-items: center;
 		column-gap: var(--space-md);
-		row-gap: var(--space-3xs);
+		row-gap: var(--space-2xs);
 		padding: var(--space-md) var(--space-xl);
 	}
 
@@ -184,10 +187,6 @@
 
 	.where {
 		order: 2;
-	}
-
-	.mode {
-		order: 3;
 	}
 
 	.main {

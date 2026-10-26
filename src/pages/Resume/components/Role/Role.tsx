@@ -61,8 +61,10 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
               <DateRange startDate={role.startDate} endDate={role.endDate} className={styles.date} />
             </span>
             {role.type && <span className={clsx(styles.item, styles.type)}>{role.type}</span>}
-            <span className={clsx(styles.item, styles.where)}>{role.location}</span>
-            {role.workMode && <span className={clsx(styles.item, styles.mode)}>{role.workMode}</span>}
+            <span className={clsx(styles.item, styles.where)}>
+              {role.location}
+              {role.workMode && <span className={styles.mode}>{role.workMode}</span>}
+            </span>
           </p>
         </div>
       </div>
