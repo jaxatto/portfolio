@@ -44,6 +44,11 @@
   color: var(--color-content-soft);
 }
 
+/* Job titles stay whole: a line break goes before or after them, never inside. */
+.nowrap {
+  white-space: nowrap;
+}
+
 .row {
   display: flex;
   flex: none;
@@ -154,5 +159,14 @@
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-xl);
+  }
+}
+
+/* 400px: "Open to remote Staff Product Designer" is about 18em wide, so the column over 18.2 is the size
+   that keeps it on one line, with "and Design Engineer roles." under it. It stays at 16px or more (D-177). */
+@media (max-width: 400px) {
+  .description {
+    font-size: max(var(--font-size-control), calc((100vw - 2 * var(--space-xl)) / 18.2));
+    text-wrap: wrap;
   }
 }

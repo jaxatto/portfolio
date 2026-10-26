@@ -26,7 +26,8 @@ const Footer: React.FC<FooterProps> = ({ band = true }) => {
           <div className={styles.top}>
             <h2 className={clsx(typography.titleSm, styles.title)}>Let’s work together</h2>
             <p className={clsx(typography.bodyLg, styles.description)}>
-              Open to remote Staff Product Designer and Design Engineer roles.
+              Open to remote <span className={styles.nowrap}>Staff Product Designer</span>{' '}
+              <span className={styles.nowrap}>and Design Engineer</span> roles.
             </p>
           </div>
           {isJobSeeking ? (

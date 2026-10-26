@@ -83,6 +83,8 @@ const Tooltip: React.FC<TooltipProps> = ({
   } = useFloating({
     open,
     onOpenChange: (next) => {
+      // Touch screens have no hover to show it and a tap would only get in the way of the control.
+      if (next && window.matchMedia('(hover: none)').matches) return;
       if (next) {
         const control = refs.domReference.current as HTMLElement | null;
         setTone(control?.closest<HTMLElement>('[data-tone]')?.dataset.tone);
