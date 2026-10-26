@@ -784,3 +784,7 @@ Jax's rule: the pre-rendered shell must always match the live page. `Header` now
 ## D-166: "What I'm looking for" on Resume — decided, 2026-10-26
 
 New first section on the Resume page, above Experience. It states the wish for a long-term role that mixes design and code, points to Visa (more than four years, promoted) as proof of staying, and says several recent roles ended with a contract, a budget or a team. Reasons tied to culture fit are left for conversation. The ActBlue estimate of $1.5M a year is credited to the product manager's calculations in the case study.
+
+## D-167: Sentence case for headings and labels — decided, 2026-10-26
+
+Jax wants one case across the site. Headings, labels and chips use sentence case, and names and acronyms keep their capitals. Job titles and study names stay as written. About's h2s and cards and every study's item labels and chips changed. `copy-check` has a `title-case` rule on h1 to h6 text, `label:` and `heading:` strings and "Label: sentence" strings, with a list of proper nouns. About's approach cards were rewritten from Jax's own description of how they work (D-164 superseded in part): five cards, no "passionate" because the linter flags it as a buzzword.

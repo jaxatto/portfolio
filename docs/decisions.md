@@ -62,7 +62,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 - One column on the 960 grid. The hero is "About me" with the selection box, four code chips and a caret. Story at 40rem. The four pets are tagged photos with captions (D-040 to D-043).
 - The earlier-roles paragraph links to three case studies. Visa is left out on purpose (D-044, D-045).
 - h2 is `content.prose`, 12px under it, label h3s are bold (D-055, D-056, D-057).
-- Approach to Work has four labelled cards, one on accessibility with proof from Indeed and ActBlue (D-164).
+- Approach to work has five labelled cards in Jax's own words: ask and document, focus and prioritization, share and teach, accessibility with proof from Indeed and ActBlue, and AI prototyping (D-164, D-167).
 
 ## Case studies
 

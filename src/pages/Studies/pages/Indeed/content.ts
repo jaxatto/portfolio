@@ -24,7 +24,7 @@ const content = {
     chips: [
       { label: 'B2C' },
       { label: 'PeopleTech' },
-      { label: 'Design Systems' },
+      { label: 'Design systems' },
       { label: 'Accessibility' },
     ] as ChipData[],
     compare: {
@@ -85,15 +85,15 @@ const content = {
       title: 'Contributions',
       items: [
         {
-          label: 'Building the Component Library',
+          label: 'Building the component library',
           text: 'I built general-purpose components for the new library in Figma, aimed at that hybrid, responsive goal.',
         },
         {
-          label: 'Documenting Components',
+          label: 'Documenting components',
           text: 'Each component came with documentation for usage, accessibility and localization. A page such as Button covers a description, when to use it, its options, WCAG success criteria with the solutions applied, and localization guidance.',
         },
         {
-          label: 'Supporting Team Adoption',
+          label: 'Supporting team adoption',
           text: 'I supported team adoption by sharing my Figma, design systems and accessibility expertise with other designers. I mentored them, contributed to onboarding sessions and answered daily system triage questions.',
         },
       ],
@@ -140,11 +140,11 @@ const content = {
       description: ['Looking back at this 2020 project, I would change two things:'],
       items: [
         {
-          label: 'Token Architecture & Automation',
+          label: 'Token architecture & automation',
           text: 'Our team used basic variables and had not adopted design tokens. Today I would start by designing and implementing a token architecture. It would give design and code one shared set of named decisions for color, type and spacing. Then I would automate the sync from Figma Variables into production code with Style Dictionary and GitHub Actions.',
         },
         {
-          label: 'Production Analytics',
+          label: 'Production analytics',
           text: "I would track how teams use each component in production and find outdated UI that needs replacing. That data would show which components to improve first, which to retire, and where teams need more support. I would also measure the system's effect on engineering efficiency and translate it into cost savings.",
         },
       ],
