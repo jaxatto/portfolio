@@ -3,6 +3,8 @@
    mirror the inner-page Header bar (Header.module.css), so the swap does not move anything. */
 
 .shell-header {
+  /* index.html hides the shell until this file is in. */
+  visibility: visible;
   padding-block: var(--space-section-md) var(--space-section-sm);
 }
 
