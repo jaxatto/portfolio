@@ -51,15 +51,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--size-space-section-sm);
+  gap: var(--space-section-sm);
   /* 32px sides and top, 40px bottom (D-028). */
-  padding: var(--size-space-3xl) var(--size-space-3xl) var(--size-space-4xl);
+  padding: var(--space-3xl) var(--space-3xl) var(--space-4xl);
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-md); /* 12px between title and outcome (D-028) */
+  gap: var(--space-md); /* 12px between title and outcome (D-028) */
   width: 100%;
 }
 
@@ -82,10 +82,10 @@
 .link {
   display: inline-flex;
   align-items: center;
-  gap: var(--size-space-xs);
+  gap: var(--space-xs);
   color: var(--card-fg);
   font-family: var(--font-family-body);
-  /* The link's text is its icon's size (D-145). */
+  /* The link's text is its icon's size (D-146). */
   font-size: var(--size-icon-sm);
   font-weight: var(--font-weight-extra-strong);
   line-height: var(--font-line-height-default);
@@ -137,7 +137,7 @@
   display: flex;
   flex-direction: column;
   height: 17rem; /* 272px, Figma sample height in vertical cards */
-  padding: var(--size-space-2xl) 0 0 var(--size-space-section-lg);
+  padding: var(--space-2xl) 0 0 var(--space-section-lg);
 }
 
 .sample {
@@ -171,13 +171,13 @@
   .horizontal .content {
     flex: 0 1 55%;
     min-width: 0;
-    padding-right: var(--size-space-2xl);
+    padding-right: var(--space-2xl);
   }
 
   .horizontal .preview {
     flex: 1;
     height: auto;
-    padding: var(--size-space-3xl) 0 0;
+    padding: var(--space-3xl) 0 0;
   }
 
   /* Paragraph is 32px narrower than the title: 460px (D-028). */
@@ -215,7 +215,7 @@
 
   /* ServiceNow, Indeed and ActBlue: 40px larger again, same window (D-028). */
   .horizontal.enlarge .image {
-    --image-w: calc(112% + var(--size-space-4xl));
+    --image-w: calc(112% + var(--space-4xl));
     width: var(--image-w);
   }
 }
@@ -248,14 +248,14 @@
 }
 
 .study .content {
-  gap: var(--size-space-2xl);
+  gap: var(--space-2xl);
   /* 24px under the link, 16px less than the Home cards (D-063). */
-  padding-bottom: var(--size-space-2xl);
+  padding-bottom: var(--space-2xl);
 }
 
 @media (max-width: 640px) {
   .study .content {
-    padding-bottom: var(--size-space-2xl); /* 24px (D-116) */
+    padding-bottom: var(--space-2xl); /* 24px (D-116) */
   }
 }
 
@@ -288,15 +288,15 @@
   }
 
   .content {
-    gap: var(--size-space-4xl);
+    gap: var(--space-4xl);
     /* 32px under the link, 8px less than desktop's 40px, so the image sits closer. */
-    padding-bottom: var(--size-space-3xl);
+    padding-bottom: var(--space-3xl);
   }
 
   .preview {
     height: 12.5rem; /* 200px */
     /* Sample starts at the preview's top edge: 16px more of the screenshot, card height unchanged. */
-    padding: var(--size-space-none) 0 0 var(--size-space-3xl);
+    padding: var(--space-none) 0 0 var(--space-3xl);
   }
 }
 
@@ -312,7 +312,7 @@
   }
 
   .card:hover {
-    transform: translateY(calc(-1 * var(--size-space-sm)));
+    transform: translateY(calc(-1 * var(--space-sm)));
     box-shadow: var(--shadow-lift) var(--shadow-lift-color);
   }
 

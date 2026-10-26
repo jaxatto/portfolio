@@ -11,6 +11,6 @@
   height: var(--icon-control-size);
   /* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
   fill: currentcolor;
-  /* Rises a pixel to clear the hover line (D-144). */
+  /* Rises a pixel to clear the hover line (D-145). */
   transform: translateY(calc(-1 * var(--size-icon-optical)));
 }

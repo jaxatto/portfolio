@@ -29,7 +29,7 @@ export const effects = {
     hover: '12%',
     active: '20%',
   },
-  // How far a control's hover and pressed colors step past the primary hover and pressed tokens (D-146): a mix
+  // How far a control's hover and pressed colors step past the primary hover and pressed tokens (D-147): a mix
   // toward the next step on the violet scale. Light goes half a step past 800 on hover and a third of the way from 900
   // to 950 when pressed, keeping the hue and most of the chroma. Dark uses the tokens as they are (violet 200 and 100).
   // Sections on a dark ground (tone.css) set the amounts to 0%.

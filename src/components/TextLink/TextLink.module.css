@@ -9,7 +9,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: var(--size-space-sm);
+  gap: var(--space-sm);
   border-radius: var(--size-radius-sm);
   color: var(--color-content-link);
   font-family: var(--font-family-body);
@@ -20,14 +20,14 @@
   transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
-/* A link with an icon sets its text to the icon's size: both come from --link-icon (20px, D-145). */
+/* A link with an icon sets its text to the icon's size: both come from --link-icon (20px, D-146). */
 .withIcon {
   --link-icon: var(--size-icon-sm);
   font-size: var(--link-icon);
 }
 
 /* Large: the footer email link. Its size is fluid so the 24-character email plus arrow fits narrow cards,
-   reaching 32px at about 550px wide (D-013). The arrow stays 1em, so it follows the text (D-145). */
+   reaching 32px at about 550px wide (D-013). The arrow stays 1em, so it follows the text (D-146). */
 .large {
   --link-icon: 1em;
   font-size: clamp(var(--font-size-16), 7.4vw - 9px, var(--font-size-32));

@@ -265,7 +265,7 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       md: '24px',
       lg: '28px',
       // The drawn edge of these glyphs sits a pixel inside their box, so the hover line is inset by one
-      // more pixel and the glyph rises one (D-144).
+      // more pixel and the glyph rises one (D-145).
       optical: '1px',
     },
     // How far a glyph's drawn edge sits inside its 40px target: the hover line's inset, and the pull

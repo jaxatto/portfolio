@@ -16,5 +16,5 @@
   width: 100%;
   fill: var(--color-content-muted);
   opacity: 40%;
-  top: calc(-1 * var(--size-space-xs));
+  top: calc(-1 * var(--space-xs));
 }

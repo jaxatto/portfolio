@@ -8,7 +8,7 @@
 }
 
 .section + .section {
-  margin-top: var(--size-space-section-sm);
+  margin-top: var(--space-section-sm);
 }
 
 .section.endsWithMedia + .section {
@@ -16,7 +16,7 @@
 }
 
 .media {
-  margin-block: var(--size-space-4xl);
+  margin-block: var(--space-4xl);
 }
 
 /* Two images in a row are 40px apart, not 80 (D-086). */
@@ -26,7 +26,7 @@
 
 @media (max-width: 640px) {
   .section + .section {
-    margin-top: var(--size-space-4xl);
+    margin-top: var(--space-4xl);
   }
 }
 
@@ -35,7 +35,7 @@
 .copy {
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-md); /* 12px under the h2 (D-057) */
+  gap: var(--space-md); /* 12px under the h2 (D-057) */
   width: 100%;
   max-width: var(--size-layout-content-max);
   margin-inline: 0; /* left-aligned to the 960 edge (D-066) */
@@ -49,7 +49,7 @@
 .text {
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-2xl);
+  gap: var(--space-2xl);
   font-family: var(--font-style-body-md-family);
   font-size: var(--font-style-body-md-size);
   line-height: var(--font-style-body-md-line-height);
@@ -64,8 +64,8 @@
 .text ul {
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-sm);
-  padding-left: var(--size-space-3xl);
+  gap: var(--space-sm);
+  padding-left: var(--space-3xl);
 }
 
 /* A highlighted phrase inside a paragraph (D-081): bold, in the study's tint like the label h3s. */
@@ -78,7 +78,7 @@
 .item {
   display: flex;
   flex-direction: column;
-  gap: var(--size-space-xs);
+  gap: var(--space-xs);
 }
 
 .label {
