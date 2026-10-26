@@ -23,6 +23,16 @@ const cards: StudyCardProps[] = [
     palette: 'brand',
   },
   {
+    title: 'Replacing support tickets with self‑serve setup',
+    outcome:
+      'Led design of the Salesforce integration end to end. Admins fix sync issues themselves, cutting support costs an estimated $1.5M a year.',
+    image: actblueImage,
+    linkUrl: studyLinks.actblue,
+    linkText: 'Read the ActBlue case study',
+    enlargeImage: true,
+    palette: 'secondary',
+  },
+  {
     title: 'Turning surveys into themes in minutes',
     outcome:
       'Shaped the experience of an internal AI tool that codes open-ended survey responses into themes. Coding by hand took 10+ hours per 100 responses.',
@@ -31,7 +41,7 @@ const cards: StudyCardProps[] = [
     linkUrl: studyLinks.servicenow,
     linkText: 'Read the ServiceNow case study',
     enlargeImage: true,
-    palette: 'secondary',
+    palette: 'tertiary',
   },
   {
     title: 'Documenting a global design system',
@@ -40,16 +50,6 @@ const cards: StudyCardProps[] = [
     image: indeedImage,
     linkUrl: studyLinks.indeed,
     linkText: 'Read the Indeed case study',
-    enlargeImage: true,
-    palette: 'tertiary',
-  },
-  {
-    title: 'Replacing support tickets with self‑serve setup',
-    outcome:
-      'Led design of the Salesforce integration end to end. Admins fix sync issues themselves, cutting support costs an estimated $1.5M a year.',
-    image: actblueImage,
-    linkUrl: studyLinks.actblue,
-    linkText: 'Read the ActBlue case study',
     enlargeImage: true,
     palette: 'quaternary',
   },
