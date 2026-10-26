@@ -14,7 +14,7 @@ The rules that are in force today, grouped by area, with the IDs that hold the r
 - Token source is `src/tokens`, compiled by `npm run build:theme` into `theme.css`, which is never hand-edited (D-002). Primitives are raw scale steps, semantic tokens only reference them, and components only read semantic tokens (D-149). The generator emits only the primitives a semantic token reads (D-118).
 - Light is `:root`, dark is `[data-theme='dark']`. `data-theme` always holds the theme being shown (stored choice, else the OS), so there are no `prefers-color-scheme` blocks (D-128). The header toggle is always on and the `.env` gate is gone (D-006, D-011, D-139).
 - Plain CSS modules on tokens, no SCSS (D-091). Prettier formats the code (D-121). Imports use the `#` aliases (D-120).
-- Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes are named by role (`--font-size-label`, `-control`, `-lead`, `-heading-xl`, `-heading-xl-sm`, `-display-sm`, `-display`), never by value (D-149). One `strong` weight (900) serves both families, and Manrope renders it as 800 (D-154). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
+- Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes are named by role (`--font-size-label`, `-control`, `-lead`, `-heading-xl`, `-display-sm`, `-display`), never by value (D-149). One `strong` weight (900) serves both families, and Manrope renders it as 800 (D-154). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
 - Every text style (`titleSm/Md`, `headingSm/Md/Lg`, `bodySm/Md/Lg`) has a class in `type.module.css`, generated from the tokens. A component applies it in its markup with `clsx` and sets only color, spacing and overrides. The classes sit in `@layer type` so a component's own media-query size wins (D-093, D-117, D-156).
 - Heading tags are semantic only. No rule targets `h1` to `h6`, the look comes from a class (D-130, D-134).
 - Breakpoints are literal: 640 (phone, 641 up) and 900 (desktop). Any other width carries a comment (D-118).
@@ -165,7 +165,7 @@ The Toyota, Indeed and ActBlue card previews are `-min.webp` (quality 90, visual
 
 ## D-155: Fixed font sizes are named for a role in the type scale — decided, 2026-10-26
 
-A semantic size names a step of the type scale, never a component or a place. `card-title` (36) is `heading-xl` and `card-title-compact` (28) is `heading-xl-sm`, continuing past the fluid `heading-sm/md/lg` styles. `-sm` is the step down for smaller screens, as in `display` (56) and `display-sm` (48). `label`, `control` and `lead` stay. Whether these fixed steps become fluid type styles is still open (plan.md).
+A semantic size names a step of the type scale, never a component or a place. `card-title` (36) is `heading-xl`, continuing past the fluid `heading-sm/md/lg` styles. The phone card title uses `heading-lg` (24px at 375, was 28px), so there is no `-sm` step for it. `display-sm` (48) stays the step down from `display` (56). `label`, `control` and `lead` stay.
 
 ## D-157: robots.txt and a generated sitemap — decided, 2026-10-25
 

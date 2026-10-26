@@ -294,11 +294,6 @@
 
 /* Mobile (no Figma design, D-008; see D-028): tighter padding and a shorter preview. */
 @media (max-width: 640px) {
-  /* Phone title is 28px, a real step on the type scale (D-033). */
-  .title {
-    font-size: var(--font-size-heading-xl-sm);
-  }
-
   /* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). The
      stacked cards under a case study stay at body-sm. */
   .card:not(.study) .outcome {
