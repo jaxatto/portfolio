@@ -7,9 +7,7 @@
   composes: line from '#styles/line.module.css';
   --line-color: currentcolor;
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
+  display: inline-block;
   border-radius: var(--size-radius-sm);
   color: var(--color-content-link);
   font-weight: var(--font-weight-emphasis);
@@ -48,7 +46,15 @@
   outline-offset: var(--size-focus-ring-offset);
 }
 
+/* The last word and the icon never separate. */
+.tail {
+  white-space: nowrap;
+}
+
 .icon {
+  display: inline-block;
+  margin-inline-start: var(--space-xs);
+  vertical-align: -0.2em;
   width: var(--link-icon, var(--size-icon-sm));
   height: var(--link-icon, var(--size-icon-sm));
   flex-shrink: 0;
