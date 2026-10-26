@@ -832,3 +832,7 @@ The footer email fills the column width on phones: its font size is the column w
 ## D-178: Footer break, no touch tooltips, smaller phone card titles — decided, 2026-10-26
 
 The footer description breaks after "Staff Product Designer" again (job titles stay whole) and, at 400px and under, its size is the column width over 18.2 (16px at least), so "Open to remote Staff Product Designer" fits one line and "and Design Engineer roles." sits under it. The tooltip never opens on devices with no hover (`(hover: none)`), so a tap on an icon control does only its own job. Study cards (Home and the row under a study) step their title down one size on phones, heading-lg to heading-md (24px to about 20px at 375), through the media-query exception in StudyCard (D-156). The Resume "Case studies" cards already use heading-md, whose next step down (heading-sm) is the same 20px at phone widths, so they are unchanged.
+
+## D-179: One header on every page — decided, 2026-10-26
+
+The nav's left slot is always the brand link and its "Designer & Engineer" tagline. The stacked "Staff Product Designer & Design Engineer" label that Home and Resume used is removed from the bar, with its CSS (`.role`, the top-aligned bar). The full role still shows as the Home greeting byline and the Resume byline on phones. `Header` no longer picks a label from the route, so the shell test (D-168) holds for every page. Supersedes the route-based label of D-168 and the left slot of D-097.

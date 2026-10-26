@@ -45,7 +45,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 ## Layout and shared UI
 
 - Content column is 960px, reading text 40rem, left-aligned on the header edge. Layout is full width, only `<main>` is constrained (D-014, D-029, D-040, D-066).
-- Header: brand left, nav and toggle right. The role label sits in the left slot as two stacked lines on Home and Resume, chosen from the route inside `Header` (D-168), hidden on phones where it becomes a byline. Nav links draw the accent line on the current page and on hover (D-016, D-017, D-018, D-097, D-098, D-106).
+- Header: brand left, nav and toggle right. The left slot is the brand with its "Designer & Engineer" tagline on every page, Home and Resume included (D-179). Home and Resume show the full two-line role as a byline on phones (D-018, D-097). Nav links draw the accent line on the current page and on hover (D-016, D-017, D-018, D-097, D-098, D-106).
 - Footer: one footer on every page, a 2px hairline, a tinted band in dark except on Home, Resume, LinkedIn and GitHub as icon links, stacked at 640px and under (D-049, D-107, D-132).
 - Back to top is a scroll-up pill at the top middle, shown on About, Resume and studies (D-108).
 - Title wording is "Staff Product Designer", with "Design Engineer" where it fits. Footer line and 404 quips are settled (D-021, D-133).
