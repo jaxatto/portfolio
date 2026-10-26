@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import StudyCard, { StudyCardProps } from '#components/StudyCard';
 import { studyLinks } from '#constants/studyLinks';
 import themeweaverImage from '#assets/samples/servicenow-sample-min.png?size';
-import indeedImage from '#assets/samples/indeed-sample-min.png?size';
-import actblueImage from '#assets/samples/actblue-sample-min.png?size';
-import toyotaImage from '#assets/samples/toyota-sample-min.png?size';
+import indeedImage from '#assets/samples/indeed-sample-min.webp?size';
+import actblueImage from '#assets/samples/actblue-sample-min.webp?size';
+import toyotaImage from '#assets/samples/toyota-sample-min.webp?size';
 import styles from './StudyCardGrid.module.css';
 
 // Cards for the Home page and the "next study" row under each case study (D-028).

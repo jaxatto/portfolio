@@ -1,6 +1,6 @@
 // Vite plugin: `import photo from './photo.jpg?size'` gives `{ src, width, height }` instead of a bare URL.
 // The size goes onto <img width height> so the browser reserves the space before a lazy image loads
-// (no layout shift). Reads the PNG or JPEG header at build time, no dependency. D-125.
+// (no layout shift). Reads the PNG, JPEG or WebP header at build time, no dependency. D-125.
 import { readFileSync } from 'node:fs';
 import type { Plugin } from 'vite';
 
@@ -25,7 +25,24 @@ export function readImageSize(file: string): { width: number; height: number } {
       offset += 2 + bytes.readUInt16BE(offset + 2);
     }
   }
-  throw new Error(`${file}: not a PNG or JPEG`);
+  // WebP: a RIFF container whose first chunk is lossy (VP8), lossless (VP8L) or extended (VP8X).
+  if (bytes.toString('ascii', 0, 4) === 'RIFF' && bytes.toString('ascii', 8, 12) === 'WEBP') {
+    const chunk = bytes.toString('ascii', 12, 16);
+    if (chunk === 'VP8 ') {
+      return {
+        width: bytes.readUInt16LE(26) & 0x3fff,
+        height: bytes.readUInt16LE(28) & 0x3fff,
+      };
+    }
+    if (chunk === 'VP8L') {
+      const bits = bytes.readUInt32LE(21);
+      return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 };
+    }
+    if (chunk === 'VP8X') {
+      return { width: bytes.readUIntLE(24, 3) + 1, height: bytes.readUIntLE(27, 3) + 1 };
+    }
+  }
+  throw new Error(`${file}: not a PNG, JPEG or WebP`);
 }
 
 export function imageSize(): Plugin {

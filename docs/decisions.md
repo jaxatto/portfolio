@@ -158,3 +158,7 @@ Checked on a development-mode build (readable React warnings), 8 routes in light
 
 `surface.error` is `surface.inverse` (`--color-surface-inverse`) and the 404 tone is `data-tone="inverse"`: it is the dark ground that text and links on it re-point to `on-accent` values for, so it is not about errors. `font-weight` has one `strong` (900) in place of `strong` and `extra-strong`. Manrope's `@font-face` stops at 800, so the browser renders 900 as 800, and Inter renders 900. Measured in the built site: Manrope text is the same width at 800 and 900, Inter is not. Removed because nothing read them: `font-weight-subtle` and the 13 `font-text-*` tokens (transform, decoration, thickness, underline offset), with their type fields. The primitives for them stay. `tone.css` stopped re-pointing `content-default-hover` and `-active`, which D-152 had already removed.
 
+
+## D-155: Home card previews are WebP, and the first one loads at high priority — decided, 2026-10-25
+
+The Toyota, Indeed and ActBlue card previews are `-min.webp` (quality 90, visually identical to the PNGs): 127, 75 and 85 KB became 37, 30 and 31 KB. ServiceNow stays a PNG because it is already 28 KB and WebP gains nothing. `?size` reads WebP headers (`scripts/vite-image-size.ts`, tested). `Image` sets `fetchPriority="high"` when `priority` is on, so the first preview does not queue behind the scripts. On a throttled connection (1.6 Mbps, 150 ms) Home's largest paint went from 2.9 s to 1.2 s and first paint stayed at 0.7 s.

@@ -47,6 +47,9 @@ const Image: React.FC<ImageProps> = ({
           width={width}
           height={height}
           loading={priority ? 'eager' : 'lazy'}
+          // The first card preview is the page's largest paint. High priority stops the scripts from
+          // queuing it behind them.
+          fetchPriority={priority ? 'high' : undefined}
           decoding="async"
           onError={() => setError(true)}
           className={imgClassName}
