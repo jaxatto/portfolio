@@ -73,6 +73,21 @@ const rules = [
 const sentences = (text) => text.replace(/\*\*/g, '').split(/(?<=[.!?])\s+(?=[A-Z"“‘'])/);
 const wordCount = (s) => s.trim().split(/\s+/).length;
 
+// Headings and labels use sentence case. Names and acronyms keep their capitals.
+const properNouns = new Set(
+  ['Jax', 'Engel', 'Toyota', 'PRIME', 'ActBlue', 'ServiceNow', 'Indeed', 'Visa', 'Spectrum', 'Albertsons', 'Routable', 'FireHydrant', 'Salesforce', 'Figma', 'Zelda', 'Kirby', 'Midna', 'Beau', 'Fort', 'Worth', 'Texas', 'WCAG', 'AI', 'PDF', 'CSS', 'Texas', 'Remote', 'Blueprint', 'FigJam', 'UX', 'UI'],
+);
+const headingSources = [
+  /<h[1-6][^>]*>([^<>{}]{3,80})</g,
+  /\b(?:label|heading):\s*'((?:[^'\\]|\\.)+)'/g,
+  /^\s*'([A-Z][^':]{2,60}): /g, // "Label: sentence" strings (About)
+];
+const titleCase = (text) => {
+  const words = text.trim().split(/\s+/);
+  if (words.length < 2 || words.length > 8) return false;
+  return words.slice(1).some((w) => /^[A-Z][a-z]/.test(w) && !properNouns.has(w.replace(/[^A-Za-z]/g, '')));
+};
+
 let errors = 0;
 let warnings = 0;
 const report = (item, level, id, msg, excerpt) => {
@@ -96,6 +111,17 @@ for (const file of targets.flatMap(walk)) {
       else if (n > 25) report(item, 'warn', 'long-sentence', `Sentence has ${n} words. Consider splitting.`, s);
     }
   }
+}
+
+for (const file of targets.flatMap(walk)) {
+  readFileSync(file, 'utf8').split('\n').forEach((line, i) => {
+    if (line.trim().startsWith('//')) return;
+    for (const re of headingSources) {
+      for (const m of line.matchAll(re)) {
+        if (titleCase(m[1])) report({ file, line: i + 1 }, 'error', 'title-case', 'Headings and labels use sentence case.', m[1]);
+      }
+    }
+  });
 }
 
 console.log(`\ncopy-check: ${errors} error(s), ${warnings} warning(s)`);

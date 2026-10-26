@@ -1,6 +1,6 @@
 ---
 name: copy-check
-description: Check portfolio copy against Jax's writing rules before committing it. Runs a script that flags em dashes, semicolons, "not X, it's Y" phrasing, comma-set clauses between a subject and its verb, run-ons, long sentences and buzzwords, then a human read for what a pattern cannot catch. Use whenever copy in src/pages or src/components was written or edited.
+description: Check portfolio copy against Jax's writing rules before committing it. Runs a script that flags em dashes, semicolons, "not X, it's Y" phrasing, comma-set clauses between a subject and its verb, run-ons, long sentences, buzzwords and Title Case headings, then a human read for what a pattern cannot catch. Use whenever copy in src/pages or src/components was written or edited.
 ---
 
 # Copy check
@@ -28,6 +28,7 @@ Run this after writing or editing any page copy, meta description, card text, ca
 | --- | --- | --- |
 | No em dashes | `em-dash` | error |
 | No semicolons | `semicolon` | error |
+| Headings and labels in sentence case (names and acronyms keep capitals) | `title-case` | error |
 | No "not X, it's Y" contrast, "rather than", "instead of" | `contrast` | error |
 | No comma-set clause between a subject and its verb | `interrupting-clause` (also `which-mid`) | error, warn |
 | No run-ons (over 30 words) | `run-on`, `long-sentence` (over 25) | error, warn |
