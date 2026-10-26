@@ -58,7 +58,7 @@
 	margin-inline: var(--space-2xs);
 }
 
-.dateDot {
+.date-dot {
 	display: none;
 }
 
@@ -148,7 +148,7 @@
 		white-space: nowrap;
 	}
 
-	.dateDot {
+	.date-dot {
 		display: inline;
 	}
 
