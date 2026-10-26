@@ -768,3 +768,19 @@ Class names in CSS are kebab-case, and components are PascalCase. Vite reads cla
 ## D-162: Theme switch is a View Transition — decided, 2026-10-26
 
 The per-element color fade snapped shadows, gradients and the dark-only overrides while colors faded, which read as a flash. `ThemeProvider.setPreference` now wraps the change in `document.startViewTransition` and commits with `flushSync`, and `data-theme` is set in a layout effect so it lands before the new snapshot. The page cross-fades in 400ms to dark and 500ms to light (`--motion-duration-theme`, `--motion-duration-theme-to-light`). Dark to white is the larger luminance jump, so it runs 100ms longer. Both sit in the 300 to 500ms range for a whole-screen change. The mode toggle gets `view-transition-name` only while switching (a name makes a stacking context) so its icon swap keeps the 300ms moderate speed, and `::view-transition` takes no pointer events so the toggle keeps its hover. The `theme-fading` fade is the fallback where View Transitions are missing. Tooltip open and close are both `--motion-duration-base` (200ms), read from the token in `Tooltip.tsx`. A 99% and a 98% indigo-tinted off-white were tried for the light surface and rejected, so it stays pure white.
+
+## D-163: Study card order and palette by position — decided, 2026-10-26
+
+Home order is Toyota, ActBlue, ServiceNow, Indeed (Jax). ActBlue is the strongest end-to-end product design story and Toyota carries the design engineer pitch. The palette ramp (brand, secondary, tertiary, quaternary) follows position, so ActBlue is now indigo and ServiceNow sky. Study pages take their h1 and chip colors from their card, so those two changed with it. The Resume case study cards and the About earlier-work sentence keep their own order, since they are selections and a narrative.
+
+## D-164: Accessibility card in Approach to Work — decided, 2026-10-26
+
+About gains "Accessibility as a Default" as the third card: WCAG guidance built into components and documentation, 20 documented components with WCAG and right-to-left guidance at Indeed, and accessibility work other teams adopted at ActBlue. The ActBlue claim comes from the resume, not the case study. The three-card copy still has Title Case labels and is generic, to revisit with proof lines.
+
+## D-165: The shell matches the live site — decided, 2026-10-26
+
+Jax's rule: the pre-rendered shell must always match the live page. `Header` now picks its left-slot role label from the route (Home and Resume), so the `Suspense` fallback in `App.tsx` draws the same header. The `headerLabel` prop on `Layout` and `label` on `Header` are removed. `e2e/shell.spec.ts` loads each route with JavaScript off and on and compares the header and footer text. Client navigation keeps the old page while a chunk loads, so the fallback only shows on a first load without pre-rendering.
+
+## D-166: "What I'm looking for" on Resume — decided, 2026-10-26
+
+New first section on the Resume page, above Experience. It states the wish for a long-term role that mixes design and code, points to Visa (more than four years, promoted) as proof of staying, and says several recent roles ended with a contract, a budget or a team. Reasons tied to culture fit are left for conversation. The ActBlue estimate of $1.5M a year is credited to the product manager's calculations in the case study.

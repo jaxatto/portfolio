@@ -45,7 +45,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 ## Layout and shared UI
 
 - Content column is 960px, reading text 40rem, left-aligned on the header edge. Layout is full width, only `<main>` is constrained (D-014, D-029, D-040, D-066).
-- Header: brand left, nav and toggle right. The role label sits in the left slot as two stacked lines on Home and Resume, hidden on phones where it becomes a byline. Nav links draw the accent line on the current page and on hover (D-016, D-017, D-018, D-097, D-098, D-106).
+- Header: brand left, nav and toggle right. The role label sits in the left slot as two stacked lines on Home and Resume, chosen from the route inside `Header` (D-165), hidden on phones where it becomes a byline. Nav links draw the accent line on the current page and on hover (D-016, D-017, D-018, D-097, D-098, D-106).
 - Footer: one footer on every page, a 2px hairline, a tinted band in dark except on Home, Resume, LinkedIn and GitHub as icon links, stacked at 640px and under (D-049, D-107, D-132).
 - Back to top is a scroll-up pill at the top middle, shown on About, Resume and studies (D-108).
 - Title wording is "Staff Product Designer", with "Design Engineer" where it fits. Footer line and 404 quips are settled (D-021, D-133).
@@ -54,7 +54,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 ## Home
 
 - Hero: one role line and one sentence. The "design" selection box and the "build" code chip are CSS art, and both stop under reduced motion (D-016, D-017, D-134).
-- Study cards: one stacked column, horizontal from 641px (text 55%, preview beside it), stacked on phones where the title uses `heading-lg`. Order Toyota, ServiceNow, Indeed, ActBlue. Ramp purple, indigo, sky, teal. Copy is inline in `StudyCardGrid.tsx` and uses only facts from each study (D-028, D-030, D-031, D-039, D-155).
+- Study cards: one stacked column, horizontal from 641px (text 55%, preview beside it), stacked on phones where the title uses `heading-lg`. Order Toyota, ActBlue, ServiceNow, Indeed. Ramp purple, indigo, sky, teal, assigned by position (D-163). Copy is inline in `StudyCardGrid.tsx` and uses only facts from each study (D-028, D-030, D-031, D-039, D-155).
 - Card hover lifts 8px with a colored shadow and the screenshot grows inside its window. Selection inside a card takes the card's palette (D-080, D-111).
 
 ## About
@@ -62,6 +62,7 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 - One column on the 960 grid. The hero is "About me" with the selection box, four code chips and a caret. Story at 40rem. The four pets are tagged photos with captions (D-040 to D-043).
 - The earlier-roles paragraph links to three case studies. Visa is left out on purpose (D-044, D-045).
 - h2 is `content.prose`, 12px under it, label h3s are bold (D-055, D-056, D-057).
+- Approach to Work has four labelled cards, one on accessibility with proof from Indeed and ActBlue (D-164).
 
 ## Case studies
 
@@ -76,7 +77,12 @@ The rules in force today, grouped by area, with the IDs that hold the reasoning.
 
 - The page carries the resume. The h1 reads "Resume: Jax Engel" (prefix `sr-only`). The header has the portrait with a cursor tag, then the actions row (D-087, D-094, D-097, D-135).
 - Core strengths: three cards in study colors, each with a proof line from its case study. Experience is split role cards on one gradient down the list. Role summaries and strength lines are drafts until Jax signs them off (D-124).
+- "What I'm looking for" is the first section under the intro, ahead of Experience, and carries the tenure context (D-166).
 - The PDF is built from `resume/` HTML. The public PDF is not replaced until Jax says so (D-110).
+
+## Tests
+
+- `e2e/shell.spec.ts` compares the pre-rendered header and footer with the live page on every route, light and dark. The pre-rendered shell must always match the live site (D-165).
 
 ## Open
 
