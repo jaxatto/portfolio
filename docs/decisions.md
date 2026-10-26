@@ -133,3 +133,7 @@ The study card fallback is a tint of the card's own palette (14% of the text col
 ## D-150: Study page images fall back to their frame — decided, 2026-10-26
 
 `StudyImage`, `StudyCompare` and `StudyPanels` render through `Image`. A failed picture leaves its frame (banner, column, before or after shot, panel) as a 12% tint of the muted text color with the image icon, at the size the picture would have had. `StudySection` now passes each image's width and height so the plain figure keeps its aspect ratio (checked: loaded image sizes are unchanged at 1280 on all four studies).
+
+## D-151: Route chunks and a static first-paint shell — decided, 2026-10-25
+
+Home stays in the entry bundle. About, Resume, the case studies and NotFound are `React.lazy` chunks behind one `Suspense` in `App.tsx`, whose fallback is the real `Header`. `index.html` ships a plain header (brand and nav, styled by `src/styles/shell.css` from the same tokens as the inner-page Header bar) inside `#root`, so the page is not blank while the JavaScript downloads. React replaces it on mount. Keep `shell.css` in step with `Header.module.css`. On a throttled connection (1.6 Mbps, 150 ms, no compression) first contentful paint went from 3.2 s to 1.3 s and the home content from 3.0 s to 2.4 s.

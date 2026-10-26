@@ -45,7 +45,21 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- First-paint shell (D-151, src/styles/shell.css). React replaces it on mount. -->
+      <header class="shell-header">
+        <div class="shell-bar">
+          <a class="shell-brand" href="/">Jax Engel</a>
+          <nav aria-label="Main">
+            <ul class="shell-nav">
+              <li><a href="/">Work</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/resume">Resume</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
