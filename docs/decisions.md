@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-144.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-145.
 
 ## Workflow
 
@@ -11,10 +11,10 @@ The rules that are in force today, grouped by area, with the IDs that hold the r
 
 ## Tokens, theme and CSS
 
-- Token source is `src/tokens`, compiled by `npm run build:theme` into `theme.css`, which is never hand-edited (D-002). The generator emits only the primitives a semantic token reads (D-118).
+- Token source is `src/tokens`, compiled by `npm run build:theme` into `theme.css`, which is never hand-edited (D-002). Primitives are raw scale steps, semantic tokens only reference them, and components only read semantic tokens (D-144). The generator emits only the primitives a semantic token reads (D-118).
 - Light is `:root`, dark is `[data-theme='dark']`. `data-theme` always holds the theme being shown (stored choice, else the OS), so there are no `prefers-color-scheme` blocks (D-128). The header toggle is always on and the `.env` gate is gone (D-006, D-011, D-139).
 - Plain CSS modules on tokens, no SCSS (D-091). Prettier formats the code (D-121). Imports use the `#` aliases (D-120).
-- Type: sizes are named by pixel (`--font-size-28`) and fluid down from the Figma desktop size at 1280px (D-013, D-033). Manrope tops out at 800, Inter keeps 900 for headings (D-010). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
+- Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes are named by role (`--font-size-label`, `-control`, `-lead`, `-card-title`, `-card-title-compact`, `-display-sm`, `-display`), never by value (D-144). Manrope tops out at 800, Inter keeps 900 for headings (D-010). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
 - Shared steps in `type.module.css` (`titleMd`, `headingLg`, `headingSm`, `headingMd`, `caption`) are composed by components, which add only color, spacing and wrapping. They sit in `@layer type` so a page's own media-query size wins (D-093, D-117, D-137).
 - Heading tags are semantic only. No rule targets `h1` to `h6`, the look comes from a class (D-130, D-134).
 - Breakpoints are literal: 640 (phone, 641 up) and 900 (desktop). Any other width carries a comment (D-118).
@@ -92,3 +92,7 @@ The icon control line inset is now derived from `--size-target-md` and the glyph
 ## D-143: Space tokens drop the `size` prefix — decided, 2026-10-26
 
 Space tokens are `--space-xs`, `--space-lg`, `--space-section-xl` and so on (were `--size-space-*`). Other size tokens keep `--size-*` (`--size-radius-*`, `--size-border-width-*`, `--size-icon-*`, `--size-target-*`). The generator special-cases the `space` category, and the primitives keep their `--primitive-size-space-*` names. The archive still uses the old name in its older entries.
+
+## D-144: Primitives and semantic tokens stay apart — decided, 2026-10-26
+
+Three rules, enforced. (1) Components never read a `--primitive-*` token or import `primitives.ts`. (2) Every semantic token resolves to a primitive or another semantic token. The generator throws on a semantic value with no primitive, and `scripts/tokens/token-layers.test.ts` checks `theme.css` for raw values, undefined references and any use of a primitive outside `src/tokens`. (3) No semantic token is named for a value. The `--font-size-12` to `--font-size-56` aliases are gone. Components use role names: `label` (14), `control` (16), `lead` (32), `card-title-compact` (28), `card-title` (36), `display-sm` (48), `display` (56). New primitives back what was raw: a `dimension` size scale (icon, target and layout), `motion` (durations, easings), `shadow`, `utils.layer`, and `font.fluid` for the sloped part of each `clamp()`. State washes read `utils.opacity`. Computed font sizes, spacing, durations, layers and shadows matched the previous build on About, Resume, Indeed, Home and the 404 (56, 56, 56, 36 and 140px), and the 33 accessibility tests pass. Supersedes the value-named sizes in D-033.

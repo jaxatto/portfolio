@@ -381,8 +381,19 @@ const primitiveColors = {
 
 const fontSizeScale = [12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 48, 56, 64] as const;
 
+// The sloped middle of a fluid size: `clamp(min, <fluid>, max)`. Semantic type styles pick one by name.
+const fluidScale = {
+  'rem-100-vw-140': '1rem + 1.4vw',
+  'rem-125-vw-200': '1.25rem + 2vw',
+  'rem-110-vw-070': '1.1rem + 0.7vw',
+  'rem-088-vw-140': '0.875rem + 1.4vw',
+  'rem-088-vw-070': '0.875rem + 0.7vw',
+  'rem-080-vw-035': '0.8rem + 0.35vw',
+} as const;
+
 const primitiveTypography = {
   size: createPxRecord(fontSizeScale),
+  fluid: fluidScale,
   family: {
     inter: "'Inter', sans-serif",
     manrope: "'Manrope', sans-serif",
@@ -453,6 +464,8 @@ const primitiveTypography = {
 const spaceScale = [0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80] as const;
 const radiusScale = [0, 4, 8, 12, 16, 20, 24] as const;
 const borderWidthScale = [0, 1, 2, 3, 4] as const;
+// Fixed control, glyph and column dimensions that sit on no spacing step.
+const dimensionScale = [16, 24, 28, 40, 44, 640, 960] as const;
 
 const primitiveSizes = {
   space: {
@@ -463,6 +476,7 @@ const primitiveSizes = {
     full: '9999px',
   },
   'border-width': createPxRecord(borderWidthScale),
+  dimension: createPxRecord(dimensionScale),
 } as const;
 
 /* ------------------------------------------------------------- */
@@ -475,7 +489,38 @@ const opacityScale = [
 
 const primitiveUtils = {
   opacity: createPercentRecord(opacityScale),
-};
+  // Stacking order steps.
+  layer: { 'neg-1': '-1', '10': '10', '30': '30', '1000': '1000' },
+} as const;
+
+/* ------------------------------------------------------------- */
+/* -- Motion and shadow ---------------------------------------- */
+/* ------------------------------------------------------------- */
+
+const primitiveMotion = {
+  duration: {
+    '150': '0.15s',
+    '200': '0.2s',
+    '300': '0.3s',
+    '400': '0.4s',
+    '500': '0.5s',
+    '800': '0.8s',
+  },
+  easing: {
+    ease: 'ease',
+    'in-out-sharp': 'cubic-bezier(0.4, 0.2, 0.2, 1)',
+    'out-soft': 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+  },
+} as const;
+
+// Whole box-shadow and drop-shadow values. A shadow that needs a themed color takes its color from the
+// component (`--shadow-lift-color`), so the geometry is its own primitive.
+const primitiveShadow = {
+  'drop-soft-light': '0 4px 8px rgb(0 0 0 / 15%)',
+  'drop-soft-dark': '0 4px 14px rgb(0 0 0 / 70%), 0 0 0 1px rgb(255 255 255 / 12%)',
+  'offset-lift': '0 24px 48px -20px',
+  'drop-cursor': '0 2px 3px rgb(0 0 0 / 25%)',
+} as const;
 
 /* ------------------------------------------------------------- */
 /* -- Single Export & Type ------------------------------------- */
@@ -486,6 +531,8 @@ export const primitives = {
   font: primitiveTypography,
   sizes: primitiveSizes,
   utils: primitiveUtils,
+  motion: primitiveMotion,
+  shadow: primitiveShadow,
 } as const;
 
 export type Primitives = typeof primitives;

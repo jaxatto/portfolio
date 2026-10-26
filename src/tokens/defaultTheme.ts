@@ -244,9 +244,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
     },
     layout: {
       gutter: 'lg',
-      'content-max': '640px',
-      // Site content column: 960px. Figma's 912px is superseded (D-029).
-      'popout-max': '960px',
+      'content-max': primitives.sizes.dimension[640],
+      // Site content column: 960px (D-029).
+      'popout-max': primitives.sizes.dimension[960],
     },
     // 3px ring, 3px offset: thicker than Figma's 2/2 (D-014, D-032).
     'focus-ring': {
@@ -255,14 +255,14 @@ const theme: Omit<SemanticTheme, 'colors'> & {
     },
     // Smallest comfortable hit area for an icon-only control (md), and the height of the nav row (lg).
     target: {
-      md: '40px',
-      lg: '44px',
+      md: primitives.sizes.dimension[40],
+      lg: primitives.sizes.dimension[44],
     },
     // Icon glyphs drawn at a fixed size (the em-sized ones in Button, TextLink and StudyCard follow their text).
     icon: {
-      sm: '16px',
-      md: '24px',
-      lg: '28px',
+      sm: primitives.sizes.dimension[16],
+      md: primitives.sizes.dimension[24],
+      lg: primitives.sizes.dimension[28],
     },
     'border-width': {
       none: primitives.sizes['border-width'][0],
@@ -279,19 +279,15 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       decorative: primitives.font.family.manrope,
       mono: primitives.font.family['roboto-mono'],
     },
-    // Named by pixel value so a new step slots in without renaming (D-033).
+    // Named by role, never by value. Fluid body and heading sizes are the type styles below.
     size: {
-      '12': primitives.font.size[12],
-      '14': primitives.font.size[14],
-      '16': primitives.font.size[16],
-      '20': primitives.font.size[20],
-      '24': primitives.font.size[24],
-      '28': primitives.font.size[28],
-      '32': primitives.font.size[32],
-      '36': primitives.font.size[36],
-      '40': primitives.font.size[40],
-      '48': primitives.font.size[48],
-      '56': primitives.font.size[56],
+      label: primitives.font.size[14],
+      control: primitives.font.size[16],
+      lead: primitives.font.size[32],
+      'card-title-compact': primitives.font.size[28],
+      'card-title': primitives.font.size[36],
+      'display-sm': primitives.font.size[48],
+      display: primitives.font.size[56],
     },
     weight: {
       subtle: primitives.font.weight.light,
@@ -341,9 +337,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'title-md': {
         family: 'heading',
         size: {
-          min: '40',
-          preferred: '1rem + 1.4vw',
-          max: '56',
+          min: 40,
+          preferred: 'rem-100-vw-140',
+          max: 56,
         },
         weight: 'strong',
         'line-height': 'compact',
@@ -351,9 +347,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'title-sm': {
         family: 'heading',
         size: {
-          min: '32',
-          preferred: '1.25rem + 2vw',
-          max: '40',
+          min: 32,
+          preferred: 'rem-125-vw-200',
+          max: 40,
         },
         weight: 'strong',
         'line-height': 'compact',
@@ -361,9 +357,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'heading-lg': {
         family: 'heading',
         size: {
-          min: '24',
-          preferred: '1rem + 1.4vw',
-          max: '32',
+          min: 24,
+          preferred: 'rem-100-vw-140',
+          max: 32,
         },
         weight: 'strong',
         'line-height': 'compact',
@@ -371,9 +367,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'heading-md': {
         family: 'heading',
         size: {
-          min: '20',
-          preferred: '1.1rem + 0.7vw',
-          max: '24',
+          min: 20,
+          preferred: 'rem-110-vw-070',
+          max: 24,
         },
         weight: 'strong',
         'line-height': 'compact',
@@ -381,9 +377,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'heading-sm': {
         family: 'heading',
         size: {
-          min: '16',
-          preferred: '1.1rem + 0.7vw',
-          max: '20',
+          min: 16,
+          preferred: 'rem-110-vw-070',
+          max: 20,
         },
         weight: 'strong',
         'line-height': 'compact',
@@ -391,9 +387,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'body-lg': {
         family: 'body',
         size: {
-          min: '16',
-          preferred: '0.875rem + 1.4vw',
-          max: '24',
+          min: 16,
+          preferred: 'rem-088-vw-140',
+          max: 24,
         },
         weight: 'default',
         'line-height': 'default',
@@ -401,9 +397,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'body-md': {
         family: 'body',
         size: {
-          min: '16',
-          preferred: '0.875rem + 0.7vw',
-          max: '20',
+          min: 16,
+          preferred: 'rem-088-vw-070',
+          max: 20,
         },
         weight: 'default',
         'line-height': 'default',
@@ -411,9 +407,9 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       'body-sm': {
         family: 'body',
         size: {
-          min: '14',
-          preferred: '0.8rem + 0.35vw',
-          max: '16',
+          min: 14,
+          preferred: 'rem-080-vw-035',
+          max: 16,
         },
         weight: 'default',
         'line-height': 'default',

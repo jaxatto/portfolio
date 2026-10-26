@@ -1,7 +1,7 @@
 import type { Primitives } from '#tokens/primitives';
 
 // single source of truth for primitive domain names (type + runtime value)
-export const primitiveDomains = ['color', 'font', 'size', 'utils'] as const;
+export const primitiveDomains = ['color', 'font', 'size', 'utils', 'motion', 'shadow'] as const;
 export type PrimitiveDomain = (typeof primitiveDomains)[number];
 
 // single source of truth for pipeline CSS variable namespace prefixes

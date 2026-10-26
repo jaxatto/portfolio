@@ -1,16 +1,27 @@
 import type { SemanticTheme, SemanticThemeTypography } from '#tokens/types';
-import { cssVarName, isFluidValue } from './utils';
+import { primitives } from '#tokens/primitives';
+import { cssVarName, isFluidValue, requirePrimitive } from './utils';
 import {
   varPrefixes,
   type PrimitiveSizeCategory,
+  type PrimitiveFontMaps,
   type PrimitiveSizeMaps,
   type ResolveValue,
 } from './types';
+
+// A semantic size group that has no primitive scale of its own reads another group's scale.
+const primitiveCategoryFor: Record<string, PrimitiveSizeCategory> = {
+  target: 'dimension',
+  icon: 'dimension',
+  layout: 'dimension',
+  'focus-ring': 'border-width',
+};
 
 export function buildStaticSemanticVars(
   theme: SemanticTheme,
   resolveValue: ResolveValue,
   primitiveSizeMaps: PrimitiveSizeMaps,
+  primitiveFontMaps: PrimitiveFontMaps,
 ) {
   const staticSemanticVars: string[] = [];
 
@@ -31,15 +42,9 @@ export function buildStaticSemanticVars(
         continue;
       }
 
-      const sizeCategory = category as PrimitiveSizeCategory;
-      const categoryMap = primitiveSizeMaps[sizeCategory];
-      const categoryResolved =
-        categoryMap && (typeof val === 'string' || typeof val === 'number')
-          ? (categoryMap.get(val) ?? null)
-          : null;
-
+      const sizeCategory = primitiveCategoryFor[category] ?? (category as PrimitiveSizeCategory);
       staticSemanticVars.push(
-        `  ${category === 'space' ? cssVarName('space', key) : cssVarName('size', category, key)}: ${categoryResolved ?? resolveValue(val, 'size')};`,
+        `  ${category === 'space' ? cssVarName('space', key) : cssVarName('size', category, key)}: ${requirePrimitive(primitiveSizeMaps[sizeCategory], val as string, `size ${category}-${key}`)};`,
       );
     }
   }
@@ -54,7 +59,7 @@ export function buildStaticSemanticVars(
 
     for (const [key, val] of Object.entries(values)) {
       staticSemanticVars.push(
-        `  ${cssVarName('font', category, key)}: ${resolveValue(val, 'font', category)};`,
+        `  ${cssVarName('font', category, key)}: ${requirePrimitive(primitiveFontMaps[category], val as string | number, `font ${category}-${key}`)};`,
       );
     }
   }
@@ -70,15 +75,18 @@ export function buildStaticSemanticVars(
         let finalValue = '';
 
         if (isFluidValue(propValue) && propName === 'size') {
-          const minValue =
-            typeof propValue.min === 'string' && propValue.min in theme.font.size
-              ? resolveFontStyleSemanticRef('size', propValue.min)
-              : resolveValue(propValue.min, 'font');
-          const maxValue =
-            typeof propValue.max === 'string' && propValue.max in theme.font.size
-              ? resolveFontStyleSemanticRef('size', propValue.max)
-              : resolveValue(propValue.max, 'font');
-          finalValue = `clamp(${minValue}, ${propValue.preferred}, ${maxValue})`;
+          const sizeRef = (step: keyof typeof primitives.font.size) =>
+            requirePrimitive(
+              primitiveFontMaps.size,
+              primitives.font.size[step],
+              `size step ${step}`,
+            );
+          const fluidRef = requirePrimitive(
+            primitiveFontMaps.fluid,
+            primitives.font.fluid[propValue.preferred],
+            `fluid ${propValue.preferred}`,
+          );
+          finalValue = `clamp(${sizeRef(propValue.min)}, ${fluidRef}, ${sizeRef(propValue.max)})`;
         } else if (isFluidValue(propValue)) {
           finalValue = resolveValue(propValue, 'font');
         } else {

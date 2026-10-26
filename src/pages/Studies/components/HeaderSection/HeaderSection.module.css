@@ -40,14 +40,14 @@
    tablets, 40px on phones (D-112). The h2s stay at 32px, so the title is 1.75 times their size. */
 @media (min-width: 641px) {
   .title {
-    font-size: var(--font-size-48);
+    font-size: var(--font-size-display-sm);
     letter-spacing: var(--font-letter-spacing-compact); /* -0.02em on type over 44px (D-114) */
   }
 }
 
 @media (min-width: 900px) {
   .title {
-    font-size: var(--font-size-56);
+    font-size: var(--font-size-display);
   }
 }
 

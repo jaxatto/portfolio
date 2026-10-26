@@ -1,33 +1,41 @@
 import { effects, type EffectMode } from '#tokens/effects';
-import { cssVarName } from './utils';
+import { cssVarName, requirePrimitive } from './utils';
+import type { PrimitiveMaps } from './types';
 
 const isMode = (val: string | EffectMode): val is EffectMode => typeof val === 'object';
 
-// Motion and elevation tokens. Values that differ by mode go to the light and dark lists, the rest are static.
-export function buildEffectVars() {
+// Motion and elevation tokens. Values that differ by mode go to the light and dark lists, the rest are
+// static. Each one resolves to a primitive or the build fails.
+export function buildEffectVars(primitiveMaps: PrimitiveMaps) {
   const staticVars: string[] = [];
   const lightVars: string[] = [];
   const darkVars: string[] = [];
+  const ref = (domain: keyof PrimitiveMaps, val: string, label: string) =>
+    requirePrimitive(primitiveMaps[domain], val, label);
 
   for (const [key, val] of Object.entries(effects.duration)) {
-    staticVars.push(`  ${cssVarName('motion', 'duration', key)}: ${val};`);
+    staticVars.push(
+      `  ${cssVarName('motion', 'duration', key)}: ${ref('motion', val, `duration ${key}`)};`,
+    );
   }
   for (const [key, val] of Object.entries(effects.easing)) {
-    staticVars.push(`  ${cssVarName('motion', 'ease', key)}: ${val};`);
+    staticVars.push(
+      `  ${cssVarName('motion', 'ease', key)}: ${ref('motion', val, `easing ${key}`)};`,
+    );
   }
   for (const [key, val] of Object.entries(effects.wash)) {
-    staticVars.push(`  ${cssVarName('state', 'wash', key)}: ${val};`);
+    staticVars.push(`  ${cssVarName('state', 'wash', key)}: ${ref('utils', val, `wash ${key}`)};`);
   }
   for (const [key, val] of Object.entries(effects.layer)) {
-    staticVars.push(`  ${cssVarName('layer', key)}: ${val};`);
+    staticVars.push(`  ${cssVarName('layer', key)}: ${ref('utils', val, `layer ${key}`)};`);
   }
   for (const [key, val] of Object.entries(effects.shadow)) {
     const name = cssVarName('shadow', key);
     if (isMode(val)) {
-      lightVars.push(`  ${name}: ${val.light};`);
-      darkVars.push(`  ${name}: ${val.dark};`);
+      lightVars.push(`  ${name}: ${ref('shadow', val.light, `shadow ${key} light`)};`);
+      darkVars.push(`  ${name}: ${ref('shadow', val.dark, `shadow ${key} dark`)};`);
     } else {
-      staticVars.push(`  ${name}: ${val};`);
+      staticVars.push(`  ${name}: ${ref('shadow', val, `shadow ${key}`)};`);
     }
   }
 

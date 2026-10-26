@@ -115,12 +115,12 @@
 	composes: titleMd from '#styles/type.module.css';
 	color: var(--color-content-emphasis);
 	/* The About page's h1 size (48px, 56px from 900px). */
-	font-size: var(--font-size-48);
+	font-size: var(--font-size-display-sm);
 }
 
 @media (min-width: 900px) {
 	.title {
-		font-size: var(--font-size-56);
+		font-size: var(--font-size-display);
 		letter-spacing: var(--font-letter-spacing-compact);
 	}
 }
