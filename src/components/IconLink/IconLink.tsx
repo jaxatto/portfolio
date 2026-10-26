@@ -16,7 +16,7 @@ type IconLinkProps = {
 };
 
 const IconLink: React.FC<IconLinkProps> = ({ href, icon, label, detail }) => (
-  <Tooltip label={label}>
+  <Tooltip label={label} offset={2}>
     <a href={href} className={styles.link} target="_blank" rel="noopener noreferrer">
       <Icon name={icon} aria-hidden="true" />
       <span className="sr-only">

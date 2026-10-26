@@ -465,7 +465,7 @@ const spaceScale = [0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80] as const
 const radiusScale = [0, 4, 8, 12, 16, 20, 24] as const;
 const borderWidthScale = [0, 1, 2, 3, 4] as const;
 // Fixed control, glyph and column dimensions that sit on no spacing step.
-const dimensionScale = [16, 24, 28, 40, 44, 640, 960] as const;
+const dimensionScale = [1, 16, 20, 24, 28, 40, 44, 640, 960] as const;
 
 const primitiveSizes = {
   space: {
@@ -484,13 +484,15 @@ const primitiveSizes = {
 /* ------------------------------------------------------------- */
 
 const opacityScale = [
-  0, 4, 8, 10, 12, 16, 20, 24, 32, 36, 40, 44, 48, 56, 64, 76, 80, 90, 100,
+  0, 4, 8, 10, 12, 16, 20, 24, 30, 32, 36, 40, 44, 48, 50, 56, 64, 76, 80, 90, 100,
 ] as const;
 
 const primitiveUtils = {
   opacity: createPercentRecord(opacityScale),
   // Stacking order steps.
   layer: { 'neg-1': '-1', '10': '10', '30': '30', '1000': '1000' },
+  // Unitless factors for calc().
+  ratio: { half: '0.5' },
 } as const;
 
 /* ------------------------------------------------------------- */

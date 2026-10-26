@@ -85,7 +85,8 @@
   gap: var(--space-xs);
   color: var(--card-fg);
   font-family: var(--font-family-body);
-  font-size: var(--font-style-body-md-size);
+  /* The link's text is its icon's size (D-146). */
+  font-size: var(--size-icon-sm);
   font-weight: var(--font-weight-extra-strong);
   line-height: var(--font-line-height-default);
   text-decoration: none;
@@ -113,8 +114,8 @@
 }
 
 .icon {
-  width: 1.2em;
-  height: 1.2em;
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
   flex-shrink: 0;
   color: inherit;
   fill: currentcolor;
@@ -146,6 +147,32 @@
   overflow: hidden;
   border-top-left-radius: var(--size-radius-sm);
   background: var(--color-surface-sunken);
+}
+
+.imageBox {
+  /* Image wraps the screenshot in a div. It takes no box of its own, so the screenshot lays out as before. */
+  display: contents;
+}
+
+/* Shown when the screenshot fails to load: the sample window as a tint of the card's own palette, with its
+   image icon in the card's text color. */
+.fallback {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  background: color-mix(
+    in oklch,
+    var(--card-fg) var(--fallback-tint, 14%),
+    color-mix(
+      in oklch,
+      var(--palette-container) calc(100% - var(--card-lift)),
+      var(--color-surface-default)
+    )
+  );
+}
+
+.fallback svg {
+  fill: var(--card-fg);
 }
 
 .image {
@@ -242,8 +269,7 @@
 }
 
 /* Study (under a case study): smaller body type, text and preview stay stacked. */
-.study .outcome,
-.study .link {
+.study .outcome {
   font-size: var(--font-style-body-sm-size);
 }
 
@@ -282,8 +308,7 @@
   }
 
   /* Card copy matches the footer's body text on phones (body-lg, about 19px at 375; D-028). */
-  .outcome,
-  .link {
+  .outcome {
     font-size: var(--font-style-body-lg-size);
     line-height: var(--font-style-body-lg-line-height);
   }
@@ -346,6 +371,7 @@
 /* Dark mode (D-028): heading and link are white, the paragraph one step dimmer. */
 :global([data-theme='dark']) .card {
   --card-fg: var(--color-content-emphasis);
+  --fallback-tint: 8%;
   --card-lift: 30%; /* card fill sits 30% toward the ground in dark, calmer than the raw tint (D-028) */
   --shadow-lift-color: oklch(0 0 0 / 0.5);
 }

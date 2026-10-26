@@ -26,6 +26,17 @@ export function buildEffectVars(primitiveMaps: PrimitiveMaps) {
   for (const [key, val] of Object.entries(effects.wash)) {
     staticVars.push(`  ${cssVarName('state', 'wash', key)}: ${ref('utils', val, `wash ${key}`)};`);
   }
+  for (const [state, { amount, target }] of Object.entries(effects.deepen)) {
+    const amountName = cssVarName('state', 'deepen', state);
+    const targetName = cssVarName('state', 'deepen', state, 'target');
+    lightVars.push(`  ${amountName}: ${ref('utils', amount.light, `deepen ${state} light`)};`);
+    darkVars.push(`  ${amountName}: ${ref('utils', amount.dark, `deepen ${state} dark`)};`);
+    lightVars.push(`  ${targetName}: ${ref('color', target.light, `deepen ${state} target`)};`);
+    darkVars.push(`  ${targetName}: ${ref('color', target.dark, `deepen ${state} target`)};`);
+  }
+  staticVars.push(
+    `  ${cssVarName('state', 'deepen', 'off')}: ${ref('utils', effects.deepenOff, 'deepen off')};`,
+  );
   for (const [key, val] of Object.entries(effects.layer)) {
     staticVars.push(`  ${cssVarName('layer', key)}: ${ref('utils', val, `layer ${key}`)};`);
   }

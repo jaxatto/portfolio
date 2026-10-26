@@ -14,6 +14,7 @@ import Linkedin from '#assets/icons/linkedin.svg';
 import Moon from '#assets/icons/moon.svg';
 import Paw from '#assets/icons/paw.svg';
 import Sun from '#assets/icons/sun.svg';
+import User from '#assets/icons/user.svg';
 
 const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   'arrow-right': ArrowRight,
@@ -30,6 +31,7 @@ const icons: Record<IconName, React.FC<React.SVGProps<SVGSVGElement>>> = {
   moon: Moon,
   paw: Paw,
   sun: Sun,
+  user: User,
 };
 
 type IconProps = { name: IconName } & React.SVGProps<SVGSVGElement>;

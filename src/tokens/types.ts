@@ -154,7 +154,8 @@ export type SemanticThemeSizes = BaseSemanticThemeSizes & {
     offset: keyof BaseSemanticThemeSizes['border-width'];
   };
   target: { md: string; lg: string };
-  icon: { sm: string; md: string; lg: string };
+  icon: { xs: string; sm: string; md: string; lg: string; optical: string };
+  'icon-inset': { md: string; lg: string };
   'border-width': {
     none: keyof BaseSemanticThemeSizes['border-width'];
     thin: keyof BaseSemanticThemeSizes['border-width'];

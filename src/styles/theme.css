@@ -147,19 +147,25 @@
   --primitive-size-border-width-1: 1px;
   --primitive-size-border-width-2: 2px;
   --primitive-size-border-width-3: 3px;
+  --primitive-size-dimension-1: 1px;
   --primitive-size-dimension-16: 16px;
+  --primitive-size-dimension-20: 20px;
   --primitive-size-dimension-24: 24px;
   --primitive-size-dimension-28: 28px;
   --primitive-size-dimension-40: 40px;
   --primitive-size-dimension-44: 44px;
   --primitive-size-dimension-640: 640px;
   --primitive-size-dimension-960: 960px;
+  --primitive-utils-opacity-0: 0%;
   --primitive-utils-opacity-12: 12%;
   --primitive-utils-opacity-20: 20%;
+  --primitive-utils-opacity-30: 30%;
+  --primitive-utils-opacity-50: 50%;
   --primitive-utils-layer-10: 10;
   --primitive-utils-layer-30: 30;
   --primitive-utils-layer-1000: 1000;
   --primitive-utils-layer-neg-1: -1;
+  --primitive-utils-ratio-half: 0.5;
   --primitive-motion-duration-150: 0.15s;
   --primitive-motion-duration-200: 0.2s;
   --primitive-motion-duration-300: 0.3s;
@@ -205,9 +211,13 @@
   --size-focus-ring-offset: var(--primitive-size-border-width-3);
   --size-target-md: var(--primitive-size-dimension-40);
   --size-target-lg: var(--primitive-size-dimension-44);
-  --size-icon-sm: var(--primitive-size-dimension-16);
+  --size-icon-xs: var(--primitive-size-dimension-16);
+  --size-icon-sm: var(--primitive-size-dimension-20);
   --size-icon-md: var(--primitive-size-dimension-24);
   --size-icon-lg: var(--primitive-size-dimension-28);
+  --size-icon-optical: var(--primitive-size-dimension-1);
+  --size-icon-inset-md: calc((var(--size-target-md) - var(--size-icon-md)) * var(--primitive-utils-ratio-half) + var(--size-icon-optical));
+  --size-icon-inset-lg: calc((var(--size-target-md) - var(--size-icon-lg)) * var(--primitive-utils-ratio-half) + var(--size-icon-optical));
   --size-border-width-none: var(--primitive-size-border-width-0);
   --size-border-width-thin: var(--primitive-size-border-width-1);
   --size-border-width-default: var(--primitive-size-border-width-2);
@@ -292,6 +302,7 @@
   --motion-ease-out: var(--primitive-motion-easing-out-soft);
   --state-wash-hover: var(--primitive-utils-opacity-12);
   --state-wash-active: var(--primitive-utils-opacity-20);
+  --state-deepen-off: var(--primitive-utils-opacity-0);
   --layer-behind: var(--primitive-utils-layer-neg-1);
   --layer-raised: var(--primitive-utils-layer-10);
   --layer-tooltip: var(--primitive-utils-layer-30);
@@ -384,6 +395,10 @@
   --color-state-focus-ring: var(--primitive-color-purple-950);
   --color-state-overlay-tint: var(--primitive-color-indigo-900);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-100);
+  --state-deepen-hover: var(--primitive-utils-opacity-50);
+  --state-deepen-hover-target: var(--primitive-color-violet-900);
+  --state-deepen-active: var(--primitive-utils-opacity-30);
+  --state-deepen-active-target: var(--primitive-color-violet-950);
   --shadow-raised: var(--primitive-shadow-drop-soft-light);
 }
 
@@ -473,5 +488,9 @@
   --color-state-focus-ring: var(--primitive-color-white-alpha-98);
   --color-state-overlay-tint: var(--primitive-color-indigo-100);
   --color-state-overlay-tint-inverse: var(--primitive-color-indigo-900);
+  --state-deepen-hover: var(--primitive-utils-opacity-0);
+  --state-deepen-hover-target: var(--primitive-color-violet-900);
+  --state-deepen-active: var(--primitive-utils-opacity-0);
+  --state-deepen-active-target: var(--primitive-color-violet-950);
   --shadow-raised: var(--primitive-shadow-drop-soft-dark);
 }

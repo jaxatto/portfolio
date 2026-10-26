@@ -33,6 +33,28 @@ export const effects = {
     hover: primitives.utils.opacity[12],
     active: primitives.utils.opacity[20],
   },
+  // How far a control's hover and pressed colors step past the primary hover and pressed tokens (D-147): a mix
+  // toward the next step on the violet scale. Light goes half a step past 800 on hover and a third of the way from 900
+  // to 950 when pressed, keeping the hue and most of the chroma. Dark uses the tokens as they are (violet 200 and 100).
+  // Sections on a dark ground (tone.css) set the amounts to 0%.
+  deepen: {
+    hover: {
+      amount: { light: primitives.utils.opacity[50], dark: primitives.utils.opacity[0] },
+      target: {
+        light: primitives.colors.violet[900],
+        dark: primitives.colors.violet[900],
+      },
+    },
+    active: {
+      amount: { light: primitives.utils.opacity[30], dark: primitives.utils.opacity[0] },
+      target: {
+        light: primitives.colors.violet[950],
+        dark: primitives.colors.violet[950],
+      },
+    },
+  },
+  // The amount a tone sets when it turns the deepening off (tone.css).
+  deepenOff: primitives.utils.opacity[0],
   // Stacking order, lowest to highest. Components name a layer, they never pick a number.
   layer: {
     behind: primitives.utils.layer['neg-1'],
@@ -57,6 +79,8 @@ export const effects = {
 } as const satisfies {
   duration: Record<string, string>;
   easing: Record<string, string>;
+  deepen: Record<'hover' | 'active', { amount: EffectMode; target: EffectMode }>;
+  deepenOff: string;
   wash: Record<string, string>;
   layer: Record<string, string>;
   shadow: Record<string, string | EffectMode>;

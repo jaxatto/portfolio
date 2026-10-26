@@ -3,6 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import Icon from '#components/Icon';
 import type { IconName } from '#constants/iconNames';
+import { blockMailtoOnLocalhost } from '#src/utils/mailto';
 import styles from './Button.module.css';
 
 // The site's button: `filled` (primary action), `outline` (secondary) and `inverted` (on a saturated ground).
@@ -50,6 +51,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <a
       href={href}
+      onClick={blockMailtoOnLocalhost(href)}
       className={classes}
       target={newTab ? '_blank' : undefined}
       rel={newTab ? 'noopener noreferrer' : undefined}

@@ -169,7 +169,7 @@
   }
 }
 
-/* The shared Image fallback is a circle; match the photos. Doubled class beats its rule. */
+/* The fallback takes the photo's own corner radius from the shared Image. Doubled class keeps this one. */
 .photoFallback.photoFallback {
   aspect-ratio: 1;
   border-radius: var(--size-radius-lg);

@@ -4,6 +4,7 @@
    `visibility: hidden`, so it is not focusable and not announced. */
 
 .button {
+  composes: deepen from '#styles/deepen.module.css';
   position: fixed;
   top: var(--space-lg);
   left: 50%;
@@ -43,7 +44,7 @@
   .button:hover {
     background: color-mix(
       in srgb,
-      var(--color-primary-default-hover) var(--state-wash-hover),
+      var(--state-color-hover) var(--state-wash-hover),
       var(--color-surface-default)
     );
   }
@@ -52,7 +53,7 @@
 .button:active {
   background: color-mix(
     in srgb,
-    var(--color-primary-default-active) var(--state-wash-active),
+    var(--state-color-active) var(--state-wash-active),
     var(--color-surface-default)
   );
 }
@@ -64,8 +65,8 @@
 }
 
 .icon {
-  width: var(--size-icon-sm);
-  height: var(--size-icon-sm);
+  width: var(--size-icon-xs);
+  height: var(--size-icon-xs);
   flex-shrink: 0;
   fill: currentcolor;
 }

@@ -42,6 +42,12 @@ export function buildStaticSemanticVars(
         continue;
       }
 
+      // A calc() built from other tokens stays as written. The raw-value check covers its parts.
+      if (typeof val === 'string' && val.startsWith('calc(')) {
+        staticSemanticVars.push(`  ${cssVarName('size', category, key)}: ${val};`);
+        continue;
+      }
+
       const sizeCategory = primitiveCategoryFor[category] ?? (category as PrimitiveSizeCategory);
       staticSemanticVars.push(
         `  ${category === 'space' ? cssVarName('space', key) : cssVarName('size', category, key)}: ${requirePrimitive(primitiveSizeMaps[sizeCategory], val as string, `size ${category}-${key}`)};`,

@@ -35,7 +35,7 @@ const strengths = [
     palette: 'tertiary',
   },
   {
-    title: 'Self-serve enterprise workflows',
+    title: 'Self-serve workflows',
     proof: 'ActBlue admins set up and fix their Salesforce sync themselves, cutting support costs an estimated $1.5M a year.',
     to: studyLinks.actblue,
     linkText: 'ActBlue case study',
@@ -84,6 +84,7 @@ const Resume: React.FC = () => (
           src={portrait.src}
           width={portrait.width}
           height={portrait.height}
+          iconFallback="user"
           alt="Jax smiling at the camera outdoors, in a maroon hoodie with a white checkerboard print."
           className={styles.portraitFrame}
           imgClassName={styles.portraitImage}

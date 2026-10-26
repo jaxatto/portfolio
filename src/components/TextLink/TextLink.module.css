@@ -20,16 +20,29 @@
   transition: color var(--motion-duration-base) var(--motion-ease-standard);
 }
 
-/* Large: the footer email link. 32px, since Figma's 28px is off the type scale. */
+/* A link with an icon sets its text to the icon's size: both come from --link-icon (20px, D-146). */
+.withIcon {
+  --link-icon: var(--size-icon-sm);
+  font-size: var(--link-icon);
+}
+
+/* Large: the footer email link. Its size is fluid so the 24-character email plus arrow fits narrow cards,
+   reaching 32px at about 550px wide (D-013). The arrow stays 1em, so it follows the text (D-146). */
 .large {
-  /* Fluid so the 24-character email plus arrow fits narrow cards; reaches 32px at about 550px wide (D-013). */
+  --link-icon: 1em;
   font-size: clamp(var(--font-size-control), 7.4vw - 9px, var(--font-size-lead));
   overflow-wrap: anywhere;
   font-weight: var(--font-weight-extra-strong);
 }
 
+@media (hover: hover) {
+  .link:hover {
+    color: var(--state-color-hover);
+  }
+}
+
 .link:active {
-  color: var(--color-primary-default-active);
+  color: var(--state-color-active);
 }
 
 /* Focus ring uses the state-focus-ring token (purple-950 light, white dark). See D-014. */
@@ -39,9 +52,8 @@
 }
 
 .icon {
-  width: 1em;
-  height: 1em;
+  width: var(--link-icon, var(--size-icon-sm));
+  height: var(--link-icon, var(--size-icon-sm));
   flex-shrink: 0;
-  /* The arrow follows the link text. */
   fill: currentcolor;
 }

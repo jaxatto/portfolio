@@ -258,11 +258,21 @@ const theme: Omit<SemanticTheme, 'colors'> & {
       md: primitives.sizes.dimension[40],
       lg: primitives.sizes.dimension[44],
     },
-    // Icon glyphs drawn at a fixed size (the em-sized ones in Button, TextLink and StudyCard follow their text).
+    // Icon glyphs drawn at a fixed size. A link's font size is its icon size (TextLink, card links).
     icon: {
-      sm: primitives.sizes.dimension[16],
+      xs: primitives.sizes.dimension[16],
+      sm: primitives.sizes.dimension[20],
       md: primitives.sizes.dimension[24],
       lg: primitives.sizes.dimension[28],
+      // The drawn edge of these glyphs sits a pixel inside their box, so the hover line is inset by one
+      // more pixel and the glyph rises one (D-145).
+      optical: primitives.sizes.dimension[1],
+    },
+    // How far a glyph's drawn edge sits inside its 40px target: the hover line's inset, and the pull
+    // that lines a wrapped icon row up with the text edge. Half the free space, plus the optical pixel.
+    'icon-inset': {
+      md: 'calc((var(--size-target-md) - var(--size-icon-md)) * var(--primitive-utils-ratio-half) + var(--size-icon-optical))',
+      lg: 'calc((var(--size-target-md) - var(--size-icon-lg)) * var(--primitive-utils-ratio-half) + var(--size-icon-optical))',
     },
     'border-width': {
       none: primitives.sizes['border-width'][0],
