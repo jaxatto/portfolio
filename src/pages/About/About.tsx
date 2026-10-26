@@ -39,11 +39,10 @@ const intro = [
 ];
 
 const approach = [
-  'Ask, listen and document: I ask questions and I listen. I gather what I learn and document it so others can learn from it too.',
-  'Focus and prioritization: I lock in on the work in front of me and get it right the first time. I set realistic expectations, prioritize goals and agree with the team on the balance between speed and quality.',
-  'Share and teach: I like to share what I know and help others. I teach accessibility, code and Figma.',
-  'Accessibility as a default: Accessibility and writing documentation are what I enjoy most. I build WCAG guidance into the components and documentation teams already use. At Indeed I documented 20 components with WCAG and right-to-left guidance, and at ActBlue I led accessibility work that other teams adopted.',
-  'Prototype with AI: I am excited about prototyping with AI. My front-end foundation takes an idea from concept to working code and sets engineering teams up for success.',
+  'Curiosity and documentation: I start with questions and careful listening. What I learn goes into clear documentation, so the next person can pick it up without starting over.',
+  'Focus and trade-offs: When I commit to a task, I aim to get it right the first time. I set honest expectations up front, rank the goals and agree with the team on how to weigh speed against quality.',
+  'Accessibility and teaching: Accessibility is the part of the craft I most enjoy sharing. I coach teammates on WCAG, code and Figma, and I build the guidance into the components and documentation they already use. At Indeed I documented 20 components with WCAG and right-to-left guidance. At ActBlue I led accessibility work that other teams adopted.',
+  'Prototyping with AI: AI is my newest way to prototype. Working in code lets me take an idea to a running prototype and hand engineers something they can build from.',
 ];
 
 const personal = [
