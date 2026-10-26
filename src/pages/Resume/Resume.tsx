@@ -5,7 +5,6 @@ import Button from '#components/Button';
 import Image from '#components/Image';
 import { CursorTag } from '#components/HeroMarks';
 import portrait from '#assets/resume/portrait-min.jpg?size';
-import RoleLines from '#components/RoleLines';
 import { contactInfo } from '#constants/contactInfo';
 import { roleLines } from '#constants/roleLines';
 import Role from '#pages/Resume/components/Role';
@@ -54,17 +53,12 @@ const Resume: React.FC = () => (
   >
     <header className={styles.header}>
       <div className={styles.intro}>
-      <div className={styles.identity}>
-        {/* The visible heading is the name. "Resume:" is read by assistive tech only, so the h1 names the page. */}
-        <h1 className={clsx(typography.titleMd, styles.title)}>
-          <span className="sr-only">Resume: </span>
-          Jax Engel
-        </h1>
-        {/* Phones only: the nav's left slot is hidden there (like Home), so the role shows under the name. */}
-        <p className={clsx(typography.bodyLg, styles.byline)}>
-          <RoleLines lines={roleLines} />
-        </p>
-      </div>
+      {/* The visible heading is the position. "Resume:" is read by assistive tech only, so the h1 names the
+          page. The name is in the nav on every page. */}
+      <h1 className={clsx(typography.titleMd, styles.title)}>
+        <span className="sr-only">Resume: </span>
+        {roleLines.join(' ')}
+      </h1>
       <p className={clsx(typography.bodyMd, styles.summary)}>
         11 years of experience in design systems, enterprise tools and AI-assisted workflows. I work
         across product design and front-end engineering. My systems reach 100+ designers at Indeed

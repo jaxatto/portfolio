@@ -111,39 +111,17 @@
 	gap: var(--space-xl);
 }
 
-/* Name, role and place sit close (8px, 4px). The summary is 24px below, the actions 48px below that. */
-.identity {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-xs);
-}
-
 .title {
-	color: var(--color-content-emphasis);
-	/* The About page's h1 size (48px, 56px from 900px). */
-	font-size: var(--font-size-display-sm);
-}
-
-@media (min-width: 900px) {
-	.title {
-		font-size: var(--font-size-display);
-		letter-spacing: var(--font-letter-spacing-compact);
-	}
-}
-
-.byline {
-	display: none;
 	margin: 0;
-	color: var(--color-content-soft);
-	font-weight: var(--font-weight-medium);
+	color: var(--color-content-emphasis);
 	text-wrap: balance;
+	/* Phones: the position wraps to a few lines, so it sits a step below the other pages' h1 (36px). */
+	font-size: var(--font-size-heading-xl);
 }
 
-@media (max-width: 640px) {
-	.byline {
-		display: flex;
-		flex-wrap: wrap;
-		column-gap: 0.3em;
+@media (min-width: 641px) {
+	.title {
+		font-size: var(--font-size-display-sm);
 	}
 }
 
