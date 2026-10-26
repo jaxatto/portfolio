@@ -81,7 +81,8 @@ const content = {
       order: 3,
       title: 'Outcomes',
       description: [
-        'The prototype had no clear path or end point. The redesign adds a five-step progress bar, so users can see where they are and what comes next. The strategy screen sets AI-only against Hybrid and recommends Hybrid as the most accurate. Testing showed that users understood the tool and liked it. They also saw how it differs from general chat tools, which are not trained for research coding.',
+        'The prototype had no clear path or end point. The redesign adds a five-step progress bar, so users can see where they are and what comes next. The strategy screen sets AI-only against Hybrid and recommends Hybrid as the most accurate.',
+        'The tool’s creator and ServiceNow leadership told me testing went well. Researchers understood the tool and saw how it differs from general chat tools, which are not trained for research coding. I did not collect usage metrics before my engagement ended.',
         'Leadership reviewed the designs, **approved future work and assigned more resources to the tool**. I designed draft features for those enhancements before my engagement ended.',
       ],
       // Three screen widths from one 1600 x 1225 sheet, each cropped to the same height (D-077).

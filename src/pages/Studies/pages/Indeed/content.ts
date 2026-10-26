@@ -14,7 +14,7 @@ const content = {
         role: 'UX Designer',
         location: 'Remote',
         startDate: '2020',
-        endDate: '',
+        endDate: '2020',
       },
     ],
     description: [
@@ -44,7 +44,7 @@ const content = {
       order: 1,
       title: 'Context',
       description: [
-        'Indeed is a job search platform that connects job seekers and employers. Different teams owned different parts of it. The consumer-facing side covered job search, company search, resumes, applications, messaging and more. The employer side was where hiring managers connected with candidates and set up job posts. The mobile app was separate again, with its own teams.',
+        'Different teams owned different parts of Indeed. The consumer-facing side covered job search, company search, resumes, applications, messaging and more. The employer side was where hiring managers connected with candidates and set up job posts. The mobile app was separate again, with its own teams.',
         'When I joined, Indeed was refreshing its brand, moving its main color from light blue to dark blue and away from orange. The prior Sketch-based Indeed Component Library (ICL) was strict, inconsistent and avoided by designers.',
         'A new Indeed Design System (IDS) was replacing it, built fully in Figma. The design org owned IDS as a central system. I was one of three designers on that team, with a lead and a junior designer. The goal was one hybrid, responsive system for desktop and mobile, in the new look.',
       ],
