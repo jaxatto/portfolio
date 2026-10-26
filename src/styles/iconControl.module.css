@@ -1,9 +1,13 @@
 /* The 40px icon-only control shared by the mode toggle and the footer icon links: same target, radius,
    violet hover and press, accent line and focus ring, so their edges line up in the header and footer.
-   Compose it on a button or link and set `--icon-control-color` for the resting color. */
+   Compose it on a button or link and set `--icon-control-color` for the resting color and
+   `--icon-control-size` for the glyph (default 24px). The accent line is 2px narrower than the glyph. */
 
 .iconControl {
   composes: line from '#styles/line.module.css';
+  --line-inset: calc(
+    (var(--size-target-md) - var(--icon-control-size, var(--size-icon-md))) / 2 + 1px
+  );
   position: relative;
   display: inline-flex;
   align-items: center;

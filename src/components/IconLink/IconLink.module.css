@@ -1,14 +1,14 @@
 .link {
   composes: iconControl from '#styles/iconControl.module.css';
   display: flex;
-  --line-inset: 7px;
+  --icon-control-size: var(--size-icon-lg);
   /* Violet at rest like the email link (D-107). */
   --icon-control-color: var(--color-content-link);
 }
 
 .link svg {
-  width: var(--size-icon-lg);
-  height: var(--size-icon-lg);
+  width: var(--icon-control-size);
+  height: var(--icon-control-size);
   /* Filled glyphs (download, brand marks) take the link color; stroke-drawn ones set fill="none". */
   fill: currentcolor;
 }
