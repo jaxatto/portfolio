@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-158.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-159.
 
 ## Workflow
 
