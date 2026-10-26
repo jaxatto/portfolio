@@ -66,7 +66,7 @@
     "#tokens/*": "./src/tokens/*"
   },
   "private": true,
-  "homepage": "https://jaxengeldesign.com",
+  "homepage": "https://www.jaxengeldesign.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaxatto/portfolio.git"

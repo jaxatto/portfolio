@@ -13,7 +13,7 @@ import indeed from '../src/pages/Studies/pages/Indeed/meta';
 import servicenow from '../src/pages/Studies/pages/ServiceNow/meta';
 import toyota from '../src/pages/Studies/pages/Toyota/meta';
 
-const origin = 'https://jaxengeldesign.com';
+const origin = 'https://www.jaxengeldesign.com';
 const dist = join(process.cwd(), 'dist');
 const ssrDir = join(process.cwd(), '.ssr');
 
