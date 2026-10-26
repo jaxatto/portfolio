@@ -34,6 +34,15 @@ const toneFor = (index: number, total: number): CSSProperties => {
   } as CSSProperties;
 };
 
+// "Promoted from UX Engineer, Nov 2015 – Nov 2017": the dates stay whole and drop to their own line on
+// small phones.
+const promotionParts = (promotion: string) => {
+  const split = promotion.lastIndexOf(', ');
+  return split === -1
+    ? { text: promotion, dates: '' }
+    : { text: `${promotion.slice(0, split)}, `, dates: promotion.slice(split + 2) };
+};
+
 const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ role, index, total }) => {
   const Logo = logos[role.logo];
   return (
@@ -60,7 +69,12 @@ const Role: React.FC<{ role: ResumeRole; index: number; total: number }> = ({ ro
       <div className={styles.main}>
         <div className={styles.heading}>
           <h3 className={clsx(typography.headingSm, styles.title)}>{role.title}</h3>
-          {role.promotion && <p className={clsx(typography.bodySm, styles.promotion)}>{role.promotion}</p>}
+          {role.promotion && (
+            <p className={clsx(typography.bodySm, styles.promotion)}>
+              {promotionParts(role.promotion).text}
+              <span className={styles.promotionDates}>{promotionParts(role.promotion).dates}</span>
+            </p>
+          )}
         </div>
         <p className={clsx(typography.bodyMd, styles.summary)}>{role.summary}</p>
         {role.studyHref && (

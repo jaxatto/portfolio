@@ -23,7 +23,7 @@ const Strength: React.FC<StrengthProps> = ({ title, proof, to, linkText, palette
   <li className={`${styles.card} ${palettes[palette]}`}>
     <h3 className={clsx(typography.headingMd, styles.title)}>{title}</h3>
     <p className={clsx(typography.bodyMd, styles.proof)}>{proof}</p>
-    <RouterLink to={to} className={styles.link}>
+    <RouterLink to={to} className={clsx(typography.bodyMd, styles.link)}>
       <span className={styles.linkText}>{linkText}</span>
       <Icon name="arrow-right" className={styles.icon} aria-hidden="true" />
     </RouterLink>

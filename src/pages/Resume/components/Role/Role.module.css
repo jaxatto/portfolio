@@ -124,6 +124,17 @@
 	font-weight: var(--font-weight-medium);
 }
 
+.promotion-dates {
+	white-space: nowrap;
+}
+
+/* 400px: the dates take their own line under the title. */
+@media (max-width: 400px) {
+	.promotion-dates {
+		display: block;
+	}
+}
+
 .summary {
 	max-width: 38rem;
 	margin: 0;

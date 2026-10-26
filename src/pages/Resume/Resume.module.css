@@ -64,6 +64,13 @@
 	}
 }
 
+/* Small phones: the photo fills the column. 400px is where 14rem starts to look small beside the text. */
+@media (max-width: 400px) {
+	.portrait {
+		width: 100%;
+	}
+}
+
 /* Tablet: 80px larger than the phone size. */
 @media (min-width: 641px) and (max-width: 899px) {
 	.portrait {
