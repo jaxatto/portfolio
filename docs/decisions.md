@@ -120,4 +120,10 @@ Every interactive control steps from the primary hover and pressed colors toward
 
 ## D-148: Image fallbacks take their frame's shape; a person icon on the Resume portrait; study card previews fall back — decided, 2026-10-26
 
-The shared `Image` fallback copies its frame's corner radius (`border-radius: inherit`) instead of drawing a circle, so a failed Resume portrait stays a rounded square. The Resume portrait shows a `user` icon (Phosphor bold, new in `src/assets/icons`), the About photos keep their pet icons, and the Home study card previews now render through `Image`, so a failed screenshot leaves the sample window with a muted image icon. `Image` takes `priority` for the first card, and its wrapper is `display: contents` in the card so the screenshot lays out as before (checked: sizes and positions match at 1280 and 375). Study page images (banner, compare, panels) have no fallback yet.
+The shared `Image` fallback copies its frame's corner radius (`border-radius: inherit`) instead of drawing a circle, so a failed Resume portrait stays a rounded square. The Resume portrait shows a `user` icon (Phosphor bold, new in `src/assets/icons`), the About photos keep their pet icons, and the Home study card previews now render through `Image`, so a failed screenshot leaves the sample window with a muted image icon. `Image` takes `priority` for the first card, and its wrapper is `display: contents` in the card so the screenshot lays out as before (checked: sizes and positions match at 1280 and 375).
+
+The study card fallback is a tint of the card's own palette (14% of the text color in light, 8% in dark), so it reads as part of the card.
+
+## D-149: Study page images fall back to their frame — decided, 2026-10-26
+
+`StudyImage`, `StudyCompare` and `StudyPanels` render through `Image`. A failed picture leaves its frame (banner, column, before or after shot, panel) as a 12% tint of the muted text color with the image icon, at the size the picture would have had. `StudySection` now passes each image's width and height so the plain figure keeps its aspect ratio (checked: loaded image sizes are unchanged at 1280 on all four studies).

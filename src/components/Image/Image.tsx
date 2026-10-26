@@ -14,6 +14,7 @@ type ImageProps = {
   height?: number;
   priority?: boolean; // Above the fold: load now, not when it nears the viewport
   imgClassName?: string; // Allows custom styling for the image element itself
+  imgStyle?: React.CSSProperties; // Inline style for the image element, for computed positions
   className?: string; // Allows custom styling for the image component container
   iconFallback?: IconName; // Defines the icon to show when the image fails to load
   iconClassName?: string; // Allows custom styling for the fallback icon
@@ -31,6 +32,7 @@ const Image: React.FC<ImageProps> = ({
   className,
   iconFallback = 'image',
   imgClassName,
+  imgStyle,
   iconClassName,
   fallbackClassName,
 }) => {
@@ -48,6 +50,7 @@ const Image: React.FC<ImageProps> = ({
           decoding="async"
           onError={() => setError(true)}
           className={imgClassName}
+          style={imgStyle}
         />
       ) : (
         <div className={clsx(styles['fallback-wrapper'], fallbackClassName)}>

@@ -42,6 +42,19 @@
   object-position: top;
 }
 
+/* Image wraps the picture in a div. It takes no box, so the picture lays out as before. */
+.imageBox {
+  display: contents;
+}
+
+/* Shown when the picture fails to load: a faint tint of the text color over the column, with the image icon. */
+.fallback {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  background: color-mix(in oklch, var(--color-content-muted) 12%, transparent);
+}
+
 /* The label sits on the image's bottom-right corner. */
 .chip {
   position: absolute;
