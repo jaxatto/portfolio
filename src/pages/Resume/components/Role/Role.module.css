@@ -53,6 +53,19 @@
 	gap: var(--space-3xs);
 }
 
+/* 4px of air on each side of the dot (D-171). */
+.dot {
+	margin-inline: var(--space-2xs);
+}
+
+.dateDot {
+	display: none;
+}
+
+.part {
+	white-space: nowrap;
+}
+
 /* The date never splits across lines. */
 .date {
 	white-space: nowrap;
@@ -97,8 +110,8 @@
 	margin-top: var(--space-md);
 }
 
-/* Phones: the colored side is a short header. The logo and company share the first row, and the dates
-   and place share the second. Items never wrap inside themselves. */
+/* Phones: the colored side is a short header. The logo sits on the left and the company with one flowing
+   line of dates and place beside it. Items never split inside themselves. */
 @media (max-width: 700px) {
 	.role {
 		grid-template-columns: minmax(0, 1fr);
@@ -108,23 +121,35 @@
 	.side {
 		display: grid;
 		grid-template-columns: auto minmax(0, 1fr);
+		grid-template-rows: auto auto;
 		align-items: center;
 		column-gap: var(--space-md);
-		row-gap: var(--space-sm);
+		row-gap: var(--space-3xs);
 		padding: var(--space-md) var(--space-xl);
-		white-space: nowrap;
 	}
 
 	.logo {
+		grid-row: 1 / span 2;
 		width: var(--space-3xl);
 		height: var(--space-3xl);
 		margin-bottom: 0;
 	}
 
 	.details {
-		grid-column: 1 / -1;
-		flex-flow: row wrap;
-		column-gap: var(--space-md);
+		display: block;
+	}
+
+	.details .meta {
+		display: inline;
+	}
+
+	/* The place stays together, so a break can only fall after the date. */
+	.details .meta + .meta {
+		white-space: nowrap;
+	}
+
+	.dateDot {
+		display: inline;
 	}
 
 	.main {
