@@ -201,8 +201,8 @@
   --font-size-label: var(--primitive-font-size-14);
   --font-size-control: var(--primitive-font-size-16);
   --font-size-lead: var(--primitive-font-size-32);
-  --font-size-card-title-compact: var(--primitive-font-size-28);
-  --font-size-card-title: var(--primitive-font-size-36);
+  --font-size-heading-xl-sm: var(--primitive-font-size-28);
+  --font-size-heading-xl: var(--primitive-font-size-36);
   --font-size-display-sm: var(--primitive-font-size-48);
   --font-size-display: var(--primitive-font-size-56);
   --font-weight-default: var(--primitive-font-weight-400);

@@ -1,6 +1,6 @@
 # Decisions
 
-The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-155.
+The rules that are in force today, grouped by area, with the IDs that hold the reasoning. Full history, including superseded entries and copy passes, is in [decisions-archive.md](decisions-archive.md). A later ID wins over an earlier one. Add a short entry at the bottom when a choice sets a pattern (new token, component, copy approach, tooling). Next ID: D-156.
 
 ## Workflow
 
@@ -14,7 +14,7 @@ The rules that are in force today, grouped by area, with the IDs that hold the r
 - Token source is `src/tokens`, compiled by `npm run build:theme` into `theme.css`, which is never hand-edited (D-002). Primitives are raw scale steps, semantic tokens only reference them, and components only read semantic tokens (D-149). The generator emits only the primitives a semantic token reads (D-118).
 - Light is `:root`, dark is `[data-theme='dark']`. `data-theme` always holds the theme being shown (stored choice, else the OS), so there are no `prefers-color-scheme` blocks (D-128). The header toggle is always on and the `.env` gate is gone (D-006, D-011, D-139).
 - Plain CSS modules on tokens, no SCSS (D-091). Prettier formats the code (D-121). Imports use the `#` aliases (D-120).
-- Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes are named by role (`--font-size-label`, `-control`, `-lead`, `-card-title`, `-card-title-compact`, `-display-sm`, `-display`), never by value (D-149). One `strong` weight (900) serves both families, and Manrope renders it as 800 (D-154). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
+- Type: fluid sizes reach the desktop size at 1280px (D-013). Fixed font sizes are named by role (`--font-size-label`, `-control`, `-lead`, `-heading-xl`, `-heading-xl-sm`, `-display-sm`, `-display`), never by value (D-149). One `strong` weight (900) serves both families, and Manrope renders it as 800 (D-154). `text-wrap: pretty` site-wide, non-breaking hyphens in headings (D-034). Headings over 44px take `--font-letter-spacing-compact` (D-114).
 - Shared steps in `type.module.css` (`titleMd`, `headingLg`, `headingSm`, `headingMd`, `caption`) are composed by components, which add only color, spacing and wrapping. They sit in `@layer type` so a page's own media-query size wins (D-093, D-117, D-137).
 - Heading tags are semantic only. No rule targets `h1` to `h6`, the look comes from a class (D-130, D-134).
 - Breakpoints are literal: 640 (phone, 641 up) and 900 (desktop). Any other width carries a comment (D-118).
@@ -162,3 +162,8 @@ Checked on a development-mode build (readable React warnings), 8 routes in light
 ## D-155: Home card previews are WebP, and the first one loads at high priority — decided, 2026-10-25
 
 The Toyota, Indeed and ActBlue card previews are `-min.webp` (quality 90, visually identical to the PNGs): 127, 75 and 85 KB became 37, 30 and 31 KB. ServiceNow stays a PNG because it is already 28 KB and WebP gains nothing. `?size` reads WebP headers (`scripts/vite-image-size.ts`, tested). `Image` sets `fetchPriority="high"` when `priority` is on, so the first preview does not queue behind the scripts. On a throttled connection (1.6 Mbps, 150 ms) Home's largest paint went from 2.9 s to 1.2 s and first paint stayed at 0.7 s.
+
+## D-155: Fixed font sizes are named for a role in the type scale — decided, 2026-10-26
+
+A semantic size names a step of the type scale, never a component or a place. `card-title` (36) is `heading-xl` and `card-title-compact` (28) is `heading-xl-sm`, continuing past the fluid `heading-sm/md/lg` styles. `-sm` is the step down for smaller screens, as in `display` (56) and `display-sm` (48). `label`, `control` and `lead` stay. Whether these fixed steps become fluid type styles is still open (plan.md).
+
