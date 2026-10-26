@@ -800,3 +800,7 @@ Jax asked for the role header without wrapping on phones only, with the title st
 ## D-170: Phone role header, dates beside the place — decided, 2026-10-26
 
 On phones the header holds the logo and company on row one and the dates and place on row two, with the logo at the card's 24px text edge, 40px wide and 16px from the company. The place line uses a middle dot: "Remote · Contract", "Plano, TX · Hybrid · Contract", on every width. The data has a `workMode` field for "Hybrid". Toyota's dates and place need about 327px and a 375px phone leaves 275px, so Toyota's two items stack. Supersedes the 360px rule in D-169.
+
+## D-171: Phone role header as one flowing line — decided, 2026-10-26
+
+Jax asked for a dot between the date and the rest on phones, stacked under the company beside the logo, with 4px each side of every dot. The logo is a left column spanning two rows. The company is row one and the dates and place are one inline line under it. The dot trails its item and is followed by a break point, and the place stays together, so a wrap can only fall after the date. The four contract roles (Spectrum, Toyota, ServiceNow, Albertsons) wrap to two lines at 375px, with a dot ending the first. The other five fit on one. No overflow at 320px. Supersedes D-170's second-row layout.
