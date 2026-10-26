@@ -49,7 +49,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 // The stored choice is an external store: the server and the first client render read the server
 // snapshot (system, light, the HTML that was pre-rendered), and React re-renders with the real values
-// before the first paint (D-154). `chosen` keeps a choice that storage refused (private mode).
+// before the first paint (D-159). `chosen` keeps a choice that storage refused (private mode).
 let chosen: ThemePreference | null = null;
 const preferenceListeners = new Set<() => void>();
 

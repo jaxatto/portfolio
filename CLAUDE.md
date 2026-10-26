@@ -77,7 +77,7 @@ Token system (D-002): `src/tokens/` (`primitives.ts`, `defaultTheme.ts` semantic
 npm ci                                   # install
 npm run dev                              # vite
 npm run build:theme                      # regenerate src/styles/theme.css from src/tokens
-npm run build                            # client build, server build (.ssr), then scripts/prerender.ts pre-renders each route, 404.html and sitemap.xml into dist/ (D-154)
+npm run build                            # client build, server build (.ssr), then scripts/prerender.ts pre-renders each route, 404.html and sitemap.xml into dist/ (D-159)
 npm run preview                          # serve dist/
 npm run lint                             # eslint with jsx-a11y
 npm run typecheck                        # tsc --noEmit
@@ -113,7 +113,7 @@ scripts/               generate-component, prerender, vite-image-size, tokens/
 - Run `npm run format` before committing (single quotes, semicolons, 2 spaces, 100 columns). TypeScript strict, function components with `React.FC`.
 - Images are `*-min.png`, `*-min.jpg` or `*-min.webp`, already compressed (the Home card previews are WebP, D-158). Import them with `?size` (`import x from './x.jpg?size'` gives `{ src, width, height }`, D-125) and put the size on the `<img>`. Below the fold they load lazy. Every rendered image gets meaningful `alt` text.
 - Fonts: Inter (headings), Manrope (body) and Roboto Mono are self-hosted latin variable files in `public/fonts`, declared in `src/styles/fonts.css`, with Inter and Manrope preloaded in `index.html` (D-127). A character outside Google's latin range falls back to a system font.
-- Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`. A new About-style page or study must also be listed in `scripts/prerender.ts`, which renders the route to HTML and writes its title, description, canonical and og tags into `dist/` (D-122, D-154). Render nothing that differs between server and browser on the first render (`window`, storage, time, `Math.random`), or hydration breaks.
+- Per-page SEO title and description live in `resources/meta.ts`; site defaults are in `index.html`. A new About-style page or study must also be listed in `scripts/prerender.ts`, which renders the route to HTML and writes its title, description, canonical and og tags into `dist/` (D-122, D-159). Render nothing that differs between server and browser on the first render (`window`, storage, time, `Math.random`), or hydration breaks.
 
 ## Reference branches
 

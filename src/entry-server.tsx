@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router';
 import App from './App';
 import { ThemeProvider } from '#providers/Theme';
 
-// Build-time entry: renders one route to an HTML string for scripts/prerender.ts (D-154). The tree
+// Build-time entry: renders one route to an HTML string for scripts/prerender.ts (D-159). The tree
 // matches src/index.tsx apart from the router. The prerender call waits for the lazy route chunk.
 export async function render(url: string): Promise<string> {
   const { prelude } = await prerenderToNodeStream(

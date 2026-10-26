@@ -21,7 +21,7 @@ if (container) {
     </React.StrictMode>
   );
   // A built page arrives pre-rendered (scripts/prerender.ts) and React attaches to it. The dev server
-  // sends an empty root, so React renders from scratch there (D-154).
+  // sends an empty root, so React renders from scratch there (D-159).
   if (container.firstElementChild) hydrateRoot(container, app);
   else createRoot(container).render(app);
 }
